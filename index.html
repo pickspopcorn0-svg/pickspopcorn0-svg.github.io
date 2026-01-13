@@ -10,54 +10,122 @@ body{
   margin:0;
   background:#0b0c10;
   color:#ffffff;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
+a{color:inherit;text-decoration:none}
+
 header{
-  text-align:center;
-  padding:60px 20px 40px;
+  position:sticky;
+  top:0;
+  background:rgba(11,12,16,0.85);
+  backdrop-filter:blur(10px);
+  padding:18px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #222;
+  z-index:10;
 }
-header h1{
-  font-size:48px;
+.logo{
+  font-size:22px;
+  font-weight:600;
+  letter-spacing:1px;
+}
+nav a{
+  margin-left:24px;
+  color:#aaa;
+  font-size:14px;
+}
+nav a:hover{color:#fff}
+
+.hero{
+  min-height:60vh;
+  padding:80px 40px;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0.6), #0b0c10),
+    url("https://images.unsplash.com/photo-1497015289639-54688650d173?auto=format&fit=crop&w=2000&q=70");
+  background-size:cover;
+  background-position:center;
+}
+.hero h1{
+  max-width:700px;
+  font-size:52px;
+  line-height:1.1;
   margin:0;
 }
-header p{
-  color:#aaa;
-  margin-top:10px;
+.hero p{
+  max-width:600px;
+  margin-top:20px;
+  color:#ccc;
   font-size:18px;
 }
-.grid{
+.hero .btn{
+  display:inline-block;
+  margin-top:30px;
+  padding:14px 26px;
+  border:1px solid #fff;
+  border-radius:30px;
+  font-size:14px;
+}
+
+.section{
+  padding:60px 40px;
+}
+.section h2{
+  font-size:24px;
+  margin-bottom:30px;
+}
+
+.row{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
-  padding:40px;
+  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:24px;
 }
 .card{
-  border-radius:14px;
+  background:#111;
+  border-radius:12px;
   overflow:hidden;
-  position:relative;
-  cursor:pointer;
 }
 .card img{
   width:100%;
   height:280px;
   object-fit:cover;
-  transition:0.4s;
 }
-.card:hover img{
-  transform:scale(1.05);
+.card .info{
+  padding:14px;
 }
-.card span{
-  position:absolute;
-  bottom:0;
-  width:100%;
-  padding:15px;
-  background:linear-gradient(to top, rgba(0,0,0,0.85), transparent);
-  font-size:20px;
+.card h3{
+  margin:0;
+  font-size:16px;
 }
+.card p{
+  margin-top:6px;
+  color:#aaa;
+  font-size:13px;
+}
+
+.categories{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+}
+.categories a{
+  padding:10px 18px;
+  border:1px solid #333;
+  border-radius:20px;
+  font-size:13px;
+  color:#aaa;
+}
+.categories a:hover{
+  color:#fff;
+  border-color:#fff;
+}
+
 footer{
-  text-align:center;
-  padding:30px;
+  padding:50px 40px;
+  border-top:1px solid #222;
   color:#777;
+  font-size:13px;
 }
 </style>
 </head>
@@ -65,56 +133,72 @@ footer{
 <body>
 
 <header>
-<h1>🍿 Popcorn Picks</h1>
-<p>Cinema Beyond Borders</p>
+  <div class="logo">Popcorn Picks</div>
+  <nav>
+    <a href="tv-shows.html">TV Shows</a>
+    <a href="#">Movies</a>
+    <a href="#">K-Drama</a>
+    <a href="#">C-Drama</a>
+    <a href="#">Anime</a>
+    <a href="#">Donghua</a>
+  </nav>
 </header>
 
-<div class="grid">
+<section class="hero">
+  <h1>Cinema beyond borders.</h1>
+  <p>
+    Popcorn Picks is a curated space for people who care about stories, atmosphere, and writing —
+    not hype. Discover TV shows and world cinema that actually stay with you.
+  </p>
+  <a class="btn" href="tv-shows.html">Start with TV Shows</a>
+</section>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4">
-<span>Movies</span>
-</div>
+<section class="section">
+  <h2>Featured articles</h2>
+  <div class="row">
+    <a class="card" href="must-watch-period-dramas.html">
+      <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=70">
+      <div class="info">
+        <h3>Must-Watch Period Dramas</h3>
+        <p>Stories where history, character and atmosphere matter.</p>
+      </div>
+    </a>
 
-<a href="tv-shows.html" class="card">
-<img src="https://images.unsplash.com/photo-1497015289639-54688650d173">
-<span>TV Shows</span>
-</a>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=70">
+      <div class="info">
+        <h3>Must-Watch Espionage Series</h3>
+        <p>Tension, betrayal and slow-burn intelligence stories.</p>
+      </div>
+    </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c">
-<span>K-Drama</span>
-</div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1514302240736-b1feeaffcb16?auto=format&fit=crop&w=800&q=70">
+      <div class="info">
+        <h3>Hidden-Gem TV Shows</h3>
+        <p>Brilliant series that flew under the radar.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1606112219348-204d7d8b94ee">
-<span>C-Drama</span>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97">
-<span>Anime</span>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1">
-<span>Donghua</span>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba">
-<span>Indian Cinema</span>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1514302240736-b1feeaffcb16">
-<span>French Cinema</span>
-</div>
-
-</div>
+<section class="section">
+  <h2>Browse categories</h2>
+  <div class="categories">
+    <a href="#">Movies</a>
+    <a href="tv-shows.html">TV Shows</a>
+    <a href="#">K-Drama</a>
+    <a href="#">C-Drama</a>
+    <a href="#">Anime</a>
+    <a href="#">Donghua</a>
+    <a href="#">Indian Cinema</a>
+    <a href="#">French Cinema</a>
+  </div>
+</section>
 
 <footer>
-Popcorn Picks © 2026 — Handpicked world cinema
+  <p>Popcorn Picks — Cinema beyond borders.</p>
+  <p>Contact: hello@popcornpicks.in</p>
 </footer>
 
 </body>
