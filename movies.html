@@ -1,37 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Movies — Popcorn Picks</title>
+
 <style>
+*{margin:0;padding:0;box-sizing:border-box}
 body{
   background:#0b0b0c;
-  color:white;
-  font-family:system-ui;
-  padding:70px 24px;
+  color:#fff;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
-a{color:#aaa;text-decoration:none}
-a:hover{color:white}
-h1{margin-top:20px}
-p{color:#ccc;max-width:60ch;line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+
+/* TOPBAR */
+.topbar{
+  position:sticky; top:0; z-index:20;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 22px;
+  background:rgba(10,10,10,.88);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid #222;
+}
+.back{color:#aaa;font-size:13px}
+.back:hover{color:#fff}
+.brand{font-weight:650;letter-spacing:.5px;font-size:14px}
+
+/* HEADER */
+.header{padding:46px 22px 18px}
+.header h1{
+  font-size:40px;
+  letter-spacing:-.02em;
+}
+.header p{
+  margin-top:10px;
+  color:#cfcfcf;
+  max-width:78ch;
+  line-height:1.6;
+  font-size:14px;
+}
+
+/* GRID */
+.grid{
+  padding:22px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+  gap:22px;
+}
+
 .card{
-  margin-top:20px;
-  padding:18px;
-  border:1px solid #222;
-  border-radius:14px;
-  background:rgba(255,255,255,0.03);
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid #181818;
+  background:#0f0f10;
+  transition:transform .15s ease, border-color .15s ease;
 }
+.card:hover{border-color:#fff; transform:translateY(-2px)}
+
+.poster{
+  width:100%;
+  height:330px;
+  object-fit:cover;
+  background:#121214;
+}
+
+/* Placeholder poster (until you upload real posters) */
+.placeholder{
+  height:330px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  text-align:center;
+  color:#9a9a9a;
+  background:
+    radial-gradient(1200px 500px at 20% 10%, rgba(255,255,255,.06), transparent 60%),
+    linear-gradient(to bottom, rgba(255,255,255,.03), rgba(0,0,0,.2));
+}
+.placeholder span{
+  display:inline-block;
+  border:1px solid #2a2a2a;
+  padding:10px 12px;
+  border-radius:999px;
+  font-size:12px;
+  letter-spacing:.2px;
+}
+
+.info{padding:14px 14px 18px}
+.title{font-size:18px;font-weight:650;margin-bottom:6px}
+.meta{font-size:12px;color:#bdbdbd;margin-bottom:10px}
+.desc{font-size:13px;color:#cfcfcf;line-height:1.52}
+
+.note{
+  padding:8px 22px 60px;
+  color:#8e8e8e;
+  font-size:12px;
+  line-height:1.6;
+}
+code{color:#fff}
 </style>
 </head>
+
 <body>
 
-<a href="index.html">← Back to home</a>
+<div class="topbar">
+  <a class="back" href="index.html">← Back</a>
+  <div class="brand">Popcorn Picks</div>
+  <div style="width:48px"></div>
+</div>
 
-<h1>Movies</h1>
-<p>This page will contain curated films — with posters, why to watch, and where to stream.</p>
+<section class="header">
+  <h1>Movies</h1>
+  <p>
+    Short, clear synopses — what it’s about, what kind of film it is, and who it’s for.
+    Posters can be added later by uploading images to <code>assets/posters/movies/</code>.
+  </p>
+</section>
 
-<div class="card">
-Your first movie list will appear here.
+<section class="grid">
+
+  <!-- All Quiet on the Western Front (2022) -->
+  <div class="card">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">All Quiet on the Western Front</div>
+      <div class="meta">2022 • War / Anti-war drama</div>
+      <div class="desc">
+        A teenager enlists full of patriotic excitement, only to be thrown into trench warfare where survival becomes the only goal.
+        The film follows how fear, hunger, and constant shelling erase the idea of “glory” and turn friendship into a lifeline.
+        It’s not a heroic war movie — it’s a suffocating look at what war does to the body and the mind.
+        Best for viewers who want realism and atmosphere over inspiration.
+      </div>
+    </div>
+  </div>
+
+  <!-- One Battle After Another (2025) -->
+  <div class="card">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">One Battle After Another</div>
+      <div class="meta">2025 • Thriller / Dark comedy vibe</div>
+      <div class="desc">
+        A high-pressure story built around conflict that keeps evolving — the kind where every choice creates a new problem.
+        It leans into paranoia, momentum, and people making decisions under stress, then having to live with the fallout.
+        If you like stories where tension doesn’t stop and characters get boxed in by consequences, this fits that mood.
+        (We can refine this synopsis more once you tell me the exact plot you want described.)
+      </div>
+    </div>
+  </div>
+
+  <!-- The Intern (2015) -->
+  <div class="card">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">The Intern</div>
+      <div class="meta">2015 • Feel-good comedy-drama</div>
+      <div class="desc">
+        A retired man joins a fashion e-commerce company as a senior intern and ends up becoming the calm presence everyone didn’t know they needed.
+        At the center is a young founder juggling ambition, pressure, and a life that’s moving faster than she can manage.
+        It’s a gentle movie about work, self-worth, and the kind of support that doesn’t come with judgement.
+        Perfect if you want something warm, clean, and genuinely comforting.
+      </div>
+    </div>
+  </div>
+
+  <!-- Revenge (2017) -->
+  <div class="card">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">Revenge</div>
+      <div class="meta">2017 • Survival / Revenge thriller</div>
+      <div class="desc">
+        A woman goes on a weekend getaway with a wealthy man, but things turn violent when his friends arrive and boundaries vanish.
+        Left for dead in the desert, she survives against all odds — and the film flips into a brutal hunt where the hunted becomes the threat.
+        It’s stylish, fast, and intense, with a hard edge and zero softness.
+        Best for people who like revenge stories that don’t hold back.
+      </div>
+    </div>
+  </div>
+
+  <!-- Jack Reacher (2012) -->
+  <div class="card">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">Jack Reacher</div>
+      <div class="meta">2012 • Action / Mystery</div>
+      <div class="desc">
+        A sniper is arrested after a public shooting, but the case feels too neat — and a drifting ex-military investigator gets pulled in.
+        As he follows the evidence, the story turns into a layered conspiracy where “truth” depends on who controls the narrative.
+        It’s part investigation, part street-level action, with a tough, no-nonsense lead.
+        Good for viewers who like thrillers with clues, interrogations, and grounded fights.
+      </div>
+    </div>
+  </div>
+
+  <!-- The Exam (2009) -->
+  <div class="card">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">Exam</div>
+      <div class="meta">2009 • Psychological thriller</div>
+      <div class="desc">
+        Eight strangers sit for a final job assessment in a sealed room — but the test paper is blank and the rules are strict.
+        With time ticking, the candidates start forming alliances, turning on each other, and testing boundaries to figure out what the “real question” is.
+        It’s a minimal, claustrophobic thriller where tension comes from people, not explosions.
+        Best if you enjoy mind-games, puzzles, and pressure-cooker stories.
+      </div>
+    </div>
+  </div>
+
+  <!-- Bugonia (2025) -->
+  <div class="card">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">Bugonia</div>
+      <div class="meta">2025 • Conspiracy / Dark satire</div>
+      <div class="desc">
+        Two conspiracy-obsessed men convince themselves a powerful CEO isn’t human — and they decide the only “solution” is to kidnap her.
+        The story pushes paranoia to the edge, mixing obsession, fear, and the absurd logic that people build inside their own heads.
+        If you like unsettling satire and stories about delusion turning into action, this is that lane.
+        (When you want, we can adjust tone here depending on how you want to present it on Popcorn Picks.)
+      </div>
+    </div>
+  </div>
+
+  <!-- Meet Joe Black (1998) -->
+  <div class="card">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">Meet Joe Black</div>
+      <div class="meta">1998 • Romance / Fantasy-drama</div>
+      <div class="desc">
+        Death takes the body of a young man and spends time with a wealthy businessman, asking for guidance about life on Earth.
+        In the process, he experiences love, jealousy, desire, and the strange weight of time running out.
+        It’s slow and emotional, built for mood: long conversations, soft heartbreak, and the feeling of saying goodbye before you’re ready.
+        Best for viewers who like romantic dramas that linger.
+      </div>
+    </div>
+  </div>
+
+  <!-- Lone Survivor -->
+  <div class="card">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">Lone Survivor</div>
+      <div class="meta">War / Survival</div>
+      <div class="desc">
+        A military mission goes wrong in hostile terrain and turns into a desperate fight to stay alive while being hunted.
+        The film focuses on endurance: injuries, fear, brotherhood, and the brutal reality of escaping when everything collapses.
+        It’s not about victory — it’s about survival and the cost of every decision made under pressure.
+        Best if you want intense, grounded survival tension.
+      </div>
+    </div>
+  </div>
+
+  <!-- RRR (2022) -->
+  <div class="card">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">RRR</div>
+      <div class="meta">2022 • Indian epic / Action-drama</div>
+      <div class="desc">
+        Two men meet in colonial India and form a deep friendship — but both are living with hidden missions that can destroy that bond.
+        What starts as brotherhood becomes a test of loyalty, identity, and sacrifice as their worlds collide.
+        It’s huge, emotional, and made for big-screen energy: spectacle, music, and moments designed to hit hard.
+        Best if you want maximum cinema — not subtle realism.
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<div class="note">
+  When you’re ready to add posters, upload images to <code>assets/posters/movies/</code> and replace each placeholder with:
+  <code>&lt;img class="poster" src="assets/posters/movies/FILENAME.jpg" alt="Poster"&gt;</code>
 </div>
 
 </body>
