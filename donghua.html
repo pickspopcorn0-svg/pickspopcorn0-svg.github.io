@@ -1,19 +1,164 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Donghua — Popcorn Picks</title>
+
 <style>
-body{background:#0b0b0c;color:white;font-family:system-ui;padding:70px 24px}
-a{color:#aaa;text-decoration:none}
-a:hover{color:white}
-p{color:#ccc;max-width:60ch;line-height:1.6}
-.box{margin-top:20px;padding:18px;border:1px solid #222;border-radius:14px;background:rgba(255,255,255,0.03)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:#0b0b0c;
+  color:#fff;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
+}
+a{text-decoration:none;color:inherit}
+.top{
+  position:sticky;top:0;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:16px 20px;
+  background:rgba(10,10,10,.88);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid #222;
+}
+.grid{
+  padding:24px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:22px;
+}
+.card{
+  border-radius:18px;
+  border:1px solid #181818;
+  overflow:hidden;
+  position:relative;
+}
+.placeholder{
+  height:320px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#888;
+  background:#111;
+}
+.info{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  padding:14px;
+  background:linear-gradient(to top,rgba(0,0,0,.9),transparent);
+}
+.title{font-size:18px;font-weight:600}
+.meta{font-size:12px;color:#aaa}
 </style>
 </head>
+
 <body>
-<a href="index.html">← Back to home</a>
-<h1>Donghua</h1>
-<p>Chinese animation — handpicked and curated.</p>
-<div class="box">Your Donghua picks will appear here.</div>
+
+<div class="top">
+  <a href="index.html">← Home</a>
+  <b>Donghua</b>
+  <span></span>
+</div>
+
+<div class="grid">
+
+<a class="card" href="shows.html?id=soul-land">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">Soul Land</div>
+    <div class="meta">2018– · Cultivation</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=battle-through-the-heavens">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">Battle Through the Heavens</div>
+    <div class="meta">2017– · Cultivation</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=shrouding-the-heavens">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">Shrouding the Heavens</div>
+    <div class="meta">2023– · Xianxia</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=perfect-world">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">Perfect World</div>
+    <div class="meta">2021– · Cultivation</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=stellar-transformations">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">Stellar Transformations</div>
+    <div class="meta">2018– · Cultivation</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=jade-dynasty">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">Jade Dynasty</div>
+    <div class="meta">2022– · Xianxia</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=martial-universe">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">Martial Universe</div>
+    <div class="meta">2018– · Cultivation</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=magical-chef-of-ice-and-fire">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">The Magical Chef of Ice and Fire</div>
+    <div class="meta">2018– · Fantasy</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=soul-land-2">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">Soul Land 2</div>
+    <div class="meta">2023– · Cultivation</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=the-dem-hunter">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">The Demon Hunter</div>
+    <div class="meta">2023 · Action Fantasy</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=renegade-immortal">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">Renegade Immortal</div>
+    <div class="meta">2023– · Cultivation</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=a-will-eternal">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">A Will Eternal</div>
+    <div class="meta">2020– · Comedy Cultivation</div>
+  </div>
+</a>
+
+</div>
+
 </body>
 </html>
