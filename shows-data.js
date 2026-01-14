@@ -270,5 +270,61 @@ window.SHOWS = {
     meta: "Fantasy / Adventure",
     tags: ["Fantasy", "Adventure", "Action"],
     why: "A gritty fantasy journey—destiny, power, training, and survival in a world of prophecy and war."
+  },
+
+  "slime": {
+    title: "That Time I Got Reincarnated as a Slime",
+    year: "2018",
+    meta: "Isekai / Fantasy",
+    tags: ["Isekai", "Fantasy", "Adventure"],
+    why: "A man reincarnates as a slime and ends up building a nation by turning enemies into allies. Cozy, fun world-building with smart strategy as the stakes grow."
+  },
+
+  "blue-lock": {
+    title: "Blue Lock",
+    year: "2022",
+    meta: "Sports / Psychological",
+    tags: ["Sports", "Psychological", "Competition"],
+    why: "A ruthless training program designed to create the world’s best striker. It plays like a battle anime—pressure, ego, mind games, and nonstop hype."
+  },
+
+  "classroom-of-the-elite": {
+    title: "Classroom of the Elite",
+    year: "2017",
+    meta: "Psychological / School",
+    tags: ["School", "Strategy", "Mind Games"],
+    why: "An elite school runs on rankings and manipulation. A quiet lead uses long strategy and hidden power plays. Perfect if you like smart, controlled drama."
+  },
+
+  "attack-on-titan": {
+    title: "Attack on Titan",
+    year: "2013",
+    meta: "Dark Fantasy / War",
+    tags: ["Dark", "War", "Mystery", "Epic"],
+    why: "Starts as survival horror and evolves into a massive story about war, politics, and identity. Every reveal changes the meaning of what came before."
+  },
+
+  "noblesse": {
+    title: "Noblesse",
+    year: "2020",
+    meta: "Supernatural / Action",
+    tags: ["Supernatural", "Action", "Vampire"],
+    why: "A powerful noble awakens in the modern world and gets dragged into secret organizations and supernatural wars. Stylish action with an easy binge vibe."
+  },
+
+  "solo-leveling": {
+    title: "Solo Leveling",
+    year: "2024",
+    meta: "Action / Fantasy",
+    tags: ["Action", "Fantasy", "Power-up"],
+    why: "A weak hunter gains a system that lets him level up like a game. Pure power-growth satisfaction, boss fights, and dark-fantasy momentum."
+  },
+
+  "haikyuu": {
+    title: "Haikyuu!!",
+    year: "2014",
+    meta: "Sports / Volleyball",
+    tags: ["Sports", "Volleyball", "Teamwork"],
+    why: "A masterclass sports anime—training, rivalry, teamwork, and character growth that feels earned. Hype, emotional, and insanely motivating."
   }
 };
