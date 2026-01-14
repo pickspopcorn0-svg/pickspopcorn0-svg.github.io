@@ -1,103 +1,428 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TV Shows — Popcorn Picks</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
+*{margin:0;padding:0;box-sizing:border-box}
 body{
-  margin:0;
-  background:#0b0c10;
+  background:#0b0b0c;
   color:#fff;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
-header{
-  padding:40px 20px;
-  text-align:center;
+a{text-decoration:none;color:inherit}
+
+.topbar{
+  position:sticky; top:0; z-index:20;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 22px;
+  background:rgba(10,10,10,.88);
+  backdrop-filter: blur(10px);
   border-bottom:1px solid #222;
 }
-header h1{
-  margin:0;
+.back{color:#aaa;font-size:13px}
+.back:hover{color:#fff}
+.brand{font-weight:600;letter-spacing:.5px;font-size:14px}
+
+.header{
+  padding:46px 22px 18px;
+}
+.header h1{
   font-size:40px;
+  letter-spacing:-.02em;
 }
-header p{
-  color:#aaa;
+.header p{
   margin-top:10px;
-}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:20px;
-  padding:30px;
-}
-.card{
-  background:#111;
-  border-radius:12px;
-  overflow:hidden;
-}
-.card img{
-  width:100%;
-  height:260px;
-  object-fit:cover;
-}
-.card .info{
-  padding:12px;
-}
-.card h3{
-  margin:0;
-  font-size:18px;
-}
-.card p{
-  color:#aaa;
+  color:#cfcfcf;
+  max-width:78ch;
+  line-height:1.6;
   font-size:14px;
-  margin-top:6px;
 }
-.back{
+
+.grid{
+  padding:22px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+  gap:22px;
+}
+
+.card{
+  position:relative;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid #181818;
+  background:#0f0f10;
+  transition:transform .15s ease, border-color .15s ease;
+}
+.card:hover{border-color:#fff; transform:translateY(-2px)}
+
+.poster{
+  width:100%;
+  height:330px;
   display:block;
-  text-align:center;
-  margin:30px;
-  color:#aaa;
-  text-decoration:none;
+  object-fit:cover;
+  background:#121214;
 }
+
+/* Placeholder poster (until you upload real posters) */
+.placeholder{
+  height:330px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  text-align:center;
+  color:#9a9a9a;
+  background:
+    radial-gradient(1200px 500px at 20% 10%, rgba(255,255,255,.06), transparent 60%),
+    linear-gradient(to bottom, rgba(255,255,255,.03), rgba(0,0,0,.2));
+}
+.placeholder span{
+  display:inline-block;
+  border:1px solid #2a2a2a;
+  padding:10px 12px;
+  border-radius:999px;
+  font-size:12px;
+  letter-spacing:.2px;
+}
+
+.card::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,.92));
+  pointer-events:none;
+}
+
+.info{
+  position:absolute;
+  left:0; right:0; bottom:0;
+  padding:16px 16px 18px;
+}
+.title{
+  font-size:18px;
+  font-weight:650;
+  margin-bottom:6px;
+}
+.meta{
+  font-size:12px;
+  color:#bdbdbd;
+  margin-bottom:10px;
+}
+.desc{
+  font-size:13px;
+  color:#cfcfcf;
+  line-height:1.45;
+  max-width:44ch;
+}
+
+.note{
+  padding:8px 22px 60px;
+  color:#8e8e8e;
+  font-size:12px;
+  line-height:1.6;
+}
+code{color:#fff}
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>TV Shows</h1>
-<p>Handpicked series worth your time</p>
-</header>
-
-<div class="grid">
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4">
-<div class="info">
-<h3>Dark</h3>
-<p>German sci-fi thriller about time, fate, and families.</p>
-</div>
+<div class="topbar">
+  <a class="back" href="index.html">← Back</a>
+  <div class="brand">Popcorn Picks</div>
+  <div style="width:48px"></div>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1497015289639-54688650d173">
-<div class="info">
-<h3>Breaking Bad</h3>
-<p>A slow-burn transformation from teacher to drug kingpin.</p>
-</div>
-</div>
+<section class="header">
+  <h1>TV Shows</h1>
+  <p>
+    A curated library — no noise, only series worth your time. Posters can be added later by uploading images to
+    <code>assets/posters/</code> and replacing the placeholder blocks.
+  </p>
+</section>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c">
-<div class="info">
-<h3>My Liberation Notes</h3>
-<p>A quiet Korean drama about loneliness and wanting more.</p>
-</div>
-</div>
+<section class="grid">
 
-</div>
+  <!-- 1 Robin Hood (2025) -->
+  <a class="card" href="shows/robin-hood.html">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">Robin Hood</div>
+      <div class="meta">2025 • Adventure / Period</div>
+      <div class="desc">A modern retelling built around rebellion, loyalty, and the cost of justice.</div>
+    </div>
+  </a>
 
-<a class="back" href="index.html">← Back to Popcorn Picks</a>
+  <!-- 2 The Wheel of Time -->
+  <a class="card" href="shows/wheel-of-time.html">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">The Wheel of Time</div>
+      <div class="meta">2021– • Epic fantasy</div>
+      <div class="desc">Prophecy, power, and politics collide as destiny pulls ordinary lives into war.</div>
+    </div>
+  </a>
+
+  <!-- 3 Tom Clancy’s Jack Ryan -->
+  <a class="card" href="shows/jack-ryan.html">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">Tom Clancy’s Jack Ryan</div>
+      <div class="meta">2018–2023 • Action / Spy</div>
+      <div class="desc">High-stakes intel work that escalates from desk analysis to global consequences.</div>
+    </div>
+  </a>
+
+  <!-- 4 A Discovery of Witches -->
+  <a class="card" href="shows/discovery-of-witches.html">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">A Discovery of Witches</div>
+      <div class="meta">2018–2022 • Fantasy / Romance</div>
+      <div class="desc">A forbidden bond pulls two worlds together—magic, mystery, and slow-burning tension.</div>
+    </div>
+  </a>
+
+  <!-- 5 Harrow -->
+  <a class="card" href="shows/harrow.html">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">Harrow</div>
+      <div class="meta">2018–2021 • Crime / Mystery</div>
+      <div class="desc">A brilliant forensic pathologist solves cases while carrying secrets of his own.</div>
+    </div>
+  </a>
+
+  <!-- 6 SEAL Team -->
+  <a class="card" href="shows/seal-team.html">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">SEAL Team</div>
+      <div class="meta">2017– • Military drama</div>
+      <div class="desc">Brotherhood and pressure under fire—missions, sacrifice, and the personal toll.</div>
+    </div>
+  </a>
+
+  <!-- 7 The Essex Serpent -->
+  <a class="card" href="shows/essex-serpent.html">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">The Essex Serpent</div>
+      <div class="meta">2022 • Gothic / Period</div>
+      <div class="desc">Foggy marshlands, faith vs. science, and a mystery that refuses easy answers.</div>
+    </div>
+  </a>
+
+  <!-- 8 The Agency (2024) -->
+  <a class="card" href="shows/the-agency.html">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">The Agency</div>
+      <div class="meta">2024 • Spy / Thriller</div>
+      <div class="desc">A modern intelligence drama where trust is fragile and every move has consequences.</div>
+    </div>
+  </a>
+
+  <!-- 9 The Spy (2019) -->
+  <a class="card" href="shows/the-spy.html">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">The Spy</div>
+      <div class="meta">2019 • Espionage</div>
+      <div class="desc">Undercover work at its most human—identity, isolation, and the cost of deception.</div>
+    </div>
+  </a>
+
+  <!-- 10 Berlin Station -->
+  <a class="card" href="shows/berlin-station.html">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">Berlin Station</div>
+      <div class="meta">Spy / Political thriller</div>
+      <div class="desc">A tense station drama where leaks, loyalty, and bureaucracy collide on the ground.</div>
+    </div>
+  </a>
+
+  <!-- 11 The Bureau -->
+  <a class="card" href="shows/the-bureau.html">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">The Bureau</div>
+      <div class="meta">2015–2020 • French espionage</div>
+      <div class="desc">Patient, realistic spycraft—tradecraft, psychology, and long-term consequence.</div>
+    </div>
+  </a>
+
+  <!-- 12 Shōgun -->
+  <a class="card" href="shows/shogun.html">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">Shōgun</div>
+      <div class="meta">2024 • Historical epic</div>
+      <div class="desc">Strategy and survival in feudal Japan—politics as lethal as the battlefield.</div>
+    </div>
+  </a>
+
+  <!-- 13 Bosch -->
+  <a class="card" href="shows/bosch.html">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">Bosch</div>
+      <div class="meta">2014–2021 • Crime</div>
+      <div class="desc">A steady, grounded detective series built on cases, character, and real-world texture.</div>
+    </div>
+  </a>
+
+  <!-- 14 Alex Rider -->
+  <a class="card" href="shows/alex-rider.html">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">Alex Rider</div>
+      <div class="meta">2020– • Spy / YA thriller</div>
+      <div class="desc">A teen pulled into covert missions—fast pacing, clean tension, and sharp plotting.</div>
+    </div>
+  </a>
+
+  <!-- 15 Pennyworth -->
+  <a class="card" href="shows/pennyworth.html">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">Pennyworth</div>
+      <div class="meta">2019–2022 • Action / Period</div>
+      <div class="desc">Stylish origin story energy—grit, attitude, and a London world with bite.</div>
+    </div>
+  </a>
+
+  <!-- 16 Slow Horses -->
+  <a class="card" href="shows/slow-horses.html">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">Slow Horses</div>
+      <div class="meta">Spy / Darkly funny</div>
+      <div class="desc">Burned agents, sharp writing, and messy tradecraft—thrilling, cynical, and addictive.</div>
+    </div>
+  </a>
+
+  <!-- 17 The Mentalist -->
+  <a class="card" href="shows/the-mentalist.html">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">The Mentalist</div>
+      <div class="meta">2008–2015 • Mystery</div>
+      <div class="desc">Charisma-led investigations with a long revenge thread running beneath the surface.</div>
+    </div>
+  </a>
+
+  <!-- 18 Rise of the Raven -->
+  <a class="card" href="shows/rise-of-the-raven.html">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">Rise of the Raven</div>
+      <div class="meta">2025 • Hungarian series</div>
+      <div class="desc">A regional epic with ambition—power struggles, history, and a darker edge.</div>
+    </div>
+  </a>
+
+  <!-- 19 The Shannara Chronicles -->
+  <a class="card" href="shows/shannara-chronicles.html">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">The Shannara Chronicles</div>
+      <div class="meta">2016–2017 • Fantasy</div>
+      <div class="desc">Mythic adventure with ancient forces, chosen paths, and a world on the brink.</div>
+    </div>
+  </a>
+
+  <!-- 20 Marco Polo -->
+  <a class="card" href="shows/marco-polo.html">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">Marco Polo</div>
+      <div class="meta">2014–2016 • Historical epic</div>
+      <div class="desc">Court politics and brutal power games—lavish scale, slow tension, big atmosphere.</div>
+    </div>
+  </a>
+
+  <!-- 21 Black Doves -->
+  <a class="card" href="shows/black-doves.html">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">Black Doves</div>
+      <div class="meta">2024 • Thriller</div>
+      <div class="desc">A modern thriller built around secrets, moral compromise, and escalating pressure.</div>
+    </div>
+  </a>
+
+  <!-- 22 The 100 -->
+  <a class="card" href="shows/the-100.html">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">The 100</div>
+      <div class="meta">2014–2020 • Sci-fi</div>
+      <div class="desc">Survival on a ruined Earth—hard choices, shifting alliances, and constant stakes.</div>
+    </div>
+  </a>
+
+  <!-- 23 Nobody Wants This -->
+  <a class="card" href="shows/nobody-wants-this.html">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">Nobody Wants This</div>
+      <div class="meta">2024 • Modern drama</div>
+      <div class="desc">A relationship-led series driven by chemistry, awkward honesty, and modern pressure.</div>
+    </div>
+  </a>
+
+  <!-- 24 Bodyguard -->
+  <a class="card" href="shows/bodyguard.html">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">Bodyguard</div>
+      <div class="meta">2018 • BBC thriller</div>
+      <div class="desc">Tight pacing, paranoia, and political danger—each episode feels like a countdown.</div>
+    </div>
+  </a>
+
+  <!-- 25 House of David -->
+  <a class="card" href="shows/house-of-david.html">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">House of David</div>
+      <div class="meta">Historical / Biblical drama</div>
+      <div class="desc">Power, faith, and identity—an origin story shaped by politics as much as belief.</div>
+    </div>
+  </a>
+
+  <!-- 26 Agent Hamilton -->
+  <a class="card" href="shows/agent-hamilton.html">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">Agent Hamilton</div>
+      <div class="meta">2020 • Swedish espionage • 2 seasons</div>
+      <div class="desc">Nordic spy tension with clean tradecraft and a colder, more grounded tone.</div>
+    </div>
+  </a>
+
+  <!-- 27 The Originals -->
+  <a class="card" href="shows/the-originals.html">
+    <div class="placeholder"><span>Poster coming soon</span></div>
+    <div class="info">
+      <div class="title">The Originals</div>
+      <div class="meta">2013–2018 • Supernatural / Vampire</div>
+      <div class="desc">Family power struggles in a supernatural world—alliances, vengeance, and loyalty.</div>
+    </div>
+  </a>
+
+</section>
+
+<div class="note">
+  Next (optional): we can auto-generate the individual show pages inside <code>shows/</code> so every card opens a real page.
+  Posters can be added later by uploading images to <code>assets/posters/</code> and replacing the placeholder block with an
+  <code>&lt;img class="poster" src="assets/posters/FILE.jpg"&gt;</code>.
+</div>
 
 </body>
 </html>
