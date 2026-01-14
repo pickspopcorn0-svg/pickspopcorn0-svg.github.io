@@ -13,7 +13,6 @@ body{
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
 a{text-decoration:none;color:inherit}
-img{max-width:100%;display:block}
 
 /* TOPBAR */
 .topbar{
@@ -29,7 +28,9 @@ img{max-width:100%;display:block}
 .brand{font-weight:650;letter-spacing:.5px;font-size:14px}
 
 /* HEADER */
-.header{padding:46px 22px 18px}
+.header{
+  padding:46px 22px 18px;
+}
 .header h1{
   font-size:40px;
   letter-spacing:-.02em;
@@ -51,35 +52,28 @@ img{max-width:100%;display:block}
 }
 
 .card{
+  position:relative;
   border-radius:18px;
   overflow:hidden;
   border:1px solid #181818;
   background:#0f0f10;
+  cursor:pointer;
   transition:transform .15s ease, border-color .15s ease;
 }
 .card:hover{border-color:#fff; transform:translateY(-2px)}
 
-.poster{
+.posterBox{
   width:100%;
   height:330px;
-  object-fit:cover;
-  background:#121214;
-}
-
-/* Placeholder poster (until you upload real posters) */
-.placeholder{
-  height:330px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  text-align:center;
-  color:#9a9a9a;
   background:
     radial-gradient(1200px 500px at 20% 10%, rgba(255,255,255,.06), transparent 60%),
     linear-gradient(to bottom, rgba(255,255,255,.03), rgba(0,0,0,.2));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#9a9a9a;
 }
-.placeholder span{
+.posterBox span{
   display:inline-block;
   border:1px solid #2a2a2a;
   padding:10px 12px;
@@ -88,18 +82,133 @@ img{max-width:100%;display:block}
   letter-spacing:.2px;
 }
 
-.info{padding:14px 14px 18px}
-.title{font-size:18px;font-weight:650;margin-bottom:6px}
-.meta{font-size:12px;color:#bdbdbd;margin-bottom:10px}
-.desc{font-size:13px;color:#cfcfcf;line-height:1.52}
+.card::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,.92));
+  pointer-events:none;
+}
 
-.note{
-  padding:8px 22px 60px;
-  color:#8e8e8e;
+.info{
+  position:absolute;
+  left:0; right:0; bottom:0;
+  padding:16px 16px 18px;
+}
+.title{
+  font-size:18px;
+  font-weight:650;
+  margin-bottom:6px;
+}
+.meta{
   font-size:12px;
+  color:#bdbdbd;
+  margin-bottom:10px;
+}
+.blurb{
+  font-size:13px;
+  color:#cfcfcf;
+  line-height:1.45;
+  max-width:44ch;
+}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:200;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  background:rgba(0,0,0,.72);
+  backdrop-filter: blur(6px);
+}
+.modal.open{display:flex}
+
+.modalBox{
+  width:min(980px, 100%);
+  max-height:86vh;
+  overflow:auto;
+  border-radius:22px;
+  border:1px solid #232323;
+  background:#0f0f10;
+  box-shadow:0 20px 60px rgba(0,0,0,.6);
+}
+
+.modalTop{
+  position:sticky;
+  top:0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:14px 16px;
+  background:rgba(15,15,16,.92);
+  border-bottom:1px solid #222;
+}
+.modalTitle{
+  font-size:14px;
+  color:#e8e8e8;
+  letter-spacing:.02em;
+}
+.closeBtn{
+  border:1px solid #2a2a2a;
+  background:rgba(255,255,255,.04);
+  color:#fff;
+  padding:8px 10px;
+  border-radius:10px;
+  font-size:12px;
+  cursor:pointer;
+}
+.closeBtn:hover{border-color:#fff}
+
+.modalContent{
+  padding:18px 16px 22px;
+}
+.modalHero{
+  display:grid;
+  grid-template-columns: 260px 1fr;
+  gap:18px;
+}
+.modalPoster{
+  width:100%;
+  height:380px;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid #232323;
+  background:#111;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#9a9a9a;
+  font-size:12px;
+}
+.modalH1{
+  font-size:30px;
+  letter-spacing:-.02em;
+  line-height:1.1;
+}
+.modalMeta{
+  margin-top:10px;
+  color:#bdbdbd;
+  font-size:13px;
   line-height:1.6;
 }
-code{color:#fff}
+.modalText{
+  margin-top:14px;
+  color:#d7d7d7;
+  font-size:15px;
+  line-height:1.85;
+  max-width:78ch;
+}
+.modalText p{margin:0 0 14px 0}
+
+@media(max-width:780px){
+  .modalHero{grid-template-columns:1fr}
+  .modalPoster{height:420px}
+  .modalH1{font-size:26px}
+}
 </style>
 </head>
 
@@ -114,169 +223,263 @@ code{color:#fff}
 <section class="header">
   <h1>Movies</h1>
   <p>
-    Short, clear synopses — what it’s about, what kind of film it is, and who it’s for.
-    Posters can be added later by uploading images to <code>assets/posters/movies/</code>.
+    A curated list with clean, useful synopses. Tap a title to open the full write-up.
+    Posters can be added later.
   </p>
 </section>
 
 <section class="grid">
 
-  <!-- All Quiet on the Western Front (2022) -->
-  <div class="card">
-    <div class="placeholder"><span>Poster coming soon</span></div>
+  <!-- 1 -->
+  <div class="card" data-id="aqotwf">
+    <div class="posterBox"><span>Poster coming soon</span></div>
     <div class="info">
       <div class="title">All Quiet on the Western Front</div>
-      <div class="meta">2022 • War / Anti-war drama</div>
-      <div class="desc">
-        A teenager enlists full of patriotic excitement, only to be thrown into trench warfare where survival becomes the only goal.
-        The film follows how fear, hunger, and constant shelling erase the idea of “glory” and turn friendship into a lifeline.
-        It’s not a heroic war movie — it’s a suffocating look at what war does to the body and the mind.
-        Best for viewers who want realism and atmosphere over inspiration.
-      </div>
+      <div class="meta">2022 • War / Anti-war</div>
+      <div class="blurb">A young soldier learns what war really is when the romance disappears and survival becomes the only goal.</div>
     </div>
   </div>
 
-  <!-- One Battle After Another (2025) -->
-  <div class="card">
-    <div class="placeholder"><span>Poster coming soon</span></div>
+  <!-- 2 -->
+  <div class="card" data-id="obaa">
+    <div class="posterBox"><span>Poster coming soon</span></div>
     <div class="info">
       <div class="title">One Battle After Another</div>
-      <div class="meta">2025 • Thriller / Dark comedy vibe</div>
-      <div class="desc">
-        A high-pressure story built around conflict that keeps evolving — the kind where every choice creates a new problem.
-        It leans into paranoia, momentum, and people making decisions under stress, then having to live with the fallout.
-        If you like stories where tension doesn’t stop and characters get boxed in by consequences, this fits that mood.
-        (We can refine this synopsis more once you tell me the exact plot you want described.)
-      </div>
+      <div class="meta">2025 • Thriller / Drama</div>
+      <div class="blurb">A pressure-cooker story where each decision creates the next problem and nobody gets out clean.</div>
     </div>
   </div>
 
-  <!-- The Intern (2015) -->
-  <div class="card">
-    <div class="placeholder"><span>Poster coming soon</span></div>
+  <!-- 3 -->
+  <div class="card" data-id="intern">
+    <div class="posterBox"><span>Poster coming soon</span></div>
     <div class="info">
       <div class="title">The Intern</div>
-      <div class="meta">2015 • Feel-good comedy-drama</div>
-      <div class="desc">
-        A retired man joins a fashion e-commerce company as a senior intern and ends up becoming the calm presence everyone didn’t know they needed.
-        At the center is a young founder juggling ambition, pressure, and a life that’s moving faster than she can manage.
-        It’s a gentle movie about work, self-worth, and the kind of support that doesn’t come with judgement.
-        Perfect if you want something warm, clean, and genuinely comforting.
-      </div>
+      <div class="meta">2015 • Comedy / Drama</div>
+      <div class="blurb">A retired man joins a fast startup as an intern and becomes the calm support the team did not know it needed.</div>
     </div>
   </div>
 
-  <!-- Revenge (2017) -->
-  <div class="card">
-    <div class="placeholder"><span>Poster coming soon</span></div>
+  <!-- 4 -->
+  <div class="card" data-id="revenge2017">
+    <div class="posterBox"><span>Poster coming soon</span></div>
     <div class="info">
       <div class="title">Revenge</div>
-      <div class="meta">2017 • Survival / Revenge thriller</div>
-      <div class="desc">
-        A woman goes on a weekend getaway with a wealthy man, but things turn violent when his friends arrive and boundaries vanish.
-        Left for dead in the desert, she survives against all odds — and the film flips into a brutal hunt where the hunted becomes the threat.
-        It’s stylish, fast, and intense, with a hard edge and zero softness.
-        Best for people who like revenge stories that don’t hold back.
-      </div>
+      <div class="meta">2017 • Survival / Thriller</div>
+      <div class="blurb">A weekend trip turns into a hunt, and the person who was supposed to disappear refuses to stay a victim.</div>
     </div>
   </div>
 
-  <!-- Jack Reacher (2012) -->
-  <div class="card">
-    <div class="placeholder"><span>Poster coming soon</span></div>
+  <!-- 5 -->
+  <div class="card" data-id="reacher2012">
+    <div class="posterBox"><span>Poster coming soon</span></div>
     <div class="info">
       <div class="title">Jack Reacher</div>
       <div class="meta">2012 • Action / Mystery</div>
-      <div class="desc">
-        A sniper is arrested after a public shooting, but the case feels too neat — and a drifting ex-military investigator gets pulled in.
-        As he follows the evidence, the story turns into a layered conspiracy where “truth” depends on who controls the narrative.
-        It’s part investigation, part street-level action, with a tough, no-nonsense lead.
-        Good for viewers who like thrillers with clues, interrogations, and grounded fights.
-      </div>
+      <div class="blurb">A drifter with a sharp mind walks into a case that looks simple on paper and finds a bigger machine behind it.</div>
     </div>
   </div>
 
-  <!-- The Exam (2009) -->
-  <div class="card">
-    <div class="placeholder"><span>Poster coming soon</span></div>
+  <!-- 6 -->
+  <div class="card" data-id="exam2009">
+    <div class="posterBox"><span>Poster coming soon</span></div>
     <div class="info">
       <div class="title">Exam</div>
       <div class="meta">2009 • Psychological thriller</div>
-      <div class="desc">
-        Eight strangers sit for a final job assessment in a sealed room — but the test paper is blank and the rules are strict.
-        With time ticking, the candidates start forming alliances, turning on each other, and testing boundaries to figure out what the “real question” is.
-        It’s a minimal, claustrophobic thriller where tension comes from people, not explosions.
-        Best if you enjoy mind-games, puzzles, and pressure-cooker stories.
-      </div>
+      <div class="blurb">Eight strangers, one room, one impossible question, and a test designed to push people into revealing who they are.</div>
     </div>
   </div>
 
-  <!-- Bugonia (2025) -->
-  <div class="card">
-    <div class="placeholder"><span>Poster coming soon</span></div>
+  <!-- 7 -->
+  <div class="card" data-id="bogonia">
+    <div class="posterBox"><span>Poster coming soon</span></div>
     <div class="info">
-      <div class="title">Bugonia</div>
-      <div class="meta">2025 • Conspiracy / Dark satire</div>
-      <div class="desc">
-        Two conspiracy-obsessed men convince themselves a powerful CEO isn’t human — and they decide the only “solution” is to kidnap her.
-        The story pushes paranoia to the edge, mixing obsession, fear, and the absurd logic that people build inside their own heads.
-        If you like unsettling satire and stories about delusion turning into action, this is that lane.
-        (When you want, we can adjust tone here depending on how you want to present it on Popcorn Picks.)
-      </div>
+      <div class="title">Bogonia</div>
+      <div class="meta">2025 • Sci-fi / Thriller</div>
+      <div class="blurb">A mysterious premise that plays like a puzzle, slowly showing what is real and what has been manufactured.</div>
     </div>
   </div>
 
-  <!-- Meet Joe Black (1998) -->
-  <div class="card">
-    <div class="placeholder"><span>Poster coming soon</span></div>
+  <!-- 8 -->
+  <div class="card" data-id="meetjoeblack">
+    <div class="posterBox"><span>Poster coming soon</span></div>
     <div class="info">
       <div class="title">Meet Joe Black</div>
-      <div class="meta">1998 • Romance / Fantasy-drama</div>
-      <div class="desc">
-        Death takes the body of a young man and spends time with a wealthy businessman, asking for guidance about life on Earth.
-        In the process, he experiences love, jealousy, desire, and the strange weight of time running out.
-        It’s slow and emotional, built for mood: long conversations, soft heartbreak, and the feeling of saying goodbye before you’re ready.
-        Best for viewers who like romantic dramas that linger.
-      </div>
+      <div class="meta">1998 • Romance / Fantasy drama</div>
+      <div class="blurb">A powerful man meets a stranger who changes his final days and forces him to look at love and life differently.</div>
     </div>
   </div>
 
-  <!-- Lone Survivor -->
-  <div class="card">
-    <div class="placeholder"><span>Poster coming soon</span></div>
+  <!-- 9 -->
+  <div class="card" data-id="lonesurvivor">
+    <div class="posterBox"><span>Poster coming soon</span></div>
     <div class="info">
       <div class="title">Lone Survivor</div>
-      <div class="meta">War / Survival</div>
-      <div class="desc">
-        A military mission goes wrong in hostile terrain and turns into a desperate fight to stay alive while being hunted.
-        The film focuses on endurance: injuries, fear, brotherhood, and the brutal reality of escaping when everything collapses.
-        It’s not about victory — it’s about survival and the cost of every decision made under pressure.
-        Best if you want intense, grounded survival tension.
-      </div>
+      <div class="meta">2023 • War / Action drama</div>
+      <div class="blurb">A mission collapses, priorities shrink to staying alive, and loyalty becomes the only thing that makes sense.</div>
     </div>
   </div>
 
-  <!-- RRR (2022) -->
-  <div class="card">
-    <div class="placeholder"><span>Poster coming soon</span></div>
+  <!-- 10 -->
+  <div class="card" data-id="rrr">
+    <div class="posterBox"><span>Poster coming soon</span></div>
     <div class="info">
       <div class="title">RRR</div>
-      <div class="meta">2022 • Indian epic / Action-drama</div>
-      <div class="desc">
-        Two men meet in colonial India and form a deep friendship — but both are living with hidden missions that can destroy that bond.
-        What starts as brotherhood becomes a test of loyalty, identity, and sacrifice as their worlds collide.
-        It’s huge, emotional, and made for big-screen energy: spectacle, music, and moments designed to hit hard.
-        Best if you want maximum cinema — not subtle realism.
-      </div>
+      <div class="meta">2022 • Epic / Action drama</div>
+      <div class="blurb">Two men with different missions collide under empire rule, and their friendship turns into a storm.</div>
     </div>
   </div>
 
 </section>
 
-<div class="note">
-  When you’re ready to add posters, upload images to <code>assets/posters/movies/</code> and replace each placeholder with:
-  <code>&lt;img class="poster" src="assets/posters/movies/FILENAME.jpg" alt="Poster"&gt;</code>
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modalBox" role="dialog" aria-modal="true" aria-labelledby="modalH1">
+    <div class="modalTop">
+      <div class="modalTitle">Popcorn Picks</div>
+      <button class="closeBtn" id="closeBtn">Close</button>
+    </div>
+
+    <div class="modalContent">
+      <div class="modalHero">
+        <div class="modalPoster" id="modalPoster">Poster</div>
+        <div>
+          <div class="modalH1" id="modalH1">Title</div>
+          <div class="modalMeta" id="modalMeta">Meta</div>
+          <div class="modalText" id="modalText"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<script>
+const MOVIES = {
+  aqotwf: {
+    title: "All Quiet on the Western Front",
+    meta: "2022 • War / Anti-war • Germany",
+    text: `
+      <p>A teenager signs up with a head full of patriotic excitement, expecting purpose and glory. What he gets is mud, hunger, and a front line that treats human life like a cheap resource.</p>
+      <p>The film follows his slow disillusionment as survival becomes the only objective. Fear becomes routine, friendship becomes a lifeline, and the idea of heroism collapses under exhaustion and loss.</p>
+      <p>This is best for viewers who want realism and atmosphere, and who are okay with a heavy, serious tone.</p>
+    `
+  },
+  obaa: {
+    title: "One Battle After Another",
+    meta: "2025 • Thriller / Drama",
+    text: `
+      <p>A high-pressure story built around conflict that keeps evolving. Every choice creates a new problem, and solutions come with a cost.</p>
+      <p>The film leans into paranoia and momentum, showing how people behave when they feel cornered. If you like stories that keep tightening the rope, this fits that mood.</p>
+      <p>If you want, tell me the exact plot details you meant for this title and I will tailor this synopsis perfectly to match your version.</p>
+    `
+  },
+  intern: {
+    title: "The Intern",
+    meta: "2015 • Comedy / Drama",
+    text: `
+      <p>A widower in his seventies signs up for a senior intern program at a fashion startup. He expects to stay out of the way. Instead, he quietly becomes the most reliable person in the room.</p>
+      <p>At the center is a young founder juggling ambition, pressure, and a business growing faster than she can manage. Their relationship stays warm and human, not preachy.</p>
+      <p>This is for people who want something clean, comforting, and genuinely easy to watch.</p>
+    `
+  },
+  revenge2017: {
+    title: "Revenge",
+    meta: "2017 • Survival / Thriller",
+    text: `
+      <p>A woman joins her lover on a weekend getaway that looks harmless at first. When his friends arrive, boundaries collapse and the situation turns brutal.</p>
+      <p>Left for dead, she survives and fights her way back through a hostile landscape. The story becomes a predator-and-prey thriller where power keeps switching hands.</p>
+      <p>This is best if you like intense survival stories and can handle violent material.</p>
+    `
+  },
+  reacher2012: {
+    title: "Jack Reacher",
+    meta: "2012 • Action / Mystery",
+    text: `
+      <p>A shooting case looks straightforward until a man’s name is called and he asks for one person: Jack Reacher, a former military investigator who prefers to live off the grid.</p>
+      <p>Reacher digs in and finds holes in the story, pushing him into a network of corruption, paid violence, and people trying to control the narrative.</p>
+      <p>This works best for viewers who like investigations with a tough lead and clean action.</p>
+    `
+  },
+  exam2009: {
+    title: "Exam",
+    meta: "2009 • Psychological thriller",
+    text: `
+      <p>Eight candidates sit in a room for a final job interview. They are given a paper that appears blank and one simple instruction: answer the question.</p>
+      <p>The problem is nobody knows what the question is, and the rules are strict. As time runs out, cooperation turns into suspicion and the room becomes a pressure chamber.</p>
+      <p>This is great if you like contained thrillers that feel like a mind game.</p>
+    `
+  },
+  bogonia: {
+    title: "Bogonia",
+    meta: "2025 • Sci-fi / Thriller",
+    text: `
+      <p>A sci-fi thriller built like a puzzle. It starts with a strange idea and keeps widening the frame until you understand what the story is really testing: perception, control, and truth.</p>
+      <p>This is for viewers who enjoy mystery-driven storytelling and are okay with unanswered questions early on.</p>
+      <p>If you share the exact premise you want highlighted, I can lock the synopsis to your preferred angle.</p>
+    `
+  },
+  meetjoeblack: {
+    title: "Meet Joe Black",
+    meta: "1998 • Romance / Fantasy drama",
+    text: `
+      <p>A wealthy businessman nearing the end of his life meets a mysterious young man who arrives with unusual interest in how people live, love, and spend their time.</p>
+      <p>As the stranger becomes part of his world, the businessman is forced to look at his relationships with fresh clarity, especially with his daughter, who finds herself drawn into something she cannot explain.</p>
+      <p>This is best for viewers who like slow, emotional dramas with a romantic core.</p>
+    `
+  },
+  lonesurvivor: {
+    title: "Lone Survivor",
+    meta: "2023 • War / Action drama",
+    text: `
+      <p>A mission goes wrong and a small team is pushed into a fight they cannot control. Plans collapse quickly, and survival becomes the only priority.</p>
+      <p>The film focuses on endurance, split-second decisions, and the bonds between soldiers when everything else disappears.</p>
+      <p>This is for viewers who want serious war action with a heavy tone.</p>
+    `
+  },
+  rrr: {
+    title: "RRR",
+    meta: "2022 • Epic / Action drama • India",
+    text: `
+      <p>Two men enter the same city under British rule with different missions and hidden identities. One is looking to rescue a child. The other is hunting a revolutionary.</p>
+      <p>They form a friendship before the truth catches up, and the story becomes a large-scale epic about loyalty, sacrifice, and rebellion.</p>
+      <p>This is for viewers who want big emotion, bold set pieces, and mythic energy.</p>
+    `
+  }
+};
+
+const modal = document.getElementById("modal");
+const closeBtn = document.getElementById("closeBtn");
+const modalH1 = document.getElementById("modalH1");
+const modalMeta = document.getElementById("modalMeta");
+const modalText = document.getElementById("modalText");
+const modalPoster = document.getElementById("modalPoster");
+
+function openModal(id){
+  const m = MOVIES[id];
+  if(!m) return;
+  modalH1.textContent = m.title;
+  modalMeta.textContent = m.meta;
+  modalText.innerHTML = m.text;
+  modalPoster.textContent = "Poster coming soon";
+  modal.classList.add("open");
+}
+
+function closeModal(){
+  modal.classList.remove("open");
+}
+
+document.querySelectorAll(".card").forEach(card=>{
+  card.addEventListener("click", ()=>openModal(card.dataset.id));
+});
+
+closeBtn.addEventListener("click", closeModal);
+modal.addEventListener("click", (e)=>{
+  if(e.target === modal) closeModal();
+});
+document.addEventListener("keydown", (e)=>{
+  if(e.key === "Escape") closeModal();
+});
+</script>
 
 </body>
 </html>
