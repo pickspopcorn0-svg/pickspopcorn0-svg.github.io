@@ -1,83 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Must-Watch Espionage TV Shows — Popcorn Picks</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
+*{margin:0;padding:0;box-sizing:border-box}
 body{
   background:#0b0b0c;
   color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+a{color:inherit;text-decoration:none}
+.topbar{
+  position:sticky; top:0; z-index:20;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 22px;
+  background:rgba(10,10,10,.88);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid #222;
+}
+.back{color:#aaa;font-size:13px}
+.back:hover{color:#fff}
+.brand{font-weight:650;letter-spacing:.5px;font-size:14px}
+
+.wrap{
+  max-width:980px;
+  margin:0 auto;
+  padding:46px 22px 80px;
+}
+
+.kicker{
+  font-size:11px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:#eaeaea;
+  display:inline-block;
+  padding:8px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.04);
+}
+
+h1{
+  margin-top:18px;
+  font-size:46px;
+  letter-spacing:-.02em;
+  line-height:1.05;
+}
+.sub{
+  margin-top:14px;
+  color:#cfcfcf;
   line-height:1.7;
-  margin:0;
+  font-size:15px;
+  max-width:78ch;
 }
-header{
-  padding:60px 20px 40px;
-  max-width:900px;
-  margin:auto;
+
+.meta{
+  margin-top:18px;
+  color:#9a9a9a;
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
 }
-article{
-  max-width:900px;
-  margin:auto;
-  padding:0 20px 80px;
+
+.hr{
+  margin:34px 0;
+  height:1px;
+  background:#1f1f1f;
 }
-h1{font-size:42px}
-h2{margin-top:60px;font-size:28px}
-p{color:#d0d0d0;margin:18px 0}
-.back{
+
+.prose p{
+  color:#d7d7d7;
+  line-height:1.85;
+  font-size:16px;
+  max-width:78ch;
+  margin:0 0 16px 0;
+}
+
+.list{
+  display:flex;
+  flex-direction:column;
+  gap:26px;
+  margin-top:10px;
+}
+
+.item{
+  display:grid;
+  grid-template-columns: 210px 1fr;
+  gap:22px;
+  padding:18px;
+  border:1px solid #181818;
+  border-radius:18px;
+  background:rgba(255,255,255,.02);
+}
+.poster{
+  width:210px;
+  height:310px;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid #1f1f1f;
+  background:#111;
+}
+.poster img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
   display:block;
-  color:#aaa;
-  margin-top:40px;
-  text-decoration:none;
+}
+.item h2{
+  font-size:22px;
+  letter-spacing:-.01em;
+  margin-bottom:8px;
+}
+.small{
+  color:#a9a9a9;
+  font-size:13px;
+  margin-bottom:10px;
+}
+.item p{
+  color:#d7d7d7;
+  line-height:1.75;
+  font-size:15px;
+  max-width:78ch;
+  margin:0 0 12px 0;
+}
+
+.note{
+  margin-top:34px;
+  color:#9a9a9a;
+  font-size:13px;
+  line-height:1.7;
+  max-width:78ch;
+}
+
+@media(max-width:760px){
+  h1{font-size:36px}
+  .item{grid-template-columns:1fr}
+  .poster{width:100%; height:420px}
 }
 </style>
 </head>
+
 <body>
 
-<header>
-<h1>Must-Watch Espionage TV Shows</h1>
-<p>A hand-picked collection of serious, realistic spy dramas.</p>
-</header>
+<div class="topbar">
+  <a class="back" href="index.html">← Back</a>
+  <div class="brand">Popcorn Picks</div>
+  <div style="width:48px"></div>
+</div>
 
-<article>
-  <p>I’ve always been drawn to espionage stories, especially the ones that feel grounded and uncomfortable rather than flashy. I don’t care much for slick agents with gadgets and one-liners. What interests me is how spying actually works. The isolation, the double lives, and the way people slowly lose their sense of self.</p>
+<main class="wrap">
+  <div class="kicker">EDITORIAL • ESPIONAGE</div>
 
-<p>These five series represent that side of the genre. They focus on tradecraft, psychology, and the emotional cost of intelligence work. If you like serious, adult spy dramas, this is a strong place to start.</p>
+  <h1>Must-Watch Espionage TV Shows</h1>
+  <p class="sub">A hand-picked collection of serious, realistic spy dramas.</p>
+  <div class="meta">Popcorn Picks • Updated for 2026</div>
 
-<h2>1. Le Bureau des Légendes (The Bureau)</h2>
-<p>This series was my first real introduction to French television, and it left a deep impression. I didn’t come to it because of hype. I found it while looking for something more realistic than most English-language spy dramas, and it delivered exactly that.</p>
+  <div class="hr"></div>
 
-<p>Le Bureau des Légendes follows undercover agents who live under false identities for years at a time. These are not short assignments. These people build entire lives around lies. They have relationships, friendships, and routines that are all fabricated, and the longer they stay undercover, the harder it becomes to remember who they were before.</p>
+  <section class="prose">
+    <p>I’ve always been drawn to espionage stories, especially the ones that feel grounded and uncomfortable rather than flashy. I don’t care much for slick agents with gadgets and one-liners. What interests me is how spying actually works: the isolation, the double lives, and the way people slowly lose their sense of self.</p>
 
-<p>What makes the series special is how patient it is. There is no rush to impress the viewer. Surveillance takes time. Operations fail. People make small mistakes that have large consequences. The writing focuses on how intelligence work slowly wears people down, rather than making it look heroic.</p>
+    <p>These five series represent that side of the genre. They focus on tradecraft, psychology, and the emotional cost of intelligence work. If you like serious, adult spy dramas, this is a strong place to start.</p>
+  </section>
 
-<p>This is not a show for anyone looking for action-heavy entertainment. It is for viewers who want to understand how modern espionage really works and what it does to the people involved. Among serious spy dramas, it is hard to find anything more convincing than this.</p>
+  <div class="hr"></div>
 
-<h2>2. Slow Horses</h2>
-<p>Slow Horses follows a group of MI5 agents who have been sidelined after career-ending mistakes and sent to a forgotten department. They are seen as failures, but they often end up closer to the truth than the people running the system.</p>
+  <section class="list">
 
-<p>The writing is sharp and dry, with a strong sense of realism. The show understands that intelligence work is messy, that information is never complete, and that people make bad calls under pressure. The characters are flawed but capable, and that tension drives the series forward.</p>
+    <!-- 1 -->
+    <article class="item">
+      <div class="poster">
+        <img src="assets/posters/bureau.jpg" alt="Le Bureau des Légendes poster">
+      </div>
+      <div>
+        <h2>1. Le Bureau des Légendes (The Bureau)</h2>
+        <div class="small">France • 2015–2020 • 5 seasons • Espionage / Drama</div>
 
-<p>It is funny in places, tense in others, but always grounded in how espionage really feels: uncertain, bureaucratic, and dangerous in quiet ways.</p>
+        <p>This series was my first real introduction to French television, and it left a deep impression. I didn’t come to it because of hype. I found it while looking for something more realistic than most English-language spy dramas, and it delivered exactly that.</p>
 
-<h2>3. The Spy</h2>
-<p>The Spy is based on the true story of Eli Cohen, an Israeli agent who infiltrated the highest levels of the Syrian government. It focuses less on missions and more on what it means to live as someone else for years.</p>
+        <p><em>Le Bureau des Légendes</em> follows undercover agents who live under false identities for years at a time. These are not short assignments. These people build entire lives around lies. They have relationships, friendships, and routines that are all fabricated, and the longer they stay undercover, the harder it becomes to remember who they were before.</p>
 
-<p>The series shows how isolation and constant deception take a toll on a person. Even when surrounded by people, Cohen is completely alone. Every relationship is built on lies, and every moment risks exposure.</p>
+        <p>What makes the series special is how patient it is. There is no rush to impress the viewer. Surveillance takes time. Operations fail. People make small mistakes that have large consequences. The writing focuses on how intelligence work slowly wears people down, rather than making it look heroic.</p>
 
-<p>It is a slow, heavy drama that treats espionage as something deeply personal and emotionally costly.</p>
+        <p>This is not a show for anyone looking for action-heavy entertainment. It is for viewers who want to understand how modern espionage really works and what it does to the people involved. Among serious spy dramas, it is hard to find anything more convincing than this.</p>
+      </div>
+    </article>
 
-<h2>4. Berlin Station</h2>
-<p>Berlin Station looks at CIA operations in Europe, focusing on how intelligence work is shaped by politics, media, and internal power struggles.</p>
+    <!-- 2 -->
+    <article class="item">
+      <div class="poster">
+        <img src="assets/posters/slow-horses.jpg" alt="Slow Horses poster">
+      </div>
+      <div>
+        <h2>2. Slow Horses</h2>
+        <div class="small">UK • 2022– • 4+ seasons • Spy / Thriller</div>
 
-<p>Agents are constantly balancing their own survival with the need to protect sources and maintain trust. Leaks, rival agencies, and personal ambition make every operation unstable.</p>
+        <p><em>Slow Horses</em> follows a group of MI5 agents who have been sidelined after career-ending mistakes and sent to a forgotten department. They are seen as failures, but they often end up closer to the truth than the people running the system.</p>
 
-<p>The show does a good job of showing the bureaucracy behind espionage and how decisions are rarely simple or clean.</p>
+        <p>The writing is sharp and dry, with a strong sense of realism. The show understands that intelligence work is messy, that information is never complete, and that people make bad calls under pressure. The characters are flawed but capable, and that tension drives the series forward.</p>
 
-<h2>5. The Agency</h2>
-<p>The Agency is adapted from Le Bureau des Légendes, reimagined for a more international audience. It keeps the same focus on long-term undercover work and the psychological cost of living under a false identity.</p>
+        <p>It is funny in places, tense in others, but always grounded in how espionage really feels: uncertain, bureaucratic, and dangerous in quiet ways.</p>
+      </div>
+    </article>
 
-<p>You can feel the influence of the French original in the way it treats intelligence work as something slow and deeply human rather than glamorous.</p>
+    <!-- 3 -->
+    <article class="item">
+      <div class="poster">
+        <img src="assets/posters/spy.jpg" alt="The Spy poster">
+      </div>
+      <div>
+        <h2>3. The Spy</h2>
+        <div class="small">2019 • Limited series • Espionage / Drama</div>
 
-<p>It is still early in its run, but it shows real promise, especially for viewers who appreciated the realism and tone of The Bureau.</p>
+        <p><em>The Spy</em> is based on the true story of Eli Cohen, an Israeli agent who infiltrated the highest levels of the Syrian government. It focuses less on missions and more on what it means to live as someone else for years.</p>
+
+        <p>The series shows how isolation and constant deception take a toll on a person. Even when surrounded by people, Cohen is completely alone. Every relationship is built on lies, and every moment risks exposure.</p>
+
+        <p>It is a slow, heavy drama that treats espionage as something deeply personal and emotionally costly.</p>
+      </div>
+    </article>
+
+    <!-- 4 -->
+    <article class="item">
+      <div class="poster">
+        <img src="assets/posters/berlin-station.jpg" alt="Berlin Station poster">
+      </div>
+      <div>
+        <h2>4. Berlin Station</h2>
+        <div class="small">2016–2019 • 3 seasons • Spy / Political thriller</div>
+
+        <p><em>Berlin Station</em> looks at CIA operations in Europe, focusing on how intelligence work is shaped by politics, media, and internal power struggles.</p>
+
+        <p>Agents are constantly balancing their own survival with the need to protect sources and maintain trust. Leaks, rival agencies, and personal ambition make every operation unstable.</p>
+
+        <p>The show does a good job of showing the bureaucracy behind espionage and how decisions are rarely simple or clean.</p>
+      </div>
+    </article>
+
+    <!-- 5 -->
+    <article class="item">
+      <div class="poster">
+        <img src="assets/posters/agency.jpg" alt="The Agency poster">
+      </div>
+      <div>
+        <h2>5. The Agency</h2>
+        <div class="small">2024– • Spy / Thriller • Adapted from <em>The Bureau</em></div>
+
+        <p><em>The Agency</em> is adapted from <em>Le Bureau des Légendes</em>, reimagined for a more international audience. It keeps the same focus on long-term undercover work and the psychological cost of living under a false identity.</p>
+
+        <p>You can feel the influence of the French original in the way it treats intelligence work as something slow and deeply human rather than glamorous.</p>
+
+        <p>It is still early in its run, but it shows real promise, especially for viewers who appreciated the realism and tone of <em>The Bureau</em>.</p>
+      </div>
+    </article>
+
+  </section>
+
+  <p class="note">
+    Tip: Once posters load here, you can reuse the same layout for every future article. Just copy one <code>&lt;article class="item"&gt;</code> block and change the poster + text.
+  </p>
+
+</main>
+
+</body>
+</html>
