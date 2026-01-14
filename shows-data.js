@@ -184,11 +184,91 @@ window.SHOWS = {
     tags: ["Espionage", "Swedish"],
     why: "Nordic spy tension with clean tradecraft and a colder, more grounded tone."
   },
-  "the-originals": {
+    "the-originals": {
     title: "The Originals",
     year: "2013–2018",
     meta: "Supernatural / Vampire",
     tags: ["Supernatural", "Vampire"],
     why: "Family power struggles in a supernatural world—alliances, vengeance, and loyalty."
+  },
+
+  "sword-snow-stride": {
+    title: "Sword Snow Stride",
+    year: "2021",
+    meta: "Wuxia / Historical",
+    tags: ["Wuxia", "Historical", "Action"],
+    why: "A rebellious prince enters a brutal world of martial clans and politics—slow-burn character growth with sharp strategy and big-scale conflict."
+  },
+
+  "fireworks-of-my-heart": {
+    title: "Fireworks of My Heart",
+    year: "2023",
+    meta: "Romance / Modern",
+    tags: ["Romance", "Modern", "Drama"],
+    why: "A firefighter and an emergency doctor reunite after years—mature romance with duty, danger, and emotional healing."
+  },
+
+  "joy-of-life": {
+    title: "Joy of Life",
+    year: "2019",
+    meta: "Historical / Political",
+    tags: ["Historical", "Political", "Drama"],
+    why: "Smart, funny, and deadly—palace intrigue with a brilliant lead who survives using wit, strategy, and hidden secrets."
+  },
+
+  "lighter-and-princess": {
+    title: "Lighter and Princess",
+    year: "2022",
+    meta: "Romance / Youth",
+    tags: ["Romance", "Youth", "Drama"],
+    why: "A passionate love story around ambition and growth—strong chemistry with real ups and downs, not shallow fluff."
+  },
+
+  "amidst-a-snowstorm-of-love": {
+    title: "Amidst a Snowstorm of Love",
+    year: "2024",
+    meta: "Romance / Comfort",
+    tags: ["Romance", "Comfort", "Slice of Life"],
+    why: "Soft, warm romance with winter vibes—calm pacing, healing tone, and pure comfort-watch energy."
+  },
+
+  "nirvana-in-fire": {
+    title: "Nirvana in Fire",
+    year: "2015",
+    meta: "Historical / Thriller",
+    tags: ["Historical", "Thriller", "Political"],
+    why: "Top-tier strategy drama—revenge, justice, and mind-games in court politics with legendary writing and payoff."
+  },
+
+  "sword-dynasty": {
+    title: "Sword Dynasty",
+    year: "2019",
+    meta: "Wuxia / Action",
+    tags: ["Wuxia", "Action", "Fantasy"],
+    why: "A rise-from-the-bottom sword story—sects, enemies, and hidden power, with a classic martial-world vibe."
+  },
+
+  "you-are-my-glory": {
+    title: "You Are My Glory",
+    year: "2021",
+    meta: "Romance / Modern",
+    tags: ["Romance", "Modern", "Feel-good"],
+    why: "Sweet and mature—celebrity life meets real ambition, with warm chemistry and zero toxic drama."
+  },
+
+  "love-me-love-my-voice": {
+    title: "Love Me, Love My Voice",
+    year: "2023",
+    meta: "Romance / Music",
+    tags: ["Romance", "Music", "Comfort"],
+    why: "Gentle romance built on voice, music, and everyday warmth—low-drama and extremely soothing."
+  },
+
+  "ever-night": {
+    title: "Ever Night",
+    year: "2018–2020",
+    meta: "Fantasy / Adventure",
+    tags: ["Fantasy", "Adventure", "Action"],
+    why: "A gritty fantasy journey—destiny, power, training, and survival in a world of prophecy and war."
   }
 };
