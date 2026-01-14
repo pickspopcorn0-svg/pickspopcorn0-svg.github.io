@@ -1,1 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Popcorn Picks — Cinema Beyond Borders</title>
 
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:#0b0b0c;
+  color:#fff;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+a{color:inherit;text-decoration:none}
+
+/* HEADER */
+header{
+  position:fixed;
+  top:0;left:0;width:100%;
+  height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 40px;
+  background:rgba(10,10,10,0.88);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid #222;
+  z-index:10;
+}
+.logo{
+  font-size:18px;
+  font-weight:650;
+  letter-spacing:.6px;
+}
+nav a{
+  margin-left:18px;
+  font-size:12px;
+  color:#aaa;
+}
+nav a:hover{color:#fff}
+
+/* HERO */
+.hero{
+  height:85vh;
+  padding:0 60px;
+  display:flex;
+  align-items:center;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.28), #0b0b0c),
+    url('https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=1600&q=80');
+  background-size:cover;
+  background-position:center;
+}
+.hero .inner{
+  max-width:720px;
+  padding-top:64px; /* offset header */
+}
+.hero h1{
+  font-size:56px;
+  line-height:1.03;
+  letter-spacing:-.02em;
+}
+.hero p{
+  margin-top:18px;
+  max-width:560px;
+  font-size:18px;
+  color:#cfcfcf;
+  line-height:1.55;
+}
+.hero .btn{
+  display:inline-block;
+  margin-top:28px;
+  padding:14px 30px;
+  border:1px solid #fff;
+  border-radius:40px;
+  font-size:14px;
+}
+.hero .btn:hover{background:#fff;color:#000}
+
+/* SECTIONS */
+.section{
+  padding:96px 60px;
+}
+.section h2{
+  font-size:26px;
+  margin-bottom:26px;
+  letter-spacing:.2px;
+}
+
+/* FEATURED COLLECTIONS (ARTICLE LOOK) */
+.feed{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:26px;
+}
+.feedLink{display:block}
+.feedCard{
+  position:relative;
+  height:320px;
+  border-radius:18px;
+  background-size:cover;
+  background-position:center;
+  overflow:hidden;
+  border:1px solid #181818;
+  transition:transform .15s ease, border-color .15s ease;
+}
+.feedCard:hover{border-color:#fff; transform:translateY(-2px)}
+.feedCard::after{
+  content:'';
+  position:absolute; inset:0;
+  background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,.92));
+}
+.tag{
+  position:absolute;
+  top:18px; left:18px;
+  font-size:11px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:#eaeaea;
+  background:rgba(0,0,0,.45);
+  border:1px solid rgba(255,255,255,.18);
+  padding:8px 10px;
+  border-radius:999px;
+  z-index:2;
+}
+.feedText{
+  position:absolute;
+  left:0; right:0; bottom:0;
+  padding:22px;
+  z-index:2;
+}
+.feedText h3{
+  font-size:20px;
+  margin-bottom:8px;
+  font-weight:650;
+}
+.feedText p{
+  color:#cfcfcf;
+  font-size:14px;
+  line-height:1.45;
+  max-width:44ch;
+}
+
+/* CATEGORY CARDS */
+.catGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:26px;
+}
+.cat{
+  height:260px;
+  border-radius:18px;
+  background-size:cover;
+  background-position:center;
+  position:relative;
+  overflow:hidden;
+  border:1px solid #181818;
+  display:block;
+  transition:transform .15s ease, border-color .15s ease;
+}
+.cat:hover{border-color:#fff; transform:translateY(-2px)}
+.cat::after{
+  content:'';
+  position:absolute; inset:0;
+  background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,.88));
+}
+.cat span{
+  position:absolute;
+  left:20px; bottom:20px;
+  font-size:22px;
+  font-weight:650;
+}
+
+/* FOOTER */
+footer{
+  border-top:1px solid #222;
+  padding:60px;
+  color:#9a9a9a;
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr;
+  gap:40px;
+}
+footer h4{
+  color:#fff;
+  margin-bottom:12px;
+  font-size:14px;
+  font-weight:650;
+  letter-spacing:.3px;
+}
+footer p{line-height:1.7;font-size:13px}
+footer a{
+  display:block;
+  margin:8px 0;
+  color:#aaa;
+  font-size:13px;
+}
+footer a:hover{color:#fff}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  header{padding:0 18px}
+  .hero{padding:0 20px}
+  .section{padding:70px 20px}
+  footer{grid-template-columns:1fr;padding:40px 20px}
+  nav{display:none}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Popcorn Picks</div>
+  <nav>
+    <a href="tv-shows.html">TV Shows</a>
+    <a href="movies.html">Movies</a>
+    <a href="kdrama.html">K-Drama</a>
+    <a href="cdrama.html">C-Drama</a>
+    <a href="anime.html">Anime</a>
+    <a href="donghua.html">Donghua</a>
+    <a href="indian.html">Indian Cinema</a>
+    <a href="french.html">French Cinema</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="inner">
+    <h1>Cinema beyond borders.</h1>
+    <p>
+      Posters first, sharp reasons second, and clear “where to watch”.
+      Popcorn Picks is a curated space for TV shows and world cinema.
+    </p>
+    <a class="btn" href="tv-shows.html">Start with TV Shows</a>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Featured collections</h2>
+
+  <div class="feed">
+
+    <a class="feedLink" href="must-watch-espionage.html">
+      <div class="feedCard" style="background-image:url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80');">
+        <div class="tag">EDITORIAL • 5 min</div>
+        <div class="feedText">
+          <h3>Must-Watch Espionage</h3>
+          <p>Tradecraft, tension, and the cost of double lives.</p>
+        </div>
+      </div>
+    </a>
+
+    <a class="feedLink" href="must-watch-period-dramas.html">
+      <div class="feedCard" style="background-image:url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=80');">
+        <div class="tag">EDITORIAL • 6 min</div>
+        <div class="feedText">
+          <h3>Must-Watch Period Dramas</h3>
+          <p>Atmosphere-first stories where writing actually matters.</p>
+        </div>
+      </div>
+    </a>
+
+    <a class="feedLink" href="under-the-radar-kdramas.html">
+      <div class="feedCard" style="background-image:url('https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=1200&q=80');">
+        <div class="tag">EDITORIAL • 7 min</div>
+        <div class="feedText">
+          <h3>Under-the-Radar K-Dramas</h3>
+          <p>Hidden gems that deserve the spotlight.</p>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<section class="section">
+  <h2>Browse categories</h2>
+
+  <div class="catGrid">
+    <a class="cat" href="movies.html" style="background-image:url('https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=1200&q=80');"><span>Movies</span></a>
+    <a class="cat" href="tv-shows.html" style="background-image:url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=80');"><span>TV Shows</span></a>
+    <a class="cat" href="kdrama.html" style="background-image:url('https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=1200&q=80');"><span>K-Drama</span></a>
+    <a class="cat" href="cdrama.html" style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80');"><span>C-Drama</span></a>
+    <a class="cat" href="anime.html" style="background-image:url('https://images.unsplash.com/photo-1511765224389-37f0e77cf0eb?auto=format&fit=crop&w=1200&q=80');"><span>Anime</span></a>
+    <a class="cat" href="donghua.html" style="background-image:url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80');"><span>Donghua</span></a>
+    <a class="cat" href="indian.html" style="background-image:url('https://images.unsplash.com/photo-1585488763177-bde7c1b5c4b1?auto=format&fit=crop&w=1200&q=80');"><span>Indian Cinema</span></a>
+    <a class="cat" href="french.html" style="background-image:url('https://images.unsplash.com/photo-1500048993959-dc4dfec36a9f?auto=format&fit=crop&w=1200&q=80');"><span>French Cinema</span></a>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <h4>Popcorn Picks</h4>
+    <p>Cinema beyond borders — curated recommendations with posters, short reasons, and where-to-watch links.</p>
+  </div>
+
+  <div>
+    <h4>Explore</h4>
+    <a href="tv-shows.html">TV Shows</a>
+    <a href="movies.html">Movies</a>
+    <a href="kdrama.html">K-Drama</a>
+    <a href="anime.html">Anime</a>
+  </div>
+
+  <div>
+    <h4>Contact</h4>
+    <a href="https://twitter.com/picks9505" target="_blank" rel="noopener">Contact us on X (Twitter)</a>
+  </div>
+</footer>
+
+</body>
+</html>
