@@ -1,330 +1,274 @@
-// Popcorn Picks — TV Shows data
-// Add new shows ONLY here later (easy).
+// Popcorn Picks — TV, Anime, C-Drama & Donghua library
+// Edit this file only when adding new titles
 
 window.SHOWS = {
+
+  // ─────────────────────────
+  // WESTERN / INTERNATIONAL
+  // ─────────────────────────
+
   "robin-hood": {
     title: "Robin Hood",
     year: "2025",
-    meta: "Adventure / Period",
+    meta: "Adventure • Period",
     tags: ["Adventure", "Period"],
-    why: "A modern retelling built around rebellion, loyalty, and the cost of justice."
+    why: "A grounded retelling of the Robin Hood legend focused on rebellion, loyalty, and the price of standing against power."
   },
+
   "wheel-of-time": {
     title: "The Wheel of Time",
     year: "2021–",
-    meta: "Epic fantasy",
+    meta: "Epic Fantasy",
     tags: ["Fantasy", "Epic"],
-    why: "Prophecy, power, and politics collide as destiny pulls ordinary lives into war."
+    why: "A massive fantasy saga about prophecy, war, and how ordinary people get pulled into world-changing destiny."
   },
+
   "jack-ryan": {
     title: "Tom Clancy’s Jack Ryan",
     year: "2018–2023",
-    meta: "Action / Spy",
+    meta: "Action • Espionage",
     tags: ["Spy", "Action", "Thriller"],
-    why: "High-stakes intel work that escalates from desk analysis to global consequences."
+    why: "A modern spy thriller that starts with intelligence work and escalates into global political and military consequences."
   },
+
   "discovery-of-witches": {
     title: "A Discovery of Witches",
     year: "2018–2022",
-    meta: "Fantasy / Romance",
+    meta: "Fantasy • Romance",
     tags: ["Fantasy", "Romance", "Mystery"],
-    why: "A forbidden bond pulls two worlds together—magic, mystery, and slow-burning tension."
+    why: "A forbidden relationship between a witch and a vampire pulls ancient secrets and rival worlds into collision."
   },
+
   "harrow": {
     title: "Harrow",
     year: "2018–2021",
-    meta: "Crime / Mystery",
+    meta: "Crime • Mystery",
     tags: ["Crime", "Mystery"],
-    why: "A brilliant forensic pathologist solves cases while carrying secrets of his own."
+    why: "A brilliant forensic pathologist solves murders while carrying dangerous secrets from his own past."
   },
+
   "seal-team": {
     title: "SEAL Team",
     year: "2017–",
-    meta: "Military drama",
+    meta: "Military Drama",
     tags: ["Military", "Drama"],
-    why: "Brotherhood and pressure under fire—missions, sacrifice, and the personal toll."
+    why: "Follows elite soldiers balancing deadly missions with the emotional cost of family and loyalty."
   },
+
   "essex-serpent": {
     title: "The Essex Serpent",
     year: "2022",
-    meta: "Gothic / Period",
+    meta: "Gothic • Period",
     tags: ["Period", "Gothic", "Mystery"],
-    why: "Foggy marshlands, faith vs. science, and a mystery that refuses easy answers."
+    why: "A haunting story of faith, science, and fear in a fog-covered English village obsessed with a mythical creature."
   },
+
   "the-agency": {
     title: "The Agency",
-    year: "2024",
-    meta: "Spy / Thriller",
+    year: "2024–",
+    meta: "Espionage • Thriller",
     tags: ["Spy", "Thriller"],
-    why: "A modern intelligence drama where trust is fragile and every move has consequences."
+    why: "A modern intelligence drama about long-term undercover work and the emotional damage it causes."
   },
+
   "the-spy": {
     title: "The Spy",
     year: "2019",
-    meta: "Espionage",
+    meta: "Espionage Drama",
     tags: ["Espionage", "Drama"],
-    why: "Undercover work at its most human—identity, isolation, and the cost of deception."
+    why: "The true story of a man who lived for years under a false identity inside enemy territory."
   },
+
   "berlin-station": {
     title: "Berlin Station",
-    year: "",
-    meta: "Spy / Political thriller",
+    year: "2016–2019",
+    meta: "Political Spy Thriller",
     tags: ["Spy", "Political", "Thriller"],
-    why: "A tense station drama where leaks, loyalty, and bureaucracy collide on the ground."
+    why: "CIA agents in Berlin battle leaks, internal betrayal, and dangerous field operations."
   },
+
   "the-bureau": {
     title: "The Bureau (Le Bureau des Légendes)",
     year: "2015–2020",
-    meta: "French espionage",
-    tags: ["Espionage", "French", "Drama"],
-    why: "Patient, realistic spycraft—tradecraft, psychology, and long-term consequence."
+    meta: "French Espionage",
+    tags: ["Espionage", "Drama"],
+    why: "One of the most realistic spy series ever made, focusing on long-term undercover work and psychological pressure."
   },
+
   "shogun": {
     title: "Shōgun",
-    year: "2024",
-    meta: "Historical epic",
-    tags: ["Historical", "Political", "Strategy"],
-    why: "Strategy and survival in feudal Japan—politics as lethal as the battlefield."
+    year: "2024–",
+    meta: "Historical Epic",
+    tags: ["Historical", "Political"],
+    why: "A foreigner enters feudal Japan and gets pulled into deadly court politics and power struggles."
   },
+
   "bosch": {
     title: "Bosch",
     year: "2014–2021",
     meta: "Crime",
-    tags: ["Crime", "Detective", "Noir"],
-    why: "A steady, grounded detective series built on cases, character, and real-world texture."
+    tags: ["Crime", "Detective"],
+    why: "A steady, grounded detective series built around cases, integrity, and the cost of justice."
   },
+
   "alex-rider": {
     title: "Alex Rider",
     year: "2020–",
-    meta: "Spy / Thriller",
-    tags: ["Spy", "Thriller", "YA"],
-    why: "A teen pulled into covert missions—fast pacing, clean tension, and sharp plotting."
+    meta: "Spy Thriller",
+    tags: ["Spy", "Thriller"],
+    why: "A teenager is forced into the world of espionage and learns how brutal intelligence work really is."
   },
+
   "pennyworth": {
     title: "Pennyworth",
     year: "2019–2022",
-    meta: "Action / Period",
-    tags: ["Action", "Period"],
-    why: "Stylish origin-story energy—grit, attitude, and a London world with bite."
+    meta: "Crime • Period",
+    tags: ["Crime", "Period"],
+    why: "A stylish, violent look at 1960s London through the rise of Batman’s future butler."
   },
+
   "slow-horses": {
     title: "Slow Horses",
-    year: "",
-    meta: "Spy / Darkly funny",
-    tags: ["Spy", "Dark Comedy", "Thriller"],
-    why: "Burned agents, sharp writing, and messy tradecraft—thrilling, cynical, and addictive."
+    year: "2022–",
+    meta: "Dark Spy Drama",
+    tags: ["Spy", "Thriller"],
+    why: "Burned-out agents in a forgotten MI5 department stumble into real, dangerous intelligence work."
   },
-  "the-mentalist": {
-    title: "The Mentalist",
-    year: "2008–2015",
-    meta: "Mystery",
-    tags: ["Mystery", "Crime"],
-    why: "Charisma-led investigations with a long revenge thread running beneath the surface."
-  },
-  "rise-of-the-raven": {
-    title: "Rise of the Raven",
-    year: "2025",
-    meta: "Hungarian series",
-    tags: ["Historical", "Hungarian"],
-    why: "A regional epic with ambition—power struggles, history, and a darker edge."
-  },
-  "shannara-chronicles": {
-    title: "The Shannara Chronicles",
-    year: "2016–2017",
-    meta: "Fantasy",
-    tags: ["Fantasy", "Adventure"],
-    why: "Mythic adventure with ancient forces, chosen paths, and a world on the brink."
-  },
+
   "marco-polo": {
     title: "Marco Polo",
     year: "2014–2016",
-    meta: "Historical epic",
-    tags: ["Historical", "Politics", "Epic"],
-    why: "Court politics and brutal power games—lavish scale, slow tension, big atmosphere."
+    meta: "Historical Epic",
+    tags: ["Historical", "Politics"],
+    why: "Power struggles, betrayal, and court intrigue inside the empire of Kublai Khan."
   },
-  "black-doves": {
-    title: "Black Doves",
-    year: "2024",
-    meta: "Thriller",
-    tags: ["Thriller", "Drama"],
-    why: "A modern thriller built around secrets, moral compromise, and escalating pressure."
+
+  "rise-of-the-raven": {
+    title: "Rise of the Raven",
+    year: "2025",
+    meta: "Hungarian Historical",
+    tags: ["Historical"],
+    why: "A dark European historical epic about power, war, and survival."
   },
-  "the-100": {
-    title: "The 100",
-    year: "2014–2020",
-    meta: "Sci-fi / Survival",
-    tags: ["Sci-fi", "Survival"],
-    why: "Survival on a ruined Earth—hard choices, shifting alliances, and constant stakes."
-  },
-  "nobody-wants-this": {
-    title: "Nobody Wants This",
-    year: "2024",
-    meta: "Modern drama",
-    tags: ["Drama"],
-    why: "A relationship-led series driven by chemistry, awkward honesty, and modern pressure."
-  },
-  "bodyguard": {
-    title: "Bodyguard",
-    year: "2018",
-    meta: "BBC thriller",
-    tags: ["Thriller", "Political"],
-    why: "Tight pacing, paranoia, and political danger—each episode feels like a countdown."
-  },
+
   "house-of-david": {
     title: "House of David",
-    year: "",
-    meta: "Historical / Biblical drama",
+    year: "2025–",
+    meta: "Biblical Period Drama",
     tags: ["Historical", "Drama"],
-    why: "Power, faith, and identity—an origin story shaped by politics as much as belief."
-  },
-  "agent-hamilton": {
-    title: "Agent Hamilton",
-    year: "2020",
-    meta: "Swedish espionage • 2 seasons",
-    tags: ["Espionage", "Swedish"],
-    why: "Nordic spy tension with clean tradecraft and a colder, more grounded tone."
-  },
-    "the-originals": {
-    title: "The Originals",
-    year: "2013–2018",
-    meta: "Supernatural / Vampire",
-    tags: ["Supernatural", "Vampire"],
-    why: "Family power struggles in a supernatural world—alliances, vengeance, and loyalty."
+    why: "A political and emotional retelling of the rise of King David."
   },
 
-  "sword-snow-stride": {
-    title: "Sword Snow Stride",
-    year: "2021",
-    meta: "Wuxia / Historical",
-    tags: ["Wuxia", "Historical", "Action"],
-    why: "A rebellious prince enters a brutal world of martial clans and politics—slow-burn character growth with sharp strategy and big-scale conflict."
-  },
-
-  "fireworks-of-my-heart": {
-    title: "Fireworks of My Heart",
-    year: "2023",
-    meta: "Romance / Modern",
-    tags: ["Romance", "Modern", "Drama"],
-    why: "A firefighter and an emergency doctor reunite after years—mature romance with duty, danger, and emotional healing."
-  },
-
-  "joy-of-life": {
-    title: "Joy of Life",
-    year: "2019",
-    meta: "Historical / Political",
-    tags: ["Historical", "Political", "Drama"],
-    why: "Smart, funny, and deadly—palace intrigue with a brilliant lead who survives using wit, strategy, and hidden secrets."
-  },
-
-  "lighter-and-princess": {
-    title: "Lighter and Princess",
-    year: "2022",
-    meta: "Romance / Youth",
-    tags: ["Romance", "Youth", "Drama"],
-    why: "A passionate love story around ambition and growth—strong chemistry with real ups and downs, not shallow fluff."
-  },
-
-  "amidst-a-snowstorm-of-love": {
-    title: "Amidst a Snowstorm of Love",
-    year: "2024",
-    meta: "Romance / Comfort",
-    tags: ["Romance", "Comfort", "Slice of Life"],
-    why: "Soft, warm romance with winter vibes—calm pacing, healing tone, and pure comfort-watch energy."
-  },
-
-  "nirvana-in-fire": {
-    title: "Nirvana in Fire",
-    year: "2015",
-    meta: "Historical / Thriller",
-    tags: ["Historical", "Thriller", "Political"],
-    why: "Top-tier strategy drama—revenge, justice, and mind-games in court politics with legendary writing and payoff."
-  },
-
-  "sword-dynasty": {
-    title: "Sword Dynasty",
-    year: "2019",
-    meta: "Wuxia / Action",
-    tags: ["Wuxia", "Action", "Fantasy"],
-    why: "A rise-from-the-bottom sword story—sects, enemies, and hidden power, with a classic martial-world vibe."
-  },
-
-  "you-are-my-glory": {
-    title: "You Are My Glory",
-    year: "2021",
-    meta: "Romance / Modern",
-    tags: ["Romance", "Modern", "Feel-good"],
-    why: "Sweet and mature—celebrity life meets real ambition, with warm chemistry and zero toxic drama."
-  },
-
-  "love-me-love-my-voice": {
-    title: "Love Me, Love My Voice",
-    year: "2023",
-    meta: "Romance / Music",
-    tags: ["Romance", "Music", "Comfort"],
-    why: "Gentle romance built on voice, music, and everyday warmth—low-drama and extremely soothing."
-  },
-
-  "ever-night": {
-    title: "Ever Night",
-    year: "2018–2020",
-    meta: "Fantasy / Adventure",
-    tags: ["Fantasy", "Adventure", "Action"],
-    why: "A gritty fantasy journey—destiny, power, training, and survival in a world of prophecy and war."
-  },
+  // ─────────────────────────
+  // ANIME
+  // ─────────────────────────
 
   "slime": {
     title: "That Time I Got Reincarnated as a Slime",
-    year: "2018",
-    meta: "Isekai / Fantasy",
-    tags: ["Isekai", "Fantasy", "Adventure"],
-    why: "A man reincarnates as a slime and ends up building a nation by turning enemies into allies. Cozy, fun world-building with smart strategy as the stakes grow."
+    year: "2018–",
+    meta: "Isekai Fantasy",
+    tags: ["Fantasy", "Adventure"],
+    why: "A man reincarnates as a slime and builds an entire nation through strategy and diplomacy."
   },
 
   "blue-lock": {
     title: "Blue Lock",
-    year: "2022",
-    meta: "Sports / Psychological",
-    tags: ["Sports", "Psychological", "Competition"],
-    why: "A ruthless training program designed to create the world’s best striker. It plays like a battle anime—pressure, ego, mind games, and nonstop hype."
+    year: "2022–",
+    meta: "Sports • Psychological",
+    tags: ["Sports"],
+    why: "A ruthless program designed to create the world’s best soccer striker."
   },
 
   "classroom-of-the-elite": {
     title: "Classroom of the Elite",
-    year: "2017",
-    meta: "Psychological / School",
-    tags: ["School", "Strategy", "Mind Games"],
-    why: "An elite school runs on rankings and manipulation. A quiet lead uses long strategy and hidden power plays. Perfect if you like smart, controlled drama."
+    year: "2017–",
+    meta: "Psychological Drama",
+    tags: ["School", "Strategy"],
+    why: "Elite students manipulate each other inside a ruthless ranking system."
   },
 
   "attack-on-titan": {
     title: "Attack on Titan",
-    year: "2013",
-    meta: "Dark Fantasy / War",
-    tags: ["Dark", "War", "Mystery", "Epic"],
-    why: "Starts as survival horror and evolves into a massive story about war, politics, and identity. Every reveal changes the meaning of what came before."
+    year: "2013–2023",
+    meta: "Dark Fantasy",
+    tags: ["War", "Mystery"],
+    why: "A brutal story that grows from survival horror into a massive political and philosophical war."
   },
 
   "noblesse": {
     title: "Noblesse",
     year: "2020",
-    meta: "Supernatural / Action",
-    tags: ["Supernatural", "Action", "Vampire"],
-    why: "A powerful noble awakens in the modern world and gets dragged into secret organizations and supernatural wars. Stylish action with an easy binge vibe."
+    meta: "Supernatural Action",
+    tags: ["Vampire", "Action"],
+    why: "An ancient noble awakens in the modern world and is pulled into secret supernatural battles."
   },
 
   "solo-leveling": {
     title: "Solo Leveling",
-    year: "2024",
-    meta: "Action / Fantasy",
-    tags: ["Action", "Fantasy", "Power-up"],
-    why: "A weak hunter gains a system that lets him level up like a game. Pure power-growth satisfaction, boss fights, and dark-fantasy momentum."
+    year: "2024–",
+    meta: "Action Fantasy",
+    tags: ["Action", "Fantasy"],
+    why: "A weak hunter gains the power to grow endlessly through deadly battles."
   },
 
   "haikyuu": {
     title: "Haikyuu!!",
-    year: "2014",
-    meta: "Sports / Volleyball",
-    tags: ["Sports", "Volleyball", "Teamwork"],
-    why: "A masterclass sports anime—training, rivalry, teamwork, and character growth that feels earned. Hype, emotional, and insanely motivating."
+    year: "2014–2020",
+    meta: "Sports • Volleyball",
+    tags: ["Sports"],
+    why: "A high-energy volleyball anime about teamwork, growth, and rivalry."
+  },
+
+  // ─────────────────────────
+  // DONGHUA
+  // ─────────────────────────
+
+  "soul-land": {
+    title: "Soul Land",
+    year: "2018–",
+    meta: "Cultivation Fantasy",
+    tags: ["Cultivation", "Fantasy"],
+    why: "A martial prodigy rises through spiritual power, war, and destiny."
+  },
+
+  "soul-land-2": {
+    title: "Soul Land 2",
+    year: "2023–",
+    meta: "Cultivation Sequel",
+    tags: ["Cultivation"],
+    why: "A new generation faces a changed world and greater dangers."
+  },
+
+  "battle-through-the-heavens": {
+    title: "Battle Through the Heavens",
+    year: "2017–",
+    meta: "Cultivation Action",
+    tags: ["Cultivation", "Action"],
+    why: "A fallen genius fights back to the top through relentless training and combat."
+  },
+
+  "perfect-world": {
+    title: "Perfect World",
+    year: "2021–",
+    meta: "Mythic Cultivation",
+    tags: ["Fantasy"],
+    why: "A child grows into a god-level warrior in a world of ancient clans and monsters."
+  },
+
+  "renegade-immortal": {
+    title: "Renegade Immortal",
+    year: "2023–",
+    meta: "Dark Cultivation",
+    tags: ["Cultivation", "Tragedy"],
+    why: "A man sacrifices everything for power in a cruel universe."
+  },
+
+  "a-will-eternal": {
+    title: "A Will Eternal",
+    year: "2020–",
+    meta: "Cultivation Comedy",
+    tags: ["Cultivation", "Comedy"],
+    why: "A cowardly but clever cultivator survives through wit and luck."
   }
+
 };
