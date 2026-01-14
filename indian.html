@@ -1,76 +1,148 @@
-"dhuurandhar": {
-  title: "Dhurandhar",
-  year: "2026",
-  meta: "Action / Espionage",
-  tags: ["Espionage", "Action", "Political Thriller"]
-},
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Indian Cinema — Popcorn Picks</title>
 
-"animal": {
-  title: "Animal",
-  year: "2023",
-  meta: "Crime / Psychological Drama",
-  tags: ["Crime", "Psychological", "Violence", "Family"]
-},
-
-"sardar-udham": {
-  title: "Sardar Udham",
-  year: "2021",
-  meta: "Historical / Biographical",
-  tags: ["History", "Revolution", "Biopic", "British Raj"]
-},
-
-"chugnam-the-fable": {
-  title: "Chugnam: The Fable",
-  year: "2025",
-  meta: "Fantasy / Mythology",
-  tags: ["Mythology", "Fantasy", "Adventure", "Indian Folklore"]
-},
-
-"twenty-twenty-four": {
-  title: "Twenty Twenty Four",
-  year: "2024",
-  meta: "Political / Thriller",
-  tags: ["Political", "Contemporary", "Drama", "India"]
-},
-
-"kalki-2898-ad": {
-  title: "Kalki 2898 AD",
-  year: "2024",
-  meta: "Sci-Fi / Mythological Epic",
-  tags: ["Science Fiction", "Mythology", "Epic", "Dystopian"]
-},
-
-"rrr": {
-  title: "RRR",
-  year: "2022",
-  meta: "Historical / Action Epic",
-  tags: ["Freedom Fighters", "Friendship", "Epic", "Action"]
-},
-
-"3-idiots": {
-  title: "3 Idiots",
-  year: "2009",
-  meta: "Comedy / Drama",
-  tags: ["College Life", "Friendship", "Education", "Life"]
-},
-
-"zindagi-na-milegi-dobara": {
-  title: "Zindagi Na Milegi Dobara",
-  year: "2011",
-  meta: "Drama / Road Trip",
-  tags: ["Friendship", "Self-Discovery", "Travel", "Life"]
-},
-
-"taare-zameen-par": {
-  title: "Taare Zameen Par",
-  year: "2007",
-  meta: "Drama / Family",
-  tags: ["Children", "Learning", "Emotional", "Education"]
-},
-
-"yeh-jawaani-hai-deewani": {
-  title: "Yeh Jawaani Hai Deewani",
-  year: "2013",
-  meta: "Romance / Youth Drama",
-  tags: ["Love", "Friendship", "Coming of Age", "Dreams"]
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:#0b0b0c;
+  color:#fff;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
 }
+a{text-decoration:none;color:inherit}
+.top{
+  position:sticky;top:0;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:16px 20px;
+  background:rgba(10,10,10,.88);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid #222;
+}
+.grid{
+  padding:24px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:22px;
+}
+.card{
+  border-radius:18px;
+  border:1px solid #181818;
+  overflow:hidden;
+  position:relative;
+}
+.placeholder{
+  height:320px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#888;
+  background:#111;
+}
+.info{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  padding:14px;
+  background:linear-gradient(to top,rgba(0,0,0,.9),transparent);
+}
+.title{font-size:18px;font-weight:600}
+.meta{font-size:12px;color:#aaa}
+</style>
+</head>
+
+<body>
+
+<div class="top">
+  <a href="index.html">← Home</a>
+  <b>Indian Cinema</b>
+  <span></span>
+</div>
+
+<div class="grid">
+
+<a class="card" href="shows.html?id=yeh-jawani-hai-deewani">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">Yeh Jawani Hai Deewani</div>
+    <div class="meta">2013 · Romance</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=taare-zameen-par">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">Taare Zameen Par</div>
+    <div class="meta">2007 · Drama</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=zindagi-na-milegi-dobara">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">Zindagi Na Milegi Dobara</div>
+    <div class="meta">2011 · Drama</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=3-idiots">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">3 Idiots</div>
+    <div class="meta">2009 · Comedy Drama</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=rrr">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">RRR</div>
+    <div class="meta">2022 · Action Epic</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=kalki-2898-ad">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">Kalki 2898 AD</div>
+    <div class="meta">2024 · Sci-Fi Mythology</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=sardar-udham">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">Sardar Udham</div>
+    <div class="meta">2021 · Historical</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=animal">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">Animal</div>
+    <div class="meta">2023 · Crime Drama</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=dhurandhar">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">Dhurandhar</div>
+    <div class="meta">2026 · Espionage</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=jugnuma-the-fable">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">Jugnuma: The Fable</div>
+    <div class="meta">2025 · Fantasy</div>
+  </div>
+</a>
+
+</div>
+
+</body>
+</html>
