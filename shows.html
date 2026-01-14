@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Show — Popcorn Picks</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:#0b0b0c;
+  color:#fff;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+a{text-decoration:none;color:inherit}
+.top{
+  position:sticky; top:0; z-index:20;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 22px;
+  background:rgba(10,10,10,.88);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid #222;
+}
+.link{color:#aaa;font-size:13px}
+.link:hover{color:#fff}
+
+.wrap{max-width:980px;margin:0 auto;padding:26px 22px 70px}
+h1{font-size:40px;letter-spacing:-.02em;margin-top:22px}
+.meta{color:#bdbdbd;font-size:13px;margin-top:10px}
+.poster{
+  margin-top:18px;
+  width:100%;
+  height:520px;
+  border-radius:18px;
+  border:1px solid #181818;
+  background:
+    radial-gradient(1200px 500px at 20% 10%, rgba(255,255,255,.06), transparent 60%),
+    linear-gradient(to bottom, rgba(255,255,255,.03), rgba(0,0,0,.2));
+  display:flex;align-items:center;justify-content:center;
+  color:#9a9a9a;
+}
+.box{
+  margin-top:18px;
+  border:1px solid #222;
+  border-radius:14px;
+  padding:16px;
+  color:#cfcfcf;
+  line-height:1.75;
+  font-size:14px;
+}
+.tags{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
+.tag{
+  border:1px solid #2a2a2a;
+  border-radius:999px;
+  padding:8px 10px;
+  font-size:12px;
+  color:#ddd;
+  background:rgba(255,255,255,.03)
+}
+.small{margin-top:16px;color:#8e8e8e;font-size:12px;line-height:1.6}
+</style>
+</head>
+
+<body>
+  <div class="top">
+    <a class="link" href="tv-shows.html">← Back to TV Shows</a>
+    <a class="link" href="index.html">Home</a>
+  </div>
+
+  <div class="wrap">
+    <h1 id="title">Show</h1>
+    <div class="meta" id="meta"></div>
+
+    <div class="poster" id="poster">Poster coming soon</div>
+
+    <div class="box">
+      <strong>Why to watch:</strong><br>
+      <span id="why"></span>
+    </div>
+
+    <div class="tags" id="tags"></div>
+
+    <div class="small">
+      Tip: Later, when you upload a poster to <b>assets/posters/</b>, we can make this page show it automatically.
+    </div>
+  </div>
+
+<script src="shows-data.js"></script>
+<script>
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+  const show = (window.SHOWS && id) ? window.SHOWS[id] : null;
+
+  if(!show){
+    document.title = "Show not found — Popcorn Picks";
+    document.getElementById("title").textContent = "Show not found";
+    document.getElementById("meta").textContent = "Try opening from the TV Shows page.";
+    document.getElementById("why").textContent = "This show ID does not exist yet in shows-data.js.";
+    return;
+  }
+
+  document.title = show.title + " — Popcorn Picks";
+  document.getElementById("title").textContent = show.title;
+
+  const year = show.year ? (show.year + " • ") : "";
+  document.getElementById("meta").textContent = year + show.meta;
+
+  document.getElementById("why").textContent = show.why;
+
+  const tagsEl = document.getElementById("tags");
+  (show.tags || []).forEach(t => {
+    const d = document.createElement("div");
+    d.className = "tag";
+    d.textContent = t;
+    tagsEl.appendChild(d);
+  });
+})();
+</script>
+</body>
+</html>
