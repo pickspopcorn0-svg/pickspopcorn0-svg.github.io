@@ -1,96 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Movies — Popcorn Picks</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Movies — Popcorn Picks</title>
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  background:#0b0b0c;
-  color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
-}
-a{text-decoration:none;color:inherit}
-.top{
-  position:sticky;top:0;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:16px 20px;
-  background:rgba(10,10,10,.88);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid #222;
-  z-index:20;
-}
-.grid{
-  padding:24px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:22px;
-}
-.card{
-  border-radius:18px;
-  border:1px solid #181818;
-  overflow:hidden;
-  position:relative;
-  background:#111;
-  min-height:320px;
-}
-.poster{
-  height:320px;
-  background:#111;
-  background-size:cover;
-  background-position:center;
-}
-.info{
-  position:absolute;
-  bottom:0;left:0;right:0;
-  padding:14px;
-  background:linear-gradient(to top,rgba(0,0,0,.92),transparent);
-}
-.title{font-size:18px;font-weight:650}
-.meta{font-size:12px;color:#aaa;margin-top:4px}
-</style>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      background:#0b0b0c;
+      color:#fff;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
+    }
+    a{text-decoration:none;color:inherit}
+
+    .top{
+      position:sticky;top:0;z-index:20;
+      display:flex;justify-content:space-between;align-items:center;
+      padding:16px 20px;
+      background:rgba(10,10,10,.88);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid #222;
+    }
+
+    .grid{
+      padding:24px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+      gap:22px;
+    }
+
+    .card{
+      border-radius:18px;
+      border:1px solid #181818;
+      overflow:hidden;
+      position:relative;
+      background:#111;
+      min-height:320px;
+      transition:transform .15s ease, border-color .15s ease;
+    }
+    .card:hover{
+      transform:translateY(-2px);
+      border-color:#2a2a2a;
+    }
+
+    .poster{
+      height:320px;
+      background:#111;
+      background-size:cover;
+      background-position:center;
+    }
+
+    .info{
+      position:absolute;
+      bottom:0;left:0;right:0;
+      padding:14px;
+      background:linear-gradient(to top,rgba(0,0,0,.92),transparent);
+    }
+
+    .title{font-size:18px;font-weight:650}
+    .meta{font-size:12px;color:#aaa;margin-top:4px}
+  </style>
 </head>
 
 <body>
 
-<div class="top">
-  <a href="index.html">← Home</a>
-  <b>Movies</b>
-  <span></span>
-</div>
+  <div class="top">
+    <a href="index.html">← Home</a>
+    <b>Movies</b>
+    <span></span>
+  </div>
 
-<div class="grid" id="grid"></div>
+  <div class="grid" id="grid"></div>
 
-<script src="moviesdata.js"></script>
-<script>
-  const grid = document.getElementById("grid");
-  const movies = window.MOVIES || {};
+  <!-- MOVIE DATA FILE -->
+  <!-- If your file is still named moviesdata.js, keep it like this.
+       If you renamed it to movies-data.js, change the src accordingly. -->
+  <script src="moviesdata.js"></script>
 
-  const items = Object.entries(movies)
-    .map(([id, m]) => ({ id, ...m }))
-    .sort((a,b) => (b.year || "").localeCompare(a.year || "") || (a.title || "").localeCompare(b.title || ""));
+  <script>
+    // Expecting window.MOVIES to be an ARRAY like:
+    // window.MOVIES = [{ id:"dune", title:"Dune", year:"2021", meta:"Sci-Fi", poster:"assets/posters/dune.jpg" }, ...];
 
-  const fallbackPoster = "assets/home/movies.jpg"; // put any image here later
+    const grid = document.getElementById("grid");
+    const movies = Array.isArray(window.MOVIES) ? window.MOVIES : [];
 
-  items.forEach(m => {
-    const poster = m.poster ? m.poster : fallbackPoster;
+    const fallbackPoster = "assets/home/movies.jpg"; // change anytime
 
-    const a = document.createElement("a");
-    a.className = "card";
-    a.href = `shows.html?id=${encodeURIComponent(m.id)}`;
+    // Sort: newest year first, then title A-Z
+    const items = movies.slice().sort((a, b) => {
+      const ay = String(a.year || "");
+      const by = String(b.year || "");
+      const yearSort = by.localeCompare(ay);
+      if (yearSort !== 0) return yearSort;
+      return String(a.title || "").localeCompare(String(b.title || ""));
+    });
 
-    a.innerHTML = `
-      <div class="poster" style="background-image:url('${poster.replace(/'/g, "\\'")}');"></div>
-      <div class="info">
-        <div class="title">${m.title || "Untitled"}</div>
-        <div class="meta">${m.year || ""}${m.meta ? " · " + m.meta : ""}</div>
-      </div>
-    `;
-    grid.appendChild(a);
-  });
-</script>
+    // Render cards
+    items.forEach(m => {
+      const poster = m.poster ? m.poster : fallbackPoster;
+
+      const card = document.createElement("a");
+      card.className = "card";
+
+      // IMPORTANT: Movies should open movie detail page
+      card.href = `movie.html?id=${encodeURIComponent(m.id || "")}`;
+
+      const safePoster = String(poster).replace(/'/g, "\\'");
+
+      card.innerHTML = `
+        <div class="poster" style="background-image:url('${safePoster}')"></div>
+        <div class="info">
+          <div class="title">${m.title ? escapeHtml(m.title) : "Untitled"}</div>
+          <div class="meta">${formatMeta(m.year, m.meta)}</div>
+        </div>
+      `;
+
+      grid.appendChild(card);
+    });
+
+    // Helpers
+    function formatMeta(year, meta){
+      const y = year ? String(year) : "";
+      const mt = meta ? String(meta) : "";
+      if (y && mt) return `${escapeHtml(y)} · ${escapeHtml(mt)}`;
+      if (y) return escapeHtml(y);
+      if (mt) return escapeHtml(mt);
+      return "";
+    }
+
+    function escapeHtml(str){
+      return String(str)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#39;");
+    }
+  </script>
 
 </body>
 </html>
