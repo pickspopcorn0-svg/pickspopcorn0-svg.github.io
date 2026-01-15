@@ -87,14 +87,6 @@ window.SHOWS = {
     why: "CIA agents in Berlin battle leaks, internal betrayal, and dangerous field operations."
   },
 
-  "the-bureau": {
-    title: "The Bureau (Le Bureau des Légendes)",
-    year: "2015–2020",
-    meta: "French Espionage",
-    tags: ["Espionage", "Drama"],
-    why: "One of the most realistic spy series ever made, focusing on long-term undercover work and psychological pressure."
-  },
-
   "shogun": {
     title: "Shōgun",
     year: "2024–",
@@ -270,13 +262,11 @@ window.SHOWS = {
     tags: ["Cultivation", "Comedy"],
     why: "A cowardly but clever cultivator survives through wit and luck."
   }
-
 };
 
-// Popcorn Picks — French Cinema data
-// Type is REQUIRED: "TV" or "Movie"
-
-window.SHOWS = window.SHOWS || {};
+// ─────────────────────────
+// FRENCH CINEMA (TV + MOVIES)
+// ─────────────────────────
 
 Object.assign(window.SHOWS, {
 
@@ -396,331 +386,52 @@ Object.assign(window.SHOWS, {
     tags: ["French", "Heist", "Mystery", "Bingeable"],
     why: "A slick, clever heist series—charismatic lead, clean pacing, and satisfying twists without getting too heavy."
   }
-
 });
 
-window.SHOWS = window.SHOWS || {};
+// ─────────────────────────
+// K-DRAMA (ALL)
+// ─────────────────────────
 
 Object.assign(window.SHOWS, {
 
-  // ─────────────────────────
-  // K-DRAMA — Your Must-Have 21 (NONE MISSING)
-  // ─────────────────────────
+  "insider": { title:"Insider", year:"2022", meta:"Crime / Thriller", tags:["K-Drama","Crime","Thriller"], why:"A tense survival thriller inside the system—power games, betrayal, and a lead forced to outthink everyone just to stay alive." },
+  "priest": { title:"Priest", year:"2018", meta:"Horror / Supernatural", tags:["K-Drama","Horror","Supernatural"], why:"A grounded exorcism drama that feels urgent and serious—medical realism collides with supernatural terror and moral cost." },
+  "flower-of-evil": { title:"Flower of Evil", year:"2020", meta:"Thriller / Mystery", tags:["K-Drama","Thriller","Mystery"], why:"A marriage built on secrets—sharp suspense, emotional weight, and constant doubt about who the person beside you really is." },
+  "the-whale": { title:"The Whale", year:"2021", meta:"Drama", tags:["K-Drama","Drama"], why:"A quieter character-driven drama—built on mood, longing, and emotional undercurrents rather than big twists." },
+  "hymn-of-death": { title:"Hymn of Death", year:"2018", meta:"Period / Tragedy", tags:["K-Drama","Period","Tragedy","Romance"], why:"Short, beautiful, and heartbreaking—love and art crushed by society, told with restraint and a lingering sadness." },
+  "my-liberation-notes": { title:"My Liberation Notes", year:"2022", meta:"Slice of Life / Drama", tags:["K-Drama","Slice of Life","Drama"], why:"A slow-burn masterpiece about loneliness and wanting a different life—quiet writing that hits hard because it feels real." },
+  "undercover": { title:"Undercover", year:"2021", meta:"Thriller / Political", tags:["K-Drama","Thriller","Political"], why:"A marriage tested by secrets and state power—suspenseful, emotional, and driven by the fear of everything collapsing." },
+  "the-k2": { title:"The K2", year:"2016", meta:"Action / Thriller", tags:["K-Drama","Action","Thriller"], why:"Big action energy—bodyguard missions, political danger, and clean adrenaline pacing with stylish set pieces." },
+  "tell-me-what-you-saw": { title:"Tell Me What You Saw", year:"2020", meta:"Crime / Thriller", tags:["K-Drama","Crime","Thriller"], why:"A darker investigative thriller—serial-case tension, sharp pacing, and a constant feeling that danger is one step away." },
+  "descendants-of-the-sun": { title:"Descendants of the Sun", year:"2016", meta:"Romance / Action", tags:["K-Drama","Romance","Action"], why:"A huge-scale hit for a reason—romance under pressure, disaster stakes, and a glossy blockbuster K-drama vibe." },
+  "love-affairs-in-the-afternoon": { title:"Love Affairs in the Afternoon", year:"2019", meta:"Adult Drama / Romance", tags:["K-Drama","Drama","Romance"], why:"A mature relationship drama about loneliness and temptation—quiet, intimate, and emotionally complicated without cheap shock." },
+  "mouse": { title:"Mouse", year:"2021", meta:"Psychological / Thriller", tags:["K-Drama","Psychological","Thriller"], why:"Twisty, dark, and relentless—identity, morality, and fear spiral into a thriller that keeps pulling the rug out." },
+  "our-movie": { title:"Our Movie", year:"2025", meta:"Drama / Romance", tags:["K-Drama","Drama","Romance"], why:"A modern emotional drama focused on relationships and timing—built on feeling, chemistry, and hard choices." },
+  "song-of-the-bandits": { title:"Song of the Bandits", year:"2023", meta:"Action / Period", tags:["K-Drama","Action","Period"], why:"A rough-edged period action ride—outlaws, survival, and violent momentum with strong atmosphere and scale." },
+  "doctor-prisoner": { title:"Doctor Prisoner", year:"2019", meta:"Revenge / Thriller", tags:["K-Drama","Revenge","Thriller"], why:"A sharp revenge drama with brains—medical power becomes a weapon inside a corrupt system, and the payoff is satisfying." },
+  "the-devil-judge": { title:"The Devil Judge", year:"2021", meta:"Dystopian / Thriller", tags:["K-Drama","Thriller","Dystopian"], why:"Stylish and high-concept—justice as spectacle, moral decay, and a lead who feels both heroic and terrifying." },
+  "a-piece-of-your-mind": { title:"A Piece of Your Mind", year:"2020", meta:"Romance / Healing", tags:["K-Drama","Romance","Healing"], why:"Soft, meditative romance—grief and memory handled with calm writing and emotional honesty instead of melodrama." },
+  "queen-of-tears": { title:"Queen of Tears", year:"2024", meta:"Romance / Drama", tags:["K-Drama","Romance","Drama"], why:"Big emotions done right—marriage tension, vulnerability, and a romance that balances pain with genuine warmth." },
+  "doctor-romantic": { title:"Dr. Romantic", year:"2016", meta:"Medical / Drama", tags:["K-Drama","Medical","Drama"], why:"A high-pressure hospital series with heart—mentorship, ethics, and decisions that carry real weight." },
+  "she-would-never-know": { title:"She Would Never Know", year:"2021", meta:"Workplace / Romance", tags:["K-Drama","Workplace","Romance"], why:"A grounded office romance—soft tension, believable chemistry, and emotional growth without forced toxicity." },
+  "doctor-john": { title:"Doctor John", year:"2019", meta:"Medical / Drama", tags:["K-Drama","Medical","Drama"], why:"A medical drama with serious themes—pain, ethics, and responsibility, driven by a calm but intense lead performance." },
 
-  "insider": {
-    title: "Insider",
-    year: "2022",
-    meta: "Crime / Thriller",
-    tags: ["K-Drama", "Crime", "Thriller"],
-    why: "A tense survival thriller inside the system—power games, betrayal, and a lead forced to outthink everyone just to stay alive."
-  },
-
-  "priest": {
-    title: "Priest",
-    year: "2018",
-    meta: "Horror / Supernatural",
-    tags: ["K-Drama", "Horror", "Supernatural"],
-    why: "A grounded exorcism drama that feels urgent and serious—medical realism collides with supernatural terror and moral cost."
-  },
-
-  "flower-of-evil": {
-    title: "Flower of Evil",
-    year: "2020",
-    meta: "Thriller / Mystery",
-    tags: ["K-Drama", "Thriller", "Mystery"],
-    why: "A marriage built on secrets—sharp suspense, emotional weight, and constant doubt about who the person beside you really is."
-  },
-
-  "the-whale": {
-    title: "The Whale",
-    year: "2021",
-    meta: "Drama",
-    tags: ["K-Drama", "Drama"],
-    why: "A quieter character-driven drama—built on mood, longing, and emotional undercurrents rather than big twists."
-  },
-
-  "hymn-of-death": {
-    title: "Hymn of Death",
-    year: "2018",
-    meta: "Period / Tragedy",
-    tags: ["K-Drama", "Period", "Tragedy", "Romance"],
-    why: "Short, beautiful, and heartbreaking—love and art crushed by society, told with restraint and a lingering sadness."
-  },
-
-  "my-liberation-notes": {
-    title: "My Liberation Notes",
-    year: "2022",
-    meta: "Slice of Life / Drama",
-    tags: ["K-Drama", "Slice of Life", "Drama"],
-    why: "A slow-burn masterpiece about loneliness and wanting a different life—quiet writing that hits hard because it feels real."
-  },
-
-  "undercover": {
-    title: "Undercover",
-    year: "2021",
-    meta: "Thriller / Political",
-    tags: ["K-Drama", "Thriller", "Political"],
-    why: "A marriage tested by secrets and state power—suspenseful, emotional, and driven by the fear of everything collapsing."
-  },
-
-  "the-k2": {
-    title: "The K2",
-    year: "2016",
-    meta: "Action / Thriller",
-    tags: ["K-Drama", "Action", "Thriller"],
-    why: "Big action energy—bodyguard missions, political danger, and clean adrenaline pacing with stylish set pieces."
-  },
-
-  "tell-me-what-you-saw": {
-    title: "Tell Me What You Saw",
-    year: "2020",
-    meta: "Crime / Thriller",
-    tags: ["K-Drama", "Crime", "Thriller"],
-    why: "A darker investigative thriller—serial-case tension, sharp pacing, and a constant feeling that danger is one step away."
-  },
-
-  "descendants-of-the-sun": {
-    title: "Descendants of the Sun",
-    year: "2016",
-    meta: "Romance / Action",
-    tags: ["K-Drama", "Romance", "Action"],
-    why: "A huge-scale hit for a reason—romance under pressure, disaster stakes, and a glossy blockbuster K-drama vibe."
-  },
-
-  "love-affairs-in-the-afternoon": {
-    title: "Love Affairs in the Afternoon",
-    year: "2019",
-    meta: "Adult Drama / Romance",
-    tags: ["K-Drama", "Drama", "Romance"],
-    why: "A mature relationship drama about loneliness and temptation—quiet, intimate, and emotionally complicated without cheap shock."
-  },
-
-  "mouse": {
-    title: "Mouse",
-    year: "2021",
-    meta: "Psychological / Thriller",
-    tags: ["K-Drama", "Psychological", "Thriller"],
-    why: "Twisty, dark, and relentless—identity, morality, and fear spiral into a thriller that keeps pulling the rug out."
-  },
-
-  "our-movie": {
-    title: "Our Movie",
-    year: "2025",
-    meta: "Drama / Romance",
-    tags: ["K-Drama", "Drama", "Romance"],
-    why: "A modern emotional drama focused on relationships and timing—built on feeling, chemistry, and hard choices."
-  },
-
-  "song-of-the-bandits": {
-    title: "Song of the Bandits",
-    year: "2023",
-    meta: "Action / Period",
-    tags: ["K-Drama", "Action", "Period"],
-    why: "A rough-edged period action ride—outlaws, survival, and violent momentum with strong atmosphere and scale."
-  },
-
-  "doctor-prisoner": {
-    title: "Doctor Prisoner",
-    year: "2019",
-    meta: "Revenge / Thriller",
-    tags: ["K-Drama", "Revenge", "Thriller"],
-    why: "A sharp revenge drama with brains—medical power becomes a weapon inside a corrupt system, and the payoff is satisfying."
-  },
-
-  "the-devil-judge": {
-    title: "The Devil Judge",
-    year: "2021",
-    meta: "Dystopian / Thriller",
-    tags: ["K-Drama", "Thriller", "Dystopian"],
-    why: "Stylish and high-concept—justice as spectacle, moral decay, and a lead who feels both heroic and terrifying."
-  },
-
-  "a-piece-of-your-mind": {
-    title: "A Piece of Your Mind",
-    year: "2020",
-    meta: "Romance / Healing",
-    tags: ["K-Drama", "Romance", "Healing"],
-    why: "Soft, meditative romance—grief and memory handled with calm writing and emotional honesty instead of melodrama."
-  },
-
-  "queen-of-tears": {
-    title: "Queen of Tears",
-    year: "2024",
-    meta: "Romance / Drama",
-    tags: ["K-Drama", "Romance", "Drama"],
-    why: "Big emotions done right—marriage tension, vulnerability, and a romance that balances pain with genuine warmth."
-  },
-
-  "doctor-romantic": {
-    title: "Dr. Romantic",
-    year: "2016",
-    meta: "Medical / Drama",
-    tags: ["K-Drama", "Medical", "Drama"],
-    why: "A high-pressure hospital series with heart—mentorship, ethics, and decisions that carry real weight."
-  },
-
-  "she-would-never-know": {
-    title: "She Would Never Know",
-    year: "2021",
-    meta: "Workplace / Romance",
-    tags: ["K-Drama", "Workplace", "Romance"],
-    why: "A grounded office romance—soft tension, believable chemistry, and emotional growth without forced toxicity."
-  },
-
-  "doctor-john": {
-    title: "Doctor John",
-    year: "2019",
-    meta: "Medical / Drama",
-    tags: ["K-Drama", "Medical", "Drama"],
-    why: "A medical drama with serious themes—pain, ethics, and responsibility, driven by a calm but intense lead performance."
-  },
-
-  // ─────────────────────────
-  // K-DRAMA — Critically Praised / Cinema-level (22–39)
-  // ─────────────────────────
-
-  "stranger": {
-    title: "Stranger (Secret Forest)",
-    year: "2017–2020",
-    meta: "Crime / Legal Thriller",
-    tags: ["K-Drama", "Crime", "Thriller"],
-    why: "Elite writing and clean tension—corruption, law, and investigation handled with precision and zero cheap drama."
-  },
-
-  "beyond-evil": {
-    title: "Beyond Evil",
-    year: "2021",
-    meta: "Psychological Crime Thriller",
-    tags: ["K-Drama", "Crime", "Psychological"],
-    why: "A slow-burn crime masterpiece—two men, one town, and a case that becomes personal in the darkest ways."
-  },
-
-  "signal": {
-    title: "Signal",
-    year: "2016",
-    meta: "Crime / Time Thriller",
-    tags: ["K-Drama", "Crime", "Thriller"],
-    why: "A brilliant concept executed seriously—cold cases, moral consequences, and suspense that builds through years of regret."
-  },
-
-  "kingdom": {
-    title: "Kingdom",
-    year: "2019–2021",
-    meta: "Historical / Horror",
-    tags: ["K-Drama", "Historical", "Horror"],
-    why: "Prestige historical horror—politics and survival collide with ruthless pacing and cinema-level production."
-  },
-
-  "mr-sunshine": {
-    title: "Mr. Sunshine",
-    year: "2018",
-    meta: "Historical Epic / Romance",
-    tags: ["K-Drama", "Historical", "Epic"],
-    why: "A cinematic historical epic—war, identity, loyalty, and romance shot with scale and emotional weight."
-  },
-
-  "the-red-sleeve": {
-    title: "The Red Sleeve",
-    year: "2021",
-    meta: "Palace / Romance",
-    tags: ["K-Drama", "Historical", "Romance"],
-    why: "A prestige palace drama—love vs duty, power vs freedom, told with restraint and a strong emotional punch."
-  },
-
-  "weak-hero-class-1": {
-    title: "Weak Hero Class 1",
-    year: "2022",
-    meta: "Youth / Action / Drama",
-    tags: ["K-Drama", "Youth", "Action"],
-    why: "Brutal and grounded—school violence treated seriously, with sharp tension and a lead who survives using strategy."
-  },
-
-  "dp": {
-    title: "D.P.",
-    year: "2021–2023",
-    meta: "Military / Drama",
-    tags: ["K-Drama", "Drama", "Realism"],
-    why: "Raw realism—military abuse and institutional cruelty shown without softening, with strong performances and anger behind it."
-  },
-
-  "my-mister": {
-    title: "My Mister",
-    year: "2018",
-    meta: "Human Drama",
-    tags: ["K-Drama", "Drama", "Slice of Life"],
-    why: "One of the most respected dramas ever—quiet suffering, small kindness, and emotional truth without manipulation."
-  },
-
-  "save-me": {
-    title: "Save Me",
-    year: "2017",
-    meta: "Cult Thriller",
-    tags: ["K-Drama", "Thriller", "Dark"],
-    why: "Deeply disturbing and tense—escape from a cult feels like a war, and every episode carries danger and dread."
-  },
-
-  "extracurricular": {
-    title: "Extracurricular",
-    year: "2020",
-    meta: "Crime / Youth",
-    tags: ["K-Drama", "Crime", "Dark"],
-    why: "Very dark youth crime drama—choices spiral fast, consequences hit harder, and nothing feels safe."
-  },
-
-  "the-glory": {
-    title: "The Glory",
-    year: "2022–2023",
-    meta: "Revenge / Drama",
-    tags: ["K-Drama", "Revenge", "Drama"],
-    why: "A serious revenge drama—patient planning, emotional scars, and payoff that feels earned rather than flashy."
-  },
-
-  "through-the-darkness": {
-    title: "Through the Darkness",
-    year: "2022",
-    meta: "Crime / Psychological",
-    tags: ["K-Drama", "Crime", "Psychological"],
-    why: "Korean Mindhunter energy—profiling, psychology, and cases treated with gravity instead of sensationalism."
-  },
-
-  "move-to-heaven": {
-    title: "Move to Heaven",
-    year: "2021",
-    meta: "Human Drama",
-    tags: ["K-Drama", "Drama", "Emotional"],
-    why: "Quietly devastating—each story is about the life someone left behind, told with empathy and clean writing."
-  },
-
-  "misaeng": {
-    title: "Misaeng",
-    year: "2014",
-    meta: "Workplace / Drama",
-    tags: ["K-Drama", "Workplace", "Drama"],
-    why: "A workplace survival classic—real pressures, real people, and the slow grind of becoming competent in a harsh system."
-  },
-
-  "life-on-mars": {
-    title: "Life on Mars",
-    year: "2018",
-    meta: "Crime / Mystery",
-    tags: ["K-Drama", "Crime", "Mystery"],
-    why: "Crime meets existential mystery—good investigations plus an emotional, disorienting question about reality."
-  },
-
-  "the-world-of-the-married": {
-    title: "The World of the Married",
-    year: "2020",
-    meta: "Adult Drama",
-    tags: ["K-Drama", "Drama", "Adult"],
-    why: "Intense adult drama—relationships become warfare, and every decision escalates the emotional damage."
-  },
-
-  "taxi-driver": {
-    title: "Taxi Driver",
-    year: "2021–2023",
-    meta: "Action / Vigilante",
-    tags: ["K-Drama", "Action", "Thriller"],
-    why: "Vigilante justice with moral bite—fast, satisfying, and darker than it first appears."
-  }
-
+  "stranger": { title:"Stranger (Secret Forest)", year:"2017–2020", meta:"Crime / Legal Thriller", tags:["K-Drama","Crime","Thriller"], why:"Elite writing and clean tension—corruption, law, and investigation handled with precision and zero cheap drama." },
+  "beyond-evil": { title:"Beyond Evil", year:"2021", meta:"Psychological Crime Thriller", tags:["K-Drama","Crime","Psychological"], why:"A slow-burn crime masterpiece—two men, one town, and a case that becomes personal in the darkest ways." },
+  "signal": { title:"Signal", year:"2016", meta:"Crime / Time Thriller", tags:["K-Drama","Crime","Thriller"], why:"A brilliant concept executed seriously—cold cases, moral consequences, and suspense that builds through years of regret." },
+  "kingdom": { title:"Kingdom", year:"2019–2021", meta:"Historical / Horror", tags:["K-Drama","Historical","Horror"], why:"Prestige historical horror—politics and survival collide with ruthless pacing and cinema-level production." },
+  "mr-sunshine": { title:"Mr. Sunshine", year:"2018", meta:"Historical Epic / Romance", tags:["K-Drama","Historical","Epic"], why:"A cinematic historical epic—war, identity, loyalty, and romance shot with scale and emotional weight." },
+  "the-red-sleeve": { title:"The Red Sleeve", year:"2021", meta:"Palace / Romance", tags:["K-Drama","Historical","Romance"], why:"A prestige palace drama—love vs duty, power vs freedom, told with restraint and a strong emotional punch." },
+  "weak-hero-class-1": { title:"Weak Hero Class 1", year:"2022", meta:"Youth / Action / Drama", tags:["K-Drama","Youth","Action"], why:"Brutal and grounded—school violence treated seriously, with sharp tension and a lead who survives using strategy." },
+  "dp": { title:"D.P.", year:"2021–2023", meta:"Military / Drama", tags:["K-Drama","Drama","Realism"], why:"Raw realism—military abuse and institutional cruelty shown without softening, with strong performances and anger behind it." },
+  "my-mister": { title:"My Mister", year:"2018", meta:"Human Drama", tags:["K-Drama","Drama","Slice of Life"], why:"One of the most respected dramas ever—quiet suffering, small kindness, and emotional truth without manipulation." },
+  "save-me": { title:"Save Me", year:"2017", meta:"Cult Thriller", tags:["K-Drama","Thriller","Dark"], why:"Deeply disturbing and tense—escape from a cult feels like a war, and every episode carries danger and dread." },
+  "extracurricular": { title:"Extracurricular", year:"2020", meta:"Crime / Youth", tags:["K-Drama","Crime","Dark"], why:"Very dark youth crime drama—choices spiral fast, consequences hit harder, and nothing feels safe." },
+  "the-glory": { title:"The Glory", year:"2022–2023", meta:"Revenge / Drama", tags:["K-Drama","Revenge","Drama"], why:"A serious revenge drama—patient planning, emotional scars, and payoff that feels earned rather than flashy." },
+  "through-the-darkness": { title:"Through the Darkness", year:"2022", meta:"Crime / Psychological", tags:["K-Drama","Crime","Psychological"], why:"Korean Mindhunter energy—profiling, psychology, and cases treated with gravity instead of sensationalism." },
+  "move-to-heaven": { title:"Move to Heaven", year:"2021", meta:"Human Drama", tags:["K-Drama","Drama","Emotional"], why:"Quietly devastating—each story is about the life someone left behind, told with empathy and clean writing." },
+  "misaeng": { title:"Misaeng", year:"2014", meta:"Workplace / Drama", tags:["K-Drama","Workplace","Drama"], why:"A workplace survival classic—real pressures, real people, and the slow grind of becoming competent in a harsh system." },
+  "life-on-mars": { title:"Life on Mars", year:"2018", meta:"Crime / Mystery", tags:["K-Drama","Crime","Mystery"], why:"Crime meets existential mystery—good investigations plus an emotional, disorienting question about reality." },
+  "the-world-of-the-married": { title:"The World of the Married", year:"2020", meta:"Adult Drama", tags:["K-Drama","Drama","Adult"], why:"Intense adult drama—relationships become warfare, and every decision escalates the emotional damage." },
+  "taxi-driver": { title:"Taxi Driver", year:"2021–2023", meta:"Action / Vigilante", tags:["K-Drama","Action","Thriller"], why:"Vigilante justice with moral bite—fast, satisfying, and darker than it first appears." }
 });
