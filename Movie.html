@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Movie — Popcorn Picks</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:#0b0b0c;
+  color:#fff;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
+}
+a{text-decoration:none;color:inherit}
+
+.top{
+  position:sticky;top:0;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:16px 20px;
+  background:rgba(10,10,10,.88);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid #222;
+  z-index:50;
+}
+.top b{font-size:16px}
+
+.wrap{padding:18px 18px 30px;max-width:980px;margin:0 auto}
+.hero{
+  display:grid;
+  grid-template-columns:240px 1fr;
+  gap:18px;
+}
+@media (max-width:720px){
+  .hero{grid-template-columns:1fr}
+}
+.poster{
+  width:100%;
+  aspect-ratio:2/3;
+  border-radius:18px;
+  border:1px solid #181818;
+  background:#111;
+  background-size:cover;
+  background-position:center;
+}
+.h1{font-size:26px;font-weight:750;line-height:1.15}
+.meta{margin-top:8px;color:#bbb;font-size:14px;line-height:1.5}
+.genres{
+  margin-top:12px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.tag{
+  border:1px solid #222;
+  background:#111;
+  color:#ddd;
+  padding:10px 12px;
+  border-radius:999px;
+  font-size:13px;
+}
+.section{margin-top:18px}
+.label{color:#aaa;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.summary{
+  margin-top:8px;
+  font-size:15px;
+  line-height:1.7;
+  color:#f1f1f1;
+  opacity:.95;
+}
+.note{
+  margin-top:12px;
+  color:#888;
+  font-size:12px;
+  line-height:1.6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="top">
+  <a href="movies.html">← Movies</a>
+  <b id="topTitle">Movie</b>
+  <span></span>
+</div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="poster" id="poster"></div>
+
+    <div>
+      <div class="h1" id="title">Loading...</div>
+      <div class="meta" id="meta"></div>
+
+      <div class="genres" id="genres"></div>
+
+      <div class="section">
+        <div class="label">Synopsis</div>
+        <div class="summary" id="summary"></div>
+        <div class="note">Spoiler free. Written for Popcorn Picks.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="moviesdata.js"></script>
+<script>
+  const params = new URLSearchParams(location.search);
+  const id = params.get("id");
+
+  const MOVIES = Array.isArray(window.MOVIES) ? window.MOVIES : [];
+  const movie = MOVIES.find(m => String(m.id) === String(id));
+
+  const fallbackPoster = "assets/home/movies.jpg";
+
+  const titleEl = document.getElementById("title");
+  const topTitleEl = document.getElementById("topTitle");
+  const metaEl = document.getElementById("meta");
+  const posterEl = document.getElementById("poster");
+  const genresEl = document.getElementById("genres");
+  const summaryEl = document.getElementById("summary");
+
+  if (!id || !movie) {
+    titleEl.textContent = "Movie not found";
+    topTitleEl.textContent = "Not found";
+    metaEl.textContent = "This title is missing or the link is incorrect.";
+    posterEl.style.backgroundImage = `url('${fallbackPoster}')`;
+    summaryEl.textContent = "Go back and try again.";
+  } else {
+    const poster = movie.poster ? movie.poster : fallbackPoster;
+
+    titleEl.textContent = movie.title || "Untitled";
+    topTitleEl.textContent = movie.title || "Movie";
+
+    const year = movie.year ? String(movie.year) : "";
+    const meta = movie.meta ? String(movie.meta) : "";
+    metaEl.textContent = [year, meta].filter(Boolean).join(" • ");
+
+    posterEl.style.backgroundImage = `url('${String(poster).replace(/'/g,"\\'")}')`;
+
+    const tags = Array.isArray(movie.genres) ? movie.genres : [];
+    genresEl.innerHTML = "";
+    tags.slice(0, 18).forEach(t => {
+      const chip = document.createElement("div");
+      chip.className = "tag";
+      chip.textContent = t;
+      genresEl.appendChild(chip);
+    });
+
+    summaryEl.textContent = movie.summary || "Synopsis coming soon.";
+    document.title = (movie.title ? movie.title + " — " : "") + "Popcorn Picks";
+  }
+</script>
+
+</body>
+</html>
