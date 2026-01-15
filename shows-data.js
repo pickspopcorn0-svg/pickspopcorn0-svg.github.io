@@ -272,3 +272,129 @@ window.SHOWS = {
   }
 
 };
+
+// Popcorn Picks — French Cinema data
+// Type is REQUIRED: "TV" or "Movie"
+
+window.SHOWS = window.SHOWS || {};
+
+Object.assign(window.SHOWS, {
+
+  "the-bureau": {
+    title: "The Bureau (Le Bureau des Légendes)",
+    year: "2015–2020",
+    type: "TV",
+    meta: "Espionage / Drama • TV Series",
+    tags: ["French", "Espionage", "Realism", "Tradecraft"],
+    why: "One of the most realistic spy series ever made—slow-burn tradecraft, long-cover identities, and the psychological cost of living as someone else."
+  },
+
+  "revenge-2017": {
+    title: "Revenge",
+    year: "2017",
+    type: "Movie",
+    meta: "Revenge Thriller • Film",
+    tags: ["French", "Revenge", "Survival", "Stylish"],
+    why: "A razor-sharp revenge thriller with bold style and brutal momentum—simple setup, relentless payoff, and a fierce lead performance."
+  },
+
+  "a-prophet": {
+    title: "A Prophet (Un prophète)",
+    year: "2009",
+    type: "Movie",
+    meta: "Crime / Prison Drama • Film",
+    tags: ["French", "Crime", "Prison", "Rise"],
+    why: "A prison rise story with bite—power, identity, and survival captured with tense realism and unforgettable character escalation."
+  },
+
+  "the-intouchables": {
+    title: "The Intouchables (Intouchables)",
+    year: "2011",
+    type: "Movie",
+    meta: "Comedy-Drama • Film",
+    tags: ["French", "Heartfelt", "Friendship"],
+    why: "Warm, funny, and human—an unlikely friendship that lands because the emotion feels earned, not forced."
+  },
+
+  "portrait-of-a-lady-on-fire": {
+    title: "Portrait of a Lady on Fire",
+    year: "2019",
+    type: "Movie",
+    meta: "Romance / Period Drama • Film",
+    tags: ["French", "Period", "Romance", "Art"],
+    why: "A quiet, devastating love story told through gaze and restraint—beautifully composed and emotionally explosive without melodrama."
+  },
+
+  "la-haine": {
+    title: "La Haine",
+    year: "1995",
+    type: "Movie",
+    meta: "Social Drama / Crime • Film",
+    tags: ["French", "Classic", "Urban", "Anger"],
+    why: "A landmark film with urgency and anger—raw, tense, and still modern in the way it captures pressure building toward collapse."
+  },
+
+  "tell-no-one": {
+    title: "Tell No One (Ne le dis à personne)",
+    year: "2006",
+    type: "Movie",
+    meta: "Mystery / Thriller • Film",
+    tags: ["French", "Thriller", "Mystery", "Fast-paced"],
+    why: "A tightly plotted thriller that keeps shifting the ground—emotionally driven, sharp twists, and nonstop forward momentum."
+  },
+
+  "athena": {
+    title: "Athena",
+    year: "2022",
+    type: "Movie",
+    meta: "Action / Social Thriller • Film",
+    tags: ["French", "Action", "Intensity", "Political"],
+    why: "High-intensity and immersive—riot-scale tension with bold filmmaking and a pulse that never lets up."
+  },
+
+  "elle": {
+    title: "Elle",
+    year: "2016",
+    type: "Movie",
+    meta: "Psychological Thriller • Film",
+    tags: ["French", "Psychological", "Dark", "Provocative"],
+    why: "A sharp, unsettling psychological thriller that refuses easy answers—controlled, provocative, and driven by a fearless lead."
+  },
+
+  "the-returned": {
+    title: "The Returned (Les Revenants)",
+    year: "2012–2015",
+    type: "TV",
+    meta: "Supernatural / Mystery • TV Series",
+    tags: ["French", "Supernatural", "Atmosphere", "Mystery"],
+    why: "Haunting and atmospheric—grief, mystery, and quiet dread in a small town where the impossible feels strangely normal."
+  },
+
+  "spiral": {
+    title: "Spiral (Engrenages)",
+    year: "2005–2020",
+    type: "TV",
+    meta: "Crime / Police Procedural • TV Series",
+    tags: ["French", "Crime", "Police", "Courtroom"],
+    why: "Gritty and grounded—crime, law, and politics interlock in a long-running series that treats consequences seriously."
+  },
+
+  "baron-noir": {
+    title: "Baron Noir",
+    year: "2016–2020",
+    type: "TV",
+    meta: "Political Thriller • TV Series",
+    tags: ["French", "Politics", "Power", "Strategy"],
+    why: "French political warfare at street level—ambition, betrayal, and strategy with sharp writing and constant pressure."
+  },
+
+  "lupin": {
+    title: "Lupin",
+    year: "2021–",
+    type: "TV",
+    meta: "Heist / Mystery • TV Series",
+    tags: ["French", "Heist", "Mystery", "Bingeable"],
+    why: "A slick, clever heist series—charismatic lead, clean pacing, and satisfying twists without getting too heavy."
+  }
+
+});
