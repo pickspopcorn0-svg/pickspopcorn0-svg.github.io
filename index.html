@@ -8,8 +8,12 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-  background:#0b0b0c;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(255,80,40,.06), transparent 60%),
+    radial-gradient(800px 400px at 90% 20%, rgba(80,160,255,.05), transparent 60%),
+    linear-gradient(to bottom, #0a0a0c, #050506);
   color:#fff;
+}
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
 a{color:inherit;text-decoration:none}
@@ -81,13 +85,31 @@ nav a:hover{color:#fff}
 /* SECTIONS */
 .section{
   padding:96px 60px;
-}
-.section h2{
-  font-size:26px;
-  margin-bottom:26px;
-  letter-spacing:.2px;
+  position:relative;
 }
 
+.section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(600px 300px at 10% 20%, rgba(255,120,60,.06), transparent 60%),
+    radial-gradient(700px 400px at 90% 80%, rgba(120,160,255,.05), transparent 60%);
+  pointer-events:none;
+  z-index:0;
+}
+
+.section > *{
+  position:relative;
+  z-index:1;
+}
+
+.section h2{
+  font-size:28px;
+  margin-bottom:28px;
+  letter-spacing:.4px;
+  color:#fff;
+}
 /* FEATURED COLLECTIONS (ARTICLE LOOK) */
 .feed{
   display:grid;
@@ -155,9 +177,26 @@ nav a:hover{color:#fff}
   background-position:center;
   position:relative;
   overflow:hidden;
-  border:1px solid #181818;
   display:block;
-  transition:transform .15s ease, border-color .15s ease;
+
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 30px 70px rgba(0,0,0,.7);
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.cat::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(to top, rgba(0,0,0,.85), rgba(0,0,0,.25), transparent);
+}
+
+.cat:hover{
+  transform:translateY(-6px) scale(1.02);
+  box-shadow:0 50px 100px rgba(0,0,0,.9);
+  border-color:rgba(255,255,255,.18);
+}
 }
 .cat:hover{border-color:#fff; transform:translateY(-2px)}
 .cat::after{
