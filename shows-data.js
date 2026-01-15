@@ -2,6 +2,9 @@
 // Edit this file only when adding new titles
 
 window.SHOWS = window.SHOWS || {};
+
+Object.assign(window.SHOWS, {
+
   // ─────────────────────────
   // WESTERN / INTERNATIONAL
   // ─────────────────────────
@@ -9,11 +12,13 @@ window.SHOWS = window.SHOWS || {};
   "robin-hood": {
     title: "Robin Hood",
     year: "2025",
+    type: "TV",
     meta: "Adventure • Period",
     tags: ["Adventure", "Period"],
     why: "A grounded retelling of the Robin Hood legend focused on rebellion, loyalty, and the price of standing against power."
-  },
+  }
 
+});
   "wheel-of-time": {
     title: "The Wheel of Time",
     year: "2021–",
