@@ -1,19 +1,188 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>French Cinema — Popcorn Picks</title>
+
 <style>
-body{background:#0b0b0c;color:white;font-family:system-ui;padding:70px 24px}
-a{color:#aaa;text-decoration:none}
-a:hover{color:white}
-p{color:#ccc;max-width:60ch;line-height:1.6}
-.box{margin-top:20px;padding:18px;border:1px solid #222;border-radius:14px;background:rgba(255,255,255,0.03)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:#0b0b0c;
+  color:#fff;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
+}
+a{text-decoration:none;color:inherit}
+.top{
+  position:sticky;top:0;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:16px 20px;
+  background:rgba(10,10,10,.88);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid #222;
+}
+.grid{
+  padding:24px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:22px;
+}
+.card{
+  border-radius:18px;
+  border:1px solid #181818;
+  overflow:hidden;
+  position:relative;
+}
+.placeholder{
+  height:320px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#888;
+  background:#111;
+}
+.info{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  padding:14px;
+  background:linear-gradient(to top,rgba(0,0,0,.9),transparent);
+}
+.title{font-size:18px;font-weight:600}
+.meta{font-size:12px;color:#aaa}
 </style>
 </head>
+
 <body>
-<a href="index.html">← Back to home</a>
-<h1>French Cinema</h1>
-<p>From classics to modern French films.</p>
-<div class="box">Your French cinema lists will appear here.</div>
+
+<div class="top">
+  <a href="index.html">← Home</a>
+  <b>French Cinema</b>
+  <span></span>
+</div>
+
+<div class="grid">
+
+<a class="card" href="shows.html?id=the-bureau">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">The Bureau (Le Bureau des Légendes)</div>
+    <div class="meta">2015–2020 · Espionage</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=the-returned">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">The Returned (Les Revenants)</div>
+    <div class="meta">2012–2015 · Supernatural</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=spiral">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">Spiral (Engrenages)</div>
+    <div class="meta">2005–2020 · Crime</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=baron-noir">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">Baron Noir</div>
+    <div class="meta">2016–2020 · Political Thriller</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=lupin">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">Lupin</div>
+    <div class="meta">2021– · Mystery / Heist</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=revenge-2017">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">Revenge</div>
+    <div class="meta">2017 · Survival / Revenge</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=a-prophet">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">A Prophet (Un Prophète)</div>
+    <div class="meta">2009 · Crime / Prison</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=the-intouchables">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">The Intouchables</div>
+    <div class="meta">2011 · Drama</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=portrait-of-a-lady-on-fire">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">Portrait of a Lady on Fire</div>
+    <div class="meta">2019 · Period / Romance</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=athena">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">Athena</div>
+    <div class="meta">2022 · Urban War Drama</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=the-beat-that-my-heart-skipped">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">The Beat That My Heart Skipped</div>
+    <div class="meta">2005 · Psychological Drama</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=elle">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">Elle</div>
+    <div class="meta">2016 · Psychological Thriller</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=blue-is-the-warmest-color">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">Blue Is the Warmest Color</div>
+    <div class="meta">2013 · Relationship Drama</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=tell-no-one">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">Tell No One</div>
+    <div class="meta">2006 · Thriller / Mystery</div>
+  </div>
+</a>
+
+<a class="card" href="shows.html?id=la-haine">
+  <div class="placeholder"></div>
+  <div class="info">
+    <div class="title">La Haine</div>
+    <div class="meta">1995 · Social / Urban</div>
+  </div>
+</a>
+
+</div>
+
 </body>
 </html>
