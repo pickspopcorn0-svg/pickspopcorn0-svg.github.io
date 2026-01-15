@@ -7,520 +7,89 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg:#0b0b0c;
-  --panel:#0f0f10;
-  --border:#181818;
-  --border2:#222;
-  --text:#fff;
-  --muted:#bdbdbd;
-  --muted2:#cfcfcf;
-}
 body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background:#0b0b0c;
+  color:#fff;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
 }
-a{color:inherit;text-decoration:none}
-
-/* TOPBAR */
-.topbar{
-  position:sticky; top:0; z-index:50;
-  display:flex; align-items:center; justify-content:space-between;
-  padding:18px 22px;
+a{text-decoration:none;color:inherit}
+.top{
+  position:sticky;top:0;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:16px 20px;
   background:rgba(10,10,10,.88);
-  backdrop-filter: blur(10px);
-  border-bottom:1px solid var(--border2);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid #222;
+  z-index:20;
 }
-.back{color:#aaa;font-size:13px}
-.back:hover{color:#fff}
-.brand{font-weight:650;letter-spacing:.5px;font-size:14px}
-
-/* HEADER */
-.header{padding:46px 22px 18px}
-.header h1{
-  font-size:40px;
-  letter-spacing:-.02em;
-}
-.header p{
-  margin-top:10px;
-  color:var(--muted2);
-  max-width:78ch;
-  line-height:1.6;
-  font-size:14px;
-}
-
-/* GRID */
 .grid{
-  padding:22px;
+  padding:24px;
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
   gap:22px;
 }
-
 .card{
-  position:relative;
   border-radius:18px;
+  border:1px solid #181818;
   overflow:hidden;
-  border:1px solid var(--border);
-  background:var(--panel);
-  transition:transform .15s ease, border-color .15s ease;
-  cursor:pointer;
-  min-height:420px;
-}
-.card:hover{border-color:#fff; transform:translateY(-2px)}
-.card::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,.92));
-  pointer-events:none;
-}
-
-.posterBox{
-  width:100%;
-  height:330px;
+  position:relative;
   background:#111;
+  min-height:320px;
 }
-.posterBox img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
+.poster{
+  height:320px;
+  background:#111;
+  background-size:cover;
+  background-position:center;
 }
-.placeholder{
-  height:330px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  text-align:center;
-  color:#9a9a9a;
-  background:
-    radial-gradient(1200px 500px at 20% 10%, rgba(255,255,255,.06), transparent 60%),
-    linear-gradient(to bottom, rgba(255,255,255,.03), rgba(0,0,0,.2));
-}
-.placeholder span{
-  display:inline-block;
-  border:1px solid #2a2a2a;
-  padding:10px 12px;
-  border-radius:999px;
-  font-size:12px;
-  letter-spacing:.2px;
-}
-
 .info{
   position:absolute;
-  left:0; right:0; bottom:0;
-  padding:16px 16px 18px;
+  bottom:0;left:0;right:0;
+  padding:14px;
+  background:linear-gradient(to top,rgba(0,0,0,.92),transparent);
 }
-.title{
-  font-size:18px;
-  font-weight:650;
-  margin-bottom:6px;
-}
-.meta{
-  font-size:12px;
-  color:var(--muted);
-  margin-bottom:10px;
-}
-.desc{
-  font-size:13px;
-  color:var(--muted2);
-  line-height:1.45;
-  max-width:44ch;
-}
-
-/* MODAL */
-.modalOverlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.75);
-  backdrop-filter: blur(10px);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:18px;
-  z-index:999;
-}
-.modalOverlay.open{display:flex}
-
-.modal{
-  width:min(980px, 100%);
-  max-height:88vh;
-  overflow:auto;
-  border-radius:22px;
-  border:1px solid #2a2a2a;
-  background:rgba(15,15,16,.92);
-  box-shadow: 0 20px 80px rgba(0,0,0,.6);
-}
-.modalTop{
-  position:sticky;
-  top:0;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:14px;
-  padding:14px 16px;
-  background:rgba(10,10,10,.82);
-  border-bottom:1px solid #242424;
-  z-index:5;
-}
-.modalTop .siteName{font-size:13px;color:#cfcfcf;letter-spacing:.3px}
-.closeBtn{
-  border:1px solid #2a2a2a;
-  background:rgba(255,255,255,.06);
-  color:#fff;
-  padding:8px 12px;
-  border-radius:12px;
-  font-size:13px;
-  cursor:pointer;
-}
-.closeBtn:hover{background:rgba(255,255,255,.10)}
-
-.modalBody{
-  display:grid;
-  grid-template-columns: 320px 1fr;
-  gap:22px;
-  padding:18px;
-}
-.modalPoster{
-  border-radius:18px;
-  overflow:hidden;
-  border:1px solid #2a2a2a;
-  background:#111;
-  height:480px;
-}
-.modalPoster img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
-.modalPoster .placeholder{height:480px}
-
-.modalTitle{
-  font-size:34px;
-  letter-spacing:-.02em;
-  line-height:1.08;
-  margin-top:2px;
-}
-.modalMeta{
-  margin-top:10px;
-  color:#bdbdbd;
-  font-size:13px;
-}
-.modalText{
-  margin-top:14px;
-}
-.modalText p{
-  color:#d7d7d7;
-  line-height:1.9;
-  font-size:16px;
-  margin:0 0 14px 0;
-  max-width:78ch;
-}
-.pills{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:14px;
-}
-.pill{
-  font-size:12px;
-  color:#ddd;
-  border:1px solid #2a2a2a;
-  background:rgba(255,255,255,.06);
-  padding:8px 10px;
-  border-radius:999px;
-}
-
-@media(max-width:820px){
-  .modalBody{grid-template-columns:1fr}
-  .modalPoster{height:420px}
-  .modalTitle{font-size:28px}
-}
+.title{font-size:18px;font-weight:650}
+.meta{font-size:12px;color:#aaa;margin-top:4px}
 </style>
 </head>
 
 <body>
 
-<div class="topbar">
-  <a class="back" href="index.html">← Back</a>
-  <div class="brand">Popcorn Picks</div>
-  <div style="width:48px"></div>
+<div class="top">
+  <a href="index.html">← Home</a>
+  <b>Movies</b>
+  <span></span>
 </div>
 
-<section class="header">
-  <h1>Movies</h1>
-  <p>
-    A curated list with clear synopses and who each film is for. Tap a title to open the full write-up.
-    Posters are optional and can be added later in <code>assets/posters/</code>.
-  </p>
-</section>
+<div class="grid" id="grid"></div>
 
-<section class="grid" id="movieGrid"></section>
-
-<!-- MODAL -->
-<div class="modalOverlay" id="modalOverlay" aria-hidden="true">
-  <div class="modal" role="dialog" aria-modal="true" aria-label="Movie details">
-    <div class="modalTop">
-      <div class="siteName">Popcorn Picks</div>
-      <button class="closeBtn" id="closeBtn" type="button">Close</button>
-    </div>
-
-    <div class="modalBody">
-      <div class="modalPoster" id="modalPoster"></div>
-
-      <div>
-        <div class="modalTitle" id="modalTitle"></div>
-        <div class="modalMeta" id="modalMeta"></div>
-
-        <div class="pills" id="modalPills"></div>
-
-        <div class="modalText" id="modalText"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
+<script src="moviesdata.js"></script>
 <script>
-/*
-  OPTIONAL POSTERS:
-  If you upload posters, put them here:
-  assets/posters/all-quiet.jpg
-  assets/posters/one-battle-after-another.jpg
-  assets/posters/the-intern.jpg
-  assets/posters/revenge-2017.jpg
-  assets/posters/jack-reacher.jpg
-  assets/posters/the-exam.jpg
-  assets/posters/bugonia.jpg
-  assets/posters/meet-joe-black.jpg
-  assets/posters/lone-survivor-2023.jpg
-  assets/posters/rrr.jpg
+  const grid = document.getElementById("grid");
+  const movies = window.MOVIES || {};
 
-  If you do NOT upload posters, the page still looks fine (it shows "Poster coming soon").
-*/
+  const items = Object.entries(movies)
+    .map(([id, m]) => ({ id, ...m }))
+    .sort((a,b) => (b.year || "").localeCompare(a.year || "") || (a.title || "").localeCompare(b.title || ""));
 
-const movies = [
-  {
-    id: "all-quiet",
-    title: "All Quiet on the Western Front",
-    year: "2022",
-    meta: "Germany • War / Anti-war drama",
-    tags: ["War", "Anti-war", "Brutal", "Atmospheric"],
-    poster: "assets/posters/all-quiet.jpg",
-    short: "A young soldier enters the trenches believing in honor and returns with his entire view of life shattered.",
-    paragraphs: [
-      "Paul joins the German army with his school friends, convinced that war will give them purpose and pride. Within days, the front strips those illusions away. What remains is fear, hunger, exhaustion, and the constant awareness that survival is never guaranteed.",
-      "The film focuses on the physical and emotional toll of combat rather than heroics. Mud, blood, and silence become as important as explosions. Every small moment carries weight because death is always close.",
-      "This is a war film for people who want to feel what conflict does to the human spirit rather than just watch battles."
-    ]
-  },
-  {
-    id: "one-battle-after-another",
-    title: "One Battle After Another",
-    year: "2025",
-    meta: "Thriller / Drama",
-    tags: ["Tense", "Psychological", "Conflict", "Pressure"],
-    poster: "assets/posters/one-battle-after-another.jpg",
-    short: "A tense thriller about how one conflict leads to another, and how every decision leaves something behind.",
-    paragraphs: [
-      "This story follows people caught in a chain of consequences. A problem is dealt with, but the solution creates something even more dangerous. Relationships strain, loyalties shift, and the pressure keeps rising.",
-      "Instead of focusing on one dramatic event, the film builds momentum through escalation. Every scene pushes the characters deeper into situations they cannot easily escape.",
-      "It is for viewers who enjoy thrillers driven by psychology, tension, and the slow collapse of control."
-    ]
-  },
-  {
-    id: "the-intern",
-    title: "The Intern",
-    year: "2015",
-    meta: "US • Comedy / Drama",
-    tags: ["Comforting", "Warm", "Work-life", "Feel-good"],
-    poster: "assets/posters/the-intern.jpg",
-    short: "A retired man finds new meaning when he joins a fast-paced startup and becomes an unexpected source of calm.",
-    paragraphs: [
-      "Ben, a widower in his seventies, does not want to fade quietly into retirement. He becomes an intern at a young, ambitious fashion company run by Jules, a woman struggling under the weight of responsibility.",
-      "Their relationship grows through simple, honest moments. Ben does not try to change Jules. He simply offers steadiness, experience, and respect, which becomes exactly what she needs.",
-      "It is a warm, gentle film about work, age, and the value of human connection in a noisy world."
-    ]
-  },
-  {
-    id: "revenge",
-    title: "Revenge",
-    year: "2017",
-    meta: "Survival / Revenge thriller",
-    tags: ["Survival", "Revenge", "Hard-edged", "Fast"],
-    poster: "assets/posters/revenge-2017.jpg",
-    short: "A woman left for dead fights back with raw determination in a brutal story of survival.",
-    paragraphs: [
-      "What begins as an uncomfortable weekend quickly turns into something violent and terrifying. After being betrayed and abandoned, a woman must rely on instinct and willpower to stay alive.",
-      "The film is intense and direct. It does not soften the violence, and it does not glamorize what revenge costs.",
-      "This is for viewers who can handle hard-edged stories that confront pain and resilience head on."
-    ]
-  },
-  {
-    id: "jack-reacher",
-    title: "Jack Reacher",
-    year: "2012",
-    meta: "Action / Thriller",
-    tags: ["Investigation", "Action", "Tough", "Clean plot"],
-    poster: "assets/posters/jack-reacher.jpg",
-    short: "A lone investigator uncovers the truth behind a case that was supposed to be simple.",
-    paragraphs: [
-      "When a shooting appears to be solved too quickly, Jack Reacher steps in because something does not feel right. Each clue leads to deeper corruption and hidden motives.",
-      "The film moves with the rhythm of a proper investigation. It is about noticing details, reading people, and refusing to accept easy answers.",
-      "It suits viewers who enjoy action films that still respect plot and logic."
-    ]
-  },
-  {
-    id: "the-exam",
-    title: "The Exam",
-    year: "2009",
-    meta: "Psychological / Mystery",
-    tags: ["Mind game", "One room", "Tension", "Clever"],
-    poster: "assets/posters/the-exam.jpg",
-    short: "Eight candidates sit in a room where the real test is how they think under pressure.",
-    paragraphs: [
-      "A mysterious job exam places several people in one room with a single set of rules and almost no guidance. What follows is not about writing answers, but about how they react to uncertainty and competition.",
-      "As tension rises, trust breaks down and every decision becomes risky.",
-      "It is a smart, contained thriller that rewards attention and patience."
-    ]
-  },
-  {
-    id: "bugonia",
-    title: "Bugonia",
-    year: "2025",
-    meta: "Mystery / Thriller",
-    tags: ["Mystery", "Dark", "Atmosphere", "Unsettling"],
-    poster: "assets/posters/bugonia.jpg",
-    short: "A dark, atmospheric mystery where nothing is fully explained until it is too late.",
-    paragraphs: [
-      "This film builds its power through mood rather than speed. The story moves through uncertainty, with characters trying to understand what is being hidden from them.",
-      "The experience feels unsettling in a quiet way, where even normal moments carry unease.",
-      "It is best for viewers who enjoy slow-burn mysteries with a strong sense of atmosphere."
-    ]
-  },
-  {
-    id: "meet-joe-black",
-    title: "Meet Joe Black",
-    year: "1998",
-    meta: "Drama / Romance / Fantasy",
-    tags: ["Romance", "Philosophical", "Slow", "Emotional"],
-    poster: "assets/posters/meet-joe-black.jpg",
-    short: "A man meets Death in human form and is given a final chance to understand life and love.",
-    paragraphs: [
-      "As a powerful businessman approaches the end of his life, Death arrives not as a shadow, but as a man curious about what it means to be human.",
-      "Through conversations, romance, and quiet moments, the film reflects on time, regret, and what makes life meaningful.",
-      "It is slow, emotional, and thoughtful, meant to be felt rather than rushed."
-    ]
-  },
-  {
-    id: "lone-survivor-2023",
-    title: "Lone Survivor",
-    year: "2023",
-    meta: "Action / Survival",
-    tags: ["Survival", "Intensity", "Physical", "Gritty"],
-    poster: "assets/posters/lone-survivor-2023.jpg",
-    short: "A survival story focused on endurance, pain, and the struggle to stay alive.",
-    paragraphs: [
-      "The film places its characters in an extreme situation where every step forward costs something. Injuries, fear, and exhaustion shape every decision.",
-      "There is no easy heroism here. The story stays close to the physical and emotional limits of the human body.",
-      "It is for viewers who like serious survival dramas with a grounded tone."
-    ]
-  },
-  {
-    id: "rrr",
-    title: "RRR",
-    year: "2022",
-    meta: "India • Epic action / Drama",
-    tags: ["Epic", "Friendship", "Spectacle", "Emotion"],
-    poster: "assets/posters/rrr.jpg",
-    short: "Two men on opposite paths form a powerful bond that becomes an epic story of friendship and rebellion.",
-    paragraphs: [
-      "Set during British rule, the film follows two men hiding their true identities while building a deep friendship. As their goals collide, loyalty and sacrifice come into conflict.",
-      "The film blends large-scale action with sincere emotion, making its spectacle feel meaningful rather than empty.",
-      "It is ideal for viewers who enjoy grand cinema that still puts characters at its heart."
-    ]
-  }
-];
+  const fallbackPoster = "assets/home/movies.jpg"; // put any image here later
 
-const grid = document.getElementById("movieGrid");
+  items.forEach(m => {
+    const poster = m.poster ? m.poster : fallbackPoster;
 
-function posterHTML(src){
-  return `
-    <div class="posterBox">
-      <img src="${src}" alt="" onerror="this.remove(); this.parentElement.innerHTML = '<div class=\\'placeholder\\'><span>Poster coming soon</span></div>';">
-    </div>
-  `;
-}
+    const a = document.createElement("a");
+    a.className = "card";
+    a.href = `shows.html?id=${encodeURIComponent(m.id)}`;
 
-movies.forEach(m => {
-  const card = document.createElement("div");
-  card.className = "card";
-  card.setAttribute("tabindex","0");
-  card.setAttribute("role","button");
-  card.setAttribute("aria-label", `Open details for ${m.title}`);
-  card.innerHTML = `
-    ${posterHTML(m.poster)}
-    <div class="info">
-      <div class="title">${m.title}</div>
-      <div class="meta">${m.year} • ${m.meta}</div>
-      <div class="desc">${m.short}</div>
-    </div>
-  `;
-  card.addEventListener("click", () => openModal(m));
-  card.addEventListener("keydown", (e) => {
-    if(e.key === "Enter" || e.key === " "){ e.preventDefault(); openModal(m); }
+    a.innerHTML = `
+      <div class="poster" style="background-image:url('${poster.replace(/'/g, "\\'")}');"></div>
+      <div class="info">
+        <div class="title">${m.title || "Untitled"}</div>
+        <div class="meta">${m.year || ""}${m.meta ? " · " + m.meta : ""}</div>
+      </div>
+    `;
+    grid.appendChild(a);
   });
-  grid.appendChild(card);
-});
-
-const overlay = document.getElementById("modalOverlay");
-const closeBtn = document.getElementById("closeBtn");
-const modalPoster = document.getElementById("modalPoster");
-const modalTitle = document.getElementById("modalTitle");
-const modalMeta = document.getElementById("modalMeta");
-const modalText = document.getElementById("modalText");
-const modalPills = document.getElementById("modalPills");
-
-function openModal(m){
-  modalTitle.textContent = m.title;
-  modalMeta.textContent = `${m.year} • ${m.meta}`;
-
-  modalPills.innerHTML = "";
-  (m.tags || []).forEach(t => {
-    const s = document.createElement("span");
-    s.className = "pill";
-    s.textContent = t;
-    modalPills.appendChild(s);
-  });
-
-  modalPoster.innerHTML = `
-    <img src="${m.poster}" alt="${m.title} poster"
-      onerror="this.remove(); this.parentElement.innerHTML = '<div class=\\'placeholder\\'><span>Poster coming soon</span></div>';">
-  `;
-
-  modalText.innerHTML = (m.paragraphs || []).map(p => `<p>${p}</p>`).join("");
-
-  overlay.classList.add("open");
-  overlay.setAttribute("aria-hidden","false");
-  document.body.style.overflow = "hidden";
-}
-
-function closeModal(){
-  overlay.classList.remove("open");
-  overlay.setAttribute("aria-hidden","true");
-  document.body.style.overflow = "";
-}
-
-closeBtn.addEventListener("click", closeModal);
-overlay.addEventListener("click", (e) => {
-  if(e.target === overlay) closeModal();
-});
-document.addEventListener("keydown", (e) => {
-  if(e.key === "Escape" && overlay.classList.contains("open")) closeModal();
-});
 </script>
 
 </body>
