@@ -1,105 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Our Favorite Donghua — Popcorn Picks</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>My Favorite Donghua — Popcorn Picks</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
   background:#0b0b0c;
   color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
-a{text-decoration:none;color:inherit}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
 
+/* TOPBAR */
 .topbar{
-  position:sticky;
-  top:0;
-  z-index:50;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  position:sticky; top:0; z-index:50;
+  display:flex; align-items:center; justify-content:space-between;
   padding:16px 20px;
   background:rgba(10,10,10,.88);
-  backdrop-filter:blur(10px);
+  backdrop-filter: blur(10px);
   border-bottom:1px solid #222;
 }
+.back{color:#aaa;font-size:13px}
+.back:hover{color:#fff}
+.brand{font-weight:650;letter-spacing:.5px;font-size:14px}
 
+/* HERO */
 .hero{
-  min-height:70vh;
+  min-height:68vh;
   display:flex;
   align-items:flex-end;
-  padding:70px 24px 56px;
+  padding:72px 22px 54px;
   background:
-    linear-gradient(to bottom, rgba(0,0,0,.2), rgba(11,11,12,.95)),
+    radial-gradient(900px 420px at 15% 20%, rgba(255,255,255,.08), transparent 55%),
+    linear-gradient(to bottom, rgba(0,0,0,.22), rgba(11,11,12,.92)),
     url("https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=2200&q=80");
   background-size:cover;
   background-position:center;
+  border-bottom:1px solid #1f1f1f;
 }
-
 .heroInner{
   max-width:980px;
-  margin:auto;
+  width:100%;
+  margin:0 auto;
 }
-
 .kicker{
+  display:inline-block;
   font-size:11px;
   letter-spacing:.22em;
   text-transform:uppercase;
   color:#eaeaea;
-  padding:8px 12px;
+  padding:8px 10px;
   border-radius:999px;
   border:1px solid rgba(255,255,255,.18);
-  display:inline-block;
+  background:rgba(255,255,255,.04);
 }
-
 .hero h1{
-  margin-top:18px;
+  margin-top:16px;
   font-size:54px;
   line-height:1.05;
   letter-spacing:-.03em;
 }
-
 .hero p{
   margin-top:14px;
-  max-width:75ch;
+  max-width:78ch;
   color:#d0d0d0;
-  line-height:1.7;
+  line-height:1.75;
   font-size:16px;
 }
-
-.wrap{
-  max-width:980px;
-  margin:auto;
-  padding:48px 22px 90px;
+.metaLine{
+  margin-top:16px;
+  color:#9a9a9a;
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
 }
 
+/* WRAP */
+.wrap{
+  max-width:980px;
+  margin:0 auto;
+  padding:46px 22px 90px;
+}
+
+/* ARTICLE BLOCK */
 .show{
+  padding:26px 22px;
   border:1px solid #181818;
   border-radius:20px;
   background:rgba(255,255,255,.02);
-  padding:28px 24px;
-  margin-bottom:30px;
+  margin-bottom:26px;
 }
-
 .show h2{
   font-size:28px;
-  margin-bottom:10px;
+  letter-spacing:-.02em;
+  line-height:1.12;
 }
-
 .submeta{
-  color:#aaa;
+  margin-top:10px;
+  color:#a9a9a9;
   font-size:13px;
-  margin-bottom:14px;
+  line-height:1.5;
+}
+.text{
+  margin-top:14px;
+  max-width:78ch;
+}
+.text p{
+  color:#d7d7d7;
+  line-height:1.9;
+  font-size:16px;
+  margin:0 0 14px 0;
 }
 
-.show p{
-  color:#d7d7d7;
-  line-height:1.85;
-  margin-bottom:14px;
-  font-size:16px;
+/* POSTER SPACE */
+.posterWrap{
+  margin-top:18px;
+  display:flex;
+  justify-content:center;
+}
+.poster{
+  width:min(420px, 100%);
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid #232323;
+  background:#111;
+}
+.poster img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+.posterFallback{
+  padding:44px 18px;
+  text-align:center;
+  color:#9a9a9a;
+  font-size:13px;
+  border-top:1px solid #1b1b1b;
+}
+
+@media(max-width:760px){
+  .hero h1{font-size:40px}
+  .show{padding:22px 16px}
+  .show h2{font-size:24px}
 }
 </style>
 </head>
@@ -107,58 +153,171 @@ a{text-decoration:none;color:inherit}
 <body>
 
 <div class="topbar">
-  <a href="index.html">← Home</a>
-  <strong>Popcorn Picks</strong>
-  <span></span>
+  <a class="back" href="index.html">← Back</a>
+  <div class="brand">Popcorn Picks</div>
+  <div style="width:48px"></div>
 </div>
 
-<section class="hero">
+<header class="hero">
   <div class="heroInner">
     <span class="kicker">Editorial • Donghua</span>
-    <h1>Our Favorite Donghua</h1>
+    <h1>My Favorite Donghua</h1>
+
     <p>
-      Donghua is not just animation. It is modern fantasy told through ancient mythology, cultivation, and the idea that power is something you earn through suffering and discipline.
-      These stories take time. They reward patience. And when they hit, they feel massive.
+      Donghua is not just animation. It is epic storytelling built on cultivation, destiny, ancient bloodlines,
+      and the slow climb from weakness to power. When it works, it feels like myth turned into motion.
     </p>
+
     <p>
-      These four series represent what Donghua does best: long journeys, deep worlds, and characters who are shaped by hardship rather than shortcuts.
+      These four series represent the core flavors of modern donghua: long journeys, deep worlds, and characters
+      who change through suffering, discipline, loyalty, and obsession.
     </p>
+
+    <div class="metaLine">Popcorn Picks • Curated Fantasy</div>
   </div>
-</section>
+</header>
 
 <main class="wrap">
 
-<div class="show">
-<h2>Soul Land</h2>
-<div class="submeta">Cultivation • Brotherhood • Long-form fantasy</div>
-<p>Soul Land is the series that made many people fall in love with Donghua. It is not about one hero becoming powerful. It is about a group of people growing together over time.</p>
-<p>You watch these characters from their youth into adulthood. Their friendships, rivalries, and losses all build naturally. When something tragic happens, it hurts because you have lived with them.</p>
-<p>Very few animated series create this sense of emotional history. Soul Land does it better than almost any.</p>
-</div>
+  <article class="show">
+    <h2>1) Soul Land</h2>
+    <div class="submeta">Cultivation • Found family • Destiny</div>
 
-<div class="show">
-<h2>Battle Through the Heavens</h2>
-<div class="submeta">Underdog • Revenge • Power fantasy</div>
-<p>This is one of the most satisfying rise-from-nothing stories in Donghua.</p>
-<p>The hero starts as someone everyone looks down on. Every step forward is earned through humiliation, pain, and relentless training. There are no easy victories.</p>
-<p>What makes it addictive is the feeling of momentum. Every arc pushes him higher. Every enemy is stronger. And you want to see how far he can go.</p>
-</div>
+    <div class="text">
+      <p>
+        Soul Land is not loved because it is flashy. It is loved because it understands what cultivation stories are really about:
+        growth that is earned, not gifted.
+      </p>
 
-<div class="show">
-<h2>Perfect World</h2>
-<div class="submeta">Gods • Ancient clans • Epic fantasy</div>
-<p>Perfect World feels like watching legends unfold.</p>
-<p>The scale is enormous. Ancient bloodlines, divine beasts, forgotten realms, and battles that feel bigger than history itself.</p>
-<p>This is Donghua at its most cinematic. When it hits, it feels like myth brought to life.</p>
-</div>
+      <p>
+        At its heart, it is a long journey of identity. A boy is reborn into a new world and slowly discovers that power is not something you grab.
+        It is something you build through discipline, relationships, sacrifice, and pain. The series takes its time explaining its rules,
+        from spirit rings to clans to academies, and that patience is exactly why the world feels real.
+      </p>
 
-<div class="show">
-<h2>Shrouding the Heavens</h2>
-<div class="submeta">Mystery • Cultivation • Cosmic fantasy</div>
-<p>This is the most atmospheric of the four.</p>
-<p>Shrouding the Heavens moves slowly, but deliberately. It feels like reading an ancient novel, where every discovery reveals something larger about the universe.</p>
-<p>If you enjoy deep lore, mystery, and cosmic scale, this is essential Donghua.</p>
-</div>
+      <p>
+        The strongest part of Soul Land is the team. Tang San matters, but he becomes legendary because of the people beside him.
+        Their loyalty, jealousy, fear, pride, and love give weight to every breakthrough. When someone levels up here,
+        it feels like a life milestone, not a visual effect.
+      </p>
+
+      <p>
+        This is the kind of donghua where you remember where the characters began, who they lost, and why the next step forward matters.
+        If donghua has a gateway masterpiece, this is it.
+      </p>
+    </div>
+
+    <div class="posterWrap">
+      <div class="poster">
+        <img src="assets/posters/soul-land.jpg" alt="Soul Land poster"
+          onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+      </div>
+    </div>
+  </article>
+
+  <article class="show">
+    <h2>2) Battle Through the Heavens</h2>
+    <div class="submeta">Underdog • Revenge fuel • Power progression</div>
+
+    <div class="text">
+      <p>
+        If Soul Land is about bonds and destiny, Battle Through the Heavens is about hunger.
+        The story begins with humiliation. A talented boy loses everything and becomes someone people mock.
+        That bitterness is not just a starting point, it is the engine.
+      </p>
+
+      <p>
+        What makes this donghua addictive is how directly it connects power to pain. Every fight carries personal pressure,
+        every breakthrough feels like a response to someone who tried to crush him. The world is ruthless: clans destroy each other,
+        alliances last only until someone becomes stronger, and “talent” means nothing if you cannot survive.
+      </p>
+
+      <p>
+        It is one of the most satisfying rise-from-nothing stories in cultivation. Not because it is “cool,”
+        but because it makes you feel the cost of becoming dangerous.
+      </p>
+
+      <p>
+        When the hero finally stands above the people who once looked down on him, it feels earned.
+        That is why this one stays in your head.
+      </p>
+    </div>
+
+    <div class="posterWrap">
+      <div class="poster">
+        <img src="assets/posters/battle-through-the-heavens.jpg" alt="Battle Through the Heavens poster"
+          onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+      </div>
+    </div>
+  </article>
+
+  <article class="show">
+    <h2>3) Perfect World</h2>
+    <div class="submeta">Mythic scale • Ancient realms • Bloodline wars</div>
+
+    <div class="text">
+      <p>
+        Perfect World is donghua at its most mythic. This is not a small personal story.
+        It is a universe of gods, monsters, forbidden techniques, ancient clans, and civilizations that rise and collapse.
+      </p>
+
+      <p>
+        What separates it is scale. The hero does not just fight enemies, he fights history.
+        Every realm feels older and more dangerous than the last. There is always something behind the present:
+        ancestors watching, grudges buried in the land, secrets sealed for thousands of years.
+      </p>
+
+      <p>
+        The battles here are not just action. They feel like clashes between legacies and philosophies.
+        That is why the show feels epic even when it slows down: it is building the sense that the world itself is heavy.
+      </p>
+
+      <p>
+        If you want cultivation fantasy that feels like legend being written in real time, Perfect World is essential.
+      </p>
+    </div>
+
+    <div class="posterWrap">
+      <div class="poster">
+        <img src="assets/posters/perfect-world.jpg" alt="Perfect World poster"
+          onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+      </div>
+    </div>
+  </article>
+
+  <article class="show">
+    <h2>4) Shrouding the Heavens</h2>
+    <div class="submeta">Atmospheric • Deep lore • Ancient mysteries</div>
+
+    <div class="text">
+      <p>
+        Shrouding the Heavens is the most atmospheric of the four. Where others push forward with hype,
+        this one moves like an ancient manuscript being slowly revealed.
+      </p>
+
+      <p>
+        Cultivation here is not only power. It is knowledge. It is discovering what was buried before your era began.
+        The universe feels old in spirit, not just old in years. There are forgotten empires, sealed gods, lost techniques,
+        and secrets that could break the present if uncovered.
+      </p>
+
+      <p>
+        The story builds tension through mystery and scale. It makes you feel that the world is bigger than the hero,
+        and that every clue is dangerous. This is donghua for people who love lore, not just fights.
+      </p>
+
+      <p>
+        If you enjoy slow pressure, ancient secrets, and cosmic atmosphere, this one hits different.
+      </p>
+    </div>
+
+    <div class="posterWrap">
+      <div class="poster">
+        <img src="assets/posters/shrouding-the-heavens.jpg" alt="Shrouding the Heavens poster"
+          onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+      </div>
+    </div>
+  </article>
 
 </main>
 
