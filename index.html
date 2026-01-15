@@ -3,20 +3,47 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Popcorn Picks — Cinema Beyond Borders</title>
+<title>Popcorn Picks | Cinema Beyond Borders</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+:root{
+  --bg1:#07070a;
+  --bg2:#0b0b12;
+  --card:#0f0f14;
+  --line:rgba(255,255,255,.10);
+  --muted:rgba(255,255,255,.70);
+  --muted2:rgba(255,255,255,.58);
+}
+
+/* BODY background: cinematic, not flat black */
 body{
   background:
-    radial-gradient(1200px 600px at 10% -10%, rgba(255,80,40,.06), transparent 60%),
-    radial-gradient(800px 400px at 90% 20%, rgba(80,160,255,.05), transparent 60%),
-    linear-gradient(to bottom, #0a0a0c, #050506);
+    radial-gradient(1100px 700px at 12% -10%, rgba(255,120,70,.12), transparent 60%),
+    radial-gradient(900px 650px at 88% 16%, rgba(90,170,255,.12), transparent 58%),
+    radial-gradient(900px 600px at 50% 110%, rgba(120,255,210,.10), transparent 60%),
+    linear-gradient(to bottom, var(--bg2), var(--bg1));
   color:#fff;
-}
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  min-height:100vh;
+  overflow-x:hidden;
 }
-a{color:inherit;text-decoration:none}
+
+/* subtle film grain overlay */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,.06), transparent 35%),
+    radial-gradient(circle at 70% 80%, rgba(255,255,255,.05), transparent 35%);
+  mix-blend-mode:overlay;
+  opacity:.22;
+}
 
 /* HEADER */
 header{
@@ -27,122 +54,194 @@ header{
   align-items:center;
   justify-content:space-between;
   padding:0 40px;
-  background:rgba(10,10,10,0.88);
-  backdrop-filter: blur(10px);
-  border-bottom:1px solid #222;
-  z-index:10;
+  background:rgba(12,12,16,.72);
+  backdrop-filter: blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.10);
+  z-index:50;
 }
 .logo{
   font-size:18px;
-  font-weight:650;
-  letter-spacing:.6px;
+  font-weight:750;
+  letter-spacing:.4px;
 }
 nav a{
   margin-left:18px;
   font-size:12px;
-  color:#aaa;
+  color:rgba(255,255,255,.70);
+  letter-spacing:.18px;
 }
 nav a:hover{color:#fff}
 
 /* HERO */
 .hero{
-  height:85vh;
+  height:86vh;
   padding:0 60px;
   display:flex;
   align-items:center;
+  position:relative;
+  border-bottom:1px solid rgba(255,255,255,.08);
   background:
-    linear-gradient(to bottom, rgba(0,0,0,.28), #0b0b0c),
-    url('assets/home/hero.jpg');
+    linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.78)),
+    url("assets/home/hero.jpg");
   background-size:cover;
   background-position:center;
 }
-.hero .inner{
-  max-width:720px;
-  padding-top:64px; /* offset header */
-}
-.hero h1{
-  font-size:56px;
-  line-height:1.03;
-  letter-spacing:-.02em;
-}
-.hero p{
-  margin-top:18px;
-  max-width:560px;
-  font-size:18px;
-  color:#cfcfcf;
-  line-height:1.55;
-}
-.hero .btn{
-  display:inline-block;
-  margin-top:28px;
-  padding:14px 30px;
-  border:1px solid #fff;
-  border-radius:40px;
-  font-size:14px;
-}
-.hero .btn:hover{background:#fff;color:#000}
-
-/* SECTIONS */
-.section{
-  padding:96px 60px;
-  position:relative;
-}
-
-.section::before{
+.hero::after{
   content:"";
   position:absolute;
   inset:0;
   background:
-    radial-gradient(600px 300px at 10% 20%, rgba(255,120,60,.06), transparent 60%),
-    radial-gradient(700px 400px at 90% 80%, rgba(120,160,255,.05), transparent 60%);
+    radial-gradient(900px 500px at 18% 25%, rgba(255,160,90,.10), transparent 60%),
+    radial-gradient(900px 500px at 82% 35%, rgba(90,170,255,.10), transparent 60%),
+    linear-gradient(to top, rgba(0,0,0,.85), rgba(0,0,0,.10));
   pointer-events:none;
-  z-index:0;
 }
-
-.section > *{
+.hero .inner{
+  max-width:760px;
+  padding-top:64px;
   position:relative;
-  z-index:1;
+  z-index:2;
+}
+.kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(0,0,0,.22);
+  color:rgba(255,255,255,.86);
+  font-size:11px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+}
+.dot{
+  width:8px;height:8px;border-radius:50%;
+  background:rgba(255,160,90,.85);
+  box-shadow:0 0 18px rgba(255,160,90,.55);
+}
+.hero h1{
+  margin-top:18px;
+  font-size:58px;
+  line-height:1.03;
+  letter-spacing:-.03em;
+}
+.hero p{
+  margin-top:16px;
+  max-width:62ch;
+  font-size:18px;
+  color:rgba(255,255,255,.78);
+  line-height:1.6;
+}
+.heroActions{
+  margin-top:26px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 20px;
+  border-radius:999px;
+  font-size:14px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.06);
+  color:#fff;
+  transition:transform .18s ease, background .18s ease, border-color .18s ease;
+}
+.btn:hover{
+  transform:translateY(-2px);
+  border-color:rgba(255,255,255,.30);
+  background:rgba(255,255,255,.10);
+}
+.btn.primary{
+  border-color:rgba(255,160,90,.45);
+  background:linear-gradient(90deg, rgba(255,160,90,.20), rgba(90,170,255,.14));
+}
+.btn.primary:hover{
+  border-color:rgba(255,160,90,.65);
 }
 
+/* SECTIONS */
+.section{
+  padding:92px 60px;
+  position:relative;
+}
 .section h2{
   font-size:28px;
-  margin-bottom:28px;
-  letter-spacing:.4px;
-  color:#fff;
+  margin-bottom:26px;
+  letter-spacing:.2px;
 }
-/* FEATURED COLLECTIONS (ARTICLE LOOK) */
+
+/* subtle moving light sweep behind sections */
+.section::before{
+  content:"";
+  position:absolute;
+  inset:-40px 0 0 0;
+  background:
+    radial-gradient(700px 350px at 10% 20%, rgba(255,140,90,.10), transparent 60%),
+    radial-gradient(820px 420px at 90% 70%, rgba(90,170,255,.10), transparent 60%);
+  opacity:.65;
+  filter:blur(0px);
+  pointer-events:none;
+  z-index:0;
+  animation:sweep 10s ease-in-out infinite alternate;
+}
+@keyframes sweep{
+  0%{transform:translateY(0px)}
+  100%{transform:translateY(10px)}
+}
+.section > *{position:relative; z-index:1}
+
+/* FEATURED COLLECTIONS */
 .feed{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:26px;
 }
 .feedLink{display:block}
+
 .feedCard{
   position:relative;
-  height:320px;
+  height:330px;
   border-radius:18px;
   background-size:cover;
   background-position:center;
   overflow:hidden;
-  border:1px solid #181818;
-  transition:transform .15s ease, border-color .15s ease;
+
+  border:1px solid rgba(255,255,255,.10);
+  background-color:rgba(255,255,255,.03);
+  box-shadow:0 26px 70px rgba(0,0,0,.70);
+  transform:translateZ(0);
+  transition:transform .24s ease, box-shadow .24s ease, border-color .24s ease, filter .24s ease;
 }
-.feedCard:hover{border-color:#fff; transform:translateY(-2px)}
 .feedCard::after{
-  content:'';
-  position:absolute; inset:0;
-  background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,.92));
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(900px 460px at 20% 20%, rgba(255,255,255,.10), transparent 55%),
+    linear-gradient(to bottom, rgba(0,0,0,.05), rgba(0,0,0,.92));
 }
+.feedCard:hover{
+  transform:translateY(-8px) scale(1.015);
+  box-shadow:0 52px 120px rgba(0,0,0,.88);
+  border-color:rgba(255,255,255,.18);
+  filter:saturate(1.10) contrast(1.06);
+}
+
 .tag{
   position:absolute;
   top:18px; left:18px;
   font-size:11px;
   letter-spacing:.22em;
   text-transform:uppercase;
-  color:#eaeaea;
-  background:rgba(0,0,0,.45);
-  border:1px solid rgba(255,255,255,.18);
-  padding:8px 10px;
+  color:rgba(255,255,255,.92);
+  background:rgba(0,0,0,.35);
+  border:1px solid rgba(255,255,255,.16);
+  padding:9px 11px;
   border-radius:999px;
   z-index:2;
 }
@@ -155,19 +254,20 @@ nav a:hover{color:#fff}
 .feedText h3{
   font-size:20px;
   margin-bottom:8px;
-  font-weight:650;
+  font-weight:750;
+  letter-spacing:.1px;
 }
 .feedText p{
-  color:#cfcfcf;
+  color:rgba(255,255,255,.76);
   font-size:14px;
-  line-height:1.45;
-  max-width:44ch;
+  line-height:1.5;
+  max-width:46ch;
 }
 
 /* CATEGORY CARDS */
 .catGrid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
   gap:26px;
 }
 .cat{
@@ -179,59 +279,65 @@ nav a:hover{color:#fff}
   overflow:hidden;
   display:block;
 
-  border:1px solid rgba(255,255,255,.08);
-  box-shadow:0 30px 70px rgba(0,0,0,.7);
-  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-}
+  border:1px solid rgba(255,255,255,.10);
+  background-color:rgba(255,255,255,.03);
 
+  box-shadow:
+    0 24px 70px rgba(0,0,0,.65),
+    inset 0 0 0 1px rgba(255,255,255,.04);
+
+  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease, filter .22s ease;
+}
 .cat::after{
   content:"";
   position:absolute;
   inset:0;
   background:
-    linear-gradient(to top, rgba(0,0,0,.85), rgba(0,0,0,.25), transparent);
-}
-
-.cat:hover{
-  transform:translateY(-6px) scale(1.02);
-  box-shadow:0 50px 100px rgba(0,0,0,.9);
-  border-color:rgba(255,255,255,.18);
-}
-}
-.cat:hover{border-color:#fff; transform:translateY(-2px)}
-.cat::after{
-  content:'';
-  position:absolute; inset:0;
-  background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,.88));
+    radial-gradient(900px 420px at 18% 18%, rgba(255,255,255,.12), transparent 55%),
+    linear-gradient(to top, rgba(0,0,0,.90), rgba(0,0,0,.25), transparent);
 }
 .cat span{
   position:absolute;
-  left:20px; bottom:20px;
+  left:18px;
+  bottom:18px;
+  z-index:2;
   font-size:22px;
-  font-weight:650;
+  font-weight:800;
+  letter-spacing:.2px;
+  color:#fff;
+  text-shadow:0 10px 22px rgba(0,0,0,.90);
+}
+.cat:hover{
+  transform:translateY(-7px) scale(1.02);
+  border-color:rgba(255,255,255,.22);
+  box-shadow:
+    0 46px 120px rgba(0,0,0,.84),
+    inset 0 0 0 1px rgba(255,255,255,.06);
+  filter:saturate(1.08) contrast(1.05);
 }
 
 /* FOOTER */
 footer{
-  border-top:1px solid #222;
+  border-top:1px solid rgba(255,255,255,.10);
   padding:60px;
-  color:#9a9a9a;
+  color:rgba(255,255,255,.62);
   display:grid;
   grid-template-columns:1.4fr 1fr 1fr;
   gap:40px;
+  background:linear-gradient(to bottom, rgba(255,255,255,.02), rgba(0,0,0,.18));
 }
 footer h4{
   color:#fff;
   margin-bottom:12px;
   font-size:14px;
-  font-weight:650;
-  letter-spacing:.3px;
+  font-weight:800;
+  letter-spacing:.2px;
 }
-footer p{line-height:1.7;font-size:13px}
+footer p{line-height:1.7;font-size:13px;color:rgba(255,255,255,.66)}
 footer a{
   display:block;
   margin:8px 0;
-  color:#aaa;
+  color:rgba(255,255,255,.62);
   font-size:13px;
 }
 footer a:hover{color:#fff}
@@ -243,6 +349,7 @@ footer a:hover{color:#fff}
   .section{padding:70px 20px}
   footer{grid-template-columns:1fr;padding:40px 20px}
   nav{display:none}
+  .hero h1{font-size:44px}
 }
 </style>
 </head>
@@ -254,8 +361,8 @@ footer a:hover{color:#fff}
   <nav>
     <a href="tv-shows.html">TV Shows</a>
     <a href="movies.html">Movies</a>
-    <a href="kdrama.html">K-Drama</a>
-    <a href="cdrama.html">C-Drama</a>
+    <a href="kdrama.html">K Drama</a>
+    <a href="cdrama.html">C Drama</a>
     <a href="anime.html">Anime</a>
     <a href="donghua.html">Donghua</a>
     <a href="indian.html">Indian Cinema</a>
@@ -265,12 +372,18 @@ footer a:hover{color:#fff}
 
 <section class="hero">
   <div class="inner">
+    <div class="kicker"><span class="dot"></span> Curated picks</div>
+
     <h1>Cinema beyond borders.</h1>
     <p>
-      Posters first, sharp reasons second, and clear “where to watch”.
+      Posters first, sharp reasons second, and clear where to watch.
       Popcorn Picks is a curated space for TV shows and world cinema.
     </p>
-    <a class="btn" href="tv-shows.html">Start with TV Shows</a>
+
+    <div class="heroActions">
+      <a class="btn primary" href="movies.html">Browse Movies</a>
+      <a class="btn" href="tv-shows.html">Browse TV Shows</a>
+    </div>
   </div>
 </section>
 
@@ -279,45 +392,45 @@ footer a:hover{color:#fff}
 
   <div class="feed">
 
-<a class="feedLink" href="must-watch-espionage.html">
-  <div class="feedCard" style="background-image:url('assets/assets:home:espionage.jpg.JPG');">
-    <div class="tag">EDITORIAL • 5 min</div>
-    <div class="feedText">
-      <h3>Must-Watch Espionage</h3>
-      <p>Tradecraft, tension, and the cost of double lives.</p>
-    </div>
-  </div>
-</a>
+    <a class="feedLink" href="must-watch-espionage.html">
+      <div class="feedCard" style="background-image:url('assets/assets:home:espionage.jpg.JPG');">
+        <div class="tag">EDITORIAL • 5 min</div>
+        <div class="feedText">
+          <h3>Must Watch Espionage</h3>
+          <p>Tradecraft, tension, and the cost of double lives.</p>
+        </div>
+      </div>
+    </a>
 
-<a class="feedLink" href="mustwatch-period.html">
-  <div class="feedCard" style="background-image:url('assets/assets:home:period.jpg.JPG');">
-    <div class="tag">EDITORIAL • 6 min</div>
-    <div class="feedText">
-      <h3>Must-Watch Period Dramas</h3>
-      <p>Atmosphere-first stories where writing actually matters.</p>
-    </div>
-  </div>
-</a>
+    <a class="feedLink" href="mustwatch-period.html">
+      <div class="feedCard" style="background-image:url('assets/assets:home:period.jpg.JPG');">
+        <div class="tag">EDITORIAL • 6 min</div>
+        <div class="feedText">
+          <h3>Must Watch Period Dramas</h3>
+          <p>Atmosphere first stories where writing actually matters.</p>
+        </div>
+      </div>
+    </a>
 
-<a class="feedLink" href="undertheradar-kdrama.html">
-  <div class="feedCard" style="background-image:url('assets/assets:home:kdrama.jpg.JPG');">
-    <div class="tag">EDITORIAL • 7 min</div>
-    <div class="feedText">
-      <h3>Under-the-Radar K-Dramas</h3>
-      <p>Hidden gems that deserve the spotlight.</p>
-    </div>
-  </div>
-</a>
-<a class="feedLink" href="editorial-donghua.html">
-  <div class="feedCard" style="background-image:url('assets/home/donghua.jpg');">
-    <div class="tag">EDITORIAL • 4 min</div>
-    <div class="feedText">
-      <h3>Our Favorite Donghua</h3>
-      <p>Soul Land, Battle Through the Heavens, Perfect World, Shrouding the Heavens.</p>
-    </div>
-  </div>
-</a>
-    
+    <a class="feedLink" href="undertheradar-kdrama.html">
+      <div class="feedCard" style="background-image:url('assets/assets:home:kdrama.jpg.JPG');">
+        <div class="tag">EDITORIAL • 7 min</div>
+        <div class="feedText">
+          <h3>Under the Radar K Dramas</h3>
+          <p>Hidden gems that deserve the spotlight.</p>
+        </div>
+      </div>
+    </a>
+
+    <a class="feedLink" href="editorial-donghua.html">
+      <div class="feedCard" style="background-image:url('assets/home/donghua.jpg');">
+        <div class="tag">EDITORIAL • 4 min</div>
+        <div class="feedText">
+          <h3>Our Favorite Donghua</h3>
+          <p>Soul Land, Battle Through the Heavens, Perfect World, Shrouding the Heavens.</p>
+        </div>
+      </div>
+    </a>
 
   </div>
 </section>
@@ -328,8 +441,8 @@ footer a:hover{color:#fff}
   <div class="catGrid">
     <a class="cat" href="movies.html" style="background-image:url('https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=1200&q=80');"><span>Movies</span></a>
     <a class="cat" href="tv-shows.html" style="background-image:url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=80');"><span>TV Shows</span></a>
-    <a class="cat" href="kdrama.html" style="background-image:url('https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=1200&q=80');"><span>K-Drama</span></a>
-    <a class="cat" href="cdrama.html" style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80');"><span>C-Drama</span></a>
+    <a class="cat" href="kdrama.html" style="background-image:url('https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=1200&q=80');"><span>K Drama</span></a>
+    <a class="cat" href="cdrama.html" style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80');"><span>C Drama</span></a>
     <a class="cat" href="anime.html" style="background-image:url('https://images.unsplash.com/photo-1511765224389-37f0e77cf0eb?auto=format&fit=crop&w=1200&q=80');"><span>Anime</span></a>
     <a class="cat" href="donghua.html" style="background-image:url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80');"><span>Donghua</span></a>
     <a class="cat" href="indian.html" style="background-image:url('https://images.unsplash.com/photo-1585488763177-bde7c1b5c4b1?auto=format&fit=crop&w=1200&q=80');"><span>Indian Cinema</span></a>
@@ -340,20 +453,20 @@ footer a:hover{color:#fff}
 <footer>
   <div>
     <h4>Popcorn Picks</h4>
-    <p>Cinema beyond borders — curated recommendations with posters, short reasons, and where-to-watch links.</p>
+    <p>Cinema beyond borders. Curated recommendations with posters, short reasons, and where to watch.</p>
   </div>
 
   <div>
     <h4>Explore</h4>
     <a href="tv-shows.html">TV Shows</a>
     <a href="movies.html">Movies</a>
-    <a href="kdrama.html">K-Drama</a>
+    <a href="kdrama.html">K Drama</a>
     <a href="anime.html">Anime</a>
   </div>
 
   <div>
     <h4>Contact</h4>
-    <a href="https://twitter.com/picks9505" target="_blank" rel="noopener">Contact us on X (Twitter)</a>
+    <a href="https://twitter.com/picks9505" target="_blank" rel="noopener">Contact on X</a>
   </div>
 </footer>
 
