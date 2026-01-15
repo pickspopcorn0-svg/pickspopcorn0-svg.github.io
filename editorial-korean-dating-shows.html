@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Korean Dating Shows Worth Your Time — Popcorn Picks</title>
 
 <style>
@@ -10,143 +10,62 @@
 body{
   background:#0b0b0c;
   color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
 }
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
 
-/* TOPBAR */
 .topbar{
-  position:sticky; top:0; z-index:50;
-  display:flex; align-items:center; justify-content:space-between;
+  position:sticky;top:0;
+  display:flex;justify-content:space-between;align-items:center;
   padding:16px 20px;
-  background:rgba(10,10,10,.88);
-  backdrop-filter: blur(10px);
+  background:rgba(10,10,10,.9);
   border-bottom:1px solid #222;
 }
-.back{color:#aaa;font-size:13px}
-.back:hover{color:#fff}
-.brand{font-weight:650;letter-spacing:.5px;font-size:14px}
+.brand{font-weight:700}
 
-/* HERO */
 .hero{
-  min-height:68vh;
-  display:flex;
-  align-items:flex-end;
-  padding:72px 22px 54px;
+  padding:80px 22px 50px;
   background:
-    radial-gradient(900px 420px at 15% 20%, rgba(255,255,255,.08), transparent 55%),
-    linear-gradient(to bottom, rgba(0,0,0,.22), rgba(11,11,12,.92)),
-    url("https://images.unsplash.com/photo-1519160558534-579f51052e1c?auto=format&fit=crop&w=2200&q=80");
+    linear-gradient(to bottom, rgba(0,0,0,.2), #0b0b0c),
+    url("https://images.unsplash.com/photo-1519160558534-579f51052e1c?auto=format&fit=crop&w=2000&q=80");
   background-size:cover;
-  background-position:center;
-  border-bottom:1px solid #1f1f1f;
-}
-.heroInner{
-  max-width:980px;
-  width:100%;
-  margin:0 auto;
-}
-.kicker{
-  display:inline-block;
-  font-size:11px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:#eaeaea;
-  padding:8px 10px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.18);
-  background:rgba(255,255,255,.04);
 }
 .hero h1{
-  margin-top:16px;
-  font-size:54px;
-  line-height:1.05;
-  letter-spacing:-.03em;
+  font-size:46px;
+  max-width:900px;
 }
 .hero p{
+  max-width:760px;
   margin-top:14px;
-  max-width:78ch;
   color:#d0d0d0;
-  line-height:1.75;
-  font-size:16px;
-}
-.metaLine{
-  margin-top:16px;
-  color:#9a9a9a;
-  font-size:12px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
+  line-height:1.7;
 }
 
-/* WRAP */
 .wrap{
-  max-width:980px;
+  max-width:900px;
   margin:0 auto;
-  padding:46px 22px 90px;
+  padding:50px 22px 90px;
 }
 
-/* SHOW BLOCK */
 .show{
-  padding:26px 22px;
+  margin-bottom:40px;
+  padding:24px;
   border:1px solid #181818;
-  border-radius:20px;
-  background:rgba(255,255,255,.02);
-  margin-bottom:26px;
+  border-radius:16px;
+  background:#111;
 }
 .show h2{
-  font-size:28px;
-  letter-spacing:-.02em;
-  line-height:1.12;
+  font-size:26px;
 }
-.submeta{
-  margin-top:10px;
-  color:#a9a9a9;
+.meta{
+  margin-top:6px;
+  color:#aaa;
   font-size:13px;
-  line-height:1.5;
 }
 .text{
   margin-top:14px;
-  max-width:78ch;
-}
-.text p{
-  color:#d7d7d7;
   line-height:1.9;
-  font-size:16px;
-  margin:0 0 14px 0;
-}
-
-/* Poster */
-.posterWrap{
-  margin-top:18px;
-  display:flex;
-  justify-content:center;
-}
-.poster{
-  width:min(420px, 100%);
-  border-radius:18px;
-  overflow:hidden;
-  border:1px solid #232323;
-  background:#111;
-}
-.poster img{
-  width:100%;
-  height:auto;
-  display:block;
-}
-.posterFallback{
-  padding:44px 18px;
-  text-align:center;
-  color:#9a9a9a;
-  font-size:13px;
-  border-top:1px solid #1b1b1b;
-}
-
-/* MOBILE */
-@media(max-width:760px){
-  .hero h1{font-size:40px}
-  .show{padding:22px 16px}
-  .show h2{font-size:24px}
+  color:#d7d7d7;
 }
 </style>
 </head>
@@ -154,276 +73,115 @@ img{max-width:100%;display:block}
 <body>
 
 <div class="topbar">
-  <a class="back" href="index.html">← Back</a>
+  <a href="index.html">← Back</a>
   <div class="brand">Popcorn Picks</div>
-  <div style="width:48px"></div>
+  <div></div>
 </div>
 
-<header class="hero">
-  <div class="heroInner">
-    <span class="kicker">Editorial • Korean Dating Shows</span>
-    <h1>Korean Dating Shows Worth Your Time</h1>
-
-    <p>
-      Korean dating shows are not just “people flirting on camera”. The best ones feel like social experiments with real consequences.
-      You get chemistry, awkward silences, jealousy, and the small choices that quietly decide everything.
-    </p>
-
-    <p>
-      This list is curated for the vibe Popcorn Picks likes most: strong casting, a clean format, and episodes that actually make you
-      want to press next. It starts with the mainstream gateway shows, then moves deeper into slower, more psychological formats.
-    </p>
-
-    <div class="metaLine">Popcorn Picks • Updated for 2026</div>
-  </div>
-</header>
+<section class="hero">
+  <h1>Korean Dating Shows Worth Your Time</h1>
+  <p>
+    Korean dating shows are not just about people flirting on camera.  
+    The best ones feel like emotional experiments where timing, honesty and hesitation matter as much as attraction.
+    This list moves from mainstream favorites to deeper and more reflective formats.
+  </p>
+</section>
 
 <main class="wrap">
 
-  <!-- 1 -->
-  <article class="show">
-    <h2>1) Single’s Inferno</h2>
-    <div class="submeta">Reality romance • Social game • The gateway show</div>
-    <div class="text">
-      <p>
-        <em>Single’s Inferno</em> is the easiest entry point if you have never watched Korean dating shows before. The format is simple:
-        a group of singles are placed in a controlled setting, and the only way to “upgrade” their situation is through mutual choice.
-        That rule alone creates tension, because every decision is public, and every rejection is felt immediately.
-      </p>
-      <p>
-        What makes it addictive is pacing. Episodes are built around small turning points: who approached first, who hesitated,
-        who suddenly became popular, and who started losing confidence. It is not deep like a documentary, but it is sharp entertainment
-        when you want romance mixed with competition.
-      </p>
-      <p>
-        Watch this first if you want something fast, glamorous, and easy to follow.
-      </p>
-    </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/singles-inferno.jpg" alt="Single’s Inferno poster"
-          onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
-      </div>
-    </div>
-  </article>
+<div class="show">
+<h2>1) Single’s Inferno (4 seasons)</h2>
+<div class="meta">The global gateway dating show</div>
+<div class="text">
+Single’s Inferno is where most international viewers start. The structure is simple but effective. Singles live in a restricted environment and only mutual choices allow them to move forward. That rule alone creates tension because every decision is visible.
 
-  <!-- 2 -->
-  <article class="show">
-    <h2>2) Transit Love (EXchange)</h2>
-    <div class="submeta">Exes living together • Regret vs closure • Emotional honesty</div>
-    <div class="text">
-      <p>
-        <em>Transit Love</em> takes a stronger emotional risk than most dating shows. People enter the show with history,
-        because their ex is also there. That one twist changes everything. Conversations are not just about attraction.
-        They are about unfinished feelings, pride, guilt, and the fear of repeating the same mistake.
-      </p>
-      <p>
-        You told me clearly: Season 1 was your favourite. That makes sense because this show hits hardest when it feels honest.
-        When it works, it does not feel like a performance. It feels like real people trying to decide whether they are moving forward,
-        or whether their past still owns them.
-      </p>
-      <p>
-        Watch it if you want romance that feels heavier, more reflective, and sometimes genuinely heartbreaking.
-      </p>
-    </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/transit-love.jpg" alt="Transit Love poster"
-          onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
-      </div>
-    </div>
-  </article>
+It works because of pacing. Small shifts in attraction, confidence and popularity become the real drama. It is stylish, competitive and easy to binge, which makes it the perfect introduction to the genre.
+</div>
+</div>
 
-  <!-- 3 -->
-  <article class="show">
-    <h2>3) Heart Signal</h2>
-    <div class="submeta">Co-living romance • Slow burn • Must watch (later seasons especially)</div>
-    <div class="text">
-      <p>
-        <em>Heart Signal</em> is one of the most influential Korean dating shows because it understands patience.
-        It does not try to create chaos every five minutes. It builds atmosphere. People live together, small bonds form,
-        and emotions grow through daily routines, not just dramatic “confession moments”.
-      </p>
-      <p>
-        You wanted this said clearly: <strong>Heart Signal is very good, must watch according to you</strong>, especially the later seasons.
-        That is exactly how it should be framed in an editorial. This show rewards viewers who like tension that rises slowly,
-        like a drama where a single glance can matter more than a big speech.
-      </p>
-      <p>
-        If you want the classic Korean dating show feeling, this is the one that represents it best.
-      </p>
-    </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/heart-signal.jpg" alt="Heart Signal poster"
-          onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
-      </div>
-    </div>
-  </article>
+<div class="show">
+<h2>2) Transit Love also known as EXchange (3 seasons)</h2>
+<div class="meta">Ex couples, unfinished emotions</div>
+<div class="text">
+Transit Love changes the genre by bringing ex partners into the same house. That one decision turns every conversation into something heavier. People are not just choosing someone new, they are also confronting what they left behind.
 
-  <!-- 4 -->
-  <article class="show">
-    <h2>4) Love After Divorce</h2>
-    <div class="submeta">Second chances • Adult romance • Surprisingly gripping</div>
-    <div class="text">
-      <p>
-        <em>Love After Divorce</em> stands out because the stakes feel different. This is not “first love” energy.
-        It is people who have already lived through a serious relationship, and are deciding whether they can trust again.
-      </p>
-      <p>
-        It becomes compelling because maturity does not remove fear. Sometimes it makes fear sharper.
-        Conversations feel more direct, choices feel heavier, and viewers often end up caring more because the cast has real life baggage.
-      </p>
-      <p>
-        You called this one very good, and it belongs high on the list for exactly that reason: it is romance with weight.
-      </p>
-    </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/love-after-divorce.jpg" alt="Love After Divorce poster"
-          onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
-      </div>
-    </div>
-  </article>
+Season one is especially powerful because it feels raw and honest. The show becomes less about flirting and more about closure, regret and whether people are truly ready to move on.
+</div>
+</div>
 
-  <!-- 5 -->
-  <article class="show">
-    <h2>5) My Sibling’s Romance</h2>
-    <div class="submeta">Siblings join together • Social pressure • Fun twist</div>
-    <div class="text">
-      <p>
-        This is the “siblings” show you felt was missing earlier. The hook is simple and effective: siblings appear on the same show,
-        which instantly adds a new kind of pressure. You are not only thinking about your own image, you are also aware of your family
-        watching everything you do in real time.
-      </p>
-      <p>
-        That changes how people flirt, how they react, and how quickly rumours spread inside the house.
-        It can be lighter than the ex-format shows, but it stays interesting because it adds a social layer you do not see often.
-      </p>
-      <p>
-        Watch it if you want something that feels different from the usual “just singles living together” setup.
-      </p>
-    </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/my-siblings-romance.jpg" alt="My Sibling’s Romance poster"
-          onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
-      </div>
-    </div>
-  </article>
+<div class="show">
+<h2>3) Heart Signal (4 seasons, latest in 2025)</h2>
+<div class="meta">Slow burn romance and atmosphere</div>
+<div class="text">
+Heart Signal is one of the most influential Korean dating shows because it understands patience. It does not try to create chaos every episode. People live together, routines form, and emotions grow quietly.
 
-  <!-- 6 -->
-  <article class="show">
-    <h2>6) Better Late Than Single</h2>
-    <div class="submeta">Late bloomers • Growth • Surprisingly warm</div>
-    <div class="text">
-      <p>
-        <em>Better Late Than Single</em> is built around the idea that romance is not only for people who already know the rules.
-        The charm is watching awkwardness turn into confidence, and watching small wins feel huge because the cast is learning in public.
-      </p>
-      <p>
-        It is not always the most dramatic show, but it is easy to root for, and it has a gentler tone when you want something comforting.
-      </p>
-    </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/better-late-than-single.jpg" alt="Better Late Than Single poster"
-          onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
-      </div>
-    </div>
-  </article>
+It is a must watch, especially the later seasons. The tension feels like a well written drama where a look across the room can be more powerful than a big confession. If you want the classic Korean dating show feeling, this is the one that represents it best.
+</div>
+</div>
 
-  <!-- 7 -->
-  <article class="show">
-    <h2>7) Pink Lie</h2>
-    <div class="submeta">Secrets • Trust games • Tension-heavy</div>
-    <div class="text">
-      <p>
-        <em>Pink Lie</em> works best when you like dating shows with a psychological edge.
-        The format is shaped around hidden information, which forces viewers to constantly question sincerity.
-      </p>
-      <p>
-        Instead of only asking “who likes who”, you end up asking “who is hiding what”, and “what happens when truth arrives”.
-        It is tense in a quieter way, because the threat is not a rival, it is exposure.
-      </p>
-    </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/pink-lie.jpg" alt="Pink Lie poster"
-          onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
-      </div>
-    </div>
-  </article>
+<div class="show">
+<h2>4) Love After Divorce (7 seasons)</h2>
+<div class="meta">Second chances and adult romance</div>
+<div class="text">
+This show focuses on people who have already been married. That changes everything. These are not first crushes. These are people who know how painful love can be and still choose to try again.
 
-  <!-- 8 -->
-  <article class="show">
-    <h2>8) Eden</h2>
-    <div class="submeta">High heat • Direct attraction • Not shy at all</div>
-    <div class="text">
-      <p>
-        <em>Eden</em> sits on the more intense side of the genre. The tone is bolder, attraction is more direct,
-        and the show is less interested in slow, polite tension.
-      </p>
-      <p>
-        It belongs here because sometimes that is exactly what viewers want: a faster pace, stronger choices,
-        and a cast that is not afraid to make things complicated.
-      </p>
-    </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/eden.jpg" alt="Eden poster"
-          onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
-      </div>
-    </div>
-  </article>
+It becomes gripping because conversations feel more honest and choices feel heavier. There is vulnerability here that younger dating shows cannot replicate.
+</div>
+</div>
 
-  <!-- 9 -->
-  <article class="show">
-    <h2>9) Love Catcher</h2>
-    <div class="submeta">Romance vs money • Suspicion • The original mind game</div>
-    <div class="text">
-      <p>
-        <em>Love Catcher</em> is a classic recommendation when you like “who can you trust” tension.
-        The premise creates paranoia in the best way, because not everyone is there for love.
-      </p>
-      <p>
-        The fun is not only the couples. It is watching people test each other, misread signals, and panic when they realise
-        they might have been performing for someone who never planned to be real.
-      </p>
-    </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/love-catcher.jpg" alt="Love Catcher poster"
-          onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
-      </div>
-    </div>
-  </article>
+<div class="show">
+<h2>5) My Sibling’s Romance (2 seasons)</h2>
+<div class="meta">Family pressure inside dating</div>
+<div class="text">
+This is the siblings show. Brothers and sisters join together, which adds social pressure that most dating shows do not have. Every action feels more complicated when family is watching.
 
-  <!-- 10 -->
-  <article class="show">
-    <h2>10) Between Love and Friendship</h2>
-    <div class="submeta">The “almost” relationship • Confusing feelings • Soft but gripping</div>
-    <div class="text">
-      <p>
-        You specifically asked to include why you liked this one, without making it too personal.
-        The simplest honest way to describe it is this: it lives in the grey zone.
-      </p>
-      <p>
-        Some shows are about big choices. This one is about the hesitation before the choice.
-        That makes it relatable, because many real relationships start exactly like that,
-        half friendship, half attraction, and nobody wanting to be the first person to risk it.
-      </p>
-      <p>
-        It is a good pick when you want a calmer show where emotion grows through small moments.
-      </p>
-    </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/between-love-and-friendship.jpg" alt="Between Love and Friendship poster"
-          onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
-      </div>
-    </div>
-  </article>
+It creates lighter moments but also awkward tension. That twist alone makes it stand out.
+</div>
+</div>
+
+<div class="show">
+<h2>6) Better Late Than Single (1 season)</h2>
+<div class="meta">Late bloomers and personal growth</div>
+<div class="text">
+This show follows people who are inexperienced in dating. Watching them learn, fail and slowly gain confidence makes it surprisingly warm.
+
+It is less about competition and more about self discovery.
+</div>
+</div>
+
+<div class="show">
+<h2>7) Pink Lie (1 season)</h2>
+<div class="meta">Secrets and trust games</div>
+<div class="text">
+Pink Lie is built around hidden information. Not everyone is fully honest, and that creates tension. Viewers are always questioning motives and sincerity.
+
+It feels more psychological than romantic, which gives it a unique edge.
+</div>
+</div>
+
+<div class="show">
+<h2>8) Eden (2 seasons)</h2>
+<div class="meta">Bold attraction and faster pace</div>
+<div class="text">
+Eden is more direct than most dating shows. Attraction is obvious and the tone is more intense. It moves faster and leans into chemistry instead of slow buildup.
+</div>
+</div>
+
+<div class="show">
+<h2>9) Love Catcher (4 seasons)</h2>
+<div class="meta">Romance versus money</div>
+<div class="text">
+Some people come for love. Some come for cash. That premise creates paranoia and tension. The fun is watching people guess who is genuine and who is pretending.
+</div>
+</div>
+
+<div class="show">
+<h2>10) Between Love and Friendship (1 season)</h2>
+<div class="meta">The grey zone of emotions</div>
+<div class="text">
+This show lives between friendship and romance. The hesitation before love is what makes it relatable. It is quiet, gentle and emotionally honest.
+</div>
+</div>
 
 </main>
 
