@@ -1,8 +1,7 @@
 // Popcorn Picks — TV, Anime, C-Drama & Donghua library
 // Edit this file only when adding new titles
 
-window.SHOWS = {
-
+window.SHOWS = window.SHOWS || {};
   // ─────────────────────────
   // WESTERN / INTERNATIONAL
   // ─────────────────────────
