@@ -1,121 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>My Favorite Donghua — Popcorn Picks</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our Favorite Donghua — Popcorn Picks</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
   background:#0b0b0c;
   color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
 }
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
 
 .topbar{
-  position:sticky; top:0; z-index:50;
-  display:flex; align-items:center; justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:50;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
   padding:16px 20px;
   background:rgba(10,10,10,.88);
-  backdrop-filter: blur(10px);
+  backdrop-filter:blur(10px);
   border-bottom:1px solid #222;
 }
-.back{color:#aaa;font-size:13px}
-.back:hover{color:#fff}
-.brand{font-weight:650;letter-spacing:.5px;font-size:14px}
 
 .hero{
-  min-height:68vh;
+  min-height:70vh;
   display:flex;
   align-items:flex-end;
-  padding:72px 22px 54px;
+  padding:70px 24px 56px;
   background:
-    radial-gradient(900px 420px at 15% 20%, rgba(255,255,255,.08), transparent 55%),
-    linear-gradient(to bottom, rgba(0,0,0,.22), rgba(11,11,12,.92)),
+    linear-gradient(to bottom, rgba(0,0,0,.2), rgba(11,11,12,.95)),
     url("https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=2200&q=80");
   background-size:cover;
   background-position:center;
-  border-bottom:1px solid #1f1f1f;
 }
+
 .heroInner{
   max-width:980px;
-  width:100%;
-  margin:0 auto;
+  margin:auto;
 }
+
 .kicker{
-  display:inline-block;
   font-size:11px;
   letter-spacing:.22em;
   text-transform:uppercase;
   color:#eaeaea;
-  padding:8px 10px;
+  padding:8px 12px;
   border-radius:999px;
   border:1px solid rgba(255,255,255,.18);
-  background:rgba(255,255,255,.04);
+  display:inline-block;
 }
+
 .hero h1{
-  margin-top:16px;
+  margin-top:18px;
   font-size:54px;
   line-height:1.05;
   letter-spacing:-.03em;
 }
+
 .hero p{
   margin-top:14px;
-  max-width:78ch;
+  max-width:75ch;
   color:#d0d0d0;
-  line-height:1.75;
+  line-height:1.7;
   font-size:16px;
-}
-.metaLine{
-  margin-top:16px;
-  color:#9a9a9a;
-  font-size:12px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
 }
 
 .wrap{
   max-width:980px;
-  margin:0 auto;
-  padding:46px 22px 90px;
+  margin:auto;
+  padding:48px 22px 90px;
 }
 
 .show{
-  padding:26px 22px;
   border:1px solid #181818;
   border-radius:20px;
   background:rgba(255,255,255,.02);
-  margin-bottom:26px;
-}
-.show h2{
-  font-size:28px;
-  letter-spacing:-.02em;
-  line-height:1.12;
-}
-.submeta{
-  margin-top:10px;
-  color:#a9a9a9;
-  font-size:13px;
-  line-height:1.5;
-}
-.text{
-  margin-top:14px;
-  max-width:78ch;
-}
-.text p{
-  color:#d7d7d7;
-  line-height:1.9;
-  font-size:16px;
-  margin:0 0 14px 0;
+  padding:28px 24px;
+  margin-bottom:30px;
 }
 
-@media(max-width:760px){
-  .hero h1{font-size:40px}
-  .show{padding:22px 16px}
-  .show h2{font-size:24px}
+.show h2{
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.submeta{
+  color:#aaa;
+  font-size:13px;
+  margin-bottom:14px;
+}
+
+.show p{
+  color:#d7d7d7;
+  line-height:1.85;
+  margin-bottom:14px;
+  font-size:16px;
 }
 </style>
 </head>
@@ -123,72 +107,58 @@ img{max-width:100%;display:block}
 <body>
 
 <div class="topbar">
-  <a class="back" href="index.html">← Back</a>
-  <div class="brand">Popcorn Picks</div>
-  <div style="width:48px"></div>
+  <a href="index.html">← Home</a>
+  <strong>Popcorn Picks</strong>
+  <span></span>
 </div>
 
-<header class="hero">
+<section class="hero">
   <div class="heroInner">
     <span class="kicker">Editorial • Donghua</span>
-    <h1>My Favorite Donghua</h1>
-
+    <h1>Our Favorite Donghua</h1>
     <p>
-      Donghua is not just animation. It is epic storytelling built on cultivation, destiny, ancient bloodlines,
-      and the slow, painful climb from weakness to power. These stories reward patience — and when they hit,
-      they feel larger than life.
+      Donghua is not just animation. It is modern fantasy told through ancient mythology, cultivation, and the idea that power is something you earn through suffering and discipline.
+      These stories take time. They reward patience. And when they hit, they feel massive.
     </p>
-
     <p>
-      These four series represent the soul of modern Donghua: long journeys, deep worlds, and characters
-      who grow through suffering, discipline, and will.
+      These four series represent what Donghua does best: long journeys, deep worlds, and characters who are shaped by hardship rather than shortcuts.
     </p>
-
-    <div class="metaLine">Popcorn Picks • Curated Fantasy</div>
   </div>
-</header>
+</section>
 
 <main class="wrap">
 
-  <article class="show">
-    <h2>1) Soul Land</h2>
-    <div class="submeta">Cultivation • Friendship • Destiny</div>
-    <div class="text">
-      <p><em>Soul Land</em> is one of the few long-form Donghua that truly earns its emotional weight. You do not just watch characters grow — you grow with them.</p>
-      <p>The bond between the team, the slow power progression, and the feeling of moving through different eras of their lives makes this feel like a fantasy epic.</p>
-      <p>If Donghua has a gateway masterpiece, this is it.</p>
-    </div>
-  </article>
+<div class="show">
+<h2>Soul Land</h2>
+<div class="submeta">Cultivation • Brotherhood • Long-form fantasy</div>
+<p>Soul Land is the series that made many people fall in love with Donghua. It is not about one hero becoming powerful. It is about a group of people growing together over time.</p>
+<p>You watch these characters from their youth into adulthood. Their friendships, rivalries, and losses all build naturally. When something tragic happens, it hurts because you have lived with them.</p>
+<p>Very few animated series create this sense of emotional history. Soul Land does it better than almost any.</p>
+</div>
 
-  <article class="show">
-    <h2>2) Battle Through the Heavens</h2>
-    <div class="submeta">Underdog • Revenge • Power</div>
-    <div class="text">
-      <p>This is one of the most satisfying rise-from-nothing stories in Donghua.</p>
-      <p>Every humiliation, every loss, and every breakthrough feels personal. It turns anger and ambition into fuel.</p>
-      <p>Pure power-fantasy done right.</p>
-    </div>
-  </article>
+<div class="show">
+<h2>Battle Through the Heavens</h2>
+<div class="submeta">Underdog • Revenge • Power fantasy</div>
+<p>This is one of the most satisfying rise-from-nothing stories in Donghua.</p>
+<p>The hero starts as someone everyone looks down on. Every step forward is earned through humiliation, pain, and relentless training. There are no easy victories.</p>
+<p>What makes it addictive is the feeling of momentum. Every arc pushes him higher. Every enemy is stronger. And you want to see how far he can go.</p>
+</div>
 
-  <article class="show">
-    <h2>3) Perfect World</h2>
-    <div class="submeta">Gods • Monsters • Ancient realms</div>
-    <div class="text">
-      <p><em>Perfect World</em> is Donghua at its most mythic.</p>
-      <p>It feels like watching legends being written — huge battles, ancient clans, and a hero constantly tested by fate.</p>
-      <p>This is epic fantasy in motion.</p>
-    </div>
-  </article>
+<div class="show">
+<h2>Perfect World</h2>
+<div class="submeta">Gods • Ancient clans • Epic fantasy</div>
+<p>Perfect World feels like watching legends unfold.</p>
+<p>The scale is enormous. Ancient bloodlines, divine beasts, forgotten realms, and battles that feel bigger than history itself.</p>
+<p>This is Donghua at its most cinematic. When it hits, it feels like myth brought to life.</p>
+</div>
 
-  <article class="show">
-    <h2>4) Shrouding the Heavens</h2>
-    <div class="submeta">Mystery • Cultivation • Ancient secrets</div>
-    <div class="text">
-      <p>This is the quiet, atmospheric side of Donghua.</p>
-      <p>The story moves like an ancient novel — slow, heavy, mysterious, and powerful.</p>
-      <p>If you love deep lore and cosmic scale, this is essential.</p>
-    </div>
-  </article>
+<div class="show">
+<h2>Shrouding the Heavens</h2>
+<div class="submeta">Mystery • Cultivation • Cosmic fantasy</div>
+<p>This is the most atmospheric of the four.</p>
+<p>Shrouding the Heavens moves slowly, but deliberately. It feels like reading an ancient novel, where every discovery reveals something larger about the universe.</p>
+<p>If you enjoy deep lore, mystery, and cosmic scale, this is essential Donghua.</p>
+</div>
 
 </main>
 
