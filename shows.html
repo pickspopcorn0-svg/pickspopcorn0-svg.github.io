@@ -1,128 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Show — Popcorn Picks</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anime — Popcorn Picks</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
   background:#0b0b0c;
   color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
 }
 a{text-decoration:none;color:inherit}
-.top{
-  position:sticky; top:0; z-index:20;
-  display:flex; align-items:center; justify-content:space-between;
-  padding:18px 22px;
-  background:rgba(10,10,10,.88);
-  backdrop-filter: blur(10px);
-  border-bottom:1px solid #222;
-}
-.link{color:#aaa;font-size:13px}
-.link:hover{color:#fff}
 
-.wrap{max-width:980px;margin:0 auto;padding:26px 22px 70px}
-h1{font-size:40px;letter-spacing:-.02em;margin-top:22px}
-.meta{color:#bdbdbd;font-size:13px;margin-top:10px}
-.poster{
-  margin-top:18px;
-  width:100%;
-  height:520px;
+/* TOP BAR */
+.top{
+  position:sticky;
+  top:0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 20px;
+  background:rgba(10,10,10,.9);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid #222;
+  z-index:10;
+}
+
+/* GRID */
+.grid{
+  padding:24px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:22px;
+}
+
+/* CARD */
+.card{
   border-radius:18px;
   border:1px solid #181818;
-  background:
-    radial-gradient(1200px 500px at 20% 10%, rgba(255,255,255,.06), transparent 60%),
-    linear-gradient(to bottom, rgba(255,255,255,.03), rgba(0,0,0,.2));
-  display:flex;align-items:center;justify-content:center;
-  color:#9a9a9a;
+  overflow:hidden;
+  position:relative;
+  background:#111;
+  transition:.2s ease;
 }
-.box{
-  margin-top:18px;
-  border:1px solid #222;
-  border-radius:14px;
-  padding:16px;
-  color:#cfcfcf;
-  line-height:1.75;
-  font-size:14px;
+.card:hover{transform:translateY(-4px)}
+
+/* POSTER */
+.poster{
+  height:320px;
+  background-size:cover;
+  background-position:center;
 }
-.tags{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
-.tag{
-  border:1px solid #2a2a2a;
-  border-radius:999px;
-  padding:8px 10px;
+
+/* INFO */
+.info{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:14px;
+  background:linear-gradient(to top,rgba(0,0,0,.92),rgba(0,0,0,.2),transparent);
+}
+.title{
+  font-size:18px;
+  font-weight:700;
+}
+.meta{
   font-size:12px;
-  color:#ddd;
-  background:rgba(255,255,255,.03)
+  color:#bbb;
+  margin-top:4px;
 }
-.small{margin-top:16px;color:#8e8e8e;font-size:12px;line-height:1.6}
+.synopsis{
+  margin-top:10px;
+  font-size:13px;
+  line-height:1.45;
+  color:rgba(255,255,255,.78);
+}
 </style>
 </head>
 
 <body>
-  <div class="top">
-    <a class="link" href="tv-shows.html">← Back to TV Shows</a>
-    <a class="link" href="index.html">Home</a>
-  </div>
 
-  <div class="wrap">
-    <h1 id="title">Show</h1>
-    <div class="meta" id="meta"></div>
+<div class="top">
+  <a href="index.html">← Home</a>
+  <b>Anime</b>
+  <span></span>
+</div>
 
-    <div class="poster" id="poster">Poster coming soon</div>
+<div class="grid">
 
-    <div class="box">
-      <strong>Why to watch:</strong><br>
-      <span id="why"></span>
-    </div>
-
-    <div class="tags" id="tags"></div>
-
-    <div class="small">
-      Tip: Later, when you upload a poster to <b>assets/posters/</b>, we can make this page show it automatically.
+<a class="card" href="shows.html?id=slime">
+  <div class="poster" style="background-image:url('assets/posters/slime.jpg.JPG');"></div>
+  <div class="info">
+    <div class="title">That Time I Got Reincarnated as a Slime</div>
+    <div class="meta">2018 · Isekai</div>
+    <div class="synopsis">
+      A man is reborn as a slime in a fantasy world and slowly builds alliances, power, and an entire nation through strategy and empathy.
     </div>
   </div>
+</a>
 
-<script src="shows-data.js"></script>
-<script src="movies-data.js"></script>
+<a class="card" href="shows.html?id=bluelock">
+  <div class="poster" style="background-image:url('assets/posters/bluelock.jpg.JPG');"></div>
+  <div class="info">
+    <div class="title">Blue Lock</div>
+    <div class="meta">2022 · Sports</div>
+    <div class="synopsis">
+      Japan locks its best strikers in a brutal survival program where ego decides victory and only one can become the ultimate forward.
+    </div>
+  </div>
+</a>
 
-<script>
-(function(){
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get("id");
+<a class="card" href="shows.html?id=classroomoftheelite">
+  <div class="poster" style="background-image:url('assets/posters/classroomoftheelite.jpg.JPG');"></div>
+  <div class="info">
+    <div class="title">Classroom of the Elite</div>
+    <div class="meta">2017 · Psychological</div>
+    <div class="synopsis">
+      Students at an elite academy are ranked by merit, privilege, and manipulation—while a silent mastermind controls the game.
+    </div>
+  </div>
+</a>
 
-  // merge all data sources into one
-  const data = Object.assign(
-    {},
-    window.SHOWS || {},
-    window.MOVIES || {}
-  );
+<a class="card" href="shows.html?id=attackontitan">
+  <div class="poster" style="background-image:url('assets/posters/attackontitan.jpg.JPG');"></div>
+  <div class="info">
+    <div class="title">Attack on Titan</div>
+    <div class="meta">2013 · Dark Fantasy</div>
+    <div class="synopsis">
+      Humanity fights for survival against giant Titans, uncovering devastating truths about war, freedom, and the world itself.
+    </div>
+  </div>
+</a>
 
-  const item = id ? data[id] : null;
+<a class="card" href="shows.html?id=noblesse">
+  <div class="poster" style="background-image:url('assets/posters/noblesse.jpg.WEBP');"></div>
+  <div class="info">
+    <div class="title">Noblesse</div>
+    <div class="meta">2020 · Supernatural</div>
+    <div class="synopsis">
+      An ancient noble awakens in modern times and protects humanity from secret organizations and immortal enemies.
+    </div>
+  </div>
+</a>
 
-  if(!item){
-    document.title = "Not found — Popcorn Picks";
-    document.getElementById("title").textContent = "Not found";
-    document.getElementById("meta").textContent = "This page was opened with an invalid ID.";
-    document.getElementById("why").textContent = "This title is not yet linked in the data files.";
-    return;
-  }
+<a class="card" href="shows.html?id=sololeveling">
+  <div class="poster" style="background-image:url('assets/posters/sololeveling.jpg.JPG');"></div>
+  <div class="info">
+    <div class="title">Solo Leveling</div>
+    <div class="meta">2024 · Action Fantasy</div>
+    <div class="synopsis">
+      The weakest hunter gains a mysterious system that lets him grow endlessly stronger, alone, inside deadly dungeon raids.
+    </div>
+  </div>
+</a>
 
-  document.title = item.title + " — Popcorn Picks";
-  document.getElementById("title").textContent = item.title;
-  document.getElementById("meta").textContent = (item.year || "") + " • " + (item.meta || "");
-  document.getElementById("why").textContent = item.why || "";
+<a class="card" href="shows.html?id=haikyuu">
+  <div class="poster" style="background-image:url('assets/posters/haikyuu.jpg.JPG');"></div>
+  <div class="info">
+    <div class="title">Haikyuu!!</div>
+    <div class="meta">2014 · Volleyball</div>
+    <div class="synopsis">
+      A determined short player joins a struggling volleyball team and rises through relentless training, teamwork, and rivalry.
+    </div>
+  </div>
+</a>
 
-  const tagsEl = document.getElementById("tags");
-  (item.tags || []).forEach(t => {
-    const d = document.createElement("div");
-    d.className = "tag";
-    d.textContent = t;
-    tagsEl.appendChild(d);
-  });
-})();
-</script>
+</div>
+
 </body>
 </html>
