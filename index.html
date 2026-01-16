@@ -7,263 +7,131 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
 
 :root{
   --bg1:#07070a;
   --bg2:#0b0b12;
-  --card:#0f0f14;
-  --line:rgba(255,255,255,.10);
-  --muted:rgba(255,255,255,.70);
-  --muted2:rgba(255,255,255,.58);
+  --line:rgba(255,255,255,.12);
 }
 
-/* BODY background: cinematic, not flat black */
 body{
   background:
-    radial-gradient(1100px 700px at 12% -10%, rgba(255,120,70,.12), transparent 60%),
-    radial-gradient(900px 650px at 88% 16%, rgba(90,170,255,.12), transparent 58%),
-    radial-gradient(900px 600px at 50% 110%, rgba(120,255,210,.10), transparent 60%),
+    radial-gradient(1000px 600px at 15% -10%, rgba(255,120,70,.12), transparent 60%),
+    radial-gradient(900px 600px at 85% 20%, rgba(90,170,255,.12), transparent 60%),
     linear-gradient(to bottom, var(--bg2), var(--bg1));
   color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  min-height:100vh;
-  overflow-x:hidden;
-}
-
-/* subtle film grain overlay */
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  background:
-    radial-gradient(circle at 30% 20%, rgba(255,255,255,.06), transparent 35%),
-    radial-gradient(circle at 70% 80%, rgba(255,255,255,.05), transparent 35%);
-  mix-blend-mode:overlay;
-  opacity:.22;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
 }
 
 /* HEADER */
 header{
   position:fixed;
-  top:0;left:0;width:100%;
+  inset:0 0 auto 0;
   height:64px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   padding:0 40px;
-  background:rgba(12,12,16,.72);
-  backdrop-filter: blur(12px);
-  border-bottom:1px solid rgba(255,255,255,.10);
-  z-index:50;
+  background:rgba(10,10,14,.75);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+  z-index:100;
 }
 .logo{
-  font-size:18px;
-  font-weight:750;
+  font-weight:800;
   letter-spacing:.4px;
 }
 nav a{
   margin-left:18px;
   font-size:12px;
-  color:rgba(255,255,255,.70);
-  letter-spacing:.18px;
+  color:rgba(255,255,255,.72);
 }
 nav a:hover{color:#fff}
 
 /* HERO */
 .hero{
-  height:86vh;
+  height:88vh;
   padding:0 60px;
   display:flex;
   align-items:center;
-  position:relative;
-  border-bottom:1px solid rgba(255,255,255,.08);
   background:
-    linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.78)),
+    linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.85)),
     url("assets/home/hero.jpg");
   background-size:cover;
   background-position:center;
 }
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(900px 500px at 18% 25%, rgba(255,160,90,.10), transparent 60%),
-    radial-gradient(900px 500px at 82% 35%, rgba(90,170,255,.10), transparent 60%),
-    linear-gradient(to top, rgba(0,0,0,.85), rgba(0,0,0,.10));
-  pointer-events:none;
-}
-.hero .inner{
-  max-width:760px;
-  padding-top:64px;
-  position:relative;
-  z-index:2;
-}
-.kicker{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:10px 12px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(0,0,0,.22);
-  color:rgba(255,255,255,.86);
-  font-size:11px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-}
-.dot{
-  width:8px;height:8px;border-radius:50%;
-  background:rgba(255,160,90,.85);
-  box-shadow:0 0 18px rgba(255,160,90,.55);
-}
 .hero h1{
-  margin-top:18px;
   font-size:58px;
-  line-height:1.03;
-  letter-spacing:-.03em;
+  line-height:1.05;
 }
 .hero p{
-  margin-top:16px;
-  max-width:62ch;
-  font-size:18px;
+  margin-top:14px;
+  max-width:60ch;
   color:rgba(255,255,255,.78);
-  line-height:1.6;
+  font-size:18px;
 }
 .heroActions{
   margin-top:26px;
   display:flex;
-  gap:12px;
-  flex-wrap:wrap;
+  gap:14px;
 }
 .btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:14px 20px;
+  padding:14px 22px;
   border-radius:999px;
-  font-size:14px;
   border:1px solid rgba(255,255,255,.18);
   background:rgba(255,255,255,.06);
-  color:#fff;
-  transition:transform .18s ease, background .18s ease, border-color .18s ease;
-}
-.btn:hover{
-  transform:translateY(-2px);
-  border-color:rgba(255,255,255,.30);
-  background:rgba(255,255,255,.10);
+  font-size:14px;
 }
 .btn.primary{
+  background:linear-gradient(90deg, rgba(255,160,90,.22), rgba(90,170,255,.18));
   border-color:rgba(255,160,90,.45);
-  background:linear-gradient(90deg, rgba(255,160,90,.20), rgba(90,170,255,.14));
 }
-.btn.primary:hover{
-  border-color:rgba(255,160,90,.65);
-}
+.btn:hover{transform:translateY(-2px)}
 
-/* SECTIONS */
+/* SECTION */
 .section{
-  padding:92px 60px;
-  position:relative;
+  padding:90px 60px;
 }
 .section h2{
   font-size:28px;
-  margin-bottom:26px;
-  letter-spacing:.2px;
+  margin-bottom:28px;
 }
 
-/* subtle moving light sweep behind sections */
-.section::before{
-  content:"";
-  position:absolute;
-  inset:-40px 0 0 0;
-  background:
-    radial-gradient(700px 350px at 10% 20%, rgba(255,140,90,.10), transparent 60%),
-    radial-gradient(820px 420px at 90% 70%, rgba(90,170,255,.10), transparent 60%);
-  opacity:.65;
-  pointer-events:none;
-  z-index:0;
-  animation:sweep 10s ease-in-out infinite alternate;
-}
-@keyframes sweep{0%{transform:translateY(0px)}100%{transform:translateY(10px)}}
-.section > *{position:relative; z-index:1}
-
-/* FEATURED COLLECTIONS */
+/* FEATURED */
 .feed{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:26px;
 }
-.feedLink{display:block}
-
 .feedCard{
-  position:relative;
   height:330px;
   border-radius:18px;
   background-size:cover;
   background-position:center;
+  position:relative;
   overflow:hidden;
-
-  border:1px solid rgba(255,255,255,.10);
-  background-color:rgba(255,255,255,.03);
-  box-shadow:0 26px 70px rgba(0,0,0,.70);
-  transform:translateZ(0);
-  transition:transform .24s ease, box-shadow .24s ease, border-color .24s ease, filter .24s ease;
+  border:1px solid var(--line);
 }
 .feedCard::after{
   content:"";
   position:absolute;
   inset:0;
-  background:
-    radial-gradient(900px 460px at 20% 20%, rgba(255,255,255,.10), transparent 55%),
-    linear-gradient(to bottom, rgba(0,0,0,.05), rgba(0,0,0,.92));
-}
-.feedCard:hover{
-  transform:translateY(-8px) scale(1.015);
-  box-shadow:0 52px 120px rgba(0,0,0,.88);
-  border-color:rgba(255,255,255,.18);
-  filter:saturate(1.10) contrast(1.06);
-}
-
-.tag{
-  position:absolute;
-  top:18px; left:18px;
-  font-size:11px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:rgba(255,255,255,.92);
-  background:rgba(0,0,0,.35);
-  border:1px solid rgba(255,255,255,.16);
-  padding:9px 11px;
-  border-radius:999px;
-  z-index:2;
+  background:linear-gradient(to bottom, rgba(0,0,0,.1), rgba(0,0,0,.9));
 }
 .feedText{
   position:absolute;
-  left:0; right:0; bottom:0;
+  bottom:0;
   padding:22px;
-  z-index:2;
 }
-.feedText h3{
-  font-size:20px;
-  margin-bottom:8px;
-  font-weight:750;
-  letter-spacing:.1px;
-}
-.feedText p{
-  color:rgba(255,255,255,.76);
-  font-size:14px;
-  line-height:1.5;
-  max-width:46ch;
-}
+.feedText h3{font-size:20px}
+.feedText p{font-size:14px;color:rgba(255,255,255,.75)}
 
-/* CATEGORY CARDS */
+/* CATEGORIES */
 .catGrid{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
   gap:26px;
 }
 .cat{
@@ -273,169 +141,47 @@ nav a:hover{color:#fff}
   background-position:center;
   position:relative;
   overflow:hidden;
-  display:block;
-
-  border:1px solid rgba(255,255,255,.10);
-  background-color:rgba(255,255,255,.03);
-
-  box-shadow:
-    0 24px 70px rgba(0,0,0,.65),
-    inset 0 0 0 1px rgba(255,255,255,.04);
-
-  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease, filter .22s ease;
+  border:1px solid var(--line);
 }
 .cat::after{
   content:"";
   position:absolute;
   inset:0;
   background:
-    radial-gradient(900px 420px at 18% 18%, rgba(255,255,255,.12), transparent 55%),
-    linear-gradient(to top, rgba(0,0,0,.90), rgba(0,0,0,.25), transparent);
+    linear-gradient(to top, rgba(0,0,0,.85), rgba(0,0,0,.25));
 }
 .cat span{
   position:absolute;
   left:18px;
   bottom:18px;
-  z-index:2;
   font-size:22px;
   font-weight:800;
-  letter-spacing:.2px;
-  color:#fff;
-  text-shadow:0 10px 22px rgba(0,0,0,.90);
+  z-index:2;
 }
 .cat:hover{
-  transform:translateY(-7px) scale(1.02);
-  border-color:rgba(255,255,255,.22);
-  box-shadow:
-    0 46px 120px rgba(0,0,0,.84),
-    inset 0 0 0 1px rgba(255,255,255,.06);
-  filter:saturate(1.08) contrast(1.05);
-}
-
-/* =========================
-   AUTO WALLPAPER CATEGORIES
-   No external images needed
-   ========================= */
-.catAuto .cat{
-  background-image:none !important;
-  background:
-    radial-gradient(1100px 520px at 18% 14%, rgba(var(--a), .46), transparent 60%),
-    radial-gradient(900px 520px at 82% 36%, rgba(255,255,255,.10), transparent 60%),
-    linear-gradient(135deg, rgba(15,15,20,1), rgba(7,7,10,1));
-}
-.catAuto .cat::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  opacity:.55;
-  mix-blend-mode:overlay;
-  pointer-events:none;
-}
-.catAuto .cat em{
-  position:absolute;
-  right:16px;
-  top:16px;
-  font-style:normal;
-  font-size:22px;
-  z-index:2;
-  opacity:.92;
-  filter:drop-shadow(0 10px 22px rgba(0,0,0,.45));
-}
-
-.catMovies{ --a: 235, 84, 84; }
-.catMovies::before{
-  background:
-    repeating-linear-gradient(90deg, rgba(255,255,255,.06) 0 2px, transparent 2px 14px),
-    radial-gradient(600px 240px at 30% 30%, rgba(var(--a), .22), transparent 60%);
-}
-
-.catTV{ --a: 74, 144, 226; }
-.catTV::before{
-  background:
-    repeating-linear-gradient(0deg, rgba(255,255,255,.05) 0 1px, transparent 1px 10px),
-    repeating-linear-gradient(90deg, rgba(255,255,255,.03) 0 1px, transparent 1px 18px);
-}
-
-.catKdrama{ --a: 181, 120, 255; }
-.catKdrama::before{
-  background:
-    radial-gradient(22px 22px at 15% 20%, rgba(255,255,255,.10) 0 40%, transparent 41%),
-    radial-gradient(22px 22px at 45% 35%, rgba(255,255,255,.08) 0 40%, transparent 41%),
-    radial-gradient(22px 22px at 75% 22%, rgba(255,255,255,.09) 0 40%, transparent 41%),
-    radial-gradient(22px 22px at 65% 55%, rgba(255,255,255,.08) 0 40%, transparent 41%);
-}
-
-.catCdrama{ --a: 255, 169, 77; }
-.catCdrama::before{
-  background:
-    linear-gradient(45deg, rgba(255,255,255,.06), transparent 55%),
-    repeating-linear-gradient(135deg, rgba(255,255,255,.06) 0 2px, transparent 2px 16px);
-}
-
-.catAnime{ --a: 90, 230, 170; }
-.catAnime::before{
-  background:
-    repeating-linear-gradient(135deg, rgba(255,255,255,.06) 0 2px, transparent 2px 12px),
-    radial-gradient(500px 240px at 70% 30%, rgba(var(--a), .18), transparent 60%);
-}
-
-.catDonghua{ --a: 255, 214, 92; }
-.catDonghua::before{
-  background:
-    repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0 1px, transparent 1px 9px),
-    repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0 1px, transparent 1px 13px);
-}
-
-.catIndian{ --a: 255, 120, 70; }
-.catIndian::before{
-  background:
-    radial-gradient(20px 20px at 15% 25%, rgba(255,255,255,.10) 0 35%, transparent 36%),
-    radial-gradient(20px 20px at 35% 45%, rgba(255,255,255,.09) 0 35%, transparent 36%),
-    radial-gradient(20px 20px at 55% 30%, rgba(255,255,255,.08) 0 35%, transparent 36%),
-    radial-gradient(20px 20px at 75% 50%, rgba(255,255,255,.09) 0 35%, transparent 36%);
-}
-
-.catFrench{ --a: 150, 205, 255; }
-.catFrench::before{
-  background:
-    radial-gradient(700px 240px at 30% 35%, rgba(255,255,255,.07), transparent 60%),
-    repeating-linear-gradient(45deg, rgba(255,255,255,.05) 0 1px, transparent 1px 11px);
+  transform:translateY(-6px);
 }
 
 /* FOOTER */
 footer{
-  border-top:1px solid rgba(255,255,255,.10);
+  border-top:1px solid var(--line);
   padding:60px;
-  color:rgba(255,255,255,.62);
   display:grid;
   grid-template-columns:1.4fr 1fr 1fr;
   gap:40px;
-  background:linear-gradient(to bottom, rgba(255,255,255,.02), rgba(0,0,0,.18));
+  color:rgba(255,255,255,.65);
 }
-footer h4{
-  color:#fff;
-  margin-bottom:12px;
-  font-size:14px;
-  font-weight:800;
-  letter-spacing:.2px;
-}
-footer p{line-height:1.7;font-size:13px;color:rgba(255,255,255,.66)}
-footer a{
-  display:block;
-  margin:8px 0;
-  color:rgba(255,255,255,.62);
-  font-size:13px;
-}
-footer a:hover{color:#fff}
+footer h4{color:#fff;margin-bottom:12px}
+footer a{display:block;margin:6px 0;font-size:13px}
 
 /* RESPONSIVE */
 @media(max-width:900px){
   header{padding:0 18px}
   .hero{padding:0 20px}
   .section{padding:70px 20px}
-  footer{grid-template-columns:1fr;padding:40px 20px}
   nav{display:none}
-  .hero h1{font-size:44px}
+  footer{grid-template-columns:1fr;padding:40px 20px}
+  .hero h1{font-size:42px}
 }
 </style>
 </head>
@@ -457,15 +203,10 @@ footer a:hover{color:#fff}
 </header>
 
 <section class="hero">
-  <div class="inner">
-    <div class="kicker"><span class="dot"></span> Curated picks</div>
-
+  <div>
     <h1>Cinema beyond borders.</h1>
-    <p>
-      Posters first, sharp reasons second, and clear where to watch.
-      Popcorn Picks is a curated space for TV shows and world cinema.
-    </p>
-
+    <p>Posters first. Clear reasons. Where to watch.  
+       A curated home for world cinema and series.</p>
     <div class="heroActions">
       <a class="btn primary" href="movies.html">Browse Movies</a>
       <a class="btn" href="tv-shows.html">Browse TV Shows</a>
@@ -474,123 +215,31 @@ footer a:hover{color:#fff}
 </section>
 
 <section class="section">
-  <h2>Featured collections</h2>
-
-  <div class="feed">
-
-    <a class="feedLink" href="must-watch-espionage.html">
-      <div class="feedCard" style="background-image:url('assets/home/espionage.jpg');">
-        <div class="tag">EDITORIAL • 5 min</div>
-        <div class="feedText">
-          <h3>Must Watch Espionage</h3>
-          <p>Tradecraft, tension, and the cost of double lives.</p>
-        </div>
-      </div>
-    </a>
-
-    <a class="feedLink" href="mustwatch-period.html">
-      <div class="feedCard" style="background-image:url('assets/home/period.jpg');">
-        <div class="tag">EDITORIAL • 6 min</div>
-        <div class="feedText">
-          <h3>Must Watch Period Dramas</h3>
-          <p>Atmosphere first stories where writing actually matters.</p>
-        </div>
-      </div>
-    </a>
-
-    <a class="feedLink" href="undertheradar-kdrama.html">
-      <div class="feedCard" style="background-image:url('assets/home/kdrama.jpg');">
-        <div class="tag">EDITORIAL • 7 min</div>
-        <div class="feedText">
-          <h3>Under the Radar K Dramas</h3>
-          <p>Hidden gems that deserve the spotlight.</p>
-        </div>
-      </div>
-    </a>
-
-    <a class="feedLink" href="editorial-donghua.html">
-      <div class="feedCard" style="background-image:url('assets/home/donghua.jpg');">
-        <div class="tag">EDITORIAL • 4 min</div>
-        <div class="feedText">
-          <h3>Our Favorite Donghua</h3>
-          <p>Soul Land, Battle Through the Heavens, Perfect World, Shrouding the Heavens.</p>
-        </div>
-      </div>
-    </a>
-
-    <a class="feedLink" href="editorial-korean-dating-shows.html">
-      <div class="feedCard" style="background-image:url('assets/home/korean-dating.jpg');">
-        <div class="tag">EDITORIAL • 8 min</div>
-        <div class="feedText">
-          <h3>Korean Dating Shows Worth Your Time</h3>
-          <p>Single’s Inferno, Transit Love, Heart Signal, Love After Divorce, and more.</p>
-        </div>
-      </div>
-    </a>
-
-    <a class="feedLink" href="indian-cinema-guide.html">
-      <div class="feedCard" style="background-image:url('assets/home/india.jpg');">
-        <div class="tag">EDITORIAL • 6 min</div>
-        <div class="feedText">
-          <h3>Your First Step into Indian Cinema</h3>
-          <p>From 3 Idiots to RRR and Baahubali, a powerful entry point.</p>
-        </div>
-      </div>
-    </a>
-
-  </div>
-</section>
-
-<section class="section">
   <h2>Browse categories</h2>
 
-  <div class="catGrid catAuto">
-
-    <a class="cat catMovies" href="movies.html">
-      <span>Movies</span><em>🎬</em>
-    </a>
-
-    <a class="cat catTV" href="tv-shows.html">
-      <span>TV Shows</span><em>📺</em>
-    </a>
-
-    <a class="cat catKdrama" href="kdrama.html">
-      <span>K Drama</span><em>🇰🇷</em>
-    </a>
-
-    <a class="cat catCdrama" href="cdrama.html">
-      <span>C Drama</span><em>🐉</em>
-    </a>
-
-    <a class="cat catAnime" href="anime.html">
-      <span>Anime</span><em>⚡</em>
-    </a>
-
-    <a class="cat catDonghua" href="donghua.html">
-      <span>Donghua</span><em>🗡️</em>
-    </a>
-
-    <a class="cat catIndian" href="indian.html">
-      <span>Indian Cinema</span><em>🇮🇳</em>
-    </a>
-
-    <a class="cat catFrench" href="french.html">
-      <span>French Cinema</span><em>🇫🇷</em>
-    </a>
-
+  <div class="catGrid">
+    <a class="cat" href="movies.html" style="background-image:url('assets/categories/movies.jpg.JPG')"><span>Movies</span></a>
+    <a class="cat" href="tv-shows.html" style="background-image:url('assets/categories/tv-shows.jpg.JPG')"><span>TV Shows</span></a>
+    <a class="cat" href="kdrama.html" style="background-image:url('assets/categories/k-drama.jpg.JPG')"><span>K Drama</span></a>
+    <a class="cat" href="cdrama.html" style="background-image:url('assets/categories/c-drama.jpg.JPG')"><span>C Drama</span></a>
+    <a class="cat" href="anime.html" style="background-image:url('assets/categories/anime.jpg.JPG')"><span>Anime</span></a>
+    <a class="cat" href="donghua.html" style="background-image:url('assets/categories/donghua.jpg.JPG')"><span>Donghua</span></a>
+    <a class="cat" href="indian.html" style="background-image:url('assets/categories/indian-cinema.jpg.JPG')"><span>Indian Cinema</span></a>
+    <a class="cat" href="french.html" style="background-image:url('assets/categories/french-cinema.jpg.JPG')"><span>French Cinema</span></a>
   </div>
 </section>
 
 <footer>
   <div>
     <h4>Popcorn Picks</h4>
-    <p>Cinema beyond borders. Curated recommendations with posters, short reasons, and where to watch.</p>
+    <p>Cinema beyond borders.  
+       Carefully curated films and series from around the world.</p>
   </div>
 
   <div>
     <h4>Explore</h4>
-    <a href="tv-shows.html">TV Shows</a>
     <a href="movies.html">Movies</a>
+    <a href="tv-shows.html">TV Shows</a>
     <a href="kdrama.html">K Drama</a>
     <a href="anime.html">Anime</a>
   </div>
