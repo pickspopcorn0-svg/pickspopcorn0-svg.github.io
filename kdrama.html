@@ -1,291 +1,533 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>K Drama | Popcorn Picks</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KDrama — Popcorn Picks</title>
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  background:#0b0b0c;
-  color:#ffffff;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
-}
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      background:#0b0b0c;
+      color:#fff;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
+    }
+    a{color:inherit;text-decoration:none}
 
-a{text-decoration:none;color:inherit}
+    .top{
+      position:sticky;top:0;z-index:30;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:16px 20px;
+      background:rgba(10,10,10,.88);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid #222;
+    }
+    .top b{font-size:16px}
 
-.top{
-  position:sticky;
-  top:0;
-  padding:16px 20px;
-  background:rgba(10,10,10,0.9);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid #222;
-  display:flex;
-  align-items:center;
-  gap:14px;
-  z-index:10;
-}
+    .wrap{padding:18px 18px 8px}
+    .searchRow{display:flex;gap:10px;flex-wrap:wrap}
+    .searchRow input{
+      flex:1;min-width:220px;
+      padding:12px 14px;border-radius:12px;
+      border:1px solid #222;background:#111;color:#fff;outline:none;
+    }
+    .btn{
+      padding:12px 14px;border-radius:12px;
+      border:1px solid #222;background:#141414;color:#fff;cursor:pointer;
+    }
+    .btn:active{transform:translateY(1px)}
+    .small{color:#aaa;font-size:12px;padding:10px 2px 0;line-height:1.4}
 
-.top b{font-size:18px}
+    .grid{
+      padding:16px 18px 26px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+      gap:18px;
+    }
+    .card{
+      border-radius:18px;
+      border:1px solid #181818;
+      overflow:hidden;
+      position:relative;
+      background:#111;
+      min-height:320px;
+      cursor:pointer;
+    }
+    .poster{
+      height:320px;
+      background:#111;
+      background-size:cover;
+      background-position:center;
+    }
+    .poster.fallback{
+      background:
+        radial-gradient(1200px 600px at 30% 10%, rgba(255,255,255,.08), transparent 45%),
+        radial-gradient(900px 500px at 70% 30%, rgba(255,255,255,.06), transparent 50%),
+        linear-gradient(180deg, #141414, #0f0f10);
+      display:flex;align-items:center;justify-content:center;
+      color:#a7a7a7;font-weight:700;font-size:18px;letter-spacing:.5px;
+    }
+    .info{
+      position:absolute;left:0;right:0;bottom:0;
+      padding:14px;
+      background:linear-gradient(to top,rgba(0,0,0,.92),transparent);
+    }
+    .title{font-size:18px;font-weight:700;line-height:1.2}
+    .meta{font-size:12px;color:#aaa;margin-top:4px}
+    .tagline{
+      font-size:12px;color:#d6d6d6;margin-top:8px;opacity:.92;
+      display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+    }
 
-.grid{
-  padding:24px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:22px;
-}
-
-.card{
-  background:#111;
-  border:1px solid #1b1b1b;
-  border-radius:18px;
-  overflow:hidden;
-  cursor:pointer;
-  transition:transform .25s ease, box-shadow .25s ease;
-}
-
-.card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 12px 28px rgba(0,0,0,0.5);
-}
-
-.poster{
-  height:340px;
-  background-size:cover;
-  background-position:center;
-}
-
-.info{
-  padding:14px;
-}
-
-.title{
-  font-size:17px;
-  font-weight:600;
-}
-
-.meta{
-  font-size:12px;
-  color:#aaaaaa;
-  margin-top:4px;
-}
-
-.detail{
-  display:none;
-  padding:28px;
-  border-top:1px solid #222;
-}
-
-.detail.active{display:block}
-
-.detail h2{
-  font-size:22px;
-  margin-bottom:10px;
-}
-
-.detail p{
-  font-size:14px;
-  line-height:1.7;
-  color:#dddddd;
-  max-width:900px;
-}
-
-.close{
-  margin-top:18px;
-  display:inline-block;
-  font-size:13px;
-  color:#bbbbbb;
-  cursor:pointer;
-}
-</style>
+    /* modal */
+    .modalBack{
+      position:fixed;inset:0;z-index:60;
+      background:rgba(0,0,0,.72);
+      display:none;
+      padding:18px;
+    }
+    .modal{
+      max-width:920px;
+      margin:0 auto;
+      background:#0f0f10;
+      border:1px solid #242424;
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 20px 60px rgba(0,0,0,.55);
+    }
+    .modalTop{
+      display:flex;justify-content:space-between;align-items:center;
+      padding:14px 14px 12px;
+      border-bottom:1px solid #202020;
+      background:rgba(18,18,18,.9);
+    }
+    .close{
+      border:1px solid #2a2a2a;background:#151515;color:#fff;
+      border-radius:12px;padding:10px 12px;cursor:pointer;
+    }
+    .modalBody{
+      display:grid;
+      grid-template-columns:320px 1fr;
+      gap:16px;
+      padding:16px;
+    }
+    @media (max-width: 820px){
+      .modalBody{grid-template-columns:1fr}
+    }
+    .modalPoster{
+      width:100%;
+      border-radius:14px;
+      border:1px solid #202020;
+      background:#111;
+      aspect-ratio:2/3;
+      background-size:cover;background-position:center;
+      overflow:hidden;
+    }
+    .modalPoster.fallback{
+      display:flex;align-items:center;justify-content:center;
+      color:#a7a7a7;font-weight:800;font-size:22px;
+      background:
+        radial-gradient(1200px 600px at 30% 10%, rgba(255,255,255,.08), transparent 45%),
+        linear-gradient(180deg, #141414, #0f0f10);
+    }
+    .h1{font-size:24px;font-weight:800;line-height:1.2}
+    .sub{color:#b8b8b8;font-size:13px;margin-top:6px;line-height:1.5}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .chip{
+      font-size:12px;color:#e6e6e6;
+      padding:8px 10px;border-radius:999px;
+      border:1px solid #2a2a2a;background:#141414;
+    }
+    .sectionTitle{margin-top:14px;font-weight:800;font-size:14px}
+    .para{margin-top:8px;color:#d7d7d7;line-height:1.65;font-size:14px}
+  </style>
 </head>
 
 <body>
+  <div class="top">
+    <a href="index.html">← Home</a>
+    <b>KDrama</b>
+    <span></span>
+  </div>
 
-<div class="top">
-  <a href="index.html">← Home</a>
-  <b>K Drama</b>
-</div>
+  <div class="wrap">
+    <div class="searchRow">
+      <input id="q" type="text" placeholder="Search title, year, genre, vibe..." autocomplete="off" />
+      <button class="btn" id="clearBtn" type="button">Clear</button>
+    </div>
+    <div class="small" id="count">Loading…</div>
+  </div>
 
-<div class="grid" id="grid"></div>
-<div class="detail" id="detail"></div>
+  <div class="grid" id="grid"></div>
 
-<script>
-const dramas = [
-{
- title:"Insider",
- year:"2022",
- genre:"Crime Psychological Thriller",
- poster:"assets/posters/kdrama/insider.jpg",
- synopsis:"A quiet legal trainee is pulled into a dangerous prison operation where every decision carries risk. Power shifts behind bars and trust is rare. The story builds slowly and rewards patience with sharp tension and moral ambiguity."
-},
-{
- title:"Priest",
- year:"2018",
- genre:"Horror Medical Supernatural",
- poster:"assets/posters/kdrama/priest.jpg",
- synopsis:"Doctors and priests cross paths when unexplained possessions begin to appear inside a hospital. Medicine reaches its limit and belief becomes the last line of defence. Dark and unsettling with emotional weight."
-},
-{
- title:"Flower of Evil",
- year:"2020",
- genre:"Psychological Thriller Melodrama",
- poster:"assets/posters/kdrama/flower-of-evil.jpg",
- synopsis:"A man with a hidden past builds a family life that rests on a lie. His wife works in homicide and slowly pieces together the truth. The series balances suspense with deep emotional conflict and devastating revelations."
-},
-{
- title:"The Veil",
- year:"2021",
- genre:"Espionage Action Political",
- poster:"assets/posters/kdrama/the-veil.jpg",
- synopsis:"An intelligence agent returns after disappearing for a year with his memory damaged and enemies waiting. The show dives into institutional corruption and personal sacrifice with a serious grounded tone."
-},
-{
- title:"My Liberation Notes",
- year:"2022",
- genre:"Slice of Life Human Drama",
- poster:"assets/posters/kdrama/my-liberation-notes.jpg",
- synopsis:"Three siblings trapped in routine quietly search for meaning in ordinary days. The writing is restrained and deeply human. This drama understands loneliness without needing grand events."
-},
-{
- title:"Hymn of Death",
- year:"2018",
- genre:"Historical Romance Tragedy",
- poster:"assets/posters/kdrama/hymn-of-death.jpg",
- synopsis:"Set during occupation era Korea this short series tells a doomed love story between an artist and a writer. It is restrained tragic and emotionally heavy long after it ends."
-},
-{
- title:"Undercover",
- year:"2021",
- genre:"Crime Political Family",
- poster:"assets/posters/kdrama/undercover.jpg",
- synopsis:"A former intelligence agent hides his past while his wife rises in the legal system. Personal life and political danger slowly collide in a story about identity and consequences."
-},
-{
- title:"The K2",
- year:"2016",
- genre:"Action Political Thriller",
- poster:"assets/posters/kdrama/the-k2.jpg",
- synopsis:"A skilled former soldier becomes a bodyguard inside elite power circles. Fast paced action blends with political games and emotional vulnerability."
-},
-{
- title:"Descendants of the Sun",
- year:"2016",
- genre:"Romance Action",
- poster:"assets/posters/kdrama/descendants-of-the-sun.jpg",
- synopsis:"A soldier and a doctor meet while working in conflict zones. Romance unfolds against duty danger and responsibility with strong emotional appeal."
-},
-{
- title:"Tell Me What You Saw",
- year:"2020",
- genre:"Crime Thriller Investigation",
- poster:"assets/posters/kdrama/tell-me-what-you-saw.jpg",
- synopsis:"A profiler who lost everything teams up with a gifted detective to hunt serial killers. Dark methodical and focused on psychological detail."
-},
-{
- title:"Love Affairs in the Afternoon",
- year:"2019",
- genre:"Romance Human Drama",
- poster:"assets/posters/kdrama/love-affairs-in-the-afternoon.jpg",
- synopsis:"Adults trapped in emotional loneliness find connection outside their marriages. Quiet intimate and mature in its exploration of desire and guilt."
-},
-{
- title:"Mouse",
- year:"2021",
- genre:"Psychological Crime Thriller",
- poster:"assets/posters/kdrama/mouse.jpg",
- synopsis:"A brutal series of murders leads to questions about nature nurture and evil. Complex layered and demanding full attention from the viewer."
-},
-{
- title:"Song of the Bandits",
- year:"2023",
- genre:"Historical Action Drama",
- poster:"assets/posters/kdrama/song-of-the-bandits.jpg",
- synopsis:"Outlaws freedom fighters and survivors clash in a lawless era. The series combines grit violence and moral struggle with strong atmosphere."
-},
-{
- title:"Our Movie",
- year:"2025",
- genre:"Romance Melancholy",
- poster:"assets/posters/kdrama/our-movie.jpg",
- synopsis:"A filmmaker facing the end of his career forms a fragile bond that reshapes his understanding of love and legacy."
-},
-{
- title:"Dr Prisoner",
- year:"2019",
- genre:"Revenge Thriller",
- poster:"assets/posters/kdrama/dr-prisoner.jpg",
- synopsis:"A doctor enters the prison system to execute a calculated plan of revenge. Cold intelligent and relentless in its pacing."
-},
-{
- title:"The Devil Judge",
- year:"2021",
- genre:"Dystopian Political Thriller",
- poster:"assets/posters/kdrama/the-devil-judge.jpg",
- synopsis:"A society addicted to televised justice watches trials become entertainment. Power morality and manipulation blur in a chilling future vision."
-},
-{
- title:"Queen of Tears",
- year:"2024",
- genre:"Romance Family Drama",
- poster:"assets/posters/kdrama/queen-of-tears.jpg",
- synopsis:"A marriage tested by emotional distance and external pressure slowly reveals why love first began. Intimate heartfelt and restrained."
-},
-{
- title:"A Piece of Your Mind",
- year:"2020",
- genre:"Romance Healing",
- poster:"assets/posters/kdrama/a-piece-of-your-mind.jpg",
- synopsis:"Two people carrying emotional wounds find comfort in quiet companionship. Gentle reflective and deeply sincere."
-},
-{
- title:"Dr Romantic",
- year:"2016",
- genre:"Medical Human Drama",
- poster:"assets/posters/kdrama/dr-romantic.jpg",
- synopsis:"An unconventional doctor teaches young surgeons what responsibility truly means. Character driven and grounded in ethical dilemmas."
-},
-{
- title:"She Would Never Know",
- year:"2021",
- genre:"Workplace Romance",
- poster:"assets/posters/kdrama/she-would-never-know.jpg",
- synopsis:"A junior colleague falls for a woman carrying emotional baggage. Subtle realistic and focused on communication rather than spectacle."
-},
-{
- title:"Dr John",
- year:"2019",
- genre:"Medical Drama",
- poster:"assets/posters/kdrama/dr-john.jpg",
- synopsis:"A brilliant anesthesiologist confronts pain and moral responsibility. Thoughtful and respectful in its portrayal of suffering."
-}
-];
+  <!-- Modal -->
+  <div class="modalBack" id="modalBack">
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="modalTop">
+        <b id="modalTitle">Details</b>
+        <button class="close" id="closeBtn" type="button">Close</button>
+      </div>
+      <div class="modalBody">
+        <div class="modalPoster" id="modalPoster"></div>
+        <div>
+          <div class="h1" id="mTitle"></div>
+          <div class="sub" id="mMeta"></div>
+          <div class="chips" id="mTags"></div>
 
-const grid=document.getElementById("grid");
-const detail=document.getElementById("detail");
+          <div class="sectionTitle">Synopsis</div>
+          <div class="para" id="mSynopsis"></div>
 
-dramas.forEach(d=>{
-  const c=document.createElement("div");
-  c.className="card";
-  c.innerHTML=`
-    <div class="poster" style="background-image:url('${d.poster}')"></div>
-    <div class="info">
-      <div class="title">${d.title}</div>
-      <div class="meta">${d.year} · ${d.genre}</div>
-    </div>`;
-  c.onclick=()=>{
-    detail.innerHTML=`
-      <h2>${d.title}</h2>
-      <p>${d.synopsis}</p>
-      <span class="close" onclick="detail.classList.remove('active')">Close</span>`;
-    detail.classList.add("active");
-    detail.scrollIntoView({behavior:"smooth"});
-  };
-  grid.appendChild(c);
-});
-</script>
+          <div class="sectionTitle">Why watch</div>
+          <div class="para" id="mWhy"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <script>
+    // Posters are loaded from: posters/<filename>.jpg
+    // Your folder must be exactly: posters (lowercase) in the root.
+    const KD = [
+      {
+        id:"insider",
+        title:"Insider",
+        year:"2022",
+        genre:"Crime • Thriller",
+        tags:["Crime","Thriller","Power games"],
+        poster:"posters/insider.jpg",
+        synopsis:"A trainee prosecutor is thrown into a prison politics trap and has to survive like a chess player—reading gangs, guards, and higher-ups while staying one move ahead of being erased.",
+        why:"It’s tense without being noisy. The fun is watching the lead stay calm while everything around him turns into a pressure cooker."
+      },
+      {
+        id:"priest",
+        title:"Priest",
+        year:"2018",
+        genre:"Horror • Supernatural",
+        tags:["Horror","Exorcism","Medical"],
+        poster:"posters/priest.jpg",
+        synopsis:"A doctor and a priest get pulled into cases where the usual medical answers stop working. When faith and science collide, the line between saving a life and risking many becomes thin.",
+        why:"More serious than flashy—grounded atmosphere, strong urgency, and a mood that stays unsettling."
+      },
+      {
+        id:"flowerofevil",
+        title:"Flower of Evil",
+        year:"2020",
+        genre:"Thriller • Mystery",
+        tags:["Thriller","Marriage","Secrets"],
+        poster:"posters/flowerofevil.jpg",
+        synopsis:"A detective starts suspecting her own husband while chasing a case that keeps pointing back home. The relationship turns into an interrogation—love versus fear, trust versus evidence.",
+        why:"Suspense with real emotion. Every episode tightens the knot, and the personal stakes actually hurt."
+      },
+      {
+        id:"theveil",
+        title:"The Veil",
+        year:"2021",
+        genre:"Spy • Action • Thriller",
+        tags:["Spy","Action","Betrayal"],
+        poster:"posters/theveil.jpg",
+        synopsis:"An elite agent returns after disappearing for a year with missing memories and too many enemies. To find the traitor, he has to dig through a system where everyone’s lying—sometimes for country, sometimes for themselves.",
+        why:"Hard-edged spy drama with speed and grit—less romance, more paranoia and consequences."
+      },
+      {
+        id:"myliberationnotes",
+        title:"My Liberation Notes",
+        year:"2022",
+        genre:"Slice of Life • Drama",
+        tags:["Slice of life","Quiet","Emotional"],
+        poster:"posters/myliberationnotes.jpg",
+        synopsis:"Three siblings feel stuck in a life that looks normal but feels empty—long commutes, small humiliations, and dreams that keep shrinking. Then one quiet stranger enters their world and changes how they see themselves.",
+        why:"It’s honest in a way most dramas aren’t—soft voice, sharp truth, and scenes that stay with you."
+      },
+      {
+        id:"hymnofdeath",
+        title:"Hymn of Death",
+        year:"2018",
+        genre:"Period • Tragedy • Romance",
+        tags:["Period","Tragedy","Art"],
+        poster:"posters/hymnofdeath.jpg",
+        synopsis:"Based on a real story—an artist and a singer fall into a love that society won’t allow. The beauty is in the restraint: what they want is simple, but the world around them makes it impossible.",
+        why:"Short and heavy in the best way—elegant period mood, heartbreaking finish."
+      },
+      {
+        id:"undercover",
+        title:"Undercover",
+        year:"2021",
+        genre:"Thriller • Political",
+        tags:["Thriller","Family","Politics"],
+        poster:"posters/undercover.jpg",
+        synopsis:"A woman’s promotion pulls her family into a storm of old secrets. Her husband’s past—linked to state power—comes back like a warning siren, and the marriage becomes a survival mission.",
+        why:"Good mix of tension + emotion. It keeps the danger personal instead of turning it into random action."
+      },
+      {
+        id:"k2",
+        title:"The K2",
+        year:"2016",
+        genre:"Action • Thriller",
+        tags:["Action","Bodyguard","Politics"],
+        poster:"posters/k2.jpg",
+        synopsis:"A former soldier becomes a bodyguard trapped between political monsters. Protecting the wrong person can get you killed, but protecting the right person might be worse.",
+        why:"Pure adrenaline when it wants to be—big set pieces, fast pacing, and a strong action lead."
+      },
+      {
+        id:"descendantsofthesun",
+        title:"Descendants of the Sun",
+        year:"2016",
+        genre:"Romance • Action",
+        tags:["Romance","Military","Disaster"],
+        poster:"posters/descendantsofthesun.jpg",
+        synopsis:"A soldier and a doctor keep meeting in the middle of danger—war zones, disasters, and moral choices where “doing your job” isn’t always clean.",
+        why:"It’s a classic for a reason—big emotional beats, glossy scale, and easy binge momentum."
+      },
+      {
+        id:"tellmewhatyousaw",
+        title:"Tell Me What You Saw",
+        year:"2020",
+        genre:"Crime • Thriller",
+        tags:["Crime","Investigation","Serial"],
+        poster:"posters/tellmewhatyousaw.jpg",
+        synopsis:"A profiler who retreated after tragedy is forced back into the field. With a rookie detective who remembers everything she sees, they chase a killer who keeps changing faces and patterns.",
+        why:"Dark, sharp, and tense—good ‘case pressure’ vibe without turning silly."
+      },
+      {
+        id:"loveaffairsinafternoon",
+        title:"Love Affairs in the Afternoon",
+        year:"2019",
+        genre:"Adult • Romance • Drama",
+        tags:["Adult drama","Relationships","Quiet"],
+        poster:"posters/loveaffairsinafternoon.jpg",
+        synopsis:"Loneliness inside ordinary life becomes the real antagonist. Two people drift toward something they shouldn’t, not for cheap shock—because they’re emotionally starving.",
+        why:"Mature and calm. It doesn’t scream—just slowly makes you feel uncomfortable in a real way."
+      },
+      {
+        id:"mouse",
+        title:"Mouse",
+        year:"2021",
+        genre:"Psychological • Thriller",
+        tags:["Psychological","Twists","Dark"],
+        poster:"posters/mouse.jpg",
+        synopsis:"A terrifying case pulls a kind-hearted rookie cop into a nightmare about identity and evil. Nothing stays simple—every reveal changes what you thought you were watching.",
+        why:"Relentless suspense. If you like dark thrillers that keep flipping the board, this is for you."
+      },
+      {
+        id:"songofbandits",
+        title:"Song of the Bandits",
+        year:"2023",
+        genre:"Action • Period",
+        tags:["Period","Action","Outlaws"],
+        poster:"posters/songofbandits.jpg",
+        synopsis:"In a brutal era, people with nothing left become bandits—not as heroes, but as survivors. The fights are rough, the world is dusty, and loyalty is always expensive.",
+        why:"Strong atmosphere + momentum. Feels like a tough period action ride rather than a polished palace drama."
+      },
+      {
+        id:"ourmovie",
+        title:"Our Movie",
+        year:"2025",
+        genre:"Romance • Drama",
+        tags:["Romance","Life choices","Emotion"],
+        poster:"posters/ourmovie.jpg",
+        synopsis:"A relationship drama built around timing—two people meet when life is already complicated, and love becomes less about fireworks and more about decisions you can’t undo.",
+        why:"If you want something emotional but not cheesy—this is the kind that hits because it feels human."
+      },
+      {
+        id:"drprisoner",
+        title:"Doctor Prisoner",
+        year:"2019",
+        genre:"Revenge • Thriller",
+        tags:["Revenge","Mind games","Power"],
+        poster:"posters/drprisoner.jpg",
+        synopsis:"A brilliant doctor is framed and destroyed by powerful people. He rebuilds his life inside the prison system, turning medicine into leverage and revenge into a long strategy.",
+        why:"Satisfying “smart revenge” drama—more brain than shouting, and the payoff feels earned."
+      },
+      {
+        id:"deviljudge",
+        title:"The Devil Judge",
+        year:"2021",
+        genre:"Dystopian • Thriller",
+        tags:["Dystopia","Justice","Power"],
+        poster:"posters/deviljudge.jpg",
+        synopsis:"In a society addicted to spectacle, a judge turns trials into live punishment shows. The question isn’t only who’s guilty—it’s who gets to decide truth when the crowd wants blood.",
+        why:"Stylish, intense, and morally messy—the lead feels both savior and threat."
+      },
+      {
+        id:"queenoftears",
+        title:"Queen of Tears",
+        year:"2024",
+        genre:"Romance • Drama",
+        tags:["Romance","Marriage","Emotion"],
+        poster:"posters/queenoftears.jpg",
+        synopsis:"A married couple who look perfect to the world are quietly collapsing. Love is still there, but pride, pressure, and pain keep getting in the way—until life forces them to face what matters.",
+        why:"Big emotions done clean—heartbreak, warmth, and chemistry that carries the heavy parts."
+      },
+      {
+        id:"pieceofmind",
+        title:"A Piece of Your Mind",
+        year:"2020",
+        genre:"Romance • Healing",
+        tags:["Healing","Soft","Calm"],
+        poster:"posters/pieceofmind.jpg",
+        synopsis:"A quiet romance about grief and memory—two people learning how to live again without pretending everything is fine. It moves gently, like a conversation at night.",
+        why:"Soft, comforting, and sincere—good when you want something peaceful but still meaningful."
+      },
+      {
+        id:"drromantic",
+        title:"Dr Romantic",
+        year:"2016",
+        genre:"Medical • Drama",
+        tags:["Medical","Mentor","Ethics"],
+        poster:"posters/drromantic.jpg",
+        synopsis:"A legendary doctor mentors younger surgeons in a hospital where every decision has weight—politics, ethics, and life-and-death choices that can’t be faked.",
+        why:"It’s the rare medical drama with heart and pressure—mentor energy + strong cases."
+      },
+      {
+        id:"shewouldneverkno",
+        title:"She Would Never Know",
+        year:"2021",
+        genre:"Workplace • Romance",
+        tags:["Workplace","Romance","Easy watch"],
+        poster:"posters/shewouldneverkno.jpg",
+        synopsis:"In a cosmetics company, a junior employee falls for his senior—while office politics and personal baggage threaten to poison something that could’ve been simple.",
+        why:"Grounded romance with good chemistry—more feelings than melodrama."
+      },
+      {
+        id:"drjohn",
+        title:"Doctor John",
+        year:"2019",
+        genre:"Medical • Drama",
+        tags:["Medical","Ethics","Serious"],
+        poster:"posters/drjohn.jpg",
+        synopsis:"A genius doctor known for solving impossible pain cases faces moral landmines—how to reduce suffering, when treatment becomes a debate, and how much responsibility a doctor can carry.",
+        why:"Serious tone, strong themes, and a calm intensity that makes it feel heavier than typical hospital shows."
+      }
+    ];
+
+    const grid = document.getElementById("grid");
+    const q = document.getElementById("q");
+    const clearBtn = document.getElementById("clearBtn");
+    const count = document.getElementById("count");
+
+    const modalBack = document.getElementById("modalBack");
+    const closeBtn = document.getElementById("closeBtn");
+    const modalPoster = document.getElementById("modalPoster");
+    const modalTitle = document.getElementById("modalTitle");
+    const mTitle = document.getElementById("mTitle");
+    const mMeta = document.getElementById("mMeta");
+    const mTags = document.getElementById("mTags");
+    const mSynopsis = document.getElementById("mSynopsis");
+    const mWhy = document.getElementById("mWhy");
+
+    function normalize(s){ return String(s||"").toLowerCase().trim(); }
+
+    function posterDiv(url, textFallback){
+      const d = document.createElement("div");
+      d.className = "poster";
+      // If image 404, background-image won't show. We'll keep it, but also add fallback text via overlay.
+      d.style.backgroundImage = `url('${String(url).replace(/'/g,"\\'")}')`;
+
+      // fallback label (always present but only visible when poster looks empty)
+      const f = document.createElement("div");
+      f.className = "poster fallback";
+      f.textContent = textFallback;
+      f.style.position = "absolute";
+      f.style.inset = "0";
+      f.style.opacity = "0";
+      f.style.pointerEvents = "none";
+
+      // heuristic: show fallback if image fails to load
+      const img = new Image();
+      img.onload = () => { f.style.opacity = "0"; };
+      img.onerror = () => { f.style.opacity = "1"; };
+      img.src = url;
+
+      d.style.position = "relative";
+      d.appendChild(f);
+      return d;
+    }
+
+    function card(item){
+      const a = document.createElement("div");
+      a.className = "card";
+      a.setAttribute("data-id", item.id);
+
+      const p = posterDiv(item.poster, "KDrama");
+      const info = document.createElement("div");
+      info.className = "info";
+      info.innerHTML = `
+        <div class="title">${item.title}</div>
+        <div class="meta">${item.year} • ${item.genre}</div>
+        <div class="tagline">${item.tags.slice(0,5).join(" • ")}</div>
+      `;
+
+      a.appendChild(p);
+      a.appendChild(info);
+
+      a.onclick = () => openModal(item.id);
+      return a;
+    }
+
+    function render(){
+      const query = normalize(q.value);
+      const filtered = KD.filter(x=>{
+        const hay = [x.title, x.year, x.genre, x.tags.join(" "), x.synopsis, x.why].join(" ");
+        return normalize(hay).includes(query);
+      });
+
+      grid.innerHTML = "";
+      filtered.forEach(x => grid.appendChild(card(x)));
+
+      count.textContent = `${filtered.length} title${filtered.length===1?"":"s"}`;
+    }
+
+    function openModal(id){
+      const item = KD.find(x => x.id === id);
+      if(!item) return;
+
+      modalTitle.textContent = item.title;
+      mTitle.textContent = item.title;
+      mMeta.textContent = `${item.year} • ${item.genre}`;
+
+      // poster
+      modalPoster.className = "modalPoster";
+      modalPoster.style.backgroundImage = `url('${String(item.poster).replace(/'/g,"\\'")}')`;
+
+      // fallback if poster fails
+      const img = new Image();
+      img.onload = () => { modalPoster.className = "modalPoster"; };
+      img.onerror = () => {
+        modalPoster.className = "modalPoster fallback";
+        modalPoster.style.backgroundImage = "none";
+        modalPoster.textContent = "KDrama";
+      };
+      img.src = item.poster;
+
+      // tags
+      mTags.innerHTML = "";
+      item.tags.forEach(t=>{
+        const c = document.createElement("div");
+        c.className = "chip";
+        c.textContent = t;
+        mTags.appendChild(c);
+      });
+
+      mSynopsis.textContent = item.synopsis;
+      mWhy.textContent = item.why;
+
+      modalBack.style.display = "block";
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal(){
+      modalBack.style.display = "none";
+      document.body.style.overflow = "";
+    }
+
+    closeBtn.onclick = closeModal;
+    modalBack.onclick = (e) => { if(e.target === modalBack) closeModal(); };
+    document.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeModal(); });
+
+    q.addEventListener("input", render);
+    clearBtn.onclick = ()=>{ q.value=""; render(); };
+
+    render();
+  </script>
 </body>
 </html>
