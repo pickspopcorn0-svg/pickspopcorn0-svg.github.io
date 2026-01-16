@@ -20,7 +20,7 @@ a{text-decoration:none;color:inherit}
   background:rgba(10,10,10,.88);
   backdrop-filter:blur(10px);
   border-bottom:1px solid #222;
-  z-index:20;
+  z-index:50;
 }
 .grid{
   padding:24px;
@@ -30,11 +30,18 @@ a{text-decoration:none;color:inherit}
 }
 .card{
   border-radius:18px;
-  border:1px solid #181818;
+  border:1px solid rgba(255,255,255,.08);
   overflow:hidden;
   position:relative;
   background:#111;
   min-height:320px;
+  box-shadow:0 30px 70px rgba(0,0,0,.6);
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 50px 100px rgba(0,0,0,.9);
+  border-color:rgba(255,255,255,.18);
 }
 .poster{
   height:320px;
@@ -48,8 +55,59 @@ a{text-decoration:none;color:inherit}
   padding:14px;
   background:linear-gradient(to top,rgba(0,0,0,.92),transparent);
 }
-.title{font-size:18px;font-weight:650}
-.meta{font-size:12px;color:#aaa;margin-top:4px}
+.title{font-size:18px;font-weight:700}
+.meta{font-size:12px;color:#bbb;margin-top:4px}
+
+.details{
+  padding:18px 24px 40px;
+  max-width:980px;
+  margin:0 auto;
+}
+.details h2{
+  font-size:26px;
+  margin:28px 0 12px;
+}
+.block{
+  border:1px solid #1b1b1b;
+  background:#111;
+  border-radius:18px;
+  overflow:hidden;
+  margin:18px 0;
+}
+.blockPoster{
+  height:420px;
+  background:#0f0f10;
+  background-size:cover;
+  background-position:center;
+}
+.blockBody{
+  padding:18px;
+}
+.blockTitle{
+  font-size:24px;
+  font-weight:800;
+}
+.blockMeta{
+  margin-top:8px;
+  color:#aaa;
+  font-size:13px;
+  line-height:1.5;
+}
+.blockWhy{
+  margin-top:14px;
+  color:#eaeaea;
+  line-height:1.6;
+}
+.smallNote{
+  color:#9a9a9a;
+  font-size:12px;
+  margin-top:10px;
+}
+hr.sep{
+  border:none;
+  border-top:1px solid #1e1e1e;
+  margin:28px 0 8px;
+}
 </style>
 </head>
 
@@ -61,40 +119,144 @@ a{text-decoration:none;color:inherit}
   <span></span>
 </div>
 
-<div class="grid" id="grid"></div>
+<div class="grid">
 
-<script src="sortdata.js"></script>
-<script>
-  // K-Drama list page: shows only items tagged "K-Drama"
-  const grid = document.getElementById("grid");
-  const shows = window.SHOWS || {};
+  <!-- Cards (list view) -->
+  <a class="card" href="#insider">
+    <div class="poster" style="background-image:url('https://images.tmdb.org/t/p/w780/3YlN1B5tZt9WlLw2mQz8mY9l0tF.jpg');"></div>
+    <div class="info"><div class="title">Insider</div><div class="meta">2022 · Crime / Thriller</div></div>
+  </a>
 
-  // Turn object -> array, filter to K-Drama, then sort by title
-  const items = Object.entries(shows)
-    .map(([id, s]) => ({ id, ...s }))
-    .filter(s => Array.isArray(s.tags) && s.tags.includes("K-Drama"))
-    .sort((a,b) => (a.title || "").localeCompare(b.title || ""));
+  <a class="card" href="#priest">
+    <div class="poster" style="background-image:url('https://images.tmdb.org/t/p/w780/zqT3v2Tgq0oN8lQqQ5n3b0b0w1d.jpg');"></div>
+    <div class="info"><div class="title">Priest</div><div class="meta">2018 · Horror / Supernatural</div></div>
+  </a>
 
-  // Fallback poster (if you haven't added posters yet)
-  const fallbackPoster = "assets/home/kdrama.jpg";
+  <a class="card" href="#flower-of-evil">
+    <div class="poster" style="background-image:url('https://images.tmdb.org/t/p/w780/l1wY0vYwJx1b7nH7bGqkXQp1pH1.jpg');"></div>
+    <div class="info"><div class="title">Flower of Evil</div><div class="meta">2020 · Thriller / Mystery</div></div>
+  </a>
 
-  items.forEach(s => {
-    const poster = s.poster ? s.poster : fallbackPoster;
+  <a class="card" href="#the-veil">
+    <div class="poster" style="background-image:url('https://images.tmdb.org/t/p/w780/8qH0o0sP0o8o7yWm8pGx7qV0f5p.jpg');"></div>
+    <div class="info"><div class="title">The Veil</div><div class="meta">2021 · Action / Spy Thriller</div></div>
+  </a>
 
-    const a = document.createElement("a");
-    a.className = "card";
-    a.href = `shows.html?id=${encodeURIComponent(s.id)}`;
+  <a class="card" href="#my-liberation-notes">
+    <div class="poster" style="background-image:url('https://images.tmdb.org/t/p/w780/bCwH8x1xqHkqvZxQ5p7m0g2wzjA.jpg');"></div>
+    <div class="info"><div class="title">My Liberation Notes</div><div class="meta">2022 · Slice of Life / Drama</div></div>
+  </a>
 
-    a.innerHTML = `
-      <div class="poster" style="background-image:url('${poster.replace(/'/g, "\\'")}');"></div>
-      <div class="info">
-        <div class="title">${s.title || "Untitled"}</div>
-        <div class="meta">${s.year || ""}${s.meta ? " · " + s.meta : ""}</div>
-      </div>
-    `;
-    grid.appendChild(a);
-  });
-</script>
+  <a class="card" href="#hymn-of-death">
+    <div class="poster" style="background-image:url('https://images.tmdb.org/t/p/w780/4vB4q5c3Y5m2mB2m9d5f1m2n0aB.jpg');"></div>
+    <div class="info"><div class="title">Hymn of Death</div><div class="meta">2018 · Period / Tragedy</div></div>
+  </a>
+
+  <a class="card" href="#undercover">
+    <div class="poster" style="background-image:url('https://images.tmdb.org/t/p/w780/1m6c3p0mQ3m4n0p7y5t9c1x8w1a.jpg');"></div>
+    <div class="info"><div class="title">Undercover</div><div class="meta">2021 · Thriller / Political</div></div>
+  </a>
+
+  <a class="card" href="#the-k2">
+    <div class="poster" style="background-image:url('https://images.tmdb.org/t/p/w780/2xj0uU3QqJ5cY7xqN2pK2tWgN1o.jpg');"></div>
+    <div class="info"><div class="title">The K2</div><div class="meta">2016 · Action / Thriller</div></div>
+  </a>
+
+  <a class="card" href="#descendants-of-the-sun">
+    <div class="poster" style="background-image:url('https://images.tmdb.org/t/p/w780/3oS3p2f0b6f5w3h1p5n8x2t0g7c.jpg');"></div>
+    <div class="info"><div class="title">Descendants of the Sun</div><div class="meta">2016 · Romance / Action</div></div>
+  </a>
+
+  <a class="card" href="#tell-me-what-you-saw">
+    <div class="poster" style="background-image:url('https://images.tmdb.org/t/p/w780/8m2x0b4c7p2o5b1m2q0t0b2a1c5.jpg');"></div>
+    <div class="info"><div class="title">Tell Me What You Saw</div><div class="meta">2020 · Crime / Thriller</div></div>
+  </a>
+
+  <a class="card" href="#love-affairs-in-the-afternoon">
+    <div class="poster" style="background-image:url('https://images.tmdb.org/t/p/w780/7o2m1q0w4f3g2h1j0k9l8m7n6b5.jpg');"></div>
+    <div class="info"><div class="title">Love Affairs in the Afternoon</div><div class="meta">2019 · Adult Drama / Romance</div></div>
+  </a>
+
+  <a class="card" href="#mouse">
+    <div class="poster" style="background-image:url('https://images.tmdb.org/t/p/w780/8c2m0b1n5v3c2x1z0a9s8d7f6g5.jpg');"></div>
+    <div class="info"><div class="title">Mouse</div><div class="meta">2021 · Psychological / Thriller</div></div>
+  </a>
+
+  <a class="card" href="#song-of-the-bandits">
+    <div class="poster" style="background-image:url('https://images.tmdb.org/t/p/w780/9a0s1d2f3g4h5j6k7l8m9n0b1v2c.jpg');"></div>
+    <div class="info"><div class="title">Song of the Bandits</div><div class="meta">2023 · Action / Period</div></div>
+  </a>
+
+  <a class="card" href="#our-movie">
+    <div class="poster" style="background-image:url('https://images.tmdb.org/t/p/w780/0a1s2d3f4g5h6j7k8l9m0n1b2v3c4.jpg');"></div>
+    <div class="info"><div class="title">Our Movie</div><div class="meta">2025 · Drama / Romance</div></div>
+  </a>
+
+  <a class="card" href="#doctor-prisoner">
+    <div class="poster" style="background-image:url('https://images.tmdb.org/t/p/w780/2b3v4c5x6z7a8s9d0f1g2h3j4k5l6.jpg');"></div>
+    <div class="info"><div class="title">Dr. Prisoner</div><div class="meta">2019 · Revenge / Thriller</div></div>
+  </a>
+
+  <a class="card" href="#the-devil-judge">
+    <div class="poster" style="background-image:url('https://images.tmdb.org/t/p/w780/6l5k4j3h2g1f0d9s8a7z6x5c4v3b2.jpg');"></div>
+    <div class="info"><div class="title">The Devil Judge</div><div class="meta">2021 · Dystopian / Thriller</div></div>
+  </a>
+
+  <a class="card" href="#queen-of-tears">
+    <div class="poster" style="background-image:url('https://images.tmdb.org/t/p/w780/4v3b2c1x0z9a8s7d6f5g4h3j2k1l0.jpg');"></div>
+    <div class="info"><div class="title">Queen of Tears</div><div class="meta">2024 · Romance / Drama</div></div>
+  </a>
+
+  <a class="card" href="#a-piece-of-your-mind">
+    <div class="poster" style="background-image:url('https://images.tmdb.org/t/p/w780/1l0k9j8h7g6f5d4s3a2z1x0c9v8b7.jpg');"></div>
+    <div class="info"><div class="title">A Piece of Your Mind</div><div class="meta">2020 · Romance / Healing</div></div>
+  </a>
+
+  <a class="card" href="#dr-romantic">
+    <div class="poster" style="background-image:url('https://images.tmdb.org/t/p/w780/7b8v9c0x1z2a3s4d5f6g7h8j9k0l1.jpg');"></div>
+    <div class="info"><div class="title">Dr. Romantic</div><div class="meta">2016 · Medical / Drama</div></div>
+  </a>
+
+  <a class="card" href="#she-would-never-know">
+    <div class="poster" style="background-image:url('https://images.tmdb.org/t/p/w780/5g6h7j8k9l0b1v2c3x4z5a6s7d8f9.jpg');"></div>
+    <div class="info"><div class="title">She Would Never Know</div><div class="meta">2021 · Workplace / Romance</div></div>
+  </a>
+
+  <a class="card" href="#doctor-john">
+    <div class="poster" style="background-image:url('https://images.tmdb.org/t/p/w780/9f8d7s6a5z4x3c2v1b0l9k8j7h6g5.jpg');"></div>
+    <div class="info"><div class="title">Dr. John</div><div class="meta">2019 · Medical / Drama</div></div>
+  </a>
+
+</div>
+
+<hr class="sep">
+
+<div class="details">
+  <h2>Details</h2>
+
+  <!-- Detail blocks -->
+  <div class="block" id="insider">
+    <div class="blockPoster" style="background-image:url('https://images.tmdb.org/t/p/w780/3YlN1B5tZt9WlLw2mQz8mY9l0tF.jpg')"></div>
+    <div class="blockBody">
+      <div class="blockTitle">Insider</div>
+      <div class="blockMeta">2022 · Crime / Thriller · K-Drama</div>
+      <div class="blockWhy">A tense survival thriller inside the system. Power games, betrayal, and constant pressure, with a lead who survives by thinking faster than everyone around him.</div>
+      <div class="smallNote"><a href="#top">Back to top</a></div>
+    </div>
+  </div>
+
+  <div class="block" id="priest">
+    <div class="blockPoster" style="background-image:url('https://images.tmdb.org/t/p/w780/zqT3v2Tgq0oN8lQqQ5n3b0b0w1d.jpg')"></div>
+    <div class="blockBody">
+      <div class="blockTitle">Priest</div>
+      <div class="blockMeta">2018 · Horror / Supernatural · K-Drama</div>
+      <div class="blockWhy">A grounded exorcism drama where the horror feels urgent, not cheesy. It mixes medical realism with faith, fear, and the cost of choosing to save someone.</div>
+      <div class="smallNote"><a href="#top">Back to top</a></div>
+    </div>
+  </div>
+
+  <!-- Keep going later: flower-of-evil, the-veil, etc. -->
+</div>
 
 </body>
 </html>
