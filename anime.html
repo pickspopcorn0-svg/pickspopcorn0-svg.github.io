@@ -7,26 +7,25 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+a{text-decoration:none;color:inherit}
 body{
   background:#0b0b0c;
   color:#fff;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
 }
-a{text-decoration:none;color:inherit}
 
 /* TOP BAR */
 .top{
-  position:sticky;
-  top:0;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  position:sticky; top:0;
+  display:flex; justify-content:space-between; align-items:center;
   padding:16px 20px;
   background:rgba(10,10,10,.9);
   backdrop-filter:blur(10px);
   border-bottom:1px solid #222;
   z-index:10;
 }
+.top a{color:rgba(255,255,255,.85)}
+.top b{letter-spacing:.2px}
 
 /* GRID */
 .grid{
@@ -43,34 +42,95 @@ a{text-decoration:none;color:inherit}
   overflow:hidden;
   position:relative;
   background:#111;
+  cursor:pointer;
   transform:translateZ(0);
+  transition:transform .18s ease, border-color .18s ease;
 }
-.card:hover{transform:translateY(-4px)}
+.card:hover{transform:translateY(-4px); border-color:#2a2a2a}
 
 /* POSTER */
 .poster{
   height:320px;
   background-size:cover;
   background-position:center;
+  background-color:#111;
 }
 
-/* INFO */
+/* INFO overlay */
 .info{
   position:absolute;
-  bottom:0;
-  left:0;
-  right:0;
+  bottom:0; left:0; right:0;
   padding:14px;
-  background:linear-gradient(to top,rgba(0,0,0,.92),rgba(0,0,0,.2),transparent);
+  background:linear-gradient(to top,rgba(0,0,0,.92),rgba(0,0,0,.10),transparent);
 }
 .title{font-size:18px;font-weight:700}
-.meta{font-size:12px;color:#bbb;margin-top:4px}
-.synopsis{
-  margin-top:10px;
-  font-size:13px;
-  line-height:1.45;
+.meta{font-size:12px;color:rgba(255,255,255,.72);margin-top:4px}
+
+/* MODAL (bottom sheet) */
+.modal{
+  position:fixed; inset:0; z-index:100;
+  background:rgba(0,0,0,.72);
+  display:none; align-items:flex-end;
+}
+.modal.open{display:flex}
+.sheet{
+  width:100%;
+  max-height:88vh;
+  overflow:auto;
+  background:#0f0f10;
+  border-top:1px solid #222;
+  border-radius:18px 18px 0 0;
+  padding:18px 18px 22px;
+}
+.sheetTop{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:14px;
+  margin-bottom:14px;
+}
+.sheetTop h3{font-size:18px; font-weight:800}
+.closeBtn{
+  border:1px solid #2a2a2a;
+  background:#141416;
+  color:#fff;
+  padding:10px 14px;
+  border-radius:999px;
+  cursor:pointer;
+}
+.detailRow{
+  display:grid;
+  grid-template-columns:110px 1fr;
+  gap:14px;
+  align-items:start;
+}
+.detailPoster{
+  width:110px;
+  aspect-ratio:2/3;
+  border-radius:14px;
+  background:#111;
+  background-size:cover;
+  background-position:center;
+  border:1px solid #222;
+}
+.detailTitle{font-size:22px;font-weight:900; letter-spacing:.1px}
+.detailMeta{margin-top:6px; color:rgba(255,255,255,.70); font-size:13px}
+.detailSyn{
+  margin-top:14px;
+  color:rgba(255,255,255,.80);
+  line-height:1.6;
+  font-size:14px;
+}
+.pills{margin-top:10px; display:flex; gap:8px; flex-wrap:wrap}
+.pill{
+  font-size:12px;
   color:rgba(255,255,255,.78);
-  max-width:48ch;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.05);
+  padding:7px 10px;
+  border-radius:999px;
+}
+@media(max-width:520px){
+  .detailRow{grid-template-columns:92px 1fr}
+  .detailPoster{width:92px}
 }
 </style>
 </head>
@@ -83,72 +143,151 @@ a{text-decoration:none;color:inherit}
   <span></span>
 </div>
 
-<div class="grid">
+<div class="grid" id="grid"></div>
 
-<a class="card" href="shows.html?id=slime">
-  <div class="poster" style="background-image:url('assets/posters/slime.jpg.JPG');"></div>
-  <div class="info">
-    <div class="title">That Time I Got Reincarnated as a Slime</div>
-    <div class="meta">2018 · Isekai · Adventure</div>
-    <div class="synopsis">A regular guy wakes up in a fantasy world as a slime—and somehow becomes the most dangerous diplomat in the room. Kingdom-building, smart power-ups, and a surprisingly warm found-family vibe.</div>
+<!-- Modal -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="sheet" role="dialog" aria-modal="true" aria-label="Anime details">
+    <div class="sheetTop">
+      <h3>Details</h3>
+      <button class="closeBtn" id="closeBtn">Close</button>
+    </div>
+
+    <div class="detailRow">
+      <div class="detailPoster" id="mPoster"></div>
+
+      <div>
+        <div class="detailTitle" id="mTitle"></div>
+        <div class="detailMeta" id="mMeta"></div>
+        <div class="pills" id="mPills"></div>
+      </div>
+    </div>
+
+    <div class="detailSyn" id="mSyn"></div>
   </div>
-</a>
-
-<a class="card" href="shows.html?id=bluelock">
-  <div class="poster" style="background-image:url('assets/posters/bluelock.jpg.JPG');"></div>
-  <div class="info">
-    <div class="title">Blue Lock</div>
-    <div class="meta">2022 · Sports · Psychological</div>
-    <div class="synopsis">Japan locks its most talented strikers inside a ruthless training facility where ego is currency. It’s football shot like a thriller—pressure, mind games, and goals that feel like knockouts.</div>
-  </div>
-</a>
-
-<a class="card" href="shows.html?id=classroomoftheelite">
-  <div class="poster" style="background-image:url('assets/posters/classroomoftheelite.jpg.JPG');"></div>
-  <div class="info">
-    <div class="title">Classroom of the Elite</div>
-    <div class="meta">2017 · Psychological · Drama</div>
-    <div class="synopsis">An elite school ranks students like a society experiment—privileges for winners, punishment for losers. A quiet genius plays from the shadows, turning friendships into strategy.</div>
-  </div>
-</a>
-
-<a class="card" href="shows.html?id=attackontitan">
-  <div class="poster" style="background-image:url('assets/posters/attackontitan.jpg.JPG');"></div>
-  <div class="info">
-    <div class="title">Attack on Titan</div>
-    <div class="meta">2013 · Dark Fantasy · Action</div>
-    <div class="synopsis">Humanity hides behind walls while giants roam outside—until the walls break. What starts as survival horror becomes a brutal war story with twists that keep re-writing the whole world.</div>
-  </div>
-</a>
-
-<a class="card" href="shows.html?id=noblesse">
-  <div class="poster" style="background-image:url('assets/posters/noblesse.jpg.WEBP');"></div>
-  <div class="info">
-    <div class="title">Noblesse</div>
-    <div class="meta">2020 · Supernatural · Action</div>
-    <div class="synopsis">A powerful immortal wakes after centuries and tries to live quietly—until secret organizations and old enemies drag him back into the fight. Stylish battles, loyalty, and hidden history.</div>
-  </div>
-</a>
-
-<a class="card" href="shows.html?id=sololeveling">
-  <div class="poster" style="background-image:url('assets/posters/sololeveling.jpg.JPG');"></div>
-  <div class="info">
-    <div class="title">Solo Leveling</div>
-    <div class="meta">2024 · Action Fantasy · Dungeon</div>
-    <div class="synopsis">The weakest hunter survives an impossible raid and unlocks a system that lets him level up alone. Pure power fantasy done right—clean escalation, satisfying payoffs, and high-stakes raids.</div>
-  </div>
-</a>
-
-<a class="card" href="shows.html?id=haikyuu">
-  <div class="poster" style="background-image:url('assets/posters/haikyuu.jpg.JPG');"></div>
-  <div class="info">
-    <div class="title">Haikyuu!!</div>
-    <div class="meta">2014 · Sports · Volleyball</div>
-    <div class="synopsis">A short kid with ridiculous jump dreams joins a struggling volleyball team and finds his perfect rival-partner combo. Hype matches, real growth, and a cast you end up rooting for hard.</div>
-  </div>
-</a>
-
 </div>
+
+<script>
+const ANIME = [
+  {
+    title: "That Time I Got Reincarnated as a Slime",
+    year: "2018",
+    meta: "Isekai • Fantasy",
+    tags: ["Isekai","Fantasy","Adventure"],
+    poster: "assets/posters/slime.jpg.JPG",
+    synopsis: "A regular office worker dies and wakes up in a new world as the weakest creature imaginable: a slime. But with strange new abilities and a calm, clever mindset, he starts building a home for outcasts—turning a monster-filled land into a nation that even kings have to respect."
+  },
+  {
+    title: "Blue Lock",
+    year: "2022",
+    meta: "Sports • Psychological",
+    tags: ["Sports","Rivalry","Mind Games"],
+    poster: "assets/posters/bluelock.jpg.JPG",
+    synopsis: "Japan locks hundreds of strikers inside a brutal training program where teamwork won’t save you. The only way out is to become the most ego-driven forward alive. It’s football as a pressure cooker—talent, fear, pride, and obsession colliding every match."
+  },
+  {
+    title: "Classroom of the Elite",
+    year: "2017",
+    meta: "Psychological • School",
+    tags: ["Strategy","Social Warfare","Mystery"],
+    poster: "assets/posters/classroomoftheelite.jpg.JPG",
+    synopsis: "At an elite school where rankings decide everything, success isn’t about studying—it’s about control. Alliances form, betrayals happen quietly, and every smile hides a calculation. One boy stays in the shadows, but he’s sharper than anyone realizes."
+  },
+  {
+    title: "Attack on Titan",
+    year: "2013",
+    meta: "Dark Fantasy • Action",
+    tags: ["War","Mystery","Survival"],
+    poster: "assets/posters/attackontitan.jpg.JPG",
+    synopsis: "Humanity survives behind towering walls—until Titans break through and the world turns into a slaughterhouse. What starts as revenge becomes something bigger: secrets about the walls, the enemy, and the truth of the world itself. It’s relentless, violent, and never plays safe."
+  },
+  {
+    title: "Noblesse",
+    year: "2020",
+    meta: "Supernatural • Action",
+    tags: ["Vampires","Power","Protectors"],
+    poster: "assets/posters/noblesse.jpg.WEBP",
+    synopsis: "A legendary noble awakens after centuries and tries to live quietly—until modern threats drag him back into war. Secret organizations, enhanced humans, and ancient rules collide while he protects the people around him with frightening ease."
+  },
+  {
+    title: "Solo Leveling",
+    year: "2024",
+    meta: "Action Fantasy • Dungeon",
+    tags: ["Underdog","Level Up","Monsters"],
+    poster: "assets/posters/sololeveling.jpg.JPG",
+    synopsis: "In a world where hunters raid deadly gates, the weakest hunter alive gets a second chance: a system that lets him level up like a game. What begins as survival turns into a climb toward terrifying power—one dungeon, one choice, one brutal win at a time."
+  },
+  {
+    title: "Haikyuu!!",
+    year: "2014",
+    meta: "Volleyball • Sports",
+    tags: ["Teamwork","Growth","Hype"],
+    poster: "assets/posters/haikyuu.jpg.JPG",
+    synopsis: "A short kid with unstoppable energy falls in love with volleyball and refuses to be limited by height. Rivalries turn into partnerships, practice feels like battle, and every match earns its emotion. It’s pure momentum—funny, intense, and ridiculously motivating."
+  }
+];
+
+const grid = document.getElementById("grid");
+const modal = document.getElementById("modal");
+const closeBtn = document.getElementById("closeBtn");
+
+const mPoster = document.getElementById("mPoster");
+const mTitle  = document.getElementById("mTitle");
+const mMeta   = document.getElementById("mMeta");
+const mPills  = document.getElementById("mPills");
+const mSyn    = document.getElementById("mSyn");
+
+function openModal(item){
+  mPoster.style.backgroundImage = `url('${item.poster}')`;
+  mTitle.textContent = item.title;
+  mMeta.textContent = `${item.year} · ${item.meta}`;
+  mSyn.textContent = item.synopsis;
+
+  mPills.innerHTML = "";
+  (item.tags || []).forEach(t=>{
+    const s=document.createElement("span");
+    s.className="pill";
+    s.textContent=t;
+    mPills.appendChild(s);
+  });
+
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden","false");
+  document.body.style.overflow="hidden";
+}
+
+function closeModal(){
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden","true");
+  document.body.style.overflow="";
+}
+
+grid.innerHTML = ANIME.map((a, idx) => `
+  <a class="card" href="#" data-i="${idx}">
+    <div class="poster" style="background-image:url('${a.poster}')"></div>
+    <div class="info">
+      <div class="title">${a.title}</div>
+      <div class="meta">${a.year} · ${a.meta}</div>
+    </div>
+  </a>
+`).join("");
+
+grid.addEventListener("click", (e)=>{
+  const card = e.target.closest(".card");
+  if(!card) return;
+  e.preventDefault();
+  const i = Number(card.dataset.i);
+  openModal(ANIME[i]);
+});
+
+closeBtn.addEventListener("click", closeModal);
+modal.addEventListener("click", (e)=>{
+  if(e.target === modal) closeModal();
+});
+document.addEventListener("keydown", (e)=>{
+  if(e.key === "Escape") closeModal();
+});
+</script>
 
 </body>
 </html>
