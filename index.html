@@ -184,15 +184,11 @@ nav a:hover{color:#fff}
     radial-gradient(700px 350px at 10% 20%, rgba(255,140,90,.10), transparent 60%),
     radial-gradient(820px 420px at 90% 70%, rgba(90,170,255,.10), transparent 60%);
   opacity:.65;
-  filter:blur(0px);
   pointer-events:none;
   z-index:0;
   animation:sweep 10s ease-in-out infinite alternate;
 }
-@keyframes sweep{
-  0%{transform:translateY(0px)}
-  100%{transform:translateY(10px)}
-}
+@keyframes sweep{0%{transform:translateY(0px)}100%{transform:translateY(10px)}}
 .section > *{position:relative; z-index:1}
 
 /* FEATURED COLLECTIONS */
@@ -316,6 +312,96 @@ nav a:hover{color:#fff}
   filter:saturate(1.08) contrast(1.05);
 }
 
+/* =========================
+   AUTO WALLPAPER CATEGORIES
+   No external images needed
+   ========================= */
+.catAuto .cat{
+  background-image:none !important;
+  background:
+    radial-gradient(1100px 520px at 18% 14%, rgba(var(--a), .46), transparent 60%),
+    radial-gradient(900px 520px at 82% 36%, rgba(255,255,255,.10), transparent 60%),
+    linear-gradient(135deg, rgba(15,15,20,1), rgba(7,7,10,1));
+}
+.catAuto .cat::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  opacity:.55;
+  mix-blend-mode:overlay;
+  pointer-events:none;
+}
+.catAuto .cat em{
+  position:absolute;
+  right:16px;
+  top:16px;
+  font-style:normal;
+  font-size:22px;
+  z-index:2;
+  opacity:.92;
+  filter:drop-shadow(0 10px 22px rgba(0,0,0,.45));
+}
+
+.catMovies{ --a: 235, 84, 84; }
+.catMovies::before{
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,.06) 0 2px, transparent 2px 14px),
+    radial-gradient(600px 240px at 30% 30%, rgba(var(--a), .22), transparent 60%);
+}
+
+.catTV{ --a: 74, 144, 226; }
+.catTV::before{
+  background:
+    repeating-linear-gradient(0deg, rgba(255,255,255,.05) 0 1px, transparent 1px 10px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.03) 0 1px, transparent 1px 18px);
+}
+
+.catKdrama{ --a: 181, 120, 255; }
+.catKdrama::before{
+  background:
+    radial-gradient(22px 22px at 15% 20%, rgba(255,255,255,.10) 0 40%, transparent 41%),
+    radial-gradient(22px 22px at 45% 35%, rgba(255,255,255,.08) 0 40%, transparent 41%),
+    radial-gradient(22px 22px at 75% 22%, rgba(255,255,255,.09) 0 40%, transparent 41%),
+    radial-gradient(22px 22px at 65% 55%, rgba(255,255,255,.08) 0 40%, transparent 41%);
+}
+
+.catCdrama{ --a: 255, 169, 77; }
+.catCdrama::before{
+  background:
+    linear-gradient(45deg, rgba(255,255,255,.06), transparent 55%),
+    repeating-linear-gradient(135deg, rgba(255,255,255,.06) 0 2px, transparent 2px 16px);
+}
+
+.catAnime{ --a: 90, 230, 170; }
+.catAnime::before{
+  background:
+    repeating-linear-gradient(135deg, rgba(255,255,255,.06) 0 2px, transparent 2px 12px),
+    radial-gradient(500px 240px at 70% 30%, rgba(var(--a), .18), transparent 60%);
+}
+
+.catDonghua{ --a: 255, 214, 92; }
+.catDonghua::before{
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0 1px, transparent 1px 9px),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0 1px, transparent 1px 13px);
+}
+
+.catIndian{ --a: 255, 120, 70; }
+.catIndian::before{
+  background:
+    radial-gradient(20px 20px at 15% 25%, rgba(255,255,255,.10) 0 35%, transparent 36%),
+    radial-gradient(20px 20px at 35% 45%, rgba(255,255,255,.09) 0 35%, transparent 36%),
+    radial-gradient(20px 20px at 55% 30%, rgba(255,255,255,.08) 0 35%, transparent 36%),
+    radial-gradient(20px 20px at 75% 50%, rgba(255,255,255,.09) 0 35%, transparent 36%);
+}
+
+.catFrench{ --a: 150, 205, 255; }
+.catFrench::before{
+  background:
+    radial-gradient(700px 240px at 30% 35%, rgba(255,255,255,.07), transparent 60%),
+    repeating-linear-gradient(45deg, rgba(255,255,255,.05) 0 1px, transparent 1px 11px);
+}
+
 /* FOOTER */
 footer{
   border-top:1px solid rgba(255,255,255,.10);
@@ -393,7 +479,7 @@ footer a:hover{color:#fff}
   <div class="feed">
 
     <a class="feedLink" href="must-watch-espionage.html">
-      <div class="feedCard" style="background-image:url('assets/assets:home:espionage.jpg.JPG');">
+      <div class="feedCard" style="background-image:url('assets/home/espionage.jpg');">
         <div class="tag">EDITORIAL • 5 min</div>
         <div class="feedText">
           <h3>Must Watch Espionage</h3>
@@ -403,7 +489,7 @@ footer a:hover{color:#fff}
     </a>
 
     <a class="feedLink" href="mustwatch-period.html">
-      <div class="feedCard" style="background-image:url('assets/assets:home:period.jpg.JPG');">
+      <div class="feedCard" style="background-image:url('assets/home/period.jpg');">
         <div class="tag">EDITORIAL • 6 min</div>
         <div class="feedText">
           <h3>Must Watch Period Dramas</h3>
@@ -413,7 +499,7 @@ footer a:hover{color:#fff}
     </a>
 
     <a class="feedLink" href="undertheradar-kdrama.html">
-      <div class="feedCard" style="background-image:url('assets/assets:home:kdrama.jpg.JPG');">
+      <div class="feedCard" style="background-image:url('assets/home/kdrama.jpg');">
         <div class="tag">EDITORIAL • 7 min</div>
         <div class="feedText">
           <h3>Under the Radar K Dramas</h3>
@@ -431,40 +517,67 @@ footer a:hover{color:#fff}
         </div>
       </div>
     </a>
-<a class="feedLink" href="editorial-korean-dating-shows.html">
-  <div class="feedCard" style="background-image:url('assets/home/korean-dating.jpg');">
-    <div class="tag">EDITORIAL • 8 min</div>
-    <div class="feedText">
-      <h3>Korean Dating Shows Worth Your Time</h3>
-      <p>Single’s Inferno, Transit Love, Heart Signal, Love After Divorce, and more.</p>
-    </div>
-  </div>
-</a>
-<a class="feedLink" href="indian-cinema-guide.html">
-  <div class="feedCard" style="background-image:url('assets/home/india.jpg');">
-    <div class="tag">EDITORIAL • 6 min</div>
-    <div class="feedText">
-      <h3>Your First Step into Indian Cinema</h3>
-      <p>From 3 Idiots to RRR and Baahubali, a powerful entry point.</p>
-    </div>
-  </div>
-</a>
-    
+
+    <a class="feedLink" href="editorial-korean-dating-shows.html">
+      <div class="feedCard" style="background-image:url('assets/home/korean-dating.jpg');">
+        <div class="tag">EDITORIAL • 8 min</div>
+        <div class="feedText">
+          <h3>Korean Dating Shows Worth Your Time</h3>
+          <p>Single’s Inferno, Transit Love, Heart Signal, Love After Divorce, and more.</p>
+        </div>
+      </div>
+    </a>
+
+    <a class="feedLink" href="indian-cinema-guide.html">
+      <div class="feedCard" style="background-image:url('assets/home/india.jpg');">
+        <div class="tag">EDITORIAL • 6 min</div>
+        <div class="feedText">
+          <h3>Your First Step into Indian Cinema</h3>
+          <p>From 3 Idiots to RRR and Baahubali, a powerful entry point.</p>
+        </div>
+      </div>
+    </a>
+
   </div>
 </section>
 
 <section class="section">
   <h2>Browse categories</h2>
 
-  <div class="catGrid">
-    <a class="cat" href="movies.html" style="background-image:url('https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=1200&q=80');"><span>Movies</span></a>
-    <a class="cat" href="tv-shows.html" style="background-image:url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=80');"><span>TV Shows</span></a>
-    <a class="cat" href="kdrama.html" style="background-image:url('https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=1200&q=80');"><span>K Drama</span></a>
-    <a class="cat" href="cdrama.html" style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80');"><span>C Drama</span></a>
-    <a class="cat" href="anime.html" style="background-image:url('https://images.unsplash.com/photo-1511765224389-37f0e77cf0eb?auto=format&fit=crop&w=1200&q=80');"><span>Anime</span></a>
-    <a class="cat" href="donghua.html" style="background-image:url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80');"><span>Donghua</span></a>
-    <a class="cat" href="indian.html" style="background-image:url('https://images.unsplash.com/photo-1585488763177-bde7c1b5c4b1?auto=format&fit=crop&w=1200&q=80');"><span>Indian Cinema</span></a>
-    <a class="cat" href="french.html" style="background-image:url('https://images.unsplash.com/photo-1500048993959-dc4dfec36a9f?auto=format&fit=crop&w=1200&q=80');"><span>French Cinema</span></a>
+  <div class="catGrid catAuto">
+
+    <a class="cat catMovies" href="movies.html">
+      <span>Movies</span><em>🎬</em>
+    </a>
+
+    <a class="cat catTV" href="tv-shows.html">
+      <span>TV Shows</span><em>📺</em>
+    </a>
+
+    <a class="cat catKdrama" href="kdrama.html">
+      <span>K Drama</span><em>🇰🇷</em>
+    </a>
+
+    <a class="cat catCdrama" href="cdrama.html">
+      <span>C Drama</span><em>🐉</em>
+    </a>
+
+    <a class="cat catAnime" href="anime.html">
+      <span>Anime</span><em>⚡</em>
+    </a>
+
+    <a class="cat catDonghua" href="donghua.html">
+      <span>Donghua</span><em>🗡️</em>
+    </a>
+
+    <a class="cat catIndian" href="indian.html">
+      <span>Indian Cinema</span><em>🇮🇳</em>
+    </a>
+
+    <a class="cat catFrench" href="french.html">
+      <span>French Cinema</span><em>🇫🇷</em>
+    </a>
+
   </div>
 </section>
 
@@ -489,3 +602,6 @@ footer a:hover{color:#fff}
     <a href="contact.html">Contact</a>
   </div>
 </footer>
+
+</body>
+</html>
