@@ -7,130 +7,124 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-a{text-decoration:none;color:inherit}
 body{
   background:#0b0b0c;
   color:#fff;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
 }
+a{text-decoration:none;color:inherit}
 
 /* TOP BAR */
 .top{
-  position:sticky; top:0;
-  display:flex; justify-content:space-between; align-items:center;
+  position:sticky;top:0;z-index:50;
+  display:flex;justify-content:space-between;align-items:center;
   padding:16px 20px;
-  background:rgba(10,10,10,.9);
+  background:rgba(10,10,10,.90);
   backdrop-filter:blur(10px);
   border-bottom:1px solid #222;
-  z-index:10;
 }
-.top a{color:rgba(255,255,255,.85)}
-.top b{letter-spacing:.2px}
+.top b{font-size:16px}
+
+/* SEARCH */
+.wrap{padding:16px 18px 6px}
+.searchRow{display:flex;gap:10px;flex-wrap:wrap}
+.searchRow input{
+  flex:1;min-width:240px;
+  padding:12px 14px;border-radius:12px;
+  border:1px solid #222;background:#111;color:#fff;outline:none;
+}
+.btn{
+  padding:12px 14px;border-radius:12px;
+  border:1px solid #222;background:#141414;color:#fff;cursor:pointer;
+}
+.btn:active{transform:translateY(1px)}
+.small{color:#aaa;font-size:12px;padding:10px 2px 0;line-height:1.4}
 
 /* GRID */
 .grid{
-  padding:24px;
+  padding:16px 18px 26px;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:22px;
+  gap:18px;
 }
 
 /* CARD */
 .card{
-  border-radius:18px;
-  border:1px solid #181818;
-  overflow:hidden;
-  position:relative;
-  background:#111;
-  cursor:pointer;
-  transform:translateZ(0);
-  transition:transform .18s ease, border-color .18s ease;
+  border-radius:18px;border:1px solid #181818;overflow:hidden;
+  position:relative;background:#111;min-height:320px;
 }
-.card:hover{transform:translateY(-4px); border-color:#2a2a2a}
-
-/* POSTER */
 .poster{
   height:320px;
+  background:#111;
   background-size:cover;
   background-position:center;
-  background-color:#111;
 }
-
-/* INFO overlay */
 .info{
-  position:absolute;
-  bottom:0; left:0; right:0;
+  position:absolute;bottom:0;left:0;right:0;
   padding:14px;
-  background:linear-gradient(to top,rgba(0,0,0,.92),rgba(0,0,0,.10),transparent);
+  background:linear-gradient(to top,rgba(0,0,0,.92),transparent);
 }
-.title{font-size:18px;font-weight:700}
-.meta{font-size:12px;color:rgba(255,255,255,.72);margin-top:4px}
+.title{font-size:18px;font-weight:650;line-height:1.2}
+.meta{font-size:12px;color:#aaa;margin-top:4px}
+.tagline{
+  font-size:12px;color:#cfcfcf;margin-top:8px;opacity:.9;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
 
-/* MODAL (bottom sheet) */
+.empty{padding:22px 18px 30px;color:#aaa;display:none}
+
+/* MODAL (CENTERED) */
 .modal{
-  position:fixed; inset:0; z-index:100;
+  position:fixed;inset:0;z-index:200;
   background:rgba(0,0,0,.72);
-  display:none; align-items:flex-end;
+  display:none;
+  align-items:center;          /* <-- CENTER (not bottom) */
+  justify-content:center;      /* <-- CENTER */
+  padding:18px;
 }
-.modal.open{display:flex}
 .sheet{
-  width:100%;
+  width:min(760px, 100%);
   max-height:88vh;
   overflow:auto;
   background:#0f0f10;
-  border-top:1px solid #222;
-  border-radius:18px 18px 0 0;
-  padding:18px 18px 22px;
+  border:1px solid #222;
+  border-radius:18px;
+  box-shadow:0 30px 120px rgba(0,0,0,.65);
 }
-.sheetTop{
-  display:flex; align-items:center; justify-content:space-between;
-  gap:14px;
-  margin-bottom:14px;
+.sheetInner{padding:16px 18px 22px}
+
+.detailTop{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:12px;padding:6px 0 14px;
 }
-.sheetTop h3{font-size:18px; font-weight:800}
-.closeBtn{
-  border:1px solid #2a2a2a;
-  background:#141416;
-  color:#fff;
-  padding:10px 14px;
-  border-radius:999px;
-  cursor:pointer;
+.closeX{
+  border:1px solid #222;background:#141414;color:#fff;
+  border-radius:12px;padding:10px 12px;cursor:pointer;
 }
-.detailRow{
+
+.hero{
   display:grid;
-  grid-template-columns:110px 1fr;
+  grid-template-columns:140px 1fr;
   gap:14px;
   align-items:start;
 }
-.detailPoster{
-  width:110px;
-  aspect-ratio:2/3;
-  border-radius:14px;
-  background:#111;
-  background-size:cover;
-  background-position:center;
-  border:1px solid #222;
+.heroPoster{
+  width:140px;height:200px;
+  border-radius:14px;border:1px solid #222;
+  background:#111;background-size:cover;background-position:center;
 }
-.detailTitle{font-size:22px;font-weight:900; letter-spacing:.1px}
-.detailMeta{margin-top:6px; color:rgba(255,255,255,.70); font-size:13px}
-.detailSyn{
-  margin-top:14px;
-  color:rgba(255,255,255,.80);
-  line-height:1.6;
-  font-size:14px;
+.h1{font-size:20px;font-weight:800;line-height:1.2}
+.h2{margin-top:6px;color:#aaa;font-size:12px;line-height:1.4}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.badge{
+  font-size:12px;border:1px solid #222;background:#111;color:#ddd;
+  padding:8px 10px;border-radius:999px;
 }
-.pills{margin-top:10px; display:flex; gap:8px; flex-wrap:wrap}
-.pill{
-  font-size:12px;
-  color:rgba(255,255,255,.78);
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(255,255,255,.05);
-  padding:7px 10px;
-  border-radius:999px;
-}
+.synopsis{margin-top:14px;color:#e7e7e7;font-size:14px;line-height:1.65}
+
 @media(max-width:520px){
-  .detailRow{grid-template-columns:92px 1fr}
-  .detailPoster{width:92px}
+  .hero{grid-template-columns:1fr}
+  .heroPoster{width:100%;height:220px}
 }
 </style>
 </head>
@@ -143,150 +137,210 @@ body{
   <span></span>
 </div>
 
+<div class="wrap">
+  <div class="searchRow">
+    <input id="q" type="text" placeholder="Search title, year, genre…" autocomplete="off">
+    <button class="btn" id="clearBtn" type="button">Clear</button>
+  </div>
+  <div class="small" id="count">Loading…</div>
+</div>
+
 <div class="grid" id="grid"></div>
+<div class="empty" id="empty">No matches.</div>
 
-<!-- Modal -->
-<div class="modal" id="modal" aria-hidden="true">
-  <div class="sheet" role="dialog" aria-modal="true" aria-label="Anime details">
-    <div class="sheetTop">
-      <h3>Details</h3>
-      <button class="closeBtn" id="closeBtn">Close</button>
-    </div>
-
-    <div class="detailRow">
-      <div class="detailPoster" id="mPoster"></div>
-
-      <div>
-        <div class="detailTitle" id="mTitle"></div>
-        <div class="detailMeta" id="mMeta"></div>
-        <div class="pills" id="mPills"></div>
+<!-- DETAIL MODAL -->
+<div class="modal" id="modal">
+  <div class="sheet" role="dialog" aria-modal="true">
+    <div class="sheetInner">
+      <div class="detailTop">
+        <b>Details</b>
+        <button class="closeX" id="closeBtn" type="button">Close</button>
       </div>
-    </div>
 
-    <div class="detailSyn" id="mSyn"></div>
+      <div class="hero">
+        <div class="heroPoster" id="dPoster"></div>
+        <div>
+          <div class="h1" id="dTitle"></div>
+          <div class="h2" id="dMeta"></div>
+          <div class="badges" id="dBadges"></div>
+        </div>
+      </div>
+
+      <div class="synopsis" id="dSynopsis"></div>
+    </div>
   </div>
 </div>
 
 <script>
+/*
+POSTERS:
+You said you already uploaded and don't want to rename.
+So we use these exact names.
+Make sure these files exist exactly:
+assets/posters/slime.jpg.JPG
+assets/posters/bluelock.jpg.JPG
+assets/posters/classroomelite.jpg.JPG
+assets/posters/attackontitan.jpg.JPG
+assets/posters/noblesse.jpg.WEBP
+assets/posters/sololeveling.jpg.JPG
+assets/posters/haikyuu.jpg.JPG
+*/
+
 const ANIME = [
   {
-    title: "That Time I Got Reincarnated as a Slime",
-    year: "2018",
-    meta: "Isekai • Fantasy",
-    tags: ["Isekai","Fantasy","Adventure"],
-    poster: "assets/posters/slime.jpg.JPG",
-    synopsis: "A regular office worker dies and wakes up in a new world as the weakest creature imaginable: a slime. But with strange new abilities and a calm, clever mindset, he starts building a home for outcasts—turning a monster-filled land into a nation that even kings have to respect."
+    id:"slime",
+    title:"That Time I Got Reincarnated as a Slime",
+    year:"2018",
+    meta:"Isekai • Fantasy • Adventure",
+    poster:"assets/posters/slime.jpg.JPG",
+    synopsis:"A regular guy dies and wakes up in a fantasy world as the weakest thing imaginable — a slime. The twist: he’s got broken abilities, a calm brain, and a talent for turning enemies into allies. What starts as survival becomes kingdom-building, politics, and big power clashes — but with a surprisingly warm heart."
   },
   {
-    title: "Blue Lock",
-    year: "2022",
-    meta: "Sports • Psychological",
-    tags: ["Sports","Rivalry","Mind Games"],
-    poster: "assets/posters/bluelock.jpg.JPG",
-    synopsis: "Japan locks hundreds of strikers inside a brutal training program where teamwork won’t save you. The only way out is to become the most ego-driven forward alive. It’s football as a pressure cooker—talent, fear, pride, and obsession colliding every match."
+    id:"bluelock",
+    title:"Blue Lock",
+    year:"2022",
+    meta:"Sports • Psychological • Competition",
+    poster:"assets/posters/bluelock.jpg.JPG",
+    synopsis:"Japan locks hundreds of strikers inside a brutal training program designed to create one selfish, unstoppable goal machine. Friendships don’t help you here — ego does. Every match is pressure, mind games, and ruthless selection. If you like intensity and momentum, it hits hard."
   },
   {
-    title: "Classroom of the Elite",
-    year: "2017",
-    meta: "Psychological • School",
-    tags: ["Strategy","Social Warfare","Mystery"],
-    poster: "assets/posters/classroomoftheelite.jpg.JPG",
-    synopsis: "At an elite school where rankings decide everything, success isn’t about studying—it’s about control. Alliances form, betrayals happen quietly, and every smile hides a calculation. One boy stays in the shadows, but he’s sharper than anyone realizes."
+    id:"classroomoftheelite",
+    title:"Classroom of the Elite",
+    year:"2017",
+    meta:"Psychological • School • Strategy",
+    poster:"assets/posters/classroomelite.jpg.JPG",
+    synopsis:"A prestigious school ranks students like an economy: points, privileges, and public wins. In the quiet corner sits Ayanokoji — unreadable, sharp, and hiding what he can really do. It’s less “school life” and more social chess, where manipulation is the real sport."
   },
   {
-    title: "Attack on Titan",
-    year: "2013",
-    meta: "Dark Fantasy • Action",
-    tags: ["War","Mystery","Survival"],
-    poster: "assets/posters/attackontitan.jpg.JPG",
-    synopsis: "Humanity survives behind towering walls—until Titans break through and the world turns into a slaughterhouse. What starts as revenge becomes something bigger: secrets about the walls, the enemy, and the truth of the world itself. It’s relentless, violent, and never plays safe."
+    id:"attackontitan",
+    title:"Attack on Titan",
+    year:"2013",
+    meta:"Dark Fantasy • Action • Mystery",
+    poster:"assets/posters/attackontitan.jpg.JPG",
+    synopsis:"Humanity lives behind walls, terrified of giants that eat people for no reason. When the walls fall, the story explodes into war, secrets, betrayals, and questions that flip everything you believed. It starts as survival horror and grows into one of the most intense long-form mysteries in anime."
   },
   {
-    title: "Noblesse",
-    year: "2020",
-    meta: "Supernatural • Action",
-    tags: ["Vampires","Power","Protectors"],
-    poster: "assets/posters/noblesse.jpg.WEBP",
-    synopsis: "A legendary noble awakens after centuries and tries to live quietly—until modern threats drag him back into war. Secret organizations, enhanced humans, and ancient rules collide while he protects the people around him with frightening ease."
+    id:"noblesse",
+    title:"Noblesse",
+    year:"2020",
+    meta:"Supernatural • Action • Academy",
+    poster:"assets/posters/noblesse.jpg.WEBP",
+    synopsis:"An ancient noble wakes up after centuries and tries to live quietly in modern times — until secret organizations, experiments, and superhuman battles find him. It mixes stylish fights with loyalty-and-family vibes, and it’s best when it leans into that “old power in a new world” feeling."
   },
   {
-    title: "Solo Leveling",
-    year: "2024",
-    meta: "Action Fantasy • Dungeon",
-    tags: ["Underdog","Level Up","Monsters"],
-    poster: "assets/posters/sololeveling.jpg.JPG",
-    synopsis: "In a world where hunters raid deadly gates, the weakest hunter alive gets a second chance: a system that lets him level up like a game. What begins as survival turns into a climb toward terrifying power—one dungeon, one choice, one brutal win at a time."
+    id:"sololeveling",
+    title:"Solo Leveling",
+    year:"2024",
+    meta:"Action Fantasy • Power Growth • Dungeon",
+    poster:"assets/posters/sololeveling.jpg.JPG",
+    synopsis:"Hunters risk their lives in dungeon raids — and Sung Jinwoo is the weakest of them all… until a near-death mission gives him a system that lets him level up like a game. From there it’s pure rise-to-power satisfaction: upgrades, boss fights, and that cold moment when the underdog becomes the threat."
   },
   {
-    title: "Haikyuu!!",
-    year: "2014",
-    meta: "Volleyball • Sports",
-    tags: ["Teamwork","Growth","Hype"],
-    poster: "assets/posters/haikyuu.jpg.JPG",
-    synopsis: "A short kid with unstoppable energy falls in love with volleyball and refuses to be limited by height. Rivalries turn into partnerships, practice feels like battle, and every match earns its emotion. It’s pure momentum—funny, intense, and ridiculously motivating."
+    id:"haikyuu",
+    title:"Haikyuu!!",
+    year:"2014",
+    meta:"Sports • Feel-good • Team",
+    poster:"assets/posters/haikyuu.jpg.JPG",
+    synopsis:"A short kid with ridiculous energy decides he’ll become a volleyball monster anyway. What makes it addictive isn’t just matches — it’s the teamwork, rivalries, training arcs, and how every character gets their moment. Hype, heart, and momentum done right."
   }
 ];
 
-const grid = document.getElementById("grid");
-const modal = document.getElementById("modal");
-const closeBtn = document.getElementById("closeBtn");
+const $ = (id)=>document.getElementById(id);
+const grid = $("grid");
+const qEl = $("q");
+const emptyEl = $("empty");
+const countEl = $("count");
 
-const mPoster = document.getElementById("mPoster");
-const mTitle  = document.getElementById("mTitle");
-const mMeta   = document.getElementById("mMeta");
-const mPills  = document.getElementById("mPills");
-const mSyn    = document.getElementById("mSyn");
+const modal = $("modal");
+const closeBtn = $("closeBtn");
+const dPoster = $("dPoster");
+const dTitle = $("dTitle");
+const dMeta = $("dMeta");
+const dBadges = $("dBadges");
+const dSynopsis = $("dSynopsis");
 
-function openModal(item){
-  mPoster.style.backgroundImage = `url('${item.poster}')`;
-  mTitle.textContent = item.title;
-  mMeta.textContent = `${item.year} · ${item.meta}`;
-  mSyn.textContent = item.synopsis;
+function normalize(s){ return String(s||"").toLowerCase().trim(); }
 
-  mPills.innerHTML = "";
-  (item.tags || []).forEach(t=>{
-    const s=document.createElement("span");
-    s.className="pill";
-    s.textContent=t;
-    mPills.appendChild(s);
+function safeBgUrl(url){
+  // helps with weird characters/spaces
+  return encodeURI(String(url||""));
+}
+
+function openDetail(item){
+  dPoster.style.backgroundImage = `url('${safeBgUrl(item.poster)}')`;
+  dTitle.textContent = item.title || "";
+  dMeta.textContent = `${item.year || ""}${item.meta ? " • " + item.meta : ""}`;
+
+  dBadges.innerHTML = "";
+  String(item.meta||"").split("•").map(x=>x.trim()).filter(Boolean).forEach(t=>{
+    const b = document.createElement("div");
+    b.className = "badge";
+    b.textContent = t;
+    dBadges.appendChild(b);
   });
 
-  modal.classList.add("open");
-  modal.setAttribute("aria-hidden","false");
-  document.body.style.overflow="hidden";
+  dSynopsis.textContent = item.synopsis || "";
+  modal.style.display = "flex";
+  location.hash = item.id;
 }
 
-function closeModal(){
-  modal.classList.remove("open");
-  modal.setAttribute("aria-hidden","true");
-  document.body.style.overflow="";
+function closeDetail(){
+  modal.style.display = "none";
+  if(location.hash) history.replaceState(null, "", location.pathname);
 }
 
-grid.innerHTML = ANIME.map((a, idx) => `
-  <a class="card" href="#" data-i="${idx}">
-    <div class="poster" style="background-image:url('${a.poster}')"></div>
+closeBtn.onclick = closeDetail;
+modal.addEventListener("click", (e)=>{ if(e.target === modal) closeDetail(); });
+window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeDetail(); });
+
+function card(item){
+  const a = document.createElement("a");
+  a.className = "card";
+  a.href = "#"+encodeURIComponent(item.id);
+
+  a.innerHTML = `
+    <div class="poster" style="background-image:url('${safeBgUrl(item.poster)}');"></div>
     <div class="info">
-      <div class="title">${a.title}</div>
-      <div class="meta">${a.year} · ${a.meta}</div>
+      <div class="title">${item.title}</div>
+      <div class="meta">${item.year}${item.meta ? " • " + item.meta : ""}</div>
+      <div class="tagline">${item.synopsis}</div>
     </div>
-  </a>
-`).join("");
+  `;
 
-grid.addEventListener("click", (e)=>{
-  const card = e.target.closest(".card");
-  if(!card) return;
-  e.preventDefault();
-  const i = Number(card.dataset.i);
-  openModal(ANIME[i]);
-});
+  a.onclick = (ev)=>{ ev.preventDefault(); openDetail(item); };
+  return a;
+}
 
-closeBtn.addEventListener("click", closeModal);
-modal.addEventListener("click", (e)=>{
-  if(e.target === modal) closeModal();
-});
-document.addEventListener("keydown", (e)=>{
-  if(e.key === "Escape") closeModal();
-});
+function render(){
+  const q = normalize(qEl.value);
+
+  const filtered = ANIME
+    .filter(x=>{
+      const hay = [x.title,x.year,x.meta,x.synopsis].join(" ");
+      return normalize(hay).includes(q);
+    })
+    .sort((a,b)=>String(a.title).localeCompare(String(b.title)));
+
+  grid.innerHTML = "";
+  filtered.forEach(x=>grid.appendChild(card(x)));
+
+  countEl.textContent = `${filtered.length} title${filtered.length===1?"":"s"} found`;
+  emptyEl.style.display = filtered.length ? "none" : "block";
+}
+
+$("clearBtn").onclick = ()=>{ qEl.value=""; render(); };
+qEl.addEventListener("input", render);
+
+function tryOpenFromHash(){
+  const id = decodeURIComponent((location.hash || "").replace("#",""));
+  if(!id) return;
+  const item = ANIME.find(x=>x.id === id);
+  if(item) openDetail(item);
+}
+
+render();
+tryOpenFromHash();
+window.addEventListener("hashchange", tryOpenFromHash);
 </script>
 
 </body>
