@@ -43,7 +43,9 @@ a{text-decoration:none;color:inherit}
   overflow:hidden;
   position:relative;
   background:#111;
+  transform:translateZ(0);
 }
+.card:hover{transform:translateY(-4px)}
 
 /* POSTER */
 .poster{
@@ -59,15 +61,16 @@ a{text-decoration:none;color:inherit}
   left:0;
   right:0;
   padding:14px;
-  background:linear-gradient(to top,rgba(0,0,0,.9),transparent);
+  background:linear-gradient(to top,rgba(0,0,0,.92),rgba(0,0,0,.2),transparent);
 }
-.title{
-  font-size:18px;
-  font-weight:600;
-}
-.meta{
-  font-size:12px;
-  color:#aaa;
+.title{font-size:18px;font-weight:700}
+.meta{font-size:12px;color:#bbb;margin-top:4px}
+.synopsis{
+  margin-top:10px;
+  font-size:13px;
+  line-height:1.45;
+  color:rgba(255,255,255,.78);
+  max-width:48ch;
 }
 </style>
 </head>
@@ -86,31 +89,35 @@ a{text-decoration:none;color:inherit}
   <div class="poster" style="background-image:url('assets/posters/slime.jpg.JPG');"></div>
   <div class="info">
     <div class="title">That Time I Got Reincarnated as a Slime</div>
-    <div class="meta">2018 · Isekai</div>
+    <div class="meta">2018 · Isekai · Adventure</div>
+    <div class="synopsis">A regular guy wakes up in a fantasy world as a slime—and somehow becomes the most dangerous diplomat in the room. Kingdom-building, smart power-ups, and a surprisingly warm found-family vibe.</div>
   </div>
 </a>
 
-<a class="card" href="shows.html?id=blue-lock">
+<a class="card" href="shows.html?id=bluelock">
   <div class="poster" style="background-image:url('assets/posters/bluelock.jpg.JPG');"></div>
   <div class="info">
     <div class="title">Blue Lock</div>
-    <div class="meta">2022 · Sports</div>
+    <div class="meta">2022 · Sports · Psychological</div>
+    <div class="synopsis">Japan locks its most talented strikers inside a ruthless training facility where ego is currency. It’s football shot like a thriller—pressure, mind games, and goals that feel like knockouts.</div>
   </div>
 </a>
 
-<a class="card" href="shows.html?id=classroom-of-the-elite">
-  <div class="poster" style="background-image:url('assets/posters/classroomelite.jpg.JPG');"></div>
+<a class="card" href="shows.html?id=classroomoftheelite">
+  <div class="poster" style="background-image:url('assets/posters/classroomoftheelite.jpg.JPG');"></div>
   <div class="info">
     <div class="title">Classroom of the Elite</div>
-    <div class="meta">2017 · Psychological</div>
+    <div class="meta">2017 · Psychological · Drama</div>
+    <div class="synopsis">An elite school ranks students like a society experiment—privileges for winners, punishment for losers. A quiet genius plays from the shadows, turning friendships into strategy.</div>
   </div>
 </a>
 
-<a class="card" href="shows.html?id=attack-on-titan">
+<a class="card" href="shows.html?id=attackontitan">
   <div class="poster" style="background-image:url('assets/posters/attackontitan.jpg.JPG');"></div>
   <div class="info">
     <div class="title">Attack on Titan</div>
-    <div class="meta">2013 · Dark Fantasy</div>
+    <div class="meta">2013 · Dark Fantasy · Action</div>
+    <div class="synopsis">Humanity hides behind walls while giants roam outside—until the walls break. What starts as survival horror becomes a brutal war story with twists that keep re-writing the whole world.</div>
   </div>
 </a>
 
@@ -118,15 +125,17 @@ a{text-decoration:none;color:inherit}
   <div class="poster" style="background-image:url('assets/posters/noblesse.jpg.WEBP');"></div>
   <div class="info">
     <div class="title">Noblesse</div>
-    <div class="meta">2020 · Supernatural</div>
+    <div class="meta">2020 · Supernatural · Action</div>
+    <div class="synopsis">A powerful immortal wakes after centuries and tries to live quietly—until secret organizations and old enemies drag him back into the fight. Stylish battles, loyalty, and hidden history.</div>
   </div>
 </a>
 
-<a class="card" href="shows.html?id=solo-leveling">
+<a class="card" href="shows.html?id=sololeveling">
   <div class="poster" style="background-image:url('assets/posters/sololeveling.jpg.JPG');"></div>
   <div class="info">
     <div class="title">Solo Leveling</div>
-    <div class="meta">2024 · Action Fantasy</div>
+    <div class="meta">2024 · Action Fantasy · Dungeon</div>
+    <div class="synopsis">The weakest hunter survives an impossible raid and unlocks a system that lets him level up alone. Pure power fantasy done right—clean escalation, satisfying payoffs, and high-stakes raids.</div>
   </div>
 </a>
 
@@ -134,7 +143,8 @@ a{text-decoration:none;color:inherit}
   <div class="poster" style="background-image:url('assets/posters/haikyuu.jpg.JPG');"></div>
   <div class="info">
     <div class="title">Haikyuu!!</div>
-    <div class="meta">2014 · Volleyball</div>
+    <div class="meta">2014 · Sports · Volleyball</div>
+    <div class="synopsis">A short kid with ridiculous jump dreams joins a struggling volleyball team and finds his perfect rival-partner combo. Hype matches, real growth, and a cast you end up rooting for hard.</div>
   </div>
 </a>
 
