@@ -1,375 +1,508 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Movies — Popcorn Picks</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Movies — Popcorn Picks</title>
 
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{
-      background:#0b0b0c;
-      color:#fff;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
-    }
-    a{text-decoration:none;color:inherit}
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:#0b0b0c;
+    color:#fff;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  }
+  a{text-decoration:none;color:inherit}
 
-    .top{
-      position:sticky;top:0;
-      display:flex;justify-content:space-between;align-items:center;
-      padding:16px 20px;
-      background:rgba(10,10,10,.88);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid #222;
-      z-index:50;
-    }
-    .top b{font-size:16px}
+  .top{
+    position:sticky;top:0;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:16px 20px;
+    background:rgba(10,10,10,.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid #222;
+    z-index:50;
+  }
+  .top b{font-size:16px}
 
-    .wrap{padding:18px 18px 8px}
-    .controls{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-    .search{
-      flex:1;
-      min-width:240px;
-      display:flex;
-      gap:10px;
-    }
-    .search input{
-      width:100%;
-      padding:12px 14px;
-      border-radius:12px;
-      border:1px solid #222;
-      background:#111;
-      color:#fff;
-      outline:none;
-    }
-    .btn{
-      padding:12px 14px;
-      border-radius:12px;
-      border:1px solid #222;
-      background:#141414;
-      color:#fff;
-      cursor:pointer;
-    }
-    .btn:active{transform:translateY(1px)}
-    .small{
-      color:#aaa;
-      font-size:12px;
-      padding:10px 2px 0;
-      line-height:1.4;
-    }
+  .wrap{padding:18px 18px 8px}
+  .controls{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+  .search{
+    flex:1;
+    min-width:240px;
+    display:flex;
+    gap:10px;
+  }
+  .search input{
+    width:100%;
+    padding:12px 14px;
+    border-radius:12px;
+    border:1px solid #222;
+    background:#111;
+    color:#fff;
+    outline:none;
+  }
+  .btn{
+    padding:12px 14px;
+    border-radius:12px;
+    border:1px solid #222;
+    background:#141414;
+    color:#fff;
+    cursor:pointer;
+  }
+  .btn:active{transform:translateY(1px)}
+  .small{
+    color:#aaa;
+    font-size:12px;
+    padding:10px 2px 0;
+    line-height:1.4;
+  }
 
-    .chips{
-      margin-top:12px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .chip{
-      border:1px solid #222;
-      background:#111;
-      color:#ddd;
-      padding:10px 12px;
-      border-radius:999px;
-      font-size:13px;
-      cursor:pointer;
-      user-select:none;
-    }
-    .chip.on{
-      border-color:#444;
-      background:#1b1b1b;
-      color:#fff;
-    }
+  .chips{
+    margin-top:12px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .chip{
+    border:1px solid #222;
+    background:#111;
+    color:#ddd;
+    padding:10px 12px;
+    border-radius:999px;
+    font-size:13px;
+    cursor:pointer;
+    user-select:none;
+  }
+  .chip.on{
+    border-color:#444;
+    background:#1b1b1b;
+    color:#fff;
+  }
 
-    .grid{
-      padding:16px 18px 26px;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-      gap:18px;
-    }
+  .grid{
+    padding:16px 18px 26px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:18px;
+  }
 
-    .card{
-      border-radius:18px;
-      border:1px solid #181818;
-      overflow:hidden;
-      position:relative;
-      background:#111;
-      min-height:320px;
-    }
-    .poster{
-      height:320px;
-      background:#111;
-      background-size:cover;
-      background-position:center;
-    }
-    .info{
-      position:absolute;
-      bottom:0;left:0;right:0;
-      padding:14px;
-      background:linear-gradient(to top,rgba(0,0,0,.92),transparent);
-    }
-    .title{font-size:18px;font-weight:650;line-height:1.2}
-    .meta{font-size:12px;color:#aaa;margin-top:4px}
-    .tagsline{
-      font-size:12px;
-      color:#cfcfcf;
-      margin-top:8px;
-      opacity:.9;
-      display:-webkit-box;
-      -webkit-line-clamp:2;
-      -webkit-box-orient:vertical;
-      overflow:hidden;
-    }
+  .card{
+    border-radius:18px;
+    border:1px solid #181818;
+    overflow:hidden;
+    position:relative;
+    background:#111;
+    min-height:320px;
+    cursor:pointer;
+  }
+  .poster{
+    height:320px;
+    background:#111;
+    background-size:cover;
+    background-position:center;
+  }
+  .info{
+    position:absolute;
+    bottom:0;left:0;right:0;
+    padding:14px;
+    background:linear-gradient(to top,rgba(0,0,0,.92),transparent);
+  }
+  .title{font-size:18px;font-weight:650;line-height:1.2}
+  .meta{font-size:12px;color:#aaa;margin-top:4px}
+  .tagsline{
+    font-size:12px;
+    color:#cfcfcf;
+    margin-top:8px;
+    opacity:.9;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+  }
 
-    .empty{
-      padding:22px 18px 30px;
-      color:#aaa;
-      display:none;
-    }
+  .empty{
+    padding:22px 18px 30px;
+    color:#aaa;
+    display:none;
+  }
 
-    .errorBox{
-      margin:14px 18px 0;
-      border:1px solid #3a1b1b;
-      background:#140b0b;
-      color:#ffbdbd;
-      border-radius:14px;
-      padding:14px;
-      display:none;
-      line-height:1.5;
-      font-size:13px;
-    }
-    .errorBox code{
-      color:#ffd6d6;
-      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
-      font-size:12px;
-      word-break:break-word;
-    }
-  </style>
+  .errorBox{
+    margin:14px 18px 0;
+    border:1px solid #3a1b1b;
+    background:#140b0b;
+    color:#ffbdbd;
+    border-radius:14px;
+    padding:14px;
+    display:none;
+    line-height:1.5;
+    font-size:13px;
+  }
+  .errorBox code{
+    color:#ffd6d6;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+    font-size:12px;
+    word-break:break-word;
+  }
+
+  /* MODAL */
+  .modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.72);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:18px;
+    z-index:999;
+  }
+  .modal.on{display:flex}
+  .sheet{
+    width:min(980px, 100%);
+    border:1px solid #1f1f1f;
+    background:#0f0f0f;
+    border-radius:18px;
+    overflow:hidden;
+  }
+  .sheetTop{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 14px;
+    border-bottom:1px solid #1f1f1f;
+    background:#0d0d0d;
+  }
+  .closeBtn{
+    border:1px solid #222;
+    background:#141414;
+    color:#fff;
+    border-radius:12px;
+    padding:10px 12px;
+    cursor:pointer;
+  }
+  .sheetBody{
+    padding:16px;
+    display:grid;
+    grid-template-columns:320px 1fr;
+    gap:16px;
+  }
+  .bigPoster{
+    height:460px;
+    border-radius:16px;
+    border:1px solid #1b1b1b;
+    background:#111;
+    background-size:cover;
+    background-position:center;
+  }
+  .h1{
+    font-size:26px;
+    font-weight:750;
+    line-height:1.1;
+  }
+  .muted{color:#aaa;font-size:13px;line-height:1.5;margin-top:8px}
+  .why{
+    margin-top:14px;
+    font-size:14px;
+    line-height:1.8;
+    color:#ddd;
+    white-space:pre-line;
+  }
+  .pills{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+  .pill{
+    font-size:12px;
+    border:1px solid #222;
+    background:#111;
+    padding:8px 10px;
+    border-radius:999px;
+    color:#d8d8d8;
+  }
+
+  @media(max-width:900px){
+    .sheetBody{grid-template-columns:1fr}
+    .bigPoster{height:420px}
+  }
+</style>
 </head>
 
 <body>
 
-  <div class="top">
-    <a href="index.html">← Home</a>
-    <b>Movies</b>
-    <span></span>
-  </div>
+<div class="top">
+  <a href="index.html">← Home</a>
+  <b>Movies</b>
+  <span></span>
+</div>
 
-  <div class="errorBox" id="errorBox"></div>
+<div class="errorBox" id="errorBox"></div>
 
-  <div class="wrap">
-    <div class="controls">
-      <div class="search">
-        <input id="q" type="text" placeholder="Search title, year, genre, country, vibe..." autocomplete="off" />
-        <button class="btn" id="clearBtn" type="button">Clear</button>
-      </div>
-      <button class="btn" id="clearFiltersBtn" type="button">Clear filters</button>
+<div class="wrap">
+  <div class="controls">
+    <div class="search">
+      <input id="q" type="text" placeholder="Search title, year, genre, country, vibe..." autocomplete="off" />
+      <button class="btn" id="clearBtn" type="button">Clear</button>
     </div>
-
-    <div class="small" id="resultCount">Loading...</div>
-    <div class="chips" id="chips"></div>
+    <button class="btn" id="clearFiltersBtn" type="button">Clear filters</button>
   </div>
 
-  <div class="grid" id="grid"></div>
-  <div class="empty" id="empty">No matches. Try removing filters or changing the search.</div>
+  <div class="small" id="resultCount">Loading...</div>
+  <div class="chips" id="chips"></div>
+</div>
 
-  <!-- IMPORTANT: keep moviesdata.js in the SAME folder as movies.html -->
-  <script src="./moviesdata.js"></script>
+<div class="grid" id="grid"></div>
+<div class="empty" id="empty">No matches. Try removing filters or changing the search.</div>
 
-  <script>
-    // ---------- helpers ----------
-    const $ = (id) => document.getElementById(id);
+<!-- keep moviesdata.js in the SAME folder as movies.html -->
+<script src="./moviesdata.js"></script>
 
-    const grid = $("grid");
-    const chipsEl = $("chips");
-    const qEl = $("q");
-    const clearBtn = $("clearBtn");
-    const clearFiltersBtn = $("clearFiltersBtn");
-    const resultCount = $("resultCount");
-    const emptyEl = $("empty");
-    const errorBox = $("errorBox");
+<!-- MODAL -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="sheet" role="dialog" aria-modal="true">
+    <div class="sheetTop">
+      <div style="font-weight:700">Details</div>
+      <button class="closeBtn" id="closeBtn" type="button">Close</button>
+    </div>
+    <div class="sheetBody">
+      <div class="bigPoster" id="mPoster"></div>
+      <div>
+        <div class="h1" id="mTitle">—</div>
+        <div class="muted" id="mMeta"></div>
+        <div class="pills" id="mPills"></div>
+        <div class="why" id="mWhy"></div>
+      </div>
+    </div>
+  </div>
+</div>
 
-    const fallbackPoster = "assets/home/movies.jpg";
-    const picked = new Set();
+<script>
+  const $ = (id) => document.getElementById(id);
 
-    function showError(html){
-      errorBox.style.display = "block";
-      errorBox.innerHTML = html;
-    }
+  const grid = $("grid");
+  const chipsEl = $("chips");
+  const qEl = $("q");
+  const clearBtn = $("clearBtn");
+  const clearFiltersBtn = $("clearFiltersBtn");
+  const resultCount = $("resultCount");
+  const emptyEl = $("empty");
+  const errorBox = $("errorBox");
 
-    function normalize(s){
-      return String(s || "").toLowerCase().trim();
-    }
+  const modal = $("modal");
+  const closeBtn = $("closeBtn");
+  const mPoster = $("mPoster");
+  const mTitle = $("mTitle");
+  const mMeta  = $("mMeta");
+  const mPills = $("mPills");
+  const mWhy   = $("mWhy");
 
-    // ---------- data load guard ----------
-    // Your moviesdata.js must define: window.MOVIES = [ ... ]
-    const MOVIES = Array.isArray(window.MOVIES) ? window.MOVIES : [];
+  const fallbackPoster = "assets/home/movies.jpg";
+  const picked = new Set();
 
-    if (!Array.isArray(window.MOVIES)) {
-      showError(
-        `Movies data is not loading.<br><br>
-         Fix this:<br>
-         1) Make sure the file exists: <code>moviesdata.js</code><br>
-         2) It must be in the SAME folder as <code>movies.html</code><br>
-         3) The first line should look like: <code>window.MOVIES = [</code><br><br>
-         Currently, <code>window.MOVIES</code> is missing.`
-      );
-    }
+  function showError(html){
+    errorBox.style.display = "block";
+    errorBox.innerHTML = html;
+  }
 
-    // ---------- chip building ----------
-    function buildChips(movies){
-      const counts = new Map();
-      movies.forEach(m=>{
-        (m.genres || []).forEach(t=>{
-          const tag = String(t).trim();
-          if(!tag) return;
-          counts.set(tag, (counts.get(tag) || 0) + 1);
-        });
+  function normalize(s){
+    return String(s || "").toLowerCase().trim();
+  }
+
+  const MOVIES = Array.isArray(window.MOVIES) ? window.MOVIES : [];
+
+  if (!Array.isArray(window.MOVIES)) {
+    showError(
+      `Movies data is not loading.<br><br>
+       Fix this:<br>
+       1) Make sure the file exists: <code>moviesdata.js</code><br>
+       2) It must be in the SAME folder as <code>movies.html</code><br>
+       3) The first line should look like: <code>window.MOVIES = [</code><br><br>
+       Currently, <code>window.MOVIES</code> is missing.`
+    );
+  }
+
+  function buildChips(movies){
+    const counts = new Map();
+    movies.forEach(m=>{
+      (m.genres || []).forEach(t=>{
+        const tag = String(t).trim();
+        if(!tag) return;
+        counts.set(tag, (counts.get(tag) || 0) + 1);
       });
+    });
 
-      const priority = [
-        "India","Korea","Japan","China","Hong Kong","Germany","Brazil","Indonesia","USA","International",
-        "Action","Crime","Thriller","Mystery","Drama","Horror","Sci-Fi","War","History","Biography","Romance","Comedy",
-        "Neo-noir","Slow-burn","Psychological","Atmospheric","Stylish","Gritty","Mind-bending","Intense","Emotional",
-        "Revenge","Investigation","Espionage","Courtroom","Survival","Siege","Chase","Dystopia","Folklore","Monster","Heist"
-      ];
+    const priority = [
+      "India","Korea","Japan","China","Hong Kong","Germany","Brazil","Indonesia","USA","International",
+      "Action","Crime","Thriller","Mystery","Drama","Horror","Sci-Fi","War","History","Biography","Romance","Comedy",
+      "Neo-noir","Slow-burn","Psychological","Atmospheric","Stylish","Gritty","Mind-bending","Intense","Emotional",
+      "Revenge","Investigation","Espionage","Courtroom","Survival","Siege","Chase","Dystopia","Folklore","Monster","Heist"
+    ];
 
-      const present = new Set([...counts.keys()]);
-      const first = priority.filter(t => present.has(t));
+    const present = new Set([...counts.keys()]);
+    const first = priority.filter(t => present.has(t));
 
-      const rest = [...counts.entries()]
-        .filter(([t]) => !priority.includes(t))
-        .sort((a,b)=> b[1]-a[1] || a[0].localeCompare(b[0]))
-        .map(([t])=>t);
+    const rest = [...counts.entries()]
+      .filter(([t]) => !priority.includes(t))
+      .sort((a,b)=> b[1]-a[1] || a[0].localeCompare(b[0]))
+      .map(([t])=>t);
 
-      return [...first, ...rest].slice(0, 36);
-    }
+    return [...first, ...rest].slice(0, 36);
+  }
 
-    function chipButton(tag){
-      const b = document.createElement("div");
-      b.className = "chip" + (picked.has(tag) ? " on" : "");
-      b.textContent = tag;
-      b.onclick = () => {
-        if(picked.has(tag)) picked.delete(tag);
-        else picked.add(tag);
-        paintChips();
-        render();
-      };
-      return b;
-    }
-
-    function paintChips(){
-      chipsEl.innerHTML = "";
-      const chipList = buildChips(MOVIES);
-      chipList.forEach(tag => chipsEl.appendChild(chipButton(tag)));
-    }
-
-    // ---------- filtering ----------
-    function matchesPicked(movie){
-      if(picked.size === 0) return true;
-
-      // supports BOTH formats:
-      // - movie.genres: ["Action","Thriller"]
-      // - movie.meta:  "Action • Thriller"
-      const tagsFromGenres = Array.isArray(movie.genres) ? movie.genres.map(String) : [];
-      const tagsFromMeta = String(movie.meta || "")
-        .split("•")
-        .map(s => s.trim())
-        .filter(Boolean);
-
-      const tags = new Set([...tagsFromGenres, ...tagsFromMeta]);
-
-      for(const p of picked){
-        if(!tags.has(p)) return false;
-      }
-      return true;
-    }
-
-    function matchesQuery(movie, q){
-      if(!q) return true;
-      const hay = [
-        movie.title,
-        movie.year,
-        movie.meta,
-        (movie.genres || []).join(" "),
-        movie.summary
-      ].join(" ");
-      return normalize(hay).includes(q);
-    }
-
-    function getSorted(movies){
-      return movies.slice().sort((a,b)=>{
-        const ya = Number(a.year || 0);
-        const yb = Number(b.year || 0);
-        if(yb !== ya) return yb - ya;
-        return String(a.title || "").localeCompare(String(b.title || ""));
-      });
-    }
-
-    // ---------- rendering ----------
-    function card(movie){
-      const a = document.createElement("a");
-      a.className = "card";
-      a.href = `movie.html?id=${encodeURIComponent(movie.id)}`;
-
-      const poster = movie.poster ? movie.poster : fallbackPoster;
-      const safePoster = String(poster).replace(/'/g, "\\'");
-
-      // show tags even if you only use "meta" today
-      const tagLine = (Array.isArray(movie.genres) && movie.genres.length)
-        ? movie.genres.slice(0, 5).join(" • ")
-        : String(movie.meta || "").split("•").map(s=>s.trim()).filter(Boolean).slice(0,5).join(" • ");
-
-      a.innerHTML = `
-        <div class="poster" style="background-image:url('${safePoster}');"></div>
-        <div class="info">
-          <div class="title">${movie.title || "Untitled"}</div>
-          <div class="meta">${movie.year || ""}${movie.meta ? " • " + movie.meta : ""}</div>
-          <div class="tagsline">${tagLine}</div>
-        </div>
-      `;
-      return a;
-    }
-
-    function render(){
-      const q = normalize(qEl.value);
-
-      const filtered = getSorted(
-        MOVIES.filter(m => matchesPicked(m) && matchesQuery(m, q))
-      );
-
-      grid.innerHTML = "";
-      filtered.forEach(m => grid.appendChild(card(m)));
-
-      resultCount.textContent =
-        `${filtered.length} title${filtered.length === 1 ? "" : "s"} found` +
-        (picked.size ? ` • Filters: ${[...picked].join(", ")}` : "");
-
-      emptyEl.style.display = filtered.length ? "none" : "block";
-    }
-
-    // ---------- events ----------
-    qEl.addEventListener("input", render);
-
-    clearBtn.onclick = () => {
-      qEl.value = "";
-      render();
-    };
-
-    clearFiltersBtn.onclick = () => {
-      picked.clear();
+  function chipButton(tag){
+    const b = document.createElement("div");
+    b.className = "chip" + (picked.has(tag) ? " on" : "");
+    b.textContent = tag;
+    b.onclick = () => {
+      if(picked.has(tag)) picked.delete(tag);
+      else picked.add(tag);
       paintChips();
       render();
     };
+    return b;
+  }
 
-    // ---------- init ----------
+  function paintChips(){
+    chipsEl.innerHTML = "";
+    const chipList = buildChips(MOVIES);
+    chipList.forEach(tag => chipsEl.appendChild(chipButton(tag)));
+  }
+
+  function matchesPicked(movie){
+    if(picked.size === 0) return true;
+
+    const tagsFromGenres = Array.isArray(movie.genres) ? movie.genres.map(String) : [];
+    const tagsFromMeta = String(movie.meta || "")
+      .split("•")
+      .map(s => s.trim())
+      .filter(Boolean);
+
+    const tags = new Set([...tagsFromGenres, ...tagsFromMeta]);
+
+    for(const p of picked){
+      if(!tags.has(p)) return false;
+    }
+    return true;
+  }
+
+  function matchesQuery(movie, q){
+    if(!q) return true;
+    const hay = [
+      movie.title,
+      movie.year,
+      movie.meta,
+      (movie.genres || []).join(" "),
+      movie.summary
+    ].join(" ");
+    return normalize(hay).includes(q);
+  }
+
+  function getSorted(movies){
+    return movies.slice().sort((a,b)=>{
+      const ya = Number(a.year || 0);
+      const yb = Number(b.year || 0);
+      if(yb !== ya) return yb - ya;
+      return String(a.title || "").localeCompare(String(b.title || ""));
+    });
+  }
+
+  function openModal(movie){
+    const poster = movie.poster ? movie.poster : fallbackPoster;
+    mPoster.style.backgroundImage = `url('${String(poster).replace(/'/g,"\\'")}')`;
+
+    mTitle.textContent = movie.title || "Untitled";
+    mMeta.textContent = `${movie.year || ""}${movie.meta ? " • " + movie.meta : ""}`;
+
+    // pills
+    mPills.innerHTML = "";
+    const tags = (Array.isArray(movie.genres) && movie.genres.length)
+      ? movie.genres
+      : String(movie.meta || "").split("•").map(s=>s.trim()).filter(Boolean);
+
+    tags.slice(0, 8).forEach(t=>{
+      const p = document.createElement("div");
+      p.className = "pill";
+      p.textContent = t;
+      mPills.appendChild(p);
+    });
+
+    mWhy.textContent = movie.summary || movie.why || "No synopsis added yet.";
+
+    modal.classList.add("on");
+    modal.setAttribute("aria-hidden","false");
+  }
+
+  function closeModal(){
+    modal.classList.remove("on");
+    modal.setAttribute("aria-hidden","true");
+  }
+
+  closeBtn.onclick = closeModal;
+  modal.addEventListener("click", (e)=>{
+    if(e.target === modal) closeModal();
+  });
+  window.addEventListener("keydown", (e)=>{
+    if(e.key === "Escape") closeModal();
+  });
+
+  function card(movie){
+    const div = document.createElement("div");
+    div.className = "card";
+
+    const poster = movie.poster ? movie.poster : fallbackPoster;
+    const safePoster = String(poster).replace(/'/g, "\\'");
+
+    const tagLine = (Array.isArray(movie.genres) && movie.genres.length)
+      ? movie.genres.slice(0, 5).join(" • ")
+      : String(movie.meta || "").split("•").map(s=>s.trim()).filter(Boolean).slice(0,5).join(" • ");
+
+    div.innerHTML = `
+      <div class="poster" style="background-image:url('${safePoster}');"></div>
+      <div class="info">
+        <div class="title">${movie.title || "Untitled"}</div>
+        <div class="meta">${movie.year || ""}${movie.meta ? " • " + movie.meta : ""}</div>
+        <div class="tagsline">${tagLine}</div>
+      </div>
+    `;
+
+    div.onclick = () => openModal(movie);
+    return div;
+  }
+
+  function render(){
+    const q = normalize(qEl.value);
+
+    const filtered = getSorted(
+      MOVIES.filter(m => matchesPicked(m) && matchesQuery(m, q))
+    );
+
+    grid.innerHTML = "";
+    filtered.forEach(m => grid.appendChild(card(m)));
+
+    resultCount.textContent =
+      `${filtered.length} title${filtered.length === 1 ? "" : "s"} found` +
+      (picked.size ? ` • Filters: ${[...picked].join(", ")}` : "");
+
+    emptyEl.style.display = filtered.length ? "none" : "block";
+  }
+
+  qEl.addEventListener("input", render);
+
+  clearBtn.onclick = () => {
+    qEl.value = "";
+    render();
+  };
+
+  clearFiltersBtn.onclick = () => {
+    picked.clear();
     paintChips();
     render();
-  </script>
+  };
+
+  paintChips();
+  render();
+</script>
 
 </body>
 </html>
