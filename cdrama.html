@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>C-Drama — Popcorn Picks</title>
 
 <style>
@@ -10,45 +10,92 @@
 body{
   background:#0b0b0c;
   color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
 }
 a{text-decoration:none;color:inherit}
+
 .top{
-  position:sticky;top:0;
-  display:flex;justify-content:space-between;align-items:center;
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
   padding:16px 20px;
-  background:rgba(10,10,10,.88);
-  backdrop-filter:blur(10px);
+  background:rgba(10,10,10,.9);
   border-bottom:1px solid #222;
 }
+
 .grid{
-  padding:24px;
+  padding:22px;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
   gap:22px;
 }
+
 .card{
   border-radius:18px;
   border:1px solid #181818;
   overflow:hidden;
-  position:relative;
-}
-.placeholder{
-  height:320px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#888;
   background:#111;
+  cursor:pointer;
+}
+.poster{
+  height:320px;
+  background-size:cover;
+  background-position:center;
 }
 .info{
-  position:absolute;
-  bottom:0;left:0;right:0;
   padding:14px;
-  background:linear-gradient(to top,rgba(0,0,0,.9),transparent);
 }
-.title{font-size:18px;font-weight:600}
-.meta{font-size:12px;color:#aaa}
+.title{font-size:18px;font-weight:650}
+.meta{font-size:12px;color:#aaa;margin-top:4px}
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+.modal.on{display:flex}
+.sheet{
+  width:min(900px,100%);
+  background:#0f0f0f;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid #1f1f1f;
+}
+.sheetTop{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px;border-bottom:1px solid #1f1f1f;
+}
+.sheetBody{
+  padding:16px;
+  display:grid;
+  grid-template-columns:320px 1fr;
+  gap:16px;
+}
+.bigPoster{
+  height:460px;
+  background-size:cover;
+  background-position:center;
+  border-radius:14px;
+}
+.closeBtn{
+  background:#141414;
+  border:1px solid #222;
+  color:#fff;
+  padding:10px 12px;
+  border-radius:10px;
+  cursor:pointer;
+}
+.h1{font-size:26px;font-weight:700}
+.muted{color:#aaa;font-size:13px;margin-top:6px}
+.text{margin-top:14px;line-height:1.8;color:#ddd;font-size:15px}
+
+@media(max-width:900px){
+  .sheetBody{grid-template-columns:1fr}
+  .bigPoster{height:420px}
+}
 </style>
 </head>
 
@@ -60,89 +107,153 @@ a{text-decoration:none;color:inherit}
   <span></span>
 </div>
 
-<div class="grid">
+<div class="grid" id="grid"></div>
 
-<a class="card" href="shows.html?id=sword-snow-stride">
-  <div class="placeholder"></div>
-  <div class="info">
-    <div class="title">Sword Snow Stride</div>
-    <div class="meta">2021 · Wuxia</div>
+<div class="modal" id="modal">
+  <div class="sheet">
+    <div class="sheetTop">
+      <b id="mTitle"></b>
+      <button class="closeBtn" onclick="closeModal()">Close</button>
+    </div>
+    <div class="sheetBody">
+      <div class="bigPoster" id="mPoster"></div>
+      <div>
+        <div class="muted" id="mMeta"></div>
+        <div class="text" id="mText"></div>
+      </div>
+    </div>
   </div>
-</a>
-
-<a class="card" href="shows.html?id=fireworks-of-my-heart">
-  <div class="placeholder"></div>
-  <div class="info">
-    <div class="title">Fireworks of My Heart</div>
-    <div class="meta">2023 · Romance</div>
-  </div>
-</a>
-
-<a class="card" href="shows.html?id=joy-of-life">
-  <div class="placeholder"></div>
-  <div class="info">
-    <div class="title">Joy of Life</div>
-    <div class="meta">2019 · Historical</div>
-  </div>
-</a>
-
-<a class="card" href="shows.html?id=lighter-and-princess">
-  <div class="placeholder"></div>
-  <div class="info">
-    <div class="title">Lighter and Princess</div>
-    <div class="meta">2022 · Romance</div>
-  </div>
-</a>
-
-<a class="card" href="shows.html?id=amidst-a-snowstorm-of-love">
-  <div class="placeholder"></div>
-  <div class="info">
-    <div class="title">Amidst a Snowstorm of Love</div>
-    <div class="meta">2024 · Romance</div>
-  </div>
-</a>
-
-<a class="card" href="shows.html?id=nirvana-in-fire">
-  <div class="placeholder"></div>
-  <div class="info">
-    <div class="title">Nirvana in Fire</div>
-    <div class="meta">2015 · Historical</div>
-  </div>
-</a>
-
-<a class="card" href="shows.html?id=sword-dynasty">
-  <div class="placeholder"></div>
-  <div class="info">
-    <div class="title">Sword Dynasty</div>
-    <div class="meta">2019 · Wuxia</div>
-  </div>
-</a>
-
-<a class="card" href="shows.html?id=you-are-my-glory">
-  <div class="placeholder"></div>
-  <div class="info">
-    <div class="title">You Are My Glory</div>
-    <div class="meta">2021 · Romance</div>
-  </div>
-</a>
-
-<a class="card" href="shows.html?id=love-me-love-my-voice">
-  <div class="placeholder"></div>
-  <div class="info">
-    <div class="title">Love Me, Love My Voice</div>
-    <div class="meta">2023 · Romance</div>
-  </div>
-</a>
-
-<a class="card" href="shows.html?id=ever-night">
-  <div class="placeholder"></div>
-  <div class="info">
-    <div class="title">Ever Night</div>
-    <div class="meta">2018–2020 · Fantasy</div>
-  </div>
-</a>
-
 </div>
+
+<script>
+const shows = [
+{
+  title:"Sword Snow Stride",
+  year:"2021",
+  genre:"Wuxia • Political",
+  poster:"assets/posters/cdrama/sword-snow-stride.jpg",
+  synopsis:"A seemingly carefree heir to a powerful family is pushed into the brutal realities of power, loyalty, and warfare. What begins as reluctant leadership evolves into a long strategic battle involving martial clans, court politics, and moral compromise."
+},
+{
+  title:"Fireworks of My Heart",
+  year:"2023",
+  genre:"Romance • Medical • Military",
+  poster:"assets/posters/cdrama/fireworks-of-my-heart.jpg",
+  synopsis:"A firefighter and an emergency doctor reconnect years after a painful breakup. Their professional worlds collide during disasters, forcing them to confront past misunderstandings while balancing duty, danger, and unresolved emotions."
+},
+{
+  title:"Joy of Life",
+  year:"2019",
+  genre:"Historical • Political • Dark Comedy",
+  poster:"assets/posters/cdrama/joy-of-life.jpg",
+  synopsis:"A modern-minded young man navigates a deadly imperial court where intellect matters more than lineage. Sharp dialogue, layered conspiracies, and long-term plotting define this unusually self-aware historical drama."
+},
+{
+  title:"Lighter and Princess",
+  year:"2022",
+  genre:"Romance • Youth • Technology",
+  poster:"assets/posters/cdrama/lighter-and-princess.jpg",
+  synopsis:"A gifted but rebellious programmer and a disciplined top student form a complicated bond that spans ambition, failure, and second chances, grounded in the pressures of education and startup culture."
+},
+{
+  title:"Amidst a Snowstorm of Love",
+  year:"2024",
+  genre:"Romance • Sports",
+  poster:"assets/posters/cdrama/amidst-a-snowstorm-of-love.jpg",
+  synopsis:"A quiet romance develops between two professional cue-sports players, built on mutual respect and emotional restraint rather than melodrama, set against competitive international tournaments."
+},
+{
+  title:"Nirvana in Fire",
+  year:"2015",
+  genre:"Historical • Strategy • Revenge",
+  poster:"assets/posters/cdrama/nirvana-in-fire.jpg",
+  synopsis:"A political mastermind returns to the capital under a new identity to dismantle a corrupt regime. The series is driven by long-form strategy, loyalty, and moral sacrifice rather than action spectacle."
+},
+{
+  title:"Sword Dynasty",
+  year:"2019",
+  genre:"Wuxia • Fantasy",
+  poster:"assets/posters/cdrama/sword-dynasty.jpg",
+  synopsis:"Set in a divided martial world, a young swordsman becomes entangled in power struggles that blur the line between heroism and survival."
+},
+{
+  title:"You Are My Glory",
+  year:"2021",
+  genre:"Romance • Career",
+  poster:"assets/posters/cdrama/you-are-my-glory.jpg",
+  synopsis:"A famous actress reconnects with a brilliant aerospace engineer, focusing on adult romance shaped by career ambition, long distance, and emotional maturity."
+},
+{
+  title:"Love Me, Love My Voice",
+  year:"2023",
+  genre:"Romance • Music",
+  poster:"assets/posters/cdrama/love-me-love-my-voice.jpg",
+  synopsis:"A gentle romance between a voice actor and a university student, centered on creativity, online identity, and the slow development of emotional intimacy."
+},
+{
+  title:"Ever Night",
+  year:"2018",
+  genre:"Fantasy • Cultivation",
+  poster:"assets/posters/cdrama/ever-night.jpg",
+  synopsis:"An orphaned servant rises through a harsh cultivation world filled with sect rivalries, spiritual warfare, and existential questions about destiny and freedom."
+},
+
+/* ADDITIONS */
+{
+  title:"Hidden Love",
+  year:"2023",
+  genre:"Romance • Youth",
+  poster:"assets/posters/cdrama/hidden-love.jpg",
+  synopsis:"A slow-burn romance built on quiet admiration, emotional restraint, and gradual trust rather than dramatic twists."
+},
+{
+  title:"Go Ahead",
+  year:"2020",
+  genre:"Family • Slice of Life",
+  poster:"assets/posters/cdrama/go-ahead.jpg",
+  synopsis:"Three unrelated children form a found family while navigating trauma, abandonment, and adulthood with emotional realism."
+},
+{
+  title:"The Untamed",
+  year:"2019",
+  genre:"Fantasy • Brotherhood",
+  poster:"assets/posters/cdrama/the-untamed.jpg",
+  synopsis:"A cultivation epic centered on moral defiance, loyalty, and the cost of standing against orthodoxy."
+}
+];
+
+const grid = document.getElementById("grid");
+const modal = document.getElementById("modal");
+const mTitle = document.getElementById("mTitle");
+const mPoster = document.getElementById("mPoster");https://kisskh.ovh/Drama/The-Judge-Returns/Episode-5?id=12186&ep=203220&page=0&pageSize=100
+const mMeta = document.getElementById("mMeta");
+const mText = document.getElementById("mText");
+
+shows.forEach(show=>{
+  const c = document.createElement("div");
+  c.className="card";
+  c.innerHTML=`
+    <div class="poster" style="background-image:url('${show.poster}')"></div>
+    <div class="info">
+      <div class="title">${show.title}</div>
+      <div class="meta">${show.year} • ${show.genre}</div>
+    </div>
+  `;
+  c.onclick=()=>openModal(show);
+  grid.appendChild(c);
+});
+
+function openModal(s){
+  mTitle.textContent=s.title;
+  mPoster.style.backgroundImage=`url('${s.poster}')`;
+  mMeta.textContent=`${s.year} • ${s.genre}`;
+  mText.textContent=s.synopsis;
+  modal.classList.add("on");
+}
+function closeModal(){
+  modal.classList.remove("on");
+}
+</script>
 
 </body>
 </html>
