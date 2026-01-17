@@ -3,99 +3,163 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>C-Drama — Popcorn Picks</title>
+<title>C Drama — Popcorn Picks</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  background:#0b0b0c;
-  color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-}
-a{text-decoration:none;color:inherit}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:#0b0b0c;
+    color:#fff;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  }
+  a{text-decoration:none;color:inherit}
 
-.top{
-  position:sticky;top:0;z-index:50;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:16px 20px;
-  background:rgba(10,10,10,.9);
-  border-bottom:1px solid #222;
-}
+  .top{
+    position:sticky;top:0;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:16px 20px;
+    background:rgba(10,10,10,.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid #222;
+    z-index:50;
+  }
+  .top b{font-size:16px}
 
-.grid{
-  padding:22px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:22px;
-}
+  .wrap{padding:18px 18px 10px}
+  .small{
+    color:#aaa;
+    font-size:12px;
+    padding:6px 2px 0;
+    line-height:1.4;
+  }
 
-.card{
-  border-radius:18px;
-  border:1px solid #181818;
-  overflow:hidden;
-  background:#111;
-  cursor:pointer;
-}
-.poster{
-  height:320px;
-  background-size:cover;
-  background-position:center;
-}
-.info{
-  padding:14px;
-}
-.title{font-size:18px;font-weight:650}
-.meta{font-size:12px;color:#aaa;margin-top:4px}
+  .grid{
+    padding:16px 18px 34px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:18px;
+  }
 
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.7);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:999;
-}
-.modal.on{display:flex}
-.sheet{
-  width:min(900px,100%);
-  background:#0f0f0f;
-  border-radius:18px;
-  overflow:hidden;
-  border:1px solid #1f1f1f;
-}
-.sheetTop{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:14px;border-bottom:1px solid #1f1f1f;
-}
-.sheetBody{
-  padding:16px;
-  display:grid;
-  grid-template-columns:320px 1fr;
-  gap:16px;
-}
-.bigPoster{
-  height:460px;
-  background-size:cover;
-  background-position:center;
-  border-radius:14px;
-}
-.closeBtn{
-  background:#141414;
-  border:1px solid #222;
-  color:#fff;
-  padding:10px 12px;
-  border-radius:10px;
-  cursor:pointer;
-}
-.h1{font-size:26px;font-weight:700}
-.muted{color:#aaa;font-size:13px;margin-top:6px}
-.text{margin-top:14px;line-height:1.8;color:#ddd;font-size:15px}
+  .card{
+    border-radius:18px;
+    border:1px solid #181818;
+    overflow:hidden;
+    position:relative;
+    background:#111;
+    min-height:320px;
+    cursor:pointer;
+  }
+  .poster{
+    height:320px;
+    background:#101010;
+    background-size:cover;
+    background-position:center;
+  }
+  .poster.fallback{
+    background:
+      radial-gradient(700px 380px at 20% 15%, rgba(255,255,255,.09), transparent 55%),
+      linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.8));
+  }
+  .info{
+    position:absolute;
+    bottom:0;left:0;right:0;
+    padding:14px;
+    background:linear-gradient(to top,rgba(0,0,0,.92),transparent);
+  }
+  .title{font-size:18px;font-weight:700;line-height:1.2}
+  .meta{font-size:12px;color:#aaa;margin-top:4px}
+  .tagsline{
+    font-size:12px;
+    color:#cfcfcf;
+    margin-top:8px;
+    opacity:.92;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+  }
 
-@media(max-width:900px){
-  .sheetBody{grid-template-columns:1fr}
-  .bigPoster{height:420px}
-}
+  /* MODAL */
+  .modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.72);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:18px;
+    z-index:999;
+  }
+  .modal.on{display:flex}
+  .sheet{
+    width:min(980px, 100%);
+    border:1px solid #1f1f1f;
+    background:#0f0f0f;
+    border-radius:18px;
+    overflow:hidden;
+  }
+  .sheetTop{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 14px;
+    border-bottom:1px solid #1f1f1f;
+    background:#0d0d0d;
+  }
+  .closeBtn{
+    border:1px solid #222;
+    background:#141414;
+    color:#fff;
+    border-radius:12px;
+    padding:10px 12px;
+    cursor:pointer;
+  }
+  .sheetBody{
+    padding:16px;
+    display:grid;
+    grid-template-columns:320px 1fr;
+    gap:16px;
+  }
+  .bigPoster{
+    height:460px;
+    border-radius:16px;
+    border:1px solid #1b1b1b;
+    background:#111;
+    background-size:cover;
+    background-position:center;
+  }
+  .bigPoster.fallback{
+    background:
+      radial-gradient(900px 520px at 20% 15%, rgba(255,255,255,.09), transparent 55%),
+      linear-gradient(to bottom, rgba(0,0,0,.12), rgba(0,0,0,.85));
+  }
+  .h1{
+    font-size:26px;
+    font-weight:800;
+    line-height:1.1;
+  }
+  .muted{color:#aaa;font-size:13px;line-height:1.5;margin-top:8px}
+  .why{
+    margin-top:14px;
+    font-size:14px;
+    line-height:1.85;
+    color:#ddd;
+    white-space:pre-line;
+  }
+  .pills{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+  .pill{
+    font-size:12px;
+    border:1px solid #222;
+    background:#111;
+    padding:8px 10px;
+    border-radius:999px;
+    color:#d8d8d8;
+  }
+
+  @media(max-width:900px){
+    .sheetBody{grid-template-columns:1fr}
+    .bigPoster{height:420px}
+  }
 </style>
 </head>
 
@@ -103,156 +167,275 @@ a{text-decoration:none;color:inherit}
 
 <div class="top">
   <a href="index.html">← Home</a>
-  <b>C-Drama</b>
+  <b>C Drama</b>
   <span></span>
+</div>
+
+<div class="wrap">
+  <div class="small" id="resultCount">Loading...</div>
 </div>
 
 <div class="grid" id="grid"></div>
 
-<div class="modal" id="modal">
-  <div class="sheet">
+<!-- MODAL -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="sheet" role="dialog" aria-modal="true">
     <div class="sheetTop">
-      <b id="mTitle"></b>
-      <button class="closeBtn" onclick="closeModal()">Close</button>
+      <div style="font-weight:700">Details</div>
+      <button class="closeBtn" id="closeBtn" type="button">Close</button>
     </div>
     <div class="sheetBody">
-      <div class="bigPoster" id="mPoster"></div>
+      <div class="bigPoster fallback" id="mPoster"></div>
       <div>
+        <div class="h1" id="mTitle">—</div>
         <div class="muted" id="mMeta"></div>
-        <div class="text" id="mText"></div>
+        <div class="pills" id="mPills"></div>
+        <div class="why" id="mWhy"></div>
       </div>
     </div>
   </div>
 </div>
 
 <script>
-const shows = [
-{
-  title:"Sword Snow Stride",
-  year:"2021",
-  genre:"Wuxia • Political",
-  poster:"assets/posters/cdrama/sword-snow-stride.jpg",
-  synopsis:"A seemingly carefree heir to a powerful family is pushed into the brutal realities of power, loyalty, and warfare. What begins as reluctant leadership evolves into a long strategic battle involving martial clans, court politics, and moral compromise."
-},
-{
-  title:"Fireworks of My Heart",
-  year:"2023",
-  genre:"Romance • Medical • Military",
-  poster:"assets/posters/cdrama/fireworks-of-my-heart.jpg",
-  synopsis:"A firefighter and an emergency doctor reconnect years after a painful breakup. Their professional worlds collide during disasters, forcing them to confront past misunderstandings while balancing duty, danger, and unresolved emotions."
-},
-{
-  title:"Joy of Life",
-  year:"2019",
-  genre:"Historical • Political • Dark Comedy",
-  poster:"assets/posters/cdrama/joy-of-life.jpg",
-  synopsis:"A modern-minded young man navigates a deadly imperial court where intellect matters more than lineage. Sharp dialogue, layered conspiracies, and long-term plotting define this unusually self-aware historical drama."
-},
-{
-  title:"Lighter and Princess",
-  year:"2022",
-  genre:"Romance • Youth • Technology",
-  poster:"assets/posters/cdrama/lighter-and-princess.jpg",
-  synopsis:"A gifted but rebellious programmer and a disciplined top student form a complicated bond that spans ambition, failure, and second chances, grounded in the pressures of education and startup culture."
-},
-{
-  title:"Amidst a Snowstorm of Love",
-  year:"2024",
-  genre:"Romance • Sports",
-  poster:"assets/posters/cdrama/amidst-a-snowstorm-of-love.jpg",
-  synopsis:"A quiet romance develops between two professional cue-sports players, built on mutual respect and emotional restraint rather than melodrama, set against competitive international tournaments."
-},
-{
-  title:"Nirvana in Fire",
-  year:"2015",
-  genre:"Historical • Strategy • Revenge",
-  poster:"assets/posters/cdrama/nirvana-in-fire.jpg",
-  synopsis:"A political mastermind returns to the capital under a new identity to dismantle a corrupt regime. The series is driven by long-form strategy, loyalty, and moral sacrifice rather than action spectacle."
-},
-{
-  title:"Sword Dynasty",
-  year:"2019",
-  genre:"Wuxia • Fantasy",
-  poster:"assets/posters/cdrama/sword-dynasty.jpg",
-  synopsis:"Set in a divided martial world, a young swordsman becomes entangled in power struggles that blur the line between heroism and survival."
-},
-{
-  title:"You Are My Glory",
-  year:"2021",
-  genre:"Romance • Career",
-  poster:"assets/posters/cdrama/you-are-my-glory.jpg",
-  synopsis:"A famous actress reconnects with a brilliant aerospace engineer, focusing on adult romance shaped by career ambition, long distance, and emotional maturity."
-},
-{
-  title:"Love Me, Love My Voice",
-  year:"2023",
-  genre:"Romance • Music",
-  poster:"assets/posters/cdrama/love-me-love-my-voice.jpg",
-  synopsis:"A gentle romance between a voice actor and a university student, centered on creativity, online identity, and the slow development of emotional intimacy."
-},
-{
-  title:"Ever Night",
-  year:"2018",
-  genre:"Fantasy • Cultivation",
-  poster:"assets/posters/cdrama/ever-night.jpg",
-  synopsis:"An orphaned servant rises through a harsh cultivation world filled with sect rivalries, spiritual warfare, and existential questions about destiny and freedom."
-},
+  const $ = (id) => document.getElementById(id);
 
-/* ADDITIONS */
-{
-  title:"Hidden Love",
-  year:"2023",
-  genre:"Romance • Youth",
-  poster:"assets/posters/cdrama/hidden-love.jpg",
-  synopsis:"A slow-burn romance built on quiet admiration, emotional restraint, and gradual trust rather than dramatic twists."
-},
-{
-  title:"Go Ahead",
-  year:"2020",
-  genre:"Family • Slice of Life",
-  poster:"assets/posters/cdrama/go-ahead.jpg",
-  synopsis:"Three unrelated children form a found family while navigating trauma, abandonment, and adulthood with emotional realism."
-},
-{
-  title:"The Untamed",
-  year:"2019",
-  genre:"Fantasy • Brotherhood",
-  poster:"assets/posters/cdrama/the-untamed.jpg",
-  synopsis:"A cultivation epic centered on moral defiance, loyalty, and the cost of standing against orthodoxy."
-}
-];
+  const grid = $("grid");
+  const resultCount = $("resultCount");
 
-const grid = document.getElementById("grid");
-const modal = document.getElementById("modal");
-const mTitle = document.getElementById("mTitle");
-const mPoster = document.getElementById("mPoster");https://kisskh.ovh/Drama/The-Judge-Returns/Episode-5?id=12186&ep=203220&page=0&pageSize=100
-const mMeta = document.getElementById("mMeta");
-const mText = document.getElementById("mText");
+  const modal = $("modal");
+  const closeBtn = $("closeBtn");
+  const mPoster = $("mPoster");
+  const mTitle = $("mTitle");
+  const mMeta  = $("mMeta");
+  const mPills = $("mPills");
+  const mWhy   = $("mWhy");
 
-shows.forEach(show=>{
-  const c = document.createElement("div");
-  c.className="card";
-  c.innerHTML=`
-    <div class="poster" style="background-image:url('${show.poster}')"></div>
-    <div class="info">
-      <div class="title">${show.title}</div>
-      <div class="meta">${show.year} • ${show.genre}</div>
-    </div>
-  `;
-  c.onclick=()=>openModal(show);
-  grid.appendChild(c);
-});
+  const fallbackPoster = ""; // leave empty: we use CSS fallback gradient
 
-function openModal(s){
-  mTitle.textContent=s.title;
-  mPoster.style.backgroundImage=`url('${s.poster}')`;
-  mMeta.textContent=`${s.year} • ${s.genre}`;
-  mText.textContent=s.synopsis;
-  modal.classList.add("on");
-}
-function closeModal(){
-  modal.classList.remove("on");
-}
+  // IMPORTANT:
+  // If you uploaded posters, put exact paths here (same folder/case/ext).
+  // Example: "assets/posters/cdrama/joy-of-life.jpg.JPG"
+  const CDRAMAS = [
+    {
+      id:"sword-snow-stride",
+      title:"Sword Snow Stride",
+      year:2021,
+      meta:"Wuxia • Political intrigue • Long-form",
+      genres:["Wuxia","Politics","Martial Arts","Strategy"],
+      poster:"",
+      synopsis:
+`A sheltered heir is pushed into the real world after his family is threatened, forcing him to navigate rival clans, court power games, and shifting loyalties. What begins as a reluctant journey becomes a slow transformation into someone who understands both violence and diplomacy. The series balances martial-arts arcs with statecraft: alliances, betrayals, and the cost of becoming a leader in a world where every favor has a price.`
+    },
+    {
+      id:"fireworks-of-my-heart",
+      title:"Fireworks of My Heart",
+      year:2023,
+      meta:"Romance • Career • Second-chance",
+      genres:["Romance","Drama","Modern","Workplace"],
+      poster:"",
+      synopsis:
+`Years after a difficult separation, a doctor and a firefighter cross paths again through emergency cases and public crises. The relationship is shaped by adult responsibilities—high-risk work, family pressure, and the consequences of past decisions. The drama focuses on rebuilding trust slowly while showing the intensity of frontline professions and the emotional toll behind public heroism.`
+    },
+    {
+      id:"joy-of-life",
+      title:"Joy of Life",
+      year:2019,
+      meta:"Historical • Mystery • Court politics",
+      genres:["Historical","Politics","Mystery","Dark Comedy"],
+      poster:"",
+      synopsis:
+`A young man with unusual knowledge is pulled into the empire’s most dangerous circles, where intelligence networks, royal succession, and hidden agendas decide who survives. The story mixes sharp humor with real stakes: conspiracies, assassinations, and secrets that connect the present to a larger historical puzzle. It plays like a political thriller in period clothing—fast, clever, and constantly shifting.`
+    },
+    {
+      id:"lighter-and-princess",
+      title:"Lighter & Princess",
+      year:2022,
+      meta:"Romance • Campus to adulthood • Redemption",
+      genres:["Romance","Drama","Modern","Coming-of-age"],
+      poster:"",
+      synopsis:
+`A gifted student meets a brilliant but volatile programmer, and their relationship grows inside a competitive tech environment. When a crisis breaks their trajectory, the story follows them into adulthood—where pride, guilt, and ambition collide with real consequences. It’s a relationship built around timing: what love looks like when talent turns into pressure and pressure turns into mistakes.`
+    },
+    {
+      id:"amidst-a-snowstorm-of-love",
+      title:"Amidst a Snowstorm of Love",
+      year:2024,
+      meta:"Romance • Sports • Soft pacing",
+      genres:["Romance","Sports","Modern"],
+      poster:"",
+      synopsis:
+`Two people meet in a quiet winter setting and connect through a shared world of competitive sport. The romance is restrained and gentle, focusing on comfort, routine, and the way affection grows through small decisions rather than dramatic turning points. It’s built to feel calm and immersive—more warmth than chaos.`
+    },
+    {
+      id:"nirvana-in-fire",
+      title:"Nirvana in Fire",
+      year:2015,
+      meta:"Historical • Revenge • Strategy masterpiece",
+      genres:["Historical","Politics","Revenge","Strategy"],
+      poster:"",
+      synopsis:
+`A survivor returns under a new identity to dismantle the forces that destroyed his family and comrades. Instead of brute force, the weapon is strategy: long cons, court maneuvering, and carefully placed truths. The series is famous for layered plotting—where victories are earned through patience, intelligence, and sacrifice. Every alliance is tested by morality, loyalty, and the price of justice.`
+    },
+    {
+      id:"sword-dynasty",
+      title:"Sword Dynasty",
+      year:2019,
+      meta:"Wuxia • Cultivation • Power struggles",
+      genres:["Wuxia","Martial Arts","Fantasy"],
+      poster:"",
+      synopsis:
+`In a world ruled by cultivation and sect politics, an unlikely figure rises while carrying secrets tied to past betrayals. Training arcs, rival schools, and escalating power clashes build toward a larger conflict that isn’t only about strength—it's about who controls truth and legacy. The show leans into classic wuxia structure: growth, rivalry, and a widening war of ideologies.`
+    },
+    {
+      id:"you-are-my-glory",
+      title:"You Are My Glory",
+      year:2021,
+      meta:"Romance • Celebrity • Career",
+      genres:["Romance","Drama","Modern"],
+      poster:"",
+      synopsis:
+`A celebrity reconnects with a former classmate now working in aerospace, and the romance grows through mutual respect rather than fantasy. The story balances public image with private insecurity, and it treats careers as real obstacles: ambition, deadlines, pressure, and distance. It’s a romance that stays grounded in adult priorities and long-term choices.`
+    },
+    {
+      id:"love-me-love-my-voice",
+      title:"Love Me, Love My Voice",
+      year:2023,
+      meta:"Romance • Music/voice acting • Comfort watch",
+      genres:["Romance","Slice of Life","Modern"],
+      poster:"",
+      synopsis:
+`A young creator is drawn into the world of voice acting and music, where admiration becomes a real connection. The drama focuses on gentleness: support, creative passion, and the emotional safety of being understood. Low on melodrama and high on comfort, it’s designed to feel warm, personal, and steady.`
+    },
+    {
+      id:"ever-night",
+      title:"Ever Night",
+      year:2018,
+      meta:"Fantasy • Cultivation • Epic journey",
+      genres:["Fantasy","Wuxia","Adventure"],
+      poster:"",
+      synopsis:
+`A young man with a hidden past enters a world of cultivation, sect power, and prophecy-level conflict. The story escalates from survival and training into large-scale battles that reshape the political and spiritual order. At its best, it balances adventure with mythology and keeps the hero’s identity mystery driving the larger stakes.`
+    },
+
+    /* extra popular picks (added) */
+    {
+      id:"the-untamed",
+      title:"The Untamed",
+      year:2019,
+      meta:"Xianxia • Brotherhood • Mystery",
+      genres:["Fantasy","Mystery","Xianxia"],
+      poster:"",
+      synopsis:
+`After a tragedy fractures the cultivation world, a once-condemned figure returns years later to uncover what really happened. The plot blends sect rivalry, supernatural cases, and political cover-ups, with relationships defined by loyalty and reputation. It plays like a long mystery built inside a fantasy system where the past never stays buried.`
+    },
+    {
+      id:"go-ahead",
+      title:"Go Ahead",
+      year:2020,
+      meta:"Modern • Family • Healing",
+      genres:["Drama","Family","Slice of Life"],
+      poster:"",
+      synopsis:
+`Three children from complicated homes form an improvised family, growing up with love that isn’t tied to blood. As adults, old wounds resurface—parents return, attachments shift, and loyalty is tested. The drama is driven by emotional realism: what it means to heal, to set boundaries, and to choose family deliberately.`
+    },
+    {
+      id:"reset",
+      title:"Reset",
+      year:2022,
+      meta:"Thriller • Time loop • Suspense",
+      genres:["Thriller","Mystery","Sci-Fi"],
+      poster:"",
+      synopsis:
+`A commuter is trapped in a repeating disaster and must solve what causes it to break the loop. Each cycle reveals new pieces: suspects, motives, hidden relationships, and systemic negligence. The show keeps tension high while unfolding a layered whodunit where survival depends on learning faster than the clock resets.`
+    },
+    {
+      id:"the-longest-day-in-changan",
+      title:"The Longest Day in Chang’an",
+      year:2019,
+      meta:"Historical • Action • 24-hour thriller",
+      genres:["Historical","Thriller","Action"],
+      poster:"",
+      synopsis:
+`Set across a single day, a disgraced officer is forced back into service to stop an attack on the capital. The story moves with urgency—investigations, chases, political sabotage—while showing the city as a living system of class, religion, and power. It’s structured like a high-stakes thriller with period detail and relentless pacing.`
+    },
+    {
+      id:"love-like-the-galaxy",
+      title:"Love Like the Galaxy",
+      year:2022,
+      meta:"Historical • Romance • Family politics",
+      genres:["Historical","Romance","Drama"],
+      poster:"",
+      synopsis:
+`A young woman raised without protection learns to navigate family politics and social traps, while crossing paths with a feared commander whose loyalty to the state is tangled with personal vengeance. Romance builds amid power struggles, misunderstandings, and reputation warfare. The show mixes emotional growth with court intrigue and real consequences.`
+    }
+  ];
+
+  function openModal(show){
+    const poster = show.poster || "";
+    if(poster){
+      mPoster.classList.remove("fallback");
+      mPoster.style.backgroundImage = `url('${String(poster).replace(/'/g,"\\'")}')`;
+    }else{
+      mPoster.classList.add("fallback");
+      mPoster.style.backgroundImage = "";
+    }
+
+    mTitle.textContent = show.title || "Untitled";
+    mMeta.textContent = `${show.year || ""}${show.meta ? " • " + show.meta : ""}`;
+
+    mPills.innerHTML = "";
+    (show.genres || []).slice(0, 10).forEach(t=>{
+      const p = document.createElement("div");
+      p.className = "pill";
+      p.textContent = t;
+      mPills.appendChild(p);
+    });
+
+    mWhy.textContent = show.synopsis || "No synopsis added yet.";
+
+    modal.classList.add("on");
+    modal.setAttribute("aria-hidden","false");
+  }
+
+  function closeModal(){
+    modal.classList.remove("on");
+    modal.setAttribute("aria-hidden","true");
+  }
+  closeBtn.onclick = closeModal;
+  modal.addEventListener("click", (e)=>{ if(e.target === modal) closeModal(); });
+  window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeModal(); });
+
+  function card(show){
+    const div = document.createElement("div");
+    div.className = "card";
+
+    const poster = show.poster || "";
+    const tags = (show.genres || []).slice(0, 5).join(" • ");
+
+    const posterHtml = poster
+      ? `<div class="poster" style="background-image:url('${String(poster).replace(/'/g,"\\'")}');"></div>`
+      : `<div class="poster fallback"></div>`;
+
+    div.innerHTML = `
+      ${posterHtml}
+      <div class="info">
+        <div class="title">${show.title || "Untitled"}</div>
+        <div class="meta">${show.year || ""}${show.meta ? " • " + show.meta : ""}</div>
+        <div class="tagsline">${tags}</div>
+      </div>
+    `;
+
+    div.onclick = () => openModal(show);
+    return div;
+  }
+
+  function render(){
+    grid.innerHTML = "";
+    CDRAMAS.forEach(s => grid.appendChild(card(s)));
+    resultCount.textContent = `${CDRAMAS.length} titles`;
+  }
+
+  render();
 </script>
 
 </body>
