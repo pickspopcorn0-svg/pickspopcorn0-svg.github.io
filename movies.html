@@ -1,40 +1,685 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Movies — Popcorn Picks</title>
 
 <style>
-body{margin:0;background:#0b0b0c;color:#fff;font-family:system-ui}
-.grid{padding:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.card{background:#111;border:1px solid #222;border-radius:16px;overflow:hidden}
-.poster{height:320px;background-size:cover;background-position:center}
-.info{padding:12px}
-.title{font-size:16px;font-weight:600}
-.meta{font-size:12px;color:#aaa}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:#0b0b0c;
+    color:#fff;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  }
+  a{text-decoration:none;color:inherit}
+
+  .top{
+    position:sticky;top:0;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:16px 20px;
+    background:rgba(10,10,10,.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid #222;
+    z-index:50;
+  }
+  .top b{font-size:16px}
+
+  .wrap{padding:18px 18px 8px}
+  .controls{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+  .search{
+    flex:1;
+    min-width:240px;
+    display:flex;
+    gap:10px;
+  }
+  .search input{
+    width:100%;
+    padding:12px 14px;
+    border-radius:12px;
+    border:1px solid #222;
+    background:#111;
+    color:#fff;
+    outline:none;
+  }
+  .btn{
+    padding:12px 14px;
+    border-radius:12px;
+    border:1px solid #222;
+    background:#141414;
+    color:#fff;
+    cursor:pointer;
+  }
+  .btn:active{transform:translateY(1px)}
+  .small{
+    color:#aaa;
+    font-size:12px;
+    padding:10px 2px 0;
+    line-height:1.4;
+  }
+
+  .chips{
+    margin-top:12px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .chip{
+    border:1px solid #222;
+    background:#111;
+    color:#ddd;
+    padding:10px 12px;
+    border-radius:999px;
+    font-size:13px;
+    cursor:pointer;
+    user-select:none;
+  }
+  .chip.on{
+    border-color:#444;
+    background:#1b1b1b;
+    color:#fff;
+  }
+
+  .grid{
+    padding:16px 18px 26px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:18px;
+  }
+
+  .card{
+    border-radius:18px;
+    border:1px solid #181818;
+    overflow:hidden;
+    position:relative;
+    background:#111;
+    min-height:320px;
+    cursor:pointer;
+  }
+  .poster{
+    height:320px;
+    background:#111;
+    background-size:cover;
+    background-position:center;
+  }
+  .info{
+    position:absolute;
+    bottom:0;left:0;right:0;
+    padding:14px;
+    background:linear-gradient(to top,rgba(0,0,0,.92),transparent);
+  }
+  .title{font-size:18px;font-weight:650;line-height:1.2}
+  .meta{font-size:12px;color:#aaa;margin-top:4px}
+  .tagsline{
+    font-size:12px;
+    color:#cfcfcf;
+    margin-top:8px;
+    opacity:.9;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+  }
+
+  .empty{
+    padding:22px 18px 30px;
+    color:#aaa;
+    display:none;
+  }
+
+  /* MODAL */
+  .modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.72);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:18px;
+    z-index:999;
+  }
+  .modal.on{display:flex}
+  .sheet{
+    width:min(980px, 100%);
+    border:1px solid #1f1f1f;
+    background:#0f0f0f;
+    border-radius:18px;
+    overflow:hidden;
+  }
+  .sheetTop{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 14px;
+    border-bottom:1px solid #1f1f1f;
+    background:#0d0d0d;
+  }
+  .closeBtn{
+    border:1px solid #222;
+    background:#141414;
+    color:#fff;
+    border-radius:12px;
+    padding:10px 12px;
+    cursor:pointer;
+  }
+  .sheetBody{
+    padding:16px;
+    display:grid;
+    grid-template-columns:320px 1fr;
+    gap:16px;
+  }
+  .bigPoster{
+    height:460px;
+    border-radius:16px;
+    border:1px solid #1b1b1b;
+    background:#111;
+    background-size:cover;
+    background-position:center;
+  }
+  .h1{
+    font-size:26px;
+    font-weight:750;
+    line-height:1.1;
+  }
+  .muted{color:#aaa;font-size:13px;line-height:1.5;margin-top:8px}
+  .why{
+    margin-top:14px;
+    font-size:14px;
+    line-height:1.8;
+    color:#ddd;
+    white-space:pre-line;
+  }
+  .pills{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+  .pill{
+    font-size:12px;
+    border:1px solid #222;
+    background:#111;
+    padding:8px 10px;
+    border-radius:999px;
+    color:#d8d8d8;
+  }
+
+  @media(max-width:900px){
+    .sheetBody{grid-template-columns:1fr}
+    .bigPoster{height:420px}
+  }
 </style>
 </head>
 
 <body>
 
-<h2 style="padding:18px">Movies</h2>
-<div class="grid" id="grid"></div>
+<div class="top">
+  <a href="index.html">← Home</a>
+  <b>Movies</b>
+  <span></span>
+</div>
 
-<script src="moviesdata.js"></script>
+<div class="wrap">
+  <div class="controls">
+    <div class="search">
+      <input id="q" type="text" placeholder="Search title, year, genre, country..." autocomplete="off" />
+      <button class="btn" id="clearBtn" type="button">Clear</button>
+    </div>
+    <button class="btn" id="clearFiltersBtn" type="button">Clear filters</button>
+  </div>
+
+  <div class="small" id="resultCount">Loading...</div>
+  <div class="chips" id="chips"></div>
+</div>
+
+<div class="grid" id="grid"></div>
+<div class="empty" id="empty">No matches. Try removing filters or changing the search.</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="sheet" role="dialog" aria-modal="true">
+    <div class="sheetTop">
+      <div style="font-weight:700">Details</div>
+      <button class="closeBtn" id="closeBtn" type="button">Close</button>
+    </div>
+    <div class="sheetBody">
+      <div class="bigPoster" id="mPoster"></div>
+      <div>
+        <div class="h1" id="mTitle">—</div>
+        <div class="muted" id="mMeta"></div>
+        <div class="pills" id="mPills"></div>
+        <div class="why" id="mWhy"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
-const grid = document.getElementById("grid");
-MOVIES.forEach(m=>{
-  const d=document.createElement("div");
-  d.className="card";
-  d.innerHTML=`
-    <div class="poster" style="background-image:url('${m.poster}')"></div>
-    <div class="info">
-      <div class="title">${m.title}</div>
-      <div class="meta">${m.year} • ${m.meta}</div>
-    </div>`;
-  grid.appendChild(d);
-});
+  // =========================
+  // MOVIES DATA (EDIT HERE)
+  // =========================
+  // Posters: put files in assets/posters/movies/ and update poster paths.
+  // If you don't have a poster yet, leave poster: "" and it will use fallback.
+  const MOVIES = [
+    {
+      id:"the-hand",
+      title:"The Hand",
+      year: null,
+      meta:"(Add country) • (Add director)",
+      genres:["Mystery","Drama"],
+      poster:"",
+      summary:"Add the correct film details for “The Hand” (year/country/plot) and replace this synopsis once confirmed."
+    },
+    {
+      id:"burning-2018",
+      title:"Burning",
+      year:2018,
+      meta:"South Korea • Lee Chang-dong",
+      genres:["Mystery","Drama","Psychological","Slow-burn"],
+      poster:"",
+      summary:"A quiet young man reconnects with a woman from his past, only to be drawn into a tense triangle when she returns with a wealthy, unsettling friend. As hints of violence and class power gather around ordinary moments, obsession replaces certainty, and the story turns into a high-stakes search for what is real—and what has vanished."
+    },
+    {
+      id:"shoplifters-2018",
+      title:"Shoplifters",
+      year:2018,
+      meta:"Japan • Hirokazu Kore-eda",
+      genres:["Drama"],
+      poster:"",
+      summary:"A makeshift family living on the margins survives through small thefts and fragile affection. When they take in an abused little girl, their bond deepens—until an investigation exposes what holds them together. The film follows intimacy, poverty, and the difference between legal family and chosen family."
+    },
+    {
+      id:"long-days-journey-into-night-2018",
+      title:"Long Day’s Journey Into Night",
+      year:2018,
+      meta:"China • Bi Gan",
+      genres:["Mystery","Romance","Neo-noir","Atmospheric"],
+      poster:"",
+      summary:"A man returns to his hometown searching for a woman he cannot forget. The investigation moves through memory, dream logic, and noir fragments, where time collapses and clues feel emotional rather than factual. The film becomes a hypnotic pursuit of love, regret, and the stories people tell themselves to survive."
+    },
+    {
+      id:"portrait-of-a-lady-on-fire-2019",
+      title:"Portrait of a Lady on Fire",
+      year:2019,
+      meta:"France • Céline Sciamma",
+      genres:["Romance","Drama","Period"],
+      poster:"",
+      summary:"An artist is hired to paint a reluctant bride in secret on a remote island. Observation turns into intimacy, and the portrait becomes a record of a relationship that cannot openly exist. The film builds a precise, aching romance around gaze, autonomy, and the cost of being remembered."
+    },
+    {
+      id:"the-handmaiden-2016",
+      title:"The Handmaiden",
+      year:2016,
+      meta:"South Korea • Park Chan-wook",
+      genres:["Thriller","Mystery","Erotic","Stylish"],
+      poster:"",
+      summary:"A pickpocket is recruited into a con targeting a wealthy heiress living under control of a domineering guardian. As the scheme unfolds through shifting perspectives, manipulation turns into desire, and every plan reveals another trap. The film is a layered thriller about power, deception, and escape."
+    },
+    {
+      id:"parasite-2019",
+      title:"Parasite",
+      year:2019,
+      meta:"South Korea • Bong Joon-ho",
+      genres:["Thriller","Drama","Dark Comedy"],
+      poster:"",
+      summary:"A struggling family gradually infiltrates a rich household by posing as unrelated, highly qualified workers. What begins as a clever hustle turns dangerous when hidden lives and resentments surface. The film uses suspense and sharp humor to expose class division built into space, privilege, and survival."
+    },
+    {
+      id:"drive-my-car-2021",
+      title:"Drive My Car",
+      year:2021,
+      meta:"Japan • Ryusuke Hamaguchi",
+      genres:["Drama"],
+      poster:"",
+      summary:"A theater director processing grief travels to stage a production and is assigned a young driver. In long drives and rehearsals, guarded emotions slowly surface through conversation, silence, and performance. The film explores loss, confession, and how art can carry what people cannot say directly."
+    },
+    {
+      id:"decision-to-leave-2022",
+      title:"Decision to Leave",
+      year:2022,
+      meta:"South Korea • Park Chan-wook",
+      genres:["Romance","Mystery","Thriller","Neo-noir"],
+      poster:"",
+      summary:"A detective investigating a suspicious death becomes entangled with the dead man’s widow. Professional suspicion and personal longing blur as the case twists through evidence, desire, and moral compromise. The film plays like a modern noir where attraction becomes the most unreliable clue."
+    },
+    {
+      id:"the-wailing-2016",
+      title:"The Wailing",
+      year:2016,
+      meta:"South Korea • Na Hong-jin",
+      genres:["Horror","Mystery","Thriller","Supernatural"],
+      poster:"",
+      summary:"A small village is shaken by violent deaths and a spreading illness after a stranger arrives. A bumbling policeman follows rumors of curses and possession, but every attempt to find certainty only deepens the dread. The film builds relentless paranoia where faith, fear, and misdirection collide."
+    },
+    {
+      id:"memories-of-murder-2003",
+      title:"Memories of Murder",
+      year:2003,
+      meta:"South Korea • Bong Joon-ho",
+      genres:["Crime","Thriller","Investigation"],
+      poster:"",
+      summary:"Two detectives—one relying on brute instinct, the other on method—hunt a serial killer in a rural town. As leads fail and pressure mounts, the case exposes institutional incompetence and personal desperation. The film is both a gripping investigation and a portrait of collapse under uncertainty."
+    },
+    {
+      id:"incendies-2010",
+      title:"Incendies",
+      year:2010,
+      meta:"Canada • Denis Villeneuve",
+      genres:["Drama","Mystery","War"],
+      poster:"",
+      summary:"After their mother’s death, twins receive two letters: one for a father they thought was dead and one for a brother they never knew existed. Their search leads into a war-torn past and a family history shaped by violence and secrets. The film unfolds like an investigation with devastating revelations."
+    },
+    {
+      id:"city-of-god-2002",
+      title:"City of God",
+      year:2002,
+      meta:"Brazil • Fernando Meirelles / Kátia Lund",
+      genres:["Crime","Drama"],
+      poster:"",
+      summary:"Growing up in a Rio favela, a young photographer watches rival gangs rise and brutalize the community. Through fast, explosive storytelling, the film traces how ambition and fear create cycles of violence—and how survival often depends on choosing a role before the streets choose it for you."
+    },
+    {
+      id:"holy-motors-2012",
+      title:"Holy Motors",
+      year:2012,
+      meta:"France • Leos Carax",
+      genres:["Drama","Surreal","Art Film"],
+      poster:"",
+      summary:"A man travels across Paris in a limousine, performing a series of radically different roles—each appointment a new identity, genre, and reality. The film is a strange, exhilarating journey through performance, cinema, and the question of what remains when life becomes pure acting."
+    },
+    {
+      id:"under-the-silver-lake-2018",
+      title:"Under the Silver Lake",
+      year:2018,
+      meta:"USA • David Robert Mitchell",
+      genres:["Mystery","Neo-noir","Thriller"],
+      poster:"",
+      summary:"A drifting man in Los Angeles becomes obsessed when his neighbor disappears overnight. His amateur investigation spirals into coded messages, underground myths, and paranoia about culture and control. The film plays as a conspiracy noir where meaning is addictive—and possibly imagined."
+    },
+    {
+      id:"enemy-2013",
+      title:"Enemy",
+      year:2013,
+      meta:"Canada • Denis Villeneuve",
+      genres:["Thriller","Mystery","Psychological"],
+      poster:"",
+      summary:"A mild professor discovers an actor who looks exactly like him. Curiosity becomes fixation as their lives begin to overlap, raising questions about identity, desire, and control. The film builds a tense, symbolic mystery that refuses easy answers."
+    },
+    {
+      id:"the-lighthouse-2019",
+      title:"The Lighthouse",
+      year:2019,
+      meta:"USA • Robert Eggers",
+      genres:["Horror","Drama","Psychological"],
+      poster:"",
+      summary:"Two lighthouse keepers are stranded on a remote island, where isolation and power games rot their sanity. As storms trap them longer than planned, superstition, obsession, and hallucination take over. The film becomes a claustrophobic descent into madness and myth."
+    },
+    {
+      id:"no-country-for-old-men-2007",
+      title:"No Country for Old Men",
+      year:2007,
+      meta:"USA • Coen Brothers",
+      genres:["Crime","Thriller"],
+      poster:"",
+      summary:"A hunter finds drug money in the desert and takes it, triggering a relentless pursuit by a near-mythic killer. As violence spreads, a weary sheriff tries to understand a world changing beyond his moral code. The film is a tense chase story and a bleak meditation on fate."
+    },
+    {
+      id:"a-separation-2011",
+      title:"A Separation",
+      year:2011,
+      meta:"Iran • Asghar Farhadi",
+      genres:["Drama"],
+      poster:"",
+      summary:"A couple’s divorce attempt sets off a chain reaction after a caregiver is hired for an elderly parent and an accident occurs. Conflicting testimonies, pride, and social pressure tighten the situation until truth becomes impossible to isolate. The film is a moral thriller disguised as domestic drama."
+    },
+    {
+      id:"cold-war-2018",
+      title:"Cold War",
+      year:2018,
+      meta:"Poland • Paweł Pawlikowski",
+      genres:["Romance","Drama"],
+      poster:"",
+      summary:"A musician and a singer fall into a turbulent relationship across borders and decades, shaped by politics, ambition, and incompatible needs. Their love repeats in cycles—reunion, fracture, return—each time altered by the era. The film compresses time into sharp, emotional chapters."
+    },
+    {
+      id:"the-zone-of-interest-2023",
+      title:"The Zone of Interest",
+      year:2023,
+      meta:"UK/Poland • Jonathan Glazer",
+      genres:["Drama","Historical"],
+      poster:"",
+      summary:"A Nazi commandant and his family live an ordinary domestic life beside Auschwitz. The horror remains mostly off-screen, heard and implied as routine continues. The film confronts how evil can exist through normalization—through comfort built next to atrocity."
+    },
+    {
+      id:"revenge-2017",
+      title:"Revenge",
+      year:2017,
+      meta:"France • Coralie Fargeat",
+      genres:["Thriller","Action"],
+      poster:"",
+      summary:"A woman on a getaway with a wealthy lover is assaulted and left for dead. She survives and turns the isolated landscape into a trap for the men who hunted her. The film is a brutal survival thriller that pivots into a stylized, escalating revenge chase."
+    },
+    {
+      id:"the-witch-subversion-2018",
+      title:"The Witch: Part 1. The Subversion",
+      year:2018,
+      meta:"South Korea • Park Hoon-jung",
+      genres:["Action","Thriller","Sci-Fi"],
+      poster:"",
+      summary:"A teenage girl with a mysterious past becomes the center of violent attention after appearing on a talent show. As strangers close in, her hidden abilities—and the experiment that created her—begin to surface. The film blends conspiracy thriller with explosive action reveals."
+    },
+    {
+      id:"rrr-2022",
+      title:"RRR",
+      year:2022,
+      meta:"India • S. S. Rajamouli",
+      genres:["Action","Epic","Drama"],
+      poster:"",
+      summary:"Two revolutionaries in colonial India become friends while hiding their true identities: one on a rescue mission, the other serving the British. Their bond is tested by betrayal, spectacle, and escalating conflict. The film is a maximal, emotional action epic built on loyalty and rebellion."
+    },
+    {
+      id:"jack-reacher-2012",
+      title:"Jack Reacher",
+      year:2012,
+      meta:"USA • Christopher McQuarrie",
+      genres:["Action","Thriller","Investigation"],
+      poster:"",
+      summary:"A former military investigator is pulled into a case where a sniper is accused of killing strangers in a public attack. As contradictions appear, the investigation exposes a broader conspiracy. The film plays as a grounded action mystery with methodical clue-chasing and sudden violence."
+    },
+    {
+      id:"edge-of-tomorrow-2014",
+      title:"Edge of Tomorrow",
+      year:2014,
+      meta:"USA • Doug Liman",
+      genres:["Sci-Fi","Action"],
+      poster:"",
+      summary:"A public-relations officer with no combat experience is forced into battle against an alien invasion and becomes trapped in a time loop, reliving the same day each time he dies. With the help of a hardened warrior, he trains, learns, and pushes toward the single outcome that can change the war."
+    }
+  ];
+
+  // =========================
+  // APP (DO NOT EDIT BELOW)
+  // =========================
+  const $ = (id) => document.getElementById(id);
+
+  const grid = $("grid");
+  const chipsEl = $("chips");
+  const qEl = $("q");
+  const clearBtn = $("clearBtn");
+  const clearFiltersBtn = $("clearFiltersBtn");
+  const resultCount = $("resultCount");
+  const emptyEl = $("empty");
+
+  const modal = $("modal");
+  const closeBtn = $("closeBtn");
+  const mPoster = $("mPoster");
+  const mTitle = $("mTitle");
+  const mMeta  = $("mMeta");
+  const mPills = $("mPills");
+  const mWhy   = $("mWhy");
+
+  const fallbackPoster = "assets/home/movies.jpg";
+  const picked = new Set();
+
+  function normalize(s){ return String(s || "").toLowerCase().trim(); }
+
+  function buildChips(movies){
+    const counts = new Map();
+    movies.forEach(m=>{
+      (m.genres || []).forEach(t=>{
+        const tag = String(t).trim();
+        if(!tag) return;
+        counts.set(tag, (counts.get(tag) || 0) + 1);
+      });
+    });
+
+    const priority = [
+      "India","South Korea","Japan","China","Hong Kong","France","Poland","Brazil","Iran","USA","Canada","UK",
+      "Action","Crime","Thriller","Mystery","Drama","Horror","Sci-Fi","War","Historical","Romance",
+      "Neo-noir","Slow-burn","Psychological","Atmospheric","Stylish","Investigation","Survival"
+    ];
+
+    const present = new Set([...counts.keys()]);
+    const first = priority.filter(t => present.has(t));
+
+    const rest = [...counts.entries()]
+      .filter(([t]) => !priority.includes(t))
+      .sort((a,b)=> b[1]-a[1] || a[0].localeCompare(b[0]))
+      .map(([t])=>t);
+
+    return [...first, ...rest].slice(0, 36);
+  }
+
+  function chipButton(tag){
+    const b = document.createElement("div");
+    b.className = "chip" + (picked.has(tag) ? " on" : "");
+    b.textContent = tag;
+    b.onclick = () => {
+      if(picked.has(tag)) picked.delete(tag);
+      else picked.add(tag);
+      paintChips();
+      render();
+    };
+    return b;
+  }
+
+  function paintChips(){
+    chipsEl.innerHTML = "";
+    const chipList = buildChips(MOVIES);
+    chipList.forEach(tag => chipsEl.appendChild(chipButton(tag)));
+  }
+
+  function tagsFor(movie){
+    if(Array.isArray(movie.genres) && movie.genres.length) return movie.genres.map(String);
+    return [];
+  }
+
+  function matchesPicked(movie){
+    if(picked.size === 0) return true;
+    const tags = new Set(tagsFor(movie));
+    for(const p of picked){
+      if(!tags.has(p)) return false;
+    }
+    return true;
+  }
+
+  function matchesQuery(movie, q){
+    if(!q) return true;
+    const hay = [
+      movie.title,
+      movie.year,
+      movie.meta,
+      tagsFor(movie).join(" "),
+      movie.summary
+    ].join(" ");
+    return normalize(hay).includes(q);
+  }
+
+  function getSorted(movies){
+    return movies.slice().sort((a,b)=>{
+      const ya = Number(a.year || 0);
+      const yb = Number(b.year || 0);
+      if(yb !== ya) return yb - ya;
+      return String(a.title || "").localeCompare(String(b.title || ""));
+    });
+  }
+
+  function openModal(movie){
+    const poster = movie.poster ? movie.poster : fallbackPoster;
+    mPoster.style.backgroundImage = `url('${String(poster).replace(/'/g,"\\'")}')`;
+
+    mTitle.textContent = movie.title || "Untitled";
+    const year = movie.year ? String(movie.year) : "";
+    const meta = movie.meta ? String(movie.meta) : "";
+    mMeta.textContent = year + (meta ? (year ? " • " : "") + meta : "");
+
+    mPills.innerHTML = "";
+    tagsFor(movie).slice(0, 10).forEach(t=>{
+      const p = document.createElement("div");
+      p.className = "pill";
+      p.textContent = t;
+      mPills.appendChild(p);
+    });
+
+    mWhy.textContent = movie.summary || "No synopsis added yet.";
+
+    modal.classList.add("on");
+    modal.setAttribute("aria-hidden","false");
+  }
+
+  function closeModal(){
+    modal.classList.remove("on");
+    modal.setAttribute("aria-hidden","true");
+  }
+
+  closeBtn.onclick = closeModal;
+  modal.addEventListener("click", (e)=>{ if(e.target === modal) closeModal(); });
+  window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeModal(); });
+
+  function card(movie){
+    const div = document.createElement("div");
+    div.className = "card";
+
+    const poster = movie.poster ? movie.poster : fallbackPoster;
+    const safePoster = String(poster).replace(/'/g, "\\'");
+    const tagLine = tagsFor(movie).slice(0, 5).join(" • ");
+
+    div.innerHTML = `
+      <div class="poster" style="background-image:url('${safePoster}');"></div>
+      <div class="info">
+        <div class="title">${movie.title || "Untitled"}</div>
+        <div class="meta">${movie.year || ""}${movie.meta ? " • " + movie.meta : ""}</div>
+        <div class="tagsline">${tagLine}</div>
+      </div>
+    `;
+
+    div.onclick = () => openModal(movie);
+    return div;
+  }
+
+  function render(){
+    const q = normalize(qEl.value);
+
+    const filtered = getSorted(
+      MOVIES.filter(m => matchesPicked(m) && matchesQuery(m, q))
+    );
+
+    grid.innerHTML = "";
+    filtered.forEach(m => grid.appendChild(card(m)));
+
+    resultCount.textContent =
+      `${filtered.length} title${filtered.length === 1 ? "" : "s"} found` +
+      (picked.size ? ` • Filters: ${[...picked].join(", ")}` : "");
+
+    emptyEl.style.display = filtered.length ? "none" : "block";
+  }
+
+  qEl.addEventListener("input", render);
+  clearBtn.onclick = () => { qEl.value = ""; render(); };
+  clearFiltersBtn.onclick = () => { picked.clear(); paintChips(); render(); };
+
+  paintChips();
+  render();
 </script>
 
 </body>
