@@ -1,54 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TV Shows — Popcorn Picks</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  background:#0b0b0c;
-  color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
-}
-a{text-decoration:none;color:inherit}
-.top{
-  position:sticky;top:0;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:16px 20px;
-  background:rgba(10,10,10,.88);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid #222;
-}
-.grid{
-  padding:24px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:22px;
-}
-.card{
-  border-radius:18px;
-  border:1px solid #181818;
-  overflow:hidden;
-  position:relative;
-}
-.placeholder{
-  height:320px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#888;
-  background:#111;
-}
-.info{
-  position:absolute;
-  bottom:0;left:0;right:0;
-  padding:14px;
-  background:linear-gradient(to top,rgba(0,0,0,.9),transparent);
-}
-.title{font-size:18px;font-weight:600}
-.meta{font-size:12px;color:#aaa}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:#0b0b0c;
+    color:#fff;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  }
+  a{text-decoration:none;color:inherit}
+
+  .top{
+    position:sticky;top:0;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:16px 20px;
+    background:rgba(10,10,10,.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid #222;
+    z-index:50;
+  }
+  .top b{font-size:16px}
+
+  .wrap{padding:18px 18px 8px}
+  .controls{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+  .search{
+    flex:1;
+    min-width:240px;
+    display:flex;
+    gap:10px;
+  }
+  .search input{
+    width:100%;
+    padding:12px 14px;
+    border-radius:12px;
+    border:1px solid #222;
+    background:#111;
+    color:#fff;
+    outline:none;
+  }
+  .btn{
+    padding:12px 14px;
+    border-radius:12px;
+    border:1px solid #222;
+    background:#141414;
+    color:#fff;
+    cursor:pointer;
+  }
+  .btn:active{transform:translateY(1px)}
+  .small{
+    color:#aaa;
+    font-size:12px;
+    padding:10px 2px 0;
+    line-height:1.4;
+  }
+
+  .chips{
+    margin-top:12px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .chip{
+    border:1px solid #222;
+    background:#111;
+    color:#ddd;
+    padding:10px 12px;
+    border-radius:999px;
+    font-size:13px;
+    cursor:pointer;
+    user-select:none;
+  }
+  .chip.on{
+    border-color:#444;
+    background:#1b1b1b;
+    color:#fff;
+  }
+
+  .grid{
+    padding:16px 18px 26px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:18px;
+  }
+
+  .card{
+    border-radius:18px;
+    border:1px solid #181818;
+    overflow:hidden;
+    position:relative;
+    background:#111;
+    min-height:320px;
+    cursor:pointer;
+  }
+  .poster{
+    height:320px;
+    background:#111;
+    background-size:cover;
+    background-position:center;
+  }
+  .info{
+    position:absolute;
+    bottom:0;left:0;right:0;
+    padding:14px;
+    background:linear-gradient(to top,rgba(0,0,0,.92),transparent);
+  }
+  .title{font-size:18px;font-weight:650;line-height:1.2}
+  .meta{font-size:12px;color:#aaa;margin-top:4px}
+  .tagsline{
+    font-size:12px;
+    color:#cfcfcf;
+    margin-top:8px;
+    opacity:.9;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+  }
+
+  .empty{
+    padding:22px 18px 30px;
+    color:#aaa;
+    display:none;
+  }
+
+  /* MODAL */
+  .modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.72);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:18px;
+    z-index:999;
+  }
+  .modal.on{display:flex}
+  .sheet{
+    width:min(980px, 100%);
+    border:1px solid #1f1f1f;
+    background:#0f0f0f;
+    border-radius:18px;
+    overflow:hidden;
+  }
+  .sheetTop{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 14px;
+    border-bottom:1px solid #1f1f1f;
+    background:#0d0d0d;
+  }
+  .closeBtn{
+    border:1px solid #222;
+    background:#141414;
+    color:#fff;
+    border-radius:12px;
+    padding:10px 12px;
+    cursor:pointer;
+  }
+  .sheetBody{
+    padding:16px;
+    display:grid;
+    grid-template-columns:320px 1fr;
+    gap:16px;
+  }
+  .bigPoster{
+    height:460px;
+    border-radius:16px;
+    border:1px solid #1b1b1b;
+    background:#111;
+    background-size:cover;
+    background-position:center;
+  }
+  .h1{
+    font-size:26px;
+    font-weight:750;
+    line-height:1.1;
+  }
+  .muted{color:#aaa;font-size:13px;line-height:1.5;margin-top:8px}
+  .why{
+    margin-top:14px;
+    font-size:14px;
+    line-height:1.8;
+    color:#ddd;
+    white-space:pre-line;
+  }
+  .pills{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+  .pill{
+    font-size:12px;
+    border:1px solid #222;
+    background:#111;
+    padding:8px 10px;
+    border-radius:999px;
+    color:#d8d8d8;
+  }
+
+  @media(max-width:900px){
+    .sheetBody{grid-template-columns:1fr}
+    .bigPoster{height:420px}
+  }
 </style>
 </head>
 
@@ -60,20 +219,488 @@ a{text-decoration:none;color:inherit}
   <span></span>
 </div>
 
-<div class="grid">
+<div class="wrap">
+  <div class="controls">
+    <div class="search">
+      <input id="q" type="text" placeholder="Search title, year, genre, country, vibe..." autocomplete="off" />
+      <button class="btn" id="clearBtn" type="button">Clear</button>
+    </div>
+    <button class="btn" id="clearFiltersBtn" type="button">Clear filters</button>
+  </div>
 
-<a class="card" href="shows.html?id=shogun"><div class="placeholder"></div><div class="info"><div class="title">Shōgun</div><div class="meta">2024</div></div></a>
-<a class="card" href="shows.html?id=bosch"><div class="placeholder"></div><div class="info"><div class="title">Bosch</div><div class="meta">2014–2021</div></div></a>
-<a class="card" href="shows.html?id=slow-horses"><div class="placeholder"></div><div class="info"><div class="title">Slow Horses</div><div class="meta">Spy</div></div></a>
-<a class="card" href="shows.html?id=the-bureau"><div class="placeholder"></div><div class="info"><div class="title">The Bureau</div><div class="meta">French Spy</div></div></a>
-<a class="card" href="shows.html?id=bodyguard"><div class="placeholder"></div><div class="info"><div class="title">Bodyguard</div><div class="meta">BBC</div></div></a>
-<a class="card" href="shows.html?id=marco-polo"><div class="placeholder"></div><div class="info"><div class="title">Marco Polo</div><div class="meta">Historical</div></div></a>
-<a class="card" href="shows.html?id=jack-ryan"><div class="placeholder"></div><div class="info"><div class="title">Jack Ryan</div><div class="meta">Spy</div></div></a>
-<a class="card" href="shows.html?id=alex-rider"><div class="placeholder"></div><div class="info"><div class="title">Alex Rider</div><div class="meta">Spy</div></div></a>
-<a class="card" href="shows.html?id=pennyworth"><div class="placeholder"></div><div class="info"><div class="title">Pennyworth</div><div class="meta">DC</div></div></a>
-<a class="card" href="shows.html?id=the-originals"><div class="placeholder"></div><div class="info"><div class="title">The Originals</div><div class="meta">Vampire</div></div></a>
-
+  <div class="small" id="resultCount"></div>
+  <div class="chips" id="chips"></div>
 </div>
+
+<div class="grid" id="grid"></div>
+<div class="empty" id="empty">No matches. Try removing filters or changing the search.</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="sheet" role="dialog" aria-modal="true">
+    <div class="sheetTop">
+      <div style="font-weight:700">Details</div>
+      <button class="closeBtn" id="closeBtn" type="button">Close</button>
+    </div>
+    <div class="sheetBody">
+      <div class="bigPoster" id="mPoster"></div>
+      <div>
+        <div class="h1" id="mTitle">—</div>
+        <div class="muted" id="mMeta"></div>
+        <div class="pills" id="mPills"></div>
+        <div class="why" id="mWhy"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* =========================
+   TV DATA (EDIT HERE ONLY)
+   ========================= */
+const TV = [
+  {
+    id:"silo",
+    title:"Silo",
+    year:"2023–",
+    meta:"Sci-Fi • Mystery • Thriller",
+    seasons:"2 seasons (ongoing)",
+    genres:["Sci-Fi","Mystery","Thriller","USA","Dystopia"],
+    poster:"assets/posters/tv/silo.jpg",
+    summary:"In a vast underground silo, a rigid society survives on strict rules and curated history. When a series of deaths and disappearances cracks the official story, an engineer begins tracing the lie back through the silo’s power structure—where curiosity is treated like a crime and the truth is designed to stay buried."
+  },
+  {
+    id:"bosch",
+    title:"Bosch",
+    year:"2014–2021",
+    meta:"Crime • Detective • Neo-Noir",
+    seasons:"7 seasons",
+    genres:["Crime","Detective","Neo-Noir","USA","Investigation"],
+    poster:"assets/posters/tv/bosch.jpg",
+    summary:"LAPD detective Harry Bosch works homicide in Los Angeles with a stubborn moral code and an instinct for patterns others ignore. Each case unfolds through procedure, politics, and pressure—from department optics to courtroom fallout—while Bosch keeps digging until the story fits the evidence, not the headlines."
+  },
+  {
+    id:"slow-horses",
+    title:"Slow Horses",
+    year:"2022–",
+    meta:"Espionage • Dark Comedy • Thriller",
+    seasons:"Multiple seasons (ongoing)",
+    genres:["Espionage","Thriller","UK","Dark Comedy"],
+    poster:"assets/posters/tv/slow-horses.jpg",
+    summary:"MI5’s discarded agents are dumped in a bureaucratic dead-end—until real threats keep finding them anyway. Led by a brilliant, vile boss, the team stumbles into conspiracies that the ‘proper’ spies can’t touch, solving problems through grit, humiliation, and sharp tradecraft when it matters."
+  },
+  {
+    id:"the-bureau",
+    title:"The Bureau (Le Bureau des Légendes)",
+    year:"2015–2020",
+    meta:"Espionage • Psychological • Prestige",
+    seasons:"5 seasons",
+    genres:["Espionage","Psychological","France","Tradecraft"],
+    poster:"assets/posters/tv/the-bureau.jpg",
+    summary:"A French intelligence officer returns from years undercover and struggles to ‘come back’—while the identity he lived begins to bleed into real life. Built around authentic tradecraft, the series treats espionage as long-term psychological damage: cover stories, handlers, assets, and the cost of living as a lie."
+  },
+  {
+    id:"bodyguard",
+    title:"Bodyguard",
+    year:"2018",
+    meta:"Political Thriller • Action",
+    seasons:"1 season",
+    genres:["Thriller","Action","UK","Politics"],
+    poster:"assets/posters/tv/bodyguard.jpg",
+    summary:"A war-scarred protection officer is assigned to guard a powerful politician he doesn’t trust. As terror threats escalate and government agendas collide, the job becomes a trap—forcing him to choose between duty, conscience, and survival while suspicion falls on everyone, including him."
+  },
+  {
+    id:"marco-polo",
+    title:"Marco Polo",
+    year:"2014–2016",
+    meta:"Historical • Adventure • Court Politics",
+    seasons:"2 seasons",
+    genres:["History","Adventure","Politics","International"],
+    poster:"assets/posters/tv/marco-polo.jpg",
+    summary:"A young traveler is pulled into Kublai Khan’s empire and becomes a pawn inside a ruthless court. Battles, alliances, and betrayals play out alongside cultural clashes and ambition—where survival depends less on heroics and more on reading power before it moves."
+  },
+  {
+    id:"jack-ryan",
+    title:"Tom Clancy’s Jack Ryan",
+    year:"2018–2023",
+    meta:"Espionage • Action • Thriller",
+    seasons:"4 seasons",
+    genres:["Espionage","Action","Thriller","USA"],
+    poster:"assets/posters/tv/jack-ryan.jpg",
+    summary:"An analyst is pushed from desk work into field operations as global threats converge—terror networks, state actors, and covert schemes. The series blends intel work with action set-pieces, tracking how one clue turns into a chain reaction across borders."
+  },
+  {
+    id:"alex-rider",
+    title:"Alex Rider",
+    year:"2020–2024",
+    meta:"Spy • Thriller • Coming-of-Age",
+    seasons:"3 seasons",
+    genres:["Espionage","Thriller","UK"],
+    poster:"assets/posters/tv/alex-rider.jpg",
+    summary:"After his guardian’s death, a teenager learns he was connected to a secret intelligence world—and is forced into missions built for adults. What begins as survival turns into investigation as he pieces together who trained him, who used him, and what the agency is hiding."
+  },
+  {
+    id:"pennyworth",
+    title:"Pennyworth",
+    year:"2019–2022",
+    meta:"Crime • Spy • Origin Story",
+    seasons:"3 seasons",
+    genres:["Crime","Espionage","UK","Stylish"],
+    poster:"assets/posters/tv/pennyworth.jpg",
+    summary:"Before Gotham legends, Alfred Pennyworth is a former soldier running a private security firm in a politically volatile London. Caught between underground movements and elite conspiracies, he navigates violence and loyalty while a larger war quietly forms behind the scenes."
+  },
+  {
+    id:"the-originals",
+    title:"The Originals",
+    year:"2013–2018",
+    meta:"Supernatural • Family War • Dark Fantasy",
+    seasons:"5 seasons",
+    genres:["Supernatural","Dark Fantasy","USA"],
+    poster:"assets/posters/tv/the-originals.jpg",
+    summary:"The first vampire family returns to a city they helped build and finds it ruled by enemies and fragile alliances. As witches, werewolves, and vampires collide, the story becomes a power struggle wrapped in family loyalty—where love is leverage and betrayal is tradition."
+  },
+  {
+    id:"chief-of-war",
+    title:"Chief of War",
+    year:"2025",
+    meta:"Historical • War • Epic Drama",
+    seasons:"1 season (so far)",
+    genres:["History","War","Epic","International"],
+    poster:"assets/posters/tv/chief-of-war.jpg",
+    summary:"Set against shifting alliances and colonial pressure, the series follows leaders and warriors navigating political survival and cultural identity. It frames conflict as strategy and consequence—where battles are only one part of a larger fight for control, unity, and legacy."
+  },
+  {
+    id:"the-mentalist",
+    title:"The Mentalist",
+    year:"2008–2015",
+    meta:"Crime • Case-of-the-Week • Mystery",
+    seasons:"7 seasons",
+    genres:["Crime","Mystery","USA","Investigation"],
+    poster:"assets/posters/tv/the-mentalist.jpg",
+    summary:"A former con artist uses observation, psychology, and deception to help solve murders—while hunting the serial killer who destroyed his life. The show balances weekly cases with a long revenge arc, where every clue doubles as a test of patience and control."
+  },
+  {
+    id:"the-good-doctor",
+    title:"The Good Doctor",
+    year:"2017–2024",
+    meta:"Medical • Drama",
+    seasons:"7 seasons",
+    genres:["Drama","Medical","USA"],
+    poster:"assets/posters/tv/the-good-doctor.jpg",
+    summary:"A young surgeon fights to prove himself in a high-pressure hospital environment where every decision has consequences. Cases are intense and emotional, but the core tension is professional trust—earning respect while navigating bias, hierarchy, and impossible calls."
+  },
+  {
+    id:"day-of-the-jackal",
+    title:"The Day of the Jackal",
+    year:"2024",
+    meta:"Espionage • Assassin Thriller",
+    seasons:"1 season (so far)",
+    genres:["Espionage","Thriller","UK","Assassin"],
+    poster:"assets/posters/tv/day-of-the-jackal.jpg",
+    summary:"A lethal assassin and a relentless investigator spiral into a global manhunt built on false identities, surveillance, and tradecraft. Each move triggers the next: cover stories, safe houses, contacts, and the constant race to predict where the target will strike—and who is funding it."
+  },
+
+  /* 10 more strong picks */
+  {
+    id:"true-detective",
+    title:"True Detective",
+    year:"2014–",
+    meta:"Crime • Thriller • Anthology",
+    seasons:"4 seasons (anthology)",
+    genres:["Crime","Thriller","USA","Investigation"],
+    poster:"assets/posters/tv/true-detective.jpg",
+    summary:"Each season follows a different case where crime exposes corruption, obsession, and moral collapse. Investigations move through time and damage—where solving the mystery matters, but what the case does to the investigators matters more."
+  },
+  {
+    id:"mindhunter",
+    title:"Mindhunter",
+    year:"2017–2019",
+    meta:"Crime • Psychological • Serial Killers",
+    seasons:"2 seasons",
+    genres:["Crime","Psychological","USA","Investigation"],
+    poster:"assets/posters/tv/mindhunter.jpg",
+    summary:"Two FBI agents push a new approach: interviewing serial killers to understand patterns before the next murder happens. The work is slow, clinical, and disturbing—because the real tension isn’t action, it’s what happens when you let monsters explain themselves."
+  },
+  {
+    id:"the-night-of",
+    title:"The Night Of",
+    year:"2016",
+    meta:"Crime • Courtroom • Character Drama",
+    seasons:"1 season",
+    genres:["Crime","Courtroom","USA","Drama"],
+    poster:"assets/posters/tv/the-night-of.jpg",
+    summary:"A single night turns into a life-changing accusation when a young man wakes up beside a murdered woman. The series tracks every stage—police, jail, lawyers, court—showing how the system reshapes people, whether they are guilty or not."
+  },
+  {
+    id:"dark",
+    title:"Dark",
+    year:"2017–2020",
+    meta:"Sci-Fi • Mystery • Time",
+    seasons:"3 seasons",
+    genres:["Sci-Fi","Mystery","Germany","Mind-bending"],
+    poster:"assets/posters/tv/dark.jpg",
+    summary:"In a small town, a missing child exposes a hidden structure connecting families across decades. Time travel isn’t a gimmick here—it’s a trap. As cause and effect collapse, the story becomes an interlocked puzzle about fate, inheritance, and repeating damage."
+  },
+  {
+    id:"chernobyl",
+    title:"Chernobyl",
+    year:"2019",
+    meta:"Historical • Disaster • Political",
+    seasons:"1 season",
+    genres:["History","Drama","International","Politics"],
+    poster:"assets/posters/tv/chernobyl.jpg",
+    summary:"A nuclear disaster becomes a crisis of physics, politics, and truth. The series follows scientists, officials, and workers navigating lies, denial, and impossible stakes—where every delay costs lives and every truth threatens power."
+  },
+  {
+    id:"narcos",
+    title:"Narcos",
+    year:"2015–2017",
+    meta:"Crime • Cartels • War on Drugs",
+    seasons:"3 seasons",
+    genres:["Crime","Thriller","International","Gritty"],
+    poster:"assets/posters/tv/narcos.jpg",
+    summary:"The rise of a drug empire triggers a brutal arms race between cartels, governments, and the people trapped in the middle. Told through operations, informants, and shifting alliances, the series shows how power grows—and how violence becomes policy."
+  },
+  {
+    id:"narcos-mexico",
+    title:"Narcos: Mexico",
+    year:"2018–2021",
+    meta:"Crime • Cartels • Power Shift",
+    seasons:"3 seasons",
+    genres:["Crime","Thriller","International","Gritty"],
+    poster:"assets/posters/tv/narcos-mexico.jpg",
+    summary:"As the drug trade consolidates, new leaders attempt to build an empire through structure and intimidation. The series focuses on systems—how corruption, enforcement, and ambition combine into an industry that survives every crackdown."
+  },
+  {
+    id:"fargo",
+    title:"Fargo",
+    year:"2014–",
+    meta:"Crime • Dark Comedy • Anthology",
+    seasons:"5 seasons (anthology)",
+    genres:["Crime","Dark Comedy","USA","Stylish"],
+    poster:"assets/posters/tv/fargo.jpg",
+    summary:"Ordinary lives collide with crime, triggering chains of bad decisions and worse consequences. Each season is a standalone story where small moral compromises snowball into chaos—told with sharp tension and bleak humor."
+  },
+  {
+    id:"peaky-blinders",
+    title:"Peaky Blinders",
+    year:"2013–2022",
+    meta:"Crime • Gangster • Period",
+    seasons:"6 seasons",
+    genres:["Crime","History","UK","Stylish"],
+    poster:"assets/posters/tv/peaky-blinders.jpg",
+    summary:"A post-war gang expands into politics, industry, and international conflict as ambition outgrows loyalty. The series is driven by power moves, betrayal, and strategy—where business is violence by other means."
+  },
+  {
+    id:"the-americans",
+    title:"The Americans",
+    year:"2013–2018",
+    meta:"Espionage • Marriage • Cold War",
+    seasons:"6 seasons",
+    genres:["Espionage","Drama","USA","Psychological"],
+    poster:"assets/posters/tv/the-americans.jpg",
+    summary:"Two deep-cover Soviet agents live as an American couple while running operations that threaten to expose everything. The tension isn’t only missions—it’s the slow collapse of identity, loyalty, and family under years of sustained deception."
+  }
+];
+
+/* =========================
+   APP LOGIC (DON'T EDIT)
+   ========================= */
+const $ = (id) => document.getElementById(id);
+
+const grid = $("grid");
+const chipsEl = $("chips");
+const qEl = $("q");
+const clearBtn = $("clearBtn");
+const clearFiltersBtn = $("clearFiltersBtn");
+const resultCount = $("resultCount");
+const emptyEl = $("empty");
+
+const modal = $("modal");
+const closeBtn = $("closeBtn");
+const mPoster = $("mPoster");
+const mTitle = $("mTitle");
+const mMeta  = $("mMeta");
+const mPills = $("mPills");
+const mWhy   = $("mWhy");
+
+const fallbackPoster = "assets/home/tv-shows.jpg";
+const picked = new Set();
+
+function normalize(s){ return String(s || "").toLowerCase().trim(); }
+
+function buildChips(items){
+  const counts = new Map();
+  items.forEach(m=>{
+    (m.genres || []).forEach(t=>{
+      const tag = String(t).trim();
+      if(!tag) return;
+      counts.set(tag, (counts.get(tag) || 0) + 1);
+    });
+  });
+
+  const priority = [
+    "USA","UK","Korea","Japan","Germany","France","International",
+    "Crime","Thriller","Espionage","Mystery","Drama","Sci-Fi","History","War","Courtroom",
+    "Psychological","Dark Comedy","Stylish","Gritty","Mind-bending","Investigation","Dystopia"
+  ];
+
+  const present = new Set([...counts.keys()]);
+  const first = priority.filter(t => present.has(t));
+
+  const rest = [...counts.entries()]
+    .filter(([t]) => !priority.includes(t))
+    .sort((a,b)=> b[1]-a[1] || a[0].localeCompare(b[0]))
+    .map(([t])=>t);
+
+  return [...first, ...rest].slice(0, 40);
+}
+
+function chipButton(tag){
+  const b = document.createElement("div");
+  b.className = "chip" + (picked.has(tag) ? " on" : "");
+  b.textContent = tag;
+  b.onclick = () => {
+    if(picked.has(tag)) picked.delete(tag);
+    else picked.add(tag);
+    paintChips();
+    render();
+  };
+  return b;
+}
+
+function paintChips(){
+  chipsEl.innerHTML = "";
+  buildChips(TV).forEach(tag => chipsEl.appendChild(chipButton(tag)));
+}
+
+function matchesPicked(item){
+  if(picked.size === 0) return true;
+
+  const tagsFromGenres = Array.isArray(item.genres) ? item.genres.map(String) : [];
+  const tagsFromMeta = String(item.meta || "")
+    .split("•")
+    .map(s => s.trim())
+    .filter(Boolean);
+
+  const tags = new Set([...tagsFromGenres, ...tagsFromMeta]);
+
+  for(const p of picked){
+    if(!tags.has(p)) return false;
+  }
+  return true;
+}
+
+function matchesQuery(item, q){
+  if(!q) return true;
+  const hay = [
+    item.title,
+    item.year,
+    item.meta,
+    item.seasons,
+    (item.genres || []).join(" "),
+    item.summary
+  ].join(" ");
+  return normalize(hay).includes(q);
+}
+
+function getSorted(items){
+  return items.slice().sort((a,b)=>{
+    // sort by start year desc if possible
+    const ya = parseInt(String(a.year||"").slice(0,4)) || 0;
+    const yb = parseInt(String(b.year||"").slice(0,4)) || 0;
+    if(yb !== ya) return yb - ya;
+    return String(a.title || "").localeCompare(String(b.title || ""));
+  });
+}
+
+function openModal(item){
+  const poster = item.poster ? item.poster : fallbackPoster;
+  mPoster.style.backgroundImage = `url('${String(poster).replace(/'/g,"\\'")}')`;
+
+  mTitle.textContent = item.title || "Untitled";
+  const metaBits = [];
+  if(item.year) metaBits.push(item.year);
+  if(item.meta) metaBits.push(item.meta);
+  if(item.seasons) metaBits.push(item.seasons);
+  mMeta.textContent = metaBits.join(" • ");
+
+  mPills.innerHTML = "";
+  const tags = (Array.isArray(item.genres) && item.genres.length)
+    ? item.genres
+    : String(item.meta || "").split("•").map(s=>s.trim()).filter(Boolean);
+
+  tags.slice(0, 8).forEach(t=>{
+    const p = document.createElement("div");
+    p.className = "pill";
+    p.textContent = t;
+    mPills.appendChild(p);
+  });
+
+  mWhy.textContent = item.summary || "No synopsis added yet.";
+
+  modal.classList.add("on");
+  modal.setAttribute("aria-hidden","false");
+}
+
+function closeModal(){
+  modal.classList.remove("on");
+  modal.setAttribute("aria-hidden","true");
+}
+
+closeBtn.onclick = closeModal;
+modal.addEventListener("click", (e)=>{ if(e.target === modal) closeModal(); });
+window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeModal(); });
+
+function card(item){
+  const div = document.createElement("div");
+  div.className = "card";
+
+  const poster = item.poster ? item.poster : fallbackPoster;
+  const safePoster = String(poster).replace(/'/g, "\\'");
+
+  const tagLine = (Array.isArray(item.genres) && item.genres.length)
+    ? item.genres.slice(0, 5).join(" • ")
+    : String(item.meta || "").split("•").map(s=>s.trim()).filter(Boolean).slice(0,5).join(" • ");
+
+  div.innerHTML = `
+    <div class="poster" style="background-image:url('${safePoster}');"></div>
+    <div class="info">
+      <div class="title">${item.title || "Untitled"}</div>
+      <div class="meta">${item.year || ""}${item.meta ? " • " + item.meta : ""}</div>
+      <div class="tagsline">${tagLine}</div>
+    </div>
+  `;
+
+  div.onclick = () => openModal(item);
+  return div;
+}
+
+function render(){
+  const q = normalize(qEl.value);
+
+  const filtered = getSorted(
+    TV.filter(m => matchesPicked(m) && matchesQuery(m, q))
+  );
+
+  grid.innerHTML = "";
+  filtered.forEach(m => grid.appendChild(card(m)));
+
+  resultCount.textContent =
+    `${filtered.length} title${filtered.length === 1 ? "" : "s"} found` +
+    (picked.size ? ` • Filters: ${[...picked].join(", ")}` : "");
+
+  emptyEl.style.display = filtered.length ? "none" : "block";
+}
+
+qEl.addEventListener("input", render);
+
+clearBtn.onclick = () => { qEl.value = ""; render(); };
+clearFiltersBtn.onclick = () => { picked.clear(); paintChips(); render(); };
+
+paintChips();
+render();
+</script>
 
 </body>
 </html>
