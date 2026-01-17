@@ -1,54 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Donghua — Popcorn Picks</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  background:#0b0b0c;
-  color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
-}
-a{text-decoration:none;color:inherit}
-.top{
-  position:sticky;top:0;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:16px 20px;
-  background:rgba(10,10,10,.88);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid #222;
-}
-.grid{
-  padding:24px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:22px;
-}
-.card{
-  border-radius:18px;
-  border:1px solid #181818;
-  overflow:hidden;
-  position:relative;
-}
-.placeholder{
-  height:320px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#888;
-  background:#111;
-}
-.info{
-  position:absolute;
-  bottom:0;left:0;right:0;
-  padding:14px;
-  background:linear-gradient(to top,rgba(0,0,0,.9),transparent);
-}
-.title{font-size:18px;font-weight:600}
-.meta{font-size:12px;color:#aaa}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:#0b0b0c;
+    color:#fff;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  }
+  a{text-decoration:none;color:inherit}
+
+  .top{
+    position:sticky;top:0;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:16px 20px;
+    background:rgba(10,10,10,.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid #222;
+    z-index:50;
+  }
+  .top b{font-size:16px}
+
+  .wrap{padding:18px 18px 10px}
+  .small{
+    color:#aaa;
+    font-size:12px;
+    padding:6px 2px 0;
+    line-height:1.4;
+  }
+
+  .grid{
+    padding:16px 18px 34px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:18px;
+  }
+
+  .card{
+    border-radius:18px;
+    border:1px solid #181818;
+    overflow:hidden;
+    position:relative;
+    background:#111;
+    min-height:320px;
+    cursor:pointer;
+  }
+  .poster{
+    height:320px;
+    background:#101010;
+    background-size:cover;
+    background-position:center;
+  }
+  .poster.fallback{
+    background:
+      radial-gradient(700px 380px at 20% 15%, rgba(255,255,255,.10), transparent 55%),
+      linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.85));
+  }
+  .info{
+    position:absolute;
+    bottom:0;left:0;right:0;
+    padding:14px;
+    background:linear-gradient(to top,rgba(0,0,0,.92),transparent);
+  }
+  .title{font-size:18px;font-weight:700;line-height:1.2}
+  .meta{font-size:12px;color:#aaa;margin-top:4px}
+  .tagsline{
+    font-size:12px;
+    color:#cfcfcf;
+    margin-top:8px;
+    opacity:.92;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+  }
+
+  /* MODAL */
+  .modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.72);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:18px;
+    z-index:999;
+  }
+  .modal.on{display:flex}
+  .sheet{
+    width:min(980px, 100%);
+    border:1px solid #1f1f1f;
+    background:#0f0f0f;
+    border-radius:18px;
+    overflow:hidden;
+  }
+  .sheetTop{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 14px;
+    border-bottom:1px solid #1f1f1f;
+    background:#0d0d0d;
+  }
+  .closeBtn{
+    border:1px solid #222;
+    background:#141414;
+    color:#fff;
+    border-radius:12px;
+    padding:10px 12px;
+    cursor:pointer;
+  }
+  .sheetBody{
+    padding:16px;
+    display:grid;
+    grid-template-columns:320px 1fr;
+    gap:16px;
+  }
+  .bigPoster{
+    height:460px;
+    border-radius:16px;
+    border:1px solid #1b1b1b;
+    background:#111;
+    background-size:cover;
+    background-position:center;
+  }
+  .bigPoster.fallback{
+    background:
+      radial-gradient(900px 520px at 20% 15%, rgba(255,255,255,.10), transparent 55%),
+      linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.88));
+  }
+  .h1{
+    font-size:26px;
+    font-weight:800;
+    line-height:1.1;
+  }
+  .muted{color:#aaa;font-size:13px;line-height:1.5;margin-top:8px}
+  .why{
+    margin-top:14px;
+    font-size:14px;
+    line-height:1.85;
+    color:#ddd;
+    white-space:pre-line;
+  }
+  .pills{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+  .pill{
+    font-size:12px;
+    border:1px solid #222;
+    background:#111;
+    padding:8px 10px;
+    border-radius:999px;
+    color:#d8d8d8;
+  }
+
+  @media(max-width:900px){
+    .sheetBody{grid-template-columns:1fr}
+    .bigPoster{height:420px}
+  }
 </style>
 </head>
 
@@ -60,105 +171,219 @@ a{text-decoration:none;color:inherit}
   <span></span>
 </div>
 
-<div class="grid">
-
-<a class="card" href="shows.html?id=soul-land">
-  <div class="placeholder"></div>
-  <div class="info">
-    <div class="title">Soul Land</div>
-    <div class="meta">2018– · Cultivation</div>
-  </div>
-</a>
-
-<a class="card" href="shows.html?id=battle-through-the-heavens">
-  <div class="placeholder"></div>
-  <div class="info">
-    <div class="title">Battle Through the Heavens</div>
-    <div class="meta">2017– · Cultivation</div>
-  </div>
-</a>
-
-<a class="card" href="shows.html?id=shrouding-the-heavens">
-  <div class="placeholder"></div>
-  <div class="info">
-    <div class="title">Shrouding the Heavens</div>
-    <div class="meta">2023– · Xianxia</div>
-  </div>
-</a>
-
-<a class="card" href="shows.html?id=perfect-world">
-  <div class="placeholder"></div>
-  <div class="info">
-    <div class="title">Perfect World</div>
-    <div class="meta">2021– · Cultivation</div>
-  </div>
-</a>
-
-<a class="card" href="shows.html?id=stellar-transformations">
-  <div class="placeholder"></div>
-  <div class="info">
-    <div class="title">Stellar Transformations</div>
-    <div class="meta">2018– · Cultivation</div>
-  </div>
-</a>
-
-<a class="card" href="shows.html?id=jade-dynasty">
-  <div class="placeholder"></div>
-  <div class="info">
-    <div class="title">Jade Dynasty</div>
-    <div class="meta">2022– · Xianxia</div>
-  </div>
-</a>
-
-<a class="card" href="shows.html?id=martial-universe">
-  <div class="placeholder"></div>
-  <div class="info">
-    <div class="title">Martial Universe</div>
-    <div class="meta">2018– · Cultivation</div>
-  </div>
-</a>
-
-<a class="card" href="shows.html?id=magical-chef-of-ice-and-fire">
-  <div class="placeholder"></div>
-  <div class="info">
-    <div class="title">The Magical Chef of Ice and Fire</div>
-    <div class="meta">2018– · Fantasy</div>
-  </div>
-</a>
-
-<a class="card" href="shows.html?id=soul-land-2">
-  <div class="placeholder"></div>
-  <div class="info">
-    <div class="title">Soul Land 2</div>
-    <div class="meta">2023– · Cultivation</div>
-  </div>
-</a>
-
-<a class="card" href="shows.html?id=the-dem-hunter">
-  <div class="placeholder"></div>
-  <div class="info">
-    <div class="title">The Demon Hunter</div>
-    <div class="meta">2023 · Action Fantasy</div>
-  </div>
-</a>
-
-<a class="card" href="shows.html?id=renegade-immortal">
-  <div class="placeholder"></div>
-  <div class="info">
-    <div class="title">Renegade Immortal</div>
-    <div class="meta">2023– · Cultivation</div>
-  </div>
-</a>
-
-<a class="card" href="shows.html?id=a-will-eternal">
-  <div class="placeholder"></div>
-  <div class="info">
-    <div class="title">A Will Eternal</div>
-    <div class="meta">2020– · Comedy Cultivation</div>
-  </div>
-</a>
-
+<div class="wrap">
+  <div class="small" id="resultCount">Loading...</div>
 </div>
+
+<div class="grid" id="grid"></div>
+
+<!-- MODAL -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="sheet" role="dialog" aria-modal="true">
+    <div class="sheetTop">
+      <div style="font-weight:700">Details</div>
+      <button class="closeBtn" id="closeBtn" type="button">Close</button>
+    </div>
+    <div class="sheetBody">
+      <div class="bigPoster fallback" id="mPoster"></div>
+      <div>
+        <div class="h1" id="mTitle">—</div>
+        <div class="muted" id="mMeta"></div>
+        <div class="pills" id="mPills"></div>
+        <div class="why" id="mWhy"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const $ = (id) => document.getElementById(id);
+
+  const grid = $("grid");
+  const resultCount = $("resultCount");
+
+  const modal = $("modal");
+  const closeBtn = $("closeBtn");
+  const mPoster = $("mPoster");
+  const mTitle = $("mTitle");
+  const mMeta  = $("mMeta");
+  const mPills = $("mPills");
+  const mWhy   = $("mWhy");
+
+  // If you have posters, set poster:"assets/posters/<file>.jpg.JPG" etc.
+  // Otherwise leave poster:"" and it will show a cinematic fallback block.
+  const DONGHUA = [
+    {
+      title:"Soul Land (Douluo Dalu)",
+      year:2018,
+      meta:"Cultivation • Fantasy • Adventure",
+      genres:["Cultivation","Action","Adventure","Fantasy"],
+      poster:"",
+      synopsis:
+`A disciplined prodigy is reborn into a world where power is tied to “spirit” awakenings and martial sect traditions. The story mixes academy training, team bonds, and long-form rivalries with increasingly high-stakes battles, as the characters climb from local talent to forces that can reshape the continent.`
+    },
+    {
+      title:"Soul Land 2: The Peerless Tang Clan",
+      year:2023,
+      meta:"Cultivation • Academy • Legacy",
+      genres:["Cultivation","Adventure","Tournament","Fantasy"],
+      poster:"",
+      synopsis:
+`Set generations later, this sequel follows a new lead navigating a changed world where old legends cast long shadows. It builds around school competition, faction politics, and the pressure of legacy, steadily expanding into conflicts that test whether the Tang Clan’s ideals still belong in a harsher era.`
+    },
+    {
+      title:"Battle Through the Heavens",
+      year:2017,
+      meta:"Cultivation • Revenge • Rise",
+      genres:["Cultivation","Action","Revenge","Fantasy"],
+      poster:"",
+      synopsis:
+`After a shocking fall from genius status, a young cultivator rebuilds from the bottom with a mysterious mentor at his side. The series is built on progression: new techniques, new realms, new enemies—moving from personal humiliation to sect wars and power struggles that demand both strategy and brute strength.`
+    },
+    {
+      title:"Shrouding the Heavens",
+      year:2023,
+      meta:"Mythic sci-fi • Cultivation • Epic",
+      genres:["Epic","Cultivation","Mythology","Mystery"],
+      poster:"",
+      synopsis:
+`A modern-day group is thrown into an ancient cosmos where cultivation is tied to relics, bloodlines, and forgotten civilizations. The story leans into mystery and scale—ancient tombs, cosmic factions, and myth-heavy lore—slowly revealing how small lives get pulled into a universe-sized conflict.`
+    },
+    {
+      title:"Perfect World",
+      year:2021,
+      meta:"Cultivation • Monsters • Survival",
+      genres:["Cultivation","Action","Adventure","Beasts"],
+      poster:"",
+      synopsis:
+`Raised in a brutal world shaped by clans and ancient creatures, a fierce young warrior fights for survival and status. The series escalates quickly: from wilderness trials and clan feuds to mythic battles tied to old gods, forbidden techniques, and a destiny that attracts enemies at every step.`
+    },
+    {
+      title:"Stellar Transformations (Xing Chen Bian)",
+      year:2018,
+      meta:"Cultivation • Cosmic • Power climb",
+      genres:["Cultivation","Adventure","Cosmic","Action"],
+      poster:"",
+      synopsis:
+`Born without the talent everyone expects, the protagonist chooses a harder path—one that remakes his body and destiny through relentless training. The scope expands from family politics to inter-realm conflicts, blending classic cultivation growth with a larger cosmic hierarchy of powers and rules.`
+    },
+    {
+      title:"Jade Dynasty",
+      year:2022,
+      meta:"Wuxia • Dark fantasy • Moral conflict",
+      genres:["Wuxia","Drama","Fantasy","Conflict"],
+      poster:"",
+      synopsis:
+`A young disciple is pulled between righteous sect ideals and the darker forces that tempt—or force—compromise. The story leans into loyalty, betrayal, and what “good” means when survival and love demand choices that break the rules of every side.`
+    },
+    {
+      title:"Martial Universe",
+      year:2018,
+      meta:"Cultivation • Clan rivalry • Tournament",
+      genres:["Cultivation","Action","Tournament","Adventure"],
+      poster:"",
+      synopsis:
+`A determined underdog discovers an ancient artifact that becomes the key to his rise. The arc is classic and satisfying: clan oppression, hard training, escalating tournaments, and then larger sect and realm conflicts—where the protagonist’s growth starts to threaten entrenched powers.`
+    },
+    {
+      title:"The Magic Chef of Ice and Fire",
+      year:2021,
+      meta:"Fantasy • Adventure • Power & craft",
+      genres:["Fantasy","Adventure","Magic","Training"],
+      poster:"",
+      synopsis:
+`A gifted cook enters a world where culinary skill and elemental power can both decide fate. The series mixes travel and training arcs with light romance and faction clashes, using “craft” as a core identity while still delivering cultivation-style progression and battles.`
+    },
+    {
+      title:"Demon Hunter",
+      year:2023,
+      meta:"Action • Supernatural • Dark adventure",
+      genres:["Action","Supernatural","Hunting","Fantasy"],
+      poster:"",
+      synopsis:
+`In a world threatened by demonic forces, a hunter steps into brutal missions that reveal bigger conspiracies behind the monsters. The tone stays darker and more aggressive, built around high-risk fights, escalating threats, and the psychological cost of surviving what others cannot.`
+    },
+    {
+      title:"Renegade Immortal",
+      year:2023,
+      meta:"Cultivation • Vengeance • Ruthless climb",
+      genres:["Cultivation","Revenge","Tragedy","Epic"],
+      poster:"",
+      synopsis:
+`A quiet youth is pushed into a harsh path where compassion becomes a liability. The narrative focuses on survival and transformation: sacrifice, revenge, and the slow hardening of a protagonist who learns the cultivation world rewards cruelty as much as talent.`
+    },
+    {
+      title:"A Will Eternal",
+      year:2020,
+      meta:"Comedy • Cultivation • Adventure",
+      genres:["Comedy","Cultivation","Adventure","Fantasy"],
+      poster:"",
+      synopsis:
+`A cowardly, hilarious cultivator tries to stay alive while destiny keeps throwing him into trouble. It balances genuine progression and world-building with comedy, misunderstandings, and an underdog charm that makes the big arcs land without turning grim.`
+    }
+  ];
+
+  function openModal(item){
+    if(item.poster){
+      mPoster.classList.remove("fallback");
+      mPoster.style.backgroundImage = `url('${String(item.poster).replace(/'/g,"\\'")}')`;
+    }else{
+      mPoster.classList.add("fallback");
+      mPoster.style.backgroundImage = "";
+    }
+
+    mTitle.textContent = item.title;
+    mMeta.textContent = `${item.year} • ${item.meta}`;
+
+    mPills.innerHTML = "";
+    (item.genres || []).slice(0,10).forEach(g=>{
+      const p=document.createElement("div");
+      p.className="pill";
+      p.textContent=g;
+      mPills.appendChild(p);
+    });
+
+    mWhy.textContent = item.synopsis || "No synopsis added yet.";
+    modal.classList.add("on");
+  }
+
+  function closeModal(){
+    modal.classList.remove("on");
+  }
+
+  closeBtn.onclick=closeModal;
+  modal.addEventListener("click",(e)=>{ if(e.target===modal) closeModal(); });
+  window.addEventListener("keydown",(e)=>{ if(e.key==="Escape") closeModal(); });
+
+  function card(item){
+    const div=document.createElement("div");
+    div.className="card";
+
+    const posterStyle = item.poster
+      ? `background-image:url('${String(item.poster).replace(/'/g,"\\'")}');`
+      : "";
+
+    div.innerHTML=`
+      <div class="poster ${item.poster ? "" : "fallback"}" style="${posterStyle}"></div>
+      <div class="info">
+        <div class="title">${item.title}</div>
+        <div class="meta">${item.year} • ${item.meta}</div>
+        <div class="tagsline">${(item.genres||[]).slice(0,4).join(" • ")}</div>
+      </div>
+    `;
+
+    div.onclick=()=>openModal(item);
+    return div;
+  }
+
+  function render(){
+    grid.innerHTML="";
+    DONGHUA.forEach(a=>grid.appendChild(card(a)));
+    resultCount.textContent=`${DONGHUA.length} titles`;
+  }
+
+  render();
+</script>
 
 </body>
 </html>
