@@ -342,45 +342,53 @@ const ANIME = [
   }
 ];
 
-  function openModal(item){
+function openModal(item){
+  const poster = item.poster || "";
+
+  if(poster){
+    mPoster.classList.remove("fallback");
+    mPoster.style.backgroundImage = `url('${String(poster).replace(/'/g,"\\'")}')`;
+  }else{
     mPoster.classList.add("fallback");
     mPoster.style.backgroundImage = "";
-
-    mTitle.textContent = item.title;
-    mMeta.textContent = `${item.year} • ${item.meta}`;
-
-    mPills.innerHTML = "";
-    item.genres.forEach(g=>{
-      const p=document.createElement("div");
-      p.className="pill";
-      p.textContent=g;
-      mPills.appendChild(p);
-    });
-
-    mWhy.textContent = item.synopsis;
-    modal.classList.add("on");
   }
 
-  function closeModal(){
-    modal.classList.remove("on");
-  }
+  mTitle.textContent = item.title || "Untitled";
+  mMeta.textContent = `${item.year || ""}${item.meta ? " • " + item.meta : ""}`;
 
-  closeBtn.onclick=closeModal;
-  modal.onclick=(e)=>{if(e.target===modal)closeModal();};
+  mPills.innerHTML = "";
+  (item.genres || []).forEach(g=>{
+    const p = document.createElement("div");
+    p.className = "pill";
+    p.textContent = g;
+    mPills.appendChild(p);
+  });
 
-  function card(item){
-    const div=document.createElement("div");
-    div.className="card";
-    div.innerHTML=`
-      <div class="poster fallback"></div>
-      <div class="info">
-        <div class="title">${item.title}</div>
-        <div class="meta">${item.year} • ${item.meta}</div>
-        <div class="tagsline">${item.genres.slice(0,4).join(" • ")}</div>
-      </div>`;
-    div.onclick=()=>openModal(item);
-    return div;
-  }
+  mWhy.textContent = item.synopsis || "";
+  modal.classList.add("on");
+}
+
+function card(item){
+  const div = document.createElement("div");
+  div.className = "card";
+
+  const poster = item.poster || "";
+  const posterHtml = poster
+    ? `<div class="poster" style="background-image:url('${String(poster).replace(/'/g,"\\'")}');"></div>`
+    : `<div class="poster fallback"></div>`;
+
+  div.innerHTML = `
+    ${posterHtml}
+    <div class="info">
+      <div class="title">${item.title || "Untitled"}</div>
+      <div class="meta">${item.year || ""}${item.meta ? " • " + item.meta : ""}</div>
+      <div class="tagsline">${(item.genres || []).slice(0,4).join(" • ")}</div>
+    </div>
+  `;
+
+  div.onclick = () => openModal(item);
+  return div;
+}
 
   function render(){
     grid.innerHTML="";
