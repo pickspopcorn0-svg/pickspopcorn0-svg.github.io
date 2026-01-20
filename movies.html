@@ -263,232 +263,214 @@
   // Posters: put files in assets/posters/movies/ and update poster paths.
   // If you don't have a poster yet, leave poster: "" and it will use fallback.
   const MOVIES = [
-    {
-      id:"burning-2018",
-      title:"Burning",
-      year:2018,
-      meta:"South Korea • Lee Chang-dong",
-      genres:["Mystery","Drama","Psychological","Slow-burn"],
-      poster:"assets/posters/movies/burning-2018-poster.jpg.JPG",
-      summary:"A quiet young man reconnects with a woman from his past, only to be drawn into a tense triangle when she returns with a wealthy, unsettling friend. As hints of violence and class power gather around ordinary moments, obsession replaces certainty, and the story turns into a high-stakes search for what is real—and what has vanished."
-    },
-    {
-      id:"shoplifters-2018",
-      title:"Shoplifters",
-      year:2018,
-      meta:"Japan • Hirokazu Kore-eda",
-      genres:["Drama"],
-      poster:"assets/posters/movies/shoplifters-2018-poster.jpg.JPG",
-      summary:"A makeshift family living on the margins survives through small thefts and fragile affection. When they take in an abused little girl, their bond deepens—until an investigation exposes what holds them together. The film follows intimacy, poverty, and the difference between legal family and chosen family."
-    },
-    {
-      id:"long-days-journey-into-night-2018",
-      title:"Long Day’s Journey Into Night",
-      year:2018,
-      meta:"China • Bi Gan",
-      genres:["Mystery","Romance","Neo-noir","Atmospheric"],
-      poster:"assets/posters/movies/long-days-journey-into-night-2018-poster.jpg.JPG",
-      summary:"A man returns to his hometown searching for a woman he cannot forget. The investigation moves through memory, dream logic, and noir fragments, where time collapses and clues feel emotional rather than factual. The film becomes a hypnotic pursuit of love, regret, and the stories people tell themselves to survive."
-    },
-    {
-      id:"portrait-of-a-lady-on-fire-2019",
-      title:"Portrait of a Lady on Fire",
-      year:2019,
-      meta:"France • Céline Sciamma",
-      genres:["Romance","Drama","Period"],
-      poster:"assets/posters/french/portrait-of-a-lady-on-fire.jpg.JPG",
-      summary:"An artist is hired to paint a reluctant bride in secret on a remote island. Observation turns into intimacy, and the portrait becomes a record of a relationship that cannot openly exist. The film builds a precise, aching romance around gaze, autonomy, and the cost of being remembered."
-    },
-    {
-      id:"the-handmaiden-2016",
-      title:"The Handmaiden",
-      year:2016,
-      meta:"South Korea • Park Chan-wook",
-      genres:["Thriller","Mystery","Erotic","Stylish"],
-      poster:"assets/posters/movies/the-handmaiden-2016-poster.jpg.WEBP",
-      summary:"A pickpocket is recruited into a con targeting a wealthy heiress living under control of a domineering guardian. As the scheme unfolds through shifting perspectives, manipulation turns into desire, and every plan reveals another trap. The film is a layered thriller about power, deception, and escape."
-    },
-    {
-      id:"parasite-2019",
-      title:"Parasite",
-      year:2019,
-      meta:"South Korea • Bong Joon-ho",
-      genres:["Thriller","Drama","Dark Comedy"],
-      poster:"assets/posters/movies/parasite-2019-poster.jpg.JPG",
-      summary:"A struggling family gradually infiltrates a rich household by posing as unrelated, highly qualified workers. What begins as a clever hustle turns dangerous when hidden lives and resentments surface. The film uses suspense and sharp humor to expose class division built into space, privilege, and survival."
-    },
-    {
-      id:"drive-my-car-2021",
-      title:"Drive My Car",
-      year:2021,
-      meta:"Japan • Ryusuke Hamaguchi",
-      genres:["Drama"],
-      poster:"assets/posters/movies/drive-my-car-2021-poster.jpg.JPG",
-      summary:"A theater director processing grief travels to stage a production and is assigned a young driver. In long drives and rehearsals, guarded emotions slowly surface through conversation, silence, and performance. The film explores loss, confession, and how art can carry what people cannot say directly."
-    },
-    {
-      id:"decision-to-leave-2022",
-      title:"Decision to Leave",
-      year:2022,
-      meta:"South Korea • Park Chan-wook",
-      genres:["Romance","Mystery","Thriller","Neo-noir"],
-      poster:"assets/posters/movies/decision-to-leave-2022-poster.jpg.WEBP",
-      summary:"A detective investigating a suspicious death becomes entangled with the dead man’s widow. Professional suspicion and personal longing blur as the case twists through evidence, desire, and moral compromise. The film plays like a modern noir where attraction becomes the most unreliable clue."
-    },
-    {
-      id:"the-wailing-2016",
-      title:"The Wailing",
-      year:2016,
-      meta:"South Korea • Na Hong-jin",
-      genres:["Horror","Mystery","Thriller","Supernatural"],
-      poster:"assets/posters/movies/the-wailing-2016-poster.jpg.jpeg",
-      summary:"A small village is shaken by violent deaths and a spreading illness after a stranger arrives. A bumbling policeman follows rumors of curses and possession, but every attempt to find certainty only deepens the dread. The film builds relentless paranoia where faith, fear, and misdirection collide."
-    },
-    {
-      id:"memories-of-murder-2003",
-      title:"Memories of Murder",
-      year:2003,
-      meta:"South Korea • Bong Joon-ho",
-      genres:["Crime","Thriller","Investigation"],
-      poster:"assets/posters/movies/memories-of-murder-2003-poster.jpg.JPG",
-      summary:"Two detectives—one relying on brute instinct, the other on method—hunt a serial killer in a rural town. As leads fail and pressure mounts, the case exposes institutional incompetence and personal desperation. The film is both a gripping investigation and a portrait of collapse under uncertainty."
-    },
-    {
-      id:"incendies-2010",
-      title:"Incendies",
-      year:2010,
-      meta:"Canada • Denis Villeneuve",
-      genres:["Drama","Mystery","War"],
-      poster:"assets/posters/movies/incendies-2010-poster.jpg.JPG",
-      summary:"After their mother’s death, twins receive two letters: one for a father they thought was dead and one for a brother they never knew existed. Their search leads into a war-torn past and a family history shaped by violence and secrets. The film unfolds like an investigation with devastating revelations."
-    },
-    {
-      id:"city-of-god-2002",
-      title:"City of God",
-      year:2002,
-      meta:"Brazil • Fernando Meirelles / Kátia Lund",
-      genres:["Crime","Drama"],
-      poster:"assets/posters/movies/city-of-god-2002-poster.jpg.JPG",
-      summary:"Growing up in a Rio favela, a young photographer watches rival gangs rise and brutalize the community. Through fast, explosive storytelling, the film traces how ambition and fear create cycles of violence—and how survival often depends on choosing a role before the streets choose it for you."
-    },
-    {
-      id:"holy-motors-2012",
-      title:"Holy Motors",
-      year:2012,
-      meta:"France • Leos Carax",
-      genres:["Drama","Surreal","Art Film"],
-      poster:"assets/posters/movies/holy-motors-2012-poster.jpg.JPG",
-      summary:"A man travels across Paris in a limousine, performing a series of radically different roles—each appointment a new identity, genre, and reality. The film is a strange, exhilarating journey through performance, cinema, and the question of what remains when life becomes pure acting."
-    },
-    {
-      id:"under-the-silver-lake-2018",
-      title:"Under the Silver Lake",
-      year:2018,
-      meta:"USA • David Robert Mitchell",
-      genres:["Mystery","Neo-noir","Thriller"],
-      poster:"assets/posters/movies/under-the-silver-lake-2018-poster.jpg.jpeg",
-      summary:"A drifting man in Los Angeles becomes obsessed when his neighbor disappears overnight. His amateur investigation spirals into coded messages, underground myths, and paranoia about culture and control. The film plays as a conspiracy noir where meaning is addictive—and possibly imagined."
-    },
-    {
-      id:"enemy-2013",
-      title:"Enemy",
-      year:2013,
-      meta:"Canada • Denis Villeneuve",
-      genres:["Thriller","Mystery","Psychological"],
-      poster:"assets/posters/movies/enemy-2013-poster.jpg.JPG",
-      summary:"A mild professor discovers an actor who looks exactly like him. Curiosity becomes fixation as their lives begin to overlap, raising questions about identity, desire, and control. The film builds a tense, symbolic mystery that refuses easy answers."
-    },
-    {
-      id:"the-lighthouse-2019",
-      title:"The Lighthouse",
-      year:2019,
-      meta:"USA • Robert Eggers",
-      genres:["Horror","Drama","Psychological"],
-      poster:"assets/posters/movies/the-lighthouse-2019-poster.jpg.JPG",
-      summary:"Two lighthouse keepers are stranded on a remote island, where isolation and power games rot their sanity. As storms trap them longer than planned, superstition, obsession, and hallucination take over. The film becomes a claustrophobic descent into madness and myth."
-    },
-    {
-      id:"no-country-for-old-men-2007",
-      title:"No Country for Old Men",
-      year:2007,
-      meta:"USA • Coen Brothers",
-      genres:["Crime","Thriller"],
-      poster:"assets/posters/movies/no-country-for-old-men-2007-poster.jpg.JPG",
-      summary:"A hunter finds drug money in the desert and takes it, triggering a relentless pursuit by a near-mythic killer. As violence spreads, a weary sheriff tries to understand a world changing beyond his moral code. The film is a tense chase story and a bleak meditation on fate."
-    },
-    {
-      id:"a-separation-2011",
-      title:"A Separation",
-      year:2011,
-      meta:"Iran • Asghar Farhadi",
-      genres:["Drama"],
-      poster:"assets/posters/movies/city-of-god-2002-poster.jpg.JPG",
-      summary:"A couple’s divorce attempt sets off a chain reaction after a caregiver is hired for an elderly parent and an accident occurs. Conflicting testimonies, pride, and social pressure tighten the situation until truth becomes impossible to isolate. The film is a moral thriller disguised as domestic drama."
-    },
-    {
-      id:"cold-war-2018",
-      title:"Cold War",
-      year:2018,
-      meta:"Poland • Paweł Pawlikowski",
-      genres:["Romance","Drama"],
-      poster:"assets/posters/movies/cold-war-2018-poster.jpg.JPG",
-      summary:"A musician and a singer fall into a turbulent relationship across borders and decades, shaped by politics, ambition, and incompatible needs. Their love repeats in cycles—reunion, fracture, return—each time altered by the era. The film compresses time into sharp, emotional chapters."
-    },
-    {
-      id:"the-zone-of-interest-2023",
-      title:"The Zone of Interest",
-      year:2023,
-      meta:"UK/Poland • Jonathan Glazer",
-      genres:["Drama","Historical"],
-      poster:"assets/posters/movies/the-zone-of-interest-2023-poster.jpg.WEBP",
-      summary:"A Nazi commandant and his family live an ordinary domestic life beside Auschwitz. The horror remains mostly off-screen, heard and implied as routine continues. The film confronts how evil can exist through normalization—through comfort built next to atrocity."
-    },
-    {
-      id:"revenge-2017",
-      title:"Revenge",
-      year:2017,
-      meta:"France • Coralie Fargeat",
-      genres:["Thriller","Action"],
-      poster:"assets/posters/french/revenge-2017.jpg.JPG",
-      summary:"A woman on a getaway with a wealthy lover is assaulted and left for dead. She survives and turns the isolated landscape into a trap for the men who hunted her. The film is a brutal survival thriller that pivots into a stylized, escalating revenge chase."
-    },
-    {
-      id:"the-witch-subversion-2018",
-      title:"The Witch: Part 1. The Subversion",
-      year:2018,
-      meta:"South Korea • Park Hoon-jung",
-      genres:["Action","Thriller","Sci-Fi"],
-      poster:"assets/posters/movies/the-witch-part-1-the-subversion-2018-poster.jpg.JPG",
-      summary:"A teenage girl with a mysterious past becomes the center of violent attention after appearing on a talent show. As strangers close in, her hidden abilities—and the experiment that created her—begin to surface. The film blends conspiracy thriller with explosive action reveals."
-    },
-    {
-      id:"rrr-2022",
-      title:"RRR",
-      year:2022,
-      meta:"India • S. S. Rajamouli",
-      genres:["Action","Epic","Drama"],
-      poster:"assets/posters/rrr.jpg.JPG",
-      summary:"Two revolutionaries in colonial India become friends while hiding their true identities: one on a rescue mission, the other serving the British. Their bond is tested by betrayal, spectacle, and escalating conflict. The film is a maximal, emotional action epic built on loyalty and rebellion."
-    },
-    {
-      id:"jack-reacher-2012",
-      title:"Jack Reacher",
-      year:2012,
-      meta:"USA • Christopher McQuarrie",
-      genres:["Action","Thriller","Investigation"],
-      poster:"assets/posters/movies/jack-reacher-2012-poster.jpg.WEBP",
-      summary:"A former military investigator is pulled into a case where a sniper is accused of killing strangers in a public attack. As contradictions appear, the investigation exposes a broader conspiracy. The film plays as a grounded action mystery with methodical clue-chasing and sudden violence."
-    },
-    {
-      id:"edge-of-tomorrow-2014",
-      title:"Edge of Tomorrow",
-      year:2014,
-      meta:"USA • Doug Liman",
-      genres:["Sci-Fi","Action"],
-      poster:"assets/posters/movies/edge-of-tomorrow-2014-poster.jpg.JPG",
-      summary:"A public-relations officer with no combat experience is forced into battle against an alien invasion and becomes trapped in a time loop, reliving the same day each time he dies. With the help of a hardened warrior, he trains, learns, and pushes toward the single outcome that can change the war."
-    }
-  ];
+  {
+    id:"burning-2018",
+    title:"Burning",
+    year:2018,
+    meta:"South Korea • Lee Chang-dong",
+    genres:["Mystery","Drama","Psychological","Slow-burn"],
+    poster:"assets/posters/movies/burning-2018-poster.jpg.jpeg",
+    summary:"A quiet young man reconnects with a woman from his past..."
+  },
+  {
+    id:"shoplifters-2018",
+    title:"Shoplifters",
+    year:2018,
+    meta:"Japan • Hirokazu Kore-eda",
+    genres:["Drama"],
+    poster:"assets/posters/movies/shoplifters-2018-poster.jpg.JPG",
+    summary:"A makeshift family living on the margins..."
+  },
+  {
+    id:"long-days-journey-into-night-2018",
+    title:"Long Day’s Journey Into Night",
+    year:2018,
+    meta:"China • Bi Gan",
+    genres:["Mystery","Romance","Neo-noir","Atmospheric"],
+    poster:"assets/posters/movies/long-days-journey-into-night-2018-poster.jpg.JPG",
+    summary:"A man returns to his hometown searching for a woman..."
+  },
+  {
+    id:"portrait-of-a-lady-on-fire-2019",
+    title:"Portrait of a Lady on Fire",
+    year:2019,
+    meta:"France • Céline Sciamma",
+    genres:["Romance","Drama","Period"],
+    poster:"assets/posters/french/portrait-of-a-lady-on-fire.jpg.JPG",
+    summary:"An artist is hired to paint a reluctant bride..."
+  },
+  {
+    id:"the-handmaiden-2016",
+    title:"The Handmaiden",
+    year:2016,
+    meta:"South Korea • Park Chan-wook",
+    genres:["Thriller","Mystery","Erotic","Stylish"],
+    poster:"assets/posters/movies/the-handmaiden-2016-poster.jpg.WEBP",
+    summary:"A pickpocket is recruited into a con..."
+  },
+  {
+    id:"parasite-2019",
+    title:"Parasite",
+    year:2019,
+    meta:"South Korea • Bong Joon-ho",
+    genres:["Thriller","Drama","Dark Comedy"],
+    poster:"assets/posters/movies/parasite-2019-poster.jpg.JPG",
+    summary:"A struggling family gradually infiltrates..."
+  },
+  {
+    id:"drive-my-car-2021",
+    title:"Drive My Car",
+    year:2021,
+    meta:"Japan • Ryusuke Hamaguchi",
+    genres:["Drama"],
+    poster:"assets/posters/movies/drive-my-car-2021-poster.jpg.JPG",
+    summary:"A theater director processing grief travels..."
+  },
+  {
+    id:"decision-to-leave-2022",
+    title:"Decision to Leave",
+    year:2022,
+    meta:"South Korea • Park Chan-wook",
+    genres:["Romance","Mystery","Thriller","Neo-noir"],
+    poster:"assets/posters/movies/decision-to-leave-2022-poster.jpg.WEBP",
+    summary:"A detective investigating a suspicious death..."
+  },
+  {
+    id:"the-wailing-2016",
+    title:"The Wailing",
+    year:2016,
+    meta:"South Korea • Na Hong-jin",
+    genres:["Horror","Mystery","Thriller","Supernatural"],
+    poster:"assets/posters/movies/the-wailing-2016-poster.jpg.jpeg",
+    summary:"A small village is shaken by violent deaths..."
+  },
+  {
+    id:"memories-of-murder-2003",
+    title:"Memories of Murder",
+    year:2003,
+    meta:"South Korea • Bong Joon-ho",
+    genres:["Crime","Thriller","Investigation"],
+    poster:"assets/posters/movies/memories-of-murder-2003-poster.jpg.JPG",
+    summary:"Two detectives hunt a serial killer..."
+  },
+  {
+    id:"incendies-2010",
+    title:"Incendies",
+    year:2010,
+    meta:"Canada • Denis Villeneuve",
+    genres:["Drama","Mystery","War"],
+    poster:"assets/posters/movies/incendies-2010-poster.jpg.JPG",
+    summary:"After their mother’s death, twins receive..."
+  },
+  {
+    id:"city-of-god-2002",
+    title:"City of God",
+    year:2002,
+    meta:"Brazil • Fernando Meirelles / Kátia Lund",
+    genres:["Crime","Drama"],
+    poster:"assets/posters/movies/city-of-god-2002-poster.jpg.JPG",
+    summary:"Growing up in a Rio favela..."
+  },
+  {
+    id:"holy-motors-2012",
+    title:"Holy Motors",
+    year:2012,
+    meta:"France • Leos Carax",
+    genres:["Drama","Surreal","Art Film"],
+    poster:"assets/posters/movies/holy-motors-2012-poster.jpg.JPG",
+    summary:"A man travels across Paris in a limousine..."
+  },
+  {
+    id:"under-the-silver-lake-2018",
+    title:"Under the Silver Lake",
+    year:2018,
+    meta:"USA • David Robert Mitchell",
+    genres:["Mystery","Neo-noir","Thriller"],
+    poster:"assets/posters/movies/under-the-silver-lake-2018-poster.jpg.jpeg",
+    summary:"A drifting man in Los Angeles becomes obsessed..."
+  },
+  {
+    id:"enemy-2013",
+    title:"Enemy",
+    year:2013,
+    meta:"Canada • Denis Villeneuve",
+    genres:["Thriller","Mystery","Psychological"],
+    poster:"assets/posters/movies/enemy-2013-poster.jpg.JPG",
+    summary:"A mild professor discovers an actor..."
+  },
+  {
+    id:"the-lighthouse-2019",
+    title:"The Lighthouse",
+    year:2019,
+    meta:"USA • Robert Eggers",
+    genres:["Horror","Drama","Psychological"],
+    poster:"assets/posters/movies/the-lighthouse-2019-poster.jpg.JPG",
+    summary:"Two lighthouse keepers are stranded..."
+  },
+  {
+    id:"no-country-for-old-men-2007",
+    title:"No Country for Old Men",
+    year:2007,
+    meta:"USA • Coen Brothers",
+    genres:["Crime","Thriller"],
+    poster:"assets/posters/movies/no-country-for-old-men-2007-poster.jpg.JPG",
+    summary:"A hunter finds drug money in the desert..."
+  },
+  {
+    id:"a-separation-2011",
+    title:"A Separation",
+    year:2011,
+    meta:"Iran • Asghar Farhadi",
+    genres:["Drama"],
+    poster:"assets/posters/movies/a-separation-2011-poster.jpg.JPG",
+    summary:"A couple’s divorce attempt sets off..."
+  },
+  {
+    id:"cold-war-2018",
+    title:"Cold War",
+    year:2018,
+    meta:"Poland • Paweł Pawlikowski",
+    genres:["Romance","Drama"],
+    poster:"assets/posters/movies/cold-war-2018-poster.jpg.JPG",
+    summary:"A musician and a singer fall into..."
+  },
+  {
+    id:"the-zone-of-interest-2023",
+    title:"The Zone of Interest",
+    year:2023,
+    meta:"UK/Poland • Jonathan Glazer",
+    genres:["Drama","Historical"],
+    poster:"assets/posters/movies/the-zone-of-interest-2023-poster.jpg.WEBP",
+    summary:"A Nazi commandant and his family live..."
+  },
+  {
+    id:"the-witch-subversion-2018",
+    title:"The Witch: Part 1. The Subversion",
+    year:2018,
+    meta:"South Korea • Park Hoon-jung",
+    genres:["Action","Thriller","Sci-Fi"],
+    poster:"assets/posters/movies/the-witch-part-1-the-subversion-2018-poster.jpg.JPG",
+    summary:"A teenage girl with a mysterious past..."
+  },
+  {
+    id:"jack-reacher-2012",
+    title:"Jack Reacher",
+    year:2012,
+    meta:"USA • Christopher McQuarrie",
+    genres:["Action","Thriller","Investigation"],
+    poster:"assets/posters/movies/jack-reacher-2012-poster.jpg.WEBP",
+    summary:"A former military investigator is pulled..."
+  },
+  {
+    id:"edge-of-tomorrow-2014",
+    title:"Edge of Tomorrow",
+    year:2014,
+    meta:"USA • Doug Liman",
+    genres:["Sci-Fi","Action"],
+    poster:"assets/posters/movies/edge-of-tomorrow-2014-poster.jpg.JPG",
+    summary:"A public-relations officer becomes trapped..."
+  }
+];
 
   // =========================
   // APP (DO NOT EDIT BELOW)
