@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Your First Steps Into Indian Cinema — Popcorn Picks</title>
 
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
-        crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
+  crossorigin="anonymous"></script>
 
-<<style>
+<style>
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
@@ -17,97 +17,26 @@ body{
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
 
-a{
-  color:inherit;
-  text-decoration:none;
-}
+a{color:inherit;text-decoration:none}
 
-/* prevent images from overflowing */
-img{
-  display:block;
-  max-width:100%;
-  height:auto;
-}
-
-/* FILM BLOCK */
-.film{
-  padding:28px 22px;
-  border:1px solid #181818;
-  border-radius:22px;
-  background:rgba(255,255,255,.02);
-  margin-bottom:28px;
-}
-
-.film h2{
-  font-size:28px;
-  letter-spacing:-.02em;
-}
-
-.submeta{
-  margin-top:10px;
-  color:#a9a9a9;
-  font-size:13px;
-}
-
-.text{
-  margin-top:16px;
-  max-width:78ch;
-}
-
-.text p{
-  color:#d7d7d7;
-  line-height:1.9;
-  font-size:16px;
-  margin-bottom:14px;
-}
-
-/* POSTER */
-.posterWrap{
-  margin-top:18px;
-}
-
-.poster{
-  width:100%;
-  max-width:420px;     /* controls poster size */
-  border-radius:16px;
-  overflow:hidden;
-  border:1px solid #1f1f1f;
-  background:#111;
-}
-
-.poster img{
-  width:100%;
-  height:auto;
-}
-
-/* MOBILE */
-@media(max-width:760px){
-  .film{
-    padding:22px 16px;
-  }
-
-  .film h2{
-    font-size:24px;
-  }
-
-  .poster{
-    max-width:100%;
-  }
-}
-</style>
+img{display:block;max-width:100%;height:auto}
 
 /* TOPBAR */
 .topbar{
-  position:sticky; top:0; z-index:50;
-  display:flex; align-items:center; justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:50;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
   padding:16px 20px;
   background:rgba(10,10,10,.88);
-  backdrop-filter: blur(10px);
+  backdrop-filter:blur(10px);
   border-bottom:1px solid #222;
 }
 .back{color:#aaa;font-size:13px}
 .back:hover{color:#fff}
-.brand{font-weight:650;letter-spacing:.5px;font-size:14px}
+.brand{font-weight:650;font-size:14px}
 
 /* HERO */
 .hero{
@@ -120,19 +49,15 @@ img{
     url("assets/posters/india-editorial.jpg.WEBP");
   background-size:cover;
   background-position:center;
-  border-bottom:1px solid #1f1f1f;
 }
 .heroInner{
   max-width:980px;
-  width:100%;
   margin:0 auto;
 }
 .kicker{
-  display:inline-block;
   font-size:11px;
   letter-spacing:.22em;
   text-transform:uppercase;
-  color:#eaeaea;
   padding:8px 10px;
   border-radius:999px;
   border:1px solid rgba(255,255,255,.18);
@@ -142,14 +67,12 @@ img{
   margin-top:16px;
   font-size:54px;
   line-height:1.05;
-  letter-spacing:-.03em;
 }
 .hero p{
   margin-top:14px;
-  max-width:78ch;
+  max-width:80ch;
   color:#d0d0d0;
-  line-height:1.75;
-  font-size:16px;
+  line-height:1.7;
 }
 
 /* WRAP */
@@ -159,39 +82,65 @@ img{
   padding:46px 22px 90px;
 }
 
-/* FILM BLOCK */
+.sectionTitle{
+  font-size:26px;
+  margin-bottom:10px;
+}
+.sectionLead{
+  color:#bdbdbd;
+  line-height:1.75;
+  font-size:15px;
+  margin-bottom:34px;
+  max-width:82ch;
+}
+
+/* FILM */
 .film{
-  padding:28px 22px;
   border:1px solid #181818;
   border-radius:22px;
   background:rgba(255,255,255,.02);
-  margin-bottom:28px;
+  padding:26px 22px;
+  margin-bottom:30px;
 }
 .film h2{
-  font-size:28px;
-  letter-spacing:-.02em;
+  font-size:26px;
 }
 .submeta{
-  margin-top:10px;
+  margin-top:8px;
   color:#a9a9a9;
   font-size:13px;
 }
 .text{
   margin-top:16px;
-  max-width:78ch;
+  max-width:80ch;
 }
 .text p{
-  color:#d7d7d7;
-  line-height:1.9;
   font-size:16px;
-  margin-bottom:14px;
+  line-height:1.9;
+  color:#d7d7d7;
+  margin-bottom:16px;
+}
+
+/* POSTER */
+.posterWrap{
+  margin-top:20px;
+}
+.poster{
+  max-width:420px;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid #1f1f1f;
+}
+.poster img{
+  width:100%;
 }
 
 /* MOBILE */
 @media(max-width:760px){
-  .hero h1{font-size:40px}
+  .hero h1{font-size:38px}
   .film{padding:22px 16px}
-  .film h2{font-size:24px}
+  .film h2{font-size:22px}
+  .poster{max-width:100%}
 }
 </style>
 </head>
@@ -201,280 +150,202 @@ img{
 <div class="topbar">
   <a class="back" href="index.html">← Back</a>
   <div class="brand">Popcorn Picks</div>
-  <div style="width:48px"></div>
+  <div style="width:40px"></div>
 </div>
 
 <header class="hero">
   <div class="heroInner">
-    <span class="kicker">Editorial • Indian Cinema</span>
+    <span class="kicker">Editorial Indian Cinema</span>
     <h1>Your First Steps Into Indian Cinema</h1>
 
     <p>
-      Indian cinema is not one style. It is not one genre. It is not even one industry.
-      It is emotion, excess, intimacy, music, spectacle, and sincerity all living in the same space.
+      Indian cinema is not one sound or one mood. Sometimes it is loud and joyful,
+      sometimes slow and quiet, sometimes deeply personal.
     </p>
 
     <p>
-      If you come in expecting quiet realism, you might be confused.
-      If you come in ready to feel something big, you might fall in love.
-      These four films are the best place to start.
+      If you have never watched an Indian film before, the key is not to start with
+      what is popular right now. It is better to start with films that explain the
+      emotional language first.
     </p>
   </div>
 </header>
 
 <main class="wrap">
 
-  <section class="section">
-  <div class="container">
-    <h2>Your First Step into Indian Cinema</h2>
-    <p class="sectionLead">
-      These films are not here to impress you with scale or numbers. They are here to help you
-      understand how Indian cinema thinks, feels, and remembers.
-    </p>
+<h2 class="sectionTitle">Where to begin</h2>
+<p class="sectionLead">
+These films are welcoming. They do not require cultural context or background knowledge.
+They simply show how Indian stories feel when they are told honestly.
+</p>
 
-    <!-- 1. 3 Idiots -->
-    <article class="film">
-      <h2>1) 3 Idiots</h2>
-      <div class="submeta">Friendship • Youth • Pressure • Hope</div>
+<article class="film">
+<h2>1) 3 Idiots</h2>
+<div class="submeta">Friendship Youth Pressure Hope</div>
+<div class="text">
+<p>
+This film is often recommended first because it feels familiar almost immediately.
+Students struggling with expectations, parents wanting security for their children,
+and a system that values results more than curiosity.
+</p>
+<p>
+It starts light and playful, filled with jokes and energy. Slowly it begins to show
+the weight behind the laughter. You see how fear shapes choices and how people slowly
+stop listening to what they actually want.
+</p>
+<p>
+What makes it last is not the humor or the famous moments. It is the feeling that
+someone understood what that stage of life feels like. Even if you did not grow up
+in India, the emotions land easily.
+</p>
+</div>
+<div class="posterWrap">
+<div class="poster">
+<img src="assets/posters/3-idiots.jpg.JPG" alt="3 Idiots poster">
+</div>
+</div>
+</article>
 
-      <div class="text">
-        <p>
-          3 Idiots works as an entry point because it speaks a language that is familiar to almost
-          everyone. College friendships. Academic pressure. Parents who mean well but push too hard.
-          A system that measures intelligence with ranks instead of curiosity.
-        </p>
+<article class="film">
+<h2>2) Andhadhun</h2>
+<div class="submeta">Dark humor Uncertainty</div>
+<div class="text">
+<p>
+This is the film you show someone who assumes Indian movies are predictable.
+Nothing here behaves the way you expect it to.
+</p>
+<p>
+A small lie pushes the main character into a situation that keeps getting worse.
+Every time he thinks he has found a way out, the story shifts again.
+</p>
+<p>
+The film never pauses to explain itself. Characters make selfish decisions.
+Consequences pile up. You are allowed to feel uncomfortable and unsure.
+That confidence is what makes it so enjoyable.
+</p>
+</div>
+<div class="posterWrap">
+<div class="poster">
+<img src="assets/posters/andhadhun.jpg.JPG" alt="Andhadhun poster">
+</div>
+</div>
+</article>
 
-        <p>
-          It starts light and funny, almost careless. Slowly, the jokes give way to something more
-          uncomfortable. You begin to notice how fear shapes choices, how success is narrowly defined,
-          and how easily young people disappear inside expectations that are not their own.
-        </p>
+<article class="film">
+<h2>3) RRR</h2>
+<div class="submeta">Friendship Freedom Scale</div>
+<div class="text">
+<p>
+This is a film that believes fully in big emotion. Two men meet, trust each other,
+and build a bond before learning they are fighting for very different reasons.
+</p>
+<p>
+Everything here is larger than life, but it never feels hollow. The action works
+because the emotions are simple and sincere.
+</p>
+<p>
+If you want to understand how Indian cinema balances spectacle with feeling,
+this film makes that clear without apology.
+</p>
+</div>
+<div class="posterWrap">
+<div class="poster">
+<img src="assets/posters/rrr.jpg.JPG" alt="RRR poster">
+</div>
+</div>
+</article>
 
-        <p>
-          What stays with you is not a scene or a speech, but the emotional recognition. Many people
-          see themselves or someone they knew in these characters. That is why the film still connects
-          years later and across cultures.
-        </p>
+<article class="film">
+<h2>4) Baahubali Duology</h2>
+<div class="submeta">Myth Power Betrayal</div>
+<div class="text">
+<p>
+These two films feel like a legend being retold. Clear heroes, clear choices,
+and consequences that stretch across generations.
+</p>
+<p>
+The story is not about realism. It is about memory, loyalty, and pride.
+Everything is heightened, but it is consistent within its world.
+</p>
+<p>
+Watching this helps explain why myth and scale are so natural in Indian storytelling.
+It is less about escape and more about shared memory.
+</p>
+</div>
+<div class="posterWrap">
+<div class="poster">
+<img src="assets/posters/baahubali-duology-poster.jpg.jpeg" alt="Baahubali poster">
+</div>
+</div>
+</article>
 
-        <p>
-          If someone has never seen an Indian film before, this one explains the emotional grammar
-          without asking for any background knowledge.
-        </p>
-      </div>
+<article class="film">
+<h2>5) Dangal</h2>
+<div class="submeta">Family Discipline Change</div>
+<div class="text">
+<p>
+At first glance this looks like a sports film. What it really explores is control
+and the complicated relationship between ambition and care.
+</p>
+<p>
+The central figure wants the best for his children, but his methods are strict
+and sometimes suffocating. The film does not judge him simply.
+</p>
+<p>
+It stays grounded and emotionally clear, which makes it easy to connect with.
+</p>
+</div>
+<div class="posterWrap">
+<div class="poster">
+<img src="assets/posters/dangal-2016-poster.jpg.jpeg" alt="Dangal poster">
+</div>
+</div>
+</article>
 
-      <div class="posterWrap">
-        <div class="poster">
-          <img src="assets/posters/3-idiots.jpg.JPG" alt="3 Idiots poster">
-        </div>
-      </div>
-    </article>
+<article class="film">
+<h2>6) The Lunchbox</h2>
+<div class="submeta">Loneliness Routine Connection</div>
+<div class="text">
+<p>
+This is a very quiet film. It moves slowly and notices small things.
+A mistaken lunch delivery connects two strangers living very ordinary lives.
+</p>
+<p>
+There is no rush and no dramatic push. The connection builds through words
+and routine. That patience is what makes it feel real.
+</p>
+<p>
+It shows a softer side of Indian cinema that many people do not expect.
+</p>
+</div>
+<div class="posterWrap">
+<div class="poster">
+<img src="assets/posters/the-lunchbox-2013-poster.jpg.jpeg" alt="The Lunchbox poster">
+</div>
+</div>
+</article>
 
-    <!-- 2. Andhadhun -->
-    <article class="film">
-      <h2>2) Andhadhun</h2>
-      <div class="submeta">Dark thriller • Twisted comedy • Moral uncertainty</div>
-
-      <div class="text">
-        <p>
-          Andhadhun is the film you show someone who thinks Indian cinema is predictable.
-        </p>
-
-        <p>
-          A pianist pretends to be blind in order to focus on his art. That lie places him at the wrong
-          place at the worst possible time. From there, the story keeps folding in on itself. Every
-          decision creates a new problem. Every character hides something.
-        </p>
-
-        <p>
-          The film never tells you how to feel. It allows situations to play out and lets the audience
-          sit with the consequences. Humor exists, but it is sharp and uncomfortable, not comforting.
-        </p>
-
-        <p>
-          This is Indian cinema choosing ambiguity over reassurance. It trusts the viewer. That trust
-          is what makes it so effective.
-        </p>
-      </div>
-
-      <div class="posterWrap">
-        <div class="poster">
-          <img src="assets/posters/andhadhun.jpg.JPG" alt="Andhadhun poster">
-        </div>
-      </div>
-    </article>
-
-    <!-- 3. RRR -->
-    <article class="film">
-      <h2>3) RRR</h2>
-      <div class="submeta">Friendship • Freedom • Mythic action</div>
-
-      <div class="text">
-        <p>
-          RRR is not subtle, and it does not try to be. It understands exactly what it wants to do and
-          commits to it fully.
-        </p>
-
-        <p>
-          Two men from opposite sides of colonial India meet by chance and form a powerful bond. What
-          they do not know is that their loyalties will eventually pull them apart. The film builds
-          its emotions large because the story itself is designed as a modern myth.
-        </p>
-
-        <p>
-          Beneath the spectacle is something very simple. Friendship tested by duty. Personal loyalty
-          clashing with a larger cause. The reason the film works is not just the action, but the
-          sincerity behind it.
-        </p>
-
-        <p>
-          This is Indian cinema at its most unapologetic and confident. If you want to understand how
-          scale and emotion coexist here, RRR makes that clear.
-        </p>
-      </div>
-
-      <div class="posterWrap">
-        <div class="poster">
-          <img src="assets/posters/rrr.jpg.JPG" alt="RRR poster">
-        </div>
-      </div>
-    </article>
-
-    <!-- 4. Baahubali Duology -->
-    <article class="film">
-      <h2>4) Baahubali: The Beginning &amp; The Conclusion</h2>
-      <div class="submeta">Epic fantasy • Power • Betrayal</div>
-
-      <div class="text">
-        <p>
-          The Baahubali films function like folklore retold at full volume.
-        </p>
-
-        <p>
-          A kingdom shaped by legend. A hero whose past has been deliberately buried. A betrayal that
-          defines an entire generation. The two films work as one continuous story about power, pride,
-          and the cost of choosing righteousness over convenience.
-        </p>
-
-        <p>
-          What matters here is not realism but emotional clarity. Characters are driven by loyalty,
-          ambition, love, and revenge. Everything is heightened, but nothing is random.
-        </p>
-
-        <p>
-          Watching Baahubali helps explain why Indian cinema often embraces mythic storytelling. It is
-          not escapism. It is a way of turning moral questions into shared memory.
-        </p>
-      </div>
-
-      <div class="posterWrap">
-        <div class="poster">
-          <img src="assets/posters/baahubali-duology-poster.jpg.jpeg" alt="Baahubali duology poster">
-        </div>
-      </div>
-    </article>
-
-    <!-- 5. Dangal -->
-    <article class="film">
-      <h2>5) Dangal</h2>
-      <div class="submeta">Discipline • Family • Resistance</div>
-
-      <div class="text">
-        <p>
-          Dangal looks like a sports film, but its real subject is control.
-        </p>
-
-        <p>
-          A former wrestler trains his daughters to compete in a system that is stacked against them.
-          The film does not present him as flawless. His ambition helps his daughters, but it also
-          limits them.
-        </p>
-
-        <p>
-          What makes Dangal effective is its balance. It celebrates achievement without ignoring the
-          emotional cost of relentless discipline. It asks difficult questions about authority and
-          freedom without turning anyone into a villain.
-        </p>
-
-        <p>
-          This is a grounded, accessible film that still carries weight beyond its genre.
-        </p>
-      </div>
-
-      <div class="posterWrap">
-        <div class="poster">
-          <img src="assets/posters/dangal-2016-poster.jpg.jpeg" alt="Dangal poster">
-        </div>
-      </div>
-    </article>
-
-    <!-- 6. The Lunchbox -->
-    <article class="film">
-      <h2>6) The Lunchbox</h2>
-      <div class="submeta">Loneliness • Routine • Human connection</div>
-
-      <div class="text">
-        <p>
-          The Lunchbox is quiet in a way that feels almost rare.
-        </p>
-
-        <p>
-          A mistaken lunch delivery connects two strangers living very different lives. What follows
-          is not romance in the conventional sense, but companionship built through words, routine,
-          and patience.
-        </p>
-
-        <p>
-          The film understands urban loneliness deeply. It pays attention to small gestures, everyday
-          habits, and the emotional weight of ordinary days.
-        </p>
-
-        <p>
-          For someone new to Indian cinema, this film shows that restraint and tenderness exist here
-          just as strongly as spectacle.
-        </p>
-      </div>
-
-      <div class="posterWrap">
-        <div class="poster">
-          <img src="assets/posters/the-lunchbox-2013-poster.jpg.jpeg" alt="The Lunchbox poster">
-        </div>
-      </div>
-    </article>
-
-    <!-- 7. Sardar Udham -->
-    <article class="film">
-      <h2>7) Sardar Udham</h2>
-      <div class="submeta">History • Grief • Quiet anger</div>
-
-      <div class="text">
-        <p>
-          Sardar Udham is not interested in patriotic noise.
-        </p>
-
-        <p>
-          It follows a revolutionary whose life is shaped by trauma rather than slogans. The film
-          moves slowly, allowing history to settle instead of rushing toward catharsis.
-        </p>
-
-        <p>
-          Violence is shown as something that scars rather than empowers. Anger exists, but it is
-          controlled and internal. The weight of colonial brutality is allowed to speak for itself.
-        </p>
-
-        <p>
-          This is a mature historical film that trusts silence more than speeches.
-        </p>
-      </div>
-
-      <div class="posterWrap">
-        <div class="poster">
-          <img src="assets/posters/sardar-udham.jpg.JPG" alt="Sardar Udham poster">
-        </div>
-      </div>
-    </article>
-
-  </div>
-</section>
+<article class="film">
+<h2>7) Sardar Udham</h2>
+<div class="submeta">History Grief Silence</div>
+<div class="text">
+<p>
+This film avoids noise and speeches. It sits quietly with pain and memory.
+</p>
+<p>
+Instead of turning history into spectacle, it allows it to feel heavy.
+Violence is shown as something that scars rather than empowers.
+</p>
+<p>
+It is not an easy watch, but it leaves a strong impression.
+</p>
+</div>
+<div class="posterWrap">
+<div class="poster">
+<img src="assets/posters/sardar-udham.jpg.JPG" alt="Sardar Udham poster">
+</div>
+</div>
+</article>
 
 </main>
 
