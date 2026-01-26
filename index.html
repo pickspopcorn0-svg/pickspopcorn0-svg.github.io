@@ -202,23 +202,77 @@ nav a:hover{color:#fff}
   max-width:52ch;
 }
 
-/* View all */
+/* FEATURED EDITORIALS HEADER ROW (title left, button right) */
+.featuredHead{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:18px;
+  margin-bottom:26px;
+}
+.featuredHead h2{margin-bottom:0}
+.featuredHead .sectionLead{margin:10px 0 0}
+
+/* View all button (more visible) */
 .viewAll{
-  display:inline-block;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
   padding:10px 18px;
   font-size:13px;
-  color:#bcbcbc;
-  border:1px solid rgba(255,255,255,.15);
+  font-weight:700;
+  color:#f1f1f1;
+  border:1px solid rgba(255,255,255,.26);
   border-radius:999px;
-  transition:all .2s ease;
+  background:rgba(255,255,255,.07);
+  box-shadow:0 14px 40px rgba(0,0,0,.45);
+  transition:transform .18s ease, background .18s ease, border-color .18s ease;
+  white-space:nowrap;
 }
 .viewAll:hover{
-  color:#fff;
-  border-color:rgba(255,255,255,.35);
+  transform:translateY(-2px);
+  background:rgba(255,255,255,.11);
+  border-color:rgba(255,255,255,.42);
 }
-.viewAllWrap{
-  text-align:center;
-  margin-top:24px;
+
+/* CATEGORIES */
+.catGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:26px;
+}
+.cat{
+  height:260px;
+  border-radius:18px;
+  background-size:cover;
+  background-position:center;
+  position:relative;
+  overflow:hidden;
+  border:none;
+  box-shadow:0 18px 55px rgba(0,0,0,.50);
+  transition:transform .22s ease, box-shadow .22s ease, filter .22s ease;
+}
+.cat::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(700px 420px at 30% 25%, rgba(255,255,255,.05), transparent 60%),
+    linear-gradient(to top, rgba(0,0,0,.90), rgba(0,0,0,.28), transparent);
+}
+.cat span{
+  position:absolute;
+  left:18px;
+  bottom:18px;
+  font-size:22px;
+  font-weight:900;
+  z-index:2;
+  text-shadow:0 10px 22px rgba(0,0,0,.85);
+}
+.cat:hover{
+  transform:translateY(-6px);
+  box-shadow:0 34px 95px rgba(0,0,0,.70);
+  filter:saturate(1.05) contrast(1.04);
 }
 
 /* RESPONSIVE */
@@ -228,6 +282,10 @@ nav a:hover{color:#fff}
   .heroInner{padding:56px 0}
   .hero h1{font-size:42px}
   .section{padding:64px 0}
+  .featuredHead{align-items:flex-start}
+}
+@media(max-width:640px){
+  .featuredHead{flex-direction:column;align-items:flex-start}
 }
 </style>
 </head>
@@ -265,10 +323,16 @@ nav a:hover{color:#fff}
 
 <section class="section">
   <div class="container">
-    <h2>Featured editorials</h2>
-    <p class="sectionLead">
-      Short reads, strong picks — designed to help you decide what to watch next.
-    </p>
+
+    <div class="featuredHead">
+      <div>
+        <h2>Featured editorials</h2>
+        <p class="sectionLead">
+          Short reads, strong picks — designed to help you decide what to watch next.
+        </p>
+      </div>
+      <a href="editorials.html" class="viewAll">View all →</a>
+    </div>
 
     <div class="feed">
       <a class="feedLink" href="must-watch-espionage.html">
@@ -351,10 +415,6 @@ nav a:hover{color:#fff}
           </div>
         </div>
       </a>
-    </div> <!-- closes .feed -->
-
-    <div class="viewAllWrap">
-      <a href="editorials.html" class="viewAll">View all</a>
     </div>
 
   </div>
@@ -364,7 +424,7 @@ nav a:hover{color:#fff}
   <div class="container">
     <h2>Browse categories</h2>
     <p class="sectionLead">
-      Explore cinema across cultures , organized by what actually matters.
+      Explore cinema across cultures, organized by what actually matters.
     </p>
 
     <div class="catGrid">
