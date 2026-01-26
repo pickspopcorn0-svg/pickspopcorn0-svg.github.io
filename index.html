@@ -37,7 +37,7 @@ body{
   margin:0 auto;
 }
 
-/* header */
+/* HEADER */
 header{
   position:fixed;
   top:0;left:0;right:0;
@@ -52,105 +52,6 @@ header{
   z-index:100;
 }
 .logo{font-weight:800;letter-spacing:.4px}
-nav a{
-  margin-left:18px;
-  font-size:12px;
-  color:rgba(255,255,255,.72);
-}
-nav a:hover{color:#fff}
-
-/* hero */
-.hero{
-  min-height:88vh;
-  display:flex;
-  align-items:center;
-  padding-top:64px;
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.92)),
-    url("assets/home/hero.jpg");
-  background-size:cover;
-  background-position:center;
-  border-bottom:1px solid rgba(255,255,255,.06);
-}
-.heroInner{
-  width:min(1120px, calc(100% - 40px));
-  margin:0 auto;
-  padding:64px 0;
-}
-.hero h1{
-  margin-top:18px;
-  font-size:58px;
-  line-height:1.05;
-  letter-spacing:-.02em;
-}
-.hero p{
-  margin-top:14px;
-  max-width:64ch;
-  color:var(--muted);
-  font-size:18px;
-  line-height:1.65;
-}
-
-/* sections */
-.section{
-  padding:84px 0;
-}
-.section h2{
-  font-size:28px;
-  margin-bottom:18px;
-}
-.sectionLead{
-  margin-bottom:26px;
-  max-width:72ch;
-  color:var(--muted2);
-  font-size:16px;
-  line-height:1.7;
-}
-
-/* view all */
-.viewAll{
-  display:inline-block;
-  padding:10px 18px;
-  font-size:13px;
-  color:#bcbcbc;
-  border:1px solid rgba(255,255,255,.15);
-  border-radius:999px;
-  transition:all .2s ease;
-}
-.viewAll:hover{
-  color:#fff;
-  border-color:rgba(255,255,255,.35);
-}
-.viewAllWrap{
-  text-align:center;
-  margin-top:24px;
-}
-</style>
-
-/* layout helper */
-.container{
-  width:min(1120px, calc(100% - 40px));
-  margin:0 auto;
-}
-
-/* HEADER */
-header{
-  position:fixed;
-  inset:0 0 auto 0;
-  height:64px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 40px;
-  background:rgba(10,10,14,.72);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--lineSoft);
-  z-index:100;
-}
-.logo{
-  font-weight:800;
-  letter-spacing:.4px;
-}
 nav a{
   margin-left:18px;
   font-size:12px;
@@ -257,7 +158,6 @@ nav a:hover{color:#fff}
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:26px;
 }
-
 .feedCard{
   height:360px;
   border-radius:18px;
@@ -270,7 +170,6 @@ nav a:hover{color:#fff}
   transform:translateZ(0);
   transition:transform .22s ease, box-shadow .22s ease, filter .22s ease;
 }
-
 .feedCard::after{
   content:"";
   position:absolute;
@@ -284,20 +183,17 @@ nav a:hover{color:#fff}
   box-shadow:0 42px 110px rgba(0,0,0,.75);
   filter:saturate(1.05) contrast(1.04);
 }
-
 .feedText{
   position:absolute;
   left:0; right:0; bottom:0;
   padding:22px;
   z-index:2;
 }
-
 .feedText h3{
   font-size:20px;
   font-weight:800;
   letter-spacing:.1px;
 }
-
 .feedText p{
   margin-top:8px;
   font-size:14px;
@@ -305,84 +201,25 @@ nav a:hover{color:#fff}
   line-height:1.5;
   max-width:52ch;
 }
-/* CATEGORIES */
-.catGrid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:26px;
-}
-.cat{
-  height:260px;
-  border-radius:18px;
-  background-size:cover;
-  background-position:center;
-  position:relative;
-  overflow:hidden;
-  border:none;
-  box-shadow:0 18px 55px rgba(0,0,0,.50);
-  transition:transform .22s ease, box-shadow .22s ease, filter .22s ease;
-}
-.cat::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(700px 420px at 30% 25%, rgba(255,255,255,.05), transparent 60%),
-    linear-gradient(to top, rgba(0,0,0,.90), rgba(0,0,0,.28), transparent);
-}
-.cat span{
-  position:absolute;
-  left:18px;
-  bottom:18px;
-  font-size:22px;
-  font-weight:900;
-  z-index:2;
-  text-shadow:0 10px 22px rgba(0,0,0,.85);
-}
-.cat:hover{
-  transform:translateY(-6px);
-  box-shadow:0 34px 95px rgba(0,0,0,.70);
-  filter:saturate(1.05) contrast(1.04);
-}
 
-/* END SECTION (so homepage doesn't feel like it just stops) */
-.endcap{
-  padding:70px 0 84px;
-  border-top:1px solid rgba(255,255,255,.06);
-  background:linear-gradient(to bottom, rgba(255,255,255,.02), rgba(0,0,0,.10));
+/* View all */
+.viewAll{
+  display:inline-block;
+  padding:10px 18px;
+  font-size:13px;
+  color:#bcbcbc;
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:999px;
+  transition:all .2s ease;
 }
-.endcapBox{
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:18px;
-  padding:26px;
-  background:rgba(255,255,255,.03);
+.viewAll:hover{
+  color:#fff;
+  border-color:rgba(255,255,255,.35);
 }
-.endcapBox h3{
-  font-size:18px;
-  font-weight:900;
+.viewAllWrap{
+  text-align:center;
+  margin-top:24px;
 }
-.endcapBox p{
-  margin-top:10px;
-  color:var(--muted2);
-  line-height:1.7;
-  max-width:80ch;
-}
-
-/* FOOTER */
-footer{
-  border-top:1px solid rgba(255,255,255,.08);
-  padding:60px 0;
-  color:rgba(255,255,255,.65);
-}
-.footerGrid{
-  display:grid;
-  grid-template-columns:1.4fr 1fr 1fr;
-  gap:40px;
-}
-footer h4{color:#fff;margin-bottom:12px}
-footer a{display:block;margin:6px 0;font-size:13px;color:rgba(255,255,255,.62)}
-footer a:hover{color:#fff}
-footer p{line-height:1.7;font-size:13px;color:rgba(255,255,255,.66)}
 
 /* RESPONSIVE */
 @media(max-width:900px){
@@ -391,7 +228,6 @@ footer p{line-height:1.7;font-size:13px;color:rgba(255,255,255,.66)}
   .heroInner{padding:56px 0}
   .hero h1{font-size:42px}
   .section{padding:64px 0}
-  .footerGrid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -417,10 +253,9 @@ footer p{line-height:1.7;font-size:13px;color:rgba(255,255,255,.66)}
     <div class="kicker"><span class="dot"></span> Curated picks</div>
     <h1>Cinema beyond borders.</h1>
     <p>
-
-   Once you overcome the one-inch-tall barrier of subtitles, you will be introduced to so many more amazing films.
-  <span style="display:block;margin-top:10px;opacity:.85">— Bong Joon-ho</span>
-</p>
+      Once you overcome the one-inch-tall barrier of subtitles, you will be introduced to so many more amazing films.
+      <span style="display:block;margin-top:10px;opacity:.85">— Bong Joon-ho</span>
+    </p>
     <div class="heroActions">
       <a class="btn primary" href="movies.html">Browse Movies</a>
       <a class="btn" href="tv-shows.html">Browse TV Shows</a>
@@ -471,53 +306,56 @@ footer p{line-height:1.7;font-size:13px;color:rgba(255,255,255,.66)}
           </div>
         </div>
       </a>
-<a class="feedLink" href="international-films-that-won-the-oscar-the-last-decade.html">
-  <div class="feedCard" style="background-image:url('assets/posters/IMG_2842.webp');">
-    <div class="feedText">
-      <h3>International Films That Won the Oscar</h3>
-      <p>The last decade of global cinema recognised by the Academy.</p>
-    </div>
-  </div>
-</a>
-  <a class="feedLink" href="editorial-korean-dating-shows.html">
-  <div class="feedCard" style="background-image:url('assets/posters/singles-inferno.jpg.JPG');">
-    <div class="feedText">
-      <h3>Korean Dating Shows Worth Your Time</h3>
-      <p>Reality formats that understand emotions, not chaos.</p>
-    </div>
-  </div>
-</a>
+
+      <a class="feedLink" href="international-films-that-won-the-oscar-the-last-decade.html">
+        <div class="feedCard" style="background-image:url('assets/posters/IMG_2842.webp');">
+          <div class="feedText">
+            <h3>International Films That Won the Oscar</h3>
+            <p>The last decade of global cinema recognised by the Academy.</p>
+          </div>
+        </div>
+      </a>
+
+      <a class="feedLink" href="editorial-korean-dating-shows.html">
+        <div class="feedCard" style="background-image:url('assets/posters/singles-inferno.jpg.JPG');">
+          <div class="feedText">
+            <h3>Korean Dating Shows Worth Your Time</h3>
+            <p>Reality formats that understand emotions, not chaos.</p>
+          </div>
+        </div>
+      </a>
 
       <a class="feedLink" href="indian-introduction.html">
-  <div class="feedCard" style="background-image:url('assets/posters/india-editorial.jpg.WEBP');">
-    <div class="feedText">
-      <h3>Your First Steps into Indian Cinema</h3>
-      <p>Mainstream hits to powerful modern classics.</p>
-    </div>
-  </div>
-</a>
+        <div class="feedCard" style="background-image:url('assets/posters/india-editorial.jpg.WEBP');">
+          <div class="feedText">
+            <h3>Your First Steps into Indian Cinema</h3>
+            <p>Mainstream hits to powerful modern classics.</p>
+          </div>
+        </div>
+      </a>
+
       <a class="feedLink" href="recommended-crime-tv-shows.html">
-  <div class="feedCard" style="background-image:url('assets/posters/Crime.jpg.JPG');">
-    <div class="feedText">
-      <h3>Our Recommended Crime TV Shows</h3>
-      <p>Character-driven crime series we’ve watched and recommend.</p>
-    </div>
-  </div>
-</a>
+        <div class="feedCard" style="background-image:url('assets/posters/Crime.jpg.JPG');">
+          <div class="feedText">
+            <h3>Our Recommended Crime TV Shows</h3>
+            <p>Character-driven crime series we’ve watched and recommend.</p>
+          </div>
+        </div>
+      </a>
+
       <a class="feedLink" href="high-stakes-action-thrillers.html">
-  <div class="feedCard" style="background-image:url('assets/posters/tv/the-terminal-list.jpg.jpeg');">
-    <div class="feedText">
-      <h3>High-Stakes Action Thrillers</h3>
-      <p>Bingeable spy and action shows with constant pressure.</p>
+        <div class="feedCard" style="background-image:url('assets/posters/tv/the-terminal-list.jpg.jpeg');">
+          <div class="feedText">
+            <h3>High-Stakes Action Thrillers</h3>
+            <p>Bingeable spy and action shows with constant pressure.</p>
+          </div>
+        </div>
+      </a>
+    </div> <!-- closes .feed -->
+
+    <div class="viewAllWrap">
+      <a href="editorials.html" class="viewAll">View all</a>
     </div>
-  </div>
-</a>
-
-</div> <!-- closes .feed -->
-
-<div class="viewAllWrap">
-  <a href="editorials.html" class="viewAll">View all</a>
-</div>
 
   </div>
 </section>
