@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>The Quiet Hesitation Around Subtitled Films — Popcorn Picks</title>
+<title>Between the Frames | Popcorn Picks</title>
 
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
@@ -32,19 +32,13 @@ img{max-width:100%;display:block}
 .back{color:#aaa;font-size:13px}
 .back:hover{color:#fff}
 
-/* HERO */
+/* HERO (simple, not a full-article hero) */
 .hero{
-  min-height:70vh;
-  display:flex;
-  align-items:flex-end;
-  padding:72px 22px 56px;
-  background:
-    radial-gradient(900px 420px at 15% 20%, rgba(255,255,255,.08), transparent 55%),
-    linear-gradient(to bottom, rgba(0,0,0,.22), rgba(11,11,12,.95)),
-   url('../assets/posters/why-we-dont-watch-subtitles.JPG.JPG');
-  background-size:cover;
-  background-position:center;
+  padding:64px 22px 34px;
   border-bottom:1px solid #1f1f1f;
+  background:
+    radial-gradient(900px 420px at 15% 20%, rgba(255,255,255,.06), transparent 55%),
+    linear-gradient(to bottom, rgba(0,0,0,.18), rgba(11,11,12,.92));
 }
 .heroInner{max-width:980px;margin:0 auto;width:100%}
 .kicker{
@@ -59,15 +53,15 @@ img{max-width:100%;display:block}
   background:rgba(255,255,255,.04);
 }
 .hero h1{
-  margin-top:16px;
-  font-size:54px;
-  line-height:1.05;
-  letter-spacing:-.03em;
+  margin-top:14px;
+  font-size:46px;
+  line-height:1.08;
+  letter-spacing:-.02em;
 }
 .heroLead{
-  margin-top:14px;
+  margin-top:12px;
   max-width:78ch;
-  color:#d0d0d0;
+  color:#cfcfcf;
   line-height:1.75;
   font-size:16px;
 }
@@ -76,47 +70,67 @@ img{max-width:100%;display:block}
 .wrap{
   max-width:980px;
   margin:0 auto;
-  padding:46px 22px 90px;
+  padding:34px 22px 90px;
 }
 
-/* ARTICLE */
-.article{
+/* GRID OF CARDS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:18px;
+}
+
+/* CARD */
+.card{
   border:1px solid #181818;
-  border-radius:22px;
+  border-radius:18px;
+  overflow:hidden;
   background:rgba(255,255,255,.02);
-  padding:28px 22px;
+  transition:transform .18s ease, border-color .18s ease, background .18s ease;
 }
-.metaLine{
-  margin-top:10px;
-  color:#a9a9a9;
-  font-size:12px;
-  letter-spacing:.10em;
+.card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(255,255,255,.20);
+  background:rgba(255,255,255,.03);
+}
+.cardThumb{
+  height:180px;
+  background-size:cover;
+  background-position:center;
+  position:relative;
+}
+.cardThumb::after{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom, rgba(0,0,0,.05), rgba(0,0,0,.65));
+}
+.cardBody{
+  padding:16px 14px 18px;
+}
+.cardKicker{
+  font-size:11px;
+  letter-spacing:.18em;
   text-transform:uppercase;
+  color:#a9a9a9;
 }
-.sectionTitle{
-  margin-top:26px;
-  font-size:22px;
+.cardTitle{
+  margin-top:8px;
+  font-size:18px;
+  line-height:1.25;
   letter-spacing:-.01em;
 }
-.sectionTitle:first-of-type{margin-top:0}
-p{
-  margin-top:14px;
-  color:#d7d7d7;
-  line-height:1.95;
-  font-size:16px;
-  max-width:78ch;
-}
-hr{
-  margin:28px 0;
-  border:0;
-  border-top:1px solid rgba(255,255,255,.10);
+.cardDesc{
+  margin-top:8px;
+  color:#cfcfcf;
+  line-height:1.65;
+  font-size:14px;
+  max-width:60ch;
 }
 
 /* MOBILE */
 @media(max-width:760px){
-  .hero h1{font-size:40px}
-  .article{padding:22px 16px}
-  .sectionTitle{font-size:20px}
+  .hero h1{font-size:34px}
+  .cardThumb{height:160px}
 }
 </style>
 </head>
@@ -132,122 +146,41 @@ hr{
 <header class="hero">
   <div class="heroInner">
     <span class="kicker">Between the Frames</span>
-    <h1>The Quiet Hesitation Around Subtitled Films</h1>
+    <h1>Essays, not recommendations</h1>
     <div class="heroLead">
-      A closer look at how fatigue, habit, and modern viewing patterns shape what people press play on.
+      Longer pieces about how we watch, what we avoid, and why certain films hit harder than they should.
     </div>
   </div>
 </header>
 
 <main class="wrap">
-  <article class="article">
+  <div class="grid">
 
-    <h2 class="sectionTitle">Mental fatigue plays a bigger role than we admit</h2>
-    <p>
-      The reluctance to choose a subtitled film often has very little to do with taste and a lot to do with timing.
-      After a long day, most people don’t sit down looking for stimulation. They’re looking for something that feels manageable.
-      Something familiar. Something that doesn’t ask too much of them.
-    </p>
-    <p>
-      Subtitled films, fairly or not, carry a different expectation. They suggest attentiveness, emotional involvement, the need to stay with the screen.
-      Even committed viewers of international cinema can pause when they’re drained, aware at some level that the experience may require a kind of focus
-      they’re not ready to offer.
-    </p>
-    <p>
-      When watching becomes a way to unwind rather than engage, choices begin to drift toward what feels easiest to sit with.
-      Not because it’s better, but because it fits the moment more comfortably.
-    </p>
+    <!-- Article 1 -->
+    <a class="card" href="are-we-killing-cinema-magic.html">
+      <div class="cardThumb" style="background-image:url('assets/posters/between-the-frames/cinema-magic.jpg');"></div>
+      <div class="cardBody">
+        <div class="cardKicker">Between the Frames</div>
+        <div class="cardTitle">Are we killing cinema’s magic before entering the theatre?</div>
+        <div class="cardDesc">
+          Trailers, clips, reels, “mass moments” — when you already know everything, what’s left to feel inside the hall?
+        </div>
+      </div>
+    </a>
 
-    <hr>
+    <!-- Article 2 -->
+    <a class="card" href="the-quiet-hesitation-around-subtitled-films.html">
+      <div class="cardThumb" style="background-image:url('assets/posters/why-we-dont-watch-subtitles.JPG.JPG');"></div>
+      <div class="cardBody">
+        <div class="cardKicker">Between the Frames</div>
+        <div class="cardTitle">The Quiet Hesitation Around Subtitled Films</div>
+        <div class="cardDesc">
+          It’s not hate. It’s timing, fatigue, and the tiny pause before pressing play.
+        </div>
+      </div>
+    </a>
 
-    <h2 class="sectionTitle">Habit often wins over intention</h2>
-    <p>
-      Most people don’t consciously decide against subtitled films. They save them, add them to lists, bookmark recommendations.
-      There’s usually an intention to return to them later, when there’s more time or more focus to spare.
-      But “later” has a habit of colliding with routines built over years.
-    </p>
-    <p>
-      When the moment to choose arrives, familiarity has an advantage. A known voice. A rhythm that doesn’t require constant attention.
-      Dialogue that can be followed even if the mind drifts. The subtitled option is rarely rejected outright. It’s simply postponed.
-    </p>
-    <p>
-      What makes this difficult to notice is how quiet the decision feels. People don’t think, I don’t want to read subtitles.
-      They think, maybe not tonight. And that thought returns, gently, the next time as well.
-    </p>
-
-    <hr>
-
-    <h2 class="sectionTitle">The Parasite quote and what it actually means</h2>
-    <p>
-      When Bong Joon-ho spoke about subtitles being a one-inch-tall barrier, the line travelled widely, often repeated as encouragement
-      and sometimes as a challenge. But the quote works better when read patiently. It isn’t dismissing the difficulty of subtitles.
-      It’s pointing to where that difficulty actually lives.
-    </p>
-    <p>
-      Once viewers settle into a subtitled film, reading rarely remains a conscious effort for long. Eyes adjust. Attention synchronises.
-      Emotion comes through expressions, pauses, and silences as much as dialogue. Language becomes one part of a larger experience.
-    </p>
-    <p>
-      The resistance happens earlier, in the pause before pressing play, when the decision still feels negotiable.
-    </p>
-
-    <hr>
-
-    <h2 class="sectionTitle">When the barrier feels larger than it is</h2>
-    <p>
-      There’s a quieter anxiety that doesn’t get discussed much: the fear of missing something.
-      Subtitles create the sense that attention has to be divided perfectly, eyes moving fast enough, emotions still registering,
-      nothing slipping through the cracks.
-    </p>
-    <p>
-      Even though this fear usually fades once the film begins, it’s persuasive enough to steer people toward something safer.
-      Something that feels easier to follow, even if it offers less in return.
-    </p>
-    <p>
-      Streaming culture has amplified this hesitation. When content is endless, attention becomes cautious.
-      Viewers start protecting it, choosing experiences that feel predictable rather than absorbing.
-    </p>
-    <p>
-      Subtitled films, unfairly, get placed on the later list, the one meant for better moods and clearer evenings.
-    </p>
-
-    <hr>
-
-    <h2 class="sectionTitle">A generational shift</h2>
-    <p>
-      Younger viewers often show less resistance. Growing up alongside global content, faster reading habits,
-      and constant exposure to multiple languages online has made reading on screen feel ordinary rather than disruptive.
-    </p>
-    <p>
-      For them, subtitles aren’t something to overcome. They’re simply part of watching.
-    </p>
-    <p>
-      That difference suggests the issue isn’t fixed or universal. It’s shaped by habit, exposure, and the way watching has been learned over time.
-    </p>
-
-    <hr>
-
-    <h2 class="sectionTitle">The moment before pressing play</h2>
-    <p>
-      Subtitled films aren’t avoided because people lack curiosity. If anything, curiosity often comes first,
-      in recommendations saved, trailers watched, conversations remembered. What gets in the way is something smaller and more ordinary:
-      the way watching has slowly changed.
-    </p>
-    <p>
-      Attention is more divided now. Even moments meant for rest are crowded with notifications, background noise,
-      and the expectation that nothing on screen should ask too much. Subtitles don’t fit easily into that rhythm.
-      They don’t demand focus loudly, but they don’t fade politely either.
-    </p>
-    <p>
-      Noticing this isn’t about fixing habits or choosing differently next time.
-      It’s simply about recognising the gap between what we intend to watch and what we actually make room for.
-    </p>
-    <p>
-      The barrier, as Bong Joon-ho suggested, is smaller than it feels.
-      But it feels real precisely because it appears before the film begins, in that brief pause where deciding still feels optional.
-    </p>
-
-  </article>
+  </div>
 </main>
 
 </body>
