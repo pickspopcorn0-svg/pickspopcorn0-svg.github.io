@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Popcorn Picks | Cinema Beyond Borders</title>
 
+<!-- (Small perf win) preload hero image -->
+<link rel="preload" as="image" href="assets/home/hero.jpg">
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
   crossorigin="anonymous"></script>
 
@@ -64,7 +67,7 @@ nav a:hover{color:#fff}
   min-height:88vh;
   display:flex;
   align-items:center;
-  padding-top:64px; /* header */
+  padding-top:64px;
   background:
     linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.92)),
     url("assets/home/hero.jpg");
@@ -150,23 +153,62 @@ nav a:hover{color:#fff}
   line-height:1.7;
 }
 
-/* FEATURED EDITORIALS */
+/* Section header row (title left, button right) */
+.sectionHead{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:18px;
+  margin-bottom:26px;
+}
+.sectionHead h2{margin-bottom:0}
+.sectionHead .sectionLead{margin:10px 0 0}
+
+/* View all button */
+.viewAll{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 16px;
+  font-size:13px;
+  font-weight:700;
+  color:rgba(255,255,255,.86);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:999px;
+  background:rgba(0,0,0,.28);
+  box-shadow:0 10px 34px rgba(0,0,0,.45);
+  transition:transform .18s ease, background .18s ease, border-color .18s ease, color .18s ease;
+  white-space:nowrap;
+}
+.viewAll:hover{
+  transform:translateY(-2px);
+  background:rgba(255,255,255,.06);
+  border-color:rgba(255,255,255,.26);
+  color:#fff;
+}
+
+/* FEED GRID */
 .feed{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:26px;
 }
+
+/* Cards */
 .feedCard{
   height:360px;
   border-radius:18px;
-  background-size:cover;
-  background-position:center;
   position:relative;
   overflow:hidden;
   border:none;
   box-shadow:0 22px 60px rgba(0,0,0,.55);
   transform:translateZ(0);
   transition:transform .22s ease, box-shadow .22s ease, filter .22s ease;
+
+  /* image fit fix */
+  background-repeat:no-repeat;
+  background-position:center center;
+  background-size:cover;
 }
 .feedCard::after{
   content:"";
@@ -200,39 +242,11 @@ nav a:hover{color:#fff}
   max-width:52ch;
 }
 
-/* Header row for Featured editorials */
-.featuredHead{
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-  gap:18px;
-  margin-bottom:26px;
-}
-.featuredHead h2{margin-bottom:0}
-.featuredHead .sectionLead{margin:10px 0 0}
-
-/* View all button — DARKER + more native */
-.viewAll{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:10px 16px;
-  font-size:13px;
-  font-weight:700;
-  color:rgba(255,255,255,.86);
-  border:1px solid rgba(255,255,255,.16);
-  border-radius:999px;
-  background:rgba(0,0,0,.28);
-  box-shadow:0 10px 34px rgba(0,0,0,.45);
-  transition:transform .18s ease, background .18s ease, border-color .18s ease, color .18s ease;
-  white-space:nowrap;
-}
-.viewAll:hover{
-  transform:translateY(-2px);
-  background:rgba(255,255,255,.06);
-  border-color:rgba(255,255,255,.26);
-  color:#fff;
-}
+/* If any single poster crops badly, add these helper classes on that card */
+.posTop{background-position:center top !important;}
+.posBottom{background-position:center bottom !important;}
+.posLeft{background-position:left center !important;}
+.posRight{background-position:right center !important;}
 
 /* CATEGORIES */
 .catGrid{
@@ -243,13 +257,16 @@ nav a:hover{color:#fff}
 .cat{
   height:260px;
   border-radius:18px;
-  background-size:cover;
-  background-position:center;
   position:relative;
   overflow:hidden;
   border:none;
   box-shadow:0 18px 55px rgba(0,0,0,.50);
   transition:transform .22s ease, box-shadow .22s ease, filter .22s ease;
+
+  /* image fit fix */
+  background-repeat:no-repeat;
+  background-position:center center;
+  background-size:cover;
 }
 .cat::after{
   content:"";
@@ -274,7 +291,15 @@ nav a:hover{color:#fff}
   filter:saturate(1.05) contrast(1.04);
 }
 
-/* FOOTER (this is what was missing in your paste) */
+/* BETWEEN THE FRAMES: force stacked (one under another) */
+.btfFeed{
+  grid-template-columns:1fr !important;
+}
+.btfFeed .feedCard{
+  height:340px; /* a bit more “featured” */
+}
+
+/* FOOTER */
 footer{
   border-top:1px solid rgba(255,255,255,.08);
   padding:60px 0 24px;
@@ -316,10 +341,10 @@ footer p{
   .hero h1{font-size:42px}
   .section{padding:64px 0}
   .footerGrid{grid-template-columns:1fr}
-  .featuredHead{align-items:flex-start}
+  .sectionHead{align-items:flex-start}
 }
 @media(max-width:640px){
-  .featuredHead{flex-direction:column;align-items:flex-start}
+  .sectionHead{flex-direction:column;align-items:flex-start}
 }
 </style>
 </head>
@@ -355,15 +380,14 @@ footer p{
   </div>
 </section>
 
+<!-- FEATURED EDITORIALS -->
 <section class="section">
   <div class="container">
 
-    <div class="featuredHead">
+    <div class="sectionHead">
       <div>
         <h2>Featured editorials</h2>
-        <p class="sectionLead">
-          Short reads, strong picks — designed to help you decide what to watch next.
-        </p>
+        <p class="sectionLead">Short reads, strong picks — designed to help you decide what to watch next.</p>
       </div>
       <a href="editorials.html" class="viewAll">View all →</a>
     </div>
@@ -454,12 +478,11 @@ footer p{
   </div>
 </section>
 
+<!-- CATEGORIES -->
 <section class="section">
   <div class="container">
     <h2>Browse categories</h2>
-    <p class="sectionLead">
-      Explore cinema across cultures, organized by what actually matters.
-    </p>
+    <p class="sectionLead">Explore cinema across cultures, organized by what actually matters.</p>
 
     <div class="catGrid">
       <a class="cat" href="movies.html" style="background-image:url('assets/categories/movies.jpg.JPG')"><span>Movies</span></a>
@@ -474,36 +497,29 @@ footer p{
   </div>
 </section>
 
+<!-- BETWEEN THE FRAMES (2 stacked only) -->
 <section class="section">
   <div class="container">
 
-    <section class="section">
-  <div class="container">
-
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+    <div class="sectionHead">
       <div>
         <h2>Between the Frames</h2>
-        <p class="sectionLead">
-          Personal notes on cinema, culture, and the quiet choices that shape how we watch.
-        </p>
+        <p class="sectionLead">Personal notes on cinema, culture, and the quiet choices that shape how we watch.</p>
       </div>
-
       <a href="between-the-frames.html" class="viewAll">View all →</a>
     </div>
 
     <div class="feed btfFeed">
 
-      <!-- Article 1 -->
       <a class="feedLink" href="are-we-killing-cinema-magic.html">
         <div class="feedCard" style="background-image:url('assets/posters/cinema-magic.jpg');">
           <div class="feedText">
             <h3>Are We Killing Cinema’s Magic Before Entering the Theatre?</h3>
-            <p>What happens when trailers, clips, and hype erase the feeling of discovery.</p>
+            <p>When trailers, clips, and hype erase the feeling of discovery.</p>
           </div>
         </div>
       </a>
 
-      <!-- Article 2 -->
       <a class="feedLink" href="the-quiet-hesitation-around-subtitled-films.html">
         <div class="feedCard" style="background-image:url('assets/posters/why-we-dont-watch-subtitles.JPG.JPG');">
           <div class="feedText">
@@ -518,6 +534,7 @@ footer p{
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="container footerGrid">
     <div class="footerBrand">
