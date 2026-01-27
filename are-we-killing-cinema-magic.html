@@ -18,7 +18,6 @@ body{
 }
 
 a{text-decoration:none;color:inherit}
-img{max-width:100%;display:block}
 
 /* TOPBAR */
 .topbar{
@@ -29,27 +28,25 @@ img{max-width:100%;display:block}
   align-items:center;
   justify-content:space-between;
   padding:16px 20px;
-  background:rgba(10,10,10,.9);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid #222;
+  background:rgba(10,10,10,.88);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.08);
 }
 .brand{font-weight:700;letter-spacing:.3px}
 .back{color:#aaa;font-size:13px}
 .back:hover{color:#fff}
 
-/* HERO */
+/* HERO — NO IMAGE */
 .hero{
-  min-height:70vh;
+  min-height:72vh;
   display:flex;
   align-items:flex-end;
   padding:72px 22px 56px;
   background:
-    radial-gradient(900px 420px at 15% 20%, rgba(255,255,255,.08), transparent 55%),
-    linear-gradient(to bottom, rgba(0,0,0,.22), rgba(11,11,12,.95)),
-    url('../assets/posters/cinema-magic.jpg');
-  background-size:cover;
-  background-position:center;
-  border-bottom:1px solid #1f1f1f;
+    radial-gradient(1200px 520px at 20% 10%, rgba(255,255,255,.08), transparent 60%),
+    radial-gradient(900px 480px at 80% 30%, rgba(255,180,120,.10), transparent 60%),
+    linear-gradient(to bottom, rgba(0,0,0,.15), rgba(11,11,12,.98));
+  border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .heroInner{
@@ -64,45 +61,45 @@ img{max-width:100%;display:block}
   letter-spacing:.22em;
   text-transform:uppercase;
   color:#eaeaea;
-  padding:8px 10px;
+  padding:8px 12px;
   border-radius:999px;
   border:1px solid rgba(255,255,255,.18);
-  background:rgba(255,255,255,.04);
+  background:rgba(255,255,255,.05);
 }
 
 .hero h1{
-  margin-top:16px;
+  margin-top:18px;
   font-size:54px;
-  line-height:1.05;
+  line-height:1.06;
   letter-spacing:-.03em;
 }
 
 .heroLead{
-  margin-top:14px;
-  max-width:78ch;
-  color:#d0d0d0;
+  margin-top:16px;
+  max-width:72ch;
+  color:#d4d4d4;
   line-height:1.75;
-  font-size:16px;
+  font-size:17px;
 }
 
 /* WRAP */
 .wrap{
   max-width:980px;
   margin:0 auto;
-  padding:46px 22px 90px;
+  padding:52px 22px 96px;
 }
 
 /* ARTICLE */
 .article{
-  border:1px solid #181818;
+  border:1px solid rgba(255,255,255,.08);
   border-radius:22px;
-  background:rgba(255,255,255,.02);
-  padding:28px 22px;
+  background:rgba(255,255,255,.03);
+  padding:32px 26px;
 }
 
 .sectionTitle{
-  margin-top:28px;
-  font-size:22px;
+  margin-top:34px;
+  font-size:23px;
   letter-spacing:-.01em;
 }
 
@@ -111,17 +108,17 @@ img{max-width:100%;display:block}
 }
 
 p{
-  margin-top:14px;
+  margin-top:16px;
   color:#d7d7d7;
   line-height:1.95;
-  font-size:16px;
+  font-size:16.5px;
   max-width:78ch;
 }
 
 /* MOBILE */
 @media(max-width:760px){
   .hero h1{font-size:40px}
-  .article{padding:22px 16px}
+  .article{padding:24px 18px}
   .sectionTitle{font-size:20px}
 }
 </style>
@@ -140,7 +137,8 @@ p{
     <span class="kicker">Between the Frames</span>
     <h1>Are We Killing Cinema’s Magic Before We Enter the Theatre?</h1>
     <div class="heroLead">
-      On trailers, overexposure, and what happens when discovery disappears.
+      Trailers, clips, and constant exposure have changed how movies land.  
+      This is about what we lose when discovery disappears.
     </div>
   </div>
 </header>
@@ -149,105 +147,124 @@ p{
   <article class="article">
 
     <p>
-      There was a time when going to the movies meant stepping into the unknown.
-      You bought a ticket because you trusted a name, a poster, or a feeling.
-      You didn’t know the rhythm of the story. You didn’t know which scene would make the crowd gasp.
-      You didn’t even know who might walk onto the screen halfway through and completely change the film.
+      There was a time when walking into a movie theatre meant surrendering control.
+      You didn’t know the rhythm of the film, the shape of its emotions, or which moment
+      would leave the room silent. You trusted a name, a poster, or sometimes nothing
+      more than a vague feeling that this was worth your time.
     </p>
 
     <p>
-      Today, that sense of discovery is quietly disappearing.
-      Before the lights go off, we already know too much.
-      The tone. The emotional peaks. The moments designed to make people cheer, cry, or jump.
-      Sometimes we even know the twist, not because we searched for it, but because it was placed everywhere.
-    </p>
-
-    <h2 class="sectionTitle">When knowing too much changes how we watch</h2>
-
-    <p>
-      Trailers are no longer teasers. They are explanations.
-      They map relationships, hint at arcs, and preview the most striking visuals a film has to offer.
-      Add social media into the mix and the film starts to feel familiar before it even begins.
+      Today, that experience has quietly changed. Long before the lights dim,
+      we already know too much. We know the tone. We know the emotional high points.
+      We know which scenes are designed to shock, which lines will be quoted,
+      and which moments are meant to go viral.
     </p>
 
     <p>
-      As a result, we don’t discover scenes anymore. We recognise them.
-      We don’t react instinctively. We anticipate.
-      The film is still playing, but part of us is already ahead of it.
+      The film hasn’t even begun, and yet half of it already feels familiar.
+    </p>
+
+    <h2 class="sectionTitle">When anticipation replaces experience</h2>
+
+    <p>
+      Modern trailers rarely tease. They explain. They introduce relationships,
+      outline conflicts, and often reveal the strongest images a film has to offer.
+      What was once an invitation has become a condensed summary.
+    </p>
+
+    <p>
+      By the time we sit in our seats, we are no longer discovering scenes.
+      We are waiting for them. Waiting for the shot we saw online.
+      Waiting for the dialogue we recognise. Waiting for the moment
+      we were told would matter.
+    </p>
+
+    <p>
+      This shift changes how we watch. Instead of reacting instinctively,
+      we compare. Instead of being surprised, we evaluate whether the scene
+      lived up to the version already stored in our head.
     </p>
 
     <h2 class="sectionTitle">Surprise is one of cinema’s most powerful emotions</h2>
 
     <p>
-      Surprise sharpens attention. It deepens memory.
-      Many of the scenes we remember most are not just well-made.
-      They are moments we did not see coming.
+      Surprise sharpens attention. It locks moments into memory.
+      Many of the scenes people remember for decades are not just well-crafted.
+      They are moments they did not see coming.
     </p>
 
     <p>
-      When surprise is removed, impact is reduced.
-      A shocking scene can still work, but it will never hit as hard as it would have
-      if experienced for the first time inside a dark theatre.
+      Once surprise is removed, impact weakens. A dramatic reveal can still work,
+      but it will never hit with the same force as it would have inside a dark room,
+      experienced without expectation.
+    </p>
+
+    <p>
+      Knowing what is about to happen creates distance.
+      It turns participation into observation.
     </p>
 
     <h2 class="sectionTitle">Trying to walk in blind</h2>
 
     <p>
       Avoiding overexposure today is genuinely difficult.
-      Even when you try, clips appear, thumbnails autoplay, moments are spoiled without warning.
-      Most of the time, we give in.
+      Even when you try, clips autoplay, thumbnails spoil moments,
+      and scenes circulate as marketing currency.
+      Most of the time, we give in without realising it.
     </p>
 
     <p>
       But once, I didn’t.
       I walked into a film knowing almost nothing.
       No trailer. No cast breakdown. No mapped relationships.
-      And even though the film itself was not perfect, the experience felt fuller.
+      And even though the film itself wasn’t flawless,
+      the experience felt richer.
     </p>
 
     <p>
-      Characters surprised me.
-      Appearances landed harder.
-      I was watching, not comparing.
+      Characters surprised me. Appearances landed harder.
+      I wasn’t predicting the film. I was inside it.
     </p>
 
     <h2 class="sectionTitle">When trailers steal the best moments</h2>
 
     <p>
       Horror and thrillers suffer the most.
-      Jump scares and shock moments are now marketing tools.
-      They grab attention online, but inside the theatre they lose their power.
+      Jump scares, reveals, and shock moments now exist as promotional tools.
+      They work online, but they collapse inside the theatre.
     </p>
 
     <p>
       A scare you expect is not a scare.
-      It is a reminder.
+      It is a reminder that you have already seen this moment once before.
     </p>
 
-    <h2 class="sectionTitle">Why this idea sounds idealistic</h2>
+    <h2 class="sectionTitle">Why this idea sounds unrealistic</h2>
 
     <p>
       Not every film deserves blind trust.
-      Trailers help us filter in an era where time is limited.
-      That reality matters.
+      Trailers help us filter in an era where time is limited
+      and content is endless. That reality matters.
     </p>
 
     <p>
-      But the idea here is smaller.
-      Once a year. One filmmaker you trust.
-      One project where curiosity matters more than certainty.
+      But this isn’t about rejecting trailers entirely.
+      It’s about choosing restraint occasionally.
+      Once a year. One director you trust.
+      One film where curiosity matters more than certainty.
     </p>
 
-    <h2 class="sectionTitle">Maybe mystery is the last luxury cinema has</h2>
+    <h2 class="sectionTitle">Maybe mystery is cinema’s last luxury</h2>
 
     <p>
-      In a world where everything is previewed and explained,
-      mystery itself has become rare.
+      In a world where everything is previewed, explained,
+      and broken into clips, mystery itself has become rare.
     </p>
 
     <p>
       Cinema was once about discovery.
-      Maybe it still can be, if we allow ourselves to experience it that way again.
+      Maybe it still can be, if we allow ourselves
+      to experience it that way again.
       Not always. Not blindly.
       But intentionally.
     </p>
