@@ -10,13 +10,11 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-
 body{
   background:#0b0b0c;
   color:#fff;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
-
 a{text-decoration:none;color:inherit}
 
 /* TOPBAR */
@@ -36,7 +34,7 @@ a{text-decoration:none;color:inherit}
 .back{color:#aaa;font-size:13px}
 .back:hover{color:#fff}
 
-/* HERO — NO IMAGE */
+/* HERO (no image, clean like your other good headers) */
 .hero{
   min-height:72vh;
   display:flex;
@@ -48,13 +46,11 @@ a{text-decoration:none;color:inherit}
     linear-gradient(to bottom, rgba(0,0,0,.15), rgba(11,11,12,.98));
   border-bottom:1px solid rgba(255,255,255,.08);
 }
-
 .heroInner{
   max-width:980px;
   margin:0 auto;
   width:100%;
 }
-
 .kicker{
   display:inline-block;
   font-size:11px;
@@ -66,17 +62,15 @@ a{text-decoration:none;color:inherit}
   border:1px solid rgba(255,255,255,.18);
   background:rgba(255,255,255,.05);
 }
-
 .hero h1{
   margin-top:18px;
   font-size:54px;
   line-height:1.06;
   letter-spacing:-.03em;
 }
-
 .heroLead{
   margin-top:16px;
-  max-width:72ch;
+  max-width:74ch;
   color:#d4d4d4;
   line-height:1.75;
   font-size:17px;
@@ -86,7 +80,7 @@ a{text-decoration:none;color:inherit}
 .wrap{
   max-width:980px;
   margin:0 auto;
-  padding:52px 22px 96px;
+  padding:52px 22px 98px;
 }
 
 /* ARTICLE */
@@ -94,19 +88,14 @@ a{text-decoration:none;color:inherit}
   border:1px solid rgba(255,255,255,.08);
   border-radius:22px;
   background:rgba(255,255,255,.03);
-  padding:32px 26px;
+  padding:34px 28px;
 }
-
 .sectionTitle{
   margin-top:34px;
   font-size:23px;
   letter-spacing:-.01em;
 }
-
-.sectionTitle:first-of-type{
-  margin-top:0;
-}
-
+.sectionTitle:first-of-type{margin-top:0}
 p{
   margin-top:16px;
   color:#d7d7d7;
@@ -114,6 +103,20 @@ p{
   font-size:16.5px;
   max-width:78ch;
 }
+p:first-of-type{margin-top:0}
+
+/* optional small callouts (still clean) */
+.callout{
+  margin-top:22px;
+  padding:14px 16px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(0,0,0,.22);
+  color:rgba(255,255,255,.78);
+  line-height:1.85;
+  max-width:78ch;
+}
+.callout b{color:#fff}
 
 /* MOBILE */
 @media(max-width:760px){
@@ -137,7 +140,7 @@ p{
     <span class="kicker">Between the Frames</span>
     <h1>Are We Killing Cinema’s Magic Before We Enter the Theatre?</h1>
     <div class="heroLead">
-      Trailers, clips, and constant exposure have changed how movies land.  
+      We watch the trailer, then the clips, then the reels, then the breakdowns. By the time the lights go off, the film is already half familiar.
       This is about what we lose when discovery disappears.
     </div>
   </div>
@@ -146,127 +149,131 @@ p{
 <main class="wrap">
   <article class="article">
 
+    <h2 class="sectionTitle">The first-time feeling is getting rare</h2>
     <p>
-      There was a time when walking into a movie theatre meant surrendering control.
-      You didn’t know the rhythm of the film, the shape of its emotions, or which moment
-      would leave the room silent. You trusted a name, a poster, or sometimes nothing
-      more than a vague feeling that this was worth your time.
+      There was a time when going to the theatre meant stepping into the unknown. Not totally blind, but blind enough that the film could still
+      surprise you. You didn’t know the emotional peaks. You didn’t know which scene the crowd would clap for. You didn’t walk in already carrying
+      a mental list of “moments to watch for.” You were just present. And the story did the work.
+    </p>
+    <p>
+      That feeling is slowly disappearing. Not because cinema is worse, but because we are meeting films too early. We meet them in teasers, in
+      trailers, in posters, in character introductions, in scene clips, in reactions, in memes. The movie becomes familiar before we ever sit in the seat.
+    </p>
+    <p>
+      When the theatre experience finally happens, it’s no longer the first time. It’s the final time, after we’ve already consumed half of it in pieces.
     </p>
 
+    <h2 class="sectionTitle">Trailers stopped teasing and started explaining</h2>
     <p>
-      Today, that experience has quietly changed. Long before the lights dim,
-      we already know too much. We know the tone. We know the emotional high points.
-      We know which scenes are designed to shock, which lines will be quoted,
-      and which moments are meant to go viral.
+      A good trailer used to be a door. It gave you a mood. A hint. A promise. It didn’t give you the whole map. Now many trailers are basically
+      summaries with music. They show relationships, arcs, emotional beats, punchlines, and often the biggest images the film has.
+    </p>
+    <p>
+      It sounds normal because everyone does it, but it changes the psychology. You don’t enter the film with curiosity. You enter with expectations.
+      You’re waiting for the scene you already saw. Waiting for the line you already know. Waiting for the shot that was already posted everywhere.
+    </p>
+    <p>
+      Even if you love the film, part of you is watching with a checklist. That small shift is enough to reduce impact.
     </p>
 
-    <p>
-      The film hasn’t even begun, and yet half of it already feels familiar.
-    </p>
+    <div class="callout">
+      <b>The quiet problem:</b> you stop reacting and you start recognising. Recognition feels weaker than discovery, even when the scene is great.
+    </div>
 
     <h2 class="sectionTitle">When anticipation replaces experience</h2>
-
     <p>
-      Modern trailers rarely tease. They explain. They introduce relationships,
-      outline conflicts, and often reveal the strongest images a film has to offer.
-      What was once an invitation has become a condensed summary.
+      There’s a specific way this shows up. A scene begins and you can feel yourself leaning forward, not because you’re inside the moment, but because
+      you remember it. You’re thinking, this is that scene. This is the one from the trailer. This is the one that went viral. This is the one people
+      kept quoting. And suddenly you’re not living the scene, you’re checking it.
+    </p>
+    <p>
+      The theatre becomes a place of confirmation instead of discovery. The film isn’t unfolding, it’s arriving exactly where you expected it to arrive.
+      That’s why even big moments feel smaller now. Not because they’re badly done, but because they’ve already been previewed emotionally.
+    </p>
+    <p>
+      When you know the beat is coming, the beat can still hit, but it won’t hit with the same force. The mind prepares. The body braces. The surprise is gone.
     </p>
 
+    <h2 class="sectionTitle">Surprise is not a gimmick, it’s a core emotion</h2>
     <p>
-      By the time we sit in our seats, we are no longer discovering scenes.
-      We are waiting for them. Waiting for the shot we saw online.
-      Waiting for the dialogue we recognise. Waiting for the moment
-      we were told would matter.
+      Surprise isn’t only about twists. It’s about attention. When you don’t know what’s coming, you watch differently. You’re sharper. You’re more open.
+      You’re easier to move. Cinema needs that openness. It needs the audience to arrive without armour.
+    </p>
+    <p>
+      Many of the scenes people remember for years are remembered because they landed unannounced. Not because they were loud, but because they were unexpected.
+      They came from a direction the audience didn’t see. The gasp, the silence, the sudden laughter, the feeling of a room reacting together. That’s cinema magic.
+    </p>
+    <p>
+      When surprise is removed, impact is reduced. The scene can still be good. The acting can still be strong. The shot can still be beautiful. But the emotional
+      punch is softer because your brain already knows how to stand.
     </p>
 
+    <h2 class="sectionTitle">We are training ourselves to watch from outside</h2>
     <p>
-      This shift changes how we watch. Instead of reacting instinctively,
-      we compare. Instead of being surprised, we evaluate whether the scene
-      lived up to the version already stored in our head.
+      Overexposure doesn’t just spoil specific scenes, it changes the mindset. We don’t sit down to be carried. We sit down to evaluate. We think about pacing,
+      structure, and whether the movie “delivered.” Those words are already telling. Delivered what. Delivered the trailer promise. Delivered the expected moments.
+    </p>
+    <p>
+      We are slowly turning films into products we compare rather than experiences we feel. Even when we love something, the language becomes about satisfaction
+      instead of immersion.
+    </p>
+    <p>
+      And the more we consume films before the film, the more we watch the actual movie with distance. Like we are outside, watching ourselves watch it.
     </p>
 
-    <h2 class="sectionTitle">Surprise is one of cinema’s most powerful emotions</h2>
-
+    <h2 class="sectionTitle">Horror and thrillers get hurt the most</h2>
     <p>
-      Surprise sharpens attention. It locks moments into memory.
-      Many of the scenes people remember for decades are not just well-crafted.
-      They are moments they did not see coming.
+      Horror and thrillers rely on timing and uncertainty. A scare works because you didn’t see it coming. A reveal works because you were looking in the wrong place.
+      A twist works because your mind wasn’t already prepared for it.
+    </p>
+    <p>
+      But modern marketing sells those exact moments. Jump scares become trailer beats. Reveals become thumbnails. Suspense sequences become clips. And inside the theatre,
+      the audience is already ready. A scare you expect isn’t a scare. It’s a reminder that you have already been shown this moment once before.
+    </p>
+    <p>
+      That’s why so many people say nothing feels scary anymore. The fear was spent before opening night.
     </p>
 
+    <h2 class="sectionTitle">Trying to walk in blind is genuinely hard now</h2>
     <p>
-      Once surprise is removed, impact weakens. A dramatic reveal can still work,
-      but it will never hit with the same force as it would have inside a dark room,
-      experienced without expectation.
+      Even if you want to avoid everything, the internet makes it difficult. Clips autoplay. Posters spoil key images. Reactions spread faster than the film itself.
+      You don’t even have to search for spoilers to get spoiled. They arrive on your feed like background noise.
+    </p>
+    <p>
+      So most of us give up. We watch the trailer because it’s “just a trailer.” Then we see another clip. Then another. Then a breakdown. Then we walk in with
+      the whole emotional roadmap already drawn.
+    </p>
+    <p>
+      And sometimes, by accident, you don’t. You miss the trailer. You avoid the discourse. You walk in clean. And suddenly you remember what movies can feel like.
+      Even if the film is imperfect, the experience feels fuller because you are meeting it properly.
     </p>
 
+    <h2 class="sectionTitle">This is not a no-trailers rant</h2>
     <p>
-      Knowing what is about to happen creates distance.
-      It turns participation into observation.
+      Trailers do have a purpose. Time is limited. Content is endless. Not every film deserves blind trust. Trailers can help people choose where to spend money and time.
+      That part is real.
+    </p>
+    <p>
+      But the point isn’t to eliminate trailers. The point is to notice the cost of constant exposure. There is a difference between one trailer and a whole marketing
+      ecosystem that makes the film familiar before release.
+    </p>
+    <p>
+      It’s also about remembering that curiosity is not a weakness. We don’t always need to be fully informed. Sometimes the best part of cinema is not knowing.
     </p>
 
-    <h2 class="sectionTitle">Trying to walk in blind</h2>
-
+    <h2 class="sectionTitle">Choose mystery once in a while</h2>
     <p>
-      Avoiding overexposure today is genuinely difficult.
-      Even when you try, clips autoplay, thumbnails spoil moments,
-      and scenes circulate as marketing currency.
-      Most of the time, we give in without realising it.
+      Maybe the solution is simple. Not dramatic. Just intentional.
+      Pick one film a year. One director you trust. One project you want to give a real chance. And walk in blind.
+      No trailer. No clips. No breakdowns. No scene previews. Just the title and your attention.
     </p>
-
     <p>
-      But once, I didn’t.
-      I walked into a film knowing almost nothing.
-      No trailer. No cast breakdown. No mapped relationships.
-      And even though the film itself wasn’t flawless,
-      the experience felt richer.
+      In a world where everything is previewed and explained, mystery has become rare. And mystery might be cinema’s last luxury.
+      Not because films are secrets, but because the first time feeling is something we can’t recreate once we lose it.
     </p>
-
     <p>
-      Characters surprised me. Appearances landed harder.
-      I wasn’t predicting the film. I was inside it.
-    </p>
-
-    <h2 class="sectionTitle">When trailers steal the best moments</h2>
-
-    <p>
-      Horror and thrillers suffer the most.
-      Jump scares, reveals, and shock moments now exist as promotional tools.
-      They work online, but they collapse inside the theatre.
-    </p>
-
-    <p>
-      A scare you expect is not a scare.
-      It is a reminder that you have already seen this moment once before.
-    </p>
-
-    <h2 class="sectionTitle">Why this idea sounds unrealistic</h2>
-
-    <p>
-      Not every film deserves blind trust.
-      Trailers help us filter in an era where time is limited
-      and content is endless. That reality matters.
-    </p>
-
-    <p>
-      But this isn’t about rejecting trailers entirely.
-      It’s about choosing restraint occasionally.
-      Once a year. One director you trust.
-      One film where curiosity matters more than certainty.
-    </p>
-
-    <h2 class="sectionTitle">Maybe mystery is cinema’s last luxury</h2>
-
-    <p>
-      In a world where everything is previewed, explained,
-      and broken into clips, mystery itself has become rare.
-    </p>
-
-    <p>
-      Cinema was once about discovery.
-      Maybe it still can be, if we allow ourselves
-      to experience it that way again.
-      Not always. Not blindly.
-      But intentionally.
+      Cinema used to be about discovery. Maybe it still can be, if we allow ourselves to experience it that way again.
+      Not always. Not blindly. But intentionally.
     </p>
 
   </article>
