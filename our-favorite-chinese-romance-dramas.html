@@ -75,7 +75,7 @@ body{
 .wrap{
   max-width:1100px;
   margin:0 auto;
-  padding:26px 18px 60px;
+  padding:26px 18px 70px;
 }
 .hero{
   border:1px solid var(--lineSoft);
@@ -144,7 +144,7 @@ body{
 }
 .divline{height:1px;background:var(--lineSoft);margin:2px 0}
 
-/* ARTICLE */
+/* INTRO ARTICLE */
 .article{
   margin-top:18px;
   border:1px solid var(--lineSoft);
@@ -158,7 +158,6 @@ body{
   line-height:1.8;
   margin:12px 0;
 }
-.article p strong{color:#fff}
 .sectionTitle{
   margin-top:6px;
   font-size:18px;
@@ -175,16 +174,76 @@ body{
   border-radius:10px;
 }
 
+/* DRAMA LIST */
+.dramaList{
+  margin-top:18px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.dramaCard{
+  border:1px solid var(--lineSoft);
+  background:rgba(255,255,255,.02);
+  border-radius:16px;
+  overflow:hidden;
+}
+.dramaInner{
+  display:grid;
+  grid-template-columns: 160px 1fr;
+  gap:16px;
+  padding:16px;
+}
+@media (max-width: 720px){
+  .dramaInner{grid-template-columns: 120px 1fr}
+}
+@media (max-width: 520px){
+  .dramaInner{grid-template-columns: 1fr}
+}
+
+.poster{
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid var(--lineSoft);
+  background:rgba(15,15,24,.6);
+  aspect-ratio: 2 / 3;
+}
+.poster img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.dramaTitle{
+  font-size:22px;
+  letter-spacing:-.01em;
+  line-height:1.15;
+}
+.dramaMeta{
+  margin-top:6px;
+  color:var(--muted2);
+  font-size:14px;
+}
+.dramaText{
+  margin-top:10px;
+  color:var(--muted);
+  font-size:15.5px;
+  line-height:1.85;
+}
+.dramaText p{margin:10px 0}
+
+.softDivider{
+  height:1px;
+  background:var(--lineSoft);
+}
+
 /* FOOTER */
 .footer{
-  margin-top:18px;
+  margin-top:22px;
   color:var(--muted2);
   font-size:13px;
-  padding:18px 4px 0;
+  padding:10px 2px 0;
   opacity:.95;
 }
-.footer a{color:rgba(255,255,255,.8)}
-.footer a:hover{color:#fff}
 </style>
 </head>
 
@@ -255,10 +314,247 @@ body{
     </p>
 
     <div class="note">
-      Next step: if you want, paste your final drama list and I will format it into clean sections with posters, short blurbs,
-      and a consistent card layout that matches your other editorials.
+      This list is for people who want romance that feels grown, calm, and real.
+      If you are looking for loud chaos and constant jealousy, this editorial is not that lane.
     </div>
   </article>
+
+  <section class="dramaList">
+
+    <!-- FIREWORKS OF MY HEART -->
+    <article class="dramaCard">
+      <div class="dramaInner">
+        <div class="poster">
+          <img src="assets/posters/cdrama/fireworks-of-my-heart-poster.jpg.JPG" alt="Fireworks of My Heart poster" loading="lazy">
+        </div>
+        <div>
+          <h2 class="dramaTitle">Fireworks of My Heart</h2>
+          <div class="dramaMeta">2023 · 40 Episodes</div>
+          <div class="dramaText">
+            <p>
+              Fireworks of My Heart is a modern romance that brings emotional weight without relying on melodrama.
+              At its center is a relationship shaped by time, separation, and adult responsibility rather than sudden infatuation.
+              The drama begins with distance emotional, social, and circumstantial and slowly works its way toward reconnection.
+            </p>
+            <p>
+              What immediately sets this series apart is how grounded its conflict feels. The obstacles between the leads are not
+              built from petty misunderstandings or manipulative third parties. Instead, they come from real world pressures:
+              family expectations, career choices, and the emotional residue left behind by past decisions.
+            </p>
+            <p>
+              Both leads are professionals who take their work seriously. Their careers are not decorative backdrops but active
+              forces shaping their personalities and choices. Because of this, the romance never feels isolated from reality.
+              Love must coexist with duty, risk, and responsibility, which gives the relationship a mature tone.
+            </p>
+            <p>
+              The emotional pacing is deliberate. Rather than rushing toward confession or resolution, the drama allows hesitation,
+              reflection, and gradual trust building. When emotions surface, they feel restrained, weighted, and earned.
+            </p>
+            <p>
+              Another strength is how the reunion is handled. The drama asks whether two people can reconnect as the people they
+              have become, not just as who they used to be. That question keeps everything grounded.
+            </p>
+            <p>
+              Overall, this is a romance for viewers who prefer emotional realism over fantasy. It doesn’t deny pain, but it doesn’t
+              exploit it either. Love here requires courage, patience, and the willingness to face unresolved feelings.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- LIGHTER AND PRINCESS -->
+    <article class="dramaCard">
+      <div class="dramaInner">
+        <div class="poster">
+          <img src="assets/posters/cdrama/lighter-and-princess-poster.jpg.JPG" alt="Lighter and Princess poster" loading="lazy">
+        </div>
+        <div>
+          <h2 class="dramaTitle">Lighter and Princess</h2>
+          <div class="dramaMeta">2022 · 36 Episodes</div>
+          <div class="dramaText">
+            <p>
+              Lighter and Princess is often described as a youth or campus romance, but its emotional reach goes far beyond that label.
+              At its core, it is a story about two very different personalities learning how to coexist, clash, separate, and eventually
+              understand each other on deeper terms.
+            </p>
+            <p>
+              The relationship is intense, but not chaotic in a cheap way. The male lead is brilliant, difficult, and emotionally closed off,
+              while the female lead is steady, resilient, and quietly strong. Their connection forms not because they are perfectly matched,
+              but because they challenge each other in uncomfortable and transformative ways.
+            </p>
+            <p>
+              The drama acknowledges imbalance without romanticizing it. Power dynamics, emotional distance, and pride are treated as real problems
+              rather than attractive traits. When the relationship breaks under pressure, it feels inevitable rather than forced.
+            </p>
+            <p>
+              The second half carries much of the emotional weight. Time apart allows both characters to grow independently. When they meet again,
+              the romance is no longer built on youthful intensity alone, but on experience, regret, and a clearer understanding of boundaries.
+            </p>
+            <p>
+              Importantly, it does not rush forgiveness. Emotional wounds are not healed overnight. Conversations are cautious and restrained,
+              reflecting the reality of reconnecting after hurt. That restraint makes the eventual reconnection feel earned.
+            </p>
+            <p>
+              This is not a comfort romance in the usual way, but it belongs here because it avoids shortcuts and respects consequence.
+              Love requires growth, humility, and the willingness to confront one’s own flaws.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- MEET YOURSELF -->
+    <article class="dramaCard">
+      <div class="dramaInner">
+        <div class="poster">
+          <img src="assets/posters/cdrama/meet-yourself.jpg.jpeg" alt="Meet Yourself poster" loading="lazy">
+        </div>
+        <div>
+          <h2 class="dramaTitle">Meet Yourself</h2>
+          <div class="dramaMeta">2023 · 40 Episodes</div>
+          <div class="dramaText">
+            <p>
+              Meet Yourself is one of the quietest romances in modern Chinese drama, and also one of the most emotionally sincere.
+              It is less about falling in love and more about learning how to exist again after loss, exhaustion, and burnout.
+            </p>
+            <p>
+              The female lead arrives in a rural setting carrying grief and emotional fatigue. The drama does not rush her healing
+              or treat romance as a solution. It allows space for rest, reflection, and small human connections that slowly rebuild her.
+            </p>
+            <p>
+              The male lead is calm, grounded, and connected to the community around him. He doesn’t push romance forward or insert himself
+              into her healing. He offers companionship without expectation, and that becomes the foundation for something deeper.
+            </p>
+            <p>
+              Romance unfolds quietly while the foreground stays focused on everyday life conversations, shared meals, local routines,
+              and moments of stillness. Love grows not from tension, but from safety.
+            </p>
+            <p>
+              There are no exaggerated conflicts. No villains disrupting peace. No artificial misunderstandings. The drama trusts atmosphere,
+              character, and time. Connection is shown through presence rather than declaration.
+            </p>
+            <p>
+              This is a story about choosing a slower pace of life and learning what truly matters. The romance feels like an extension of that,
+              not the destination itself. Comforting without being shallow, reflective without being heavy.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- YOU ARE MY GLORY -->
+    <article class="dramaCard">
+      <div class="dramaInner">
+        <div class="poster">
+          <img src="assets/posters/cdrama/you-are-my-glory-poster.jpg.JPG" alt="You Are My Glory poster" loading="lazy">
+        </div>
+        <div>
+          <h2 class="dramaTitle">You Are My Glory</h2>
+          <div class="dramaMeta">2021 · 32 Episodes</div>
+          <div class="dramaText">
+            <p>
+              You Are My Glory is often remembered for its warmth, and that reputation is well earned. This is a romance built on mutual admiration,
+              respect, and emotional balance something surprisingly rare in modern romance dramas.
+            </p>
+            <p>
+              Both leads are highly competent. The female lead is confident, accomplished, and emotionally open. The male lead is intelligent but insecure,
+              struggling with self worth despite his abilities. What makes their relationship work is how neither diminishes the other to make romance fit.
+            </p>
+            <p>
+              There is no persistent third party interference and no prolonged jealousy loops. The tension comes from internal doubts and personal expectations.
+              When misunderstandings arise, they are addressed rather than dragged out, creating a dynamic that feels unusually healthy.
+            </p>
+            <p>
+              The story also emphasizes support. Success is not portrayed as a threat to love, and ambition is not framed as something that must be sacrificed.
+              They encourage each other’s growth, and that encouragement becomes the emotional thread that holds everything together.
+            </p>
+            <p>
+              This drama works because it believes romance doesn’t need chaos to be engaging. Kindness, patience, and mutual respect create a warmth that lingers
+              long after it ends.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- LOVE ME, LOVE MY VOICE -->
+    <article class="dramaCard">
+      <div class="dramaInner">
+        <div class="poster">
+          <img src="assets/posters/cdrama/love-me-love-my-voice-poster.jpg.JPG" alt="Love Me, Love My Voice poster" loading="lazy">
+        </div>
+        <div>
+          <h2 class="dramaTitle">Love Me, Love My Voice</h2>
+          <div class="dramaMeta">2023 · 33 Episodes</div>
+          <div class="dramaText">
+            <p>
+              Love Me, Love My Voice is one of the gentlest modern Chinese romances in recent years, and that gentleness is its defining strength.
+              Built around music, voice acting, and creative expression, its emotional core is simple: two people slowly getting comfortable with each other,
+              without pressure.
+            </p>
+            <p>
+              What makes it stand out is the absence of manufactured conflict. No aggressive third party pushing into the relationship.
+              No misunderstandings that could be solved in one honest conversation. The leads are allowed to exist as complete individuals first.
+            </p>
+            <p>
+              The female lead lives a quiet, introspective life connected to art and sound. Her admiration begins through the male lead’s voice and work,
+              creating a rare foundation built on appreciation rather than fantasy. The male lead is calm, emotionally aware, and patient.
+              He listens, waits, and responds.
+            </p>
+            <p>
+              The drama is made of small moments shared meals, late night conversations, creative collaboration, mutual encouragement.
+              Intimacy comes from being seen and accepted without needing to perform.
+            </p>
+            <p>
+              The relationship feels emotionally safe. Disagreements are handled with maturity. Boundaries are respected. Support flows both ways.
+              The pacing is relaxed, but not empty. By the time the romance fully settles, it feels earned through time shared.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- AMIDST A SNOWSTORM OF LOVE -->
+    <article class="dramaCard">
+      <div class="dramaInner">
+        <div class="poster">
+          <img src="assets/posters/cdrama/amidst-a-snowstorm-of-love-poster.jpg.JPG" alt="Amidst a Snowstorm of Love poster" loading="lazy">
+        </div>
+        <div>
+          <h2 class="dramaTitle">Amidst a Snowstorm of Love</h2>
+          <div class="dramaMeta">2024 · 30 Episodes</div>
+          <div class="dramaText">
+            <p>
+              Amidst a Snowstorm of Love takes a similar emotional approach but places it in a colder, more restrained atmosphere.
+              Set against winter landscapes and competitive sports, the drama carries a quiet intensity that mirrors its characters.
+            </p>
+            <p>
+              At its heart, this is a story about discipline, focus, and emotional restraint. Both leads are committed to their paths,
+              and the romance grows alongside that commitment rather than replacing it. Love doesn’t derail ambition; it steadies it.
+            </p>
+            <p>
+              The drama avoids unnecessary interference. There is no endless parade of rivals trying to sabotage the relationship.
+              The tension comes from internal struggles fear of vulnerability, professional pressure, and balancing feelings with long term goals.
+            </p>
+            <p>
+              The relationship develops through shared environments and mutual respect. Conversations feel natural and understated.
+              When emotions surface, they do so quietly through body language, pauses, and unspoken understanding.
+            </p>
+            <p>
+              The snowstorm metaphor works. The world feels cold and demanding, but warmth is built carefully inside it.
+              Love grows because both people choose it again and again, without spectacle.
+            </p>
+            <p>
+              This drama is for viewers who appreciate emotional maturity. Love is not proven through suffering, but through consistency,
+              trust, and presence.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </section>
 
   <div class="footer">
     <span>Popcorn Picks • Cinema Beyond Borders</span>
@@ -267,207 +563,3 @@ body{
 </main>
 </body>
 </html>
-
-<section class="dramaList">
-
-  <article class="dramaBlock">
-    <h2 class="dramaTitle">Fireworks of My Heart</h2>
-    <div class="dramaMeta">2023 · 40 Episodes</div>
-
-    <p>
-      Fireworks of My Heart is a modern romance that brings emotional weight without relying on melodrama.
-      At its center is a relationship shaped by time, separation, and adult responsibility rather than sudden infatuation.
-      The drama begins with distance emotional, social, and circumstantial and slowly works its way toward reconnection.
-    </p>
-
-    <p>
-      What immediately sets this series apart is how grounded its conflict feels. The obstacles between the leads are not
-      built from petty misunderstandings or manipulative third parties. Instead, they come from real world pressures:
-      family expectations, career choices, and the emotional residue left behind by past decisions.
-    </p>
-
-    <p>
-      Both leads are professionals who take their work seriously. Their careers are not decorative backdrops but active
-      forces shaping their personalities and choices. Because of this, the romance never feels isolated from reality.
-      Love must coexist with duty, risk, and responsibility, giving the relationship a mature tone.
-    </p>
-
-    <p>
-      The emotional pacing is deliberate. Rather than rushing toward confession or resolution, the drama allows hesitation,
-      reflection, and gradual trust building. When emotions surface, they feel restrained, weighted, and earned.
-    </p>
-
-    <p>
-      This is a romance for viewers who prefer emotional realism over fantasy. Love here requires courage, patience,
-      and the willingness to confront unresolved feelings rather than pretending they don’t exist.
-    </p>
-  </article>
-
-
-  <article class="dramaBlock">
-    <h2 class="dramaTitle">Lighter and Princess</h2>
-    <div class="dramaMeta">2022 · 36 Episodes</div>
-
-    <p>
-      Lighter and Princess is often labeled a youth romance, but its emotional reach goes far beyond that.
-      At its core, it is about two very different personalities learning how to coexist, clash, separate,
-      and eventually understand each other on deeper terms.
-    </p>
-
-    <p>
-      The male lead is brilliant but emotionally closed off, while the female lead is steady, resilient,
-      and quietly strong. Their connection forms not because they are perfectly matched, but because they
-      challenge each other in uncomfortable and transformative ways.
-    </p>
-
-    <p>
-      The drama acknowledges imbalance without romanticizing it. Emotional distance and pride are treated
-      as real problems, not attractive traits. When the relationship breaks, it feels inevitable rather than forced.
-    </p>
-
-    <p>
-      Time apart allows both characters to grow independently. When they reunite, the romance is no longer
-      built on youthful intensity alone, but on experience, regret, and a clearer understanding of boundaries.
-    </p>
-
-    <p>
-      This is not an easy comfort watch, but it earns its place here because it respects emotional consequence.
-      Love here requires growth, humility, and the courage to confront one’s own flaws.
-    </p>
-  </article>
-
-
-  <article class="dramaBlock">
-    <h2 class="dramaTitle">Meet Yourself</h2>
-    <div class="dramaMeta">2023 · 40 Episodes</div>
-
-    <p>
-      Meet Yourself is one of the quietest romances in modern Chinese drama and also one of the most sincere.
-      It is less about falling in love and more about learning how to exist again after loss, exhaustion, and burnout.
-    </p>
-
-    <p>
-      The female lead arrives in a rural setting carrying grief and emotional fatigue. The drama does not rush
-      her healing or treat romance as a solution. Instead, it allows space for rest, reflection, and small human connections.
-    </p>
-
-    <p>
-      The male lead offers companionship without expectation. His presence is steady rather than dramatic,
-      and that emotional safety becomes the foundation for something deeper.
-    </p>
-
-    <p>
-      Romance unfolds quietly in the background while the foreground focuses on everyday life shared meals,
-      conversations, routines, and moments of stillness. Love grows from safety, not tension.
-    </p>
-
-    <p>
-      This is a drama about choosing a slower pace of life and understanding what truly matters.
-      The romance feels like a natural extension of that choice, not the destination itself.
-    </p>
-  </article>
-
-
-  <article class="dramaBlock">
-    <h2 class="dramaTitle">You Are My Glory</h2>
-    <div class="dramaMeta">2021 · 32 Episodes</div>
-
-    <p>
-      You Are My Glory is remembered for its warmth, and that reputation is well deserved.
-      This is a romance built on mutual admiration, respect, and emotional balance.
-    </p>
-
-    <p>
-      Both leads are highly competent in their fields. The female lead is confident and emotionally open,
-      while the male lead struggles with insecurity despite his intelligence.
-      Neither diminishes the other to make the romance work.
-    </p>
-
-    <p>
-      Conflict comes from internal doubts rather than external interference.
-      Misunderstandings are addressed instead of dragged out, creating a relationship that feels unusually healthy.
-    </p>
-
-    <p>
-      The drama emphasizes support. Success is not framed as a threat to love, and ambition is not something
-      that must be sacrificed. Growth is encouraged on both
-      <!-- LOVE ME, LOVE MY VOICE -->
-<section class="entry">
-  <h3 class="entryTitle">Love Me, Love My Voice</h3>
-  <div class="entryMeta">2023 · 33 Episodes</div>
-
-  <p>
-    <em>Love Me, Love My Voice</em> is one of the gentlest modern Chinese romances in recent years, and that gentleness
-    is its defining strength. Built around music, voice acting, and creative expression, the drama keeps its emotional
-    focus refreshingly simple: two people slowly growing comfortable with each other, without pressure or urgency.
-  </p>
-
-  <p>
-    What sets this series apart is the absence of manufactured conflict. There is no aggressive third party forcing
-    drama, and no cycle of misunderstandings that exist only to delay progress. The leads are allowed to exist as
-    complete individuals long before romance fully enters the frame.
-  </p>
-
-  <p>
-    The female lead lives a quiet, introspective life shaped by art and sound. Her attraction begins through admiration
-    of the male lead’s voice and creative work, not coincidence or fantasy. The male lead, in turn, is calm, emotionally
-    aware, and patient. He listens more than he pushes, and responds rather than dominates.
-  </p>
-
-  <p>
-    Much of the drama unfolds in small moments: shared meals, late-night conversations, creative collaboration, and
-    gentle encouragement. The show understands that intimacy doesn’t always come from grand gestures, but from being
-    seen and accepted without performance.
-  </p>
-
-  <p>
-    The relationship feels emotionally safe. Disagreements are handled with maturity, boundaries are respected, and
-    support flows both ways. The pacing is relaxed but never empty, trusting the audience to stay engaged without
-    artificial drama.
-  </p>
-
-  <p>
-    By the time the romance fully settles, it feels earned not through suffering or obstacles, but through time shared.
-  </p>
-</section>
-
-<hr class="softDivider" />
-
-<!-- AMIDST A SNOWSTORM OF LOVE -->
-<section class="entry">
-  <h3 class="entryTitle">Amidst a Snowstorm of Love</h3>
-  <div class="entryMeta">2024 · 30 Episodes</div>
-
-  <p>
-    <em>Amidst a Snowstorm of Love</em> carries a similar emotional maturity, but places it within a colder, more
-    restrained atmosphere. Set against winter landscapes and competitive sports, the drama reflects its characters
-    through quiet intensity rather than overt emotion.
-  </p>
-
-  <p>
-    At its core, this is a story about discipline, focus, and emotional restraint. Both leads are deeply committed to
-    their own paths, and the romance grows alongside that commitment instead of replacing it. Love doesn’t derail
-    ambition here; it steadies it.
-  </p>
-
-  <p>
-    The drama deliberately avoids unnecessary interference. There is no endless parade of rivals or forced jealousy.
-    The tension comes from internal struggles: fear of vulnerability, professional pressure, and the challenge of
-    balancing personal feelings with long-term goals.
-  </p>
-
-  <p>
-    The relationship develops through shared environments and mutual respect. Conversations are understated and
-    natural, often relying on pauses, body language, and unspoken understanding rather than dramatic declarations.
-  </p>
-
-  <p>
-    The snowstorm metaphor works quietly but effectively. The world around the characters feels cold and demanding,
-    yet warmth is built carefully within it. Love grows because both people choose it consistently, without spectacle.
-  </p>
-
-  <p>
-    This is a romance for viewers who value emotional maturity. Love is not proven through suffering, but through
-    presence, trust, and steadiness.
-  </p>
-</section>
