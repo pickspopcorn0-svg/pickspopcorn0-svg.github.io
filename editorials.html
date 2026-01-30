@@ -10,37 +10,23 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg:#0b0b0c;
-  --panel:rgba(255,255,255,.03);
-  --panel2:rgba(255,255,255,.02);
-  --line:rgba(255,255,255,.10);
-  --lineSoft:rgba(255,255,255,.06);
-  --muted:#cfcfcf;
-  --muted2:#a9a9a9;
-}
-
 body{
-  background:
-    radial-gradient(900px 480px at 18% -10%, rgba(255,255,255,.08), transparent 55%),
-    radial-gradient(900px 520px at 85% 0%, rgba(255,255,255,.06), transparent 60%),
-    var(--bg);
-  color:var(--text, #fff);
+  background:#0b0b0c;
+  color:#fff;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
-
 a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
+img{display:block;max-width:100%}
 
 /* TOPBAR */
 .topbar{
   position:sticky; top:0; z-index:50;
   display:flex; align-items:center; justify-content:space-between;
   padding:16px 20px;
-  background:rgba(10,10,10,.72);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom:1px solid var(--lineSoft);
+  background:rgba(10,10,10,.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom:1px solid #222;
 }
 .back{color:#aaa;font-size:13px}
 .back:hover{color:#fff}
@@ -50,136 +36,87 @@ img{max-width:100%;display:block}
 .header{
   max-width:1100px;
   margin:0 auto;
-  padding:38px 22px 10px;
+  padding:34px 22px 10px;
 }
 .header h1{
-  font-size:46px;
-  line-height:1.06;
-  letter-spacing:-.04em;
+  font-size:42px;
+  line-height:1.1;
+  letter-spacing:-.03em;
 }
 .header p{
   margin-top:12px;
-  color:var(--muted);
-  max-width:85ch;
-  line-height:1.8;
+  color:#cfcfcf;
+  max-width:80ch;
+  line-height:1.75;
   font-size:15px;
 }
 
-/* GRID */
+/* GRID - poster-first */
 .grid{
   max-width:1100px;
   margin:0 auto;
-  padding:18px 22px 90px;
+  padding:18px 22px 80px;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:18px;
 }
 
 /* CARD */
 .card{
-  border-radius:22px;
-  border:1px solid var(--lineSoft);
+  border-radius:18px;
+  border:1px solid #181818;
   overflow:hidden;
-  background:linear-gradient(to bottom, rgba(255,255,255,.03), rgba(255,255,255,.015));
-  min-height:290px;
-  position:relative;
-  transform:translateZ(0);
-  transition:transform .35s ease, border-color .35s ease, box-shadow .35s ease, filter .35s ease;
-  box-shadow:
-    0 18px 50px rgba(0,0,0,.35),
-    0 1px 0 rgba(255,255,255,.04) inset;
+  background:rgba(255,255,255,.02);
+  transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  box-shadow:0 18px 50px rgba(0,0,0,.35);
+}
+.card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(255,255,255,.14);
+  box-shadow:0 30px 80px rgba(0,0,0,.55);
 }
 
-.card:before{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  background:
-    radial-gradient(600px 260px at 20% 20%, rgba(255,255,255,.07), transparent 60%),
-    radial-gradient(500px 240px at 80% 10%, rgba(255,255,255,.06), transparent 65%);
-  opacity:.55;
-  transition:opacity .35s ease;
-  z-index:1;
+/* POSTER AREA */
+.poster{
+  aspect-ratio: 2 / 3;
+  background:#0a0a0a;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.poster img{
+  width:100%;
+  height:100%;
+  object-fit: contain;   /* THIS is what stops cropping */
+  object-position:center;
 }
 
-.bg{
-  height:290px;
-  background:#101010;
-  background-size:cover;
-  background-position:center;
-  filter:saturate(1.05) contrast(1.05);
-  transform:scale(1.02);
-  transition:transform .45s ease, filter .45s ease;
+/* TEXT AREA */
+.meta{
+  padding:14px 14px 16px;
 }
-
-/* make posters look more cinematic */
-.card:after{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  background:
-    linear-gradient(to top, rgba(0,0,0,.92) 0%, rgba(0,0,0,.35) 45%, rgba(0,0,0,.10) 70%, rgba(0,0,0,0) 100%),
-    linear-gradient(to right, rgba(0,0,0,.38), transparent 45%);
-  z-index:2;
-}
-
-.overlay{
-  position:absolute;
-  inset:auto 0 0 0;
-  padding:16px 16px 18px;
-  z-index:3;
-}
-
 .title{
-  font-size:18px;
+  font-size:16px;
   font-weight:750;
-  line-height:1.22;
+  line-height:1.25;
   letter-spacing:-.01em;
-  text-shadow:0 10px 28px rgba(0,0,0,.65);
 }
-
 .desc{
   margin-top:7px;
   font-size:12.5px;
-  color:#d7d7d7;
-  opacity:.95;
+  color:#cfcfcf;
   line-height:1.5;
-  text-shadow:0 10px 28px rgba(0,0,0,.65);
   display:-webkit-box;
-  -webkit-line-clamp:2;
+  -webkit-line-clamp:3;
   -webkit-box-orient:vertical;
   overflow:hidden;
 }
 
-/* HOVER */
-.card:hover{
-  transform:translateY(-6px);
-  border-color:var(--line);
-  box-shadow:
-    0 28px 80px rgba(0,0,0,.55),
-    0 1px 0 rgba(255,255,255,.06) inset;
-}
-
-.card:hover:before{opacity:.9}
-.card:hover .bg{
-  transform:scale(1.07);
-  filter:saturate(1.12) contrast(1.12);
-}
-
-/* focus for keyboard */
-.card:focus{
-  outline:none;
-  border-color:rgba(255,255,255,.22);
-  box-shadow:0 0 0 3px rgba(255,255,255,.10), 0 28px 80px rgba(0,0,0,.55);
-}
-
 /* MOBILE */
 @media(max-width:760px){
-  .header h1{font-size:36px}
-  .card{min-height:270px;border-radius:18px}
-  .bg{height:270px}
+  .header h1{font-size:34px}
+  .grid{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
 }
 </style>
 </head>
@@ -203,8 +140,10 @@ img{max-width:100%;display:block}
 
   <!-- 1 -->
   <a class="card" href="must-watch-espionage.html">
-    <div class="bg" style="background-image:url('assets/posters/espionage.jpg.JPG');"></div>
-    <div class="overlay">
+    <div class="poster">
+      <img src="assets/posters/espionage.jpg.JPG" alt="Must Watch Espionage poster" loading="lazy" decoding="async">
+    </div>
+    <div class="meta">
       <div class="title">Must Watch Espionage</div>
       <div class="desc">Tradecraft, double lives, paranoia, and power games.</div>
     </div>
@@ -212,8 +151,10 @@ img{max-width:100%;display:block}
 
   <!-- 2 -->
   <a class="card" href="mustwatch-period.html">
-    <div class="bg" style="background-image:url('assets/posters/period.jpg.WEBP');"></div>
-    <div class="overlay">
+    <div class="poster">
+      <img src="assets/posters/period.jpg.WEBP" alt="Must Watch Period Dramas poster" loading="lazy" decoding="async">
+    </div>
+    <div class="meta">
       <div class="title">Must Watch Period Dramas</div>
       <div class="desc">Atmosphere-heavy stories where writing and time matter.</div>
     </div>
@@ -221,8 +162,10 @@ img{max-width:100%;display:block}
 
   <!-- 3 -->
   <a class="card" href="undertheradar-kdrama.html">
-    <div class="bg" style="background-image:url('assets/posters/kdrama-editorial.jpg.JPG');"></div>
-    <div class="overlay">
+    <div class="poster">
+      <img src="assets/posters/kdrama-editorial.jpg.JPG" alt="Under the Radar K-Dramas poster" loading="lazy" decoding="async">
+    </div>
+    <div class="meta">
       <div class="title">Under the Radar K-Dramas</div>
       <div class="desc">Serious Korean shows that deserved far more attention.</div>
     </div>
@@ -230,8 +173,10 @@ img{max-width:100%;display:block}
 
   <!-- 4 -->
   <a class="card" href="editorial-donghua.html">
-    <div class="bg" style="background-image:url('assets/posters/donghua/renegade-immortal.jpg.WEBP');"></div>
-    <div class="overlay">
+    <div class="poster">
+      <img src="assets/posters/donghua/renegade-immortal.jpg.WEBP" alt="Our Favorite Donghua poster" loading="lazy" decoding="async">
+    </div>
+    <div class="meta">
       <div class="title">Our Favorite Donghua</div>
       <div class="desc">Cultivation worlds, long arcs, and myth-heavy storytelling.</div>
     </div>
@@ -239,8 +184,10 @@ img{max-width:100%;display:block}
 
   <!-- 5 -->
   <a class="card" href="international-films-that-won-the-oscar-the-last-decade.html">
-    <div class="bg" style="background-image:url('assets/posters/IMG_2842.webp');"></div>
-    <div class="overlay">
+    <div class="poster">
+      <img src="assets/posters/IMG_2842.webp" alt="International Films That Won the Oscar poster" loading="lazy" decoding="async">
+    </div>
+    <div class="meta">
       <div class="title">International Films That Won the Oscar</div>
       <div class="desc">The last decade of global cinema recognised by the Academy.</div>
     </div>
@@ -248,8 +195,10 @@ img{max-width:100%;display:block}
 
   <!-- 6 -->
   <a class="card" href="editorial-korean-dating-shows.html">
-    <div class="bg" style="background-image:url('assets/posters/singles-inferno.jpg.JPG');"></div>
-    <div class="overlay">
+    <div class="poster">
+      <img src="assets/posters/singles-inferno.jpg.JPG" alt="Korean Dating Shows Worth Your Time poster" loading="lazy" decoding="async">
+    </div>
+    <div class="meta">
       <div class="title">Korean Dating Shows Worth Your Time</div>
       <div class="desc">Reality formats that understand emotions, not chaos.</div>
     </div>
@@ -257,8 +206,10 @@ img{max-width:100%;display:block}
 
   <!-- 7 -->
   <a class="card" href="indian-introduction.html">
-    <div class="bg" style="background-image:url('assets/posters/india-editorial.jpg.WEBP');"></div>
-    <div class="overlay">
+    <div class="poster">
+      <img src="assets/posters/india-editorial.jpg.WEBP" alt="Your First Steps into Indian Cinema poster" loading="lazy" decoding="async">
+    </div>
+    <div class="meta">
       <div class="title">Your First Steps into Indian Cinema</div>
       <div class="desc">Mainstream hits to powerful modern classics.</div>
     </div>
@@ -266,8 +217,10 @@ img{max-width:100%;display:block}
 
   <!-- 8 -->
   <a class="card" href="recommended-crime-tv-shows.html">
-    <div class="bg" style="background-image:url('assets/posters/Crime.jpg.JPG');"></div>
-    <div class="overlay">
+    <div class="poster">
+      <img src="assets/posters/Crime.jpg.JPG" alt="Our Recommended Crime TV Shows poster" loading="lazy" decoding="async">
+    </div>
+    <div class="meta">
       <div class="title">Our Recommended Crime TV Shows</div>
       <div class="desc">Character-driven crime series we’ve watched and recommend.</div>
     </div>
@@ -275,8 +228,10 @@ img{max-width:100%;display:block}
 
   <!-- 9 -->
   <a class="card" href="high-stakes-action-thrillers.html">
-    <div class="bg" style="background-image:url('assets/posters/tv/the-terminal-list.jpg.jpeg');"></div>
-    <div class="overlay">
+    <div class="poster">
+      <img src="assets/posters/tv/the-terminal-list.jpg.jpeg" alt="High-Stakes Action Thrillers poster" loading="lazy" decoding="async">
+    </div>
+    <div class="meta">
       <div class="title">High-Stakes Action Thrillers</div>
       <div class="desc">Bingeable spy and action shows with constant pressure.</div>
     </div>
@@ -284,17 +239,21 @@ img{max-width:100%;display:block}
 
   <!-- 10 -->
   <a class="card" href="chinese-fantasy-dramas-guide.html">
-    <div class="bg" style="background-image:url('assets/posters/cdrama/battle-through-the-heavens-poster.jpg.jpeg');"></div>
-    <div class="overlay">
+    <div class="poster">
+      <img src="assets/posters/cdrama/battle-through-the-heavens-poster.jpg.jpeg" alt="Best Chinese Fantasy Dramas poster" loading="lazy" decoding="async">
+    </div>
+    <div class="meta">
       <div class="title">Best Chinese Fantasy Dramas</div>
-      <div class="desc">Xianxia, wuxia fantasy, cultivation — the ones worth your time.</div>
+      <div class="desc">Xianxia, wuxia fantasy, cultivation - the ones worth your time.</div>
     </div>
   </a>
 
   <!-- 11 -->
   <a class="card" href="our-favorite-chinese-romance-dramas.html">
-    <div class="bg" style="background-image:url('assets/posters/cdrama/you-are-my-glory-poster.jpg.JPG');"></div>
-    <div class="overlay">
+    <div class="poster">
+      <img src="assets/posters/cdrama/you-are-my-glory-poster.jpg.JPG" alt="Our Favorite Chinese Romance Dramas poster" loading="lazy" decoding="async">
+    </div>
+    <div class="meta">
       <div class="title">Our Favorite Chinese Romance Dramas</div>
       <div class="desc">Quiet, modern C-dramas built on trust, maturity, and emotional realism.</div>
     </div>
@@ -302,8 +261,10 @@ img{max-width:100%;display:block}
 
   <!-- 12 -->
   <a class="card" href="macgyver-style-tv.html">
-    <div class="bg" style="background-image:url('assets/posters/tv/macgyver.jpg.jpeg');"></div>
-    <div class="overlay">
+    <div class="poster">
+      <img src="assets/posters/tv/macgyver.jpg.jpeg" alt="For People Who Miss MacGyver-Style TV Shows poster" loading="lazy" decoding="async">
+    </div>
+    <div class="meta">
       <div class="title">For People Who Miss MacGyver-Style TV Shows</div>
       <div class="desc">TV driven by ingenuity, calm problem-solving, and competence - where thinking is the spectacle.</div>
     </div>
