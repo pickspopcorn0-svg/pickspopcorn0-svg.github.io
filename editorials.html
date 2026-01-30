@@ -11,7 +11,10 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-  background:#0b0b0c;
+  background:
+    radial-gradient(900px 520px at 18% -10%, rgba(255,255,255,.08), transparent 55%),
+    radial-gradient(900px 520px at 85% 0%, rgba(255,255,255,.06), transparent 60%),
+    #0b0b0c;
   color:#fff;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
@@ -23,10 +26,10 @@ img{display:block;max-width:100%}
   position:sticky; top:0; z-index:50;
   display:flex; align-items:center; justify-content:space-between;
   padding:16px 20px;
-  background:rgba(10,10,10,.88);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom:1px solid #222;
+  background:rgba(10,10,10,.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.08);
 }
 .back{color:#aaa;font-size:13px}
 .back:hover{color:#fff}
@@ -39,74 +42,95 @@ img{display:block;max-width:100%}
   padding:34px 22px 10px;
 }
 .header h1{
-  font-size:42px;
-  line-height:1.1;
-  letter-spacing:-.03em;
+  font-size:44px;
+  line-height:1.05;
+  letter-spacing:-.04em;
 }
 .header p{
   margin-top:12px;
   color:#cfcfcf;
-  max-width:80ch;
-  line-height:1.75;
+  max-width:90ch;
+  line-height:1.8;
   font-size:15px;
 }
 
-/* GRID - poster-first */
+/* GRID */
 .grid{
   max-width:1100px;
   margin:0 auto;
-  padding:18px 22px 80px;
+  padding:18px 22px 90px;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
   gap:18px;
 }
 
-/* CARD */
+/* CARD (split layout) */
 .card{
-  border-radius:18px;
-  border:1px solid #181818;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.08);
   overflow:hidden;
   background:rgba(255,255,255,.02);
+  box-shadow:0 18px 55px rgba(0,0,0,.40);
+  display:grid;
+  grid-template-columns: 44% 56%;
+  min-height:240px;
   transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
-  box-shadow:0 18px 50px rgba(0,0,0,.35);
 }
 .card:hover{
   transform:translateY(-6px);
   border-color:rgba(255,255,255,.14);
-  box-shadow:0 30px 80px rgba(0,0,0,.55);
+  box-shadow:0 30px 85px rgba(0,0,0,.55);
 }
 
-/* POSTER AREA */
+/* POSTER (big focus) */
 .poster{
-  aspect-ratio: 2 / 3;
+  position:relative;
   background:#0a0a0a;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-bottom:1px solid rgba(255,255,255,.06);
+  border-right:1px solid rgba(255,255,255,.06);
+  overflow:hidden;
+}
+.poster:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(420px 260px at 50% 30%, rgba(255,255,255,.10), transparent 60%),
+    linear-gradient(to right, rgba(0,0,0,.15), rgba(0,0,0,.55));
+  opacity:.9;
 }
 .poster img{
   width:100%;
   height:100%;
-  object-fit: contain;   /* THIS is what stops cropping */
+  object-fit: cover;
   object-position:center;
+  transform:scale(1.02);
+  filter:saturate(1.08) contrast(1.08);
+  transition:transform .35s ease, filter .35s ease;
+}
+.card:hover .poster img{
+  transform:scale(1.06);
+  filter:saturate(1.15) contrast(1.12);
 }
 
-/* TEXT AREA */
+/* TEXT */
 .meta{
-  padding:14px 14px 16px;
+  padding:18px 18px 18px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
 .title{
-  font-size:16px;
-  font-weight:750;
-  line-height:1.25;
-  letter-spacing:-.01em;
+  font-size:20px;
+  font-weight:800;
+  letter-spacing:-.02em;
+  line-height:1.15;
 }
 .desc{
-  margin-top:7px;
-  font-size:12.5px;
+  margin-top:10px;
+  font-size:13px;
   color:#cfcfcf;
-  line-height:1.5;
+  line-height:1.6;
   display:-webkit-box;
   -webkit-line-clamp:3;
   -webkit-box-orient:vertical;
@@ -116,7 +140,12 @@ img{display:block;max-width:100%}
 /* MOBILE */
 @media(max-width:760px){
   .header h1{font-size:34px}
-  .grid{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+  .grid{grid-template-columns:1fr}
+  .card{
+    grid-template-columns: 42% 58%;
+    min-height:220px;
+  }
+  .title{font-size:18px}
 }
 </style>
 </head>
