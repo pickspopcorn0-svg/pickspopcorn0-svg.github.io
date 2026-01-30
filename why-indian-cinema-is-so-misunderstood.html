@@ -7,7 +7,7 @@
 
 <meta
   name="description"
-  content="Why Indian cinema is often misunderstood globally: the viral-clip problem, misread storytelling tools, and the ecosystem people flatten into one stereotype."
+  content="Why Indian cinema is often misunderstood globally: viral clips, misread storytelling choices, and the huge ecosystem people flatten into one stereotype."
 />
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
@@ -120,21 +120,26 @@ hr{
   background:rgba(255,255,255,.02);
   overflow:hidden;
 }
+
+/* IMPORTANT: show the full poster (not zoomed) */
 .filmMedia{
   position:relative;
-  height:340px;
   background:#0b0b0c;
+  padding:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-bottom:1px solid rgba(255,255,255,.08);
 }
 .filmMedia img{
   width:100%;
-  height:100%;
-  object-fit:cover;
-}
-.filmMedia:after{
-  content:"";
-  position:absolute;inset:0;
-  background:linear-gradient(to top, rgba(11,11,12,.92), rgba(11,11,12,.08));
-  pointer-events:none;
+  max-width:420px;
+  height:auto;
+  aspect-ratio:2 / 3;
+  object-fit:contain; /* shows whole poster */
+  border-radius:12px;
+  background:rgba(255,255,255,.02);
+  border:1px solid rgba(255,255,255,.08);
 }
 .filmBody{
   padding:18px 18px 20px;
@@ -166,7 +171,8 @@ hr{
   .hero h1{font-size:40px}
   .article{padding:22px 16px}
   .sectionTitle{font-size:20px}
-  .filmMedia{height:280px}
+  .filmMedia{padding:14px}
+  .filmMedia img{max-width:360px}
 }
 </style>
 </head>
@@ -184,8 +190,8 @@ hr{
     <span class="kicker">Between the Frames</span>
     <h1>Why Indian Cinema Is Still So Widely Misunderstood</h1>
     <div class="heroLead">
-      The industry isn’t misunderstood because it lacks craft. It’s misunderstood because it’s too often seen through fragments,
-      stereotypes, and the loudest five seconds the internet decided to export.
+      Indian cinema isn’t misunderstood because it lacks craft. It’s misunderstood because people often meet it through clips,
+      jokes, and stereotypes instead of full films.
     </div>
   </div>
 </header>
@@ -193,150 +199,151 @@ hr{
 <main class="wrap">
   <article class="article">
 
-    <h2 class="sectionTitle">The misunderstanding isn’t random, it’s built</h2>
+    <h2 class="sectionTitle">Why people get it wrong</h2>
     <p>
       Indian cinema carries a strange burden. It is one of the oldest film industries in the world, one of the most productive,
-      and one of the most watched, yet it is often discussed as if it were a novelty. Outside India, it is rarely approached with
-      genuine curiosity. Instead, it gets reduced to shorthand: loud, long, emotional, unrealistic, musical.
+      and one of the most watched. Still, it often gets talked about like it’s a novelty. Outside India, it is rarely approached
+      with real curiosity. Instead, it gets reduced to a few labels: loud, long, emotional, unrealistic, musical.
     </p>
     <p>
-      Mention Indian films in a global conversation and the response is predictable. Someone brings up slow-motion action clips that
-      went viral. Someone jokes about people dancing in the middle of a serious scene. Someone dismisses the entire landscape with a shrug,
-      as if a billion-plus people somehow never learned how to tell stories properly.
+      Mention Indian films in a global conversation and the response is usually predictable. Someone brings up slow-motion action clips
+      that went viral. Someone jokes about people dancing in the middle of a serious scene. Someone shrugs and treats the whole thing
+      like a meme, as if a billion-plus people somehow never learned how to tell stories properly.
     </p>
     <p>
-      What makes this misunderstanding frustrating is not that criticism exists. Criticism is healthy. The problem is how the criticism is built:
-      almost entirely from fragments. Clips without context. Scenes without setup. Moments divorced from intention. Indian cinema gets judged by what escapes
-      its frame, not by what actually lives inside it.
+      What makes this misunderstanding annoying is not that criticism exists. Criticism is fine. The problem is how the criticism is built.
+      It’s usually built from fragments: clips without context, scenes without setup, moments removed from what the film is trying to do.
+      Indian cinema gets judged by what escapes its frame, not by what actually lives inside it.
     </p>
     <p>
-      At the same time, this doesn’t mean Indian cinema should be treated like it’s beyond critique, as if pointing out flaws is disloyal.
-      It’s a huge ecosystem with uneven quality, commercial compromises, trends that get repeated to death, and plenty of films that deserve pushback.
-      But there’s a difference between critique and dismissal. Critique engages with the work. Dismissal doesn’t even bother to meet it properly.
+      At the same time, this doesn’t mean Indian cinema should be protected from critique like it’s fragile. It’s a huge ecosystem,
+      and like any huge ecosystem it has weak writing, lazy trends, overdone formulas, and films that deserve pushback.
+      But there’s a big difference between critique and dismissal. Critique watches the full film and talks honestly. Dismissal watches five seconds
+      and decides it has seen enough.
     </p>
     <p>
-      If you want to understand why the perception exists, and why it keeps returning, you have to look at what Indian cinema actually is,
-      not what travels fastest online and not what outsiders expect it to be.
+      If you want to understand why the perception exists, and why it keeps coming back, you have to look at what Indian cinema actually is,
+      not what travels the fastest online.
     </p>
 
     <hr>
 
-    <h2 class="sectionTitle">The viral clip problem: how spectacle became the whole story</h2>
+    <h2 class="sectionTitle">Viral clips changed the conversation</h2>
     <p>
-      Indian films didn’t suddenly become exaggerated because of social media. Scale, emotion, heightened drama, and big gestures have always existed across
-      many Indian industries, in different proportions and for different reasons. What changed is what the internet chose to export.
+      Indian films didn’t suddenly become exaggerated because of social media. Scale, emotion, heightened drama, and big gestures have always existed
+      across many Indian industries, in different proportions and for different reasons. What changed is what the internet chose to export.
     </p>
     <p>
       Short-form platforms reward shock value. A gravity-defying punch is more shareable than a quiet conversation. A “mass” entry moment gets clipped more often
-      than a two-minute scene about grief, guilt, or moral doubt. Over time, fragments begin to stand in for the whole. It’s not that Indian cinema is only spectacle.
-      It’s that spectacle survives the algorithm better than subtlety does.
+      than a two-minute scene about grief, guilt, or moral doubt. Over time, those fragments begin to stand in for the whole industry.
+      It’s not that Indian cinema is only spectacle. It’s that spectacle survives the algorithm better than subtlety does.
     </p>
     <p>
-      This creates a fake confidence in people who have never watched a full Indian film. They feel like they have “seen enough.” In reality, they have seen seconds.
-      And because those seconds often come from the loudest corners of commercial cinema, the conclusion becomes automatic: “That’s how Indian movies are.”
+      This creates fake confidence in people who have never watched a full Indian film. They feel like they have “seen enough.”
+      In reality, they have seen seconds. And because those seconds often come from the loudest corners of commercial cinema,
+      the conclusion becomes automatic: “That’s how Indian movies are.”
     </p>
     <p>
-      Yes, Indian mainstream cinema, especially in certain commercial spaces, embraces spectacle unapologetically. But spectacle is not the absence of craft.
-      It’s a language choice. Popular Indian cinema has long leaned into mythic exaggeration, where heroes are closer to folk legends than everyday realism.
-      Sometimes the screen carries fantasy, aspiration, and collective emotion, and it does it loudly on purpose.
+      Here’s where it gets important: spectacle itself isn’t the enemy. When it’s done well, it’s a strength. It’s a style, and it’s a choice.
+      <em>RRR</em> is a clean example. It’s big, dramatic, and unapologetically larger than life. But it’s also carefully designed, emotionally clear,
+      and fully committed to its world. The same things people call “too much” become the reason it works, because the filmmaking is confident and the emotions are earned.
+      That’s the point: the features people mock can become a plus point when the craft matches the ambition.
     </p>
     <p>
-      The mistake is assuming this is the only mode Indian cinema knows. It isn’t. Indian cinema is not one industry. It’s an ecosystem: multiple languages,
-      multiple traditions, multiple audiences, multiple histories, and completely different storytelling rules depending on where you’re looking.
-      Viral clips flatten all of that into one stereotype, and once that stereotype becomes default, even genuinely great films get ignored because people stop searching.
+      The real mistake is assuming this is the only mode Indian cinema knows. It isn’t. Indian cinema is not one industry.
+      It’s an ecosystem: multiple languages, multiple traditions, multiple audiences, and completely different storytelling rules depending on where you’re looking.
+      Viral clips flatten all of that into one stereotype. Then people stop searching, and the stereotype stays alive.
     </p>
 
     <hr>
 
-    <h2 class="sectionTitle">Why the action feels “too much”, and what that style is actually doing</h2>
+    <h2 class="sectionTitle">Why the action looks “too much”</h2>
     <p>
       Indian action cinema often gets mocked for ignoring physics. That criticism isn’t entirely wrong. Many films exaggerate strength, endurance, and scale beyond realism.
       But it helps to understand what that exaggeration is doing, and why audiences respond to it.
     </p>
     <p>
       In several Indian storytelling traditions, heroes aren’t meant to feel like regular people. They represent ideas: resistance, justice, survival, dignity, pride,
-      the feeling of “we won’t be pushed around.” When a character overpowers ten enemies, it’s not a tactical demonstration. It’s a visual metaphor.
-      The body becomes symbolism. The fight becomes a statement.
+      and the feeling of “we won’t be pushed around.” When a character overpowers ten enemies, it’s not a tactical demonstration. It’s a visual metaphor.
+      The fight becomes a statement.
     </p>
     <p>
-      And still, none of that means you have to enjoy it. You can dislike that style and still recognise it’s intentional.
-      The real problem starts when people treat this style as proof that Indian cinema is childish or technically incapable. That’s simply untrue.
-      Plenty of Indian films treat violence as ugly, frightening, and full of consequences. Plenty of Indian films refuse the heroic fantasy entirely.
+      And still, none of that means you have to love that style. You can dislike it and still recognise it’s intentional.
+      The real problem starts when people treat this style as proof that Indian cinema is childish or technically incapable.
+      That’s simply not true. Plenty of Indian films treat violence as ugly, frightening, and full of consequences. Plenty of films refuse the heroic fantasy entirely.
     </p>
     <p>
-      The reason you don’t see those films inside the stereotype loop is simple: restraint doesn’t become a meme as quickly.
+      The reason those films don’t dominate the stereotype is simple: restraint doesn’t become a meme as quickly.
       A well-written scene of fear won’t travel the way a loud slow-motion punch will. So the global conversation ends up obsessed with one flavour of Indian action
-      while ignoring the rest of the menu.
+      while ignoring the rest.
     </p>
     <p>
       If the only Indian action you’ve seen is the kind designed to be larger than life, you haven’t “seen Indian cinema.”
-      You’ve seen one popular mode within it, often clipped into the most ridiculous five seconds. That’s not a fair sample of anything.
+      You’ve seen one popular mode within it, often clipped into the most ridiculous seconds.
     </p>
 
     <hr>
 
-    <h2 class="sectionTitle">Songs: the most misread tool in Indian storytelling</h2>
+    <h2 class="sectionTitle">Songs are not always “random”</h2>
     <p>
-      Nothing confuses non-Indian audiences more than songs. The assumption is simple: songs interrupt the story. Therefore they are indulgent.
-      Therefore they are bad storytelling. The judgment feels neat, but it’s based on the wrong expectation.
+      Nothing confuses non-Indian audiences more than songs. The assumption is simple: songs interrupt the story, so they are indulgent,
+      and therefore they are bad storytelling. That sounds neat, but it’s not the full truth.
     </p>
     <p>
       In Indian cinema, songs were never designed to behave like Western musical numbers, and they were never only about “fun.”
-      Songs often function like emotional chapters. They compress time. They externalise feelings that dialogue can’t carry.
+      Songs often work like emotional chapters. They compress time. They externalise feelings that dialogue can’t carry.
       They can replace scenes rather than pause them. They can act like a montage, a confession, a memory, a dream, or even a break in reality.
-      The film isn’t stopping to decorate itself. It’s using a different tool to move forward.
+      The film isn’t always stopping to decorate itself. Often, it’s using a different tool to move forward.
     </p>
     <p>
       Yes, there are films where songs feel forced. Yes, there are moments where tone collapses because a track was inserted for commercial reasons.
       Indian cinema has wrestled with this balance for decades, and criticism here is valid. But the best films don’t use songs as wallpaper.
-      They use them as narrative devices, and when it works, it can hit harder than dialogue ever could.
+      They use them as storytelling.
     </p>
     <p>
-      Another thing people miss: the idea that Indian cinema equals musical cinema is outdated. Many contemporary Indian films remove songs entirely,
+      Also, the idea that Indian cinema equals musical cinema is outdated. Many contemporary Indian films remove songs entirely,
       especially in realist and independent spaces. Silence, ambient sound, and minimal score take precedence.
       These films rarely reach people who already decided Indian cinema isn’t for them, because the stereotype blocks curiosity before it begins.
     </p>
     <p>
       So the confusion is often less about storytelling and more about expectations. If you walk into Indian cinema expecting one universal rulebook,
-      you’ll keep misreading it. The shift is simple: watch it on its own terms, and you’ll start noticing how purposeful the choices actually are.
+      you’ll keep misreading it. Watch it on its own terms, and the choices start making sense.
     </p>
 
     <hr>
 
-    <h2 class="sectionTitle">Melodrama isn’t immaturity, it’s a different emotional contract</h2>
+    <h2 class="sectionTitle">Big emotion isn’t automatically “bad”</h2>
     <p>
       Indian films are often accused of being melodramatic. The accusation usually comes with an implication:
-      subtlety equals maturity, and bigger emotion means childish storytelling. That’s a narrow way to judge art,
-      and it ignores the fact that different cinemas make different promises to their audiences.
+      subtlety equals maturity, and bigger emotion means childish storytelling. That’s a narrow way to judge art.
     </p>
     <p>
-      Melodrama is not a lack of intelligence. It’s an emotional style. Indian cinema traditionally asks its audience to feel first and analyse later.
+      Melodrama is not a lack of intelligence. It’s an emotional style. Indian cinema often asks its audience to feel first and analyse later.
       Emotions are not hidden. They are placed in the open, sometimes amplified, because the experience is meant to be communal.
       A theatre full of people reacting together is part of the language.
     </p>
     <p>
       This approach doesn’t always work. Some films overdo it. Some manipulate rather than earn emotion. Some confuse loudness with depth.
-      That’s real, and it deserves criticism. But when melodrama works, it creates something many films in the modern “cool and detached” era struggle to deliver:
-      emotional honesty without irony. Not every story needs to wink at you to be smart.
+      That’s real, and it deserves criticism. But when it works, it creates something many films in the modern “cool and detached” era struggle to deliver:
+      honest emotion without irony.
     </p>
     <p>
-      Indian cinema’s relationship with melodrama comes from theatre, mythology, oral storytelling, and performance traditions where the feeling is not something to hide.
-      Judging it only by Western narrative restraint misses what the film is trying to do and who it’s speaking to.
+      Indian cinema’s relationship with melodrama comes from theatre, mythology, oral storytelling, and performance traditions where feeling is not something to hide.
       A better question than “Why is it so emotional?” is “What is this emotion doing?” Sometimes it’s catharsis. Sometimes it’s protest.
       Sometimes it’s grief. Sometimes it’s survival.
     </p>
 
     <hr>
 
-    <h2 class="sectionTitle">Films that break the stereotype completely</h2>
+    <h2 class="sectionTitle">Films that shut the stereotype down</h2>
     <p>
       If someone believes Indian cinema is only loud, unrealistic, and shallow, they simply haven’t seen enough of it.
       You don’t need a hundred films to change that perception. A handful is enough, because these films operate with a different rhythm:
-      patient, grounded, specific, and often emotionally devastating.
+      patient, grounded, specific, and often emotionally heavy.
     </p>
     <p>
       These are not “exceptions” that prove Indian cinema is capable of depth. They are proof that Indian cinema is a broad landscape.
-      The stereotype survives because people keep meeting only the loudest exports. Watch the quieter work, and the stereotype collapses fast.
+      The stereotype survives because people keep meeting only the loudest exports. Watch the quieter work, and the stereotype collapses quickly.
     </p>
 
     <div class="filmGrid">
@@ -351,12 +358,12 @@ hr{
           <p>
             This film is restrained in a way many people don’t associate with Indian cinema. It refuses spectacle even when it could easily exploit it.
             Violence is not thrilling here, it’s traumatic. Grief is not romanticised, it’s suffocating. The film doesn’t chase applause.
-            It builds slow pressure, and it trusts the audience to sit inside discomfort without being spoon-fed what to feel.
+            It builds slow pressure and trusts the audience to sit inside discomfort without being spoon-fed what to feel.
           </p>
           <p>
-            <em>Sardar Udham</em> is also a reminder that “emotional” doesn’t have to mean noisy. The emotion here is heavy because it is controlled,
-            because it doesn’t beg for tears, and because it refuses to turn history into easy heroism. If someone’s only image of Indian cinema is loudness
-            and instant gratification, this film is a direct answer.
+            <em>Sardar Udham</em> is also a reminder that “emotional” doesn’t have to mean noisy. The emotion here is heavy because it is controlled.
+            It doesn’t beg for tears. It doesn’t turn history into easy heroism. If someone’s only image of Indian cinema is loudness and instant gratification,
+            this film is a direct answer.
           </p>
         </div>
       </section>
@@ -383,11 +390,12 @@ hr{
 
       <section class="filmEntry">
         <div class="filmMedia">
-          <img src="assets/posters/the-lunchbox-2013-poster.jpg" alt="The Lunchbox film poster" loading="lazy" />
+          <!-- FIXED PATH: your file is .jpg.jpeg (double extension) -->
+          <img src="assets/posters/the-lunchbox-2013-poster.jpg.jpeg" alt="The Lunchbox film poster" loading="lazy" />
         </div>
         <div class="filmBody">
           <div class="filmTitle">The Lunchbox (2013)</div>
-          <div class="filmMeta">Minimal, gentle, and deeply human.</div>
+          <div class="filmMeta">Simple, soft, and quietly powerful.</div>
           <p>
             <em>The Lunchbox</em> is the opposite of the stereotype. It doesn’t need big speeches or dramatic twists.
             It builds intimacy through small routines, quiet loneliness, and the strange comfort of being understood by someone you haven’t even met.
@@ -395,7 +403,8 @@ hr{
           </p>
           <p>
             This is where the “Indian cinema is only loud” myth falls apart. Films like this exist because the ecosystem is wide.
-            They don’t go viral because their power is cumulative, not clip-friendly. But if you actually watch the film, you feel how precise it is.
+            They don’t go viral because their power is slow and cumulative. But if you actually watch the film, you feel how precise it is.
+            It proves that Indian cinema can be gentle, minimal, and deeply human.
           </p>
         </div>
       </section>
@@ -424,21 +433,21 @@ hr{
 
     <hr>
 
-    <h2 class="sectionTitle">So why does the misunderstanding persist?</h2>
+    <h2 class="sectionTitle">So why does the misunderstanding stay?</h2>
     <p>
       Because stereotypes are convenient. Because the internet exports what shocks faster than what it explains.
       Because it’s easier to laugh at five seconds than to sit through two hours and actually understand tone, context, and intention.
       And because once a joke becomes the default opinion, people stop looking for anything that could challenge it.
     </p>
     <p>
-      Indian cinema doesn’t need blind defending, and it also doesn’t deserve lazy dismissal. It’s a great industry precisely because it is huge,
-      messy, ambitious, inconsistent, experimental, commercial, artistic, regional, global, traditional, modern, and constantly evolving.
+      Indian cinema doesn’t need blind defending, and it also doesn’t deserve lazy dismissal. It’s a great industry precisely because it is huge.
+      It is messy, ambitious, inconsistent, experimental, commercial, artistic, regional, global, traditional, modern, and always evolving.
       It contains brilliant films and terrible films, just like every major cinema culture on earth.
     </p>
     <p>
       The real problem is that Indian cinema is rarely encountered on its own terms. What travels fastest is noise, not context.
       What goes viral is not intention. And if your entire understanding of the industry comes from the loudest clips,
-      then you’re not judging Indian cinema. You’re judging the algorithm’s selection of it.
+      then you’re not judging Indian cinema, you’re judging the algorithm’s selection of it.
     </p>
     <p>
       Watch it fully. Patiently. Without shortcuts. The stereotype won’t survive long.
@@ -446,7 +455,7 @@ hr{
 
     <div class="note">
       Note: This editorial talks about patterns, not absolutes. Indian cinema has many styles, industries, and audiences.
-      If one corner doesn’t work for you, it doesn’t mean the whole ecosystem is the same. It usually means you were shown the loudest sample first.
+      If one corner doesn’t work for you, it doesn’t mean the whole ecosystem is the same. It often means you were shown the loudest sample first.
     </div>
 
   </article>
