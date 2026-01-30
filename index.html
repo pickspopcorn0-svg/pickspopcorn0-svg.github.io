@@ -5,8 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Popcorn Picks | Cinema Beyond Borders</title>
 
+<meta name="description" content="Popcorn Picks is a curated discovery site for films and series across the world — editorials and thoughtful starting points, not rankings or weekly charts." />
+
 <!-- Perf: preload hero image -->
 <link rel="preload" as="image" href="assets/home/hero.jpg" fetchpriority="high">
+
+<!-- Perf: hint connections (optional but helps) -->
+<link rel="preconnect" href="https://pagead2.googlesyndication.com">
+<link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
   crossorigin="anonymous"></script>
@@ -27,7 +33,7 @@ html{scroll-behavior:smooth}
 }
 
 body{
-  background:var(--bg); /* keeps everything consistently dark (fixes the weird gap) */
+  background:var(--bg);
   color:#fff;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
   text-rendering:optimizeLegibility;
@@ -41,7 +47,7 @@ body{
   margin:0 auto;
 }
 
-/* HEADER */
+/* HEADER (logo only — removes duplicate navigation) */
 header{
   position:fixed;
   top:0;left:0;right:0;
@@ -56,12 +62,6 @@ header{
   z-index:100;
 }
 .logo{font-weight:850;letter-spacing:.4px}
-nav a{
-  margin-left:18px;
-  font-size:12px;
-  color:rgba(255,255,255,.72);
-}
-nav a:hover{color:#fff}
 
 /* HERO */
 .hero{
@@ -144,20 +144,11 @@ nav a:hover{color:#fff}
 
 /* SECTIONS */
 .section{padding:74px 0}
-.section.firstSection{
-  padding-top:42px;   /* removes the “empty gap” feeling under hero */
-}
+.section.firstSection{padding-top:42px}
 .section h2{
   font-size:28px;
   margin-bottom:18px;
   letter-spacing:.2px;
-}
-.sectionLead{
-  margin:0 0 26px;
-  max-width:72ch;
-  color:var(--muted2);
-  font-size:16px;
-  line-height:1.7;
 }
 
 /* Section header row (title left, button right) */
@@ -169,7 +160,16 @@ nav a:hover{color:#fff}
   margin-bottom:18px;
 }
 .sectionHead h2{margin-bottom:0}
-.sectionHead .sectionLead{margin:10px 0 0}
+
+/* IMPORTANT: keep intro text readable + not ugly */
+.sectionLead{
+  margin:10px 0 0;
+  max-width:72ch;
+  color:var(--muted2);
+  font-size:16px;
+  line-height:1.7;
+}
+.editorialIntro{max-width:720px;} /* fixes “wall of text” feeling */
 
 /* View all button */
 .viewAll{
@@ -193,22 +193,17 @@ nav a:hover{color:#fff}
   color:#fff;
 }
 
-/* FEATURED EDITORIALS: poster-left + text-right (like option 2) */
+/* FEATURED EDITORIALS */
 .feed{
   display:grid;
-  grid-template-columns:1fr; /* mobile default */
+  grid-template-columns:1fr;
   gap:22px;
 }
 .feedLink{display:block}
-
-/* Force 2 per row on tablet + desktop (reduces cramped feel) */
 @media (min-width: 768px){
-  .feed{
-    grid-template-columns:repeat(2, 1fr);
-  }
+  .feed{grid-template-columns:repeat(2, 1fr);}
 }
 
-/* Card uses background-image from inline style */
 .feedCard{
   position:relative;
   border-radius:22px;
@@ -247,7 +242,6 @@ nav a:hover{color:#fff}
   background:linear-gradient(90deg, rgba(0,0,0,.06), rgba(0,0,0,.58));
 }
 
-/* RIGHT text panel */
 .feedText{
   grid-column:2;
   position:relative;
@@ -276,12 +270,6 @@ nav a:hover{color:#fff}
   -webkit-box-orient:vertical;
   overflow:hidden;
 }
-
-/* If any single poster crops badly, add helper classes on that card */
-.posTop{background-position:center top !important;}
-.posBottom{background-position:center bottom !important;}
-.posLeft{background-position:left center !important;}
-.posRight{background-position:right center !important;}
 
 /* CATEGORIES */
 .catGrid{
@@ -324,7 +312,7 @@ nav a:hover{color:#fff}
   filter:saturate(1.05) contrast(1.02);
 }
 
-/* BETWEEN THE FRAMES: stacked (full image, classic overlay) */
+/* BETWEEN THE FRAMES: stacked */
 .btfFeed{grid-template-columns:1fr !important;}
 .btfFeed .feedCard{
   grid-template-columns:1fr;
@@ -350,7 +338,7 @@ nav a:hover{color:#fff}
 .btfFeed .feedText h3{font-size:20px}
 .btfFeed .feedText p{font-size:14px; -webkit-line-clamp:2;}
 
-/* FOOTER */
+/* FOOTER (remove category duplicates from footer too) */
 footer{
   border-top:1px solid rgba(255,255,255,.08);
   padding:60px 0 24px;
@@ -384,10 +372,51 @@ footer p{
   color:rgba(255,255,255,.45);
 }
 
+/* COOKIE BANNER */
+.cookieBar{
+  position:fixed;
+  left:16px; right:16px; bottom:16px;
+  z-index:200;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(10,10,14,.82);
+  backdrop-filter:blur(14px);
+  box-shadow:0 18px 40px rgba(0,0,0,.55);
+}
+.cookieBar p{
+  margin:0;
+  color:rgba(255,255,255,.72);
+  font-size:13px;
+  line-height:1.5;
+}
+.cookieBar button{
+  flex:0 0 auto;
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  font-weight:800;
+  font-size:13px;
+  cursor:pointer;
+}
+.cookieBar button:hover{
+  background:rgba(255,255,255,.12);
+  border-color:rgba(255,255,255,.26);
+}
+@media(max-width:520px){
+  .cookieBar{flex-direction:column; align-items:flex-start}
+  .cookieBar button{width:100%}
+}
+
 /* RESPONSIVE */
 @media(max-width:1024px){
   header{padding:0 18px}
-  nav{display:none}
   .hero h1{font-size:46px}
   .hero p{font-size:16px}
 }
@@ -401,21 +430,14 @@ footer p{
   .section.firstSection{padding-top:34px}
   .sectionHead{flex-direction:column;align-items:flex-start}
 
-  /* stack poster on top on mobile so faces show more */
-  .feedCard{
-    grid-template-columns:1fr;
-    min-height:0;
-  }
+  .feedCard{grid-template-columns:1fr; min-height:0;}
   .feedCard::before,
   .feedCard::after{
     width:100%;
     height:260px;
     left:0; top:0; right:0;
   }
-  .feedText{
-    grid-column:1;
-    margin-top:260px;
-  }
+  .feedText{grid-column:1; margin-top:260px;}
 }
 @media(max-width:420px){
   .hero h1{font-size:38px}
@@ -433,16 +455,7 @@ footer p{
 
 <header>
   <div class="logo">Popcorn Picks</div>
-  <nav>
-    <a href="tv-shows.html">TV Shows</a>
-    <a href="movies.html">Movies</a>
-    <a href="kdrama.html">K Drama</a>
-    <a href="cdrama.html">C Drama</a>
-    <a href="anime.html">Anime</a>
-    <a href="donghua.html">Donghua</a>
-    <a href="indian.html">Indian Cinema</a>
-    <a href="french.html">French Cinema</a>
-  </nav>
+  <div style="width:1px"></div>
 </header>
 
 <section class="hero">
@@ -465,9 +478,9 @@ footer p{
   <div class="container">
 
     <div class="sectionHead">
-      <div>
+      <div class="editorialIntro">
         <h2>Featured editorials</h2>
-<p class="sectionLead">
+        <p class="sectionLead">
 Not top-10 lists. Not “best of the year.”
 These are starting points for people who want to watch something specific, but don’t know where to begin.
 <br><br>
@@ -476,7 +489,10 @@ Espionage stories shaped by people, pressure, and decisions.
 Korean and Chinese series beyond what the algorithm keeps pushing.
 <br>
 Indian cinema beyond viral clips and surface impressions.
-</p>
+        </p>
+      </div>
+      <a href="editorials.html" class="viewAll">View all →</a>
+    </div>
 
     <div class="feed">
       <a class="feedLink" href="must-watch-espionage.html">
@@ -552,27 +568,29 @@ Indian cinema beyond viral clips and surface impressions.
       </a>
 
       <a class="feedLink" href="high-stakes-action-thrillers.html">
-  <div class="feedCard" style="background-image:url('assets/posters/tv/the-terminal-list.jpg.jpeg');">
-    <div class="feedText">
-      <h3>High-Stakes Action Thrillers</h3>
-      <p>Bingeable spy and action shows with constant pressure.</p>
-    </div>
-  </div>
-</a>
+        <div class="feedCard" style="background-image:url('assets/posters/tv/the-terminal-list.jpg.jpeg');">
+          <div class="feedText">
+            <h3>High-Stakes Action Thrillers</h3>
+            <p>Bingeable spy and action shows with constant pressure.</p>
+          </div>
+        </div>
+      </a>
 
-<a class="feedLink" href="chinese-fantasy-dramas-guide.html">
-  <div class="feedCard" style="background-image:url('assets/posters/cdrama/battle-through-the-heavens-poster.jpg.jpeg');">
-    <div class="feedText">
-      <h3>Best Chinese Fantasy Dramas</h3>
-      <p>Xianxia, wuxia fantasy, cultivation — the ones worth your time.</p>
+      <a class="feedLink" href="chinese-fantasy-dramas-guide.html">
+        <div class="feedCard" style="background-image:url('assets/posters/cdrama/battle-through-the-heavens-poster.jpg.jpeg');">
+          <div class="feedText">
+            <h3>Best Chinese Fantasy Dramas</h3>
+            <p>Xianxia, wuxia fantasy, cultivation — the ones worth your time.</p>
+          </div>
+        </div>
+      </a>
+
     </div>
-  </div>
-</a>
 
   </div>
 </section>
 
-<!-- CATEGORIES -->
+<!-- CATEGORIES (single source of category navigation) -->
 <section class="section">
   <div class="container">
     <h2>Browse categories</h2>
@@ -591,14 +609,14 @@ Indian cinema beyond viral clips and surface impressions.
   </div>
 </section>
 
-<!-- BETWEEN THE FRAMES (2 stacked only) -->
+<!-- BETWEEN THE FRAMES -->
 <section class="section">
   <div class="container">
 
     <div class="sectionHead">
-      <div>
+      <div class="editorialIntro">
         <h2>Between the Frames</h2>
-        <p class="sectionLead">Personal notes on cinema, culture, and the quiet choices that shape how we watch.</p>
+        <p class="sectionLead">Observations on cinema, attention, and the quiet decisions we make before a film even begins.</p>
       </div>
       <a href="between-the-frames.html" class="viewAll">View all →</a>
     </div>
@@ -628,7 +646,7 @@ Indian cinema beyond viral clips and surface impressions.
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- FOOTER (no category duplicates) -->
 <footer>
   <div class="container footerGrid">
     <div class="footerBrand">
@@ -641,19 +659,15 @@ Indian cinema beyond viral clips and surface impressions.
 
     <div>
       <h4>Explore</h4>
-      <a href="movies.html">Movies</a>
-      <a href="tv-shows.html">TV Shows</a>
-      <a href="kdrama.html">K Drama</a>
-      <a href="cdrama.html">C Drama</a>
-      <a href="anime.html">Anime</a>
-      <a href="donghua.html">Donghua</a>
+      <a href="editorials.html">Editorials</a>
+      <a href="between-the-frames.html">Between the Frames</a>
+      <a href="contact.html">Contact</a>
     </div>
 
     <div>
       <h4>Site</h4>
       <a href="about.html">About</a>
       <a href="privacy.html">Privacy Policy</a>
-      <a href="contact.html">Contact</a>
     </div>
   </div>
 
@@ -661,6 +675,33 @@ Indian cinema beyond viral clips and surface impressions.
     © 2026 Popcorn Picks. All rights reserved.
   </div>
 </footer>
+
+<!-- Cookie banner -->
+<div class="cookieBar" id="cookieBar" role="dialog" aria-live="polite" aria-label="Cookie notice" style="display:none">
+  <p>By using this site, you agree to cookies used for ads and analytics.</p>
+  <button id="cookieOk" type="button">OK</button>
+</div>
+
+<script>
+/* Tiny cookie banner (no ugly popup) */
+(function(){
+  var key = "pp_cookie_ok";
+  try{
+    var ok = localStorage.getItem(key) === "1";
+    if(!ok){
+      var bar = document.getElementById("cookieBar");
+      var btn = document.getElementById("cookieOk");
+      bar.style.display = "flex";
+      btn.addEventListener("click", function(){
+        localStorage.setItem(key, "1");
+        bar.style.display = "none";
+      });
+    }
+  }catch(e){
+    // If storage blocked, just don't show it repeatedly
+  }
+})();
+</script>
 
 </body>
 </html>
