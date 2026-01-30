@@ -3,427 +3,300 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>MacGyver Style TV Shows — Popcorn Picks</title>
+<title>For People Who Miss MacGyver-Style TV Shows — Popcorn Picks</title>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
+        crossorigin="anonymous"></script>
 
 <style>
-:root{
-  --bg1:#07070a;
-  --bg2:#0b0b12;
-  --text:#ffffff;
-  --muted:rgba(255,255,255,.78);
-  --muted2:rgba(255,255,255,.62);
-  --line:rgba(255,255,255,.12);
-  --card:rgba(255,255,255,.04);
-  --card2:rgba(255,255,255,.06);
-}
-
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-  background:
-    radial-gradient(1000px 600px at 15% -10%, rgba(255,120,70,.12), transparent 60%),
-    radial-gradient(900px 500px at 85% 0%, rgba(90,160,255,.10), transparent 55%),
-    linear-gradient(180deg, var(--bg1), var(--bg2));
-  color:var(--text);
+  background:#0b0b0c;
+  color:#fff;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  line-height:1.85;
 }
 a{color:inherit;text-decoration:none}
-.wrap{max-width:920px;margin:0 auto;padding:42px 18px 70px}
-.top{
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-  margin-bottom:22px;
-}
-.back{
-  color:var(--muted2);
-  display:inline-flex;gap:10px;align-items:center;
-  padding:10px 12px;border:1px solid var(--line);
-  border-radius:12px;background:rgba(255,255,255,.02);
-}
-.back:hover{background:rgba(255,255,255,.04)}
-.hero{
-  border:1px solid var(--line);
-  background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-  border-radius:18px;
-  padding:26px 22px;
-  margin-bottom:22px;
-}
-h1{
-  font-size:34px;
-  letter-spacing:.2px;
-  line-height:1.2;
-  margin-bottom:10px;
-}
-.subtitle{
-  color:var(--muted);
-  font-size:16px;
-  max-width:70ch;
-}
-.meta{
-  margin-top:14px;
-  display:flex;flex-wrap:wrap;gap:10px;
-}
-.tag{
-  font-size:12px;
-  color:var(--muted2);
-  padding:6px 10px;
-  border:1px solid var(--line);
-  border-radius:999px;
-  background:rgba(255,255,255,.02);
-}
+img{max-width:100%;display:block}
 
-.section{
-  margin-top:18px;
-  border:1px solid var(--line);
-  border-radius:18px;
-  overflow:hidden;
-  background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+/* TOPBAR */
+.topbar{
+  position:sticky; top:0; z-index:50;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 20px;
+  background:rgba(10,10,10,.88);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid #222;
 }
-.sectionHeader{
-  padding:18px 20px;
-  border-bottom:1px solid var(--line);
-  background:rgba(255,255,255,.02);
+.back{color:#aaa;font-size:13px}
+.back:hover{color:#fff}
+.brand{font-weight:650;letter-spacing:.5px;font-size:14px}
+
+/* HERO */
+.hero{
+  min-height:68vh;
+  display:flex;
+  align-items:flex-end;
+  padding:72px 22px 54px;
+  position:relative;
+  background:
+    radial-gradient(900px 420px at 15% 20%, rgba(255,255,255,.08), transparent 55%),
+    linear-gradient(to bottom, rgba(0,0,0,.20), rgba(11,11,12,.92)),
+    url("assets/posters/macgyver-style-editorial.jpg.WEBP");
+  background-size:cover;
+  background-position:center;
+  border-bottom:1px solid #1f1f1f;
+}
+.heroInner{
+  max-width:980px;
+  width:100%;
+  margin:0 auto;
 }
 .kicker{
-  color:var(--muted2);
-  font-size:13px;
-  letter-spacing:.4px;
+  display:inline-block;
+  font-size:11px;
+  letter-spacing:.22em;
   text-transform:uppercase;
-  margin-bottom:6px;
+  color:#eaeaea;
+  padding:8px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.04);
 }
-.sectionHeader h2{
-  font-size:24px;
-  line-height:1.25;
-}
-.sectionBody{
-  padding:18px 20px 22px;
-}
-.sectionBody p{
-  color:var(--muted);
-  margin-bottom:16px;
-}
-.sectionBody p:last-child{margin-bottom:0}
-hr.sep{
-  border:none;
-  border-top:1px solid var(--line);
-  margin:22px 0;
-}
-.note{
-  color:var(--muted2);
-  font-size:13px;
-  border-left:2px solid rgba(255,255,255,.18);
-  padding-left:12px;
+.hero h1{
   margin-top:16px;
+  font-size:54px;
+  line-height:1.05;
+  letter-spacing:-.03em;
+}
+.hero p{
+  margin-top:14px;
+  max-width:80ch;
+  color:#d0d0d0;
+  line-height:1.75;
+  font-size:16px;
+}
+.metaLine{
+  margin-top:16px;
+  color:#9a9a9a;
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+/* WRAP */
+.wrap{
+  max-width:980px;
+  margin:0 auto;
+  padding:46px 22px 90px;
+}
+
+/* SHOW BLOCK */
+.show{
+  padding:26px 22px;
+  border:1px solid #181818;
+  border-radius:20px;
+  background:rgba(255,255,255,.02);
+  margin-bottom:26px;
+}
+.show h2{
+  font-size:28px;
+  letter-spacing:-.02em;
+  line-height:1.12;
+}
+.submeta{
+  margin-top:10px;
+  color:#a9a9a9;
+  font-size:13px;
+  line-height:1.5;
+}
+.text{
+  margin-top:14px;
+  max-width:78ch;
+}
+.text p{
+  color:#d7d7d7;
+  line-height:1.9;
+  font-size:16px;
+  margin:0 0 14px 0;
+}
+
+/* POSTER */
+.posterWrap{
+  margin-top:18px;
+  display:flex;
+  justify-content:center;
+}
+.poster{
+  width:min(420px, 100%);
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid #232323;
+  background:#111;
+}
+.poster img{
+  width:100%;
+  height:auto;
+}
+
+/* FOOTER NOTE */
+.more{
+  margin-top:22px;
+  color:#9a9a9a;
+  font-size:13px;
+  line-height:1.6;
+}
+
+/* MOBILE */
+@media(max-width:760px){
+  .hero h1{font-size:40px}
+  .show{padding:22px 16px}
+  .show h2{font-size:24px}
 }
 </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="top">
-      <a class="back" href="index.html">← Back to Popcorn Picks</a>
-    </div>
 
-    <header class="hero">
-      <h1>A source for people who miss MacGyver style TV shows</h1>
-      <p class="subtitle">
-        This is for viewers who like shows built on ingenuity, competence, and problem solving. The kind of TV where characters think their way out of trouble, improvise under pressure, and keep things watchable without turning grim.
-      </p>
-      <div class="meta">
-        <span class="tag">Smart TV</span>
-        <span class="tag">Competence</span>
-        <span class="tag">Problem Solving</span>
-        <span class="tag">Comfort Genre</span>
-      </div>
-    </header>
+<div class="topbar">
+  <a class="back" href="index.html">← Back</a>
+  <div class="brand">Popcorn Picks</div>
+  <div style="width:48px"></div>
+</div>
 
-    <!-- 1) SCORPION -->
-    <article class="section" id="scorpion">
-      <div class="sectionHeader">
-        <div class="kicker">Start here</div>
-        <h2>Scorpion</h2>
-      </div>
-      <div class="sectionBody">
-        <p>
-          If MacGyver is about solving impossible problems under pressure, Scorpion is what happens when that philosophy becomes the entire structure of a TV show.
-        </p>
+<header class="hero">
+  <div class="heroInner">
+    <span class="kicker">Editorial • TV Shows</span>
+    <h1>For People Who Miss MacGyver-Style TV Shows</h1>
 
-        <p>
-          At its core, Scorpion is not really about action or explosions. It is about thinking faster than the situation collapses. Every episode builds around a ticking clock problem: systems failing, disasters unfolding, technology turning against the people who built it. The tension does not come from who can throw the hardest punch, but from who can figure it out in time.
-        </p>
+    <p>
+      This editorial is for people who still enjoy shows driven by ingenuity, calm problem-solving, and competence.
+    </p>
 
-        <p>
-          That alone places it firmly in MacGyver territory.
-        </p>
+    <p>
+      Below is a small, carefully chosen set of series that carry that MacGyver-style energy. Different tones, different settings, same core idea: problems are meant to be solved. If that’s the kind of TV you keep looking for, start here.
+    </p>
 
-        <p>
-          What makes Scorpion especially interesting is that it externalizes intelligence. Instead of one lone genius improvising with a paperclip, you get a team of extreme specialists: math, engineering, mechanics, psychology. Each person brings a piece of the solution. The show constantly translates complex ideas into understandable stakes, walking the viewer through the logic without drowning them in jargon. You are not expected to be an expert. You are invited to follow the thinking.
-        </p>
-
-        <p>
-          This is a crucial part of the MacGyver style appeal. Competence is the spectacle.
-        </p>
-
-        <p>
-          Scorpion is unapologetically network TV in the best way. It is episodic, accessible, and designed so you can drop into an episode without needing a season long memory. That does not mean it is shallow. It means it respects watchability. You are never punished for missing an episode, and you are never forced to carry emotional exhaustion from one hour to the next.
-        </p>
-
-        <p>
-          Tonally, the show walks a careful line. It can be earnest, occasionally cheesy, sometimes even over the top, but it never slips into cynicism. That matters. Scorpion believes in problem solving, teamwork, and the idea that intelligence can be a force for good. In a TV landscape crowded with morally bleak geniuses and grim procedurals, that optimism feels almost radical.
-        </p>
-
-        <p>
-          It is also why Scorpion often gets dismissed.
-        </p>
-
-        <p>
-          Because it does not chase realism or prestige aesthetics, people underestimate it. But that is missing the point. Scorpion is not trying to simulate reality. It is trying to simulate the feeling of competence under pressure, the same feeling MacGyver perfected decades earlier. The joy comes from watching smart people think clearly when everything else is failing.
-        </p>
-
-        <p>
-          For viewers who miss that rhythm, setup, escalation, improvisation, solution, Scorpion is not just similar to MacGyver. It is one of the most direct modern expressions of that DNA.
-        </p>
-
-        <p>
-          This is the right place to start.
-        </p>
-
-        <p class="note">
-          Next entries will continue below in the same page, stacked one after another.
-        </p>
-      </div>
-    </article>
-
-    <!-- 2) WHITE COLLAR (to be added next, do not close or isolate the page) -->
-    <!-- Paste the next show section right below this line, keeping the same structure:
-         <article class="section" id="white-collar"> ... </article>
-    -->
-
+    <div class="metaLine">Popcorn Picks</div>
   </div>
+</header>
+
+<main class="wrap">
+
+  <article class="show">
+    <h2>Scorpion</h2>
+    <div class="text">
+      <p>Scorpion takes the MacGyver formula and cranks it up to a whole team of geniuses. Each episode throws the characters into an outlandish crisis — collapsing systems, high-tech disasters, you name it — and the tension comes from thinking fast before everything falls apart.</p>
+
+      <p>Yes, the scenarios can stretch believability. But that exaggeration is also the point. Scorpion isn’t chasing realism; it’s chasing momentum. Once you accept the heightened stakes, the show becomes a fast, satisfying exercise in watching problems get broken down and solved under pressure.</p>
+
+      <p>The twist here is that instead of one lone MacGyver, you get a team of specialists (a behaviorist, a human calculator, a mechanical prodigy, etc.). Each member contributes a piece of the solution, so you see different kinds of intelligence working together. The show walks you through their logic without drowning you in jargon — you’re invited to follow along and feel part of the process.</p>
+
+      <p>That’s what makes competence the spectacle here. Every episode is a ticking-clock puzzle where brainpower and teamwork save the day just in time.</p>
+
+      <p>The tone matters too. Scorpion can be earnest, even a little cheesy, but it’s deliberately optimistic about intelligence being a force for good. In a landscape full of grim antiheroes, that sincerity feels refreshing rather than naive. It doesn’t pretend to be prestige TV, and it doesn’t need to. It’s built around a simple pleasure: watching smart people stay clear-headed when everything else is failing.</p>
+
+      <p>If you miss that rhythm of setup → improvisation → solution, Scorpion delivers it consistently. It’s episodic, accessible, and easy to jump into, making it a solid modern echo of the MacGyver spirit.</p>
+    </div>
+    <div class="posterWrap">
+      <div class="poster">
+        <img src="assets/posters/tv/scorpion-poster.jpg.jpeg" alt="Scorpion poster">
+      </div>
+    </div>
+  </article>
+
+  <article class="show">
+    <h2>White Collar</h2>
+    <div class="text">
+      <p>Where Scorpion is high-octane and frantic, White Collar is more of a smooth operator.</p>
+
+      <p>The premise is simple: a skilled con man teams up with an FBI agent to catch white-collar criminals. What makes it work is how cleanly everything fits together. Plans make sense. Details matter. When something clever happens, it feels earned.</p>
+
+      <p>This isn’t about last-second escapes or world-ending stakes. Most of the problems are smaller and more contained — a forgery that doesn’t add up, a crime that’s too perfect, a lie that doesn’t quite land. The fun is in watching those details get noticed and quietly dismantled.</p>
+
+      <p>Instead of improvising with gadgets, the problem-solving here comes from understanding people and systems. Who wants power. Who wants credit. Who’s pretending to be smarter than they are. That’s a different flavor of MacGyver thinking, but it scratches the same itch.</p>
+
+      <p>The tone stays light and controlled. You can watch it casually without losing track of what’s happening. Conversations have room to breathe. Humor and charm balance the procedural structure, especially in the central partnership.</p>
+
+      <p>White Collar sits comfortably in that MacGyver-like sweet spot: smart but fun, clever without being exhausting. If you want a show that feels intelligent while still being easy to live with, this one fits naturally.</p>
+
+      <p>⸻</p>
+    </div>
+    <div class="posterWrap">
+      <div class="poster">
+        <img src="assets/posters/tv/white-collar-poster.jpg.jpeg" alt="White Collar poster">
+      </div>
+    </div>
+  </article>
+
+  <article class="show">
+    <h2>Burn Notice</h2>
+    <div class="text">
+      <p>Burn Notice is probably the purest hit of MacGyver DNA on this list.</p>
+
+      <p>The entire show revolves around how things are done. Almost every episode breaks down preparation, tradecraft, and improvisation. Plans are explained clearly. Backup plans exist. When things go wrong, the adjustment becomes part of the story rather than a shortcut.</p>
+
+      <p>Instead of killing tension, that clarity sharpens it. Knowing the plan makes every deviation more engaging.</p>
+
+      <p>The structure is comfortably episodic. There’s a larger story in the background, but you can drop into almost any episode and enjoy a complete problem-solution arc. One week it’s a con, the next it’s surveillance, the next it’s a controlled takedown — all handled with method and intent.</p>
+
+      <p>Tonally, Burn Notice finds a rare balance. It’s serious about danger and consequence, but it never becomes bleak. Humor exists naturally, and the character dynamics keep the show from tipping into heaviness. You’re not watching people brood — you’re watching them work.</p>
+
+      <p>That’s the appeal. If you miss watching problems get handled step by step, with intelligence and adaptability leading the way, Burn Notice delivers that feeling better than almost anything else here.</p>
+
+      <p>⸻</p>
+    </div>
+    <div class="posterWrap">
+      <div class="poster">
+        <img src="assets/posters/tv/burn-notice-poster.jpg.jpeg" alt="Burn Notice poster">
+      </div>
+    </div>
+  </article>
+
+  <article class="show">
+    <h2>Chuck</h2>
+    <div class="text">
+      <p>If Burn Notice is controlled and professional, Chuck brings something different: warmth.</p>
+
+      <p>The premise flips the usual MacGyver setup. Instead of a prepared expert, you get an ordinary guy who’s suddenly dropped into a world he’s not ready for. Chuck isn’t trained. He isn’t confident. He figures things out while already being in trouble.</p>
+
+      <p>That makes the problem-solving feel human.</p>
+
+      <p>The thinking still matters. Solutions still come from improvisation, pattern recognition, and timing. But plans wobble. Confidence arrives late. Mistakes happen. Watching Chuck grow into that competence is part of the satisfaction.</p>
+
+      <p>The tone is key. Chuck never feels hostile to the viewer. Stakes exist, but the show stays optimistic and welcoming. Humor, romance, and character relationships sit alongside the action rather than competing with it.</p>
+
+      <p>MacGyver was always reassuring — there’s a way out. Chuck keeps that promise, just with more emotion and less certainty. If you want MacGyver-style thinking wrapped in heart and humor, this is where it shines.</p>
+
+      <p>⸻</p>
+    </div>
+    <div class="posterWrap">
+      <div class="poster">
+        <img src="assets/posters/tv/chuck-poster.jpg.jpeg" alt="Chuck poster">
+      </div>
+    </div>
+  </article>
+
+  <article class="show">
+    <h2>Limitless</h2>
+    <div class="text">
+      <p>Limitless might look like the odd one out, but it belongs here for one reason: it’s entirely about thinking your way out of problems.</p>
+
+      <p>Instead of tools or preparation, the improvisation happens inside the character’s head. The pleasure comes from watching connections form faster than the situation can keep up.</p>
+
+      <p>The show stays playful with its concept. Intelligence isn’t treated as cold or burdensome — it’s energetic, curious, and occasionally chaotic. You’re invited into the thought process, not just shown the outcome.</p>
+
+      <p>Each episode centers on a clear problem that gets worked through and resolved, keeping the structure approachable and rewatchable. There’s an ongoing story beneath the surface, but it never overwhelms the weekly rhythm.</p>
+
+      <p>Even though it only ran for one season, Limitless feels complete enough to enjoy on its own. It stretches the MacGyver idea without breaking it, reminding you that the core appeal isn’t gadgets or eras — it’s the simple pleasure of watching smart solutions unfold.</p>
+    </div>
+    <div class="posterWrap">
+      <div class="poster">
+        <img src="assets/posters/tv/limitless-poster.jpg.jpeg" alt="Limitless poster">
+      </div>
+    </div>
+  </article>
+
+</main>
+
 </body>
 </html>
-    <!-- 2) WHITE COLLAR -->
-    <article class="section" id="white-collar">
-      <div class="sectionHeader">
-        <div class="kicker">Keep it clean</div>
-        <h2>White Collar</h2>
-      </div>
-
-      <div class="sectionBody">
-        <p>
-          White Collar works because it is easy to watch without being stupid.
-        </p>
-
-        <p>
-          That sounds simple, but it is not common. A lot of shows either try too hard to look smart or dumb things down so much that nothing feels earned. White Collar sits comfortably in between. Things make sense. Plans come together cleanly. You are never stuck watching characters act clueless just to keep the story moving.
-        </p>
-
-        <p>
-          The show is not about last second panic or saving the world. Most of the time, the problem is smaller and more specific. Something does not add up. Someone is lying too smoothly. A crime looks perfect, which usually means it is not. The fun comes from watching those details get noticed and slowly pulled apart.
-        </p>
-
-        <p>
-          This is where the MacGyver connection actually lives.
-        </p>
-
-        <p>
-          MacGyver does not win because he is stronger or louder. He wins because he sees options other people miss. White Collar does the same thing, just in a quieter way. Instead of building something out of scraps, the solution usually comes from understanding people, habits, and systems. Who wants credit. Who wants control. Who wants to feel clever. Once that is clear, everything else follows.
-        </p>
-
-        <p>
-          The tone helps a lot. White Collar never feels heavy. You can watch it tired. You can watch it casually. You do not need to prepare yourself before hitting play. That does not make it shallow. It just means the show knows what it is and does not fight against that.
-        </p>
-
-        <p>
-          It also does not rush. Episodes have room to breathe. Conversations matter. You can follow what is happening without the show shouting at you or explaining the same thing again and again. When something clever happens, it lands naturally because the groundwork was already there.
-        </p>
-
-        <p>
-          This is why White Collar belongs in a MacGyver style lane even though it looks different on the surface. It is still competence first TV. People who are good at what they do, solving problems without turning everything into chaos. The satisfaction comes from watching things handled properly.
-        </p>
-
-        <p>
-          If you are looking for something smart that does not feel exhausting, and you miss shows where problem solving is the point, White Collar fits here easily. It is not flashy, not grim, and not trying to prove anything. It just works.
-        </p>
-      </div>
-          <!-- 3) BURN NOTICE -->
-    <article class="section" id="burn-notice">
-      <div class="sectionHeader">
-        <div class="kicker">Pure MacGyver DNA</div>
-        <h2>Burn Notice</h2>
-      </div>
-
-      <div class="sectionBody">
-        <p>
-          Burn Notice is the most literal continuation of MacGyver style TV in this entire list.
-        </p>
-
-        <p>
-          Not in spirit. Not in theory. In practice.
-        </p>
-
-        <p>
-          This is a show that is openly about how things are done. How to disappear. How to break into a place without breaking it. How to disable someone without killing them. How to make something useful out of whatever happens to be nearby. Almost every episode pauses just long enough to explain the logic behind an action, not to show off, but to let you follow along.
-        </p>
-
-        <p>
-          That is the hook.
-        </p>
-
-        <p>
-          Burn Notice treats problem solving as the main event. The action exists, but it is secondary. What you are really watching is preparation, tradecraft, and improvisation. Plans get explained. Backup plans get explained. Then those plans go wrong, and the adjustments get explained too. The satisfaction comes from watching things thought through, step by step, under pressure.
-        </p>
-
-        <p>
-          This is where it lines up perfectly with MacGyver.
-        </p>
-
-        <p>
-          MacGyver always made you feel like there was a method behind the madness. Burn Notice does the same thing, just grounded in spy work instead of science experiments. It is less about inventing something new and more about applying knowledge correctly. Using the environment. Reading the situation. Knowing what not to do as much as what to do.
-        </p>
-
-        <p>
-          The show also understands something important. Clarity is not the enemy of tension. Explaining what is happening does not make things boring. It makes the stakes sharper. When you know what is supposed to happen, you feel it more when things start to slip.
-        </p>
-
-        <p>
-          Tonally, Burn Notice sits in a very comfortable place. It is serious enough to feel grounded, but never bleak. Violence is present, but it is controlled. The show does not linger on suffering. It moves forward. That makes it easy to watch without feeling disposable.
-        </p>
-
-        <p>
-          Another reason it belongs in this lane is how episodic it is. You can drop into Burn Notice at almost any point and understand what is going on. Each episode presents a problem, works through it, and resolves it. There is ongoing character stuff in the background, but it never hijacks the structure. The case always comes first.
-        </p>
-
-        <p>
-          That structure is a big part of why MacGyver style TV works. These shows respect your time. They do not demand emotional endurance or constant attention. They reward you for watching, but they do not punish you for stepping away.
-        </p>
-
-        <p>
-          Burn Notice also does not pretend to be smarter than it is. It knows its lane and stays in it. It does not chase prestige. It does not try to become darker just to feel important. It sticks to competence, planning, and execution. That confidence is what gives it longevity.
-        </p>
-
-        <p>
-          If Scorpion is about thinking fast and White Collar is about thinking smooth, Burn Notice is about thinking practical. What works. What does not. What can go wrong. And how to fix it when it does.
-        </p>
-
-        <p>
-          For people who miss MacGyver style TV, Burn Notice does not just belong here. It is one of the clearest reasons this lane still exists at all.
-        </p>
-      </div>
-    </article>
-      
-    </article>
-    <!-- 5) LIMITLESS -->
-    <article class="section" id="limitless">
-      <div class="sectionHeader">
-        <div class="kicker">Thinking faster</div>
-        <h2>Limitless</h2>
-      </div>
-
-      <div class="sectionBody">
-        <p>
-          Limitless belongs here because it turns MacGyver style thinking inward.
-        </p>
-
-        <p>
-          Instead of tools, plans, or prep work, the problem solving happens inside the character’s head. The show asks a simple question and sticks to it. What if thinking clearly was your superpower, and what if that clarity did not make life simpler, only faster.
-        </p>
-
-        <p>
-          Like MacGyver, Limitless is built around the idea that intelligence is what moves the story forward. Not strength. Not intimidation. Not chaos. Every episode is driven by figuring something out before the situation spins out of control. The difference is that instead of improvising with the environment, the improvisation happens mentally. Connections get made at high speed. Patterns snap into place. Decisions come early instead of late.
-        </p>
-
-        <p>
-          That keeps it firmly in this lane.
-        </p>
-
-        <p>
-          What makes Limitless work is that it does not pretend intelligence is clean or comfortable. Thinking faster does not remove risk, it increases it. You see how clarity can be both a gift and a liability. The show lets that tension exist without turning dark or miserable. It stays light on its feet even when the ideas get big.
-        </p>
-
-        <p>
-          Tonally, Limitless is playful without being careless. It experiments. It has fun with perspective. Episodes move quickly, but not sloppily. You are always oriented. You know what the goal is, you know what is at stake, and you can follow how decisions lead to outcomes. That clarity is very MacGyver like. The show wants you to stay with it, not struggle to keep up.
-        </p>
-
-        <p>
-          It also keeps the structure friendly. Problems are mostly episodic. You can drop in, enjoy an hour, and leave satisfied. There is an ongoing arc, but it never crushes the weekly rhythm. That balance matters. This whole lane works because these shows respect rewatchability. Limitless does too.
-        </p>
-
-        <p>
-          Where Scorpion pushes intensity, White Collar leans smooth, Burn Notice stays practical, and Chuck adds warmth, Limitless brings curiosity. It is about seeing the world differently and moving through it faster than everyone else, without turning that into a power fantasy. The character still messes up. Still misjudges. Still pays for choices. Intelligence helps, but it does not erase consequences.
-        </p>
-
-        <p>
-          That is why it fits here better than most high concept shows.
-        </p>
-
-        <p>
-          Limitless is not trying to overwhelm you with ideas or mythology. It uses its concept to keep problem solving central and watchability intact. It understands that the pleasure comes from following the thought process, not just admiring the result.
-        </p>
-
-        <p>
-          As a closer to this lane, Limitless makes sense. It stretches the MacGyver idea without breaking it. Different tools, same instinct. Find the smartest path through the mess and keep moving.
-        </p>
-      </div>
-    </article>
-    <!-- 4) CHUCK -->
-    <article class="section" id="chuck">
-      <div class="sectionHeader">
-        <div class="kicker">Warm and watchable</div>
-        <h2>Chuck</h2>
-      </div>
-
-      <div class="sectionBody">
-        <p>
-          Chuck works because it understands something most “smart” shows forget. People do not just want to watch competence, they want to feel safe while watching it.
-        </p>
-
-        <p>
-          Where Burn Notice is methodical and Scorpion is intense, Chuck is welcoming. It pulls you in gently. The stakes exist, the danger exists, but the show never feels hostile to the viewer. You are allowed to relax while watching it, and that is not an accident. That is design.
-        </p>
-
-        <p>
-          At its core, Chuck is still MacGyver style TV. Problems are solved through thinking, adapting, and making the best of bad situations. The difference is that Chuck puts an ordinary person at the center of all that. Someone who is not trained for this life, does not fully belong in it, and has to learn as things go wrong.
-        </p>
-
-        <p>
-          That perspective matters.
-        </p>
-
-        <p>
-          MacGyver was always calm. Burn Notice is controlled. Chuck is messy. Plans do not always feel airtight. Confidence comes later. A lot of the tension comes from watching someone try to keep up, rather than dominate the situation. And yet, the solutions still come from brains, not brute force.
-        </p>
-
-        <p>
-          What Chuck does especially well is making problem solving feel human. It is not just about knowing the right move, but about hesitation, doubt, emotional distraction, and still figuring things out anyway. The show never pretends that intelligence automatically makes things clean. It shows how thinking under pressure feels when you are not built for it.
-        </p>
-
-        <p>
-          That is why Chuck fits here even though it is lighter.
-        </p>
-
-        <p>
-          MacGyver style TV is not about being cold or hyper competent all the time. It is about finding a way through. Chuck just wraps that idea in warmth, humor, and character relationships instead of precision and tactics. The solutions are still clever. The escapes still rely on timing and improvisation. They are just delivered with a smile instead of a lecture.
-        </p>
-
-        <p>
-          The tone is important. Chuck does not push darkness to prove relevance. It does not punish characters for caring. Emotional beats exist alongside the problem solving, not in competition with it. That balance is why the show stays watchable over long stretches. You are not bracing for misery. You are curious about what happens next.
-        </p>
-
-        <p>
-          Another reason Chuck belongs in this lane is accessibility. You can recommend it to almost anyone without caveats. You do not need to explain why it is worth sticking through something rough. It starts easy, stays inviting, and builds trust with the viewer over time.
-        </p>
-
-        <p>
-          That is a very MacGyver trait.
-        </p>
-
-        <p>
-          MacGyver was never about intimidation. It was about reassurance. The sense that no matter how bad things got, there was a way out. Chuck keeps that promise alive, just through optimism instead of expertise.
-        </p>
-
-        <p>
-          If Burn Notice shows how to survive and White Collar shows how to glide, Chuck shows how to grow. It is MacGyver style TV that remembers fun is part of the appeal, not something to apologize for.
-        </p>
-      </div>
-    </article>
-    
