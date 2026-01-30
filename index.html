@@ -196,10 +196,17 @@ nav a:hover{color:#fff}
 /* FEATURED EDITORIALS: poster-left + text-right (like option 2) */
 .feed{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
-  gap:18px;
+  grid-template-columns:1fr; /* mobile default */
+  gap:22px;
 }
 .feedLink{display:block}
+
+/* Force 2 per row on tablet + desktop (reduces cramped feel) */
+@media (min-width: 768px){
+  .feed{
+    grid-template-columns:repeat(2, 1fr);
+  }
+}
 
 /* Card uses background-image from inline style */
 .feedCard{
