@@ -161,7 +161,7 @@ header{
 }
 .sectionHead h2{margin-bottom:0}
 
-/* IMPORTANT: keep intro text readable + not ugly */
+/* Intro text */
 .sectionLead{
   margin:10px 0 0;
   max-width:72ch;
@@ -169,7 +169,20 @@ header{
   font-size:16px;
   line-height:1.7;
 }
-.editorialIntro{max-width:720px;} /* fixes “wall of text” feeling */
+.editorialIntro{max-width:760px;} /* keeps it from stretching too wide */
+
+/* Make the bullets look like part of the design (not ugly text dump) */
+.editorialBullets{
+  margin:14px 0 0;
+  padding:0;
+  list-style:none;
+  color:rgba(255,255,255,.62);
+  font-size:15px;
+  line-height:1.8;
+}
+.editorialBullets li{
+  margin:6px 0;
+}
 
 /* View all button */
 .viewAll{
@@ -231,6 +244,7 @@ header{
   background-image:inherit;
   background-size:cover;
   background-position:center;
+  background-repeat:no-repeat;
   filter:saturate(1.05) contrast(1.02);
 }
 /* Poster shading so it blends with panel */
@@ -242,6 +256,7 @@ header{
   background:linear-gradient(90deg, rgba(0,0,0,.06), rgba(0,0,0,.58));
 }
 
+/* RIGHT text panel */
 .feedText{
   grid-column:2;
   position:relative;
@@ -271,15 +286,15 @@ header{
   overflow:hidden;
 }
 
-/* CATEGORIES */
+/* CATEGORIES (LESS CRAMPED) */
 .catGrid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:18px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); /* wider tiles */
+  gap:22px; /* more breathing room */
 }
 .cat{
-  height:260px;
-  border-radius:18px;
+  height:290px; /* slightly taller */
+  border-radius:20px;
   position:relative;
   overflow:hidden;
   border:1px solid rgba(255,255,255,.10);
@@ -338,7 +353,7 @@ header{
 .btfFeed .feedText h3{font-size:20px}
 .btfFeed .feedText p{font-size:14px; -webkit-line-clamp:2;}
 
-/* FOOTER (remove category duplicates from footer too) */
+/* FOOTER (no category duplicates) */
 footer{
   border-top:1px solid rgba(255,255,255,.08);
   padding:60px 0 24px;
@@ -420,6 +435,9 @@ footer p{
   .hero h1{font-size:46px}
   .hero p{font-size:16px}
 }
+
+/* ✅ MOBILE POSTER FIX:
+   Show full poster area instead of cropping hard. */
 @media(max-width:760px){
   .container,
   .heroInner{width:calc(100% - 34px)}
@@ -430,15 +448,38 @@ footer p{
   .section.firstSection{padding-top:34px}
   .sectionHead{flex-direction:column;align-items:flex-start}
 
-  .feedCard{grid-template-columns:1fr; min-height:0;}
+  /* stack poster on top on mobile */
+  .feedCard{
+    grid-template-columns:1fr;
+    min-height:0;
+  }
   .feedCard::before,
   .feedCard::after{
     width:100%;
-    height:260px;
+    height:290px; /* a bit taller to fit more poster */
     left:0; top:0; right:0;
   }
-  .feedText{grid-column:1; margin-top:260px;}
+
+  /* KEY CHANGE: show full poster (less cropping) */
+  .feedCard::before{
+    background-size:contain;      /* ✅ fits full image */
+    background-position:center;  /* keep centered */
+    background-color:#000;       /* clean letterbox fill */
+  }
+
+  .feedText{
+    grid-column:1;
+    margin-top:290px;
+  }
+
+  /* categories: less cramped on mobile */
+  .catGrid{
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+  .cat{height:260px;}
 }
+
 @media(max-width:420px){
   .hero h1{font-size:38px}
 }
@@ -480,16 +521,18 @@ footer p{
     <div class="sectionHead">
       <div class="editorialIntro">
         <h2>Featured editorials</h2>
+
         <p class="sectionLead">
-Not top-10 lists. Not “best of the year.”
-These are starting points for people who want to watch something specific, but don’t know where to begin.
-<br><br>
-Espionage stories shaped by people, pressure, and decisions.
-<br>
-Korean and Chinese series beyond what the algorithm keeps pushing.
-<br>
-Indian cinema beyond viral clips and surface impressions.
+          Not top-10 lists. Not “best of the year.”<br>
+          Starting points for people who know what they want — but don’t know where to begin.
         </p>
+
+        <ul class="editorialBullets">
+          <li>— Espionage series and films, from grounded spy work to high-stakes thrillers</li>
+          <li>— Period dramas, global television, and long-form storytelling</li>
+          <li>— Korean, Chinese, and Indian cinema, along with donghua and anime, beyond viral clips and surface impressions</li>
+        </ul>
+
       </div>
       <a href="editorials.html" class="viewAll">View all →</a>
     </div>
@@ -584,7 +627,6 @@ Indian cinema beyond viral clips and surface impressions.
           </div>
         </div>
       </a>
-
     </div>
 
   </div>
@@ -622,7 +664,6 @@ Indian cinema beyond viral clips and surface impressions.
     </div>
 
     <div class="feed btfFeed">
-
       <a class="feedLink" href="are-we-killing-cinema-magic.html">
         <div class="feedCard" style="background-image:url('assets/posters/Killing-cinema-magic.jpg.jpeg');">
           <div class="feedText">
@@ -640,7 +681,6 @@ Indian cinema beyond viral clips and surface impressions.
           </div>
         </div>
       </a>
-
     </div>
 
   </div>
