@@ -169,19 +169,65 @@ header{
   font-size:16px;
   line-height:1.7;
 }
-.editorialIntro{max-width:760px;} /* keeps it from stretching too wide */
+.editorialIntro{max-width:760px;}
 
-/* Make the bullets look like part of the design (not ugly text dump) */
+/* ✅ Featured intro: make it look like part of the UI (not a text dump) */
+.featuredHead{
+  position:relative;
+  align-items:flex-start;
+}
+.featuredHead .viewAll{
+  align-self:center;
+}
+.editorialBox{
+  width:min(820px, 100%);
+  margin:0 auto;              /* center the whole block */
+  padding:18px 18px 16px;
+  border-radius:18px;
+  background:
+    radial-gradient(900px 420px at 15% 10%, rgba(255,160,90,.08), transparent 60%),
+    radial-gradient(900px 420px at 85% 10%, rgba(90,170,255,.08), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.18));
+  outline:1px solid rgba(255,255,255,.10);
+  outline-offset:-1px;
+  box-shadow:0 18px 50px rgba(0,0,0,.28);
+}
+.editorialBox h2{
+  text-align:center;
+}
+.editorialBox .sectionLead{
+  text-align:center;
+  margin-top:10px;
+  max-width:70ch;
+  margin-left:auto;
+  margin-right:auto;
+  color:rgba(255,255,255,.68);
+}
+
+/* Make the bullets look like UI */
 .editorialBullets{
-  margin:14px 0 0;
+  margin:14px auto 0;
   padding:0;
   list-style:none;
+  width:min(720px, 100%);
   color:rgba(255,255,255,.62);
   font-size:15px;
-  line-height:1.8;
+  line-height:1.85;
 }
 .editorialBullets li{
-  margin:6px 0;
+  margin:8px 0;
+  padding-left:14px;
+  position:relative;
+}
+.editorialBullets li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.92em;
+  width:6px;height:6px;
+  border-radius:50%;
+  background:rgba(255,255,255,.28);
+  box-shadow:0 0 14px rgba(255,255,255,.12);
 }
 
 /* View all button */
@@ -217,21 +263,27 @@ header{
   .feed{grid-template-columns:repeat(2, 1fr);}
 }
 
+/* ✅ Border “light leak” fix:
+   - use outline (cleaner with radius on iOS)
+   - isolate stacking
+   - force clip of pseudo elements */
 .feedCard{
   position:relative;
   border-radius:22px;
   overflow:hidden;
-  border:1px solid rgba(255,255,255,.10);
+  isolation:isolate;
+  outline:1px solid rgba(255,255,255,.10);
+  outline-offset:-1px;
   background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
   min-height:220px;
   display:grid;
   grid-template-columns:44% 56%;
-  transition:transform .18s ease, border-color .18s ease, background .18s ease;
+  transition:transform .18s ease, outline-color .18s ease, background .18s ease;
   will-change:transform;
 }
 .feedCard:hover{
   transform:translateY(-2px);
-  border-color:rgba(255,255,255,.18);
+  outline-color:rgba(255,255,255,.18);
   background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
 }
 
@@ -246,6 +298,7 @@ header{
   background-position:center;
   background-repeat:no-repeat;
   filter:saturate(1.05) contrast(1.02);
+  border-radius:inherit;
 }
 /* Poster shading so it blends with panel */
 .feedCard::after{
@@ -254,6 +307,7 @@ header{
   left:0; top:0; bottom:0;
   width:44%;
   background:linear-gradient(90deg, rgba(0,0,0,.06), rgba(0,0,0,.58));
+  border-radius:inherit;
 }
 
 /* RIGHT text panel */
@@ -286,22 +340,24 @@ header{
   overflow:hidden;
 }
 
-/* CATEGORIES (LESS CRAMPED) */
+/* CATEGORIES (LESS CRAMPED) + light leak fix (same approach: outline) */
 .catGrid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); /* wider tiles */
-  gap:22px; /* more breathing room */
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;
 }
 .cat{
-  height:290px; /* slightly taller */
+  height:290px;
   border-radius:20px;
   position:relative;
   overflow:hidden;
-  border:1px solid rgba(255,255,255,.10);
+  isolation:isolate;
+  outline:1px solid rgba(255,255,255,.10);
+  outline-offset:-1px;
   background-repeat:no-repeat;
   background-position:center center;
   background-size:cover;
-  transition:transform .18s ease, border-color .18s ease, filter .18s ease;
+  transition:transform .18s ease, outline-color .18s ease, filter .18s ease;
   will-change:transform;
 }
 .cat::after{
@@ -311,6 +367,7 @@ header{
   background:
     radial-gradient(700px 420px at 30% 25%, rgba(255,255,255,.05), transparent 60%),
     linear-gradient(to top, rgba(0,0,0,.92), rgba(0,0,0,.28), transparent);
+  border-radius:inherit;
 }
 .cat span{
   position:absolute;
@@ -323,7 +380,7 @@ header{
 }
 .cat:hover{
   transform:translateY(-2px);
-  border-color:rgba(255,255,255,.18);
+  outline-color:rgba(255,255,255,.18);
   filter:saturate(1.05) contrast(1.02);
 }
 
@@ -446,7 +503,20 @@ footer p{
 
   .section{padding:60px 0}
   .section.firstSection{padding-top:34px}
-  .sectionHead{flex-direction:column;align-items:flex-start}
+
+  /* featured header: center block + button below */
+  .sectionHead{flex-direction:column;align-items:stretch}
+  .featuredHead .viewAll{
+    align-self:flex-start;
+    margin-top:14px;
+  }
+  .editorialBox{
+    padding:16px 14px 14px;
+  }
+  .editorialBullets{
+    font-size:14px;
+    line-height:1.8;
+  }
 
   /* stack poster on top on mobile */
   .feedCard{
@@ -456,15 +526,15 @@ footer p{
   .feedCard::before,
   .feedCard::after{
     width:100%;
-    height:290px; /* a bit taller to fit more poster */
+    height:290px;
     left:0; top:0; right:0;
   }
 
-  /* KEY CHANGE: show full poster (less cropping) */
+  /* show full poster (less cropping) */
   .feedCard::before{
-    background-size:contain;      /* ✅ fits full image */
-    background-position:center;  /* keep centered */
-    background-color:#000;       /* clean letterbox fill */
+    background-size:contain;
+    background-position:center;
+    background-color:#000;
   }
 
   .feedText{
@@ -518,8 +588,8 @@ footer p{
 <section class="section firstSection">
   <div class="container">
 
-    <div class="sectionHead">
-      <div class="editorialIntro">
+    <div class="sectionHead featuredHead">
+      <div class="editorialIntro editorialBox">
         <h2>Featured editorials</h2>
 
         <p class="sectionLead">
@@ -532,8 +602,8 @@ footer p{
           <li>— Period dramas, global television, and long-form storytelling</li>
           <li>— Korean, Chinese, and Indian cinema, along with donghua and anime, beyond viral clips and surface impressions</li>
         </ul>
-
       </div>
+
       <a href="editorials.html" class="viewAll">View all →</a>
     </div>
 
