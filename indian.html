@@ -17,6 +17,9 @@
   }
   a{text-decoration:none;color:inherit}
 
+  /* lock scroll when modal is open */
+  body.noscroll{overflow:hidden;touch-action:none}
+
   .top{
     position:sticky;top:0;
     display:flex;justify-content:space-between;align-items:center;
@@ -51,6 +54,7 @@
     background:#111;
     min-height:320px;
     cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
   }
   .poster{
     height:320px;
@@ -94,13 +98,19 @@
     z-index:999;
   }
   .modal.on{display:flex}
+
+  /* Make the modal content scrollable on mobile */
   .sheet{
     width:min(980px, 100%);
     border:1px solid #1f1f1f;
     background:#0f0f0f;
     border-radius:18px;
     overflow:hidden;
+    max-height:calc(100dvh - 36px);
+    display:flex;
+    flex-direction:column;
   }
+
   .sheetTop{
     display:flex;
     justify-content:space-between;
@@ -108,6 +118,7 @@
     padding:14px 14px;
     border-bottom:1px solid #1f1f1f;
     background:#0d0d0d;
+    flex:0 0 auto;
   }
   .closeBtn{
     border:1px solid #222;
@@ -117,12 +128,20 @@
     padding:10px 12px;
     cursor:pointer;
   }
+
   .sheetBody{
     padding:16px;
     display:grid;
     grid-template-columns:320px 1fr;
     gap:16px;
+
+    /* key: allow internal scrolling */
+    overflow:auto;
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior:contain;
+    flex:1 1 auto;
   }
+
   .bigPoster{
     height:460px;
     border-radius:16px;
@@ -159,9 +178,21 @@
     color:#d8d8d8;
   }
 
+  /* Mobile polish */
   @media(max-width:900px){
     .sheetBody{grid-template-columns:1fr}
-    .bigPoster{height:420px}
+    .bigPoster{height:360px}
+    .h1{font-size:22px}
+  }
+  @media(max-width:520px){
+    .grid{grid-template-columns:1fr}
+    .wrap{padding:16px 14px 8px}
+    .grid{padding:14px 14px 28px}
+    .top{padding:14px 14px}
+    .poster{height:340px}
+    .card{min-height:340px}
+    .modal{padding:12px}
+    .sheet{max-height:calc(100dvh - 24px)}
   }
 </style>
 </head>
@@ -182,12 +213,12 @@
 
 <!-- MODAL -->
 <div class="modal" id="modal" aria-hidden="true">
-  <div class="sheet" role="dialog" aria-modal="true">
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="mTitle">
     <div class="sheetTop">
       <div style="font-weight:700">Details</div>
       <button class="closeBtn" id="closeBtn" type="button">Close</button>
     </div>
-    <div class="sheetBody">
+    <div class="sheetBody" id="sheetBody">
       <div class="bigPoster fallback" id="mPoster"></div>
       <div>
         <div class="h1" id="mTitle">—</div>
@@ -207,6 +238,8 @@
 
   const modal = $("modal");
   const closeBtn = $("closeBtn");
+  const sheetBody = $("sheetBody");
+
   const mPoster = $("mPoster");
   const mTitle = $("mTitle");
   const mMeta  = $("mMeta");
@@ -216,117 +249,117 @@
   // If you upload posters, put exact paths (same case + extension) in poster:"..."
   // Example: poster:"assets/posters/indian/rrr.jpg.JPG"
   const INDIAN = [
-  {
-    id:"dhurandhar",
-    title:"Dhurandhar",
-    year:2026,
-    meta:"Espionage • Action thriller • India",
-    genres:["Espionage","Action","Thriller"],
-    poster:"assets/posters/dhurandhar.jpg.JPG",
-    synopsis:
+    {
+      id:"dhurandhar",
+      title:"Dhurandhar",
+      year:2026,
+      meta:"Espionage • Action thriller • India",
+      genres:["Espionage","Action","Thriller"],
+      poster:"assets/posters/dhurandhar.jpg.JPG",
+      synopsis:
 `An intelligence-driven thriller built around surveillance, cover identities, and the cost of living two lives. The story follows an operative pulled into a mission where information is weaponised and loyalty is constantly tested by enemies, institutions, and personal compromises.`
-  },
-  {
-    id:"animal",
-    title:"Animal",
-    year:2023,
-    meta:"Crime drama • Family obsession • Violent",
-    genres:["Crime","Drama","Action"],
-    poster:"assets/posters/animal.jpg.JPG",
-    synopsis:
+    },
+    {
+      id:"animal",
+      title:"Animal",
+      year:2023,
+      meta:"Crime drama • Family obsession • Violent",
+      genres:["Crime","Drama","Action"],
+      poster:"assets/posters/animal.jpg.JPG",
+      synopsis:
 `A father–son relationship mutates into obsession and brutality. The film explores masculinity, power, and emotional inheritance as personal loyalty escalates into cycles of revenge and destruction.`
-  },
-  {
-    id:"sardar-udham",
-    title:"Sardar Udham",
-    year:2021,
-    meta:"Historical • Biographical • Political",
-    genres:["History","Biography","Drama"],
-    poster:"assets/posters/sardar-udham.jpg.JPG",
-    synopsis:
+    },
+    {
+      id:"sardar-udham",
+      title:"Sardar Udham",
+      year:2021,
+      meta:"Historical • Biographical • Political",
+      genres:["History","Biography","Drama"],
+      poster:"assets/posters/sardar-udham.jpg.JPG",
+      synopsis:
 `A restrained political biography tracing the journey toward the assassination of Michael O’Dwyer. The film focuses on memory, trauma, and the mechanics of justice rather than spectacle.`
-  },
-  {
-    id:"jugnuma-the-fable",
-    title:"Jugnuma: The Fable",
-    year:2025,
-    meta:"Fantasy • Folklore • Mythic tone",
-    genres:["Fantasy","Folklore","Drama"],
-    poster:"assets/posters/jugnu-ma-the-fable.jpg.JPG",
-    synopsis:
+    },
+    {
+      id:"jugnuma-the-fable",
+      title:"Jugnuma: The Fable",
+      year:2025,
+      meta:"Fantasy • Folklore • Mythic tone",
+      genres:["Fantasy","Folklore","Drama"],
+      poster:"assets/posters/jugnu-ma-the-fable.jpg.JPG",
+      synopsis:
 `A myth-inspired fantasy where fate, ritual, and identity intersect. The story unfolds like a modern legend, favouring atmosphere and symbolism over realism.`
-  },
-  {
-    id:"kalki-2898-ad",
-    title:"Kalki 2898 AD",
-    year:2024,
-    meta:"Sci-fi epic • Mythology • Dystopia",
-    genres:["Sci-Fi","Action","Mythology"],
-    poster:"assets/posters/kalki-2898-ad.jpg.JPG",
-    synopsis:
+    },
+    {
+      id:"kalki-2898-ad",
+      title:"Kalki 2898 AD",
+      year:2024,
+      meta:"Sci-fi epic • Mythology • Dystopia",
+      genres:["Sci-Fi","Action","Mythology"],
+      poster:"assets/posters/kalki-2898-ad.jpg.JPG",
+      synopsis:
 `A future shaped by collapse and prophecy. Ancient myth collides with science fiction as factions battle over a figure believed to trigger renewal or destruction.`
-  },
-  {
-    id:"rrr",
-    title:"RRR",
-    year:2022,
-    meta:"Action epic • Friendship • Revolution",
-    genres:["Action","Adventure","Historical"],
-    poster:"assets/posters/rrr.jpg.JPG",
-    synopsis:
+    },
+    {
+      id:"rrr",
+      title:"RRR",
+      year:2022,
+      meta:"Action epic • Friendship • Revolution",
+      genres:["Action","Adventure","Historical"],
+      poster:"assets/posters/rrr.jpg.JPG",
+      synopsis:
 `Two revolutionaries form an unbreakable bond before discovering they stand on opposing sides of a larger conflict. The film builds mythic emotion through spectacle and loyalty.`
-  },
-  {
-    id:"3-idiots",
-    title:"3 Idiots",
-    year:2009,
-    meta:"Comedy-drama • Education • Friendship",
-    genres:["Comedy","Drama"],
-    poster:"assets/posters/3-idiots.jpg.JPG",
-    synopsis:
+    },
+    {
+      id:"3-idiots",
+      title:"3 Idiots",
+      year:2009,
+      meta:"Comedy-drama • Education • Friendship",
+      genres:["Comedy","Drama"],
+      poster:"assets/posters/3-idiots.jpg.JPG",
+      synopsis:
 `A critique of rigid education systems told through friendship and memory. The film balances humour and regret while questioning how success is defined.`
-  },
-  {
-    id:"zindagi-na-milegi-dobara",
-    title:"Zindagi Na Milegi Dobara",
-    year:2011,
-    meta:"Road film • Friendship • Self-discovery",
-    genres:["Drama","Adventure"],
-    poster:"assets/posters/zindagi-na-milegi-dobara.jpg.JPG",
-    synopsis:
+    },
+    {
+      id:"zindagi-na-milegi-dobara",
+      title:"Zindagi Na Milegi Dobara",
+      year:2011,
+      meta:"Road film • Friendship • Self-discovery",
+      genres:["Drama","Adventure"],
+      poster:"assets/posters/zindagi-na-milegi-dobara.jpg.JPG",
+      synopsis:
 `Three friends reunite on a journey that forces them to confront fear, ambition, and emotional honesty. Change happens quietly, through experience rather than confrontation.`
-  },
-  {
-    id:"taare-zameen-par",
-    title:"Taare Zameen Par",
-    year:2007,
-    meta:"Family drama • Childhood • Learning",
-    genres:["Drama","Family"],
-    poster:"assets/posters/taare-zameen-par.jpg.JPG",
-    synopsis:
+    },
+    {
+      id:"taare-zameen-par",
+      title:"Taare Zameen Par",
+      year:2007,
+      meta:"Family drama • Childhood • Learning",
+      genres:["Drama","Family"],
+      poster:"assets/posters/taare-zameen-par.jpg.JPG",
+      synopsis:
 `A child’s struggles reveal how institutions mistake difference for failure. The film focuses on empathy, creativity, and the impact of being truly seen.`
-  },
-  {
-    id:"yeh-jawaani-hai-deewani",
-    title:"Yeh Jawaani Hai Deewani",
-    year:2013,
-    meta:"Romance • Friendship • Adulthood",
-    genres:["Romance","Drama","Comedy"],
-    poster:"assets/posters/yeh-jawaani-hai-deewani.jpg.JPG",
-    synopsis:
+    },
+    {
+      id:"yeh-jawaani-hai-deewani",
+      title:"Yeh Jawaani Hai Deewani",
+      year:2013,
+      meta:"Romance • Friendship • Adulthood",
+      genres:["Romance","Drama","Comedy"],
+      poster:"assets/posters/yeh-jawaani-hai-deewani.jpg.JPG",
+      synopsis:
 `A story about ambition and connection unfolding over years. Love and friendship are tested as personal dreams pull people in different directions.`
-  },
-  {
-    id:"andhadhun",
-    title:"Andhadhun",
-    year:2018,
-    meta:"Black comedy • Crime • Thriller",
-    genres:["Thriller","Crime","Black Comedy"],
-    poster:"assets/posters/andhadhun.jpg.JPG",
-    synopsis:
+    },
+    {
+      id:"andhadhun",
+      title:"Andhadhun",
+      year:2018,
+      meta:"Black comedy • Crime • Thriller",
+      genres:["Thriller","Crime","Black Comedy"],
+      poster:"assets/posters/andhadhun.jpg.JPG",
+      synopsis:
 `A blind pianist becomes entangled in murder and deception. The film thrives on misdirection, coincidence, and moral ambiguity, constantly reshaping the truth.`
-  }
-];
+    }
+  ];
 
   function openModal(item){
     const poster = item.poster || "";
@@ -351,17 +384,26 @@
 
     mWhy.textContent = item.synopsis || "No synopsis added yet.";
 
+    // reset modal scroll to top each open (nice on mobile)
+    sheetBody.scrollTop = 0;
+
     modal.classList.add("on");
     modal.setAttribute("aria-hidden","false");
+    document.body.classList.add("noscroll");
   }
 
   function closeModal(){
     modal.classList.remove("on");
     modal.setAttribute("aria-hidden","true");
+    document.body.classList.remove("noscroll");
   }
+
   closeBtn.onclick = closeModal;
   modal.addEventListener("click", (e)=>{ if(e.target === modal) closeModal(); });
   window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeModal(); });
+
+  // close on browser back (optional-friendly)
+  window.addEventListener("popstate", () => { if(modal.classList.contains("on")) closeModal(); });
 
   function card(item){
     const div = document.createElement("div");
