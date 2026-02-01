@@ -2,31 +2,45 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>TV Shows — Popcorn Picks</title>
+
+<!-- Perf / UX -->
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0b0b0c">
+<link rel="preconnect" href="https://pagead2.googlesyndication.com">
+<link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
         crossorigin="anonymous"></script>
 
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
   body{
     background:#0b0b0c;
     color:#fff;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    -webkit-text-size-adjust:100%;
+    text-rendering:optimizeLegibility;
   }
   a{text-decoration:none;color:inherit}
+  button,input{font:inherit}
+  input,button{touch-action:manipulation}
+  :focus-visible{outline:2px solid rgba(255,255,255,.22);outline-offset:2px;border-radius:12px}
 
   .top{
     position:sticky;top:0;
     display:flex;justify-content:space-between;align-items:center;
     padding:16px 20px;
     background:rgba(10,10,10,.88);
+    -webkit-backdrop-filter:blur(10px);
     backdrop-filter:blur(10px);
     border-bottom:1px solid #222;
     z-index:50;
   }
   .top b{font-size:16px}
+  .top a{display:inline-flex;align-items:center;gap:8px}
 
   .wrap{padding:18px 18px 8px}
   .controls{
@@ -110,6 +124,11 @@
     background-size:cover;
     background-position:center;
   }
+  .poster.fallback{
+    background:
+      radial-gradient(700px 380px at 20% 15%, rgba(255,255,255,.09), transparent 55%),
+      linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.8));
+  }
   .info{
     position:absolute;
     bottom:0;left:0;right:0;
@@ -135,7 +154,7 @@
     display:none;
   }
 
-  /* MODAL */
+  /* MODAL (mobile optimized, scrollable content) */
   .modal{
     position:fixed;
     inset:0;
@@ -147,20 +166,26 @@
     z-index:999;
   }
   .modal.on{display:flex}
+
   .sheet{
     width:min(980px, 100%);
+    max-height:88vh;
+    overflow:auto;               /* ✅ this is the big fix: allows scroll inside modal */
+    -webkit-overflow-scrolling:touch; /* ✅ smooth iOS scroll */
     border:1px solid #1f1f1f;
     background:#0f0f0f;
     border-radius:18px;
-    overflow:hidden;
   }
+
   .sheetTop{
+    position:sticky; top:0;      /* keeps close button visible while scrolling */
     display:flex;
     justify-content:space-between;
     align-items:center;
     padding:14px 14px;
     border-bottom:1px solid #1f1f1f;
     background:#0d0d0d;
+    z-index:5;
   }
   .closeBtn{
     border:1px solid #222;
@@ -170,12 +195,14 @@
     padding:10px 12px;
     cursor:pointer;
   }
+
   .sheetBody{
     padding:16px;
     display:grid;
     grid-template-columns:320px 1fr;
     gap:16px;
   }
+
   .bigPoster{
     height:460px;
     border-radius:16px;
@@ -184,6 +211,12 @@
     background-size:cover;
     background-position:center;
   }
+  .bigPoster.fallback{
+    background:
+      radial-gradient(900px 520px at 20% 15%, rgba(255,255,255,.09), transparent 55%),
+      linear-gradient(to bottom, rgba(0,0,0,.12), rgba(0,0,0,.85));
+  }
+
   .h1{
     font-size:26px;
     font-weight:750;
@@ -211,13 +244,16 @@
     .sheetBody{grid-template-columns:1fr}
     .bigPoster{height:420px}
   }
+
+  /* Prevent background scroll when modal open */
+  body.modalOpen{overflow:hidden}
 </style>
 </head>
 
 <body>
 
 <div class="top">
-  <a href="index.html">← Home</a>
+  <a href="index.html" aria-label="Back to Home">← Home</a>
   <b>TV Shows</b>
   <span></span>
 </div>
@@ -240,13 +276,13 @@
 
 <!-- MODAL -->
 <div class="modal" id="modal" aria-hidden="true">
-  <div class="sheet" role="dialog" aria-modal="true">
+  <div class="sheet" role="dialog" aria-modal="true" aria-label="Show details">
     <div class="sheetTop">
       <div style="font-weight:700">Details</div>
       <button class="closeBtn" id="closeBtn" type="button">Close</button>
     </div>
     <div class="sheetBody">
-      <div class="bigPoster" id="mPoster"></div>
+      <div class="bigPoster fallback" id="mPoster"></div>
       <div>
         <div class="h1" id="mTitle">—</div>
         <div class="muted" id="mMeta"></div>
@@ -402,8 +438,6 @@ const TV = [
     poster:"assets/posters/tv/day-of-the-jackal.jpg.JPG",
     summary:"A lethal assassin and a relentless investigator spiral into a modern manhunt powered by surveillance, false identities, and quiet funding. Every move triggers the next: safe houses, contacts, cover stories, misdirection—until the chase becomes less about catching a man and more about exposing the network behind him."
   },
-
-  /* 10 more strong picks */
   {
     id:"true-detective",
     title:"True Detective",
@@ -505,126 +539,127 @@ const TV = [
     summary:"Two deep-cover Soviet agents live as an American couple while running operations that could destroy them. The missions are tense, but the real pressure is domestic: identity, loyalty, and family strain under years of deception, until even love starts to feel like another cover story."
   },
   {
-  id:"the-night-manager",
-  title:"The Night Manager",
-  year:"2016",
-  meta:"Espionage • Undercover • Psychological",
-  seasons:"1 season",
-  genres:["Espionage","Thriller","UK","Psychological"],
-  poster:"assets/posters/tv/the-night-manager.jpg.jpeg",
-  summary:"A former soldier is pulled into an undercover operation against an international arms dealer. The danger comes from proximity—earning trust, living among predators, and surviving one wrong move."
-},
-{
-  id:"the-night-agent",
-  title:"The Night Agent",
-  year:"2023–",
-  meta:"Conspiracy • Government • Action",
-  seasons:"2 seasons",
-  genres:["Action","Thriller","Political","USA"],
-  poster:"assets/posters/tv/the-night-agent.jpg.jpeg",
-  summary:"A low-level agent answers a phone that was never meant to ring and ends up uncovering secrets buried deep inside government power. Every truth makes the situation worse."
-},
-{
-  id:"the-recruit",
-  title:"The Recruit",
-  year:"2022–",
-  meta:"CIA • Action • Dark humor",
-  seasons:"2 seasons",
-  genres:["Spy","Action","Drama","USA"],
-  poster:"assets/posters/tv/the-recruit.jpg.jpeg",
-  summary:"A CIA lawyer walks into international crises without training, protection, or clear rules. The tension comes from confusion, bad timing, and constantly being one step behind."
-},
-{
-  id:"24",
-  title:"24",
-  year:"2001–2010",
-  meta:"Counter-terror • Real-time • High pressure",
-  seasons:"9 seasons",
-  genres:["Action","Thriller","USA","Counter-terror"],
-  poster:"assets/posters/tv/24.jpg.jpeg",
-  summary:"Every season unfolds in real time as crises stack up without pause. Decisions are rushed, mistakes are permanent, and the clock never stops moving."
-},
-{
-  id:"agent-hamilton",
-  title:"Agent Hamilton",
-  year:"2020–",
-  meta:"Espionage • Political • Grounded",
-  seasons:"2 seasons",
-  genres:["Espionage","Thriller","Sweden","Political"],
-  poster:"assets/posters/tv/agent-hamilton.jpg.jpeg",
-  summary:"A restrained Swedish spy series focused on compromise, institutional rot, and loyalty limits. Less spectacle, more consequences."
-},
-{
-  id:"macgyver",
-  title:"MacGyver",
-  year:"2016–2021",
-  meta:"Action • Adventure • Procedural",
-  seasons:"5 seasons",
-  genres:["Action","Adventure","USA","Procedural"],
-  poster:"assets/posters/tv/macgyver.jpg.jpeg",
-  summary:"A lighter action series built around problem-solving and teamwork rather than paranoia. Easy to watch, low on darkness, high on ingenuity."
-},
-{
-  id:"black-doves",
-  title:"Black Doves",
-  year:"2024–",
-  meta:"Espionage • Assassins • Political",
-  seasons:"1 season",
-  genres:["Espionage","Thriller","UK","Political"],
-  poster:"assets/posters/tv/black-doves.jpg.jpeg",
-  summary:"A covert operative balances assassination work with a carefully built civilian life. Secrets pile up, and identity becomes the real risk."
-},
-{
-  id:"scorpion",
-  title:"Scorpion",
-  year:"2014–2018",
-  meta:"Action • Drama • Procedural",
-  seasons:"4 seasons",
-  genres:["Action","Drama","USA","Procedural"],
-  poster:"assets/posters/tv/scorpion-poster.jpg.jpeg",
-  summary:"Scorpion follows a team of highly intelligent specialists assembled to respond to large-scale emergencies that move faster than traditional agencies can handle. Led by a socially limited but brilliant strategist, the group is deployed into situations like failing aircraft, national infrastructure breakdowns, and high-risk technological disasters. Each episode revolves around a specific crisis, while the series gradually builds relationships, trust, and internal conflict as the team learns how to function not just as problem-solvers, but as people operating under constant pressure."
-},
-{
-  id:"white-collar",
-  title:"White Collar",
-  year:"2009–2014",
-  meta:"Crime • Drama • Procedural",
-  seasons:"6 seasons",
-  genres:["Crime","Drama","USA","Procedural"],
-  poster:"assets/posters/tv/white-collar-poster.jpg.jpeg",
-  summary:"White Collar centers on a skilled con artist who is released from prison on the condition that he helps the FBI solve white-collar crimes. Using his deep knowledge of forgery, art theft, financial scams, and social manipulation, he assists in cases that law enforcement alone can’t crack. While each episode focuses on a new investigation, the series steadily explores the tension between freedom and control, and whether someone built on deception can truly live an honest life."
-},
-{
-  id:"burn-notice",
-  title:"Burn Notice",
-  year:"2007–2013",
-  meta:"Action • Spy • Procedural",
-  seasons:"7 seasons",
-  genres:["Action","Spy","USA","Procedural"],
-  poster:"assets/posters/tv/burn-notice-poster.jpg.jpeg",
-  summary:"Burn Notice follows a professional spy who is suddenly cut off from his agency and stranded without resources or answers. While trying to uncover who burned him and why, he takes on freelance jobs that require surveillance, cons, and carefully planned operations. Each episode breaks down how missions are prepared and executed, while the larger narrative slowly reveals the forces behind his isolation. The show balances episodic cases with a long-running investigation into betrayal within the intelligence world."
-},
-{
-  id:"chuck",
-  title:"Chuck",
-  year:"2007–2012",
-  meta:"Action • Comedy • Spy",
-  seasons:"5 seasons",
-  genres:["Action","Comedy","USA","Spy"],
-  poster:"assets/posters/tv/chuck-poster.jpg.jpeg",
-  summary:"Chuck follows an ordinary electronics store employee whose life changes when sensitive government data is accidentally uploaded into his brain. Suddenly protected and monitored by intelligence agents, he becomes an unwilling but essential asset in ongoing spy missions. Early seasons focus on survival and confusion, while later years track his growth into someone capable of handling danger, responsibility, and leadership. The series mixes weekly missions with a long-term arc about identity, choice, and becoming more than what circumstances first allow."
-},
-{
-  id:"limitless",
-  title:"Limitless",
-  year:"2015–2016",
-  meta:"Drama • Thriller • Procedural",
-  seasons:"1 season",
-  genres:["Drama","Thriller","USA","Procedural"],
-  poster:"assets/posters/tv/limitless-poster.jpg.jpeg",
-  summary:"Limitless follows a struggling man whose life shifts after he gains access to a drug that temporarily enhances his cognitive abilities. Recruited by the FBI, he uses this heightened intelligence to solve cases that hinge on complex patterns and rapid analysis. While each episode presents a new investigation, the season builds an underlying story about dependency, control, and the cost of relying on artificial brilliance. Despite its short run, the series maintains a clear narrative arc from discovery to consequence."
-}
+    id:"the-night-manager",
+    title:"The Night Manager",
+    year:"2016",
+    meta:"Espionage • Undercover • Psychological",
+    seasons:"1 season",
+    genres:["Espionage","Thriller","UK","Psychological"],
+    poster:"assets/posters/tv/the-night-manager.jpg.jpeg",
+    summary:"A former soldier is pulled into an undercover operation against an international arms dealer. The danger comes from proximity—earning trust, living among predators, and surviving one wrong move."
+  },
+  {
+    id:"the-night-agent",
+    title:"The Night Agent",
+    year:"2023–",
+    meta:"Conspiracy • Government • Action",
+    seasons:"2 seasons",
+    genres:["Action","Thriller","Political","USA"],
+    poster:"assets/posters/tv/the-night-agent.jpg.jpeg",
+    summary:"A low-level agent answers a phone that was never meant to ring and ends up uncovering secrets buried deep inside government power. Every truth makes the situation worse."
+  },
+  {
+    id:"the-recruit",
+    title:"The Recruit",
+    year:"2022–",
+    meta:"CIA • Action • Dark humor",
+    seasons:"2 seasons",
+    genres:["Spy","Action","Drama","USA"],
+    poster:"assets/posters/tv/the-recruit.jpg.jpeg",
+    summary:"A CIA lawyer walks into international crises without training, protection, or clear rules. The tension comes from confusion, bad timing, and constantly being one step behind."
+  },
+  {
+    id:"24",
+    title:"24",
+    year:"2001–2010",
+    meta:"Counter-terror • Real-time • High pressure",
+    seasons:"9 seasons",
+    genres:["Action","Thriller","USA","Counter-terror"],
+    poster:"assets/posters/tv/24.jpg.jpeg",
+    summary:"Every season unfolds in real time as crises stack up without pause. Decisions are rushed, mistakes are permanent, and the clock never stops moving."
+  },
+  {
+    id:"agent-hamilton",
+    title:"Agent Hamilton",
+    year:"2020–",
+    meta:"Espionage • Political • Grounded",
+    seasons:"2 seasons",
+    genres:["Espionage","Thriller","Sweden","Political"],
+    poster:"assets/posters/tv/agent-hamilton.jpg.jpeg",
+    summary:"A restrained Swedish spy series focused on compromise, institutional rot, and loyalty limits. Less spectacle, more consequences."
+  },
+  {
+    id:"macgyver",
+    title:"MacGyver",
+    year:"2016–2021",
+    meta:"Action • Adventure • Procedural",
+    seasons:"5 seasons",
+    genres:["Action","Adventure","USA","Procedural"],
+    poster:"assets/posters/tv/macgyver.jpg.jpeg",
+    summary:"A lighter action series built around problem-solving and teamwork rather than paranoia. Easy to watch, low on darkness, high on ingenuity."
+  },
+  {
+    id:"black-doves",
+    title:"Black Doves",
+    year:"2024–",
+    meta:"Espionage • Assassins • Political",
+    seasons:"1 season",
+    genres:["Espionage","Thriller","UK","Political"],
+    poster:"assets/posters/tv/black-doves.jpg.jpeg",
+    summary:"A covert operative balances assassination work with a carefully built civilian life. Secrets pile up, and identity becomes the real risk."
+  },
+  {
+    id:"scorpion",
+    title:"Scorpion",
+    year:"2014–2018",
+    meta:"Action • Drama • Procedural",
+    seasons:"4 seasons",
+    genres:["Action","Drama","USA","Procedural"],
+    poster:"assets/posters/tv/scorpion-poster.jpg.jpeg",
+    summary:"Scorpion follows a team of highly intelligent specialists assembled to respond to large-scale emergencies that move faster than traditional agencies can handle. Led by a socially limited but brilliant strategist, the group is deployed into situations like failing aircraft, national infrastructure breakdowns, and high-risk technological disasters. Each episode revolves around a specific crisis, while the series gradually builds relationships, trust, and internal conflict as the team learns how to function not just as problem-solvers, but as people operating under constant pressure."
+  },
+  {
+    id:"white-collar",
+    title:"White Collar",
+    year:"2009–2014",
+    meta:"Crime • Drama • Procedural",
+    seasons:"6 seasons",
+    genres:["Crime","Drama","USA","Procedural"],
+    poster:"assets/posters/tv/white-collar-poster.jpg.jpeg",
+    summary:"White Collar centers on a skilled con artist who is released from prison on the condition that he helps the FBI solve white-collar crimes. Using his deep knowledge of forgery, art theft, financial scams, and social manipulation, he assists in cases that law enforcement alone can’t crack. While each episode focuses on a new investigation, the series steadily explores the tension between freedom and control, and whether someone built on deception can truly live an honest life."
+  },
+  {
+    id:"burn-notice",
+    title:"Burn Notice",
+    year:"2007–2013",
+    meta:"Action • Spy • Procedural",
+    seasons:"7 seasons",
+    genres:["Action","Spy","USA","Procedural"],
+    poster:"assets/posters/tv/burn-notice-poster.jpg.jpeg",
+    summary:"Burn Notice follows a professional spy who is suddenly cut off from his agency and stranded without resources or answers. While trying to uncover who burned him and why, he takes on freelance jobs that require surveillance, cons, and carefully planned operations. Each episode breaks down how missions are prepared and executed, while the larger narrative slowly reveals the forces behind his isolation. The show balances episodic cases with a long-running investigation into betrayal within the intelligence world."
+  },
+  {
+    id:"chuck",
+    title:"Chuck",
+    year:"2007–2012",
+    meta:"Action • Comedy • Spy",
+    seasons:"5 seasons",
+    genres:["Action","Comedy","USA","Spy"],
+    poster:"assets/posters/tv/chuck-poster.jpg.jpeg",
+    summary:"Chuck follows an ordinary electronics store employee whose life changes when sensitive government data is accidentally uploaded into his brain. Suddenly protected and monitored by intelligence agents, he becomes an unwilling but essential asset in ongoing spy missions. Early seasons focus on survival and confusion, while later years track his growth into someone capable of handling danger, responsibility, and leadership. The series mixes weekly missions with a long-term arc about identity, choice, and becoming more than what circumstances first allow."
+  },
+  {
+    id:"limitless",
+    title:"Limitless",
+    year:"2015–2016",
+    meta:"Drama • Thriller • Procedural",
+    seasons:"1 season",
+    genres:["Drama","Thriller","USA","Procedural"],
+    poster:"assets/posters/tv/limitless-poster.jpg.jpeg",
+    summary:"Limitless follows a struggling man whose life shifts after he gains access to a drug that temporarily enhances his cognitive abilities. Recruited by the FBI, he uses this heightened intelligence to solve cases that hinge on complex patterns and rapid analysis. While each episode presents a new investigation, the season builds an underlying story about dependency, control, and the cost of relying on artificial brilliance. Despite its short run, the series maintains a clear narrative arc from discovery to consequence."
+  }
 ];
+
 /* =========================
    APP LOGIC (DON'T EDIT)
    ========================= */
@@ -646,7 +681,6 @@ const mMeta  = $("mMeta");
 const mPills = $("mPills");
 const mWhy   = $("mWhy");
 
-const fallbackPoster = "assets/home/tv-shows.jpg";
 const picked = new Set();
 
 function normalize(s){ return String(s || "").toLowerCase().trim(); }
@@ -728,7 +762,6 @@ function matchesQuery(item, q){
 
 function getSorted(items){
   return items.slice().sort((a,b)=>{
-    // sort by start year desc if possible
     const ya = parseInt(String(a.year||"").slice(0,4)) || 0;
     const yb = parseInt(String(b.year||"").slice(0,4)) || 0;
     if(yb !== ya) return yb - ya;
@@ -736,11 +769,21 @@ function getSorted(items){
   });
 }
 
-function openModal(item){
-  const poster = item.poster ? item.poster : fallbackPoster;
-  mPoster.style.backgroundImage = `url('${String(poster).replace(/'/g,"\\'")}')`;
+/* ✅ poster fallback without broken images */
+function setPoster(el, url){
+  if(url){
+    el.classList.remove("fallback");
+    el.style.backgroundImage = `url('${String(url).replace(/'/g,"\\'")}')`;
+  }else{
+    el.classList.add("fallback");
+    el.style.backgroundImage = "";
+  }
+}
 
+function openModal(item){
+  setPoster(mPoster, item.poster || "");
   mTitle.textContent = item.title || "Untitled";
+
   const metaBits = [];
   if(item.year) metaBits.push(item.year);
   if(item.meta) metaBits.push(item.meta);
@@ -763,11 +806,13 @@ function openModal(item){
 
   modal.classList.add("on");
   modal.setAttribute("aria-hidden","false");
+  document.body.classList.add("modalOpen");
 }
 
 function closeModal(){
   modal.classList.remove("on");
   modal.setAttribute("aria-hidden","true");
+  document.body.classList.remove("modalOpen");
 }
 
 closeBtn.onclick = closeModal;
@@ -778,15 +823,16 @@ function card(item){
   const div = document.createElement("div");
   div.className = "card";
 
-  const poster = item.poster ? item.poster : fallbackPoster;
-  const safePoster = String(poster).replace(/'/g, "\\'");
-
   const tagLine = (Array.isArray(item.genres) && item.genres.length)
     ? item.genres.slice(0, 5).join(" • ")
     : String(item.meta || "").split("•").map(s=>s.trim()).filter(Boolean).slice(0,5).join(" • ");
 
+  const posterHtml = item.poster
+    ? `<div class="poster" style="background-image:url('${String(item.poster).replace(/'/g,"\\'")}');"></div>`
+    : `<div class="poster fallback"></div>`;
+
   div.innerHTML = `
-    <div class="poster" style="background-image:url('${safePoster}');"></div>
+    ${posterHtml}
     <div class="info">
       <div class="title">${item.title || "Untitled"}</div>
       <div class="meta">${item.year || ""}${item.meta ? " • " + item.meta : ""}</div>
@@ -815,7 +861,12 @@ function render(){
   emptyEl.style.display = filtered.length ? "none" : "block";
 }
 
-qEl.addEventListener("input", render);
+/* tiny perf: debounce typing */
+let t = null;
+qEl.addEventListener("input", ()=>{
+  clearTimeout(t);
+  t = setTimeout(render, 60);
+});
 
 clearBtn.onclick = () => { qEl.value = ""; render(); };
 clearFiltersBtn.onclick = () => { picked.clear(); paintChips(); render(); };
