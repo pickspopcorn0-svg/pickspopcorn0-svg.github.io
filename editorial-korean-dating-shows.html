@@ -6,7 +6,7 @@
 
 <title>Korean Dating Shows Worth Your Time | Popcorn Picks</title>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/jsadsbygoogle.js?client=ca-pub-6052420824639800"
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
         crossorigin="anonymous"></script>
 
 <style>
@@ -28,8 +28,27 @@ a{text-decoration:none;color:inherit}
   border-bottom:1px solid #222;
 }
 .brand{font-weight:800;letter-spacing:.3px}
-.back{color:#aaa;font-size:13px}
-.back:hover{color:#fff}
+
+/* ✅ LEFT NAV BUTTONS (matches your screenshot) */
+.navLeft{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+.navBtn{
+  font-size:13px;
+  color:#d0d0d0;
+  padding:7px 14px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.04);
+  transition:.15s ease;
+}
+.navBtn:hover{
+  color:#fff;
+  border-color:rgba(255,255,255,.25);
+  background:rgba(255,255,255,.08);
+}
 
 /* HERO */
 .hero{
@@ -68,6 +87,7 @@ a{text-decoration:none;color:inherit}
   line-height:1.78;
   font-size:16px;
 }
+
 /* WRAP */
 .wrap{
   max-width:980px;
@@ -145,6 +165,7 @@ a{text-decoration:none;color:inherit}
   .hero h1{font-size:40px}
   .show{grid-template-columns:1fr}
   .poster{width:100%;height:380px}
+  .topbar{padding:14px 14px}
 }
 </style>
 </head>
@@ -152,9 +173,14 @@ a{text-decoration:none;color:inherit}
 <body>
 
 <div class="topbar">
-  <a class="back" href="index.html">← Back</a>
+  <div class="navLeft">
+    <a class="navBtn" href="editorials.html">← Editorials</a>
+    <a class="navBtn" href="index.html">Home</a>
+  </div>
+
   <div class="brand">Popcorn Picks</div>
-  <div style="width:48px"></div>
+
+  <div style="width:120px"></div>
 </div>
 
 <header class="hero">
