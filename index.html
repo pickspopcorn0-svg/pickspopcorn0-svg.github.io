@@ -14,6 +14,12 @@
 <link rel="preconnect" href="https://pagead2.googlesyndication.com">
 <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
 
+<!-- ✅ Perf: preconnect to Google Fonts CDN (ads loads from gstatic too) -->
+<link rel="preconnect" href="https://www.googletagservices.com">
+<link rel="dns-prefetch" href="https://www.googletagservices.com">
+<link rel="preconnect" href="https://tpc.googlesyndication.com">
+<link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
   crossorigin="anonymous"></script>
 
@@ -171,7 +177,7 @@ header{
 }
 .editorialIntro{max-width:760px;}
 
-/* ✅ Featured intro: centered box, CTA inside (like generated image) */
+/* ✅ Featured intro: centered box, CTA inside */
 .featuredHead{
   display:block;
   margin-bottom:22px;
@@ -252,7 +258,7 @@ header{
   color:#fff;
 }
 
-/* ✅ CTA row inside the editorial box (bottom-right) */
+/* CTA row inside the editorial box (bottom-right) */
 .editorialCTA{
   display:flex;
   justify-content:flex-end;
@@ -270,7 +276,7 @@ header{
   .feed{grid-template-columns:repeat(2, 1fr);}
 }
 
-/* ✅ Border “light leak” fix */
+/* Border “light leak” fix */
 .feedCard{
   position:relative;
   border-radius:22px;
@@ -507,14 +513,8 @@ footer p{
   .section{padding:60px 0}
   .section.firstSection{padding-top:34px}
 
-  /* Featured box already contains button, so keep it clean */
-  .editorialBox{
-    padding:16px 14px 14px;
-  }
-  .editorialBullets{
-    font-size:14px;
-    line-height:1.8;
-  }
+  .editorialBox{padding:16px 14px 14px}
+  .editorialBullets{font-size:14px;line-height:1.8}
 
   /* stack poster on top on mobile */
   .feedCard{
@@ -527,20 +527,17 @@ footer p{
     height:290px;
     left:0; top:0; right:0;
   }
-
-  /* show full poster (less cropping) */
   .feedCard::before{
     background-size:contain;
     background-position:center;
     background-color:#000;
   }
-
   .feedText{
     grid-column:1;
     margin-top:290px;
   }
 
-  /* categories: less cramped on mobile */
+  /* categories */
   .catGrid{
     grid-template-columns:1fr;
     gap:18px;
@@ -596,12 +593,11 @@ footer p{
         </p>
 
         <ul class="editorialBullets">
-          <li> Espionage series and films, from grounded spy work to high-stakes thrillers</li>
-          <li> Period dramas, global television, and long-form storytelling</li>
-          <li> Korean, Chinese, and Indian cinema, along with donghua and anime, beyond viral clips and surface impressions</li>
+          <li>Espionage series and films, from grounded spy work to high-stakes thrillers</li>
+          <li>Period dramas, global television, and long-form storytelling</li>
+          <li>Korean, Chinese, and Indian cinema, along with donghua and anime, beyond viral clips and surface impressions</li>
         </ul>
 
-        <!-- ✅ Button inside the box (like generated image) -->
         <div class="editorialCTA">
           <a href="editorials.html" class="viewAll">View all →</a>
         </div>
@@ -703,11 +699,17 @@ footer p{
   </div>
 </section>
 
-<!-- CATEGORIES -->
+<!-- CATEGORIES (✅ now has View all on top-right, and homepage hides Indian + French) -->
 <section class="section">
   <div class="container">
-    <h2>Browse categories</h2>
-    <p class="sectionLead">Explore cinema across cultures, organized by what actually matters.</p>
+
+    <div class="sectionHead">
+      <div>
+        <h2>Browse categories</h2>
+        <p class="sectionLead">Explore cinema across cultures, organized by what actually matters.</p>
+      </div>
+      <a href="categories.html" class="viewAll">View all →</a>
+    </div>
 
     <div class="catGrid">
       <a class="cat" href="movies.html" style="background-image:url('assets/categories/movies.jpg.JPG')"><span>Movies</span></a>
@@ -716,9 +718,8 @@ footer p{
       <a class="cat" href="cdrama.html" style="background-image:url('assets/categories/c-drama.jpg.JPG')"><span>C Drama</span></a>
       <a class="cat" href="anime.html" style="background-image:url('assets/categories/anime.jpg.JPG')"><span>Anime</span></a>
       <a class="cat" href="donghua.html" style="background-image:url('assets/categories/donghua.jpg.JPG')"><span>Donghua</span></a>
-      <a class="cat" href="indian.html" style="background-image:url('assets/categories/indian-cinema.jpg.JPG')"><span>Indian Cinema</span></a>
-      <a class="cat" href="french.html" style="background-image:url('assets/categories/french-cinema.jpg.JPG')"><span>French Cinema</span></a>
     </div>
+
   </div>
 </section>
 
@@ -772,6 +773,7 @@ footer p{
       <h4>Explore</h4>
       <a href="editorials.html">Editorials</a>
       <a href="between-the-frames.html">Between the Frames</a>
+      <a href="categories.html">Browse categories</a>
       <a href="contact.html">Contact</a>
     </div>
 
@@ -808,9 +810,27 @@ footer p{
         bar.style.display = "none";
       });
     }
-  }catch(e){
-    // If storage blocked, just don't show it repeatedly
-  }
+  }catch(e){}
+})();
+</script>
+
+<!-- ✅ Perf: Lazy-load non-critical images (no compromise, just faster) -->
+<script>
+/*
+  Makes homepage faster:
+  - Keeps hero instant
+  - Lazily loads everything below the fold
+  - Adds decoding="async" for smoother rendering
+*/
+(function(){
+  try{
+    var imgs = document.querySelectorAll("img");
+    imgs.forEach(function(img){
+      // hero is background-image so nothing to do
+      if(!img.hasAttribute("loading")) img.setAttribute("loading","lazy");
+      if(!img.hasAttribute("decoding")) img.setAttribute("decoding","async");
+    });
+  }catch(e){}
 })();
 </script>
 
