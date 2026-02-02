@@ -1,1 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Browse Categories — Popcorn Picks</title>
 
+<meta name="description" content="Browse all Popcorn Picks categories — movies, TV shows, K-drama, C-drama, anime, donghua, Indian cinema, and French cinema." />
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+html{scroll-behavior:smooth}
+
+:root{
+  --bg:#0b0b0c;
+  --lineSoft:rgba(255,255,255,.08);
+  --muted:rgba(255,255,255,.78);
+  --muted2:rgba(255,255,255,.62);
+}
+
+body{
+  background:var(--bg);
+  color:#fff;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* container */
+.container{
+  width:min(1120px, calc(100% - 44px));
+  margin:0 auto;
+}
+
+/* TOPBAR (like your editorials pages) */
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:16px 20px;
+  background:rgba(10,10,10,.88);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid #222;
+}
+.topLink{
+  color:#aaa;
+  font-size:13px;
+  white-space:nowrap;
+}
+.topLink:hover{color:#fff}
+.brand{
+  font-weight:800;
+  font-size:14px;
+  letter-spacing:.4px;
+}
+
+/* page header */
+.pageHead{
+  padding:40px 0 18px;
+}
+.pageHead h1{
+  font-size:38px;
+  letter-spacing:-.02em;
+  line-height:1.1;
+}
+.pageHead p{
+  margin-top:10px;
+  color:var(--muted2);
+  line-height:1.7;
+  font-size:16px;
+  max-width:72ch;
+}
+
+/* categories grid */
+.catGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;
+  padding:22px 0 70px;
+}
+
+.cat{
+  height:290px;
+  border-radius:20px;
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  outline:1px solid rgba(255,255,255,.10);
+  outline-offset:-1px;
+  background-repeat:no-repeat;
+  background-position:center center;
+  background-size:cover;
+  transition:transform .18s ease, outline-color .18s ease, filter .18s ease;
+  will-change:transform;
+}
+.cat::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(700px 420px at 30% 25%, rgba(255,255,255,.05), transparent 60%),
+    linear-gradient(to top, rgba(0,0,0,.92), rgba(0,0,0,.28), transparent);
+  border-radius:inherit;
+}
+.cat span{
+  position:absolute;
+  left:18px;
+  bottom:18px;
+  font-size:22px;
+  font-weight:900;
+  z-index:2;
+  text-shadow:0 10px 22px rgba(0,0,0,.85);
+}
+.cat:hover{
+  transform:translateY(-2px);
+  outline-color:rgba(255,255,255,.18);
+  filter:saturate(1.05) contrast(1.02);
+}
+
+/* mobile */
+@media(max-width:760px){
+  .container{width:calc(100% - 34px)}
+  .pageHead h1{font-size:32px}
+  .catGrid{grid-template-columns:1fr; gap:18px}
+  .cat{height:260px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <a class="topLink" href="index.html">← Home</a>
+  <div class="brand">Categories</div>
+  <a class="topLink" href="editorials.html" style="text-align:right;">Editorials</a>
+</div>
+
+<!-- PAGE HEAD -->
+<section class="pageHead">
+  <div class="container">
+    <h1>Browse all categories</h1>
+    <p>
+      Everything on Popcorn Picks, organized by format and region — so you can jump straight into what you actually want.
+    </p>
+  </div>
+</section>
+
+<!-- ALL CATEGORIES -->
+<section>
+  <div class="container">
+    <div class="catGrid">
+      <a class="cat" href="movies.html" style="background-image:url('assets/categories/movies.jpg.JPG')"><span>Movies</span></a>
+      <a class="cat" href="tv-shows.html" style="background-image:url('assets/categories/tv-shows.jpg.JPG')"><span>TV Shows</span></a>
+      <a class="cat" href="kdrama.html" style="background-image:url('assets/categories/k-drama.jpg.JPG')"><span>K Drama</span></a>
+      <a class="cat" href="cdrama.html" style="background-image:url('assets/categories/c-drama.jpg.JPG')"><span>C Drama</span></a>
+      <a class="cat" href="anime.html" style="background-image:url('assets/categories/anime.jpg.JPG')"><span>Anime</span></a>
+      <a class="cat" href="donghua.html" style="background-image:url('assets/categories/donghua.jpg.JPG')"><span>Donghua</span></a>
+
+      <!-- these two only appear here, not on homepage -->
+      <a class="cat" href="indian.html" style="background-image:url('assets/categories/indian-cinema.jpg.JPG')"><span>Indian Cinema</span></a>
+      <a class="cat" href="french.html" style="background-image:url('assets/categories/french-cinema.jpg.JPG')"><span>French Cinema</span></a>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
