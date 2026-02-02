@@ -6,7 +6,7 @@
 <title>For People Who Miss MacGyver-Style TV Shows — Popcorn Picks</title>
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
-        crossorigin="anonymous"></script>
+  crossorigin="anonymous"></script>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -18,18 +18,61 @@ body{
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 
-/* TOPBAR */
+/* ✅ TOPBAR (pill buttons + centered brand like your screenshot) */
 .topbar{
   position:sticky; top:0; z-index:50;
-  display:flex; align-items:center; justify-content:space-between;
-  padding:16px 20px;
   background:rgba(10,10,10,.88);
   backdrop-filter: blur(10px);
   border-bottom:1px solid #222;
 }
-.back{color:#aaa;font-size:13px}
-.back:hover{color:#fff}
-.brand{font-weight:650;letter-spacing:.5px;font-size:14px}
+.topbarInner{
+  max-width:1100px;
+  margin:0 auto;
+  padding:14px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.navLeft{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+.navBtn{
+  font-size:13px;
+  color:rgba(255,255,255,.78);
+  padding:7px 14px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.04);
+  transition:.15s ease;
+  white-space:nowrap;
+}
+.navBtn:hover{
+  color:#fff;
+  border-color:rgba(255,255,255,.25);
+  background:rgba(255,255,255,.08);
+}
+.brandCenter{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:700;
+  letter-spacing:.2px;
+  justify-content:center;
+  flex:1;
+  font-size:14px;
+}
+.brandDot{
+  width:10px;height:10px;border-radius:50%;
+  background:rgba(255,120,70,.95);
+  box-shadow:0 0 0 4px rgba(255,120,70,.16);
+}
+.navSpacer{width:160px}
+@media(max-width:860px){
+  .navSpacer{width:90px}
+}
 
 /* HERO */
 .hero{
@@ -148,14 +191,6 @@ img{max-width:100%;display:block}
   height:auto;
 }
 
-/* FOOTER NOTE */
-.more{
-  margin-top:22px;
-  color:#9a9a9a;
-  font-size:13px;
-  line-height:1.6;
-}
-
 /* MOBILE */
 @media(max-width:760px){
   .hero h1{font-size:40px}
@@ -167,11 +202,22 @@ img{max-width:100%;display:block}
 
 <body>
 
-<div class="topbar">
-  <a class="back" href="index.html">← Back</a>
-  <div class="brand">Popcorn Picks</div>
-  <div style="width:48px"></div>
-</div>
+<!-- ✅ Updated topbar: Editorials + Home -->
+<header class="topbar">
+  <div class="topbarInner">
+    <div class="navLeft">
+      <a class="navBtn" href="editorials.html">← Editorials</a>
+      <a class="navBtn" href="index.html">Home</a>
+    </div>
+
+    <a class="brandCenter" href="index.html" aria-label="Popcorn Picks home">
+      <span class="brandDot"></span>
+      <span>Popcorn Picks</span>
+    </a>
+
+    <div class="navSpacer" aria-hidden="true"></div>
+  </div>
+</header>
 
 <header class="hero">
   <div class="heroInner">
@@ -230,8 +276,6 @@ img{max-width:100%;display:block}
       <p>The tone stays light and controlled. You can watch it casually without losing track of what’s happening. Conversations have room to breathe. Humor and charm balance the procedural structure, especially in the central partnership.</p>
 
       <p>White Collar sits comfortably in that MacGyver-like sweet spot: smart but fun, clever without being exhausting. If you want a show that feels intelligent while still being easy to live with, this one fits naturally.</p>
-
-      <p>⸻</p>
     </div>
     <div class="posterWrap">
       <div class="poster">
@@ -255,8 +299,6 @@ img{max-width:100%;display:block}
       <p>Tonally, Burn Notice finds a rare balance. It’s serious about danger and consequence, but it never becomes bleak. Humor exists naturally, and the character dynamics keep the show from tipping into heaviness. You’re not watching people brood - you’re watching them work.</p>
 
       <p>That’s the appeal. If you miss watching problems get handled step by step, with intelligence and adaptability leading the way, Burn Notice delivers that feeling better than almost anything else here.</p>
-
-      <p>⸻</p>
     </div>
     <div class="posterWrap">
       <div class="poster">
@@ -280,8 +322,6 @@ img{max-width:100%;display:block}
       <p>The tone is key. Chuck never feels hostile to the viewer. Stakes exist, but the show stays optimistic and welcoming. Humor, romance, and character relationships sit alongside the action rather than competing with it.</p>
 
       <p>MacGyver was always reassuring - there’s a way out. Chuck keeps that promise, just with more emotion and less certainty. If you want MacGyver-style thinking wrapped in heart and humor, this is where it shines.</p>
-
-      <p>⸻</p>
     </div>
     <div class="posterWrap">
       <div class="poster">
