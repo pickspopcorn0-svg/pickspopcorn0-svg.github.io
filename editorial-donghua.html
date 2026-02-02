@@ -27,9 +27,30 @@ img{max-width:100%;display:block}
   backdrop-filter: blur(10px);
   border-bottom:1px solid #222;
 }
-.back{color:#aaa;font-size:13px}
-.back:hover{color:#fff}
-.brand{font-weight:650;letter-spacing:.5px;font-size:14px}
+.navLeft{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+.navBtn{
+  font-size:13px;
+  color:#aaa;
+  padding:8px 10px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.03);
+  transition:.15s ease;
+}
+.navBtn:hover{
+  color:#fff;
+  border-color:rgba(255,255,255,.18);
+  background:rgba(255,255,255,.06);
+}
+.brand{
+  font-weight:650;
+  letter-spacing:.5px;
+  font-size:14px;
+}
 
 /* HERO */
 .hero{
@@ -119,7 +140,7 @@ img{max-width:100%;display:block}
   margin:0 0 14px 0;
 }
 
-/* POSTER SPACE */
+/* POSTER */
 .posterWrap{
   margin-top:18px;
   display:flex;
@@ -132,11 +153,7 @@ img{max-width:100%;display:block}
   border:1px solid #232323;
   background:#111;
 }
-.poster img{
-  width:100%;
-  height:auto;
-  display:block;
-}
+.poster img{width:100%;height:auto}
 .posterFallback{
   padding:44px 18px;
   text-align:center;
@@ -155,15 +172,22 @@ img{max-width:100%;display:block}
 
 <body>
 
+<!-- TOPBAR -->
 <div class="topbar">
-  <a class="back" href="index.html">← Back</a>
+  <div class="navLeft">
+    <a class="navBtn" href="editorials.html">← Editorials</a>
+    <a class="navBtn" href="index.html">Home</a>
+  </div>
+
   <div class="brand">Popcorn Picks</div>
-  <div style="width:48px"></div>
+
+  <div style="width:120px"></div>
 </div>
 
 <header class="hero">
   <div class="heroInner">
     <span class="kicker">Editorial • Donghua</span>
+    <h1>My Favorite Donghua</h1>
     <h1>My Favorite Donghua</h1>
 
     <p>
