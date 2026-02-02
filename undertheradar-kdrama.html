@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Under the Radar K-Drama — Popcorn Picks</title>
 
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
-        crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
+  crossorigin="anonymous"></script>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -18,18 +18,61 @@ body{
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 
-/* TOPBAR */
+/* ✅ TOPBAR (Editorials + Home like your screenshot) */
 .topbar{
   position:sticky; top:0; z-index:50;
-  display:flex; align-items:center; justify-content:space-between;
-  padding:16px 20px;
   background:rgba(10,10,10,.88);
   backdrop-filter: blur(10px);
   border-bottom:1px solid #222;
 }
-.back{color:#aaa;font-size:13px}
-.back:hover{color:#fff}
-.brand{font-weight:650;letter-spacing:.5px;font-size:14px}
+.topbarInner{
+  max-width:1100px;
+  margin:0 auto;
+  padding:14px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.navLeft{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+.navBtn{
+  font-size:13px;
+  color:rgba(255,255,255,.78);
+  padding:7px 14px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.04);
+  transition:.15s ease;
+  white-space:nowrap;
+}
+.navBtn:hover{
+  color:#fff;
+  border-color:rgba(255,255,255,.25);
+  background:rgba(255,255,255,.08);
+}
+.brandCenter{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:700;
+  letter-spacing:.2px;
+  justify-content:center;
+  flex:1;
+  font-size:14px;
+}
+.brandDot{
+  width:10px;height:10px;border-radius:50%;
+  background:rgba(255,120,70,.95);
+  box-shadow:0 0 0 4px rgba(255,120,70,.16);
+}
+.navSpacer{width:160px}
+@media(max-width:860px){
+  .navSpacer{width:90px}
+}
 
 /* HERO */
 .hero{
@@ -142,11 +185,22 @@ img{max-width:100%;display:block}
 
 <body>
 
-<div class="topbar">
-  <a class="back" href="index.html">← Back</a>
-  <div class="brand">Popcorn Picks</div>
-  <div style="width:48px"></div>
-</div>
+<!-- ✅ Updated topbar: Editorials + Home -->
+<header class="topbar">
+  <div class="topbarInner">
+    <div class="navLeft">
+      <a class="navBtn" href="editorials.html">← Editorials</a>
+      <a class="navBtn" href="index.html">Home</a>
+    </div>
+
+    <a class="brandCenter" href="index.html" aria-label="Popcorn Picks home">
+      <span class="brandDot"></span>
+      <span>Popcorn Picks</span>
+    </a>
+
+    <div class="navSpacer" aria-hidden="true"></div>
+  </div>
+</header>
 
 <header class="hero">
   <div class="heroInner">
@@ -190,15 +244,16 @@ img{max-width:100%;display:block}
     <div class="text">
       <p>This is not the kind of drama you watch casually. It asks for quiet, patience, and a certain emotional readiness. From the beginning, you can sense where it’s heading, and that inevitability is part of what makes it heavy.</p>
 
-<p>At first, it feels like a restrained period romance. Artists, theatre, music, admiration. But very quickly, the weight of reality settles in. Society presses in. Expectations harden. Love becomes something that cannot survive in the open.</p>
+      <p>At first, it feels like a restrained period romance. Artists, theatre, music, admiration. But very quickly, the weight of reality settles in. Society presses in. Expectations harden. Love becomes something that cannot survive in the open.</p>
 
-<p>What the drama stays focused on is choice. Choosing art over safety. Choosing love over comfort. Choosing truth even when it leads somewhere painful. Nothing is exaggerated. Emotions are held back, and that restraint makes the sorrow feel sharper.</p>
+      <p>What the drama stays focused on is choice. Choosing art over safety. Choosing love over comfort. Choosing truth even when it leads somewhere painful. Nothing is exaggerated. Emotions are held back, and that restraint makes the sorrow feel sharper.</p>
 
-<p>Music plays a quiet but powerful role here. There is one song in particular that captures the entire mood of the drama so completely that it stays with you long after the episodes end. If you’ve seen the show, you already know which one it is. I still find myself returning to it, and every time I do, the feeling of the drama comes back instantly.</p>
+      <p>Music plays a quiet but powerful role here. There is one song in particular that captures the entire mood of the drama so completely that it stays with you long after the episodes end. If you’ve seen the show, you already know which one it is. I still find myself returning to it, and every time I do, the feeling of the drama comes back instantly.</p>
 
-<p>The performances follow the same approach. Pain shows up in pauses, unfinished sentences, and the things left unsaid. The sadness doesn’t come from shock, but from knowing how long the ending has been unavoidable.</p>
+      <p>The performances follow the same approach. Pain shows up in pauses, unfinished sentences, and the things left unsaid. The sadness doesn’t come from shock, but from knowing how long the ending has been unavoidable.</p>
 
-<p>This is not a comforting watch. It is short, restrained, and deeply tragic. But for viewers who value quiet storytelling that lingers through memory and emotion, <em>Hymn of Death</em> leaves a lasting mark.</p>
+      <p>This is not a comforting watch. It is short, restrained, and deeply tragic. But for viewers who value quiet storytelling that lingers through memory and emotion, <em>Hymn of Death</em> leaves a lasting mark.</p>
+    </div>
     <div class="posterWrap">
       <div class="poster">
         <img src="assets/posters/IMG_2505.jpeg" alt="Hymn of Death poster">
@@ -225,43 +280,43 @@ img{max-width:100%;display:block}
     <h2>4) Tell Me What You Saw</h2>
     <div class="submeta">2020 • Crime / Psychological Thriller</div>
     <div class="text">
-  <p>
-    Tell Me What You Saw is not the kind of show you watch while scrolling. Blink once and you miss
-    something important. This one wants your full attention. And then it quietly gets inside your head.
-  </p>
+      <p>
+        Tell Me What You Saw is not the kind of show you watch while scrolling. Blink once and you miss
+        something important. This one wants your full attention. And then it quietly gets inside your head.
+      </p>
 
-  <p>
-    At first, it feels like a standard serial killer drama. Dead bodies. Patterns. Police chasing
-    shadows. You think you know where this is going. But then the show starts slowing down, and
-    suddenly you feel uncomfortable for reasons you cannot explain.
-  </p>
+      <p>
+        At first, it feels like a standard serial killer drama. Dead bodies. Patterns. Police chasing
+        shadows. You think you know where this is going. But then the show starts slowing down, and
+        suddenly you feel uncomfortable for reasons you cannot explain.
+      </p>
 
-  <p>
-    What really pulls you in is its obsession with memory and observation. What you saw versus what
-    you think you saw. The show cares about tiny details. A glance. A pause. Something that feels
-    slightly off. It does not stop to explain everything. It trusts you to keep up. If you miss
-    something, that is on you.
-  </p>
+      <p>
+        What really pulls you in is its obsession with memory and observation. What you saw versus what
+        you think you saw. The show cares about tiny details. A glance. A pause. Something that feels
+        slightly off. It does not stop to explain everything. It trusts you to keep up. If you miss
+        something, that is on you.
+      </p>
 
-  <p>
-    Jang Hyuk’s character is especially interesting. He is not charming or heroic. He feels broken,
-    sharp, withdrawn, and honestly a little frightening in how calm he stays. The relationship
-    between him and the rookie detective never feels easy or comfortable. Trust does not come
-    automatically here. People hesitate. They doubt each other. They make mistakes.
-  </p>
+      <p>
+        Jang Hyuk’s character is especially interesting. He is not charming or heroic. He feels broken,
+        sharp, withdrawn, and honestly a little frightening in how calm he stays. The relationship
+        between him and the rookie detective never feels easy or comfortable. Trust does not come
+        automatically here. People hesitate. They doubt each other. They make mistakes.
+      </p>
 
-  <p>
-    What stayed with me the most is the atmosphere. Cold rooms. Empty streets. Long silences. This
-    drama understands that fear does not always come from violence. Sometimes it comes from waiting.
-    From knowing something bad is coming and not knowing when.
-  </p>
+      <p>
+        What stayed with me the most is the atmosphere. Cold rooms. Empty streets. Long silences. This
+        drama understands that fear does not always come from violence. Sometimes it comes from waiting.
+        From knowing something bad is coming and not knowing when.
+      </p>
 
-  <p>
-    This is not a fun binge drama. It is a lights off, phone away, sit alone kind of watch. I can say this confidently. It is objectively strong. If you
-    like crime stories that respect your intelligence and do not rush to comfort you, this one
-    absolutely deserves its place here.
-  </p>
-</div>
+      <p>
+        This is not a fun binge drama. It is a lights off, phone away, sit alone kind of watch. I can say this confidently. It is objectively strong. If you
+        like crime stories that respect your intelligence and do not rush to comfort you, this one
+        absolutely deserves its place here.
+      </p>
+    </div>
     <div class="posterWrap">
       <div class="poster">
         <img src="assets/posters/IMG_2507.jpeg" alt="Tell Me What You Saw poster">
@@ -273,55 +328,55 @@ img{max-width:100%;display:block}
     <h2>5) Love Affairs in the Afternoon</h2>
     <div class="submeta">2019 • Romance / Slice of Life</div>
     <div class="text">
-  <p>
-    Honestly, this is the kind of drama I usually stay away from. Just the theme itself makes me hesitate.
-    Infidelity. Affairs. That whole space. Most dramas like this either romanticize it, ignore the damage,
-    or turn it into something stylish and fake-deep. And yeah, I usually avoid those.
-  </p>
+      <p>
+        Honestly, this is the kind of drama I usually stay away from. Just the theme itself makes me hesitate.
+        Infidelity. Affairs. That whole space. Most dramas like this either romanticize it, ignore the damage,
+        or turn it into something stylish and fake-deep. And yeah, I usually avoid those.
+      </p>
 
-  <p>
-    But for some reason, I started this. Then I kept going. And before I realized it, I was completely
-    pulled in.
-  </p>
+      <p>
+        But for some reason, I started this. Then I kept going. And before I realized it, I was completely
+        pulled in.
+      </p>
 
-  <p>
-    Love Affairs in the Afternoon is about infidelity. There is no way around that. But it treats the
-    subject in a very grounded and uncomfortable way. It is not flashy. It is not built on dramatic
-    revenge, screaming fights, or exaggerated confrontations. It stays quiet. Almost uncomfortably
-    quiet. And that is exactly why it works.
-  </p>
+      <p>
+        Love Affairs in the Afternoon is about infidelity. There is no way around that. But it treats the
+        subject in a very grounded and uncomfortable way. It is not flashy. It is not built on dramatic
+        revenge, screaming fights, or exaggerated confrontations. It stays quiet. Almost uncomfortably
+        quiet. And that is exactly why it works.
+      </p>
 
-  <p>
-    Let me be clear. This drama does not justify cheating. Feeling lonely, ignored, or trapped does not
-    give anyone the right to betray someone. I am not defending that, and neither is the show. What it
-    does instead is sit inside the mess. The guilt. The hesitation. The confusion. It does not try to
-    sell it as romance or destiny.
-  </p>
+      <p>
+        Let me be clear. This drama does not justify cheating. Feeling lonely, ignored, or trapped does not
+        give anyone the right to betray someone. I am not defending that, and neither is the show. What it
+        does instead is sit inside the mess. The guilt. The hesitation. The confusion. It does not try to
+        sell it as romance or destiny.
+      </p>
 
-  <p>
-    Park Ha sun’s performance is a big reason this worked for me. There is a lot of restraint in her
-    acting. She does not overplay pain. She does not beg for sympathy. You just see it. In her pauses,
-    her expressions, the way she exists in scenes. It feels uncomfortably real, like watching someone’s
-    private life unfold without permission.
-  </p>
+      <p>
+        Park Ha sun’s performance is a big reason this worked for me. There is a lot of restraint in her
+        acting. She does not overplay pain. She does not beg for sympathy. You just see it. In her pauses,
+        her expressions, the way she exists in scenes. It feels uncomfortably real, like watching someone’s
+        private life unfold without permission.
+      </p>
 
-  <p>
-    The pacing is slow, but it is not empty. Scenes are allowed to breathe. Conversations do not rush
-    toward conclusions. Sometimes an episode ends and you realize not much happened in terms of plot,
-    yet emotionally you feel drained. That kind of immersion is rare, and this drama somehow achieves it.
-  </p>
+      <p>
+        The pacing is slow, but it is not empty. Scenes are allowed to breathe. Conversations do not rush
+        toward conclusions. Sometimes an episode ends and you realize not much happened in terms of plot,
+        yet emotionally you feel drained. That kind of immersion is rare, and this drama somehow achieves it.
+      </p>
 
-  <p>
-    What surprised me most is how invested I became despite my initial resistance to the theme. I was
-    not watching to support anyone or judge anyone. I was just watching, fully absorbed, trying to
-    understand these people without being told what to think.
-  </p>
+      <p>
+        What surprised me most is how invested I became despite my initial resistance to the theme. I was
+        not watching to support anyone or judge anyone. I was just watching, fully absorbed, trying to
+        understand these people without being told what to think.
+      </p>
 
-  <p>
-    This is not a comfort watch. It is not meant to make you feel good. But it is honest, restrained,
-    and quietly powerful.
-  </p>
-</div>
+      <p>
+        This is not a comfort watch. It is not meant to make you feel good. But it is honest, restrained,
+        and quietly powerful.
+      </p>
+    </div>
     <div class="posterWrap">
       <div class="poster">
         <img src="assets/posters/IMG_2506.jpeg" alt="Love Affairs in the Afternoon poster">
