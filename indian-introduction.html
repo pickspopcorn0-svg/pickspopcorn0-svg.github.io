@@ -34,8 +34,28 @@ img{display:block;max-width:100%;height:auto}
   backdrop-filter:blur(10px);
   border-bottom:1px solid #222;
 }
-.back{color:#aaa;font-size:13px}
-.back:hover{color:#fff}
+
+/* ✅ LEFT NAV BUTTONS (matches your screenshot) */
+.navLeft{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+.navBtn{
+  font-size:13px;
+  color:#d0d0d0;
+  padding:7px 14px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.04);
+  transition:.15s ease;
+}
+.navBtn:hover{
+  color:#fff;
+  border-color:rgba(255,255,255,.25);
+  background:rgba(255,255,255,.08);
+}
+
 .brand{font-weight:650;font-size:14px}
 
 /* HERO */
@@ -141,6 +161,7 @@ img{display:block;max-width:100%;height:auto}
   .film{padding:22px 16px}
   .film h2{font-size:22px}
   .poster{max-width:100%}
+  .topbar{padding:14px 14px}
 }
 </style>
 </head>
@@ -148,9 +169,14 @@ img{display:block;max-width:100%;height:auto}
 <body>
 
 <div class="topbar">
-  <a class="back" href="index.html">← Back</a>
+  <div class="navLeft">
+    <a class="navBtn" href="editorials.html">← Editorials</a>
+    <a class="navBtn" href="index.html">Home</a>
+  </div>
+
   <div class="brand">Popcorn Picks</div>
-  <div style="width:40px"></div>
+
+  <div style="width:120px"></div>
 </div>
 
 <header class="hero">
