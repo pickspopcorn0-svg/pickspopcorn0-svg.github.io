@@ -24,14 +24,33 @@ img{display:block;max-width:100%;height:auto}
 .topbar{
   position:sticky; top:0; z-index:50;
   display:flex; align-items:center; justify-content:space-between;
-  padding:16px 20px;
+  padding:14px 20px;
   background:rgba(10,10,10,.90);
   backdrop-filter:blur(10px);
   border-bottom:1px solid #222;
 }
 .brand{font-weight:800;letter-spacing:.3px}
-.back{color:#aaa;font-size:13px}
-.back:hover{color:#fff}
+
+/* LEFT NAV BUTTONS */
+.navLeft{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+.navBtn{
+  font-size:13px;
+  color:#aaa;
+  padding:8px 10px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.03);
+  transition:.15s ease;
+}
+.navBtn:hover{
+  color:#fff;
+  border-color:rgba(255,255,255,.18);
+  background:rgba(255,255,255,.06);
+}
 
 /* HERO */
 .hero{
@@ -163,6 +182,8 @@ img{display:block;max-width:100%;height:auto}
   .hero h1{font-size:40px}
   .drama{grid-template-columns:1fr}
   .poster{width:100%;height:380px}
+  .topbar{padding:14px 14px}
+  .navBtn{padding:8px 9px}
 }
 </style>
 </head>
@@ -170,9 +191,17 @@ img{display:block;max-width:100%;height:auto}
 <body>
 
 <div class="topbar">
-  <a class="back" href="index.html">← Back</a>
+  <!-- Left: two buttons -->
+  <div class="navLeft">
+    <a class="navBtn" href="editorials.html">← Editorials</a>
+    <a class="navBtn" href="index.html">Home</a>
+  </div>
+
+  <!-- Center: brand -->
   <div class="brand">Popcorn Picks</div>
-  <div style="width:48px"></div>
+
+  <!-- Right spacer to keep brand centered -->
+  <div style="width:120px"></div>
 </div>
 
 <header class="hero">
@@ -205,23 +234,16 @@ img{display:block;max-width:100%;height:auto}
         <span>Wuxia fantasy</span><span>Martial world</span><span>Romance</span><span>Tragedy vibes</span>
       </div>
       <div class="text">
-  <p>
-    Imagine a classic wuxia world with a darker, moody feel. This drama is full of sword fights,
-    secret sects, and a slow romance running quietly in the background.
-    The tone stays serious and a little tragic, and the atmosphere really pulls you into its martial world.
-  </p>
+        <p><em>Listening Snow Tower</em> is for the days you want wuxia that feels cold, serious, and a little doomed. The martial world here isn’t romantic. It’s the kind of place where loyalty gets tested fast, people smile while planning damage, and every sect has its own secrets. The drama leans into that mood from the start, so you get a story that feels heavy even when nothing is exploding on screen.</p>
 
-  <p>
-    There are tender moments between the leads, but the story mostly stays intense and conflict-driven.
-    Love and duty keep clashing while battles never really stop.
-    If you like something heroic, heavy, and slightly heartbreaking, this one fits that old-school wuxia mood well.
-  </p>
+        <p>The action is frequent, but what sticks is the atmosphere. Sword fights aren’t just there for flash. They feel like consequences. Alliances don’t feel stable, and the story keeps reminding you that in this world, reputation is a weapon. Characters carry their choices on their face, and the vibe stays more brooding than heroic.</p>
 
-  <p>
-    <strong>Best for:</strong> fans of classic wuxia stories and brooding heroes.<br>
-    <strong>Not for:</strong> viewers looking for something light, cheerful, or fast-paced.
-  </p>
-</div>
+        <p>The romance exists, but it doesn’t take over the whole show. It runs underneath the story like a quiet ache, which honestly works better for this type of drama. You’re watching people who care, but don’t live in a world that allows softness for long. That tension makes the tender scenes hit harder because they feel stolen, not guaranteed.</p>
+
+        <p>It’s not the light, playful wuxia lane. It’s closer to classic wuxia melodrama where duty keeps stepping on love, and where peace always feels temporary. If you like stories with a serious tone, tragic edges, and characters who keep going even when you can see the damage stacking up, this fits.</p>
+
+        <p>Watch it when you want a martial world story that feels moody and old school, with a slow emotional undercurrent and the sense that nobody is fully safe.</p>
+      </div>
       <div class="cast"><b>Main cast:</b> Qin Junjie, Yuan Bingyan</div>
       <div class="quick">
         <b>Best for:</b> people who like a colder, moodier martial world story.<br>
@@ -240,23 +262,16 @@ img{display:block;max-width:100%;height:auto}
         <span>Xianxia</span><span>Gods</span><span>Long time love</span><span>Fate and sacrifice</span>
       </div>
       <div class="text">
-  <p>
-    This is a big immortal love story with gods, goddesses, and a romance that stretches across a very long time.
-    The world is fantasy-heavy, with beautiful realms and a strong focus on destiny.
-    At its heart, it’s really about two people who keep getting pulled apart and finding their way back to each other.
-  </p>
+        <p><em>Ancient Love Poetry</em> is a full xianxia commitment. Gods, realms, long timelines, and love that doesn’t get to be simple even for one episode. The story sets up its world properly, so the early part can feel like it’s laying foundations, but once the emotional engine starts, it becomes the kind of drama you keep watching because you need to know how they survive the next hit.</p>
 
-  <p>
-    It does take a few episodes to settle in because the story spends time setting up the world.
-    But once the emotions start hitting, they hit hard.
-    The romance slowly builds from sweet moments into real heartbreak, and it’s easy to get very invested in the lead couple.
-  </p>
+        <p>The core appeal is devotion with consequences. This isn’t the type of romance where love solves everything. It’s the type where love creates harder choices. People sacrifice for each other, but the sacrifice comes with a cost that actually changes relationships. That’s what gives it weight. Even when things are beautiful, you can feel the pressure in the background.</p>
 
-  <p>
-    <strong>Best for:</strong> viewers who enjoy emotional xianxia romances with fate, sacrifice, and strong devotion.<br>
-    <strong>Not for:</strong> people who want fast pacing or realistic storytelling instead of fantasy-heavy drama.
-  </p>
-</div>
+        <p>It also does that classic xianxia thing where you watch a relationship evolve through different phases. Early sweetness. Then misunderstandings, distance, and hard decisions. Then the moment where you realize this story is less about flirting and more about whether they can keep choosing each other when the world keeps pulling them apart.</p>
+
+        <p>If you like fantasy romance that goes big, this one delivers. It’s not shy about destiny, reincarnation energy, and dramatic turning points. The emotional beats aim for heartbreak and payoff, not realism, and it works best if you’re ready for that tone.</p>
+
+        <p>Pick this when you want xianxia that feels grand and emotional, where love is loyal, messy, and tested across time instead of being a simple happy lane.</p>
+      </div>
       <div class="cast"><b>Main cast:</b> Zhou Dongyu, Xu Kai, Liu Xueyi</div>
       <div class="quick">
         <b>Best for:</b> xianxia fans who want devotion and consequences.<br>
@@ -275,24 +290,16 @@ img{display:block;max-width:100%;height:auto}
         <span>Wuxia</span><span>Politics</span><span>Power games</span><span>Partners</span>
       </div>
       <div class="text">
-  <p>
-    This is a fun wuxia adventure with plenty of action and a really enjoyable romance.
-    Both leads are skilled fighters, confident, and sharp, so watching them challenge each other is half the fun.
-    The story starts on a lighter note, with playful banter and a bit of flirting as they travel through the martial world.
-  </p>
+        <p><em>Who Rules the World</em> is one of the easiest wuxia entry points because it understands balance. It gives you action, travel, martial world politics, and a romance that stays present without swallowing the plot. The leads are both capable and confident, which makes the whole thing feel clean. You’re not watching one person carry the other. You’re watching two people who can hold their own and still choose to move together.</p>
 
-  <p>
-    As things move forward, the plot brings in politics, power struggles, and real stakes.
-    What works well is that the romance never overshadows the story.
-    The leads feel like true partners who trust each other in fights and tough decisions, not just in quiet moments.
-    The balance between action, strategy, and chemistry keeps it easy to watch and hard to drop.
-  </p>
+        <p>The early vibe has that fun, adventurous energy. They meet, clash, banter, and you can tell the chemistry is going to work because it comes from respect as much as attraction. The romance doesn’t feel like a separate storyline stapled on. It grows out of shared danger and shared choices.</p>
 
-  <p>
-    <strong>Best for:</strong> viewers who enjoy strong lead pairs, smart romance, and steady pacing.<br>
-    <strong>Not for:</strong> people looking for heavy magic, intense angst, or very dark fantasy themes.
-  </p>
-</div>
+        <p>As the story goes on, the politics and power games step forward. That’s where the show gets more addictive, because the stakes become bigger than personal rivalries. You get strategy, hidden identities, shifting alliances, and the sense that every decision has a price. The good part is the romance doesn’t ruin that. It stays supportive. It doesn’t turn the leads soft in a way that breaks their world.</p>
+
+        <p>This drama also works if you don’t want heavy magic. It leans more toward wuxia plus power struggles than realm hopping fantasy. The plot is readable, the pacing is steady, and it keeps giving you reasons to continue without dragging for no reason.</p>
+
+        <p>Watch it if you want a strong lead pair, a romance that behaves like a partnership, and a story that stays entertaining without drowning you in heartbreak.</p>
+      </div>
       <div class="cast"><b>Main cast:</b> Yang Yang, Zhao Lusi</div>
       <div class="quick">
         <b>Best for:</b> viewers who like smart leads and clean pacing.<br>
@@ -311,24 +318,16 @@ img{display:block;max-width:100%;height:auto}
         <span>Xianxia</span><span>Past lives</span><span>Big angst</span><span>Devotion</span>
       </div>
       <div class="text">
-  <p>
-    This is one of those xianxia romances that really leans into emotions.
-    The story follows a love that stretches across multiple lifetimes, and nothing comes easy for the leads.
-    You’ll get sweet moments early on, but they don’t last long before misunderstandings and pain start piling up.
-  </p>
+        <p><em>Love and Redemption</em> is the pick when you want maximum xianxia emotion and you don’t mind suffering on the way there. This is one of those long romances built on past lives, fate, misunderstandings, and the kind of devotion that gets proven the hard way. It starts lighter than you’d expect, but it doesn’t stay light for long. Once the pain arrives, it keeps arriving.</p>
 
-  <p>
-    The overall mood stays intense and emotional, especially as past-life secrets slowly come out.
-    What pulls you in is how much the characters go through for each other.
-    Their relationship feels hard-earned, and by the time things start making sense, you’re already deeply invested.
-    It’s beautiful in its own way, but it definitely asks you to sit through a lot before giving any relief.
-  </p>
+        <p>The drama leans into emotional intensity. Characters get put through repeated trials, and the story keeps tightening the knots around them before it offers relief. That can be frustrating if you hate drawn-out misunderstandings, but it’s also why people get obsessed with it. When the show finally gives you clarity, it feels earned because you watched the characters bleed for it.</p>
 
-  <p>
-    <strong>Best for:</strong> viewers who enjoy emotional xianxia romances with devotion, sacrifice, and heavy feelings.<br>
-    <strong>Not for:</strong> people who dislike angst, misunderstandings, or long stretches of emotional suffering.
-  </p>
-</div>
+        <p>The romance here is not casual or cute. It’s a long fight against timing, secrets, and the world’s rules. The leads don’t just fall in love. They get tested until the relationship becomes a choice, not a feeling. That’s the core vibe. Devotion under pressure.</p>
+
+        <p>The world is classic xianxia, with sects, spiritual powers, and big destiny beats. But it’s not the world that makes it addictive. It’s the emotional grind. You keep watching because you need to see them make it through the next misunderstanding, the next betrayal, the next reveal.</p>
+
+        <p>Pick this if you want a xianxia romance that hurts, heals, then hurts again, and you enjoy that heavy, dramatic lane where love is tested over and over.</p>
+      </div>
       <div class="cast"><b>Main cast:</b> Yuan Bingyan, Cheng Yi</div>
       <div class="quick">
         <b>Best for:</b> viewers who live for devotion and emotional chaos.<br>
@@ -347,24 +346,16 @@ img{display:block;max-width:100%;height:auto}
         <span>Xianxia</span><span>Immortal realms</span><span>Love triangle</span><span>Slow burn into pain</span>
       </div>
       <div class="text">
-  <p>
-    This drama starts out surprisingly light and sweet.
-    The female lead is innocent and clueless about love, which leads to a lot of cute and funny moments early on.
-    The romance feels soft at first, almost like a fairytale, and it’s easy to relax into it.
-  </p>
+        <p><em>Ashes of Love</em> is a classic example of a drama that starts sweet, almost goofy, then slowly shows you its teeth. The early episodes have that fairytale softness. The female lead’s innocence creates a lot of cute moments, and the romance feels warm and easy. It pulls you in gently, like it wants you comfortable first.</p>
 
-  <p>
-    Then the story slowly turns serious.
-    Emotions get heavier, misunderstandings grow, and things start to hurt in a real way.
-    By the middle of the show, it becomes very emotional, with sacrifices and choices that actually change the characters.
-    It’s the kind of drama that pulls you in slowly and then refuses to let go.
-  </p>
+        <p>Then the story shifts. It doesn’t flip overnight, but you can feel the tone getting heavier episode by episode. The misunderstandings start mattering. Choices start leaving scars. The love triangle isn’t just there for noise. It becomes part of the tragedy because everyone is genuinely affected, and the drama lets the consequences land instead of resetting everything after a fight.</p>
 
-  <p>
-    <strong>Best for:</strong> viewers who enjoy emotional fantasy romances that start sweet and turn intense.<br>
-    <strong>Not for:</strong> people who dislike love triangles, misunderstandings, or heavy emotional drama.
-  </p>
-</div>
+        <p>What makes it addictive is how attached you get before the real pain begins. By the time the drama fully commits to heartbreak, you already care about the characters, so the emotional turns don’t feel random. It feels like a slow build into chaos, and once it reaches the center, it doesn’t let go easily.</p>
+
+        <p>This one also has that big xianxia scale: immortal realms, fate, and dramatic sacrifice energy. But the core is still the romance and how it changes the characters. The sweetness at the start makes the middle and later sections hit harder because you remember what they used to be.</p>
+
+        <p>Watch it if you want a long fantasy romance that begins like a soft dream and ends up emotionally intense, with love, pride, regret, and consequences that actually stick.</p>
+      </div>
       <div class="cast"><b>Main cast:</b> Yang Zi, Deng Lun, Luo Yunxi</div>
       <div class="quick">
         <b>Best for:</b> people who enjoy romance that eventually bites back.<br>
@@ -383,24 +374,16 @@ img{display:block;max-width:100%;height:auto}
         <span>Cultivation</span><span>Training arc</span><span>Rivalries</span><span>Level up story</span>
       </div>
       <div class="text">
-  <p>
-    This one is less about romance and more about growth and comeback.
-    The story follows a young man who loses everything early on and has to rebuild himself from scratch.
-    It’s very focused on training, power progression, and proving people wrong.
-  </p>
+        <p><em>Battle Through the Heavens</em> is for viewers who love the level up feeling. It’s less about romance and more about comeback energy. The main character gets knocked down early, loses status, loses power, and has to rebuild from scratch. If you enjoy watching someone grind their way back with training, rivalries, and small victories that stack into bigger wins, this sits right in that lane.</p>
 
-  <p>
-    The pacing stays energetic, with constant challenges, rivalries, and fight scenes.
-    Watching the main character slowly get stronger is genuinely satisfying.
-    There is some friendship and light romance along the way, but the main focus is always on his journey forward.
-    It feels like a classic underdog story set in a fantasy world.
-  </p>
+        <p>The pacing stays energetic because the story always has a next challenge. A new opponent. A new technique. A new goal. The drama doesn’t wait around too long once the journey starts. It keeps pushing forward, so it’s easy to keep watching one more episode because you want to see the next milestone.</p>
 
-  <p>
-    <strong>Best for:</strong> viewers who enjoy cultivation stories, training arcs, and steady power growth.<br>
-    <strong>Not for:</strong> people looking mainly for romance or emotional drama.
-  </p>
-</div>
+        <p>It also has that cultivation world vibe where strength is earned, not handed out. You get mentors, factions, rival clans, and the constant pressure of proving yourself. Even when the story slows down, it usually slows down to set up the next push, not to pad time.</p>
+
+        <p>There are side relationships and lighter moments, but the heart of the show is the climb. It’s satisfying because the progress feels visible. You can track how much stronger the lead becomes, and you can feel the shift in how people treat him as he rises again.</p>
+
+        <p>Pick this when you’re not in the mood for romance-first xianxia. This is more like a fantasy underdog story with cultivation rules, rivalries, and steady momentum.</p>
+      </div>
       <div class="cast"><b>Main cast:</b> Wu Lei (Leo Wu)</div>
       <div class="quick">
         <b>Best for:</b> viewers who love training, power growth, and clear milestones.<br>
@@ -419,25 +402,16 @@ img{display:block;max-width:100%;height:auto}
         <span>Cultivation</span><span>Mystery</span><span>Loyalty</span><span>Moral conflict</span>
       </div>
       <div class="text">
-  <p>
-    This drama became huge for a reason.
-    At its core, it’s about the bond between two very different people thrown into a world of clans, rules, and supernatural cases.
-    One is playful and reckless, the other quiet and disciplined, and their dynamic is honestly one of the most enjoyable parts early on.
-    Their interactions feel natural and warm, even when the story is dealing with dark mysteries.
-  </p>
+        <p><em>The Untamed</em> became huge because it does something rare: it builds a bond you actually believe, then makes you watch what the world does to it. The story starts with a playful, chaotic energy. One lead is mischievous and fearless, the other is disciplined and calm. Their dynamic is instantly watchable because it feels balanced. They challenge each other, learn from each other, and the chemistry comes from how naturally they fit in the middle.</p>
 
-  <p>
-    As the plot moves forward, things get heavier.
-    Secrets come out, loyalties are tested, and the consequences hit hard.
-    The emotional weight builds slowly, and by the time it reaches the turning points, it’s hard not to feel deeply attached to the characters.
-    It’s not just about magic or fights, but about standing by someone when the whole world turns against them.
-  </p>
+        <p>The show also has a strong mystery spine. You’re not just watching romance-coded tension or cultivation fights. You’re watching supernatural cases, clan politics, and secrets that keep pointing back to bigger problems. The world feels structured, with rules, reputations, and consequences. That’s why the later emotional turns don’t feel random. They feel like the unavoidable result of a system that cares more about appearances than truth.</p>
 
-  <p>
-    <strong>Best for:</strong> viewers who enjoy strong character bonds, slow emotional buildup, and detailed fantasy worlds.<br>
-    <strong>Not for:</strong> people who want a fast, simple story or a clear romantic focus.
-  </p>
-</div>
+        <p>As it goes on, it gets heavier. Loyalties get tested, people choose sides, and the moral questions get sharper. The drama asks what happens when doing the right thing makes you the enemy. That’s where it starts hurting, because it doesn’t let the characters escape the cost of their choices.</p>
+
+        <p>This is a slower build for some viewers, and the early episodes can feel like setup, but the payoff is real if you stick with it. Once the story reaches its turning points, it becomes hard to stop. You get emotional investment, big consequences, and a relationship dynamic that stays at the core even when the plot goes dark.</p>
+
+        <p>Watch it if you want a cultivation fantasy with mystery and loyalty at the center, and you like stories that start warm, then become gutting without losing the heart that made you care in the first place.</p>
+      </div>
       <div class="cast"><b>Main cast:</b> Xiao Zhan, Wang Yibo</div>
       <div class="quick">
         <b>Best for:</b> viewers who like mystery plus character bonds plus a big world.<br>
