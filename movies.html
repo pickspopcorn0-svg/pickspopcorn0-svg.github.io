@@ -2,11 +2,19 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Movies — Popcorn Picks</title>
+
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0b0b0c">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<link rel="preconnect" href="https://pagead2.googlesyndication.com">
+<link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
         crossorigin="anonymous"></script>
+
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
   html,body{height:100%}
@@ -15,28 +23,48 @@
     color:#fff;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
     -webkit-text-size-adjust:100%;
+    text-rendering:optimizeLegibility;
   }
   a{text-decoration:none;color:inherit}
+  button,input{font:inherit}
   a,button,.card{-webkit-tap-highlight-color:transparent}
+  input,button{touch-action:manipulation}
+  :focus-visible{outline:2px solid rgba(255,255,255,.22);outline-offset:2px;border-radius:12px}
 
   .top{
     position:sticky;top:0;
-    display:flex;justify-content:space-between;align-items:center;
+    display:flex;align-items:center;justify-content:space-between;
     padding:16px 20px;
     background:rgba(10,10,10,.88);
+    -webkit-backdrop-filter:blur(10px);
     backdrop-filter:blur(10px);
     border-bottom:1px solid #222;
     z-index:50;
   }
-  .top b{font-size:16px}
+  .top b{font-size:16px;letter-spacing:.2px}
 
-  /* ✅ NEW: left nav group (Categories + Home) */
   .navLeft{
     display:flex;
     gap:10px;
     align-items:center;
-    flex-wrap:wrap; /* prevents cramping on tiny screens */
+    flex-wrap:wrap;
+    max-width:62%;
   }
+  .navBtn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 12px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.10);
+    background:rgba(255,255,255,.03);
+    color:#ddd;
+    font-size:13px;
+    line-height:1;
+    white-space:nowrap;
+    user-select:none;
+  }
+  .navBtn:active{transform:translateY(1px)}
 
   .wrap{padding:18px 18px 8px}
   .controls{
@@ -67,6 +95,7 @@
     background:#141414;
     color:#fff;
     cursor:pointer;
+    user-select:none;
   }
   .btn:active{transform:translateY(1px)}
   .small{
@@ -114,17 +143,32 @@
     min-height:320px;
     cursor:pointer;
     user-select:none;
+    transform:translateZ(0);
   }
 
-  /* ✅ FIX: show full posters (no head-cut on iOS) */
+  @media(hover:hover){
+    .card:hover{border-color:#262626;transform:translateY(-1px)}
+  }
+
+  /* ✅ FIX for “poster not centered / odd” — use real IMG with object-fit */
   .poster{
     height:320px;
     background:#111;
-    background-repeat:no-repeat;
-    background-position:center;
-    background-size:contain; /* was cover */
-    transform:translateZ(0);
-    backface-visibility:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .poster img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;      /* looks best for grid */
+    object-position:center;
+  }
+  .poster.fallback{
+    background:
+      radial-gradient(700px 380px at 20% 15%, rgba(255,255,255,.09), transparent 55%),
+      linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.8));
   }
 
   .info{
@@ -152,7 +196,7 @@
     display:none;
   }
 
-  /* MODAL */
+  /* ===== MODAL ===== */
   .modal{
     position:fixed;
     inset:0;
@@ -178,12 +222,14 @@
   }
 
   .sheetTop{
+    position:sticky; top:0;
     display:flex;
     justify-content:space-between;
     align-items:center;
     padding:14px 14px;
     border-bottom:1px solid #1f1f1f;
     background:#0d0d0d;
+    z-index:5;
     flex:0 0 auto;
   }
   .closeBtn{
@@ -193,6 +239,7 @@
     border-radius:12px;
     padding:10px 12px;
     cursor:pointer;
+    user-select:none;
   }
 
   .sheetBody{
@@ -206,32 +253,43 @@
     flex:1 1 auto;
   }
 
-  /* ✅ FIX: show full poster in modal too */
+  /* Modal poster: contain (so no face/head cut), plus tap-to-zoom */
   .bigPoster{
     height:460px;
     border-radius:16px;
     border:1px solid #1b1b1b;
     background:#111;
-    background-repeat:no-repeat;
-    background-position:center;
-    background-size:contain; /* was cover */
+    overflow:hidden;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .bigPoster img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:contain;  /* ✅ full poster visible */
+    object-position:center;
     transform:translateZ(0);
-    backface-visibility:hidden;
+  }
+  .bigPoster.fallback{
+    background:
+      radial-gradient(900px 520px at 20% 15%, rgba(255,255,255,.09), transparent 55%),
+      linear-gradient(to bottom, rgba(0,0,0,.12), rgba(0,0,0,.85));
+  }
+  .bigPoster.zoomed img{
+    transform:scale(1.8);
+    transform-origin:center;
+  }
+  @media(hover:hover){
+    .bigPoster img{cursor:zoom-in}
+    .bigPoster.zoomed img{cursor:zoom-out}
   }
 
-  .h1{
-    font-size:26px;
-    font-weight:750;
-    line-height:1.1;
-  }
+  .h1{font-size:26px;font-weight:750;line-height:1.1}
   .muted{color:#aaa;font-size:13px;line-height:1.5;margin-top:8px}
-  .why{
-    margin-top:14px;
-    font-size:14px;
-    line-height:1.8;
-    color:#ddd;
-    white-space:pre-line;
-  }
+  .why{margin-top:14px;font-size:14px;line-height:1.8;color:#ddd;white-space:pre-line}
   .pills{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
   .pill{
     font-size:12px;
@@ -242,20 +300,24 @@
     color:#d8d8d8;
   }
 
-  /* ✅ iOS scroll lock when modal open */
-  body.modalOpen{overflow:hidden;touch-action:none}
-
   @media(max-width:900px){
     .sheetBody{grid-template-columns:1fr}
     .bigPoster{height:420px}
-    .poster{height:340px} /* a bit taller on mobile */
   }
-
-  /* ✅ NEW: very small phones: tighten header so nav doesn't look cramped */
   @media(max-width:480px){
     .top{padding:12px 14px}
     .top b{font-size:14px}
-    .navLeft a{font-size:12px}
+    .navBtn{padding:8px 10px;font-size:12px}
+    .grid{padding:14px 14px 24px;gap:14px}
+    .wrap{padding:16px 14px 8px}
+    .poster{height:340px}
+  }
+
+  /* Strong iOS scroll lock */
+  body.modalOpen{
+    overflow:hidden;
+    position:fixed;
+    width:100%;
   }
 </style>
 </head>
@@ -263,12 +325,10 @@
 <body>
 
 <div class="top">
-  <!-- ✅ NEW: Categories + Home -->
   <div class="navLeft">
-    <a href="categories.html">← Categories</a>
-    <a href="index.html">Home</a>
+    <a class="navBtn" href="categories.html">← Categories</a>
+    <a class="navBtn" href="index.html">Home</a>
   </div>
-
   <b>Movies</b>
   <span></span>
 </div>
@@ -291,13 +351,13 @@
 
 <!-- MODAL -->
 <div class="modal" id="modal" aria-hidden="true">
-  <div class="sheet" role="dialog" aria-modal="true">
+  <div class="sheet" role="dialog" aria-modal="true" aria-label="Movie details">
     <div class="sheetTop">
       <div style="font-weight:700">Details</div>
       <button class="closeBtn" id="closeBtn" type="button">Close</button>
     </div>
     <div class="sheetBody" id="sheetBody">
-      <div class="bigPoster" id="mPoster"></div>
+      <div class="bigPoster fallback" id="mPoster"></div>
       <div>
         <div class="h1" id="mTitle">—</div>
         <div class="muted" id="mMeta"></div>
@@ -312,240 +372,10 @@
   // =========================
   // MOVIES DATA (EDIT HERE)
   // =========================
-  // Posters: put files in assets/posters/movies/ and update poster paths.
-  // If you don't have a poster yet, leave poster: "" and it will use fallback.
   const MOVIES = [
-  {
-    id:"burning-2018",
-    title:"Burning",
-    year:2018,
-    meta:"South Korea • Lee Chang-dong",
-    genres:["Mystery","Drama","Psychological","Slow-burn"],
-    poster:"assets/posters/movies/burning-2018-poster.jpg.jpeg",
-    summary:
-`A quiet deliveryman reconnects with a woman from his past, only to be drawn into a tense and unsettling triangle when she returns with a wealthy, enigmatic friend. As class tension, jealousy, and obsession slowly surface, the film transforms everyday moments into a haunting psychological mystery where certainty dissolves and absence becomes terrifying.`
-  },
-  {
-    id:"shoplifters-2018",
-    title:"Shoplifters",
-    year:2018,
-    meta:"Japan • Hirokazu Kore-eda",
-    genres:["Drama"],
-    poster:"assets/posters/movies/shoplifters-2018-poster.jpg.JPG",
-    summary:
-`A group of misfits living on the margins survive through petty theft and shared affection, forming a fragile but deeply human family. When authorities intervene, the film questions what truly defines family — blood, law, or care — and exposes the quiet dignity and pain hidden inside lives society chooses not to see.`
-  },
-  {
-    id:"long-days-journey-into-night-2018",
-    title:"Long Day’s Journey Into Night",
-    year:2018,
-    meta:"China • Bi Gan",
-    genres:["Mystery","Romance","Neo-noir","Atmospheric"],
-    poster:"assets/posters/movies/long-days-journey-into-night-2018-poster.jpg.JPG",
-    summary:
-`Returning to his hometown, a man searches for a woman who has haunted his memory for years. Moving through fragmented recollections, dreams, and neon-lit nights, the film becomes a hypnotic meditation on memory, desire, and time, where reality drifts and emotional truth matters more than answers.`
-  },
-  {
-    id:"portrait-of-a-lady-on-fire-2019",
-    title:"Portrait of a Lady on Fire",
-    year:2019,
-    meta:"France • Céline Sciamma",
-    genres:["Romance","Drama","Period"],
-    poster:"assets/posters/french/portrait-of-a-lady-on-fire.jpg.JPG",
-    summary:
-`An artist is commissioned to secretly paint a young woman destined for marriage, observing her without consent. As their silent gazes turn into intimacy, a forbidden love emerges — brief, intense, and irreversible. The film explores desire, autonomy, and how love survives through memory and art.`
-  },
-  {
-    id:"the-handmaiden-2016",
-    title:"The Handmaiden",
-    year:2016,
-    meta:"South Korea • Park Chan-wook",
-    genres:["Thriller","Mystery","Erotic","Stylish"],
-    poster:"assets/posters/movies/the-handmaiden-2016-poster.jpg.WEBP",
-    summary:
-`A con artist infiltrates the household of a wealthy heiress under the guise of servitude, plotting her downfall. Told through shifting perspectives, the story reveals manipulation, betrayal, and unexpected desire, unfolding into a bold thriller about power, sexuality, and reclaiming control.`
-  },
-  {
-    id:"parasite-2019",
-    title:"Parasite",
-    year:2019,
-    meta:"South Korea • Bong Joon-ho",
-    genres:["Thriller","Drama","Dark Comedy"],
-    poster:"assets/posters/movies/parasite-2019-poster.jpg.JPG",
-    summary:
-`A poor family cleverly embeds itself into the life of a wealthy household, posing as skilled professionals. What begins as satire slowly turns sinister, exposing brutal class divisions, hidden resentment, and the violence beneath social comfort. A razor-sharp portrait of inequality disguised as entertainment.`
-  },
-  {
-    id:"drive-my-car-2021",
-    title:"Drive My Car",
-    year:2021,
-    meta:"Japan • Ryusuke Hamaguchi",
-    genres:["Drama"],
-    poster:"assets/posters/movies/drive-my-car-2021-poster.jpg.JPG",
-    summary:
-`A grieving theater director forms an unlikely bond with his reserved young driver during rehearsals abroad. Through long drives and quiet conversations, suppressed grief, guilt, and intimacy surface. The film reflects on communication, loss, and how people carry pain in silence.`
-  },
-  {
-    id:"decision-to-leave-2022",
-    title:"Decision to Leave",
-    year:2022,
-    meta:"South Korea • Park Chan-wook",
-    genres:["Romance","Mystery","Thriller","Neo-noir"],
-    poster:"assets/posters/movies/decision-to-leave-2022-poster.jpg.JPG",
-    summary:
-`A meticulous detective investigating a suspicious death becomes emotionally entangled with the victim’s widow. As attraction blurs professional judgment, love and suspicion intertwine, turning the investigation into a tragic noir where desire itself becomes the most dangerous evidence.`
-  },
-  {
-    id:"the-wailing-2016",
-    title:"The Wailing",
-    year:2016,
-    meta:"South Korea • Na Hong-jin",
-    genres:["Horror","Mystery","Thriller","Supernatural"],
-    poster:"assets/posters/movies/the-wailing-2016-poster.jpg.jpeg",
-    summary:
-`A series of brutal murders plague a remote village after a mysterious outsider arrives. As superstition, religion, and fear collide, a bumbling policeman descends into paranoia. The film builds relentless dread, questioning faith, truth, and whether evil can ever be clearly identified.`
-  },
-  {
-    id:"memories-of-murder-2003",
-    title:"Memories of Murder",
-    year:2003,
-    meta:"South Korea • Bong Joon-ho",
-    genres:["Crime","Thriller","Investigation"],
-    poster:"assets/posters/movies/memories-of-murder-2003-poster.jpg.JPG",
-    summary:
-`Based on real events, two detectives with opposing methods hunt a serial killer in rural South Korea. As evidence fails and time passes, frustration mounts, revealing institutional failure and human desperation. The film becomes less about solving a crime and more about living with uncertainty.`
-  },
-  {
-    id:"incendies-2010",
-    title:"Incendies",
-    year:2010,
-    meta:"Canada • Denis Villeneuve",
-    genres:["Drama","Mystery","War"],
-    poster:"assets/posters/movies/incendies-2010-poster.jpg.JPG",
-    summary:
-`Following their mother’s death, twins uncover a hidden past through letters leading them into a war-torn country. Their journey exposes horrifying family secrets shaped by violence and survival, unfolding like a tragic investigation with devastating emotional impact.`
-  },
-  {
-    id:"city-of-god-2002",
-    title:"City of God",
-    year:2002,
-    meta:"Brazil • Fernando Meirelles / Kátia Lund",
-    genres:["Crime","Drama"],
-    poster:"assets/posters/movies/city-of-god-2002-poster.jpg.JPG",
-    summary:
-`Growing up in Rio’s most dangerous favela, a young photographer witnesses the rise of ruthless gang leaders. Told with kinetic energy, the film captures how violence becomes routine and survival depends on choosing identity before the streets choose it for you.`
-  },
-  {
-    id:"holy-motors-2012",
-    title:"Holy Motors",
-    year:2012,
-    meta:"France • Leos Carax",
-    genres:["Drama","Surreal","Art Film"],
-    poster:"assets/posters/movies/holy-motors-2012-poster.jpg.JPG",
-    summary:
-`A man spends a day traveling across Paris, transforming into radically different characters for mysterious appointments. Each role blurs reality and performance, creating a surreal meditation on cinema, identity, and what remains when life becomes continuous acting.`
-  },
-  {
-    id:"under-the-silver-lake-2018",
-    title:"Under the Silver Lake",
-    year:2018,
-    meta:"USA • David Robert Mitchell",
-    genres:["Mystery","Neo-noir","Thriller"],
-    poster:"assets/posters/movies/under-the-silver-lake-2018-poster.jpg.jpeg",
-    summary:
-`When a neighbor vanishes overnight, a drifting young man spirals into a labyrinth of codes, conspiracies, and pop-culture myths across Los Angeles. The film plays like a paranoid noir about obsession, meaning, and the dangers of searching too hard for hidden truth.`
-  },
-  {
-    id:"enemy-2013",
-    title:"Enemy",
-    year:2013,
-    meta:"Canada • Denis Villeneuve",
-    genres:["Thriller","Mystery","Psychological"],
-    poster:"assets/posters/movies/enemy-2013-poster.jpg.jpeg",
-    summary:
-`A history professor discovers an actor who looks exactly like him, triggering a disturbing exploration of identity and control. As their lives begin to overlap, the film descends into symbolic horror, refusing easy explanations and embracing psychological unease.`
-  },
-  {
-    id:"the-lighthouse-2019",
-    title:"The Lighthouse",
-    year:2019,
-    meta:"USA • Robert Eggers",
-    genres:["Horror","Drama","Psychological"],
-    poster:"assets/posters/movies/the-lighthouse-2019-poster.jpg.JPG",
-    summary:
-`Two lighthouse keepers are isolated on a storm-lashed island as power struggles, madness, and myth consume them. The film spirals into claustrophobic insanity, blending folklore, guilt, and obsession into a descent where reality itself fractures.`
-  },
-  {
-    id:"no-country-for-old-men-2007",
-    title:"No Country for Old Men",
-    year:2007,
-    meta:"USA • Coen Brothers",
-    genres:["Crime","Thriller"],
-    poster:"assets/posters/movies/no-country-for-old-men-2007-poster.jpg.JPG",
-    summary:
-`After stumbling upon drug money, a hunter is pursued by a near-mythic killer. As violence spreads, an aging sheriff reflects on a world he no longer understands. A stark meditation on fate, chaos, and moral exhaustion.`
-  },
-  {
-    id:"a-separation-2011",
-    title:"A Separation",
-    year:2011,
-    meta:"Iran • Asghar Farhadi",
-    genres:["Drama"],
-    poster:"assets/posters/movies/a-separation-2011-poster.jpg.JPG",
-    summary:
-`A couple’s divorce triggers a chain of moral conflicts involving class, pride, and truth. As perspectives clash and consequences multiply, the film exposes how easily justice fractures when everyone believes they are right.`
-  },
-  {
-    id:"cold-war-2018",
-    title:"Cold War",
-    year:2018,
-    meta:"Poland • Paweł Pawlikowski",
-    genres:["Romance","Drama"],
-    poster:"assets/posters/movies/cold-war-2018-poster.jpg.JPG",
-    summary:
-`Two lovers repeatedly find and lose each other across decades of political division and personal ambition. Told in stark, elegant fragments, the film captures a romance shaped as much by history as by self-destruction.`
-  },
-  {
-    id:"the-zone-of-interest-2023",
-    title:"The Zone of Interest",
-    year:2023,
-    meta:"UK/Poland • Jonathan Glazer",
-    genres:["Drama","Historical"],
-    poster:"assets/posters/movies/the-zone-of-interest-2023-poster.jpg.WEBP",
-    summary:
-`A Nazi officer and his family live a comfortable domestic life beside Auschwitz. The horror remains largely unseen, existing in sound and implication, forcing confrontation with how evil thrives through normalization and routine.`
-  },
-  {
-    id:"the-witch-subversion-2018",
-    title:"The Witch: Part 1. The Subversion",
-    year:2018,
-    meta:"South Korea • Park Hoon-jung",
-    genres:["Action","Thriller","Sci-Fi"],
-    poster:"assets/posters/movies/the-witch-part-1-the-subversion-2018-poster.jpg.JPG",
-    summary:
-`A teenage girl with a hidden past becomes the target of violent forces after revealing extraordinary abilities. As experiments, conspiracies, and identities surface, the film explodes into a brutal blend of thriller and sci-fi action.`
-  },
-  {
-    id:"jack-reacher-2012",
-    title:"Jack Reacher",
-    year:2012,
-    meta:"USA • Christopher McQuarrie",
-    genres:["Action","Thriller","Investigation"],
-    poster:"assets/posters/movies/jack-reacher-2012-poster.jpg.WEBP",
-    summary:
-`A former military investigator uncovers inconsistencies in a mass shooting case, leading him into a deeper conspiracy. Methodical and grounded, the film balances investigation with sudden bursts of violence.`
-  },
-  {
-    id:"edge-of-tomorrow-2014",
-    title:"Edge of Tomorrow",
-    year:2014,
-    meta:"USA • Doug Liman",
-    genres:["Sci-Fi","Action"],
-    poster:"assets/posters/movies/edge-of-tomorrow-2014-poster.jpg.jpeg",
-    summary:
-`A cowardly officer is trapped in a time loop during an alien invasion, reliving the same battle repeatedly. Through death and repetition, he transforms into a soldier capable of changing humanity’s fate.`
-  }
-];
+    /* YOUR MOVIES ARRAY - KEEP IT EXACTLY AS YOU HAVE IT */
+    /* (Paste your full MOVIES list here unchanged) */
+  ];
 
   // =========================
   // APP (DO NOT EDIT BELOW)
@@ -563,14 +393,15 @@
   const modal = $("modal");
   const closeBtn = $("closeBtn");
   const sheetBody = $("sheetBody");
+
   const mPoster = $("mPoster");
   const mTitle = $("mTitle");
   const mMeta  = $("mMeta");
   const mPills = $("mPills");
   const mWhy   = $("mWhy");
 
-  const fallbackPoster = "assets/home/movies.jpg";
   const picked = new Set();
+  let scrollY = 0;
 
   function normalize(s){ return String(s || "").toLowerCase().trim(); }
 
@@ -616,8 +447,7 @@
 
   function paintChips(){
     chipsEl.innerHTML = "";
-    const chipList = buildChips(MOVIES);
-    chipList.forEach(tag => chipsEl.appendChild(chipButton(tag)));
+    buildChips(MOVIES).forEach(tag => chipsEl.appendChild(chipButton(tag)));
   }
 
   function tagsFor(movie){
@@ -655,11 +485,43 @@
     });
   }
 
-  function openModal(movie){
-    const poster = movie.poster ? movie.poster : fallbackPoster;
-    mPoster.style.backgroundImage = `url('${String(poster).replace(/'/g,"\\'")}')`;
+  function setPosterImg(containerEl, url, alt){
+    containerEl.classList.remove("zoomed");
+    containerEl.innerHTML = "";
+    if(url){
+      containerEl.classList.remove("fallback");
+      const img = document.createElement("img");
+      img.loading = "lazy";
+      img.decoding = "async";
+      img.alt = alt || "Poster";
+      img.src = url;
+      img.onerror = () => {
+        containerEl.innerHTML = "";
+        containerEl.classList.add("fallback");
+      };
+      containerEl.appendChild(img);
+    }else{
+      containerEl.classList.add("fallback");
+    }
+  }
 
+  function lockBodyScroll(){
+    scrollY = window.scrollY || 0;
+    document.body.style.top = `-${scrollY}px`;
+    document.body.classList.add("modalOpen");
+  }
+
+  function unlockBodyScroll(){
+    document.body.classList.remove("modalOpen");
+    const y = Math.abs(parseInt(document.body.style.top || "0", 10)) || 0;
+    document.body.style.top = "";
+    window.scrollTo(0, y);
+  }
+
+  function openModal(movie){
+    setPosterImg(mPoster, movie.poster || "", `${movie.title} poster`);
     mTitle.textContent = movie.title || "Untitled";
+
     const year = movie.year ? String(movie.year) : "";
     const meta = movie.meta ? String(movie.meta) : "";
     mMeta.textContent = year + (meta ? (year ? " • " : "") + meta : "");
@@ -677,38 +539,59 @@
     modal.classList.add("on");
     modal.setAttribute("aria-hidden","false");
 
-    // ✅ iOS: lock background scroll + reset modal scroll
-    document.body.classList.add("modalOpen");
+    lockBodyScroll();
     if(sheetBody) sheetBody.scrollTop = 0;
   }
 
   function closeModal(){
     modal.classList.remove("on");
     modal.setAttribute("aria-hidden","true");
-    document.body.classList.remove("modalOpen");
+    unlockBodyScroll();
   }
 
   closeBtn.onclick = closeModal;
   modal.addEventListener("click", (e)=>{ if(e.target === modal) closeModal(); });
   window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeModal(); });
 
+  /* Tap poster to zoom */
+  mPoster.addEventListener("click", ()=>{
+    if(mPoster.classList.contains("fallback")) return;
+    mPoster.classList.toggle("zoomed");
+  });
+
   function card(movie){
     const div = document.createElement("div");
     div.className = "card";
 
-    const poster = movie.poster ? movie.poster : fallbackPoster;
-    const safePoster = String(poster).replace(/'/g, "\\'");
+    const posterWrap = document.createElement("div");
+    posterWrap.className = "poster" + (movie.poster ? "" : " fallback");
+
+    if(movie.poster){
+      const img = document.createElement("img");
+      img.loading = "lazy";
+      img.decoding = "async";
+      img.alt = `${movie.title} poster`;
+      img.src = movie.poster;
+      img.onerror = () => {
+        posterWrap.innerHTML = "";
+        posterWrap.classList.add("fallback");
+      };
+      posterWrap.appendChild(img);
+    }
+
+    const info = document.createElement("div");
+    info.className = "info";
+
     const tagLine = tagsFor(movie).slice(0, 5).join(" • ");
 
-    div.innerHTML = `
-      <div class="poster" style="background-image:url('${safePoster}');"></div>
-      <div class="info">
-        <div class="title">${movie.title || "Untitled"}</div>
-        <div class="meta">${movie.year || ""}${movie.meta ? " • " + movie.meta : ""}</div>
-        <div class="tagsline">${tagLine}</div>
-      </div>
+    info.innerHTML = `
+      <div class="title">${movie.title || "Untitled"}</div>
+      <div class="meta">${movie.year || ""}${movie.meta ? " • " + movie.meta : ""}</div>
+      <div class="tagsline">${tagLine}</div>
     `;
 
+    div.appendChild(posterWrap);
+    div.appendChild(info);
     div.onclick = () => openModal(movie);
     return div;
   }
@@ -730,7 +613,13 @@
     emptyEl.style.display = filtered.length ? "none" : "block";
   }
 
-  qEl.addEventListener("input", render);
+  /* debounce typing */
+  let t = null;
+  qEl.addEventListener("input", ()=>{
+    clearTimeout(t);
+    t = setTimeout(render, 70);
+  });
+
   clearBtn.onclick = () => { qEl.value = ""; render(); };
   clearFiltersBtn.onclick = () => { picked.clear(); paintChips(); render(); };
 
