@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>TV Shows — Popcorn Picks</title>
 
-<!-- Perf / UX -->
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#0b0b0c">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
 <link rel="preconnect" href="https://pagead2.googlesyndication.com">
 <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
 
@@ -26,12 +27,14 @@
   }
   a{text-decoration:none;color:inherit}
   button,input{font:inherit}
+  a,button,.card{-webkit-tap-highlight-color:transparent}
   input,button{touch-action:manipulation}
   :focus-visible{outline:2px solid rgba(255,255,255,.22);outline-offset:2px;border-radius:12px}
 
+  /* ===== TOP BAR ===== */
   .top{
     position:sticky;top:0;
-    display:flex;justify-content:space-between;align-items:center;
+    display:flex;align-items:center;justify-content:space-between;
     padding:16px 20px;
     background:rgba(10,10,10,.88);
     -webkit-backdrop-filter:blur(10px);
@@ -39,9 +42,32 @@
     border-bottom:1px solid #222;
     z-index:50;
   }
-  .top b{font-size:16px}
-  .top a{display:inline-flex;align-items:center;gap:8px}
+  .top b{font-size:16px;letter-spacing:.2px}
 
+  .navLeft{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    flex-wrap:wrap;
+    max-width:62%;
+  }
+  .navBtn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 12px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.10);
+    background:rgba(255,255,255,.03);
+    color:#ddd;
+    font-size:13px;
+    line-height:1;
+    white-space:nowrap;
+    user-select:none;
+  }
+  .navBtn:active{transform:translateY(1px)}
+
+  /* ===== LAYOUT ===== */
   .wrap{padding:18px 18px 8px}
   .controls{
     display:flex;
@@ -71,6 +97,7 @@
     background:#141414;
     color:#fff;
     cursor:pointer;
+    user-select:none;
   }
   .btn:active{transform:translateY(1px)}
   .small{
@@ -109,6 +136,7 @@
     gap:18px;
   }
 
+  /* ===== CARD ===== */
   .card{
     border-radius:18px;
     border:1px solid #181818;
@@ -117,18 +145,35 @@
     background:#111;
     min-height:320px;
     cursor:pointer;
+    user-select:none;
+    transform:translateZ(0);
   }
+
+  /* Hover ONLY where hover exists (prevents weird “stuck hover” on touch) */
+  @media(hover:hover){
+    .card:hover{border-color:#262626;transform:translateY(-1px)}
+  }
+
   .poster{
     height:320px;
     background:#111;
-    background-size:cover;
-    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .poster img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    object-position:center;
   }
   .poster.fallback{
     background:
       radial-gradient(700px 380px at 20% 15%, rgba(255,255,255,.09), transparent 55%),
       linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.8));
   }
+
   .info{
     position:absolute;
     bottom:0;left:0;right:0;
@@ -154,7 +199,7 @@
     display:none;
   }
 
-  /* MODAL (mobile optimized, scrollable content) */
+  /* ===== MODAL ===== */
   .modal{
     position:fixed;
     inset:0;
@@ -164,21 +209,22 @@
     justify-content:center;
     padding:18px;
     z-index:999;
+    overscroll-behavior:contain;
   }
   .modal.on{display:flex}
 
   .sheet{
     width:min(980px, 100%);
-    max-height:88vh;
-    overflow:auto;               /* ✅ this is the big fix: allows scroll inside modal */
-    -webkit-overflow-scrolling:touch; /* ✅ smooth iOS scroll */
+    max-height:calc(100dvh - 36px);
     border:1px solid #1f1f1f;
     background:#0f0f0f;
     border-radius:18px;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
   }
-
   .sheetTop{
-    position:sticky; top:0;      /* keeps close button visible while scrolling */
+    position:sticky; top:0;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -186,6 +232,7 @@
     border-bottom:1px solid #1f1f1f;
     background:#0d0d0d;
     z-index:5;
+    flex:0 0 auto;
   }
   .closeBtn{
     border:1px solid #222;
@@ -194,6 +241,7 @@
     border-radius:12px;
     padding:10px 12px;
     cursor:pointer;
+    user-select:none;
   }
 
   .sheetBody{
@@ -201,6 +249,10 @@
     display:grid;
     grid-template-columns:320px 1fr;
     gap:16px;
+    overflow:auto;
+    -webkit-overflow-scrolling:touch; /* iOS smooth */
+    overscroll-behavior:contain;
+    flex:1 1 auto;
   }
 
   .bigPoster{
@@ -208,8 +260,16 @@
     border-radius:16px;
     border:1px solid #1b1b1b;
     background:#111;
-    background-size:cover;
-    background-position:center;
+    overflow:hidden;
+    position:relative;
+  }
+  .bigPoster img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    object-position:center;
+    transform:translateZ(0);
   }
   .bigPoster.fallback{
     background:
@@ -217,19 +277,19 @@
       linear-gradient(to bottom, rgba(0,0,0,.12), rgba(0,0,0,.85));
   }
 
-  .h1{
-    font-size:26px;
-    font-weight:750;
-    line-height:1.1;
+  /* Tap-to-zoom (works everywhere, optional) */
+  .bigPoster.zoomed img{
+    transform:scale(1.8);
+    transform-origin:center;
+    cursor:zoom-out;
   }
+  @media(hover:hover){
+    .bigPoster img{cursor:zoom-in}
+  }
+
+  .h1{font-size:26px;font-weight:750;line-height:1.1}
   .muted{color:#aaa;font-size:13px;line-height:1.5;margin-top:8px}
-  .why{
-    margin-top:14px;
-    font-size:14px;
-    line-height:1.8;
-    color:#ddd;
-    white-space:pre-line;
-  }
+  .why{margin-top:14px;font-size:14px;line-height:1.8;color:#ddd;white-space:pre-line}
   .pills{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
   .pill{
     font-size:12px;
@@ -240,20 +300,38 @@
     color:#d8d8d8;
   }
 
+  /* Mobile layout */
   @media(max-width:900px){
     .sheetBody{grid-template-columns:1fr}
     .bigPoster{height:420px}
   }
 
-  /* Prevent background scroll when modal open */
-  body.modalOpen{overflow:hidden}
+  /* Tiny phones */
+  @media(max-width:480px){
+    .top{padding:12px 14px}
+    .top b{font-size:14px}
+    .navBtn{padding:8px 10px;font-size:12px}
+    .grid{padding:14px 14px 24px;gap:14px}
+    .wrap{padding:16px 14px 8px}
+    .poster{height:340px}
+  }
+
+  /* ===== iOS: Strong scroll lock (prevents background scroll & jump) ===== */
+  body.modalOpen{
+    overflow:hidden;
+    position:fixed;
+    width:100%;
+  }
 </style>
 </head>
 
 <body>
 
 <div class="top">
-  <a href="index.html" aria-label="Back to Home">← Home</a>
+  <div class="navLeft">
+    <a class="navBtn" href="categories.html">← Categories</a>
+    <a class="navBtn" href="index.html">Home</a>
+  </div>
   <b>TV Shows</b>
   <span></span>
 </div>
@@ -281,7 +359,7 @@
       <div style="font-weight:700">Details</div>
       <button class="closeBtn" id="closeBtn" type="button">Close</button>
     </div>
-    <div class="sheetBody">
+    <div class="sheetBody" id="sheetBody">
       <div class="bigPoster fallback" id="mPoster"></div>
       <div>
         <div class="h1" id="mTitle">—</div>
@@ -675,6 +753,8 @@ const emptyEl = $("empty");
 
 const modal = $("modal");
 const closeBtn = $("closeBtn");
+const sheetBody = $("sheetBody");
+
 const mPoster = $("mPoster");
 const mTitle = $("mTitle");
 const mMeta  = $("mMeta");
@@ -682,6 +762,7 @@ const mPills = $("mPills");
 const mWhy   = $("mWhy");
 
 const picked = new Set();
+let scrollY = 0;
 
 function normalize(s){ return String(s || "").toLowerCase().trim(); }
 
@@ -769,19 +850,41 @@ function getSorted(items){
   });
 }
 
-/* ✅ poster fallback without broken images */
-function setPoster(el, url){
+function setPosterImg(containerEl, url, alt){
+  containerEl.classList.remove("zoomed");
+  containerEl.innerHTML = "";
   if(url){
-    el.classList.remove("fallback");
-    el.style.backgroundImage = `url('${String(url).replace(/'/g,"\\'")}')`;
+    containerEl.classList.remove("fallback");
+    const img = document.createElement("img");
+    img.loading = "lazy";
+    img.decoding = "async";
+    img.alt = alt || "Poster";
+    img.src = url;
+    img.onerror = () => {
+      containerEl.innerHTML = "";
+      containerEl.classList.add("fallback");
+    };
+    containerEl.appendChild(img);
   }else{
-    el.classList.add("fallback");
-    el.style.backgroundImage = "";
+    containerEl.classList.add("fallback");
   }
 }
 
+function lockBodyScroll(){
+  scrollY = window.scrollY || 0;
+  document.body.style.top = `-${scrollY}px`;
+  document.body.classList.add("modalOpen");
+}
+
+function unlockBodyScroll(){
+  document.body.classList.remove("modalOpen");
+  const y = Math.abs(parseInt(document.body.style.top || "0", 10)) || 0;
+  document.body.style.top = "";
+  window.scrollTo(0, y);
+}
+
 function openModal(item){
-  setPoster(mPoster, item.poster || "");
+  setPosterImg(mPoster, item.poster || "", `${item.title} poster`);
   mTitle.textContent = item.title || "Untitled";
 
   const metaBits = [];
@@ -806,40 +909,62 @@ function openModal(item){
 
   modal.classList.add("on");
   modal.setAttribute("aria-hidden","false");
-  document.body.classList.add("modalOpen");
+
+  lockBodyScroll();
+  if(sheetBody) sheetBody.scrollTop = 0;
 }
 
 function closeModal(){
   modal.classList.remove("on");
   modal.setAttribute("aria-hidden","true");
-  document.body.classList.remove("modalOpen");
+  unlockBodyScroll();
 }
 
 closeBtn.onclick = closeModal;
 modal.addEventListener("click", (e)=>{ if(e.target === modal) closeModal(); });
 window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeModal(); });
 
+/* Tap poster to zoom */
+mPoster.addEventListener("click", ()=>{
+  if(mPoster.classList.contains("fallback")) return;
+  mPoster.classList.toggle("zoomed");
+});
+
 function card(item){
   const div = document.createElement("div");
   div.className = "card";
+
+  const posterWrap = document.createElement("div");
+  posterWrap.className = "poster" + (item.poster ? "" : " fallback");
+
+  if(item.poster){
+    const img = document.createElement("img");
+    img.loading = "lazy";
+    img.decoding = "async";
+    img.alt = `${item.title} poster`;
+    img.src = item.poster;
+    img.onerror = () => {
+      posterWrap.innerHTML = "";
+      posterWrap.classList.add("fallback");
+    };
+    posterWrap.appendChild(img);
+  }
+
+  const info = document.createElement("div");
+  info.className = "info";
 
   const tagLine = (Array.isArray(item.genres) && item.genres.length)
     ? item.genres.slice(0, 5).join(" • ")
     : String(item.meta || "").split("•").map(s=>s.trim()).filter(Boolean).slice(0,5).join(" • ");
 
-  const posterHtml = item.poster
-    ? `<div class="poster" style="background-image:url('${String(item.poster).replace(/'/g,"\\'")}');"></div>`
-    : `<div class="poster fallback"></div>`;
-
-  div.innerHTML = `
-    ${posterHtml}
-    <div class="info">
-      <div class="title">${item.title || "Untitled"}</div>
-      <div class="meta">${item.year || ""}${item.meta ? " • " + item.meta : ""}</div>
-      <div class="tagsline">${tagLine}</div>
-    </div>
+  info.innerHTML = `
+    <div class="title">${item.title || "Untitled"}</div>
+    <div class="meta">${item.year || ""}${item.meta ? " • " + item.meta : ""}</div>
+    <div class="tagsline">${tagLine}</div>
   `;
 
+  div.appendChild(posterWrap);
+  div.appendChild(info);
   div.onclick = () => openModal(item);
   return div;
 }
@@ -861,11 +986,11 @@ function render(){
   emptyEl.style.display = filtered.length ? "none" : "block";
 }
 
-/* tiny perf: debounce typing */
+/* debounce typing */
 let t = null;
 qEl.addEventListener("input", ()=>{
   clearTimeout(t);
-  t = setTimeout(render, 60);
+  t = setTimeout(render, 70);
 });
 
 clearBtn.onclick = () => { qEl.value = ""; render(); };
