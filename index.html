@@ -8,13 +8,26 @@
 
 <meta name="description" content="Popcorn Picks is a curated discovery site for films and series across the world — editorials and thoughtful starting points, not rankings or weekly charts." />
 
-<!-- ✅ Google Analytics (GA4) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
+<!-- ✅ Consent Mode v2 + Google tag (GA4) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+
+  // Default: block cookies until user chooses
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    // Optional: gives the banner a moment to update consent before tags act.
+    wait_for_update: 500
+  });
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
+<script>
   gtag('js', new Date());
-  gtag('config', 'G-XZ94ZK9JN4');
+  gtag('config', 'G-XZ94ZK9JN4', { anonymize_ip: true });
 </script>
 
 <!-- Perf: preload hero image -->
@@ -29,6 +42,7 @@
 <link rel="preconnect" href="https://tpc.googlesyndication.com">
 <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
 
+<!-- ✅ AdSense (Consent Mode controls personalization) -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
   crossorigin="anonymous"></script>
 
@@ -460,7 +474,18 @@ footer p{
   border-top:1px solid rgba(255,255,255,.06);
   font-size:12px;
   color:rgba(255,255,255,.45);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
 }
+.footerBottom a{
+  font-size:12px;
+  color:rgba(255,255,255,.55);
+  text-decoration:underline;
+}
+.footerBottom a:hover{color:#fff}
 
 /* COOKIE BANNER */
 .cookieBar{
@@ -484,8 +509,14 @@ footer p{
   font-size:13px;
   line-height:1.5;
 }
-.cookieBar button{
+.cookieBar p a{opacity:.9}
+.cookieBtns{
+  display:flex;
+  gap:10px;
+  align-items:center;
   flex:0 0 auto;
+}
+.cookieBar button{
   padding:10px 14px;
   border-radius:999px;
   border:1px solid rgba(255,255,255,.18);
@@ -494,13 +525,66 @@ footer p{
   font-weight:800;
   font-size:13px;
   cursor:pointer;
+  white-space:nowrap;
 }
 .cookieBar button:hover{
   background:rgba(255,255,255,.12);
   border-color:rgba(255,255,255,.26);
 }
+.cookieBar .ghost{
+  background:rgba(0,0,0,.10);
+}
+
+/* Manage panel */
+.cookieModal{
+  position:fixed;
+  inset:0;
+  z-index:220;
+  display:none;
+  align-items:flex-end;
+  justify-content:center;
+  padding:16px;
+  background:rgba(0,0,0,.55);
+}
+.cookieSheet{
+  width:min(620px, 100%);
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(10,10,14,.92);
+  backdrop-filter:blur(16px);
+  box-shadow:0 24px 70px rgba(0,0,0,.6);
+  padding:16px;
+}
+.cookieSheet h4{
+  margin:2px 0 10px;
+  font-size:15px;
+}
+.cookieRow{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 0;
+  border-top:1px solid rgba(255,255,255,.06);
+  color:rgba(255,255,255,.72);
+  font-size:13px;
+}
+.cookieRow small{display:block;opacity:.75;margin-top:4px;max-width:44ch}
+.switch{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+.switch input{width:18px;height:18px}
+.cookieSheetActions{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  margin-top:12px;
+}
+
 @media(max-width:520px){
   .cookieBar{flex-direction:column; align-items:flex-start}
+  .cookieBtns{width:100%}
   .cookieBar button{width:100%}
 }
 
@@ -707,7 +791,7 @@ footer p{
   </div>
 </section>
 
-<!-- CATEGORIES (✅ now has View all on top-right, and homepage hides Indian + French) -->
+<!-- CATEGORIES -->
 <section class="section">
   <div class="container">
 
@@ -793,48 +877,197 @@ footer p{
   </div>
 
   <div class="container footerBottom">
-    © 2026 Popcorn Picks. All rights reserved.
+    <span>© 2026 Popcorn Picks. All rights reserved.</span>
+    <a href="#" id="cookieSettingsLink">Cookie settings</a>
   </div>
 </footer>
 
-<!-- Cookie banner -->
+<!-- ✅ Cookie banner (Accept / Reject / Manage) -->
 <div class="cookieBar" id="cookieBar" role="dialog" aria-live="polite" aria-label="Cookie notice" style="display:none">
-  <p>By using this site, you agree to cookies used for ads and analytics.</p>
-  <button id="cookieOk" type="button">OK</button>
+  <p>
+    We use cookies for analytics and ads to improve Popcorn Picks.
+    <a href="privacy.html" style="text-decoration:underline;">Learn more</a>
+  </p>
+
+  <div class="cookieBtns">
+    <button class="ghost" id="cookieReject" type="button">Reject</button>
+    <button class="ghost" id="cookieManage" type="button">Manage</button>
+    <button id="cookieAccept" type="button">Accept</button>
+  </div>
+</div>
+
+<!-- ✅ Manage modal -->
+<div class="cookieModal" id="cookieModal" aria-hidden="true">
+  <div class="cookieSheet" role="dialog" aria-label="Cookie settings">
+    <h4>Cookie settings</h4>
+
+    <div class="cookieRow">
+      <div>
+        <strong>Analytics</strong>
+        <small>Helps us understand what people read and improve the site.</small>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="toggleAnalytics">
+      </label>
+    </div>
+
+    <div class="cookieRow">
+      <div>
+        <strong>Ads</strong>
+        <small>Helps fund the site. You’ll still see ads if you turn this off, but they may be less personalized.</small>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="toggleAds">
+      </label>
+    </div>
+
+    <div class="cookieSheetActions">
+      <button class="ghost" id="cookieCancel" type="button">Cancel</button>
+      <button id="cookieSave" type="button">Save</button>
+    </div>
+  </div>
 </div>
 
 <script>
-/* Tiny cookie banner (no ugly popup) */
+/*
+  ✅ Long-term consent system (no more rework):
+  - Stores choice in localStorage
+  - Supports Accept / Reject / Manage
+  - Updates Google Consent Mode v2
+  - Footer "Cookie settings" lets users change later
+*/
 (function(){
-  var key = "pp_cookie_ok";
-  try{
-    var ok = localStorage.getItem(key) === "1";
-    if(!ok){
-      var bar = document.getElementById("cookieBar");
-      var btn = document.getElementById("cookieOk");
-      bar.style.display = "flex";
-      btn.addEventListener("click", function(){
-        localStorage.setItem(key, "1");
-        bar.style.display = "none";
-      });
-    }
-  }catch(e){}
+  var KEY = "pp_consent_v1"; // version it so future changes won't break old values
+
+  function safeGtagConsentUpdate(consentObj){
+    if (typeof gtag === "function") gtag('consent', 'update', consentObj);
+  }
+
+  function applyConsent(state){
+    // state: { analytics: true/false, ads: true/false }
+    safeGtagConsentUpdate({
+      analytics_storage: state.analytics ? 'granted' : 'denied',
+      ad_storage: state.ads ? 'granted' : 'denied',
+      ad_user_data: state.ads ? 'granted' : 'denied',
+      ad_personalization: state.ads ? 'granted' : 'denied'
+    });
+  }
+
+  function readStored(){
+    try{
+      var raw = localStorage.getItem(KEY);
+      if(!raw) return null;
+      var obj = JSON.parse(raw);
+      if(typeof obj.analytics !== "boolean" || typeof obj.ads !== "boolean") return null;
+      return obj;
+    }catch(e){ return null; }
+  }
+
+  function store(state){
+    try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){}
+  }
+
+  var bar = document.getElementById("cookieBar");
+  var modal = document.getElementById("cookieModal");
+
+  var btnAccept = document.getElementById("cookieAccept");
+  var btnReject = document.getElementById("cookieReject");
+  var btnManage = document.getElementById("cookieManage");
+
+  var toggleAnalytics = document.getElementById("toggleAnalytics");
+  var toggleAds = document.getElementById("toggleAds");
+
+  var btnSave = document.getElementById("cookieSave");
+  var btnCancel = document.getElementById("cookieCancel");
+
+  var settingsLink = document.getElementById("cookieSettingsLink");
+
+  function openBanner(){ bar.style.display = "flex"; }
+  function closeBanner(){ bar.style.display = "none"; }
+
+  function openModal(){
+    modal.style.display = "flex";
+    modal.setAttribute("aria-hidden","false");
+  }
+  function closeModal(){
+    modal.style.display = "none";
+    modal.setAttribute("aria-hidden","true");
+  }
+
+  // If stored consent exists, apply it and do nothing else
+  var saved = readStored();
+  if(saved){
+    applyConsent(saved);
+  }else{
+    // No choice yet → show banner
+    openBanner();
+  }
+
+  // Accept all
+  btnAccept.addEventListener("click", function(){
+    var state = { analytics:true, ads:true };
+    store(state);
+    applyConsent(state);
+    closeBanner();
+    closeModal();
+  });
+
+  // Reject all
+  btnReject.addEventListener("click", function(){
+    var state = { analytics:false, ads:false };
+    store(state);
+    applyConsent(state);
+    closeBanner();
+    closeModal();
+  });
+
+  // Manage
+  btnManage.addEventListener("click", function(){
+    var current = readStored() || { analytics:false, ads:false };
+    toggleAnalytics.checked = current.analytics;
+    toggleAds.checked = current.ads;
+    openModal();
+  });
+
+  // Save manage choices
+  btnSave.addEventListener("click", function(){
+    var state = { analytics: !!toggleAnalytics.checked, ads: !!toggleAds.checked };
+    store(state);
+    applyConsent(state);
+    closeBanner();
+    closeModal();
+  });
+
+  // Cancel
+  btnCancel.addEventListener("click", function(){
+    closeModal();
+  });
+
+  // Footer settings link: reopen manage anytime
+  settingsLink.addEventListener("click", function(e){
+    e.preventDefault();
+    var current = readStored() || { analytics:false, ads:false };
+    toggleAnalytics.checked = current.analytics;
+    toggleAds.checked = current.ads;
+    openModal();
+    // If they never chose, also show banner (optional)
+    if(!readStored()) openBanner();
+  });
+
+  // Click outside sheet closes modal
+  modal.addEventListener("click", function(e){
+    if(e.target === modal) closeModal();
+  });
+
 })();
 </script>
 
 <!-- ✅ Perf: Lazy-load non-critical images (no compromise, just faster) -->
 <script>
-/*
-  Makes homepage faster:
-  - Keeps hero instant
-  - Lazily loads everything below the fold
-  - Adds decoding="async" for smoother rendering
-*/
 (function(){
   try{
     var imgs = document.querySelectorAll("img");
     imgs.forEach(function(img){
-      // hero is background-image so nothing to do
       if(!img.hasAttribute("loading")) img.setAttribute("loading","lazy");
       if(!img.hasAttribute("decoding")) img.setAttribute("decoding","async");
     });
