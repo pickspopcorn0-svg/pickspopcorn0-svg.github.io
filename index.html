@@ -19,7 +19,6 @@
     ad_user_data: 'denied',
     ad_personalization: 'denied',
     analytics_storage: 'denied',
-    // Optional: gives the banner a moment to update consent before tags act.
     wait_for_update: 500
   });
 </script>
@@ -36,7 +35,6 @@
 <!-- Perf: hint connections -->
 <link rel="preconnect" href="https://pagead2.googlesyndication.com">
 <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
-
 <link rel="preconnect" href="https://www.googletagservices.com">
 <link rel="dns-prefetch" href="https://www.googletagservices.com">
 <link rel="preconnect" href="https://tpc.googlesyndication.com">
@@ -69,6 +67,12 @@ body{
   overflow-x:hidden;
 }
 
+/* Perf: skip rendering offscreen sections */
+.section{
+  content-visibility:auto;
+  contain-intrinsic-size: 1000px;
+}
+
 /* layout */
 .container{
   width:min(1120px, calc(100% - 44px));
@@ -91,7 +95,7 @@ header{
 }
 .logo{font-weight:850;letter-spacing:.4px}
 
-/* HERO */
+/* HERO (no crop: contain) */
 .hero{
   min-height:88vh;
   display:flex;
@@ -102,8 +106,10 @@ header{
     radial-gradient(900px 560px at 84% 28%, rgba(90,170,255,.14), transparent 60%),
     linear-gradient(to bottom, rgba(0,0,0,.38), rgba(0,0,0,.92)),
     url("assets/home/hero.jpg");
-  background-size:cover;
+  background-size:contain;
   background-position:center;
+  background-repeat:no-repeat;
+  background-color:#000;
   border-bottom:1px solid rgba(255,255,255,.06);
 }
 .heroInner{
@@ -179,7 +185,7 @@ header{
   letter-spacing:.2px;
 }
 
-/* Section header row (title left, button right) */
+/* Section header row */
 .sectionHead{
   display:flex;
   align-items:flex-end;
@@ -199,12 +205,11 @@ header{
 }
 .editorialIntro{max-width:760px;}
 
-/* ✅ Featured intro: centered box, CTA inside */
+/* Featured intro box */
 .featuredHead{
   display:block;
   margin-bottom:22px;
 }
-
 .editorialBox{
   width:min(820px, 100%);
   margin:0 auto;
@@ -219,10 +224,7 @@ header{
   box-shadow:0 18px 50px rgba(0,0,0,.28);
   position:relative;
 }
-
-.editorialBox h2{
-  text-align:center;
-}
+.editorialBox h2{text-align:center;}
 .editorialBox .sectionLead{
   text-align:center;
   margin-top:10px;
@@ -232,7 +234,7 @@ header{
   color:rgba(255,255,255,.68);
 }
 
-/* Make the bullets look like UI */
+/* Bullets */
 .editorialBullets{
   margin:14px auto 0;
   padding:0;
@@ -279,12 +281,53 @@ header{
   border-color:rgba(255,255,255,.26);
   color:#fff;
 }
-
-/* CTA row inside the editorial box (bottom-right) */
 .editorialCTA{
   display:flex;
   justify-content:flex-end;
   margin-top:14px;
+}
+
+/* HANDPICKED (no crop: contain) */
+.handpickedRow{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(170px, 1fr));
+  gap:18px;
+  margin-top:18px;
+}
+.pickCard{
+  display:block;
+  border-radius:18px;
+  overflow:hidden;
+  outline:1px solid rgba(255,255,255,.10);
+  outline-offset:-1px;
+  background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.20));
+  transition:transform .18s ease, outline-color .18s ease, background .18s ease;
+}
+.pickCard:hover{
+  transform:translateY(-2px);
+  outline-color:rgba(255,255,255,.18);
+  background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,.24));
+}
+.pickCard img{
+  width:100%;
+  aspect-ratio:2/3;
+  object-fit:contain;          /* ✅ no crop */
+  background:#000;
+}
+.pickMeta{
+  padding:10px 12px 0;
+  font-size:12px;
+  color:rgba(255,255,255,.62);
+}
+.pickTitle{
+  padding:6px 12px 12px;
+  font-size:14px;
+  font-weight:850;
+  letter-spacing:.1px;
+  color:rgba(255,255,255,.90);
+}
+@media(max-width:760px){
+  .handpickedRow{gap:14px}
 }
 
 /* FEATURED EDITORIALS */
@@ -298,7 +341,7 @@ header{
   .feed{grid-template-columns:repeat(2, 1fr);}
 }
 
-/* Border “light leak” fix */
+/* Cards: keep your split layout, but force posters to NOT crop */
 .feedCard{
   position:relative;
   border-radius:22px;
@@ -306,7 +349,8 @@ header{
   isolation:isolate;
   outline:1px solid rgba(255,255,255,.10);
   outline-offset:-1px;
-  background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
   min-height:220px;
   display:grid;
   grid-template-columns:44% 56%;
@@ -319,20 +363,21 @@ header{
   background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
 }
 
-/* LEFT poster panel */
+/* LEFT poster panel (no crop: contain) */
 .feedCard::before{
   content:"";
   position:absolute;
   left:0; top:0; bottom:0;
   width:44%;
   background-image:inherit;
-  background-size:cover;
+  background-size:contain;     /* ✅ no crop */
   background-position:center;
   background-repeat:no-repeat;
+  background-color:#000;
   filter:saturate(1.05) contrast(1.02);
   border-radius:inherit;
 }
-/* Poster shading so it blends with panel */
+/* Poster shading */
 .feedCard::after{
   content:"";
   position:absolute;
@@ -372,7 +417,7 @@ header{
   overflow:hidden;
 }
 
-/* CATEGORIES + light leak fix */
+/* CATEGORIES (no crop: contain) */
 .catGrid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -386,9 +431,12 @@ header{
   isolation:isolate;
   outline:1px solid rgba(255,255,255,.10);
   outline-offset:-1px;
+
   background-repeat:no-repeat;
   background-position:center center;
-  background-size:cover;
+  background-size:contain;     /* ✅ no crop */
+  background-color:#000;
+
   transition:transform .18s ease, outline-color .18s ease, filter .18s ease;
   will-change:transform;
 }
@@ -425,6 +473,7 @@ header{
 .btfFeed .feedCard::before{
   width:100%;
   background-position:center;
+  background-size:contain;     /* ✅ no crop */
 }
 .btfFeed .feedCard::after{
   width:100%;
@@ -595,7 +644,7 @@ footer p{
   .hero p{font-size:16px}
 }
 
-/* ✅ MOBILE POSTER FIX */
+/* MOBILE */
 @media(max-width:760px){
   .container,
   .heroInner{width:calc(100% - 34px)}
@@ -608,7 +657,7 @@ footer p{
   .editorialBox{padding:16px 14px 14px}
   .editorialBullets{font-size:14px;line-height:1.8}
 
-  /* stack poster on top on mobile */
+  /* stack poster on top */
   .feedCard{
     grid-template-columns:1fr;
     min-height:0;
@@ -620,7 +669,7 @@ footer p{
     left:0; top:0; right:0;
   }
   .feedCard::before{
-    background-size:contain;
+    background-size:contain;   /* ✅ no crop on mobile too */
     background-position:center;
     background-color:#000;
   }
@@ -671,7 +720,7 @@ footer p{
   </div>
 </section>
 
-  <!-- HANDPICKED -->
+<!-- HANDPICKED -->
 <section class="section" style="padding-top:46px;padding-bottom:18px;">
   <div class="container">
 
@@ -1002,21 +1051,20 @@ footer p{
 
 <script>
 /*
-  ✅ Long-term consent system (no more rework):
+  ✅ Long-term consent system:
   - Stores choice in localStorage
   - Supports Accept / Reject / Manage
   - Updates Google Consent Mode v2
   - Footer "Cookie settings" lets users change later
 */
 (function(){
-  var KEY = "pp_consent_v1"; // version it so future changes won't break old values
+  var KEY = "pp_consent_v1";
 
   function safeGtagConsentUpdate(consentObj){
     if (typeof gtag === "function") gtag('consent', 'update', consentObj);
   }
 
   function applyConsent(state){
-    // state: { analytics: true/false, ads: true/false }
     safeGtagConsentUpdate({
       analytics_storage: state.analytics ? 'granted' : 'denied',
       ad_storage: state.ads ? 'granted' : 'denied',
@@ -1066,16 +1114,13 @@ footer p{
     modal.setAttribute("aria-hidden","true");
   }
 
-  // If stored consent exists, apply it and do nothing else
   var saved = readStored();
   if(saved){
     applyConsent(saved);
   }else{
-    // No choice yet → show banner
     openBanner();
   }
 
-  // Accept all
   btnAccept.addEventListener("click", function(){
     var state = { analytics:true, ads:true };
     store(state);
@@ -1084,7 +1129,6 @@ footer p{
     closeModal();
   });
 
-  // Reject all
   btnReject.addEventListener("click", function(){
     var state = { analytics:false, ads:false };
     store(state);
@@ -1093,7 +1137,6 @@ footer p{
     closeModal();
   });
 
-  // Manage
   btnManage.addEventListener("click", function(){
     var current = readStored() || { analytics:false, ads:false };
     toggleAnalytics.checked = current.analytics;
@@ -1101,7 +1144,6 @@ footer p{
     openModal();
   });
 
-  // Save manage choices
   btnSave.addEventListener("click", function(){
     var state = { analytics: !!toggleAnalytics.checked, ads: !!toggleAds.checked };
     store(state);
@@ -1110,31 +1152,26 @@ footer p{
     closeModal();
   });
 
-  // Cancel
   btnCancel.addEventListener("click", function(){
     closeModal();
   });
 
-  // Footer settings link: reopen manage anytime
   settingsLink.addEventListener("click", function(e){
     e.preventDefault();
     var current = readStored() || { analytics:false, ads:false };
     toggleAnalytics.checked = current.analytics;
     toggleAds.checked = current.ads;
     openModal();
-    // If they never chose, also show banner (optional)
     if(!readStored()) openBanner();
   });
 
-  // Click outside sheet closes modal
   modal.addEventListener("click", function(e){
     if(e.target === modal) closeModal();
   });
-
 })();
 </script>
 
-<!-- ✅ Perf: Lazy-load non-critical images (no compromise, just faster) -->
+<!-- ✅ Perf: Lazy-load non-critical images -->
 <script>
 (function(){
   try{
