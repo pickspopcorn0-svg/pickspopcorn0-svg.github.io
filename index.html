@@ -298,6 +298,14 @@ header{
   -webkit-overflow-scrolling:touch;
   scrollbar-width:none;
 
+  /* ✅ critical: prevent smooth-scroll conflicts + reduce iOS weirdness */
+  scroll-behavior:auto;
+  overscroll-behavior-x:contain;
+  will-change:scroll-position;
+
+  /* ✅ content-visibility:auto on parents can delay layout; keep marquee visible */
+  content-visibility:visible;
+
   /* soft fade edges */
   mask-image:linear-gradient(
     to right,
@@ -1285,17 +1293,19 @@ footer p{
 })();
 </script>
 
-<!-- ✅ Handpicked: FIXED infinite loop + manual swipe + NO jump-to-top -->
+<!-- ✅ Handpicked: REAL infinite loop + fixes iOS fast swipe blank space + NO jump-to-top -->
 <script>
 (function(){
   const marquee = document.querySelector(".handpickedMarquee");
   const track = document.getElementById("handpickedTrack");
   if(!marquee || !track) return;
 
-  const gap = 18;
-  const speed = 55; // ✅ faster auto speed (px/sec). change to 70 if you want more fast.
+  const GAP = 18;
+  const AUTO_SPEED = 50;       // px/sec
+  const PAUSE_DURATION = 2000; // ms
+  const SETS = 4;              // ✅ 1 original + 3 clones = 4 sets
 
-  // ✅ stop "#" from jumping to top when clicking a card
+  // ✅ stop "#" jump-to-top on card click (keeps your links safe)
   track.addEventListener("click", function(e){
     const card = e.target.closest(".pickCard");
     if(card) e.preventDefault();
@@ -1303,58 +1313,104 @@ footer p{
 
   const originals = Array.from(track.children);
 
-  // ✅ clone twice => total 3 copies (prevents empty space)
-  originals.forEach(el => track.appendChild(el.cloneNode(true)));
-  originals.forEach(el => track.appendChild(el.cloneNode(true)));
-
-  let loopW = 0;
-  function calc(){
-    loopW = originals.reduce((w, el) => w + el.getBoundingClientRect().width, 0)
-      + (originals.length - 1) * gap;
-
-    // ✅ start in middle copy so user can swipe both directions
-    marquee.scrollLeft = loopW;
+  // ✅ clone originals to create enough runway (prevents blank space on fast swipe)
+  for(let i=1;i<SETS;i++){
+    originals.forEach(el => track.appendChild(el.cloneNode(true)));
   }
 
-  requestAnimationFrame(calc);
-  window.addEventListener("resize", calc, {passive:true});
-
+  let loopW = 0;
   let paused = false;
   let resumeTimer = null;
+
   function pause(ms){
     paused = true;
     clearTimeout(resumeTimer);
     resumeTimer = setTimeout(()=> paused = false, ms);
   }
 
-  // ✅ user interacts => pause auto, let them explore
-  marquee.addEventListener("touchstart", ()=> pause(1400), {passive:true});
-  marquee.addEventListener("touchmove",  ()=> pause(1400), {passive:true});
-  marquee.addEventListener("wheel",      ()=> pause(1400), {passive:true});
-  marquee.addEventListener("mousedown",  ()=> pause(1400));
-  marquee.addEventListener("scroll",     ()=> pause(1000), {passive:true});
+  function debounce(fn, wait){
+    let t;
+    return function(){
+      clearTimeout(t);
+      t = setTimeout(fn, wait);
+    };
+  }
+
+  function measure(){
+    // Sometimes content-visibility/layout timing gives 0 on first frame.
+    // Keep retrying until we get real widths.
+    const w = originals.reduce((sum, el) => sum + el.getBoundingClientRect().width, 0);
+    if(w <= 0) return false;
+
+    loopW = w + (originals.length - 1) * GAP;
+    return loopW > 0;
+  }
+
+  function startInMiddle(){
+    // ✅ start inside middle region so user can swipe both directions
+    marquee.scrollLeft = loopW * 1.5;
+  }
+
+  // ✅ keep scroll in the safe middle region (do this AFTER momentum ends)
+  function normalize(){
+    if(loopW <= 0) return;
+
+    const min = loopW * 0.6;
+    const max = loopW * 2.4;
+
+    if(marquee.scrollLeft < min){
+      marquee.scrollLeft += loopW;
+    }else if(marquee.scrollLeft > max){
+      marquee.scrollLeft -= loopW;
+    }
+  }
+
+  // ✅ init when layout is ready
+  function init(){
+    if(!measure()){
+      requestAnimationFrame(init);
+      return;
+    }
+    startInMiddle();
+  }
+  init();
+
+  // ✅ pause when user interacts
+  marquee.addEventListener("touchstart", ()=> pause(PAUSE_DURATION), {passive:true});
+  marquee.addEventListener("touchmove",  ()=> pause(PAUSE_DURATION), {passive:true});
+  marquee.addEventListener("wheel",      ()=> pause(PAUSE_DURATION), {passive:true});
+  marquee.addEventListener("mousedown",  ()=> pause(PAUSE_DURATION));
 
   // desktop hover pause
   marquee.addEventListener("mouseenter", ()=> paused = true);
   marquee.addEventListener("mouseleave", ()=> paused = false);
 
-  // ✅ keep scroll inside middle area (no empty ends)
-  function normalize(){
-    if(marquee.scrollLeft < loopW * 0.25){
-      marquee.scrollLeft += loopW;
-    }else if(marquee.scrollLeft > loopW * 1.75){
-      marquee.scrollLeft -= loopW;
-    }
-  }
+  // ✅ normalize after scroll stops (prevents snap-back while finger is moving)
+  let scrollEndTimer = null;
+  marquee.addEventListener("scroll", function(){
+    pause(PAUSE_DURATION);
+    clearTimeout(scrollEndTimer);
+    scrollEndTimer = setTimeout(normalize, 140);
+  }, {passive:true});
 
+  // ✅ debounced resize
+  window.addEventListener("resize", debounce(function(){
+    if(measure()) startInMiddle();
+  }, 180), {passive:true});
+
+  // ✅ auto-scroll loop (never reaches end)
   let last = performance.now();
   function tick(t){
     const dt = (t - last) / 1000;
     last = t;
 
-    if(!paused){
-      marquee.scrollLeft += speed * dt;
-      normalize();
+    if(!paused && loopW > 0){
+      marquee.scrollLeft += AUTO_SPEED * dt;
+
+      // keep auto inside safe range continuously
+      if(marquee.scrollLeft > loopW * 2.4){
+        marquee.scrollLeft -= loopW;
+      }
     }
     requestAnimationFrame(tick);
   }
