@@ -1285,7 +1285,7 @@ footer p{
 })();
 </script>
 
-<!-- ✅ Handpicked: manual swipe + faster auto scroll (replaces old translate3d marquee JS) -->
+<!-- ✅ Handpicked: FIXED infinite loop + manual swipe + NO jump-to-top -->
 <script>
 (function(){
   const marquee = document.querySelector(".handpickedMarquee");
@@ -1293,17 +1293,30 @@ footer p{
   if(!marquee || !track) return;
 
   const gap = 18;
-  const speed = 45; // ✅ faster auto speed (px/sec). change to 60 if you want more fast.
+  const speed = 55; // ✅ faster auto speed (px/sec). change to 70 if you want more fast.
+
+  // ✅ stop "#" from jumping to top when clicking a card
+  track.addEventListener("click", function(e){
+    const card = e.target.closest(".pickCard");
+    if(card) e.preventDefault();
+  });
 
   const originals = Array.from(track.children);
+
+  // ✅ clone twice => total 3 copies (prevents empty space)
+  originals.forEach(el => track.appendChild(el.cloneNode(true)));
   originals.forEach(el => track.appendChild(el.cloneNode(true)));
 
   let loopW = 0;
   function calc(){
     loopW = originals.reduce((w, el) => w + el.getBoundingClientRect().width, 0)
       + (originals.length - 1) * gap;
+
+    // ✅ start in middle copy so user can swipe both directions
+    marquee.scrollLeft = loopW;
   }
-  calc();
+
+  requestAnimationFrame(calc);
   window.addEventListener("resize", calc, {passive:true});
 
   let paused = false;
@@ -1315,15 +1328,24 @@ footer p{
   }
 
   // ✅ user interacts => pause auto, let them explore
-  marquee.addEventListener("touchstart", ()=> pause(1200), {passive:true});
-  marquee.addEventListener("touchmove",  ()=> pause(1200), {passive:true});
-  marquee.addEventListener("wheel",      ()=> pause(1200), {passive:true});
-  marquee.addEventListener("mousedown",  ()=> pause(1200));
-  marquee.addEventListener("scroll",     ()=> pause(900),  {passive:true});
+  marquee.addEventListener("touchstart", ()=> pause(1400), {passive:true});
+  marquee.addEventListener("touchmove",  ()=> pause(1400), {passive:true});
+  marquee.addEventListener("wheel",      ()=> pause(1400), {passive:true});
+  marquee.addEventListener("mousedown",  ()=> pause(1400));
+  marquee.addEventListener("scroll",     ()=> pause(1000), {passive:true});
 
-  // optional desktop hover pause
+  // desktop hover pause
   marquee.addEventListener("mouseenter", ()=> paused = true);
   marquee.addEventListener("mouseleave", ()=> paused = false);
+
+  // ✅ keep scroll inside middle area (no empty ends)
+  function normalize(){
+    if(marquee.scrollLeft < loopW * 0.25){
+      marquee.scrollLeft += loopW;
+    }else if(marquee.scrollLeft > loopW * 1.75){
+      marquee.scrollLeft -= loopW;
+    }
+  }
 
   let last = performance.now();
   function tick(t){
@@ -1332,9 +1354,7 @@ footer p{
 
     if(!paused){
       marquee.scrollLeft += speed * dt;
-      if(marquee.scrollLeft >= loopW){
-        marquee.scrollLeft -= loopW;
-      }
+      normalize();
     }
     requestAnimationFrame(tick);
   }
