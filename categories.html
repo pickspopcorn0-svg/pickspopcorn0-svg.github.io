@@ -7,6 +7,15 @@
 
 <meta name="description" content="Browse all Popcorn Picks categories — movies, TV shows, K-drama, C-drama, anime, donghua, Indian cinema, and French cinema." />
 
+<!-- Google Analytics (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XZ94ZK9JN4');
+</script>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 a{text-decoration:none;color:inherit}
@@ -34,7 +43,7 @@ body{
   margin:0 auto;
 }
 
-/* TOPBAR (like your editorials pages) */
+/* TOPBAR */
 .topbar{
   position:sticky;
   top:0;
@@ -163,7 +172,6 @@ body{
       <a class="cat" href="anime.html" style="background-image:url('assets/categories/anime.jpg.JPG')"><span>Anime</span></a>
       <a class="cat" href="donghua.html" style="background-image:url('assets/categories/donghua.jpg.JPG')"><span>Donghua</span></a>
 
-      <!-- these two only appear here, not on homepage -->
       <a class="cat" href="indian.html" style="background-image:url('assets/categories/indian-cinema.jpg.JPG')"><span>Indian Cinema</span></a>
       <a class="cat" href="french.html" style="background-image:url('assets/categories/french-cinema.jpg.JPG')"><span>French Cinema</span></a>
     </div>
