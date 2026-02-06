@@ -287,47 +287,88 @@ header{
   margin-top:14px;
 }
 
-/* HANDPICKED (no crop: contain) */
-.handpickedRow{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(170px, 1fr));
-  gap:18px;
+/* HANDPICKED — single-line infinite marquee */
+.handpickedMarquee{
+  position:relative;
+  overflow:hidden;
   margin-top:18px;
+  padding-bottom:6px;
+
+  /* soft fade edges */
+  mask-image:linear-gradient(
+    to right,
+    transparent 0,
+    #000 48px,
+    #000 calc(100% - 48px),
+    transparent 100%
+  );
 }
+
+.handpickedTrack{
+  display:flex;
+  gap:18px;
+  will-change:transform;
+}
+
 .pickCard{
-  display:block;
+  flex:0 0 220px;
+  position:relative;
   border-radius:18px;
   overflow:hidden;
   outline:1px solid rgba(255,255,255,.10);
   outline-offset:-1px;
-  background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.20));
-  transition:transform .18s ease, outline-color .18s ease, background .18s ease;
+  background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.25));
+  transition:transform .18s ease, outline-color .18s ease;
 }
 .pickCard:hover{
   transform:translateY(-2px);
   outline-color:rgba(255,255,255,.18);
-  background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,.24));
 }
+
 .pickCard img{
   width:100%;
   aspect-ratio:2/3;
-  object-fit:contain;          /* ✅ no crop */
+  object-fit:contain; /* no crop */
   background:#000;
 }
-.pickMeta{
-  padding:10px 12px 0;
-  font-size:12px;
-  color:rgba(255,255,255,.62);
+
+/* Overlay info */
+.pickOverlay{
+  position:absolute;
+  inset:0;
+  padding:14px;
+  background:linear-gradient(
+    to top,
+    rgba(0,0,0,.95),
+    rgba(0,0,0,.55),
+    transparent 60%
+  );
+  opacity:0;
+  transition:opacity .25s ease;
+  pointer-events:none;
 }
+
+.pickCard:hover .pickOverlay{opacity:1}
+
+.pickYear{font-size:12px;opacity:.85}
+.pickGenres{font-size:12px;opacity:.65;margin-top:4px}
+.pickSynopsis{
+  margin-top:8px;
+  font-size:13px;
+  line-height:1.45;
+  color:rgba(255,255,255,.85);
+}
+
 .pickTitle{
-  padding:6px 12px 12px;
+  padding:10px 12px;
   font-size:14px;
   font-weight:850;
-  letter-spacing:.1px;
-  color:rgba(255,255,255,.90);
+  background:rgba(0,0,0,.65);
 }
+
+/* Mobile sizing */
 @media(max-width:760px){
-  .handpickedRow{gap:14px}
+  .pickCard{flex-basis:170px}
 }
 
 /* FEATURED EDITORIALS */
@@ -731,62 +772,118 @@ footer p{
       </div>
     </div>
 
-    <div class="handpickedRow">
+    <div class="handpickedMarquee">
+      <div class="handpickedTrack" id="handpickedTrack">
 
-      <a class="pickCard" href="the-bureau.html">
-        <img src="assets/posters/tv/the-bureau.jpg.JPG" alt="The Bureau">
-        <div class="pickMeta">TV Show • 2015</div>
-        <div class="pickTitle">The Bureau</div>
-      </a>
+        <a class="pickCard" href="the-bureau.html">
+          <img src="assets/posters/tv/the-bureau.jpg.JPG" alt="The Bureau">
+          <div class="pickOverlay">
+            <div class="pickYear">TV Show · 2015</div>
+            <div class="pickGenres">Espionage · Drama</div>
+            <p class="pickSynopsis">
+              A grounded, procedural look at modern intelligence work.
+            </p>
+          </div>
+          <div class="pickTitle">The Bureau</div>
+        </a>
 
-      <a class="pickCard" href="shogun.html">
-        <img src="assets/posters/tv/shogun.jpg.JPG" alt="Shōgun">
-        <div class="pickMeta">TV Show • 2024</div>
-        <div class="pickTitle">Shōgun</div>
-      </a>
+        <a class="pickCard" href="shogun.html">
+          <img src="assets/posters/IMG_2479.jpeg" alt="Shōgun">
+          <div class="pickOverlay">
+            <div class="pickYear">TV Show · 2024</div>
+            <div class="pickGenres">Period · Drama · War</div>
+            <p class="pickSynopsis">
+              Power, loyalty, and survival in feudal Japan.
+            </p>
+          </div>
+          <div class="pickTitle">Shōgun</div>
+        </a>
 
-      <a class="pickCard" href="tell-me-what-you-saw.html">
-        <img src="assets/posters/kdrama/tell-me-what-you-saw.jpg.JPG" alt="Tell Me What You Saw">
-        <div class="pickMeta">K-Drama • 2020</div>
-        <div class="pickTitle">Tell Me What You Saw</div>
-      </a>
+        <a class="pickCard" href="tell-me-what-you-saw.html">
+          <img src="assets/posters/kdrama/tell-me-what-you-saw.jpg.JPG" alt="Tell Me What You Saw">
+          <div class="pickOverlay">
+            <div class="pickYear">K-Drama · 2020</div>
+            <div class="pickGenres">Thriller · Crime</div>
+            <p class="pickSynopsis">
+              A profiler and a detective chase a serial killer with chilling precision.
+            </p>
+          </div>
+          <div class="pickTitle">Tell Me What You Saw</div>
+        </a>
 
-      <a class="pickCard" href="sardar-udham.html">
-        <img src="assets/posters/sardar-udham.jpg.JPG" alt="Sardar Udham">
-        <div class="pickMeta">Movie • 2021</div>
-        <div class="pickTitle">Sardar Udham</div>
-      </a>
+        <a class="pickCard" href="sardar-udham.html">
+          <img src="assets/posters/sardar-udham.jpg.JPG" alt="Sardar Udham">
+          <div class="pickOverlay">
+            <div class="pickYear">Movie · 2021</div>
+            <div class="pickGenres">Biopic · History</div>
+            <p class="pickSynopsis">
+              A restrained, powerful portrait of a revolutionary and his silence.
+            </p>
+          </div>
+          <div class="pickTitle">Sardar Udham</div>
+        </a>
 
-      <a class="pickCard" href="lighter-and-princess.html">
-        <img src="assets/posters/cdrama/lighter-and-princess.jpg.JPG" alt="Lighter &amp; Princess">
-        <div class="pickMeta">C-Drama • 2022</div>
-        <div class="pickTitle">Lighter &amp; Princess</div>
-      </a>
+        <a class="pickCard" href="lighter-and-princess.html">
+          <img src="assets/posters/cdrama/lighter-and-princess.jpg.JPG" alt="Lighter &amp; Princess">
+          <div class="pickOverlay">
+            <div class="pickYear">C-Drama · 2022</div>
+            <div class="pickGenres">Romance · Youth</div>
+            <p class="pickSynopsis">
+              Slow-burn love with sharp edges and real consequences.
+            </p>
+          </div>
+          <div class="pickTitle">Lighter &amp; Princess</div>
+        </a>
 
-      <a class="pickCard" href="prodigal-son.html">
-        <img src="assets/posters/tv/prodigal-son.jpg.JPG" alt="Prodigal Son">
-        <div class="pickMeta">TV Show • 2019</div>
-        <div class="pickTitle">Prodigal Son</div>
-      </a>
+        <a class="pickCard" href="prodigal-son.html">
+          <img src="assets/posters/tv/prodigal-son.jpg.JPG" alt="Prodigal Son">
+          <div class="pickOverlay">
+            <div class="pickYear">TV Show · 2019</div>
+            <div class="pickGenres">Crime · Thriller</div>
+            <p class="pickSynopsis">
+              A profiler with a killer father, solving cases while unraveling himself.
+            </p>
+          </div>
+          <div class="pickTitle">Prodigal Son</div>
+        </a>
 
-      <a class="pickCard" href="alex-rider.html">
-        <img src="assets/posters/tv/alex-rider.jpg.JPG" alt="Alex Rider">
-        <div class="pickMeta">TV Show • 2020</div>
-        <div class="pickTitle">Alex Rider</div>
-      </a>
+        <a class="pickCard" href="alex-rider.html">
+          <img src="assets/posters/tv/alex-rider.jpg.JPG" alt="Alex Rider">
+          <div class="pickOverlay">
+            <div class="pickYear">TV Show · 2020</div>
+            <div class="pickGenres">Spy · Action</div>
+            <p class="pickSynopsis">
+              A teen recruited into espionage—smarter, darker than it sounds.
+            </p>
+          </div>
+          <div class="pickTitle">Alex Rider</div>
+        </a>
 
-      <a class="pickCard" href="sword-dynasty.html">
-        <img src="assets/posters/cdrama/sword-dynasty-poster.jpg.JPG" alt="Sword Dynasty">
-        <div class="pickMeta">C-Drama • 2019</div>
-        <div class="pickTitle">Sword Dynasty</div>
-      </a>
+        <a class="pickCard" href="sword-dynasty.html">
+          <img src="assets/posters/cdrama/sword-dynasty-poster.jpg.JPG" alt="Sword Dynasty">
+          <div class="pickOverlay">
+            <div class="pickYear">C-Drama · 2019</div>
+            <div class="pickGenres">Wuxia · Fantasy</div>
+            <p class="pickSynopsis">
+              Cultivation, revenge, and court politics in a classic wuxia setup.
+            </p>
+          </div>
+          <div class="pickTitle">Sword Dynasty</div>
+        </a>
 
-      <a class="pickCard" href="tell-me-that-you-love-me.html">
-        <img src="assets/posters/kdrama/tell-me-that-you-love-me.jpg.jpeg" alt="Tell Me That You Love Me">
-        <div class="pickMeta">K-Drama • 2023</div>
-        <div class="pickTitle">Tell Me That You Love Me</div>
-      </a>
+        <a class="pickCard" href="tell-me-that-you-love-me.html">
+          <img src="assets/posters/kdrama/tell-me-that-you-love-me.jpg.jpeg" alt="Tell Me That You Love Me">
+          <div class="pickOverlay">
+            <div class="pickYear">K-Drama · 2023</div>
+            <div class="pickGenres">Romance · Slice of Life</div>
+            <p class="pickSynopsis">
+              A quiet, tender love story that trusts silence as much as dialogue.
+            </p>
+          </div>
+          <div class="pickTitle">Tell Me That You Love Me</div>
+        </a>
 
+      </div>
     </div>
 
   </div>
@@ -1181,6 +1278,50 @@ footer p{
       if(!img.hasAttribute("decoding")) img.setAttribute("decoding","async");
     });
   }catch(e){}
+})();
+</script>
+
+<!-- ✅ STEP 3 — Marquee JS -->
+<script>
+(function(){
+  const track = document.getElementById("handpickedTrack");
+  if(!track) return;
+
+  const speed = 22; // px/sec (perfect balance)
+  const originals = Array.from(track.children);
+
+  originals.forEach(el => track.appendChild(el.cloneNode(true)));
+
+  let x = 0;
+  let last = performance.now();
+  let loopW = 0;
+
+  function calc(){
+    loopW = originals.reduce((w, el) =>
+      w + el.getBoundingClientRect().width, 0
+    ) + (originals.length - 1) * 18;
+  }
+  calc();
+  window.addEventListener("resize", calc, {passive:true});
+
+  let paused = false;
+  track.addEventListener("mouseenter", ()=>paused=true);
+  track.addEventListener("mouseleave", ()=>paused=false);
+  track.addEventListener("touchstart", ()=>paused=true, {passive:true});
+  track.addEventListener("touchend", ()=>setTimeout(()=>paused=false,600), {passive:true});
+
+  function tick(t){
+    const dt = (t - last) / 1000;
+    last = t;
+
+    if(!paused){
+      x -= speed * dt;
+      if(Math.abs(x) >= loopW) x = 0;
+      track.style.transform = `translate3d(${x}px,0,0)`;
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
 })();
 </script>
 
