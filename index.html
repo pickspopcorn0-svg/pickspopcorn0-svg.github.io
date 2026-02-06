@@ -287,12 +287,16 @@ header{
   margin-top:14px;
 }
 
-/* HANDPICKED — single-line infinite marquee */
+/* HANDPICKED — single-line infinite marquee + manual swipe */
 .handpickedMarquee{
   position:relative;
-  overflow:hidden;
   margin-top:18px;
   padding-bottom:6px;
+
+  /* ✅ manual swipe/scroll */
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
 
   /* soft fade edges */
   mask-image:linear-gradient(
@@ -303,11 +307,12 @@ header{
     transparent 100%
   );
 }
+.handpickedMarquee::-webkit-scrollbar{display:none;}
 
 .handpickedTrack{
   display:flex;
   gap:18px;
-  will-change:transform;
+  width:max-content; /* ✅ makes track scrollable width */
 }
 
 .pickCard{
@@ -347,7 +352,6 @@ header{
   transition:opacity .25s ease;
   pointer-events:none;
 }
-
 .pickCard:hover .pickOverlay{opacity:1}
 
 .pickYear{font-size:12px;opacity:.85}
@@ -775,7 +779,7 @@ footer p{
     <div class="handpickedMarquee">
       <div class="handpickedTrack" id="handpickedTrack">
 
-        <a class="pickCard" href="the-bureau.html">
+        <a class="pickCard" href="#" aria-label="The Bureau">
           <img src="assets/posters/tv/the-bureau.jpg.JPG" alt="The Bureau">
           <div class="pickOverlay">
             <div class="pickYear">TV Show · 2015</div>
@@ -787,7 +791,7 @@ footer p{
           <div class="pickTitle">The Bureau</div>
         </a>
 
-        <a class="pickCard" href="shogun.html">
+        <a class="pickCard" href="#" aria-label="Shōgun">
           <img src="assets/posters/IMG_2479.jpeg" alt="Shōgun">
           <div class="pickOverlay">
             <div class="pickYear">TV Show · 2024</div>
@@ -799,7 +803,7 @@ footer p{
           <div class="pickTitle">Shōgun</div>
         </a>
 
-        <a class="pickCard" href="tell-me-what-you-saw.html">
+        <a class="pickCard" href="#" aria-label="Tell Me What You Saw">
           <img src="assets/posters/kdrama/tell-me-what-you-saw.jpg.JPG" alt="Tell Me What You Saw">
           <div class="pickOverlay">
             <div class="pickYear">K-Drama · 2020</div>
@@ -811,7 +815,7 @@ footer p{
           <div class="pickTitle">Tell Me What You Saw</div>
         </a>
 
-        <a class="pickCard" href="sardar-udham.html">
+        <a class="pickCard" href="#" aria-label="Sardar Udham">
           <img src="assets/posters/sardar-udham.jpg.JPG" alt="Sardar Udham">
           <div class="pickOverlay">
             <div class="pickYear">Movie · 2021</div>
@@ -823,8 +827,8 @@ footer p{
           <div class="pickTitle">Sardar Udham</div>
         </a>
 
-        <a class="pickCard" href="lighter-and-princess.html">
-          <img src="assets/posters/cdrama/lighter-and-princess.jpg.JPG" alt="Lighter &amp; Princess">
+        <a class="pickCard" href="#" aria-label="Lighter &amp; Princess">
+          <img src="assets/posters/cdrama/lighter-and-princess-poster.jpg.JPG" alt="Lighter &amp; Princess">
           <div class="pickOverlay">
             <div class="pickYear">C-Drama · 2022</div>
             <div class="pickGenres">Romance · Youth</div>
@@ -835,7 +839,7 @@ footer p{
           <div class="pickTitle">Lighter &amp; Princess</div>
         </a>
 
-        <a class="pickCard" href="prodigal-son.html">
+        <a class="pickCard" href="#" aria-label="Prodigal Son">
           <img src="assets/posters/tv/prodigal-son.jpg.JPG" alt="Prodigal Son">
           <div class="pickOverlay">
             <div class="pickYear">TV Show · 2019</div>
@@ -847,7 +851,7 @@ footer p{
           <div class="pickTitle">Prodigal Son</div>
         </a>
 
-        <a class="pickCard" href="alex-rider.html">
+        <a class="pickCard" href="#" aria-label="Alex Rider">
           <img src="assets/posters/tv/alex-rider.jpg.JPG" alt="Alex Rider">
           <div class="pickOverlay">
             <div class="pickYear">TV Show · 2020</div>
@@ -859,7 +863,7 @@ footer p{
           <div class="pickTitle">Alex Rider</div>
         </a>
 
-        <a class="pickCard" href="sword-dynasty.html">
+        <a class="pickCard" href="#" aria-label="Sword Dynasty">
           <img src="assets/posters/cdrama/sword-dynasty-poster.jpg.JPG" alt="Sword Dynasty">
           <div class="pickOverlay">
             <div class="pickYear">C-Drama · 2019</div>
@@ -871,7 +875,7 @@ footer p{
           <div class="pickTitle">Sword Dynasty</div>
         </a>
 
-        <a class="pickCard" href="tell-me-that-you-love-me.html">
+        <a class="pickCard" href="#" aria-label="Tell Me That You Love Me">
           <img src="assets/posters/kdrama/tell-me-that-you-love-me.jpg.jpeg" alt="Tell Me That You Love Me">
           <div class="pickOverlay">
             <div class="pickYear">K-Drama · 2023</div>
@@ -1281,43 +1285,56 @@ footer p{
 })();
 </script>
 
-<!-- ✅ STEP 3 — Marquee JS -->
+<!-- ✅ Handpicked: manual swipe + faster auto scroll (replaces old translate3d marquee JS) -->
 <script>
 (function(){
+  const marquee = document.querySelector(".handpickedMarquee");
   const track = document.getElementById("handpickedTrack");
-  if(!track) return;
+  if(!marquee || !track) return;
 
-  const speed = 22; // px/sec (perfect balance)
+  const gap = 18;
+  const speed = 45; // ✅ faster auto speed (px/sec). change to 60 if you want more fast.
+
   const originals = Array.from(track.children);
-
   originals.forEach(el => track.appendChild(el.cloneNode(true)));
 
-  let x = 0;
-  let last = performance.now();
   let loopW = 0;
-
   function calc(){
-    loopW = originals.reduce((w, el) =>
-      w + el.getBoundingClientRect().width, 0
-    ) + (originals.length - 1) * 18;
+    loopW = originals.reduce((w, el) => w + el.getBoundingClientRect().width, 0)
+      + (originals.length - 1) * gap;
   }
   calc();
   window.addEventListener("resize", calc, {passive:true});
 
   let paused = false;
-  track.addEventListener("mouseenter", ()=>paused=true);
-  track.addEventListener("mouseleave", ()=>paused=false);
-  track.addEventListener("touchstart", ()=>paused=true, {passive:true});
-  track.addEventListener("touchend", ()=>setTimeout(()=>paused=false,600), {passive:true});
+  let resumeTimer = null;
+  function pause(ms){
+    paused = true;
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(()=> paused = false, ms);
+  }
 
+  // ✅ user interacts => pause auto, let them explore
+  marquee.addEventListener("touchstart", ()=> pause(1200), {passive:true});
+  marquee.addEventListener("touchmove",  ()=> pause(1200), {passive:true});
+  marquee.addEventListener("wheel",      ()=> pause(1200), {passive:true});
+  marquee.addEventListener("mousedown",  ()=> pause(1200));
+  marquee.addEventListener("scroll",     ()=> pause(900),  {passive:true});
+
+  // optional desktop hover pause
+  marquee.addEventListener("mouseenter", ()=> paused = true);
+  marquee.addEventListener("mouseleave", ()=> paused = false);
+
+  let last = performance.now();
   function tick(t){
     const dt = (t - last) / 1000;
     last = t;
 
     if(!paused){
-      x -= speed * dt;
-      if(Math.abs(x) >= loopW) x = 0;
-      track.style.transform = `translate3d(${x}px,0,0)`;
+      marquee.scrollLeft += speed * dt;
+      if(marquee.scrollLeft >= loopW){
+        marquee.scrollLeft -= loopW;
+      }
     }
     requestAnimationFrame(tick);
   }
