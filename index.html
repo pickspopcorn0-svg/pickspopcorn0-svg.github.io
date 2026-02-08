@@ -61,7 +61,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 a{text-decoration:none;color:inherit}
 img{display:block;max-width:100%}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth; scroll-padding-top:72px;}
 :root{
   --bg:#0b0b0c;
   --panel:#0f0f12;
@@ -206,15 +206,16 @@ header{
   padding-top:60px;
 }
 
-/* horizontal scroll wrapper */
+/* horizontal scroll wrapper (default swipe) */
 .handpickedMarquee{
   overflow-x:auto;
   padding-bottom:12px;
-  scrollbar-width:none;           /* Firefox */
-  -webkit-overflow-scrolling:touch; /* iOS smooth scroll */
+  scrollbar-width:none;              /* Firefox */
+  -webkit-overflow-scrolling:touch;  /* iOS smooth scroll */
+  scroll-snap-type:x mandatory;      /* ✅ snap */
 }
 .handpickedMarquee::-webkit-scrollbar{
-  display:none;                   /* Chrome / Safari */
+  display:none;                      /* Chrome / Safari */
 }
 
 /* scrolling row */
@@ -231,6 +232,7 @@ header{
   text-align:center;
   transition:transform .22s ease;
   will-change:transform;
+  scroll-snap-align:start;           /* ✅ snap */
 }
 
 .pickCard img{
@@ -258,9 +260,67 @@ header{
 
 /* mobile tweak */
 @media(max-width:520px){
-  .pickCard{
-    width:140px;
+  .pickCard{ width:140px; }
+}
+
+/* ===== Handpicked LOOP (desktop/tablet) ===== */
+.handpickedMarquee.loop{
+  overflow:hidden;                 /* hides seam */
+  position:relative;
+  padding-bottom:12px;
+}
+
+/* soft fade on edges */
+.handpickedMarquee.loop::before,
+.handpickedMarquee.loop::after{
+  content:"";
+  position:absolute;
+  top:0; bottom:0;
+  width:60px;
+  pointer-events:none;
+  z-index:2;
+}
+.handpickedMarquee.loop::before{
+  left:0;
+  background:linear-gradient(90deg, rgba(11,11,12,1), rgba(11,11,12,0));
+}
+.handpickedMarquee.loop::after{
+  right:0;
+  background:linear-gradient(270deg, rgba(11,11,12,1), rgba(11,11,12,0));
+}
+
+/* track becomes animated marquee */
+.handpickedMarquee.loop .handpickedTrack{
+  width:max-content;
+  animation:hpMarquee 38s linear infinite;
+}
+
+/* pause on hover (desktop) */
+.handpickedMarquee.loop:hover .handpickedTrack{
+  animation-play-state:paused;
+}
+
+/* move half because we duplicated the set */
+@keyframes hpMarquee{
+  0%{ transform:translateX(0); }
+  100%{ transform:translateX(-50%); }
+}
+
+/* On phones: disable animation and keep swipe */
+@media (max-width: 760px), (pointer: coarse){
+  .handpickedMarquee.loop{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scroll-snap-type:x mandatory;
   }
+  .handpickedMarquee.loop .handpickedTrack{
+    animation:none;
+  }
+}
+
+/* accessibility */
+@media (prefers-reduced-motion: reduce){
+  .handpickedMarquee.loop .handpickedTrack{ animation:none; }
 }
 
 .section h2{
@@ -704,9 +764,37 @@ footer p{
       <a href="handpick.html" class="viewAll">View all →</a>
     </div>
 
-    <div class="handpickedMarquee">
+    <!-- ✅ LOOP marquee on desktop/tablet, swipe on mobile -->
+    <div class="handpickedMarquee loop">
       <div class="handpickedTrack">
 
+        <!-- ORIGINAL SET -->
+        <a class="pickCard" href="handpick.html#counterpart">
+          <img src="assets/posters/tv/counterpart.jpg.jpeg" alt="Counterpart (2017)">
+          <div class="pickTitle">Counterpart</div>
+        </a>
+
+        <a class="pickCard" href="handpick.html#the-bureau">
+          <img src="assets/posters/tv/the-bureau.jpg.JPG" alt="The Bureau">
+          <div class="pickTitle">The Bureau</div>
+        </a>
+
+        <a class="pickCard" href="handpick.html#shogun">
+          <img src="assets/posters/IMG_2479.jpeg" alt="Shōgun">
+          <div class="pickTitle">Shōgun</div>
+        </a>
+
+        <a class="pickCard" href="handpick.html#alex-rider">
+          <img src="assets/posters/tv/alex-rider.jpg.JPG" alt="Alex Rider">
+          <div class="pickTitle">Alex Rider</div>
+        </a>
+
+        <a class="pickCard" href="handpick.html#tell-me-what-you-saw">
+          <img src="assets/posters/kdrama/tell-me-what-you-saw.jpg.JPG" alt="Tell Me What You Saw">
+          <div class="pickTitle">Tell Me What You Saw</div>
+        </a>
+
+        <!-- DUPLICATE SET (for seamless loop) -->
         <a class="pickCard" href="handpick.html#counterpart">
           <img src="assets/posters/tv/counterpart.jpg.jpeg" alt="Counterpart (2017)">
           <div class="pickTitle">Counterpart</div>
