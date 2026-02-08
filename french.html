@@ -2,25 +2,41 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>French Cinema — Popcorn Picks</title>
 
+<!-- ✅ AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
         crossorigin="anonymous"></script>
+
+<!-- ✅ Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XZ94ZK9JN4');
+</script>
+
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
   body{
     background:#0b0b0c;
     color:#fff;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    -webkit-text-size-adjust:100%;
   }
   a{text-decoration:none;color:inherit}
+  button{font:inherit}
+  :focus-visible{outline:2px solid rgba(255,255,255,.22);outline-offset:2px;border-radius:12px}
 
   .top{
     position:sticky;top:0;
     display:flex;justify-content:space-between;align-items:center;
     padding:16px 20px;
     background:rgba(10,10,10,.88);
+    -webkit-backdrop-filter:blur(10px);
     backdrop-filter:blur(10px);
     border-bottom:1px solid #222;
     z-index:50;
@@ -81,7 +97,7 @@
     overflow:hidden;
   }
 
-  /* MODAL */
+  /* MODAL (scrollable + iOS-friendly) */
   .modal{
     position:fixed;
     inset:0;
@@ -93,20 +109,25 @@
     z-index:999;
   }
   .modal.on{display:flex}
+
   .sheet{
     width:min(980px, 100%);
+    max-height:88vh;
+    overflow:auto;
+    -webkit-overflow-scrolling:touch;
     border:1px solid #1f1f1f;
     background:#0f0f0f;
     border-radius:18px;
-    overflow:hidden;
   }
   .sheetTop{
+    position:sticky; top:0;
     display:flex;
     justify-content:space-between;
     align-items:center;
     padding:14px 14px;
     border-bottom:1px solid #1f1f1f;
     background:#0d0d0d;
+    z-index:5;
   }
   .closeBtn{
     border:1px solid #222;
@@ -116,6 +137,7 @@
     padding:10px 12px;
     cursor:pointer;
   }
+
   .sheetBody{
     padding:16px;
     display:grid;
@@ -162,6 +184,9 @@
     .sheetBody{grid-template-columns:1fr}
     .bigPoster{height:420px}
   }
+
+  /* Prevent background scroll when modal open */
+  body.modalOpen{overflow:hidden}
 </style>
 </head>
 
@@ -181,7 +206,7 @@
 
 <!-- MODAL -->
 <div class="modal" id="modal" aria-hidden="true">
-  <div class="sheet" role="dialog" aria-modal="true">
+  <div class="sheet" role="dialog" aria-modal="true" aria-label="Title details">
     <div class="sheetTop">
       <div style="font-weight:700">Details</div>
       <button class="closeBtn" id="closeBtn" type="button">Close</button>
@@ -214,157 +239,158 @@
 
   // Posters optional: set poster:"assets/posters/french/xxx.jpg.JPG"
   const FRENCH = [
-  {
-    id:"le-bureau-des-legendes",
-    title:"Le Bureau des Légendes (The Bureau)",
-    year:2015,
-    meta:"Espionage • France • Series",
-    genres:["Espionage","Thriller","Drama"],
-    poster:"assets/posters/french/le-bureau-des-legendes.jpg.JPG",
-    synopsis:
+    {
+      id:"le-bureau-des-legendes",
+      title:"Le Bureau des Légendes (The Bureau)",
+      year:2015,
+      meta:"Espionage • France • Series",
+      genres:["Espionage","Thriller","Drama"],
+      poster:"assets/posters/french/le-bureau-des-legendes.jpg.JPG",
+      synopsis:
 `A modern intelligence drama set inside France’s foreign intelligence service, following officers who run long-term undercover identities (“legends”). The tension comes from procedure and psychology: building sources, managing surveillance, and keeping a fake life intact for years. Cases escalate, but the real pressure is personal—relationships, loyalties, and the moment a cover story starts to crack under scrutiny.`
-  },
-  {
-    id:"les-revenants",
-    title:"The Returned (Les Revenants)",
-    year:2012,
-    meta:"Mystery • Supernatural • France • Series",
-    genres:["Mystery","Supernatural","Drama"],
-    poster:"assets/posters/french/les-revenants.jpg.JPG",
-    synopsis:
+    },
+    {
+      id:"les-revenants",
+      title:"The Returned (Les Revenants)",
+      year:2012,
+      meta:"Mystery • Supernatural • France • Series",
+      genres:["Mystery","Supernatural","Drama"],
+      poster:"assets/posters/french/les-revenants.jpg.JPG",
+      synopsis:
 `In a mountain town, people who died years earlier return without explanation—unchanged, confused, and trying to resume ordinary life. The series treats the supernatural as a social crisis: families split between hope and fear, secrets resurfacing, and the town’s calm turning unstable. It builds dread slowly through atmosphere, unanswered questions, and the ripple effects of the impossible becoming normal.`
-  },
-  {
-    id:"spiral",
-    title:"Spiral (Engrenages)",
-    year:2005,
-    meta:"Crime • Legal • Paris • Series",
-    genres:["Crime","Thriller","Drama"],
-    poster:"assets/posters/french/spiral-engrenages.jpg.JPG",
-    synopsis:
+    },
+    {
+      id:"spiral",
+      title:"Spiral (Engrenages)",
+      year:2005,
+      meta:"Crime • Legal • Paris • Series",
+      genres:["Crime","Thriller","Drama"],
+      poster:"assets/posters/french/spiral-engrenages.jpg.JPG",
+      synopsis:
 `A gritty Paris crime series told across police investigation, prosecution, and the courts. Cases are messy rather than neat—evidence is imperfect, institutions collide, and personal choices complicate “justice.” The show’s strength is procedural realism: how a murder becomes paperwork, how pressure produces shortcuts, and how the system’s compromises follow everyone home.`
-  },
-  {
-    id:"baron-noir",
-    title:"Baron Noir",
-    year:2016,
-    meta:"Political thriller • France • Series",
-    genres:["Politics","Thriller","Drama"],
-    poster:"assets/posters/french/baron-noir.jpg.JPG",
-    synopsis:
+    },
+    {
+      id:"baron-noir",
+      title:"Baron Noir",
+      year:2016,
+      meta:"Political thriller • France • Series",
+      genres:["Politics","Thriller","Drama"],
+      poster:"assets/posters/french/baron-noir.jpg.JPG",
+      synopsis:
 `A political thriller about strategy, betrayal, and survival inside French party power. It follows an operator who understands how influence really works: media control, backroom deals, and rival factions. Campaigns are treated as combat: alliances shift daily, scandals become weapons, and the line between ideology and ambition collapses under the need to win.`
-  },
-  {
-    id:"lupin",
-    title:"Lupin",
-    year:2021,
-    meta:"Heist • Mystery • Revenge • Series",
-    genres:["Heist","Mystery","Thriller"],
-    poster:"assets/posters/french/lupin.jpg.JPG",
-    synopsis:
+    },
+    {
+      id:"lupin",
+      title:"Lupin",
+      year:2021,
+      meta:"Heist • Mystery • Revenge • Series",
+      genres:["Heist","Mystery","Thriller"],
+      poster:"assets/posters/french/lupin.jpg.JPG",
+      synopsis:
 `A stylish modern heist series following a master of disguise who uses illusion, misdirection, and planning to target the powerful. The plot is driven by revenge tied to a decades-old injustice, but each episode plays like a puzzle: cons, escapes, and reveals designed to outsmart both police and criminals. The charm is in the tricks, and the stakes are personal.`
-  },
-  {
-    id:"revenge-2017",
-    title:"Revenge",
-    year:2017,
-    meta:"Action • Survival • France",
-    genres:["Action","Thriller","Revenge"],
-    poster:"assets/posters/french/revenge-2017.jpg.JPG",
-    synopsis:
+    },
+    {
+      id:"revenge-2017",
+      title:"Revenge",
+      year:2017,
+      meta:"Action • Survival • France",
+      genres:["Action","Thriller","Revenge"],
+      poster:"assets/posters/french/revenge-2017.jpg.JPG",
+      synopsis:
 `A survival revenge thriller where a violent betrayal turns a remote getaway into a hunt. The story follows a woman left for dead who returns with clarity and rage, flipping the power dynamic on the men who tried to erase her. It’s built as escalation: pursuit, traps, and endurance, with momentum coming from pure survival rather than speeches.`
-  },
-  {
-    id:"a-prophet",
-    title:"A Prophet (Un prophète)",
-    year:2009,
-    meta:"Crime • Prison rise • France",
-    genres:["Crime","Drama","Thriller"],
-    poster:"assets/posters/french/a-prophet.jpg.JPG",
-    synopsis:
+    },
+    {
+      id:"a-prophet",
+      title:"A Prophet (Un prophète)",
+      year:2009,
+      meta:"Crime • Prison rise • France",
+      genres:["Crime","Drama","Thriller"],
+      poster:"assets/posters/french/a-prophet.jpg.JPG",
+      synopsis:
 `A young man enters prison with no power and quickly learns that survival requires alliances, favors, and violence. The film tracks his rise through competing criminal groups, showing how institutions become training grounds for strategy and brutality. It’s both a gangster origin story and a prison system portrait: identity reshaped by necessity, control earned at a cost.`
-  },
-  {
-    id:"the-intouchables",
-    title:"The Intouchables",
-    year:2011,
-    meta:"Drama • Comedy • Friendship • France",
-    genres:["Drama","Comedy"],
-    poster:"assets/posters/french/the-intouchables.jpg.JPG",
-    synopsis:
+    },
+    {
+      id:"the-intouchables",
+      title:"The Intouchables",
+      year:2011,
+      meta:"Drama • Comedy • Friendship • France",
+      genres:["Drama","Comedy"],
+      poster:"assets/posters/french/the-intouchables.jpg.JPG",
+      synopsis:
 `A wealthy man living with paralysis hires an unlikely caretaker, and their relationship shifts from necessity to friendship. The film balances humor with grounded life detail: daily routines, social class friction, and the way two very different people influence each other’s sense of freedom. Its heart is in character contrast without turning into a sermon.`
-  },
-  {
-    id:"portrait-of-a-lady-on-fire",
-    title:"Portrait of a Lady on Fire",
-    year:2019,
-    meta:"Period romance • France",
-    genres:["Romance","Drama","Period"],
-    poster:"assets/posters/french/portrait-of-a-lady-on-fire.jpg.JPG",
-    synopsis:
+    },
+    {
+      id:"portrait-of-a-lady-on-fire",
+      title:"Portrait of a Lady on Fire",
+      year:2019,
+      meta:"Period romance • France",
+      genres:["Romance","Drama","Period"],
+      poster:"assets/posters/french/portrait-of-a-lady-on-fire.jpg.JPG",
+      synopsis:
 `On an isolated coast, a painter is hired to secretly paint a woman’s wedding portrait while observing her in silence. The film builds intimacy through gaze, attention, and the slow shift from subject and observer to equals. It’s structured around restraint: small gestures carrying weight, until romance becomes inevitable and memory becomes the final frame.`
-  },
-  {
-    id:"athena",
-    title:"Athena",
-    year:2022,
-    meta:"Urban war drama • France",
-    genres:["Drama","Action","Thriller"],
-    poster:"assets/posters/french/athena.jpg.JPG",
-    synopsis:
+    },
+    {
+      id:"athena",
+      title:"Athena",
+      year:2022,
+      meta:"Urban war drama • France",
+      genres:["Drama","Action","Thriller"],
+      poster:"assets/posters/french/athena.jpg.JPG",
+      synopsis:
 `After a community tragedy, a housing estate erupts into conflict that escalates into siege-like chaos. The film follows brothers pulled into different roles: anger, leadership, and attempts at control as the situation spirals. It’s staged with momentum and tension, showing how grief becomes collective fury and how violence multiplies once the first line is crossed.`
-  },
-  {
-    id:"the-beat-that-my-heart-skipped",
-    title:"The Beat That My Heart Skipped",
-    year:2005,
-    meta:"Psychological drama • Crime-adjacent • France",
-    genres:["Drama","Psychological"],
-    poster:"assets/posters/french/the-beat-that-my-heart-skipped.jpg.JPG",
-    synopsis:
+    },
+    {
+      id:"the-beat-that-my-heart-skipped",
+      title:"The Beat That My Heart Skipped",
+      year:2005,
+      meta:"Psychological drama • Crime-adjacent • France",
+      genres:["Drama","Psychological"],
+      poster:"assets/posters/french/the-beat-that-my-heart-skipped.jpg.JPG",
+      synopsis:
 `A real-estate thug with a violent job tries to rebuild a life through music, training to become a pianist while his criminal world keeps pulling him back. The film runs on inner conflict: discipline versus impulse, art versus survival, and the fear that change is impossible. It’s tension driven by choices, not twists.`
-  },
-  {
-    id:"elle",
-    title:"Elle",
-    year:2016,
-    meta:"Psychological thriller • France",
-    genres:["Thriller","Psychological","Drama"],
-    poster:"assets/posters/french/elle.jpg.JPG",
-    synopsis:
+    },
+    {
+      id:"elle",
+      title:"Elle",
+      year:2016,
+      meta:"Psychological thriller • France",
+      genres:["Thriller","Psychological","Drama"],
+      poster:"assets/posters/french/elle.jpg.JPG",
+      synopsis:
 `After a traumatic assault, a woman refuses to respond in expected ways and instead begins navigating the aftermath on her own terms: controlling information, testing boundaries, and investigating through proximity rather than protection. The film is built on discomfort and ambiguity, constantly shifting power dynamics and questions of agency and performance.`
-  },
-  {
-    id:"blue-is-the-warmest-color",
-    title:"Blue Is the Warmest Color",
-    year:2013,
-    meta:"Relationship drama • Coming-of-age • France",
-    genres:["Romance","Drama"],
-    poster:"assets/posters/french/blue-is-the-warmest-color.jpg.JPG",
-    synopsis:
+    },
+    {
+      id:"blue-is-the-warmest-color",
+      title:"Blue Is the Warmest Color",
+      year:2013,
+      meta:"Relationship drama • Coming-of-age • France",
+      genres:["Romance","Drama"],
+      poster:"assets/posters/french/blue-is-the-warmest-color.jpg.JPG",
+      synopsis:
 `A young woman experiences first intense love through a relationship that reshapes her identity, friendships, and future. The film follows the arc in detail: discovery, dependence, friction, and the slow shift from desire to incompatibility. It’s a relationship portrait focused on everyday intimacy and emotional instability.`
-  },
-  {
-    id:"tell-no-one",
-    title:"Tell No One",
-    year:2006,
-    meta:"Thriller • Mystery • France",
-    genres:["Thriller","Mystery","Crime"],
-    poster:"assets/posters/french/tell-no-one.jpg.JPG",
-    synopsis:
+    },
+    {
+      id:"tell-no-one",
+      title:"Tell No One",
+      year:2006,
+      meta:"Thriller • Mystery • France",
+      genres:["Thriller","Mystery","Crime"],
+      poster:"assets/posters/french/tell-no-one.jpg.JPG",
+      synopsis:
 `Years after his wife’s death, a doctor receives a message that suggests she may still be alive. What begins as hope becomes a high-speed mystery of hidden identities, old enemies, and evidence that keeps changing meaning. The film moves like a chase puzzle: each clue triggers the next while he tries to prove innocence and uncover what really happened.`
-  },
-  {
-    id:"la-haine",
-    title:"La Haine",
-    year:1995,
-    meta:"Social drama • Urban • France",
-    genres:["Drama","Social","Crime"],
-    poster:"assets/posters/french/la-haine.jpg.JPG",
-    synopsis:
+    },
+    {
+      id:"la-haine",
+      title:"La Haine",
+      year:1995,
+      meta:"Social drama • Urban • France",
+      genres:["Drama","Social","Crime"],
+      poster:"assets/posters/french/la-haine.jpg.JPG",
+      synopsis:
 `Over one day after a night of unrest, three friends drift through the city carrying anger, fear, and exhaustion. The film tracks how pressure builds through humiliation, policing, and exclusion: small moments accumulating into inevitability. It’s a tense social portrait of a system that produces conflict and then punishes the people living inside it.`
-  }
-];
+    }
+  ];
+
   function openModal(item){
     const poster = item.poster || "";
     if(poster){
@@ -390,12 +416,15 @@
 
     modal.classList.add("on");
     modal.setAttribute("aria-hidden","false");
+    document.body.classList.add("modalOpen");
   }
 
   function closeModal(){
     modal.classList.remove("on");
     modal.setAttribute("aria-hidden","true");
+    document.body.classList.remove("modalOpen");
   }
+
   closeBtn.onclick = closeModal;
   modal.addEventListener("click", (e)=>{ if(e.target === modal) closeModal(); });
   window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeModal(); });
