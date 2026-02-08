@@ -199,39 +199,39 @@ header{
 .section.firstSection{padding-top:42px}
 
 /* =========================
-   HANDPICKED – Homepage
+   HANDPICKED – clean look + smooth swipe + fast loop (desktop only)
    ========================= */
 
-.handpickedSection{
-  padding-top:60px;
-}
+.handpickedSection{ padding-top:60px; }
 
-/* horizontal scroll wrapper */
+/* IMPORTANT: no "mandatory" snap (it causes that frozen/locked feel on iPad) */
 .handpickedMarquee{
   overflow-x:auto;
+  overflow-y:hidden;
   padding-bottom:12px;
-  scrollbar-width:none;           /* Firefox */
-  -webkit-overflow-scrolling:touch; /* iOS smooth scroll */
-  scroll-behavior:auto; /* we control smoothness in JS for loop */
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+  touch-action:pan-x;
+  scroll-snap-type:x proximity;
+  overscroll-behavior-x:contain;
 }
-.handpickedMarquee::-webkit-scrollbar{
-  display:none;                   /* Chrome / Safari */
-}
+.handpickedMarquee::-webkit-scrollbar{ display:none; }
 
-/* scrolling row */
 .handpickedTrack{
   display:flex;
   gap:18px;
   padding:6px 2px;
   width:max-content;
+  transform:translateZ(0);
+  will-change:transform;
 }
 
-/* individual poster card */
 .pickCard{
   flex:0 0 auto;
   width:160px;
   text-align:center;
-  transition:transform .22s ease;
+  scroll-snap-align:start;
+  transition:transform .18s ease;
   will-change:transform;
 }
 
@@ -244,23 +244,18 @@ header{
   outline:1px solid rgba(255,255,255,.12);
 }
 
-/* hover lift */
-.pickCard:hover{
-  transform:translateY(-4px);
-}
-
-/* title under poster */
 .pickTitle{
   margin-top:10px;
   font-size:14px;
   font-weight:700;
-  color:rgba(255,255,255,.85);
+  color:rgba(255,255,255,.86);
   line-height:1.3;
 }
 
-/* mobile tweak */
+.pickCard:hover{ transform:translateY(-3px); }
+
 @media(max-width:520px){
-  .pickCard{width:140px;}
+  .pickCard{ width:140px; }
 }
 
 .section h2{
@@ -690,7 +685,7 @@ footer p{
   </div>
 </section>
 
-<!-- HANDPICKED (Homepage — auto loads ALL picks from handpick.html) -->
+<!-- HANDPICKED (Homepage — shows ALL picks + clean poster+title UI) -->
 <section class="section handpickedSection">
   <div class="container">
 
@@ -707,7 +702,7 @@ footer p{
     <div class="handpickedMarquee" id="handpickedMarquee" aria-label="Handpicked carousel">
       <div class="handpickedTrack" id="handpickedTrack">
 
-        <!-- Fallback (shows if fetch fails) -->
+        <!-- Fallback (only used if fetch fails) -->
         <a class="pickCard" href="handpick.html#counterpart">
           <img src="assets/posters/tv/counterpart.jpg.jpeg" alt="Counterpart (2017)">
           <div class="pickTitle">Counterpart</div>
@@ -1006,8 +1001,12 @@ footer p{
 
 <script>
 /*
-  ✅ Handpicked: AUTO-LOAD all pick cards from handpick.html into homepage
-  ✅ Then auto-loop on desktop by duplicating the list + scrolling scrollLeft
+  ✅ Handpicked (fixes everything you complained about):
+  1) Loads ALL picks from handpick.html
+  2) Builds CLEAN cards: poster + title only (no ugly extra text)
+  3) Auto-loop is FAST but ONLY on true desktop (mouse/trackpad)
+     - iPad/tablet: NO auto-loop, swipe is smooth and not “frozen”
+  4) When user scrolls manually, loop pauses and resumes later
 */
 (function(){
   var marquee = document.getElementById("handpickedMarquee");
@@ -1019,70 +1018,133 @@ footer p{
     prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }catch(e){}
 
-  function isDesktopLoop(){
-    return !prefersReduced && window.innerWidth >= 900;
+  function isTrueDesktop(){
+    try{
+      var hover = window.matchMedia("(hover: hover)").matches;
+      var fine = window.matchMedia("(pointer: fine)").matches;
+      return hover && fine;
+    }catch(e){
+      return false;
+    }
+  }
+
+  function allowAutoLoop(){
+    return !prefersReduced && isTrueDesktop();
+  }
+
+  function cleanText(s){
+    return (s || "").replace(/\s+/g," ").trim();
+  }
+
+  function bestTitleFrom(el){
+    var t =
+      (el.querySelector && el.querySelector(".pickTitle") && el.querySelector(".pickTitle").textContent) ||
+      (el.querySelector && el.querySelector("[data-title]") && el.querySelector("[data-title]").getAttribute("data-title")) ||
+      (el.getAttribute && el.getAttribute("data-title")) ||
+      "";
+    t = cleanText(t);
+    if(!t){
+      var img = el.querySelector && el.querySelector("img");
+      if(img){
+        t = cleanText(img.getAttribute("alt") || "");
+      }
+    }
+    return t || "Untitled";
+  }
+
+  function normalizeHref(href){
+    href = href || "";
+    href = href.trim();
+    if(!href) return "handpick.html";
+    if(href.indexOf("handpick.html") === 0) return href;
+    if(href.charAt(0) === "#") return "handpick.html" + href;
+    return href; // already relative/absolute
   }
 
   function normalizeSrc(src){
-    if(!src) return "";
-    // keep relative paths
-    return src;
+    src = (src || "").trim();
+    return src; // keep your existing relative paths as-is
   }
 
-  function buildFromHandpickHTML(doc){
-    // Try to find .pickCard anchors inside handpick.html
-    var cards = doc.querySelectorAll(".pickCard");
-    if(!cards || !cards.length) return null;
+  function buildCleanCardsFromHandpick(doc){
+    // Try multiple patterns (robust):
+    // - a.pickCard
+    // - any link that contains an img and points to #something
+    var candidates = Array.prototype.slice.call(doc.querySelectorAll("a.pickCard, a[href^='#'], a[href*='handpick.html#']"));
+    var items = [];
+
+    candidates.forEach(function(a){
+      var img = a.querySelector("img");
+      if(!img) return;
+
+      var href = a.getAttribute("href") || "";
+      // Keep only anchors that link into the handpick page sections
+      var isAnchor = href.indexOf("#") !== -1;
+      if(!isAnchor) return;
+
+      var src = normalizeSrc(img.getAttribute("src") || "");
+      if(!src) return;
+
+      var title = bestTitleFrom(a);
+      items.push({ href: normalizeHref(href), src: src, title: title });
+    });
+
+    // Deduplicate by href (so we don't repeat)
+    var seen = {};
+    var uniq = [];
+    items.forEach(function(it){
+      if(seen[it.href]) return;
+      seen[it.href] = 1;
+      uniq.push(it);
+    });
+
+    if(!uniq.length) return null;
 
     var frag = document.createDocumentFragment();
-    cards.forEach(function(card){
-      var a = card.cloneNode(true);
+    uniq.forEach(function(it){
+      var a = document.createElement("a");
+      a.className = "pickCard";
+      a.setAttribute("href", it.href);
 
-      // Ensure href points to handpick.html#... (in case it was just #...)
-      var href = a.getAttribute("href") || "";
-      if(href && href.charAt(0) === "#") a.setAttribute("href", "handpick.html" + href);
+      var img = document.createElement("img");
+      img.setAttribute("src", it.src);
+      img.setAttribute("alt", it.title);
+      img.setAttribute("loading","lazy");
+      img.setAttribute("decoding","async");
 
-      // Fix image src if needed
-      var img = a.querySelector("img");
-      if(img){
-        img.setAttribute("src", normalizeSrc(img.getAttribute("src")));
-        if(!img.getAttribute("alt")){
-          var titleEl = a.querySelector(".pickTitle");
-          if(titleEl) img.setAttribute("alt", titleEl.textContent.trim());
-        }
-      }
+      var title = document.createElement("div");
+      title.className = "pickTitle";
+      title.textContent = it.title;
 
+      a.appendChild(img);
+      a.appendChild(title);
       frag.appendChild(a);
     });
 
     return frag;
   }
 
-  function replaceTrackWithFragment(frag){
+  function replaceTrack(frag){
     if(!frag) return;
     track.innerHTML = "";
     track.appendChild(frag);
+    track.removeAttribute("data-duplicated");
   }
 
   function duplicateForLoop(){
-    // duplicate once so it can loop seamlessly
+    if(track.getAttribute("data-duplicated") === "1") return;
     var cards = track.querySelectorAll(".pickCard");
     if(!cards.length) return;
-
-    // Avoid duplicating twice if already done
-    if(track.getAttribute("data-duplicated") === "1") return;
-
     var frag = document.createDocumentFragment();
-    cards.forEach(function(c){
-      frag.appendChild(c.cloneNode(true));
-    });
+    cards.forEach(function(c){ frag.appendChild(c.cloneNode(true)); });
     track.appendChild(frag);
     track.setAttribute("data-duplicated","1");
   }
 
-  // Auto-scroll loop (desktop only), pauses on hover/touch
+  // ===== Auto loop (desktop only) =====
   var rafId = null;
   var paused = false;
+  var resumeTimer = null;
 
   function stopLoop(){
     if(rafId) cancelAnimationFrame(rafId);
@@ -1091,25 +1153,27 @@ footer p{
 
   function startLoop(){
     stopLoop();
-    if(!isDesktopLoop()) return;
+    if(!allowAutoLoop()) return;
 
     paused = false;
 
-    var speed = 0.55; // px per frame-ish
+    // FAST loop (increase if you want even faster)
+    var speedPxPerSec = 220; // fast
     var last = performance.now();
 
     function tick(now){
-      if(paused){ rafId = requestAnimationFrame(tick); return; }
-
+      if(paused){
+        rafId = requestAnimationFrame(tick);
+        return;
+      }
       var dt = Math.min(50, now - last);
       last = now;
 
-      // scroll
-      marquee.scrollLeft += speed * (dt / 16.67);
+      marquee.scrollLeft += (speedPxPerSec * (dt / 1000));
 
-      // when past half (because we duplicated), jump back
-      var half = (track.scrollWidth / 2);
-      if(marquee.scrollLeft >= half){
+      // seamless jump (since we duplicated)
+      var half = track.scrollWidth / 2;
+      if(half > 0 && marquee.scrollLeft >= half){
         marquee.scrollLeft -= half;
       }
 
@@ -1119,48 +1183,75 @@ footer p{
     rafId = requestAnimationFrame(tick);
   }
 
-  function wirePause(){
-    marquee.addEventListener("mouseenter", function(){ paused = true; });
-    marquee.addEventListener("mouseleave", function(){ paused = false; });
-
-    marquee.addEventListener("pointerdown", function(){ paused = true; });
-    marquee.addEventListener("pointerup", function(){ paused = false; });
-    marquee.addEventListener("touchstart", function(){ paused = true; }, {passive:true});
-    marquee.addEventListener("touchend", function(){ paused = false; }, {passive:true});
+  function pauseTemporarily(ms){
+    paused = true;
+    if(resumeTimer) clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(function(){
+      paused = false;
+    }, ms || 800);
   }
 
-  wirePause();
+  // Pause when the user interacts / scrolls
+  marquee.addEventListener("wheel", function(){ pauseTemporarily(900); }, {passive:true});
+  marquee.addEventListener("scroll", function(){
+    if(!allowAutoLoop()) return;
+    pauseTemporarily(900);
+  }, {passive:true});
 
-  // Fetch handpick.html and build the full list automatically
-  // If fetch fails, the fallback HTML stays.
+  marquee.addEventListener("mouseenter", function(){ paused = true; });
+  marquee.addEventListener("mouseleave", function(){ paused = false; });
+
+  marquee.addEventListener("pointerdown", function(){
+    if(!allowAutoLoop()) return;
+    paused = true;
+  });
+  marquee.addEventListener("pointerup", function(){
+    if(!allowAutoLoop()) return;
+    pauseTemporarily(700);
+  });
+
+  // Touch devices: we *do not* auto-loop at all (fixes “frozen” swipe on iPad)
+  marquee.addEventListener("touchstart", function(){ /* manual swipe only */ }, {passive:true});
+
+  function finalize(){
+    // Only duplicate if desktop loop is allowed
+    if(allowAutoLoop()){
+      duplicateForLoop();
+      marquee.scrollLeft = 0;
+    }
+    startLoop();
+  }
+
+  // Fetch handpick.html and build clean cards (poster+title only)
   fetch("handpick.html", { cache: "no-store" })
     .then(function(r){ if(!r.ok) throw new Error("fetch failed"); return r.text(); })
     .then(function(html){
       var doc = new DOMParser().parseFromString(html, "text/html");
-      var frag = buildFromHandpickHTML(doc);
+      var frag = buildCleanCardsFromHandpick(doc);
       if(frag){
-        replaceTrackWithFragment(frag);
+        replaceTrack(frag);
       }
     })
     .catch(function(){ /* keep fallback */ })
     .finally(function(){
-      // Always duplicate (works for both fallback and fetched list)
-      duplicateForLoop();
-      // Start at a safe position
-      marquee.scrollLeft = 0;
-      startLoop();
+      finalize();
     });
 
-  // Restart loop on resize (switch between mobile/desktop behavior)
+  // Restart loop on resize (desktop ↔ touch/layout changes)
   var resizeTimer = null;
   window.addEventListener("resize", function(){
     if(resizeTimer) clearTimeout(resizeTimer);
     resizeTimer = setTimeout(function(){
       stopLoop();
-      // On resize to desktop again, ensure duplicate exists
+      // If we are no longer desktop, stop loop and don't fight touch scroll
+      if(!allowAutoLoop()){
+        paused = true;
+        return;
+      }
       duplicateForLoop();
+      paused = false;
       startLoop();
-    }, 180);
+    }, 200);
   });
 })();
 </script>
