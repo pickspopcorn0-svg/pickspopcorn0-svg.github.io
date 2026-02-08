@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Handpicked — Popcorn Picks</title>
+<meta name="description" content="Handpicked recommendations by Popcorn Picks — personal notes on shows and films worth your time." />
+
+<link rel="canonical" href="https://popcornpicks.in/handpick.html" />
+
+<!-- ✅ Schema.org: CollectionPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Handpicked — Popcorn Picks",
+  "url": "https://popcornpicks.in/handpick.html",
+  "description": "Handpicked recommendations by Popcorn Picks — personal notes on shows and films worth your time.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Popcorn Picks",
+    "url": "https://popcornpicks.in"
+  }
+}
+</script>
+
+<!-- ✅ Consent Mode v2 + Google tag (GA4) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    wait_for_update: 500
+  });
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'G-XZ94ZK9JN4', { anonymize_ip: true });
+</script>
+
+<!-- ✅ AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
+  crossorigin="anonymous"></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#0b0b0c;
+  --panel:#0f0f12;
+  --line:rgba(255,255,255,.12);
+  --lineSoft:rgba(255,255,255,.08);
+  --muted:rgba(255,255,255,.78);
+  --muted2:rgba(255,255,255,.62);
+  --shadow:0 18px 50px rgba(0,0,0,.35);
+}
+
+body{
+  background:var(--bg);
+  color:#fff;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* layout */
+.container{
+  width:min(1120px, calc(100% - 44px));
+  margin:0 auto;
+}
+
+/* HEADER */
+header{
+  position:sticky;
+  top:0;left:0;right:0;
+  height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 40px;
+  background:rgba(10,10,14,.78);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--lineSoft);
+  z-index:100;
+}
+.logo{font-weight:850;letter-spacing:.4px}
+.navRight a{
+  font-size:13px;
+  color:rgba(255,255,255,.72);
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.04);
+}
+.navRight a:hover{color:#fff;border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.06);}
+
+/* HERO */
+.hero{
+  padding:48px 0 16px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  background:
+    radial-gradient(900px 520px at 18% 22%, rgba(255,140,70,.12), transparent 60%),
+    radial-gradient(900px 560px at 84% 28%, rgba(90,170,255,.12), transparent 60%),
+    linear-gradient(to bottom, rgba(0,0,0,.38), rgba(0,0,0,.90));
+}
+.heroInner{padding:18px 0 34px}
+.kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(0,0,0,.20);
+  color:rgba(255,255,255,.86);
+  font-size:11px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+}
+.dot{
+  width:8px;height:8px;border-radius:50%;
+  background:rgba(255,160,90,.90);
+  box-shadow:0 0 18px rgba(255,160,90,.55);
+}
+.hero h1{
+  margin-top:16px;
+  font-size:44px;
+  line-height:1.06;
+  letter-spacing:-.02em;
+}
+.hero p{
+  margin-top:12px;
+  max-width:72ch;
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.75;
+}
+
+/* SECTION */
+.section{padding:46px 0}
+.sectionHead{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:18px;
+  margin-bottom:14px;
+}
+.sectionHead h2{
+  font-size:26px;
+  letter-spacing:.2px;
+}
+.sectionLead{
+  margin-top:10px;
+  max-width:78ch;
+  color:var(--muted2);
+  font-size:15px;
+  line-height:1.7;
+}
+
+/* HANDPICKED rail (same vibe as homepage) */
+.handpickedMarquee{
+  position:relative;
+  margin-top:18px;
+  padding-bottom:6px;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  scroll-behavior:auto;
+  overscroll-behavior-x:contain;
+  mask-image:linear-gradient(
+    to right,
+    transparent 0,
+    #000 48px,
+    #000 calc(100% - 48px),
+    transparent 100%
+  );
+}
+.handpickedMarquee::-webkit-scrollbar{display:none;}
+.handpickedTrack{display:flex;gap:18px;width:max-content;}
+
+.pickCard{
+  flex:0 0 220px;
+  position:relative;
+  border-radius:18px;
+  overflow:hidden;
+  outline:1px solid rgba(255,255,255,.10);
+  outline-offset:-1px;
+  background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.25));
+  transition:transform .18s ease, outline-color .18s ease;
+}
+.pickCard:hover{transform:translateY(-2px);outline-color:rgba(255,255,255,.18);}
+.pickCard img{
+  width:100%;
+  aspect-ratio:2/3;
+  object-fit:contain;
+  background:#000;
+}
+.pickOverlay{
+  position:absolute;
+  inset:0;
+  padding:14px;
+  background:linear-gradient(to top, rgba(0,0,0,.95), rgba(0,0,0,.55), transparent 60%);
+  opacity:0;
+  transition:opacity .25s ease;
+  pointer-events:none;
+}
+.pickCard:hover .pickOverlay{opacity:1}
+.pickYear{font-size:12px;opacity:.88}
+.pickGenres{font-size:12px;opacity:.65;margin-top:4px}
+.pickSynopsis{margin-top:8px;font-size:13px;line-height:1.45;color:rgba(255,255,255,.88);}
+.pickTitle{
+  padding:10px 12px;
+  font-size:14px;
+  font-weight:850;
+  background:rgba(0,0,0,.65);
+}
+
+@media(max-width:760px){.pickCard{flex-basis:170px}}
+
+/* DETAILS */
+.detailWrap{
+  padding:22px 0 8px;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+
+.handpickDetail{
+  scroll-margin-top:88px;
+  margin-top:26px;
+  border-radius:22px;
+  overflow:hidden;
+  background:
+    radial-gradient(900px 520px at 18% 22%, rgba(255,140,70,.06), transparent 60%),
+    radial-gradient(900px 560px at 84% 28%, rgba(90,170,255,.06), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.28));
+  outline:1px solid rgba(255,255,255,.10);
+  outline-offset:-1px;
+  box-shadow:var(--shadow);
+}
+
+.handpickDetail:target{
+  outline-color:rgba(255,255,255,.22);
+  box-shadow:0 24px 70px rgba(0,0,0,.55);
+}
+
+.detailHero{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:18px;
+  padding:18px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  background:rgba(0,0,0,.18);
+}
+.detailHero img{
+  border-radius:16px;
+  outline:1px solid rgba(255,255,255,.10);
+  background:#000;
+}
+.detailMeta h3{
+  font-size:26px;
+  letter-spacing:-.02em;
+  line-height:1.15;
+}
+.metaLine{
+  margin-top:8px;
+  color:rgba(255,255,255,.72);
+  font-size:13px;
+  line-height:1.6;
+}
+.metaBadges{
+  margin-top:10px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.badge{
+  font-size:12px;
+  color:rgba(255,255,255,.78);
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.05);
+  padding:7px 10px;
+  border-radius:999px;
+}
+
+.detailBody{
+  padding:18px 18px 22px;
+}
+.detailBody h4{
+  margin-top:16px;
+  font-size:15px;
+  letter-spacing:.2px;
+}
+.detailBody p{
+  margin-top:10px;
+  color:rgba(255,255,255,.74);
+  font-size:14px;
+  line-height:1.85;
+  max-width:88ch;
+}
+.detailBody ul{
+  margin-top:10px;
+  padding-left:18px;
+  color:rgba(255,255,255,.74);
+  font-size:14px;
+  line-height:1.85;
+  max-width:88ch;
+}
+.detailBody li{margin:6px 0}
+
+.detailLinks{
+  margin-top:16px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.smallBtn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(0,0,0,.22);
+  color:rgba(255,255,255,.84);
+  font-size:13px;
+  font-weight:800;
+}
+.smallBtn:hover{border-color:rgba(255,255,255,.26);background:rgba(255,255,255,.06);color:#fff}
+
+/* FOOTER */
+footer{
+  border-top:1px solid rgba(255,255,255,.08);
+  padding:44px 0 24px;
+  color:rgba(255,255,255,.65);
+  margin-top:38px;
+}
+.footerGrid{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr;
+  gap:40px;
+  align-items:start;
+}
+footer h4{color:#fff;margin-bottom:12px}
+footer a{
+  display:block;
+  margin:6px 0;
+  font-size:13px;
+  color:rgba(255,255,255,.62);
+}
+footer a:hover{color:#fff}
+footer p{
+  line-height:1.7;
+  font-size:13px;
+  color:rgba(255,255,255,.66);
+  max-width:48ch;
+}
+.footerBottom{
+  margin-top:26px;
+  padding-top:18px;
+  border-top:1px solid rgba(255,255,255,.06);
+  font-size:12px;
+  color:rgba(255,255,255,.45);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.footerBottom a{
+  font-size:12px;
+  color:rgba(255,255,255,.55);
+  text-decoration:underline;
+}
+.footerBottom a:hover{color:#fff}
+
+/* COOKIE BANNER (same as your site) */
+.cookieBar{
+  position:fixed;
+  left:16px; right:16px; bottom:16px;
+  z-index:200;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(10,10,14,.82);
+  backdrop-filter:blur(14px);
+  box-shadow:0 18px 40px rgba(0,0,0,.55);
+}
+.cookieBar p{
+  margin:0;
+  color:rgba(255,255,255,.72);
+  font-size:13px;
+  line-height:1.5;
+}
+.cookieBar p a{opacity:.9;text-decoration:underline}
+.cookieBtns{display:flex;gap:10px;align-items:center;flex:0 0 auto;}
+.cookieBar button{
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  font-weight:800;
+  font-size:13px;
+  cursor:pointer;
+  white-space:nowrap;
+}
+.cookieBar button:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.26);}
+.cookieBar .ghost{background:rgba(0,0,0,.10);}
+
+.cookieModal{
+  position:fixed;
+  inset:0;
+  z-index:220;
+  display:none;
+  align-items:flex-end;
+  justify-content:center;
+  padding:16px;
+  background:rgba(0,0,0,.55);
+}
+.cookieSheet{
+  width:min(620px, 100%);
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(10,10,14,.92);
+  backdrop-filter:blur(16px);
+  box-shadow:0 24px 70px rgba(0,0,0,.6);
+  padding:16px;
+}
+.cookieSheet h4{margin:2px 0 10px;font-size:15px;}
+.cookieRow{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 0;
+  border-top:1px solid rgba(255,255,255,.06);
+  color:rgba(255,255,255,.72);
+  font-size:13px;
+}
+.cookieRow small{display:block;opacity:.75;margin-top:4px;max-width:44ch}
+.switch{display:inline-flex;align-items:center;gap:10px;}
+.switch input{width:18px;height:18px}
+.cookieSheetActions{display:flex;justify-content:flex-end;gap:10px;margin-top:12px;}
+
+@media(max-width:520px){
+  header{padding:0 18px}
+  .cookieBar{flex-direction:column; align-items:flex-start}
+  .cookieBtns{width:100%}
+  .cookieBar button{width:100%}
+}
+@media(max-width:760px){
+  .container{width:calc(100% - 34px)}
+  .detailHero{grid-template-columns:1fr;align-items:start}
+  .detailHero img{max-width:220px}
+  .hero h1{font-size:36px}
+}
+@media (prefers-reduced-motion: reduce){
+  *{transition:none !important; animation:none !important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo"><a href="index.html">Popcorn Picks</a></div>
+  <div class="navRight">
+    <a href="categories.html">Browse</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container heroInner">
+    <div class="kicker"><span class="dot"></span> Handpicked</div>
+    <h1>Handpicked — personal picks, not “content.”</h1>
+    <p>
+      This page is the opposite of a ranking. It’s just what I’d put in a friend’s watchlist —
+      things that actually respect your attention, with notes on the *feel* of the show/film, not plot dumps.
+      Click any poster below to jump straight to the recommendation.
+    </p>
+  </div>
+</section>
+
+<!-- TOP RAIL (homepage-style) -->
+<section class="section" id="top">
+  <div class="container">
+    <div class="sectionHead">
+      <div>
+        <h2>Handpicked</h2>
+        <p class="sectionLead">A few favourites. Pure signal. Click a poster — it opens the recommendation below.</p>
+      </div>
+      <a class="smallBtn" href="index.html">Back to home</a>
+    </div>
+
+    <div class="handpickedMarquee" aria-label="Handpicked posters">
+      <div class="handpickedTrack">
+
+        <a class="pickCard" href="#the-bureau" aria-label="The Bureau">
+          <img src="assets/posters/tv/the-bureau.jpg.JPG" alt="The Bureau">
+          <div class="pickOverlay">
+            <div class="pickYear">TV Series · 2015</div>
+            <div class="pickGenres">Espionage · Drama</div>
+            <p class="pickSynopsis">The most realistic spy show I’ve watched. No glamour, just tradecraft.</p>
+          </div>
+          <div class="pickTitle">The Bureau</div>
+        </a>
+
+        <a class="pickCard" href="#shogun" aria-label="Shōgun">
+          <img src="assets/posters/IMG_2479.jpeg" alt="Shōgun">
+          <div class="pickOverlay">
+            <div class="pickYear">TV Series · 2024</div>
+            <div class="pickGenres">Period · Drama · War</div>
+            <p class="pickSynopsis">A period drama that feels lived-in, tense, and intelligent.</p>
+          </div>
+          <div class="pickTitle">Shōgun</div>
+        </a>
+
+        <a class="pickCard" href="#tell-me-what-you-saw" aria-label="Tell Me What You Saw">
+          <img src="assets/posters/kdrama/tell-me-what-you-saw.jpg.JPG" alt="Tell Me What You Saw">
+          <div class="pickOverlay">
+            <div class="pickYear">K-Drama · 2020</div>
+            <div class="pickGenres">Thriller · Crime</div>
+            <p class="pickSynopsis">A sharp Korean thriller with momentum, restraint, and real tension.</p>
+          </div>
+          <div class="pickTitle">Tell Me What You Saw</div>
+        </a>
+
+        <a class="pickCard" href="#sardar-udham" aria-label="Sardar Udham">
+          <img src="assets/posters/sardar-udham.jpg.JPG" alt="Sardar Udham">
+          <div class="pickOverlay">
+            <div class="pickYear">Film · 2021</div>
+            <div class="pickGenres">Biopic · History</div>
+            <p class="pickSynopsis">Quiet rage. No chest-thumping. Just weight and consequence.</p>
+          </div>
+          <div class="pickTitle">Sardar Udham</div>
+        </a>
+
+        <a class="pickCard" href="#lighter-and-princess" aria-label="Lighter and Princess">
+          <img src="assets/posters/cdrama/lighter-and-princess-poster.jpg.JPG" alt="Lighter and Princess">
+          <div class="pickOverlay">
+            <div class="pickYear">C-Drama · 2022</div>
+            <div class="pickGenres">Romance · Youth</div>
+            <p class="pickSynopsis">Not fluffy. A slow burn with sharp edges and real consequences.</p>
+          </div>
+          <div class="pickTitle">Lighter &amp; Princess</div>
+        </a>
+
+        <a class="pickCard" href="#prodigal-son" aria-label="Prodigal Son">
+          <img src="assets/posters/tv/prodigal-son.jpg.JPG" alt="Prodigal Son">
+          <div class="pickOverlay">
+            <div class="pickYear">TV Series · 2019</div>
+            <div class="pickGenres">Crime · Thriller</div>
+            <p class="pickSynopsis">Darkly entertaining crime with a lead who’s barely holding it together.</p>
+          </div>
+          <div class="pickTitle">Prodigal Son</div>
+        </a>
+
+        <a class="pickCard" href="#alex-rider" aria-label="Alex Rider">
+          <img src="assets/posters/tv/alex-rider.jpg.JPG" alt="Alex Rider">
+          <div class="pickOverlay">
+            <div class="pickYear">TV Series · 2020</div>
+            <div class="pickGenres">Spy · Action</div>
+            <p class="pickSynopsis">The best teen spy show — serious, tense, and not childish.</p>
+          </div>
+          <div class="pickTitle">Alex Rider</div>
+        </a>
+
+        <a class="pickCard" href="#sword-dynasty" aria-label="Sword Dynasty">
+          <img src="assets/posters/cdrama/sword-dynasty-poster.jpg.JPG" alt="Sword Dynasty">
+          <div class="pickOverlay">
+            <div class="pickYear">C-Drama · 2019</div>
+            <div class="pickGenres">Wuxia · Fantasy</div>
+            <p class="pickSynopsis">Classic wuxia setup: cultivation, revenge, and court politics.</p>
+          </div>
+          <div class="pickTitle">Sword Dynasty</div>
+        </a>
+
+        <a class="pickCard" href="#tell-me-that-you-love-me" aria-label="Tell Me That You Love Me">
+          <img src="assets/posters/kdrama/tell-me-that-you-love-me.jpg.jpeg" alt="Tell Me That You Love Me">
+          <div class="pickOverlay">
+            <div class="pickYear">K-Drama · 2023</div>
+            <div class="pickGenres">Romance · Slice of Life</div>
+            <p class="pickSynopsis">A quiet romance that trusts silence more than dialogue.</p>
+          </div>
+          <div class="pickTitle">Tell Me That You Love Me</div>
+        </a>
+
+        <!-- NEW ADD: Counterpart -->
+        <a class="pickCard" href="#counterpart" aria-label="Counterpart">
+          <img src="assets/posters/tv/counterpart.jpg.jpeg" alt="Counterpart (2017)">
+          <div class="pickOverlay">
+            <div class="pickYear">TV Series · 2017</div>
+            <div class="pickGenres">Espionage · Sci-Fi · Drama</div>
+            <p class="pickSynopsis">A spy story wearing sci-fi clothing. Smart, cold, and addictive.</p>
+          </div>
+          <div class="pickTitle">Counterpart</div>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="detailWrap">
+      <!-- DETAILS START -->
+      <article class="handpickDetail" id="counterpart">
+        <div class="detailHero">
+          <img src="assets/posters/tv/counterpart.jpg.jpeg" alt="Counterpart (2017)">
+          <div class="detailMeta">
+            <h3>Counterpart</h3>
+            <div class="metaLine">TV Series · 2017 · 2 Seasons</div>
+            <div class="metaBadges">
+              <span class="badge">Espionage</span>
+              <span class="badge">Sci-Fi</span>
+              <span class="badge">Cold tension</span>
+              <span class="badge">Identity / regret</span>
+            </div>
+            <div class="detailLinks">
+              <a class="smallBtn" href="#top">Back to posters</a>
+            </div>
+          </div>
+        </div>
+        <div class="detailBody">
+          <h4>Why this is handpicked</h4>
+          <p>
+            This show is quietly insane in the best way. It doesn’t scream for attention, it doesn’t do cheap “twists” for screenshots —
+            it just builds pressure like a sealed room slowly losing oxygen.
+          </p>
+          <p>
+            The setup is clever, but that’s not the reason it stays with you. The real hook is what it does to people.
+            It turns identity into a weapon, turns regret into a plot engine, and somehow keeps everything grounded like an actual spy drama.
+          </p>
+
+          <h4>What it feels like</h4>
+          <ul>
+            <li>Muted, controlled, and tense — the kind of show where silence has weight.</li>
+            <li>More tradecraft and paranoia than “sci-fi fireworks.”</li>
+            <li>Emotionally heavy in a grown-up way: choices, consequences, the life you didn’t live.</li>
+          </ul>
+
+          <h4>Watch this if</h4>
+          <ul>
+            <li>You like espionage stories that treat intelligence work as ugly, procedural, and personal.</li>
+            <li>You enjoy slow burn tension that pays off without turning silly.</li>
+            <li>You want a show that respects your attention span.</li>
+          </ul>
+
+          <h4>Don’t expect</h4>
+          <ul>
+            <li>Nonstop action. This is chess, not fireworks.</li>
+            <li>Big speeches. It’s more glances and quiet decisions.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="handpickDetail" id="the-bureau">
+        <div class="detailHero">
+          <img src="assets/posters/tv/the-bureau.jpg.JPG" alt="The Bureau">
+          <div class="detailMeta">
+            <h3>The Bureau</h3>
+            <div class="metaLine">TV Series · 2015 · French</div>
+            <div class="metaBadges">
+              <span class="badge">Espionage</span>
+              <span class="badge">Real tradecraft</span>
+              <span class="badge">No James Bond energy</span>
+              <span class="badge">Psychological</span>
+            </div>
+            <div class="detailLinks">
+              <a class="smallBtn" href="#top">Back to posters</a>
+            </div>
+          </div>
+        </div>
+        <div class="detailBody">
+          <h4>Why this is handpicked</h4>
+          <p>
+            This was my first French espionage show — and it immediately ruined a lot of other spy series for me.
+            Not because it’s “bigger.” Because it’s real.
+          </p>
+          <p>
+            If you’re tired of spy fiction that behaves like superhero content, this is the antidote.
+            No glamour. No cool one-liners. Just the craft: building covers, managing assets, the bureaucracy, the paranoia,
+            and the slow psychological cost of living as someone else.
+          </p>
+          <p>
+            When people say “best spy show,” they usually mean “best action.” This is different.
+            If we’re talking about realism — about how the job actually works and what it does to you —
+            <strong>this is probably the best TV show in the genre.</strong>
+          </p>
+
+          <h4>What it feels like</h4>
+          <ul>
+            <li>Quietly intense. The tension is professional, not theatrical.</li>
+            <li>Adult writing: mistakes matter, emotions have consequences, nobody is invincible.</li>
+            <li>Deep focus on identity — the line between “cover” and “self” starts to dissolve.</li>
+          </ul>
+
+          <h4>Watch this if</h4>
+          <ul>
+            <li>You like grounded intelligence work (assets, surveillance, pressure, politics).</li>
+            <li>You want writing that doesn’t treat you like you need constant stimulation.</li>
+            <li>You’re into morally grey characters who still feel real.</li>
+          </ul>
+
+          <h4>Don’t expect</h4>
+          <ul>
+            <li>James Bond vibes. This is not fantasy.</li>
+            <li>Fast binge pacing. It’s deliberate — and that’s the point.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="handpickDetail" id="shogun">
+        <div class="detailHero">
+          <img src="assets/posters/IMG_2479.jpeg" alt="Shōgun">
+          <div class="detailMeta">
+            <h3>Shōgun</h3>
+            <div class="metaLine">TV Series · 2024</div>
+            <div class="metaBadges">
+              <span class="badge">Period drama</span>
+              <span class="badge">Power games</span>
+              <span class="badge">Atmosphere</span>
+              <span class="badge">Prestige television</span>
+            </div>
+            <div class="detailLinks">
+              <a class="smallBtn" href="#top">Back to posters</a>
+            </div>
+          </div>
+        </div>
+        <div class="detailBody">
+          <h4>Why this is handpicked</h4>
+          <p>
+            If you love period dramas, this is mandatory. It’s not “pretty history cosplay.”
+            It feels like a world with rules, danger, and consequences — where power isn’t loud, it’s calculated.
+          </p>
+          <p>
+            What makes it special is the control. The show doesn’t rush.
+            It lets scenes breathe, lets tension build, lets politics feel like politics — not exposition.
+            You watch people measure every word because one wrong sentence can end them.
+          </p>
+
+          <h4>What it feels like</h4>
+          <ul>
+            <li>Elegant but brutal. Beautiful but never soft.</li>
+            <li>Strategic storytelling — you’re watching minds at work.</li>
+            <li>Big atmosphere: weather, spaces, silence, ritual. It all matters.</li>
+          </ul>
+
+          <h4>Watch this if</h4>
+          <ul>
+            <li>You like period drama with real tension, not melodrama.</li>
+            <li>You enjoy power games, loyalty tests, and slow turns that pay off.</li>
+          </ul>
+
+          <h4>Don’t expect</h4>
+          <ul>
+            <li>Constant action. The “action” is often a conversation.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="handpickDetail" id="alex-rider">
+        <div class="detailHero">
+          <img src="assets/posters/tv/alex-rider.jpg.JPG" alt="Alex Rider">
+          <div class="detailMeta">
+            <h3>Alex Rider</h3>
+            <div class="metaLine">TV Series · 2020</div>
+            <div class="metaBadges">
+              <span class="badge">Teen spy</span>
+              <span class="badge">Actually serious</span>
+              <span class="badge">Bingeable</span>
+              <span class="badge">Not childish</span>
+            </div>
+            <div class="detailLinks">
+              <a class="smallBtn" href="#top">Back to posters</a>
+            </div>
+          </div>
+        </div>
+        <div class="detailBody">
+          <h4>Why this is handpicked</h4>
+          <p>
+            This is the best teen spy show — and that’s exactly because it doesn’t behave like “teen content.”
+            No cringe humour. No childish missions. No cartoon villains.
+          </p>
+          <p>
+            It treats the premise with seriousness: a kid pulled into adult violence, adult systems, adult consequences.
+            It’s tense, well-paced, and surprisingly grounded. The show understands that the most interesting part isn’t gadgets —
+            it’s pressure.
+          </p>
+
+          <h4>What it feels like</h4>
+          <ul>
+            <li>Fast and clean. You keep saying “one more episode.”</li>
+            <li>Spy tension without pretending the lead is a superhero.</li>
+            <li>A real sense of danger — not just “school drama with spies.”</li>
+          </ul>
+
+          <h4>Watch this if</h4>
+          <ul>
+            <li>You want espionage energy but with a younger lead done correctly.</li>
+            <li>You like tight pacing and plots that actually move.</li>
+          </ul>
+
+          <h4>Don’t expect</h4>
+          <ul>
+            <li>Disney teen tone. This is sharper and colder than you think.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="handpickDetail" id="tell-me-what-you-saw">
+        <div class="detailHero">
+          <img src="assets/posters/kdrama/tell-me-what-you-saw.jpg.JPG" alt="Tell Me What You Saw">
+          <div class="detailMeta">
+            <h3>Tell Me What You Saw</h3>
+            <div class="metaLine">K-Drama · 2020</div>
+            <div class="metaBadges">
+              <span class="badge">Thriller</span>
+              <span class="badge">Crime</span>
+              <span class="badge">Dark tone</span>
+              <span class="badge">No fluff</span>
+            </div>
+            <div class="detailLinks">
+              <a class="smallBtn" href="#top">Back to posters</a>
+            </div>
+          </div>
+        </div>
+        <div class="detailBody">
+          <h4>Why this is handpicked</h4>
+          <p>
+            If you want a Korean thriller that doesn’t waste your time, this is it.
+            It’s sharp, it moves, and it keeps tension alive without turning into noise.
+          </p>
+          <p>
+            The tone is serious — not “cute side-plot every five minutes.”
+            You’re here for investigation pressure, unsettling choices, and that steady feeling that the room is closing in.
+          </p>
+
+          <h4>What it feels like</h4>
+          <ul>
+            <li>Lean thriller pacing — scene to scene, no fluff.</li>
+            <li>Genuinely tense, with a dark undercurrent.</li>
+            <li>Focused on the hunt and the cost of the hunt.</li>
+          </ul>
+
+          <h4>Watch this if</h4>
+          <ul>
+            <li>You like serious crime dramas and procedural momentum.</li>
+            <li>You want a K-drama thriller that doesn’t soften itself.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="handpickDetail" id="sardar-udham">
+        <div class="detailHero">
+          <img src="assets/posters/sardar-udham.jpg.JPG" alt="Sardar Udham">
+          <div class="detailMeta">
+            <h3>Sardar Udham</h3>
+            <div class="metaLine">Film · 2021</div>
+            <div class="metaBadges">
+              <span class="badge">History</span>
+              <span class="badge">Biopic</span>
+              <span class="badge">Restrained</span>
+              <span class="badge">Heavy</span>
+            </div>
+            <div class="detailLinks">
+              <a class="smallBtn" href="#top">Back to posters</a>
+            </div>
+          </div>
+        </div>
+        <div class="detailBody">
+          <h4>Why this is handpicked</h4>
+          <p>
+            This is how you do a biopic without turning it into a loud motivational speech.
+            The film is restrained — and that restraint is exactly what makes it powerful.
+          </p>
+          <p>
+            It lets history feel heavy, not heroic. It respects silence. It respects grief.
+            And it doesn’t sell the audience easy comfort.
+          </p>
+
+          <h4>Watch this if</h4>
+          <ul>
+            <li>You want historical cinema with weight, not “energy.”</li>
+            <li>You prefer restraint over melodrama.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="handpickDetail" id="lighter-and-princess">
+        <div class="detailHero">
+          <img src="assets/posters/cdrama/lighter-and-princess-poster.jpg.JPG" alt="Lighter and Princess">
+          <div class="detailMeta">
+            <h3>Lighter &amp; Princess</h3>
+            <div class="metaLine">C-Drama · 2022</div>
+            <div class="metaBadges">
+              <span class="badge">Romance</span>
+              <span class="badge">Youth</span>
+              <span class="badge">Slow burn</span>
+              <span class="badge">Sharp edges</span>
+            </div>
+            <div class="detailLinks">
+              <a class="smallBtn" href="#top">Back to posters</a>
+            </div>
+          </div>
+        </div>
+        <div class="detailBody">
+          <h4>Why this is handpicked</h4>
+          <p>
+            This isn’t sugar romance. It’s messy in a believable way.
+            The characters don’t always do the “right” thing, and the show doesn’t pretend love fixes everything instantly.
+          </p>
+          <p>
+            It’s a slow burn, but not a lazy one — it builds tension, builds damage, builds attachment.
+            When it hits, it hits because you’ve actually lived inside it.
+          </p>
+
+          <h4>Watch this if</h4>
+          <ul>
+            <li>You want romance that feels real, not packaged.</li>
+            <li>You like long-form relationship arcs with consequences.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="handpickDetail" id="prodigal-son">
+        <div class="detailHero">
+          <img src="assets/posters/tv/prodigal-son.jpg.JPG" alt="Prodigal Son">
+          <div class="detailMeta">
+            <h3>Prodigal Son</h3>
+            <div class="metaLine">TV Series · 2019</div>
+            <div class="metaBadges">
+              <span class="badge">Crime</span>
+              <span class="badge">Thriller</span>
+              <span class="badge">Dark humour</span>
+              <span class="badge">Bingeable</span>
+            </div>
+            <div class="detailLinks">
+              <a class="smallBtn" href="#top">Back to posters</a>
+            </div>
+          </div>
+        </div>
+        <div class="detailBody">
+          <h4>Why this is handpicked</h4>
+          <p>
+            A crime show with a lead who’s constantly on the edge — and it’s weirdly addictive.
+            It balances dark subject matter with just enough sharp humour to keep it from becoming unbearable.
+          </p>
+          <p>
+            The hook isn’t “cases.” It’s the character tension underneath everything — the kind that doesn’t switch off when the episode ends.
+          </p>
+        </div>
+      </article>
+
+      <article class="handpickDetail" id="sword-dynasty">
+        <div class="detailHero">
+          <img src="assets/posters/cdrama/sword-dynasty-poster.jpg.JPG" alt="Sword Dynasty">
+          <div class="detailMeta">
+            <h3>Sword Dynasty</h3>
+            <div class="metaLine">C-Drama · 2019</div>
+            <div class="metaBadges">
+              <span class="badge">Wuxia</span>
+              <span class="badge">Fantasy</span>
+              <span class="badge">Cultivation</span>
+              <span class="badge">Court politics</span>
+            </div>
+            <div class="detailLinks">
+              <a class="smallBtn" href="#top">Back to posters</a>
+            </div>
+          </div>
+        </div>
+        <div class="detailBody">
+          <h4>Why this is handpicked</h4>
+          <p>
+            This is for when you want classic wuxia energy: cultivation paths, rival schools, revenge fuel, and politics sitting behind every fight.
+            It’s not trying to be Western fantasy. It knows exactly what world it’s in — and leans into it.
+          </p>
+
+          <h4>Watch this if</h4>
+          <ul>
+            <li>You like cultivation/wuxia setups and long arcs.</li>
+            <li>You enjoy power structures and factions as much as fights.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="handpickDetail" id="tell-me-that-you-love-me">
+        <div class="detailHero">
+          <img src="assets/posters/kdrama/tell-me-that-you-love-me.jpg.jpeg" alt="Tell Me That You Love Me">
+          <div class="detailMeta">
+            <h3>Tell Me That You Love Me</h3>
+            <div class="metaLine">K-Drama · 2023</div>
+            <div class="metaBadges">
+              <span class="badge">Romance</span>
+              <span class="badge">Slice of life</span>
+              <span class="badge">Quiet</span>
+              <span class="badge">Tender</span>
+            </div>
+            <div class="detailLinks">
+              <a class="smallBtn" href="#top">Back to posters</a>
+            </div>
+          </div>
+        </div>
+        <div class="detailBody">
+          <h4>Why this is handpicked</h4>
+          <p>
+            A lot of romances try to be “cute.” This one is just… gentle.
+            It’s the kind of drama where a pause matters, a look matters, and the show trusts you to feel what it’s saying without spelling it out.
+          </p>
+          <p>
+            If you’re in the mood for loud chemistry and dramatic triangles, skip it.
+            If you want something soft, human, and quietly beautiful — this is the one.
+          </p>
+
+          <h4>Watch this if</h4>
+          <ul>
+            <li>You like calm, emotionally mature romance.</li>
+            <li>You want something that feels like breathing slower.</li>
+          </ul>
+        </div>
+      </article>
+      <!-- DETAILS END -->
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footerGrid">
+    <div class="footerBrand">
+      <h4>Popcorn Picks</h4>
+      <p>
+        Cinema beyond borders.<br>
+        Carefully curated films and series from around the world.
+      </p>
+    </div>
+
+    <div>
+      <h4>Explore</h4>
+      <a href="editorials.html">Editorials</a>
+      <a href="between-the-frames.html">Between the Frames</a>
+      <a href="categories.html">Browse categories</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div>
+      <h4>Site</h4>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="handpick.html">Handpicked</a>
+    </div>
+  </div>
+
+  <div class="container footerBottom">
+    <span>© 2026 Popcorn Picks. All rights reserved.</span>
+    <a href="#" id="cookieSettingsLink">Cookie settings</a>
+  </div>
+</footer>
+
+<!-- ✅ Cookie banner -->
+<div class="cookieBar" id="cookieBar" role="dialog" aria-live="polite" aria-label="Cookie notice">
+  <p>
+    We use cookies for analytics and ads to improve Popcorn Picks.
+    <a href="privacy.html">Learn more</a>
+  </p>
+
+  <div class="cookieBtns">
+    <button class="ghost" id="cookieReject" type="button">Reject</button>
+    <button class="ghost" id="cookieManage" type="button">Manage</button>
+    <button id="cookieAccept" type="button">Accept</button>
+  </div>
+</div>
+
+<!-- ✅ Manage modal -->
+<div class="cookieModal" id="cookieModal" aria-hidden="true">
+  <div class="cookieSheet" role="dialog" aria-label="Cookie settings">
+    <h4>Cookie settings</h4>
+
+    <div class="cookieRow">
+      <div>
+        <strong>Analytics</strong>
+        <small>Helps us understand what people read and improve the site.</small>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="toggleAnalytics">
+      </label>
+    </div>
+
+    <div class="cookieRow">
+      <div>
+        <strong>Ads</strong>
+        <small>Helps fund the site. You’ll still see ads if you turn this off, but they may be less personalized.</small>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="toggleAds">
+      </label>
+    </div>
+
+    <div class="cookieSheetActions">
+      <button class="ghost" id="cookieCancel" type="button">Cancel</button>
+      <button id="cookieSave" type="button">Save</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/*
+  ✅ Consent system (same as your site)
+*/
+(function(){
+  var KEY = "pp_consent_v1";
+
+  function safeGtagConsentUpdate(consentObj){
+    if (typeof gtag === "function") gtag('consent', 'update', consentObj);
+  }
+  function applyConsent(state){
+    safeGtagConsentUpdate({
+      analytics_storage: state.analytics ? 'granted' : 'denied',
+      ad_storage: state.ads ? 'granted' : 'denied',
+      ad_user_data: state.ads ? 'granted' : 'denied',
+      ad_personalization: state.ads ? 'granted' : 'denied'
+    });
+  }
+  function readStored(){
+    try{
+      var raw = localStorage.getItem(KEY);
+      if(!raw) return null;
+      var obj = JSON.parse(raw);
+      if(typeof obj.analytics !== "boolean" || typeof obj.ads !== "boolean") return null;
+      return obj;
+    }catch(e){ return null; }
+  }
+  function store(state){
+    try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){}
+  }
+
+  var bar = document.getElementById("cookieBar");
+  var modal = document.getElementById("cookieModal");
+
+  var btnAccept = document.getElementById("cookieAccept");
+  var btnReject = document.getElementById("cookieReject");
+  var btnManage = document.getElementById("cookieManage");
+
+  var toggleAnalytics = document.getElementById("toggleAnalytics");
+  var toggleAds = document.getElementById("toggleAds");
+
+  var btnSave = document.getElementById("cookieSave");
+  var btnCancel = document.getElementById("cookieCancel");
+
+  var settingsLink = document.getElementById("cookieSettingsLink");
+
+  function openBanner(){ bar.style.display = "flex"; }
+  function closeBanner(){ bar.style.display = "none"; }
+
+  function openModal(){
+    modal.style.display = "flex";
+    modal.setAttribute("aria-hidden","false");
+  }
+  function closeModal(){
+    modal.style.display = "none";
+    modal.setAttribute("aria-hidden","true");
+  }
+
+  var saved = readStored();
+  if(saved){
+    applyConsent(saved);
+    closeBanner();
+  }else{
+    closeBanner();
+    openBanner();
+  }
+
+  btnAccept.addEventListener("click", function(){
+    var state = { analytics:true, ads:true };
+    store(state);
+    applyConsent(state);
+    closeBanner();
+    closeModal();
+  });
+
+  btnReject.addEventListener("click", function(){
+    var state = { analytics:false, ads:false };
+    store(state);
+    applyConsent(state);
+    closeBanner();
+    closeModal();
+  });
+
+  btnManage.addEventListener("click", function(){
+    var current = readStored() || { analytics:false, ads:false };
+    toggleAnalytics.checked = current.analytics;
+    toggleAds.checked = current.ads;
+    openModal();
+  });
+
+  btnSave.addEventListener("click", function(){
+    var state = { analytics: !!toggleAnalytics.checked, ads: !!toggleAds.checked };
+    store(state);
+    applyConsent(state);
+    closeBanner();
+    closeModal();
+  });
+
+  btnCancel.addEventListener("click", function(){
+    closeModal();
+  });
+
+  settingsLink.addEventListener("click", function(e){
+    e.preventDefault();
+    var current = readStored() || { analytics:false, ads:false };
+    toggleAnalytics.checked = current.analytics;
+    toggleAds.checked = current.ads;
+    openModal();
+  });
+
+  modal.addEventListener("click", function(e){
+    if(e.target === modal) closeModal();
+  });
+})();
+</script>
+
+<!-- ✅ Perf: Lazy-load images -->
+<script>
+(function(){
+  try{
+    var imgs = document.querySelectorAll("img");
+    imgs.forEach(function(img){
+      if(!img.hasAttribute("loading")) img.setAttribute("loading","lazy");
+      if(!img.hasAttribute("decoding")) img.setAttribute("decoding","async");
+    });
+  }catch(e){}
+})();
+</script>
+
+</body>
+</html>
