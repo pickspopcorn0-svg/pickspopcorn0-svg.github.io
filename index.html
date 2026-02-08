@@ -61,7 +61,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 a{text-decoration:none;color:inherit}
 img{display:block;max-width:100%}
-html{scroll-behavior:smooth; scroll-padding-top:72px;}
+html{scroll-behavior:smooth}
 :root{
   --bg:#0b0b0c;
   --panel:#0f0f12;
@@ -206,16 +206,16 @@ header{
   padding-top:60px;
 }
 
-/* horizontal scroll wrapper (default swipe) */
+/* horizontal scroll wrapper */
 .handpickedMarquee{
   overflow-x:auto;
   padding-bottom:12px;
-  scrollbar-width:none;              /* Firefox */
-  -webkit-overflow-scrolling:touch;  /* iOS smooth scroll */
-  scroll-snap-type:x mandatory;      /* ✅ snap */
+  scrollbar-width:none;           /* Firefox */
+  -webkit-overflow-scrolling:touch; /* iOS smooth scroll */
+  scroll-behavior:auto; /* we control smoothness in JS for loop */
 }
 .handpickedMarquee::-webkit-scrollbar{
-  display:none;                      /* Chrome / Safari */
+  display:none;                   /* Chrome / Safari */
 }
 
 /* scrolling row */
@@ -223,6 +223,7 @@ header{
   display:flex;
   gap:18px;
   padding:6px 2px;
+  width:max-content;
 }
 
 /* individual poster card */
@@ -232,7 +233,6 @@ header{
   text-align:center;
   transition:transform .22s ease;
   will-change:transform;
-  scroll-snap-align:start;           /* ✅ snap */
 }
 
 .pickCard img{
@@ -260,67 +260,7 @@ header{
 
 /* mobile tweak */
 @media(max-width:520px){
-  .pickCard{ width:140px; }
-}
-
-/* ===== Handpicked LOOP (desktop/tablet) ===== */
-.handpickedMarquee.loop{
-  overflow:hidden;                 /* hides seam */
-  position:relative;
-  padding-bottom:12px;
-}
-
-/* soft fade on edges */
-.handpickedMarquee.loop::before,
-.handpickedMarquee.loop::after{
-  content:"";
-  position:absolute;
-  top:0; bottom:0;
-  width:60px;
-  pointer-events:none;
-  z-index:2;
-}
-.handpickedMarquee.loop::before{
-  left:0;
-  background:linear-gradient(90deg, rgba(11,11,12,1), rgba(11,11,12,0));
-}
-.handpickedMarquee.loop::after{
-  right:0;
-  background:linear-gradient(270deg, rgba(11,11,12,1), rgba(11,11,12,0));
-}
-
-/* track becomes animated marquee */
-.handpickedMarquee.loop .handpickedTrack{
-  width:max-content;
-  animation:hpMarquee 38s linear infinite;
-}
-
-/* pause on hover (desktop) */
-.handpickedMarquee.loop:hover .handpickedTrack{
-  animation-play-state:paused;
-}
-
-/* move half because we duplicated the set */
-@keyframes hpMarquee{
-  0%{ transform:translateX(0); }
-  100%{ transform:translateX(-50%); }
-}
-
-/* On phones: disable animation and keep swipe */
-@media (max-width: 760px), (pointer: coarse){
-  .handpickedMarquee.loop{
-    overflow-x:auto;
-    -webkit-overflow-scrolling:touch;
-    scroll-snap-type:x mandatory;
-  }
-  .handpickedMarquee.loop .handpickedTrack{
-    animation:none;
-  }
-}
-
-/* accessibility */
-@media (prefers-reduced-motion: reduce){
-  .handpickedMarquee.loop .handpickedTrack{ animation:none; }
+  .pickCard{width:140px;}
 }
 
 .section h2{
@@ -750,7 +690,7 @@ footer p{
   </div>
 </section>
 
-<!-- HANDPICKED (Homepage teaser) -->
+<!-- HANDPICKED (Homepage — auto loads ALL picks from handpick.html) -->
 <section class="section handpickedSection">
   <div class="container">
 
@@ -764,57 +704,26 @@ footer p{
       <a href="handpick.html" class="viewAll">View all →</a>
     </div>
 
-    <!-- ✅ LOOP marquee on desktop/tablet, swipe on mobile -->
-    <div class="handpickedMarquee loop">
-      <div class="handpickedTrack">
+    <div class="handpickedMarquee" id="handpickedMarquee" aria-label="Handpicked carousel">
+      <div class="handpickedTrack" id="handpickedTrack">
 
-        <!-- ORIGINAL SET -->
+        <!-- Fallback (shows if fetch fails) -->
         <a class="pickCard" href="handpick.html#counterpart">
           <img src="assets/posters/tv/counterpart.jpg.jpeg" alt="Counterpart (2017)">
           <div class="pickTitle">Counterpart</div>
         </a>
-
         <a class="pickCard" href="handpick.html#the-bureau">
           <img src="assets/posters/tv/the-bureau.jpg.JPG" alt="The Bureau">
           <div class="pickTitle">The Bureau</div>
         </a>
-
         <a class="pickCard" href="handpick.html#shogun">
           <img src="assets/posters/IMG_2479.jpeg" alt="Shōgun">
           <div class="pickTitle">Shōgun</div>
         </a>
-
         <a class="pickCard" href="handpick.html#alex-rider">
           <img src="assets/posters/tv/alex-rider.jpg.JPG" alt="Alex Rider">
           <div class="pickTitle">Alex Rider</div>
         </a>
-
-        <a class="pickCard" href="handpick.html#tell-me-what-you-saw">
-          <img src="assets/posters/kdrama/tell-me-what-you-saw.jpg.JPG" alt="Tell Me What You Saw">
-          <div class="pickTitle">Tell Me What You Saw</div>
-        </a>
-
-        <!-- DUPLICATE SET (for seamless loop) -->
-        <a class="pickCard" href="handpick.html#counterpart">
-          <img src="assets/posters/tv/counterpart.jpg.jpeg" alt="Counterpart (2017)">
-          <div class="pickTitle">Counterpart</div>
-        </a>
-
-        <a class="pickCard" href="handpick.html#the-bureau">
-          <img src="assets/posters/tv/the-bureau.jpg.JPG" alt="The Bureau">
-          <div class="pickTitle">The Bureau</div>
-        </a>
-
-        <a class="pickCard" href="handpick.html#shogun">
-          <img src="assets/posters/IMG_2479.jpeg" alt="Shōgun">
-          <div class="pickTitle">Shōgun</div>
-        </a>
-
-        <a class="pickCard" href="handpick.html#alex-rider">
-          <img src="assets/posters/tv/alex-rider.jpg.JPG" alt="Alex Rider">
-          <div class="pickTitle">Alex Rider</div>
-        </a>
-
         <a class="pickCard" href="handpick.html#tell-me-what-you-saw">
           <img src="assets/posters/kdrama/tell-me-what-you-saw.jpg.JPG" alt="Tell Me What You Saw">
           <div class="pickTitle">Tell Me What You Saw</div>
@@ -1092,6 +1001,167 @@ footer p{
       if(url) el.style.setProperty("--bgimg", "url('" + url + "')");
     });
   }catch(e){}
+})();
+</script>
+
+<script>
+/*
+  ✅ Handpicked: AUTO-LOAD all pick cards from handpick.html into homepage
+  ✅ Then auto-loop on desktop by duplicating the list + scrolling scrollLeft
+*/
+(function(){
+  var marquee = document.getElementById("handpickedMarquee");
+  var track = document.getElementById("handpickedTrack");
+  if(!marquee || !track) return;
+
+  var prefersReduced = false;
+  try{
+    prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }catch(e){}
+
+  function isDesktopLoop(){
+    return !prefersReduced && window.innerWidth >= 900;
+  }
+
+  function normalizeSrc(src){
+    if(!src) return "";
+    // keep relative paths
+    return src;
+  }
+
+  function buildFromHandpickHTML(doc){
+    // Try to find .pickCard anchors inside handpick.html
+    var cards = doc.querySelectorAll(".pickCard");
+    if(!cards || !cards.length) return null;
+
+    var frag = document.createDocumentFragment();
+    cards.forEach(function(card){
+      var a = card.cloneNode(true);
+
+      // Ensure href points to handpick.html#... (in case it was just #...)
+      var href = a.getAttribute("href") || "";
+      if(href && href.charAt(0) === "#") a.setAttribute("href", "handpick.html" + href);
+
+      // Fix image src if needed
+      var img = a.querySelector("img");
+      if(img){
+        img.setAttribute("src", normalizeSrc(img.getAttribute("src")));
+        if(!img.getAttribute("alt")){
+          var titleEl = a.querySelector(".pickTitle");
+          if(titleEl) img.setAttribute("alt", titleEl.textContent.trim());
+        }
+      }
+
+      frag.appendChild(a);
+    });
+
+    return frag;
+  }
+
+  function replaceTrackWithFragment(frag){
+    if(!frag) return;
+    track.innerHTML = "";
+    track.appendChild(frag);
+  }
+
+  function duplicateForLoop(){
+    // duplicate once so it can loop seamlessly
+    var cards = track.querySelectorAll(".pickCard");
+    if(!cards.length) return;
+
+    // Avoid duplicating twice if already done
+    if(track.getAttribute("data-duplicated") === "1") return;
+
+    var frag = document.createDocumentFragment();
+    cards.forEach(function(c){
+      frag.appendChild(c.cloneNode(true));
+    });
+    track.appendChild(frag);
+    track.setAttribute("data-duplicated","1");
+  }
+
+  // Auto-scroll loop (desktop only), pauses on hover/touch
+  var rafId = null;
+  var paused = false;
+
+  function stopLoop(){
+    if(rafId) cancelAnimationFrame(rafId);
+    rafId = null;
+  }
+
+  function startLoop(){
+    stopLoop();
+    if(!isDesktopLoop()) return;
+
+    paused = false;
+
+    var speed = 0.55; // px per frame-ish
+    var last = performance.now();
+
+    function tick(now){
+      if(paused){ rafId = requestAnimationFrame(tick); return; }
+
+      var dt = Math.min(50, now - last);
+      last = now;
+
+      // scroll
+      marquee.scrollLeft += speed * (dt / 16.67);
+
+      // when past half (because we duplicated), jump back
+      var half = (track.scrollWidth / 2);
+      if(marquee.scrollLeft >= half){
+        marquee.scrollLeft -= half;
+      }
+
+      rafId = requestAnimationFrame(tick);
+    }
+
+    rafId = requestAnimationFrame(tick);
+  }
+
+  function wirePause(){
+    marquee.addEventListener("mouseenter", function(){ paused = true; });
+    marquee.addEventListener("mouseleave", function(){ paused = false; });
+
+    marquee.addEventListener("pointerdown", function(){ paused = true; });
+    marquee.addEventListener("pointerup", function(){ paused = false; });
+    marquee.addEventListener("touchstart", function(){ paused = true; }, {passive:true});
+    marquee.addEventListener("touchend", function(){ paused = false; }, {passive:true});
+  }
+
+  wirePause();
+
+  // Fetch handpick.html and build the full list automatically
+  // If fetch fails, the fallback HTML stays.
+  fetch("handpick.html", { cache: "no-store" })
+    .then(function(r){ if(!r.ok) throw new Error("fetch failed"); return r.text(); })
+    .then(function(html){
+      var doc = new DOMParser().parseFromString(html, "text/html");
+      var frag = buildFromHandpickHTML(doc);
+      if(frag){
+        replaceTrackWithFragment(frag);
+      }
+    })
+    .catch(function(){ /* keep fallback */ })
+    .finally(function(){
+      // Always duplicate (works for both fallback and fetched list)
+      duplicateForLoop();
+      // Start at a safe position
+      marquee.scrollLeft = 0;
+      startLoop();
+    });
+
+  // Restart loop on resize (switch between mobile/desktop behavior)
+  var resizeTimer = null;
+  window.addEventListener("resize", function(){
+    if(resizeTimer) clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function(){
+      stopLoop();
+      // On resize to desktop again, ensure duplicate exists
+      duplicateForLoop();
+      startLoop();
+    }, 180);
+  });
 })();
 </script>
 
