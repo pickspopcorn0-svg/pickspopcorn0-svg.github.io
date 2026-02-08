@@ -1,73 +1,505 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Privacy Policy — Popcorn Picks</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body{
-  background:#0b0b0c;
-  color:#eaeaea;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
-  margin:0;
-  padding:40px 20px;
-}
-.wrap{max-width:900px;margin:auto}
-h1{font-size:36px;margin-bottom:20px}
-h2{margin-top:32px;font-size:22px}
-p{line-height:1.85;margin-bottom:18px;color:#cfcfcf}
-a{color:#fff;text-decoration:none}
-.back{display:inline-block;margin-bottom:30px;color:#aaa}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy — Popcorn Picks</title>
+  <meta name="description" content="Privacy Policy for Popcorn Picks: how we use cookies, analytics, and advertising, and the choices you have." />
+
+  <!-- Optional: canonical (recommended) -->
+  <link rel="canonical" href="https://popcornpicks.in/privacy.html" />
+
+  <style>
+    :root{
+      --bg:#0b0b0c;
+      --panel:#0f0f12;
+      --line:rgba(255,255,255,.12);
+      --lineSoft:rgba(255,255,255,.08);
+      --text:#ffffff;
+      --muted:rgba(255,255,255,.78);
+      --muted2:rgba(255,255,255,.62);
+      --shadow:0 18px 50px rgba(0,0,0,.35);
+      --radius:18px;
+      --radius2:14px;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      background:
+        radial-gradient(900px 520px at 18% -10%, rgba(255,255,255,.06), transparent 55%),
+        radial-gradient(900px 520px at 85% 0%, rgba(255,255,255,.04), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      text-rendering:optimizeLegibility;
+      -webkit-font-smoothing:antialiased;
+      padding:38px 18px;
+      overflow-x:hidden;
+    }
+
+    a{color:inherit;text-decoration:none}
+    a:hover{opacity:.92}
+
+    .wrap{
+      width:min(980px, calc(100% - 28px));
+      margin:0 auto;
+    }
+
+    /* Top bar */
+    .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom:18px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+
+    .logo{
+      font-weight:900;
+      letter-spacing:.4px;
+      font-size:14px;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.22);
+      white-space:nowrap;
+    }
+
+    .back{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.22);
+      color:rgba(255,255,255,.78);
+      font-size:13px;
+      font-weight:800;
+      white-space:nowrap;
+    }
+    .back:hover{
+      background:rgba(255,255,255,.06);
+      border-color:rgba(255,255,255,.22);
+      color:#fff;
+    }
+
+    /* Page header */
+    .hero{
+      margin-top:10px;
+      border-radius:22px;
+      padding:22px 18px;
+      background:
+        radial-gradient(900px 420px at 15% 10%, rgba(255,160,90,.08), transparent 60%),
+        radial-gradient(900px 420px at 85% 10%, rgba(90,170,255,.08), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.18));
+      outline:1px solid rgba(255,255,255,.10);
+      outline-offset:-1px;
+      box-shadow:var(--shadow);
+    }
+    h1{
+      font-size:34px;
+      letter-spacing:-.02em;
+      line-height:1.1;
+    }
+    .sub{
+      margin-top:10px;
+      color:var(--muted);
+      line-height:1.75;
+      font-size:14px;
+      max-width:80ch;
+    }
+    .meta{
+      margin-top:12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      color:rgba(255,255,255,.62);
+      font-size:12px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.18);
+    }
+    .dot{
+      width:8px;height:8px;border-radius:50%;
+      background:rgba(255,160,90,.90);
+      box-shadow:0 0 18px rgba(255,160,90,.45);
+    }
+
+    /* Layout */
+    .grid{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:18px;
+    }
+
+    .card{
+      border-radius:var(--radius);
+      background:rgba(10,10,14,.62);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:0 10px 30px rgba(0,0,0,.25);
+      overflow:hidden;
+    }
+
+    .cardHead{
+      padding:16px 16px 14px;
+      border-bottom:1px solid rgba(255,255,255,.06);
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.05));
+    }
+
+    .cardHead h2{
+      font-size:18px;
+      letter-spacing:.2px;
+    }
+
+    .cardBody{
+      padding:14px 16px 16px;
+    }
+
+    p{
+      color:rgba(255,255,255,.72);
+      line-height:1.85;
+      font-size:14px;
+      margin:10px 0;
+    }
+
+    ul{
+      margin:10px 0 0 18px;
+      color:rgba(255,255,255,.70);
+      line-height:1.9;
+      font-size:14px;
+    }
+
+    li{margin:6px 0}
+
+    .note{
+      margin-top:12px;
+      padding:12px 12px;
+      border-radius:var(--radius2);
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.22);
+      color:rgba(255,255,255,.70);
+      font-size:13px;
+      line-height:1.75;
+    }
+
+    .inlineLink{
+      text-decoration:underline;
+      text-underline-offset:3px;
+      color:rgba(255,255,255,.85);
+    }
+
+    /* Footer */
+    footer{
+      margin-top:18px;
+      color:rgba(255,255,255,.52);
+      font-size:12px;
+      line-height:1.7;
+      border-top:1px solid rgba(255,255,255,.08);
+      padding-top:16px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    footer a{
+      color:rgba(255,255,255,.62);
+      text-decoration:underline;
+      text-underline-offset:3px;
+    }
+
+    /* Mobile */
+    @media (max-width:520px){
+      body{padding:26px 14px}
+      h1{font-size:30px}
+      .hero{padding:18px 14px}
+      .cardHead{padding:14px 14px 12px}
+      .cardBody{padding:12px 14px 14px}
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      *{transition:none !important; animation:none !important}
+    }
+  </style>
 </head>
 
 <body>
-<div class="wrap">
-<a class="back" href="index.html">← Back to Popcorn Picks</a>
+  <div class="wrap">
 
-<h1>Privacy Policy</h1>
+    <div class="top">
+      <div class="brand">
+        <div class="logo">Popcorn Picks</div>
+      </div>
+      <a class="back" href="index.html" aria-label="Back to homepage">← Back</a>
+    </div>
 
-<p>
-Popcorn Picks respects your privacy. This page explains what information may be collected when you visit the site and how it is used.
-</p>
+    <section class="hero" aria-label="Privacy policy overview">
+      <h1>Privacy Policy</h1>
+      <p class="sub">
+        This Privacy Policy explains how Popcorn Picks (“we”, “our”, “us”) handles information when you visit our website,
+        including how cookies may be used for analytics and advertising, and the choices you have.
+      </p>
 
-<h2>Information We Collect</h2>
-<p>
-Popcorn Picks does not require users to create accounts or submit personal information. We do not collect names, passwords, or private user data.
-</p>
+      <div class="meta">
+        <div class="pill"><span class="dot"></span> Effective date: <strong>8 February 2026</strong></div>
+        <div class="pill">Applies to: <strong>popcornpicks.in</strong></div>
+      </div>
+    </section>
 
-<p>
-Like most websites, basic non-personal information such as browser type, device type, and pages visited may be collected automatically through analytics or advertising services. This information is used only to understand site performance and improve user experience.
-</p>
+    <main class="grid">
 
-<h2>Cookies and Advertising</h2>
-<p>
-Popcorn Picks may display advertisements provided by third-party services such as Google AdSense. These services may use cookies or similar technologies to display ads that are relevant to users.
-</p>
+      <!-- 1. Who we are -->
+      <article class="card">
+        <div class="cardHead"><h2>1) Who We Are</h2></div>
+        <div class="cardBody">
+          <p>
+            Popcorn Picks is a curated discovery website for films and series across the world. We do not run user accounts
+            and we do not require you to provide personal information to browse the site.
+          </p>
+        </div>
+      </article>
 
-<p>
-Google and its partners may collect information about visits to this and other websites in order to provide personalized or non-personalized advertising, depending on user settings.
-</p>
+      <!-- 2. Information we collect -->
+      <article class="card">
+        <div class="cardHead"><h2>2) Information We Collect</h2></div>
+        <div class="cardBody">
+          <p><strong>Information you provide:</strong> We do not offer account creation. If you contact us by email, you share information voluntarily (such as your email address and message content).</p>
 
-<h2>Third-Party Links</h2>
-<p>
-This website may include links to third-party platforms such as streaming services or external sites. Popcorn Picks is not responsible for the privacy practices or content of those websites.
-</p>
+          <p><strong>Information collected automatically:</strong> Like most websites, limited information may be processed automatically when you visit, such as:</p>
+          <ul>
+            <li>Device and browser information (e.g., device type, browser type, operating system)</li>
+            <li>Pages viewed, links clicked, and general site interaction data</li>
+            <li>Approximate location inferred from IP address (city/region-level, not precise GPS)</li>
+            <li>General diagnostics (e.g., load times, errors) to improve performance</li>
+          </ul>
 
-<h2>Your Consent</h2>
-<p>
-By using Popcorn Picks, you agree to this Privacy Policy.
-</p>
+          <div class="note">
+            We aim to keep data collection minimal. Where analytics or advertising cookies are involved, we rely on your consent choices via the cookie banner and cookie settings.
+          </div>
+        </div>
+      </article>
 
-<h2>Contact</h2>
-<p>
-If you have any questions regarding this Privacy Policy, you can contact us at:
-</p>
+      <!-- 3. Cookies & consent choices -->
+      <article class="card">
+        <div class="cardHead"><h2>3) Cookies & Your Choices</h2></div>
+        <div class="cardBody">
+          <p>
+            Cookies are small files stored on your device. We use cookies and similar technologies for two categories:
+          </p>
+          <ul>
+            <li><strong>Analytics cookies (optional):</strong> help us understand how people use the site and what to improve.</li>
+            <li><strong>Advertising cookies (optional):</strong> used by advertising partners to measure and/or personalize ads.</li>
+          </ul>
 
-<p>
-Email: pickspopcorn0@gmail.com
-</p>
+          <p>
+            When you first visit Popcorn Picks, you can choose to <strong>Accept</strong>, <strong>Reject</strong>, or <strong>Manage</strong> cookies.
+            You can change your choices at any time using the <strong>Cookie settings</strong> link in the footer of the site.
+          </p>
 
-</div>
+          <div class="note">
+            If you reject or disable ads cookies, ads may still be shown, but they may be less relevant (non-personalized).
+          </div>
+        </div>
+      </article>
+
+      <!-- 4. Analytics -->
+      <article class="card">
+        <div class="cardHead"><h2>4) Analytics (Google Analytics)</h2></div>
+        <div class="cardBody">
+          <p>
+            If you allow analytics cookies, we use <strong>Google Analytics (GA4)</strong> to understand how visitors use Popcorn Picks.
+            This helps us improve pages, navigation, and content quality.
+          </p>
+          <p>
+            If you do not allow analytics cookies, analytics storage remains disabled and Google Analytics will not store analytics cookies for measurement.
+          </p>
+        </div>
+      </article>
+
+      <!-- 5. Advertising -->
+      <article class="card">
+        <div class="cardHead"><h2>5) Advertising (Google AdSense)</h2></div>
+        <div class="cardBody">
+          <p>
+            We may display ads through <strong>Google AdSense</strong> and/or Google’s advertising partners. These services may use cookies or similar technologies
+            to serve and measure ads.
+          </p>
+          <p>
+            Depending on your consent settings, ads may be:
+          </p>
+          <ul>
+            <li><strong>Personalized</strong> (based on interests inferred from browsing behavior across sites/apps), or</li>
+            <li><strong>Non-personalized</strong> (based on contextual signals like page content, general location, or device type)</li>
+          </ul>
+
+          <p>
+            You can also manage ad personalization through your Google account settings. (For example, Google “Ads Settings”.)
+          </p>
+
+          <div class="note">
+            Important: Popcorn Picks does not directly receive your Google account details. Ad serving and personalization (if enabled) is handled by Google and its partners.
+          </div>
+        </div>
+      </article>
+
+      <!-- 6. Legal bases -->
+      <article class="card">
+        <div class="cardHead"><h2>6) Legal Basis for Processing (General)</h2></div>
+        <div class="cardBody">
+          <p>
+            Where applicable, we rely on:
+          </p>
+          <ul>
+            <li><strong>Consent</strong> for analytics and advertising cookies (you choose via the cookie banner/settings).</li>
+            <li><strong>Legitimate interests</strong> for basic site operation, security, and performance (e.g., preventing abuse, keeping the site stable).</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 7. Data retention -->
+      <article class="card">
+        <div class="cardHead"><h2>7) Data Retention</h2></div>
+        <div class="cardBody">
+          <p>
+            We keep information only as long as needed for the purposes described in this policy:
+          </p>
+          <ul>
+            <li>Email messages you send us may be retained to respond and for record-keeping.</li>
+            <li>Analytics/ads data retention is controlled primarily by the relevant provider settings (e.g., Google) and your consent choices.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 8. Third-party links -->
+      <article class="card">
+        <div class="cardHead"><h2>8) Third-Party Links</h2></div>
+        <div class="cardBody">
+          <p>
+            Popcorn Picks may link to third-party sites (for example, streaming services, external references, or social platforms).
+            We are not responsible for the privacy practices or content of those sites. Please review their policies directly.
+          </p>
+        </div>
+      </article>
+
+      <!-- 9. Children -->
+      <article class="card">
+        <div class="cardHead"><h2>9) Children’s Privacy</h2></div>
+        <div class="cardBody">
+          <p>
+            Popcorn Picks is not directed to children under 13. We do not knowingly collect personal information from children.
+            If you believe a child has provided personal information to us via email, contact us and we will take reasonable steps to delete it.
+          </p>
+        </div>
+      </article>
+
+      <!-- 10. Security -->
+      <article class="card">
+        <div class="cardHead"><h2>10) Security</h2></div>
+        <div class="cardBody">
+          <p>
+            We take reasonable measures to protect the site and any information we receive. However, no online service can guarantee absolute security.
+            Please use the site at your own discretion and avoid sharing sensitive personal information by email.
+          </p>
+        </div>
+      </article>
+
+      <!-- 11. Your rights -->
+      <article class="card">
+        <div class="cardHead"><h2>11) Your Rights</h2></div>
+        <div class="cardBody">
+          <p>
+            Depending on your location, you may have certain rights over your personal information (for example: access, correction, deletion, or objection).
+            Since Popcorn Picks does not run user accounts, most requests relate to email communications or cookie preferences.
+          </p>
+          <ul>
+            <li><strong>Cookie choices:</strong> Use “Cookie settings” in the footer to update analytics/ads consent.</li>
+            <li><strong>Email requests:</strong> Contact us if you want us to delete or update an email conversation.</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 12. Changes -->
+      <article class="card">
+        <div class="cardHead"><h2>12) Changes to This Policy</h2></div>
+        <div class="cardBody">
+          <p>
+            We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated effective date.
+            Your continued use of the site after changes means you understand the updated policy.
+          </p>
+        </div>
+      </article>
+
+      <!-- 13. Contact -->
+      <article class="card">
+        <div class="cardHead"><h2>13) Contact</h2></div>
+        <div class="cardBody">
+          <p>
+            For questions about this Privacy Policy, contact:
+          </p>
+          <p>
+            <strong>Email:</strong> <a class="inlineLink" href="mailto:pickspopcorn0@gmail.com">pickspopcorn0@gmail.com</a>
+          </p>
+
+          <div class="note">
+            Tip: If your question is about ads/cookies, mention whether you chose Accept, Reject, or Manage — it helps us troubleshoot faster.
+          </div>
+        </div>
+      </article>
+
+    </main>
+
+    <footer>
+      <div>© 2026 Popcorn Picks. All rights reserved.</div>
+      <div>
+        <a href="index.html">Home</a>
+        <span style="opacity:.5"> · </span>
+        <a href="privacy.html" aria-current="page">Privacy Policy</a>
+        <span style="opacity:.5"> · </span>
+        <!-- Must match your homepage footer link id if you want it to open the cookie modal -->
+        <a href="#" id="cookieSettingsLink">Cookie settings</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!--
+    Optional integration note:
+    Your homepage already contains the cookie banner + modal + consent script.
+    If you want "Cookie settings" on THIS page to open the same modal,
+    you must include that same cookie modal HTML + JS here too (or load it as a shared script).
+    If you DON'T include it here, the link will just be a normal link with no effect.
+  -->
+
+  <script>
+    // If your privacy page does NOT include the cookie modal system,
+    // this prevents "#" jump and instead sends users to the homepage footer where they can manage cookies.
+    (function(){
+      var link = document.getElementById("cookieSettingsLink");
+      if(!link) return;
+      link.addEventListener("click", function(e){
+        e.preventDefault();
+        // If you later copy your cookie modal script here, remove this redirect.
+        window.location.href = "index.html#cookie-settings";
+      });
+    })();
+  </script>
+
 </body>
 </html>
