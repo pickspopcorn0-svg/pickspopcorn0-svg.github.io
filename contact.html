@@ -1,60 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Contact — Popcorn Picks</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body{
-  background:#0b0b0c;
-  color:#eaeaea;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
-  margin:0;
-  padding:40px 20px;
-}
-.wrap{max-width:700px;margin:auto;text-align:center}
-h1{font-size:36px;margin-bottom:20px}
-p{line-height:1.8;margin-bottom:18px;color:#cfcfcf}
-a{color:#fff;text-decoration:none}
-.card{
-  border:1px solid #222;
-  border-radius:16px;
-  padding:30px;
-  margin-top:30px;
-  background:#111;
-}
-.back{display:inline-block;margin-bottom:30px;color:#aaa}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Popcorn Picks</title>
+  <meta name="description" content="Contact Popcorn Picks for editorial feedback, corrections, collaborations, or business inquiries." />
+  <link rel="canonical" href="https://popcornpicks.in/contact.html" />
+
+  <style>
+    :root{
+      --bg:#0b0b0c;
+      --panel:#0f0f12;
+      --line:rgba(255,255,255,.12);
+      --text:#ffffff;
+      --muted:rgba(255,255,255,.72);
+      --shadow:0 18px 50px rgba(0,0,0,.35);
+      --radius:18px;
+      --radius2:14px;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      background:
+        radial-gradient(900px 520px at 18% -10%, rgba(255,255,255,.06), transparent 55%),
+        radial-gradient(900px 520px at 85% 0%, rgba(255,255,255,.04), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      padding:38px 18px;
+      text-rendering:optimizeLegibility;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    a{color:inherit;text-decoration:none}
+    a:hover{opacity:.9}
+
+    .wrap{
+      width:min(880px, calc(100% - 28px));
+      margin:0 auto;
+    }
+
+    .back{
+      display:inline-block;
+      margin-bottom:26px;
+      color:rgba(255,255,255,.65);
+      font-size:13px;
+    }
+    .back:hover{color:#fff}
+
+    h1{
+      font-size:34px;
+      margin-bottom:14px;
+      letter-spacing:-.02em;
+    }
+
+    .intro{
+      max-width:72ch;
+      color:var(--muted);
+      line-height:1.8;
+      font-size:15px;
+      margin-bottom:28px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:20px;
+    }
+
+    .card{
+      border-radius:var(--radius);
+      background:rgba(10,10,14,.65);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:0 10px 30px rgba(0,0,0,.25);
+      padding:20px 20px 22px;
+    }
+
+    h2{
+      font-size:18px;
+      margin-bottom:10px;
+      letter-spacing:.2px;
+    }
+
+    p{
+      color:var(--muted);
+      line-height:1.85;
+      font-size:14px;
+      margin-bottom:12px;
+    }
+
+    .email{
+      font-size:17px;
+      font-weight:700;
+      margin-top:6px;
+      word-break:break-all;
+    }
+
+    .note{
+      margin-top:10px;
+      padding:12px;
+      border-radius:var(--radius2);
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.22);
+      color:rgba(255,255,255,.68);
+      font-size:13px;
+      line-height:1.7;
+    }
+
+    footer{
+      margin-top:26px;
+      padding-top:16px;
+      border-top:1px solid rgba(255,255,255,.08);
+      font-size:12px;
+      color:rgba(255,255,255,.52);
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    footer a{
+      color:rgba(255,255,255,.62);
+      text-decoration:underline;
+      text-underline-offset:3px;
+    }
+
+    @media(max-width:520px){
+      h1{font-size:30px}
+      .intro{font-size:14px}
+    }
+  </style>
 </head>
 
 <body>
-<div class="wrap">
-<a class="back" href="index.html">← Back to Popcorn Picks</a>
+  <div class="wrap">
 
-<h1>Contact</h1>
+    <a class="back" href="index.html">← Back to Popcorn Picks</a>
 
-<p>
-If you want to suggest a title, report a problem, or reach us for business purposes, use the options below.
-</p>
+    <h1>Contact</h1>
 
-<div class="card">
-<p><strong>X (Twitter)</strong></p>
-<p>
-<a href="https://twitter.com/picks9505" target="_blank">@picks9505</a>
-</p>
-<p>
-Fastest way to reach us.
-</p>
-</div>
+    <p class="intro">
+      Popcorn Picks is an editorial and curation-driven site.
+      If you want to suggest a title, report an issue, or reach out for professional or policy-related reasons,
+      you can contact us using the details below.
+    </p>
 
-<div class="card">
-<p><strong>Email</strong></p>
-<p>pickspopcorn0@gmail.com</p>
-<p>
-For copyright issues, business inquiries, or AdSense related communication.
-</p>
-</div>
+    <main class="grid">
 
-</div>
+      <section class="card">
+        <h2>Email</h2>
+        <p>
+          Email is the primary and official way to reach us.
+        </p>
+        <p class="email">
+          <a href="mailto:pickspopcorn0@gmail.com">pickspopcorn0@gmail.com</a>
+        </p>
+        <div class="note">
+          Use this for editorial feedback, corrections, collaborations, copyright concerns,
+          or AdSense-related communication.
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Social (Optional)</h2>
+        <p>
+          We may occasionally share updates or links on social platforms.
+          Social accounts are not guaranteed for support or official communication.
+        </p>
+        <p>
+          X (Twitter): <a href="https://twitter.com/picks9505" target="_blank" rel="noopener">@picks9505</a>
+        </p>
+      </section>
+
+    </main>
+
+    <footer>
+      <div>© 2026 Popcorn Picks. All rights reserved.</div>
+      <div>
+        <a href="about.html">About</a>
+        <span style="opacity:.5"> · </span>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </footer>
+
+  </div>
 </body>
 </html>
