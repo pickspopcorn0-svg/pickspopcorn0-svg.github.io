@@ -197,6 +197,72 @@ header{
 /* SECTIONS */
 .section{padding:74px 0}
 .section.firstSection{padding-top:42px}
+
+/* =========================
+   HANDPICKED – Homepage
+   ========================= */
+
+.handpickedSection{
+  padding-top:60px;
+}
+
+/* horizontal scroll wrapper */
+.handpickedMarquee{
+  overflow-x:auto;
+  padding-bottom:12px;
+  scrollbar-width:none;           /* Firefox */
+  -webkit-overflow-scrolling:touch; /* iOS smooth scroll */
+}
+.handpickedMarquee::-webkit-scrollbar{
+  display:none;                   /* Chrome / Safari */
+}
+
+/* scrolling row */
+.handpickedTrack{
+  display:flex;
+  gap:18px;
+  padding:6px 2px;
+}
+
+/* individual poster card */
+.pickCard{
+  flex:0 0 auto;
+  width:160px;
+  text-align:center;
+  transition:transform .22s ease;
+  will-change:transform;
+}
+
+.pickCard img{
+  width:100%;
+  aspect-ratio:2 / 3;
+  object-fit:cover;
+  border-radius:16px;
+  background:#000;
+  outline:1px solid rgba(255,255,255,.12);
+}
+
+/* hover lift */
+.pickCard:hover{
+  transform:translateY(-4px);
+}
+
+/* title under poster */
+.pickTitle{
+  margin-top:10px;
+  font-size:14px;
+  font-weight:700;
+  color:rgba(255,255,255,.85);
+  line-height:1.3;
+}
+
+/* mobile tweak */
+@media(max-width:520px){
+  .pickCard{
+    width:140px;
+  }
+}
+
 .section h2{
   font-size:28px;
   margin-bottom:18px;
@@ -623,7 +689,8 @@ footer p{
     </div>
   </div>
 </section>
-  <!-- HANDPICKED (Homepage teaser) -->
+
+<!-- HANDPICKED (Homepage teaser) -->
 <section class="section handpickedSection">
   <div class="container">
 
