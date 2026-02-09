@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>If You Think Historical K-Dramas Aren’t for You, Start With These — Popcorn Picks</title>
+<title>Historical K-Dramas (For Skeptics) — Popcorn Picks</title>
 
-<meta name="description" content="If you think historical K-dramas aren’t for you, start with these. Fast, genre-bending picks that feel like thrillers, westerns, horrors, and epics—not palace homework." />
+<meta name="description" content="Historical K-dramas for people who usually avoid the genre. Fast, modern, beginner-friendly picks with long, detailed notes." />
 <link rel="canonical" href="https://popcornpicks.in/editorial-historical-kdramas-for-skeptics.html" />
 
 <!-- ✅ AdSense -->
@@ -27,574 +27,355 @@
     background:#0b0b0c;
     color:#fff;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    line-height:1.85;
   }
   a{text-decoration:none;color:inherit}
+  img{max-width:100%;display:block}
 
-  /* lock scroll when modal is open */
-  body.noscroll{overflow:hidden;touch-action:none}
-
+  /* TOP BAR */
   .top{
-    position:sticky;top:0;
-    display:flex;justify-content:space-between;align-items:center;
-    padding:16px 20px;
+    position:sticky; top:0;
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:14px 14px;
     background:rgba(10,10,10,.88);
     -webkit-backdrop-filter:blur(10px);
     backdrop-filter:blur(10px);
     border-bottom:1px solid #222;
     z-index:50;
   }
-  .top b{font-size:16px}
+  .navLeft{display:flex; gap:10px; align-items:center}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:9px 12px;
+    border:1px solid #242424;
+    background:#121212;
+    border-radius:999px;
+    color:#eaeaea;
+    font-size:13px;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .btn:active{transform:scale(.99)}
+  .titleTop{
+    font-weight:700;
+    font-size:14px;
+    color:#f2f2f2;
+    text-align:center;
+    flex:1 1 auto;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .spacer{width:98px}
 
-  .wrap{padding:18px 18px 10px}
-
-  /* HERO / BANNER */
+  /* HERO */
   .hero{
-    margin:0 18px 10px;
+    max-width:1100px;
+    margin:0 auto;
+    padding:18px 14px 0;
+  }
+  .heroBanner{
     border-radius:18px;
     overflow:hidden;
-    border:1px solid #181818;
-    background:#101010;
+    border:1px solid #1f1f1f;
+    background:#111;
     position:relative;
-    min-height:260px;
   }
-  .heroBg{
-    position:absolute; inset:0;
-    background-size:cover;
-    background-position:center;
-    transform:scale(1.02);
-    filter:saturate(1.02);
+  .heroBanner img{
+    width:100%;
+    height:420px;
+    object-fit:cover;
   }
-  .heroShade{
-    position:absolute; inset:0;
-    background:
-      linear-gradient(to top, rgba(0,0,0,.92), rgba(0,0,0,.25) 60%, rgba(0,0,0,.2)),
-      radial-gradient(900px 420px at 20% 20%, rgba(0,0,0,.15), rgba(0,0,0,.65));
-  }
-  .heroInner{
-    position:relative;
-    padding:18px;
+  .heroOverlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top, rgba(0,0,0,.92), rgba(0,0,0,.18) 55%, rgba(0,0,0,.10));
     display:flex;
-    flex-direction:column;
-    gap:10px;
-    min-height:260px;
-    justify-content:flex-end;
+    align-items:flex-end;
+    padding:18px;
   }
-  .kicker{
+  .heroKicker{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:7px 10px;
+    border:1px solid rgba(255,255,255,.18);
+    background:rgba(0,0,0,.35);
+    border-radius:999px;
     font-size:12px;
     letter-spacing:.14em;
     text-transform:uppercase;
-    color:#cfcfcf;
-    opacity:.95;
+    color:#eaeaea;
+    margin-bottom:12px;
   }
-  .hTitle{
-    font-size:26px;
+  .heroH1{
+    font-size:44px;
+    line-height:1.06;
     font-weight:900;
-    line-height:1.1;
-    max-width:46ch;
+    letter-spacing:-.02em;
   }
-  .hSub{
-    color:#ddd;
-    font-size:13.5px;
-    line-height:1.6;
-    max-width:78ch;
-    opacity:.95;
-  }
-  .heroPills{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
-  .heroPill{
-    font-size:12px;
-    border:1px solid #222;
-    background:rgba(0,0,0,.35);
-    padding:8px 10px;
-    border-radius:999px;
-    color:#e5e5e5;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+  .heroSub{
+    margin-top:12px;
+    max-width:82ch;
+    color:#d6d6d6;
+    font-size:16px;
+    line-height:1.75;
   }
 
-  .small{
-    color:#aaa;
-    font-size:12px;
-    padding:6px 2px 0;
+  /* CONTENT */
+  .wrap{
+    max-width:1100px;
+    margin:0 auto;
+    padding:22px 14px 70px;
+  }
+  .block{padding:18px 0 4px}
+  .sectionTitle{
+    margin-top:6px;
+    font-size:30px;
+    font-weight:900;
+    letter-spacing:-.02em;
+  }
+  .sectionMeta{
+    margin-top:6px;
+    color:#bdbdbd;
+    font-size:14px;
     line-height:1.4;
   }
-
-  .grid{
-    padding:16px 18px 34px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-    gap:18px;
+  .divider{
+    margin:18px 0 0;
+    border-top:1px solid #1f1f1f;
   }
-
-  .card{
+  .posterInline{
+    margin:18px 0 18px;
+    width:min(720px,100%);
     border-radius:18px;
-    border:1px solid #181818;
-    overflow:hidden;
-    position:relative;
+    border:1px solid #222;
     background:#111;
-    min-height:320px;
-    cursor:pointer;
-    -webkit-tap-highlight-color:transparent;
-  }
-  .poster{
-    height:320px;
-    background:#101010;
-    background-size:cover;
-    background-position:center;
-  }
-  .poster.fallback{
-    background:
-      radial-gradient(700px 380px at 20% 15%, rgba(255,255,255,.09), transparent 55%),
-      linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.8));
-  }
-  .info{
-    position:absolute;
-    bottom:0;left:0;right:0;
-    padding:14px;
-    background:linear-gradient(to top,rgba(0,0,0,.92),transparent);
-  }
-  .title{font-size:18px;font-weight:700;line-height:1.2}
-  .meta{font-size:12px;color:#aaa;margin-top:4px}
-  .tagsline{
-    font-size:12px;
-    color:#cfcfcf;
-    margin-top:8px;
-    opacity:.92;
-    display:-webkit-box;
-    -webkit-line-clamp:2;
-    -webkit-box-orient:vertical;
     overflow:hidden;
   }
-
-  /* MODAL */
-  .modal{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.72);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:18px;
-    z-index:999;
-  }
-  .modal.on{display:flex}
-
-  /* Make the modal content scrollable on mobile */
-  .sheet{
-    width:min(980px, 100%);
+  .p{margin:14px 0;color:#e6e6e6;font-size:16px}
+  .smallNote{
+    margin-top:18px;
+    color:#a9a9a9;
+    font-size:13px;
+    line-height:1.6;
     border:1px solid #1f1f1f;
-    background:#0f0f0f;
-    border-radius:18px;
-    overflow:hidden;
-    max-height:calc(100dvh - 36px);
-    display:flex;
-    flex-direction:column;
+    background:rgba(255,255,255,.03);
+    border-radius:14px;
+    padding:12px 14px;
   }
 
-  .sheetTop{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:14px 14px;
-    border-bottom:1px solid #1f1f1f;
-    background:#0d0d0d;
-    flex:0 0 auto;
+  @media (max-width:900px){
+    .heroBanner img{height:340px}
+    .heroH1{font-size:34px}
+    .heroSub{font-size:15px}
+    .spacer{width:86px}
   }
-  .closeBtn{
-    border:1px solid #222;
-    background:#141414;
-    color:#fff;
-    border-radius:12px;
-    padding:10px 12px;
-    cursor:pointer;
-  }
-
-  .sheetBody{
-    padding:16px;
-    display:grid;
-    grid-template-columns:320px 1fr;
-    gap:16px;
-
-    /* key: allow internal scrolling */
-    overflow:auto;
-    -webkit-overflow-scrolling:touch;
-    overscroll-behavior:contain;
-    flex:1 1 auto;
-  }
-
-  .bigPoster{
-    height:460px;
-    border-radius:16px;
-    border:1px solid #1b1b1b;
-    background:#111;
-    background-size:cover;
-    background-position:center;
-  }
-  .bigPoster.fallback{
-    background:
-      radial-gradient(900px 520px at 20% 15%, rgba(255,255,255,.09), transparent 55%),
-      linear-gradient(to bottom, rgba(0,0,0,.12), rgba(0,0,0,.85));
-  }
-  .h1{
-    font-size:26px;
-    font-weight:800;
-    line-height:1.1;
-  }
-  .muted{color:#aaa;font-size:13px;line-height:1.5;margin-top:8px}
-  .why{
-    margin-top:14px;
-    font-size:14px;
-    line-height:1.85;
-    color:#ddd;
-    white-space:pre-line;
-  }
-  .pills{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
-  .pill{
-    font-size:12px;
-    border:1px solid #222;
-    background:#111;
-    padding:8px 10px;
-    border-radius:999px;
-    color:#d8d8d8;
-  }
-
-  /* Mobile polish */
-  @media(max-width:900px){
-    .sheetBody{grid-template-columns:1fr}
-    .bigPoster{height:360px}
-    .h1{font-size:22px}
-  }
-  @media(max-width:520px){
-    .grid{grid-template-columns:1fr}
-    .wrap{padding:16px 14px 8px}
-    .hero{margin:0 14px 10px; min-height:300px}
-    .heroInner{min-height:300px}
-    .grid{padding:14px 14px 28px}
-    .top{padding:14px 14px}
-    .poster{height:340px}
-    .card{min-height:340px}
-    .modal{padding:12px}
-    .sheet{max-height:calc(100dvh - 24px)}
+  @media (max-width:520px){
+    .heroBanner img{height:300px}
+    .heroH1{font-size:30px}
+    .sectionTitle{font-size:26px}
+    .p{font-size:15.5px}
+    .btn{font-size:12.5px;padding:9px 11px}
+    .spacer{width:78px}
   }
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Historical K-Dramas (For Skeptics)",
+  "author": { "@type": "Organization", "name": "Popcorn Picks" },
+  "publisher": { "@type": "Organization", "name": "Popcorn Picks" },
+  "description": "Historical K-dramas for people who usually avoid the genre. Detailed beginner-friendly notes with a Song of the Bandits banner."
+}
+</script>
 </head>
 
 <body>
 
+<!-- TOP BAR -->
 <div class="top">
-  <a href="editorial.html">← Editorials</a>
-  <b>Historical K-Dramas (For Skeptics)</b>
-  <span></span>
+  <div class="navLeft">
+    <a class="btn" href="editorials.html">← Editorials</a>
+    <a class="btn" href="index.html">Home</a>
+  </div>
+  <div class="titleTop">Historical K-Dramas (For Skeptics)</div>
+  <div class="spacer"></div>
 </div>
 
-<!-- HERO BANNER (Song of the Bandits) -->
-<section class="hero" aria-label="Editorial banner">
-  <div class="heroBg" style="background-image:url('assets/posters/kdrama/song-of-the-bandits-banner.jpeg');"></div>
-  <div class="heroShade"></div>
-  <div class="heroInner">
-    <div class="kicker">Popcorn Picks • Editorial</div>
-    <div class="hTitle">If You Think Historical K-Dramas Aren’t for You, Start With These</div>
-    <div class="hSub">
-      This isn’t a “best of.” It’s a gateway list—picked for people who usually avoid sageuks.
-      These shows move like thrillers, westerns, horrors, and epics: fast stakes, sharp tension, and characters under pressure.
-      Minimal “palace homework.” Maximum “one more episode.”
-    </div>
-    <div class="heroPills" aria-label="Quick tags">
-      <div class="heroPill">Genre-bending</div>
-      <div class="heroPill">Beginner-friendly</div>
-      <div class="heroPill">Not romance-first</div>
-      <div class="heroPill" id="heroCount">9 picks</div>
+<!-- HERO (Song of the Bandits banner) -->
+<section class="hero" aria-label="Hero banner">
+  <div class="heroBanner">
+    <img src="assets/posters/kdrama/song-of-the-bandits.jpeg" alt="Song of the Bandits banner" loading="eager" decoding="async" />
+    <div class="heroOverlay">
+      <div>
+        <div class="heroKicker">Editorial • K-Drama</div>
+        <div class="heroH1">If You Think Historical K-Dramas Aren’t for You, Start With These</div>
+        <div class="heroSub">
+          This is not a “best of” list and it is not a guide for genre experts.
+          These are historical and historical-adjacent K-dramas picked for people who usually avoid the genre.
+          The goal is simple. Faster hooks. Cleaner storytelling. Strong character work. Less palace homework vibes.
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="wrap">
-  <div class="small" id="resultCount">Loading...</div>
-</div>
+<main class="wrap">
 
-<div class="grid" id="grid"></div>
-
-<!-- MODAL -->
-<div class="modal" id="modal" aria-hidden="true">
-  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="mTitle">
-    <div class="sheetTop">
-      <div style="font-weight:700">Details</div>
-      <button class="closeBtn" id="closeBtn" type="button">Close</button>
+  <!-- 1 -->
+  <div class="block">
+    <div class="sectionTitle">Six Flying Dragons</div>
+    <div class="sectionMeta">2015 • Historical / Political / Action</div>
+    <div class="posterInline">
+      <img src="assets/posters/kdrama/six-flying-dragons.jpg.jpeg" alt="Six Flying Dragons poster" loading="lazy" decoding="async" />
     </div>
-    <div class="sheetBody" id="sheetBody">
-      <div class="bigPoster fallback" id="mPoster"></div>
-      <div>
-        <div class="h1" id="mTitle">—</div>
-        <div class="muted" id="mMeta"></div>
-        <div class="pills" id="mPills"></div>
-        <div class="why" id="mWhy"></div>
-      </div>
+
+    <p class="p">I’ll be honest, the first time I saw “50 episodes” attached to a historical drama, I almost closed the tab. Fifty hours of anything feels like a commitment I’m not ready for. It’s usually the territory of dusty textbooks and endless scenes of old men in tall hats arguing about grain taxes. I usually prefer my dramas fast, punchy, and over in sixteen hours. I like when a show knows what it is and doesn’t wander. So yes, I went into Six Flying Dragons expecting respectability, not obsession.</p>
+    <p class="p">But Six Flying Dragons is the show that made me eat my words. It doesn’t feel like a long drama. It feels like a 50-hour heist movie where the prize is an entire country. Every episode has a clear target. Every plan has consequences. Every alliance has a price. The show understands something that a lot of long dramas forget. If you keep raising the stakes and you keep paying off what you set up, time stops feeling like time.</p>
+    <p class="p">The story covers the fall of the Goryeo dynasty and the birth of Joseon. But forget history class for a moment. At its core, this is about people staring at a rotten system and deciding whether they will fix it, exploit it, or burn it down. The “dragons” are not saints. They are ambitious, wounded, hungry, and intelligent. That is why it works. It never asks you to clap for righteousness. It asks you to watch power being built, brick by brick, and then asks what that building does to the builders.</p>
+    <p class="p">Yoo Ah-in plays Lee Bang-won, and watching his transformation is one of the most intense journeys I’ve had with a TV character. He starts with ideals. He wants change. He wants a better world. But the moment he learns that “better world” requires compromise, he starts sharpening into something colder. He becomes calculating. He becomes terrifyingly efficient. The show doesn’t try to make you like him. It forces you to understand him, and that is more dangerous. You will find yourself rooting for him while also quietly realizing you would not want him anywhere near your life.</p>
+    <p class="p">Then there’s the action. Usually, in long historical dramas, sword fights can feel like padding. Not here. The choreography is cinematic and heavy. It has weight. It has impact. You can feel the stamina being spent. Every time Dang-sae draws his blade, you feel the room tighten. And what makes the violence meaningful is that it is tied to decisions. A fight is rarely “just a fight.” It is a message. It is a consequence. It is a political move with blood on it.</p>
+    <p class="p">The pacing is what shocked me most. It never drags. Every betrayal lands because it was earned. Every alliance is built with logic. You see the intellectual chess match between the genius architect Sambong and the ambitious Bang-won, and it is as thrilling as any physical battle. The show respects your intelligence. It doesn’t simplify the moral mess. By the end, I wasn’t just watching a history lesson. I was watching a tragedy about the loneliness of power, and the terrifying idea that the people who change the world are often the people who can live with what it costs.</p>
+    <div class="divider"></div>
+  </div>
+
+  <!-- 2 -->
+  <div class="block">
+    <div class="sectionTitle">Song of the Bandits</div>
+    <div class="sectionMeta">2023 • Historical / Action / Western</div>
+    <div class="posterInline">
+      <img src="assets/posters/kdrama/song-of-the-bandits.jpeg" alt="Song of the Bandits poster" loading="lazy" decoding="async" />
+    </div>
+
+    <p class="p">If you usually find historical dramas too “palace-y”, meaning a lot of bowing, whispering, and long corridors of politics, then Song of the Bandits is the reset button. This is not a traditional sageuk. This is a Korean Western. Guns, horses, dusty standoffs, and that tense silence right before violence breaks. The setting is the 1920s, during the Japanese occupation of Korea, but the tone is closer to an action adventure than a lecture.</p>
+    <p class="p">I went in expecting an independence movement story that might be heavy or overly sentimental. Instead, the show has a completely different energy. It is gritty, stylish, and filmed with a confidence that feels modern. The location is Gando, a lawless borderland where power is up for grabs. The Japanese military wants control, local forces want survival, criminals want profit, and refugees just want to exist without being crushed. That tension makes the world feel alive because everyone has a reason to be dangerous.</p>
+    <p class="p">The story follows Lee Yoon, played by Kim Nam-gil, a former soldier for the Japanese empire carrying a massive amount of guilt. That guilt is not a cute character trait. It is the thing that shapes how he moves and how he fights. He goes to Gando looking for something like atonement and ends up becoming the center of a chaotic found-family team. Kim Nam-gil sells the “man of few words” vibe perfectly. He can stand still and still feel like he is making a decision. And when he finally acts, it is clean and brutal.</p>
+    <p class="p">What I love is that the show doesn’t pretend it is “important” in a boring way. It understands that audiences show up for momentum. So it gives you set pieces. Shootouts in dusty streets. Chases across open land. Ambushes. Tight close-quarter fights. The action is not random, it is story-driven, and it keeps the episodes moving. There is also a standout character, Eon-nyeon, a young contract killer who steals every scene. Her presence adds unpredictability. You never know if she will save someone, betray someone, or do something worse just because she can.</p>
+    <p class="p">And then there is the structure. Only 9 episodes. That matters. If you are tired of the classic 16-episode stretch where the middle slows down, this is a relief. The show gets to the point. The relationships form under pressure. The stakes stay visible. It also has that cool factor that is hard to fake. The soundtrack has a modern kick, the costumes feel worn-in, and the world feels rough. You are not watching polished royalty. You are watching people on the edge of the map trying to protect what little they have.</p>
+    <p class="p">Song of the Bandits is not trying to be a philosophical dissertation. It is about survival, loyalty, and what it means to choose a side when every side is dirty. It is stylish, violent, and weirdly fun even when it is tense. If you want a historical drama that feels like an action movie you can binge in a weekend, start here.</p>
+    <div class="divider"></div>
+  </div>
+
+  <!-- 3 -->
+  <div class="block">
+    <div class="sectionTitle">Mr. Sunshine</div>
+    <div class="sectionMeta">2018 • Historical / Romance / Melodrama</div>
+    <div class="posterInline">
+      <img src="assets/posters/kdrama/mr-sunshine.jpeg" alt="Mr. Sunshine poster" loading="lazy" decoding="async" />
+    </div>
+
+    <p class="p">I avoided Mr. Sunshine at first because the hype was so loud that I assumed it could not possibly live up to it. Also, the setting sounds like guaranteed heartbreak. Early 1900s Korea, foreign powers circling, occupation tightening, lives being crushed. It felt like signing up for emotional damage on purpose. I kept telling myself I would watch it later, maybe when I felt “ready.”</p>
+    <p class="p">Then I finally hit play, and within twenty minutes I realized I wasn’t just watching a drama. I was watching craft. Mr. Sunshine is one of the most visually stunning things I have ever seen on screen. Every frame looks deliberate. The lighting, the compositions, the costumes, the way the camera lingers on quiet moments. It is beautiful, but it is not beauty for beauty’s sake. The visuals support the story, and the story is built on characters who feel painfully human.</p>
+    <p class="p">The drama follows Eugene Choi, a man who escaped slavery in Korea as a child, fled to America, and returns as a U.S. Marine Captain. He does not come back out of love for his homeland. He comes back with distance, bitterness, and a complicated relationship to the country that harmed him. Then he meets Go Ae-shin, a noblewoman who is secretly a sniper for the Righteous Army. She is not written like a fragile heroine waiting to be rescued. She is committed. She is disciplined. She is brave in a quiet, steady way that makes other characters look small.</p>
+    <p class="p">Yes, there is romance, and it is slow-burn and poetic. But what makes Mr. Sunshine special is that it does not reduce itself to “who ends up with who.” The emotional spine is the way people love in impossible conditions. Love for a person, love for a country, love for an idea of dignity. The drama also gives you a trio of men that turns a typical love triangle into something richer. Eugene, Gu Dong-mae, and Kim Hui-seong all love the same woman, but instead of petty jealousy, you get tension, reluctant respect, humor, and eventually a bond that hurts to watch because you know it cannot end cleanly.</p>
+    <p class="p">The writing is sharp. The dialogue has weight. The humor lands because it is earned. The sadness hits because it was built properly. The show takes its time, but it is not boring. It uses quiet scenes to deepen character, not to stall. When violence arrives, it is not just spectacle. It is consequence. People pay for what they choose, and the drama never pretends otherwise.</p>
+    <p class="p">By the end, Mr. Sunshine feels like you lived with these characters. You will probably finish it and sit in silence for a while. Not because you are confused, but because the story makes you feel the cost of history through people you came to care about. If you want a historical drama that feels like cinema and feels emotionally adult, this is the one.</p>
+    <div class="divider"></div>
+  </div>
+
+  <!-- 4 -->
+  <div class="block">
+    <div class="sectionTitle">My Dearest</div>
+    <div class="sectionMeta">2023 • Historical / Romance / War</div>
+    <div class="posterInline">
+      <img src="assets/posters/kdrama/my-dearest.jpeg" alt="My Dearest poster" loading="lazy" decoding="async" />
+    </div>
+
+    <p class="p">If you are looking for a story that feels massive, the kind of epic that spans years, borders, and the psychological wreckage of war, My Dearest is the gold standard. It is set during the Qing invasion of Joseon in the 1630s, a time of brutal upheaval, but it never turns into a dry history summary. It stays focused on the human cost. What happens to love when the world keeps interrupting it. What happens to identity when survival becomes the only skill that matters.</p>
+    <p class="p">The drama begins with an almost deceptive lightness. You meet Lee Jang-hyun, a mysterious man with a flirtatious ease and a reputation that makes people curious. You meet Yoo Gil-chae, a spoiled noblewoman who is used to attention and social games. Early on, it can feel like a charming romance setup. Village dynamics. Pride. Jealousy. Little humiliations that feel small and personal. Then the war hits, and the show changes shape completely.</p>
+    <p class="p">What makes My Dearest stand out is how it depicts war as a machine that grinds everyone down, not just soldiers. You see refugees. Hunger. Families separated. Bodies treated like numbers. People forced to bargain with their dignity. The writing does not glamorize suffering, but it also does not sanitize it. The fear feels specific, and the desperation feels real. It is the kind of drama where you understand why characters do things you wish they did not do.</p>
+    <p class="p">Gil-chae’s character arc is one of the best parts. She starts privileged and careless, not evil, just sheltered. When the world collapses, she changes. She learns practical survival. She learns when to speak and when to stay silent. She learns how to protect people, not with swords, but with choices. Her transformation never feels like a sudden personality flip. It feels like someone growing up under pressure. That is why it hits. It respects the way trauma reshapes a person slowly.</p>
+    <p class="p">The romance is intense, but it is not “cute.” It is yearning. It is missed timing. It is letters that do not arrive. It is years passing with a single thought staying constant. Namkoong Min plays Jang-hyun with a beautiful mix of weariness and devotion. He looks like someone who has seen too much and is still choosing to care anyway. Their chemistry works because it is built through survival moments, not just eye contact in pretty clothes.</p>
+    <p class="p">Visually, the drama is sweeping. Snowy mountain passes. Chaotic markets. Vast landscapes that make the characters look small. But it never loses intimacy. It knows when to zoom in on a quiet reunion, a small touch, a glance that says “I thought you were dead.” My Dearest is the kind of drama that asks for your full attention. If you give it that attention, it pays you back with something that feels like a literary epic you can feel in your chest.</p>
+    <div class="divider"></div>
+  </div>
+
+  <!-- 5 -->
+  <div class="block">
+    <div class="sectionTitle">Bossam: Steal the Fate</div>
+    <div class="sectionMeta">2021 • Historical / Romance / Drama</div>
+    <div class="posterInline">
+      <img src="assets/posters/kdrama/bossam-steal-the-fate.jpeg" alt="Bossam: Steal the Fate poster" loading="lazy" decoding="async" />
+    </div>
+
+    <p class="p">Bossam: Steal the Fate is the kind of drama that looks like a standard serious sageuk if you only see the poster, but the actual story has a weird, specific hook that makes it feel fresh. It is built around a real custom called bossam, where a widow could be wrapped in a blanket at night and “kidnapped” to be remarried. It sounds ridiculous, and that is exactly why it is interesting. The drama takes that strange social loophole and uses it to talk about women’s lives, class, and the way people get trapped by rules that were never designed for their happiness.</p>
+    <p class="p">The story begins when Ba-woo, a rough, street-smart man who does bossam kidnappings for money, grabs the wrong person. He thinks he is taking a widow for a job. Instead, he accidentally abducts Princess Soo-kyung, the widowed daughter of the King. Now he is holding someone who is supposed to be untouchable, and the palace can’t admit she is missing without scandal. That twist instantly creates tension. Everyone is hiding something, and the consequences are deadly.</p>
+    <p class="p">What makes the drama addictive is the emotional center. It becomes a found family story. Ba-woo is not a polished noble hero. He is a single dad trying to survive. His son Cha-dol is not a side prop. He is part of the heart. When the Princess is forced into their world, you get this quiet domesticity that feels surprisingly warm. They fix up spaces. They share meals. They learn each other’s rhythms. The Princess has to learn practical skills, and Ba-woo has to learn that protecting someone can be a choice, not just a job.</p>
+    <p class="p">Jung Il-woo plays Ba-woo with grit and softness. You can believe he has lived a hard life, but you can also see the human underneath it. Yuri plays the Princess with dignity and restraint. She is not written as a “badass sword girl,” but she is mentally strong. She reads rooms. She understands politics. She refuses to let men decide her entire future. That quiet strength is more interesting than noisy heroism because it feels real in the context of the era.</p>
+    <p class="p">Yes, the drama does lean into palace politics later. Secrets surface. Power struggles widen. Some viewers find the second half heavier. But the reason it still works is because the relationships are already built. You care about the trio, and the politics becomes a threat to something you value. The romance is slow and mature. It is built on trust and shared survival, not grand declarations. If you want a historical drama that feels like a hidden gem and gives you warmth inside the chaos, Bossam is a great pick.</p>
+    <div class="divider"></div>
+  </div>
+
+  <!-- 6 -->
+  <div class="block">
+    <div class="sectionTitle">Gyeongseong Creature</div>
+    <div class="sectionMeta">2023 • Historical / Horror / Sci-Fi</div>
+    <div class="posterInline">
+      <img src="assets/posters/kdrama/gyeongseong-creature.jpeg" alt="Gyeongseong Creature poster" loading="lazy" decoding="async" />
+    </div>
+
+    <p class="p">Gyeongseong Creature is the easiest recommendation for people who say, “I can’t do historical dramas, I need something with a hook.” Because the hook here is immediate. Colonial-era Seoul, noir-ish atmosphere, secret experiments, and a monster that is not just a random CGI problem. If you drop a 1940s detective thriller into the middle of a survival horror game, you get the vibe. It is tense, stylish, and designed for binge watching.</p>
+    <p class="p">The setting is 1945 Gyeongseong, which is what Seoul was called during the Japanese occupation. The city feels like it is holding its breath. People are scared, information is controlled, and cruelty is normalized. Park Seo-joon plays Jang Tae-sang, a wealthy pawnshop owner with a reputation and connections. He acts selfish, and sometimes he is selfish, but he has that classic “I pretend I don’t care” mask that cracks when things get real. When he is blackmailed into finding a missing person, he crosses paths with Chae-ok, played by Han So-hee, a specialist in finding people who don’t want to be found.</p>
+    <p class="p">The real story begins when they infiltrate a military hospital that is not really a hospital. It is a lab. It is a prison. It is a place where human beings are treated like materials. This is where the creature element comes in, and it is the best part of the show’s horror. The monster is not just a jump scare machine. It is tragic. It is connected to the cruelty of the era. That makes the fear sharper, because the horror is not only “something is chasing us.” The horror is “human beings made this.”</p>
+    <p class="p">The chemistry between the leads is urgent. It is not soft romance. It is the bond you form when you might die together. Park Seo-joon brings charm and quick thinking, while Han So-hee brings intensity and grit. Their teamwork feels earned because they are constantly making choices under pressure. There are also supporting characters who add weight, including people trapped in the system and people benefiting from it. The show does not let you forget that the true villains are often the ones wearing uniforms and signing papers.</p>
+    <p class="p">Visually, it looks expensive. The sets are detailed, the period styling is sharp, and the hospital feels like a suffocating maze. It does get gory at times, so if you are squeamish, be warned. Also, like many Netflix series, the middle can stretch a little. But the tension stays high, and the emotional payoff hits because the story is not only about survival. It is about humanity. If you want a historical drama that feels modern, fast, and genre-driven, this one is a strong entry point.</p>
+    <div class="divider"></div>
+  </div>
+
+  <!-- 7 -->
+  <div class="block">
+    <div class="sectionTitle">Alchemy of Souls</div>
+    <div class="sectionMeta">2022 • Fantasy / Romance / Action</div>
+    <div class="posterInline">
+      <img src="assets/posters/kdrama/alchemy-of-souls.jpeg" alt="Alchemy of Souls poster" loading="lazy" decoding="async" />
+    </div>
+
+    <p class="p">Alchemy of Souls is for people who want historical vibes without the pressure of real history. It is not Joseon politics. It is not a “based on true events” story. It is a fully fictional world called Daeho that borrows the aesthetic of historical dramas and mixes it with magic, martial arts, and modern pacing. That makes it beginner-friendly because you never feel like you are missing context. You learn the world as the characters do, and the show keeps it entertaining while it explains itself.</p>
+    <p class="p">The story begins with Naksu, a legendary assassin being hunted. To escape, she uses forbidden magic called the Alchemy of Souls, shifting her soul into another body. The spell goes wrong, and instead of ending up in a powerful body, she lands inside Mu-deok, a physically weak servant girl who can barely hold a sword. That twist is the engine of the story. The deadliest person in the room is trapped inside the weakest body, and she is furious about it.</p>
+    <p class="p">Enter Jang Uk, a nobleman from a powerful mage family whose “gate of energy” was sealed at birth. He is talented, but blocked. He is ambitious, but treated like a problem. When he realizes who Mu-deok truly is, he makes a deal. She will train him in combat and survival, and he will protect her from the people trying to kill her. The relationship becomes a teacher-student dynamic filled with banter, manipulation, loyalty, and slow emotional shifts. It is fun because both characters are stubborn, and neither one wants to admit they care.</p>
+    <p class="p">The show’s strength is balance. It has romance, but it also has comedy that actually works. It has action, but the fights are tied to character growth. It has politics, but the politics are easy to follow because the show keeps the focus on clear goals. There are great side characters too, including the “Four Seasons,” heirs of major families whose friendships and rivalries add flavor. There is also the horror-adjacent element of soul-shifters who lose control and turn into stone-like monsters, which keeps stakes alive beyond romance.</p>
+    <p class="p">Visually, it is top-tier. The magic effects are polished, especially the water-based techniques. The costumes and sets are lush without feeling heavy. The pacing is modern, and the episodes end with strong “one more” energy. When the story expands, it grows from personal survival into something bigger about power, destiny, and consequences. If you want the fun parts of historical fantasy, swords, clans, forbidden techniques, and emotional bonds, without needing to remember royal family trees, Alchemy of Souls is an easy yes.</p>
+    <div class="divider"></div>
+  </div>
+
+  <!-- 8 -->
+  <div class="block">
+    <div class="sectionTitle">The Rebel: Thief Who Stole the People</div>
+    <div class="sectionMeta">2017 • Historical / Action / Melodrama</div>
+    <div class="posterInline">
+      <img src="assets/posters/kdrama/the-rebel-thief-who-stole-the-people.jpeg" alt="The Rebel: Thief Who Stole the People poster" loading="lazy" decoding="async" />
+    </div>
+
+    <p class="p">I used to think the “Robin Hood” idea was played out. Steal from the rich, give to the poor, fight a bad king, save the people. It can feel predictable if the story is only built on the trope. The Rebel takes that familiar setup and turns it into something emotional and grounded. It is not just about rebellion. It is about the weight of being born low in a world designed to keep you low, and what it does to a family when they try to climb out.</p>
+    <p class="p">One of the smartest choices the drama makes is starting with the father, Amogae, not the hero. Amogae is a slave, treated like property, and he decides he has had enough. He builds an underground empire to buy freedom for his family, and watching him do that is gripping. It is not a clean hero journey. It is messy, desperate, and full of hard decisions. That is why it hits. You understand the cost before the “legend” even begins.</p>
+    <p class="p">Then you meet Gil-dong, the son, who is born with unusual physical strength. In Joseon, being a low-born child with that kind of power is seen as dangerous. He spends years trying to hide, trying to live quietly, trying to avoid attention. But the King Yeonsangun descends into tyranny, and the suffering becomes too loud to ignore. Gil-dong doesn’t wake up one day and decide to be a revolutionary for fun. He is pushed into it by injustice and by the pain of watching people he loves get crushed.</p>
+    <p class="p">The drama also nails the “crew” dynamic. The Hong Clan is a ragtag brotherhood that gives the story humor and warmth. They are not polished warriors. They are smugglers, thieves, survivors. They joke, they fight, they protect each other, and their bond becomes the emotional glue that makes the rebellion feel like a community, not a lone hero fantasy. There is romance too, but it is supportive. The female lead is not just a prize. She has her own strength, her own bravery, and her choices matter.</p>
+    <p class="p">Pacing matters here. It is 30 episodes, but it moves. It does not feel like endless filler because the drama keeps tying personal stakes to political stakes. When a victory happens, you feel it. When a tragedy hits, it hurts because you saw the family build their hope. The Rebel is the kind of drama that makes you cheer for the underdog, but it also makes you think about what people become when they are forced to fight for dignity. If you want a historical that is emotional, action-driven, and built on family rather than palace romance, this is a strong pick.</p>
+    <div class="divider"></div>
+  </div>
+
+  <!-- 9 -->
+  <div class="block">
+    <div class="sectionTitle">Kingdom</div>
+    <div class="sectionMeta">2019 • Historical / Horror / Political</div>
+    <div class="posterInline">
+      <img src="assets/posters/kdrama/kingdom.jpeg" alt="Kingdom poster" loading="lazy" decoding="async" />
+    </div>
+
+    <p class="p">If the words “historical drama” make you think of slow ceremonies and endless royal lineage talk, Kingdom is the show that breaks that stereotype in the first episode. It takes Joseon-era palace politics and injects a fast zombie outbreak into the middle of it. It sounds wild, but it works because the show treats both genres seriously. The politics are real and tense. The horror is sharp and brutal. The blend feels intentional, not gimmicky.</p>
+    <p class="p">The story begins with a cover-up. The King has fallen ill, officially with “smallpox,” and the powerful Haewon Cho clan has locked down access to him. Even the Crown Prince is blocked. Rumors spread. Is the King dead. Is something worse happening. The Crown Prince Lee Chang goes from political danger to physical danger quickly, and his investigation drags him out of the palace and into villages where the truth is impossible to hide.</p>
+    <p class="p">What makes Kingdom special is that the zombies are not just monsters. They are part of a system. The outbreak is tied to hunger, class, and greed. The peasants are starving. The nobles are obsessed with control. The show keeps showing you the gap between those worlds, and then the outbreak makes that gap lethal. The undead move fast, they are terrifying, and the “hibernation” mechanic adds strategy. Day and night matter. Temperature matters. Supplies matter. It becomes a survival thriller with brains.</p>
+    <p class="p">The cast is strong. Ju Ji-hoon plays the Crown Prince as someone learning leadership the hard way. Bae Doona plays a physician fighting to understand the plague scientifically, which gives the story intelligence, not just panic. Heo Joon-ho brings gravitas as a powerful figure who knows more than he admits. The supporting characters are not filler either. People you meet in the provinces have their own goals, fears, and choices. That makes the world feel real, which makes the horror hit harder.</p>
+    <p class="p">Also, the format helps. Shorter seasons, high production value, and almost zero filler. The cinematography is beautiful and cruel at the same time. Elegant architecture and silk robes on one side, bodies and blood on the other. It keeps your attention because every episode ends with genuine momentum. Kingdom is a horror thriller, but it is also a political story about what leaders owe their people. If you want a historical drama that feels modern, intense, and impossible to binge slowly, this is the definitive gateway.</p>
+
+    <div class="smallNote">
+      Note: If any poster path doesn’t load, double-check the filename, extension, and letter casing in your GitHub repo. Paths must match exactly.
     </div>
   </div>
-</div>
 
-<script>
-  const $ = (id) => document.getElementById(id);
-
-  const grid = $("grid");
-  const resultCount = $("resultCount");
-
-  const modal = $("modal");
-  const closeBtn = $("closeBtn");
-  const sheetBody = $("sheetBody");
-
-  const mPoster = $("mPoster");
-  const mTitle = $("mTitle");
-  const mMeta  = $("mMeta");
-  const mPills = $("mPills");
-  const mWhy   = $("mWhy");
-
-  const heroCount = $("heroCount");
-
-  // ✅ Editorial data (same pattern as your Indian Cinema page)
-  // NOTE: Keep poster paths EXACT (case + extension).
-  const KDRAMAS = [
-    {
-      id:"six-flying-dragons",
-      title:"Six Flying Dragons",
-      year:2015,
-      meta:"Historical • Political chess • Action (50 eps)",
-      genres:["Historical","Political","Action"],
-      poster:"assets/posters/kdrama/six-flying-dragons.jpg.jpeg",
-      synopsis:
-`I’ll be honest: the first time I saw “50 episodes” attached to a historical drama, I almost closed the tab. Fifty hours of anything feels like homework—usually the territory of endless court meetings and dusty speeches.
-
-But Six Flying Dragons is the show that made me eat my words. It doesn’t feel like a long drama; it feels like a 50-hour heist movie where the prize is an entire country.
-
-Yes, it’s about the fall of Goryeo and the birth of Joseon—big history. But the hook isn’t the dates. It’s the moral argument at the center: what happens to your soul when “building something good” requires doing undeniably evil things?
-
-Yoo Ah-in’s Lee Bang-won is the engine. Watching him transform—from idealistic and hopeful to cold, strategic, terrifyingly efficient—is one of the most intense character journeys in K-drama. The show doesn’t beg you to like him. It forces you to understand him… and then sit with how far he’ll go.
-
-And the action? Not filler. Cinematic sword fights with weight and purpose. When Dang-sae draws his blade, you feel the danger in the room.
-
-Most impressive: the pacing. Alliances shift, betrayals land, plans evolve—constantly. It’s political chess with real consequences, and by the end, it’s less “history lesson” and more tragedy about the loneliness of power.
-
-If you’ve been avoiding long historicals, let this be the one that changes your mind.`
-    },
-    {
-      id:"song-of-the-bandits",
-      title:"Song of the Bandits",
-      year:2023,
-      meta:"Historical • Korean Western • Action (9 eps)",
-      genres:["Historical","Action","Western"],
-      poster:"assets/posters/kdrama/song-of-the-bandits.jpeg",
-      synopsis:
-`If most historical dramas feel too “palace-y”—people bowing in courtyards, whispering behind screens—Song of the Bandits is your palate cleanser.
-
-This isn’t a traditional sageuk. It’s a full-blown Korean Western: guns, horses, dusty towns, and standoffs that feel like movie set pieces. It’s set in the 1920s during the Japanese occupation, in Gando—a lawless borderland where Korean settlers are caught between empires, bandits, and survival.
-
-Kim Nam-gil plays Lee Yoon, a former soldier for the Japanese empire carrying a massive amount of guilt. He goes to Gando to atone and ends up leading a ragtag crew protecting people who have nowhere else to go. He has that “man of few words” energy—until the action hits, and then the screen just snaps alive.
-
-What I love is that the show doesn’t try to be “important” in a boring way. It’s action-first. The shootouts, chases, and brawls are staged like an adventure film. There’s also a scene-stealing young killer (Eon-nyeon) who adds a dangerous edge to every moment she’s in.
-
-Only 9 episodes, which is a blessing if you’re allergic to drag. If you want a historical drama that feels like an adrenaline movie, this is the easiest entry point.`
-    },
-    {
-      id:"mr-sunshine",
-      title:"Mr. Sunshine",
-      year:2018,
-      meta:"Historical • Melodrama • Romance (epic scale)",
-      genres:["Historical","Romance","Melodrama"],
-      poster:"assets/posters/kdrama/mr-sunshine.jpeg",
-      synopsis:
-`I avoided Mr. Sunshine for a while because the hype was so loud I assumed it couldn’t possibly live up to it. Also: early 1900s Korea + occupation politics usually means heartbreak, and I wasn’t sure I wanted that kind of emotional damage.
-
-Then I watched it… and realized it’s not just good. It’s elite.
-
-Every frame looks like a painting. But the real trap is the writing: sharp, layered, and quietly devastating.
-
-Eugene Choi escapes slavery in Korea as a child, builds a new life in America, and returns as a U.S. Marine captain—without romantic nostalgia for the homeland he was brutalized by. He collides with Go Ae-shin, a noblewoman who is secretly a sniper for the Righteous Army. She’s not a “damsel.” She’s the flame.
-
-And yes, there’s a “triangle”—but instead of petty jealousy, you get one of the best-written tragic bromances in K-drama history: Eugene, Gu Dong-mae, and Kim Hui-seong. Their scenes together are funny, tense, and eventually heartbreaking.
-
-It’s a slow burn, but never boring. It’s about a country disappearing and the people who choose to fight anyway.
-
-This drama will wreck you. But it’s the kind of wreckage that feels worth it.`
-    },
-    {
-      id:"my-dearest",
-      title:"My Dearest",
-      year:2023,
-      meta:"Historical • War • Romance (literary epic)",
-      genres:["Historical","War","Romance"],
-      poster:"assets/posters/kdrama/my-dearest.jpeg",
-      synopsis:
-`If you want an epic that feels massive—years, borders, invasions, survival—My Dearest is the gold standard.
-
-It’s set during the Qing invasion of Joseon in the 1630s, but what makes it hit is the transformation. The drama starts almost like a comedy of manners: flirting, pride, small-town social games. Then the war arrives, and the tone flips into something visceral and grounded.
-
-Gil-chae’s character arc is one of the best in any genre. She goes from pampered noblewoman to practical survivor, making brutal choices to keep her people alive. She isn’t waiting to be saved—she becomes the anchor.
-
-The romance is “pining” romance: letters that don’t arrive, missed timing, years of longing. Namkoong Min plays Jang-hyun with weary devotion that makes every reunion feel like oxygen.
-
-Big cinematography, huge emotion, and a story that stays with you. This is not background TV—this is a full-body watch.`
-    },
-    {
-      id:"bossam-steal-the-fate",
-      title:"Bossam: Steal the Fate",
-      year:2021,
-      meta:"Historical • Drama • Romance (found family)",
-      genres:["Historical","Drama","Romance"],
-      poster:"assets/posters/kdrama/bossam-steal-the-fate.jpeg",
-      synopsis:
-`Bossam looks like a standard serious sageuk… until you realize it’s built on one of the strangest real customs: “bossam,” where a widow could be wrapped in a blanket and “kidnapped” to be remarried—basically a loophole around restrictions on remarriage.
-
-Ba-woo is a rough, street-smart single dad who does these kidnappings for money. Then he grabs the wrong widow—Princess Soo-kyung, the King’s widowed daughter—who is politically convenient to pretend “died” that night.
-
-What makes this special is the heart: a quiet found-family trio. Ba-woo, his son, and the displaced princess on the run, trying to survive with nothing. It becomes unexpectedly cozy—fixing up spaces, learning domestic life, building trust—without losing the tension of being hunted.
-
-It does lean more into palace politics later, but the emotional spine stays grounded: three people trying to find a place where they can simply exist together.`
-    },
-    {
-      id:"gyeongseong-creature",
-      title:"Gyeongseong Creature",
-      year:2023,
-      meta:"Historical • Noir • Horror/Sci-Fi (1945)",
-      genres:["Historical","Horror","Sci-Fi"],
-      poster:"assets/posters/kdrama/gyeongseong-creature.jpeg",
-      synopsis:
-`If you drop a 1940s noir into a creature-feature thriller, you get Gyeongseong Creature.
-
-It’s set in 1945 Gyeongseong (old Seoul), at the tail end of the Japanese occupation. The hook isn’t just “monster in a basement.” The real horror is human cruelty: experiments, power, and what occupation does to bodies and lives.
-
-Park Seo-joon plays a wealthy pawnshop owner who pretends he only cares about money, until he’s forced into a missing-person case that leads into a military hospital hiding something monstrous. Han So-hee is the tough-as-nails “finder” who has spent her life tracking people.
-
-The show is big-budget, atmospheric, and tense. It can get gory, and the middle can stretch a bit (Netflix pacing), but the emotional payoff hits because the monster isn’t random—it’s tragic.
-
-If you want a historical that feels modern, dangerous, and genre-first, this fits.`
-    },
-    {
-      id:"alchemy-of-souls",
-      title:"Alchemy of Souls",
-      year:2022,
-      meta:"Historical vibes • Fantasy • Action/Romance (fictional world)",
-      genres:["Fantasy","Action","Romance"],
-      poster:"assets/posters/kdrama/alchemy-of-souls.jpeg",
-      synopsis:
-`For people who want “historical vibes” without needing a history degree, Alchemy of Souls is the cheat code.
-
-It’s set in a fictional country (Daeho), so you get robes, swords, and court politics—without real-world timeline pressure. The hook is high-concept: soul-shifting magic.
-
-A legendary assassin (Naksu) shifts her soul to survive… but ends up trapped in a weak servant girl’s body (Mu-deok). Then she meets Jang Uk, a nobleman with his power sealed, desperate to learn. Their dynamic becomes a sharp, funny, dangerous teacher-student partnership.
-
-It’s visually polished, the action is slick, and the pace is modern. If “historical” scares you but fantasy doesn’t, start here.`
-    },
-    {
-      id:"the-rebel",
-      title:"The Rebel: Thief Who Stole the People",
-      year:2017,
-      meta:"Historical • Action • Melodrama (30 eps, underdog)",
-      genres:["Historical","Action","Melodrama"],
-      poster:"assets/posters/kdrama/the-rebel-thief-who-stole-the-people.jpeg",
-      synopsis:
-`I used to think the “Robin Hood” trope was played out—until The Rebel made it feel urgent and emotional.
-
-This isn’t just “steal from the rich.” It’s a family saga about what it means to be born “lesser than” in a society obsessed with rank.
-
-The first half focuses on the father, Amogae—an enslaved man who builds an underground empire to buy his family’s freedom. The emotional stakes are so high that when the son takes over, you’re already fully locked in.
-
-Gil-dong becomes a folk-legend rebel against a tyrannical king (Yeonsangun), but the heart is the brotherhood around him: smugglers and thieves finding purpose. It’s funny, dark, and surprisingly moving.
-
-Tight pacing for 30 episodes, with that “folk tale turned alive” energy that makes you want to cheer.`
-    },
-    {
-      id:"kingdom",
-      title:"Kingdom",
-      year:2019,
-      meta:"Historical • Political thriller • Horror (zombies, zero filler)",
-      genres:["Historical","Political","Horror"],
-      poster:"assets/posters/kdrama/kingdom.jpeg",
-      synopsis:
-`If “historical drama” makes you think slow ceremonies and endless dialogue, Kingdom exists to wreck that expectation.
-
-It takes Joseon palace politics and injects a high-octane zombie plague—yet it’s elegant, cinematic, and genuinely terrifying.
-
-The Crown Prince is blocked from seeing the “ill” King by the powerful Cho clan. Rumors explode. He flees to uncover the truth and finds the outbreak spreading faster than the politics.
-
-What makes Kingdom brilliant is that the zombies aren’t the only threat—the real villain is greed and a rotten class system. Hunger, neglect, and power games become the plague’s fuel.
-
-Netflix seasons = short, expensive, no filler. If you want a historical that feels like a modern thriller in silk robes, this is the definitive starter.`
-    }
-  ];
-
-  function openModal(item){
-    const poster = item.poster || "";
-    if(poster){
-      mPoster.classList.remove("fallback");
-      mPoster.style.backgroundImage = `url('${String(poster).replace(/'/g,"\\'")}')`;
-    }else{
-      mPoster.classList.add("fallback");
-      mPoster.style.backgroundImage = "";
-    }
-
-    mTitle.textContent = item.title || "Untitled";
-    mMeta.textContent = `${item.year || ""}${item.meta ? " • " + item.meta : ""}`;
-
-    mPills.innerHTML = "";
-    (item.genres || []).slice(0, 10).forEach(t=>{
-      const p = document.createElement("div");
-      p.className = "pill";
-      p.textContent = t;
-      mPills.appendChild(p);
-    });
-
-    mWhy.textContent = item.synopsis || "No note added yet.";
-
-    // reset modal scroll to top each open
-    if(sheetBody) sheetBody.scrollTop = 0;
-
-    modal.classList.add("on");
-    modal.setAttribute("aria-hidden","false");
-    document.body.classList.add("noscroll");
-  }
-
-  function closeModal(){
-    modal.classList.remove("on");
-    modal.setAttribute("aria-hidden","true");
-    document.body.classList.remove("noscroll");
-  }
-
-  closeBtn.onclick = closeModal;
-  modal.addEventListener("click", (e)=>{ if(e.target === modal) closeModal(); });
-  window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeModal(); });
-
-  function card(item){
-    const div = document.createElement("div");
-    div.className = "card";
-
-    const poster = item.poster || "";
-    const tags = (item.genres || []).slice(0, 5).join(" • ");
-
-    const posterHtml = poster
-      ? `<div class="poster" style="background-image:url('${String(poster).replace(/'/g,"\\'")}');"></div>`
-      : `<div class="poster fallback"></div>`;
-
-    div.innerHTML = `
-      ${posterHtml}
-      <div class="info">
-        <div class="title">${item.title || "Untitled"}</div>
-        <div class="meta">${item.year || ""}${item.meta ? " • " + item.meta : ""}</div>
-        <div class="tagsline">${tags}</div>
-      </div>
-    `;
-
-    div.onclick = () => openModal(item);
-    return div;
-  }
-
-  function render(){
-    grid.innerHTML = "";
-    KDRAMAS.forEach(s => grid.appendChild(card(s)));
-    resultCount.textContent = `${KDRAMAS.length} picks • Tap any poster for the full note`;
-    if(heroCount) heroCount.textContent = `${KDRAMAS.length} picks`;
-  }
-
-  render();
-</script>
+</main>
 
 </body>
 </html>
