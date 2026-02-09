@@ -2,17 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Historical K-Dramas for Skeptics — Popcorn Picks</title>
-<meta name="description" content="Historical K-dramas for skeptics: fast, tense, genre-bending picks that don’t feel like homework." />
-<link rel="canonical" href="https://popcornpicks.in/historical-kdrama-recs.html" />
 
-<!-- ✅ AdSense -->
+<!-- AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
   crossorigin="anonymous"></script>
 
-<!-- ✅ Google Analytics (GA4) -->
+<!-- GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -28,15 +25,16 @@ body{
   color:#fff;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
-a{color:inherit;text-decoration:none}
-img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
 
-/* ✅ TOPBAR (same spirit as your espionage page) */
+/* TOPBAR */
 .topbar{
-  position:sticky; top:0; z-index:50;
+  position:sticky;
+  top:0;
+  z-index:50;
   background:rgba(10,10,10,.88);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter:blur(10px);
   border-bottom:1px solid #222;
 }
 .topbarInner{
@@ -46,165 +44,122 @@ img{display:block;max-width:100%}
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:16px;
 }
-.navLeft{display:flex;gap:10px;align-items:center}
+.navLeft{display:flex;gap:10px}
 .navBtn{
   font-size:13px;
-  color:rgba(255,255,255,.78);
   padding:7px 14px;
   border-radius:999px;
   border:1px solid rgba(255,255,255,.14);
   background:rgba(255,255,255,.04);
-  transition:.15s ease;
-  white-space:nowrap;
+  color:rgba(255,255,255,.78);
 }
-.navBtn:hover{
-  color:#fff;
-  border-color:rgba(255,255,255,.25);
-  background:rgba(255,255,255,.08);
-}
-.brandCenter{
-  display:flex;
-  align-items:center;
-  gap:10px;
+.navBtn:hover{color:#fff}
+.brand{
   font-weight:700;
-  letter-spacing:.2px;
-  justify-content:center;
-  flex:1;
   font-size:14px;
 }
-.brandDot{
-  width:10px;height:10px;border-radius:50%;
-  background:rgba(255,120,70,.95);
-  box-shadow:0 0 0 4px rgba(255,120,70,.16);
-}
-.navSpacer{width:160px}
-@media(max-width:860px){
-  .navSpacer{width:90px}
-}
 
-/* ✅ HERO with full image visible (no crop) */
+/* HERO */
 .hero{
-  border-bottom:1px solid #1f1f1f;
-  background:
-    radial-gradient(900px 420px at 15% 20%, rgba(255,255,255,.08), transparent 55%),
-    linear-gradient(to bottom, rgba(0,0,0,.25), rgba(11,11,12,.94));
-}
-.heroMedia{
-  width:100%;
-  background:#0b0b0c;
+  padding:28px 18px 54px;
   border-bottom:1px solid #1f1f1f;
 }
-.heroMedia img{
-  width:100%;
-  height:auto;
-  object-fit:contain;
-  max-height:72vh;
-}
-
-/* ✅ hero text container */
 .heroInner{
   max-width:980px;
-  width:100%;
   margin:0 auto;
-  padding:36px 22px 54px;
+}
+.heroPoster{
+  display:flex;
+  justify-content:center;
+  margin-bottom:28px;
+}
+.heroPoster img{
+  width:100%;
+  max-width:620px;
+  height:auto;
+  object-fit:contain;
+  border-radius:18px;
+  border:1px solid #222;
+  background:#111;
 }
 .kicker{
   display:inline-block;
   font-size:11px;
   letter-spacing:.22em;
   text-transform:uppercase;
-  color:#eaeaea;
   padding:8px 10px;
   border-radius:999px;
   border:1px solid rgba(255,255,255,.18);
-  background:rgba(255,255,255,.04);
+  color:#eaeaea;
 }
 .hero h1{
   margin-top:16px;
-  font-size:54px;
-  line-height:1.05;
-  letter-spacing:-.03em;
+  font-size:44px;
+  line-height:1.1;
 }
 .hero p{
   margin-top:14px;
   max-width:78ch;
   color:#d0d0d0;
-  line-height:1.75;
-  font-size:16px;
+  line-height:1.8;
 }
 .metaLine{
   margin-top:16px;
-  color:#9a9a9a;
   font-size:12px;
+  color:#9a9a9a;
   letter-spacing:.08em;
   text-transform:uppercase;
 }
 
-/* ✅ WRAP */
+/* CONTENT */
 .wrap{
   max-width:980px;
   margin:0 auto;
-  padding:46px 22px 90px;
+  padding:46px 18px 90px;
 }
-
-/* ✅ SHOW BLOCK */
 .show{
+  margin-bottom:38px;
   padding:26px 22px;
-  border:1px solid #181818;
   border-radius:20px;
+  border:1px solid #181818;
   background:rgba(255,255,255,.02);
-  margin-bottom:26px;
 }
 .show h2{
   font-size:28px;
-  letter-spacing:-.02em;
-  line-height:1.12;
+  line-height:1.15;
 }
 .submeta{
   margin-top:10px;
-  color:#a9a9a9;
   font-size:13px;
-  line-height:1.5;
+  color:#a9a9a9;
 }
 .text{
-  margin-top:14px;
+  margin-top:16px;
   max-width:78ch;
 }
 .text p{
-  color:#d7d7d7;
+  margin-bottom:16px;
   line-height:1.9;
-  font-size:16px;
-  margin:0 0 14px 0;
+  color:#d7d7d7;
 }
 .posterWrap{
-  margin-top:18px;
+  margin-top:22px;
   display:flex;
   justify-content:center;
 }
-.poster{
-  width:min(420px, 100%);
+.posterWrap img{
+  width:100%;
+  max-width:420px;
   border-radius:18px;
-  overflow:hidden;
   border:1px solid #232323;
   background:#111;
 }
-.note{
-  margin-top:28px;
-  color:#9a9a9a;
-  font-size:13px;
-  line-height:1.7;
-  max-width:78ch;
-}
 
-/* ✅ MOBILE */
-@media(max-width:760px){
-  .hero h1{font-size:40px}
-  .show{padding:22px 16px}
+/* MOBILE */
+@media(max-width:700px){
+  .hero h1{font-size:34px}
   .show h2{font-size:24px}
-  .heroInner{padding:28px 16px 40px}
-  .wrap{padding:34px 16px 70px}
 }
 </style>
 </head>
@@ -217,43 +172,35 @@ img{display:block;max-width:100%}
       <a class="navBtn" href="editorials.html">← Editorials</a>
       <a class="navBtn" href="index.html">Home</a>
     </div>
-
-    <a class="brandCenter" href="index.html" aria-label="Popcorn Picks home">
-      <span class="brandDot"></span>
-      <span>Popcorn Picks</span>
-    </a>
-
-    <div class="navSpacer" aria-hidden="true"></div>
+    <div class="brand">Popcorn Picks</div>
   </div>
 </header>
 
-<header class="hero">
-  <!-- ✅ Banner: FULLY VISIBLE (no crop) -->
-  <div class="heroMedia">
-    <!-- Put your banner path here. If you don't have a separate banner, reuse the poster image. -->
-    <img src="assets/posters/kdrama/song-of-the-bandits.jpeg" alt="Song of the Bandits banner">
-  </div>
-
+<section class="hero">
   <div class="heroInner">
-    <span class="kicker">Editorial • Historical K Dramas</span>
-    <h1>Historical K Dramas for Skeptics</h1>
+    <div class="heroPoster">
+      <img src="assets/posters/song-of-the-bandits.jpg" alt="Song of the Bandits poster">
+    </div>
+
+    <span class="kicker">Editorial • Historical K-Dramas</span>
+    <h1>Historical K-Dramas for Skeptics</h1>
 
     <p>
-      If historical dramas usually feel slow, distant, or overloaded with court rules, this is built for you.
-      These picks move with tension and momentum, and they care more about survival, power, and character pressure than ritual.
+      If historical dramas usually feel slow, distant, or overloaded with court rituals,
+      this list is built for you. These shows move with tension and momentum, focusing
+      on survival, power, moral pressure, and character rather than ceremony.
     </p>
 
     <p>
-      Each one below earns its runtime. Even the longer ones feel addictive because the conflict keeps sharpening.
-      If you have ever said “I do not think historical is my thing,” start here.
+      Even the longer titles here earn their runtime. If you have ever said
+      “I do not think historical dramas are my thing,” start here.
     </p>
 
     <div class="metaLine">Popcorn Picks • Updated for 2026</div>
   </div>
-</header>
+</section>
 
 <main class="wrap">
-
   <article class="show">
     <h2>Six Flying Dragons</h2>
     <div class="submeta">2015 • Historical / Political / Action</div>
