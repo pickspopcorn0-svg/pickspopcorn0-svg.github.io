@@ -5,10 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <title>Popcorn Picks | Cinema Beyond Borders</title>
-
 <meta name="description" content="Popcorn Picks is a curated discovery site for films and series across the world — editorials and thoughtful starting points, not rankings or weekly charts." />
 
-<!-- ✅ Canonical -->
 <link rel="canonical" href="https://popcornpicks.in/" />
 
 <!-- ✅ Schema.org: Organization (NO logo) -->
@@ -17,7 +15,7 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Popcorn Picks",
-  "url": "https://popcornpicks.in",
+  "url": "https://popcornpicks.in/",
   "description": "A curated discovery site for films and series across the world."
 }
 </script>
@@ -35,7 +33,6 @@
     wait_for_update: 500
   });
 </script>
-
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
 <script>
   gtag('js', new Date());
@@ -61,7 +58,8 @@
 *{margin:0;padding:0;box-sizing:border-box}
 a{text-decoration:none;color:inherit}
 img{display:block;max-width:100%}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+
 :root{
   --bg:#0b0b0c;
   --panel:#0f0f12;
@@ -78,6 +76,12 @@ body{
   text-rendering:optimizeLegibility;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
+}
+
+/* ✅ keyboard focus */
+a:focus-visible, button:focus-visible{
+  outline:2px solid rgba(255,255,255,.45);
+  outline-offset:3px;
 }
 
 /* Perf: skip rendering offscreen sections */
@@ -102,6 +106,7 @@ header{
   justify-content:flex-start;
   padding:0 40px;
   background:rgba(10,10,14,.78);
+  -webkit-backdrop-filter:blur(14px);
   backdrop-filter:blur(14px);
   border-bottom:1px solid var(--lineSoft);
   z-index:100;
@@ -119,8 +124,8 @@ header{
     radial-gradient(900px 560px at 84% 28%, rgba(90,170,255,.14), transparent 60%),
     linear-gradient(to bottom, rgba(0,0,0,.38), rgba(0,0,0,.92)),
     url("assets/home/hero.jpg");
-  background-size:contain;
-  background-position:center;
+  background-size:cover;
+  background-position:center center;
   background-repeat:no-repeat;
   background-color:#000;
   border-bottom:1px solid rgba(255,255,255,.06);
@@ -161,11 +166,7 @@ header{
   font-size:18px;
   line-height:1.65;
 }
-.quoteLine{
-  display:block;
-  margin-top:10px;
-  opacity:.85;
-}
+.quoteLine{display:block;margin-top:10px;opacity:.85}
 .heroActions{
   margin-top:26px;
   display:flex;
@@ -177,6 +178,7 @@ header{
   align-items:center;
   justify-content:center;
   padding:14px 22px;
+  min-height:44px;
   border-radius:999px;
   border:1px solid rgba(255,255,255,.18);
   background:rgba(255,255,255,.06);
@@ -199,12 +201,11 @@ header{
 .section.firstSection{padding-top:42px}
 
 /* =========================
-   HANDPICKED – clean look + smooth swipe + fast loop (desktop only)
+   HANDPICKED – smooth touch scrolling on all devices
    ========================= */
-
 .handpickedSection{ padding-top:60px; }
 
-/* IMPORTANT: no "mandatory" snap (it causes that frozen/locked feel on iPad) */
+/* ✅ FIXED: touch-action pan-x only, and removed scroll-behavior here */
 .handpickedMarquee{
   overflow-x:auto;
   overflow-y:hidden;
@@ -212,10 +213,14 @@ header{
   scrollbar-width:none;
   -webkit-overflow-scrolling:touch;
   touch-action:pan-x;
-  scroll-snap-type:x proximity;
   overscroll-behavior-x:contain;
 }
 .handpickedMarquee::-webkit-scrollbar{ display:none; }
+
+/* ✅ Only enable snap on true desktop */
+@media (hover: hover) and (pointer: fine) and (min-width: 1025px) {
+  .handpickedMarquee{ scroll-snap-type:x proximity; }
+}
 
 .handpickedTrack{
   display:flex;
@@ -225,7 +230,6 @@ header{
   transform:translateZ(0);
   will-change:transform;
 }
-
 .pickCard{
   flex:0 0 auto;
   width:160px;
@@ -234,7 +238,6 @@ header{
   transition:transform .18s ease;
   will-change:transform;
 }
-
 .pickCard img{
   width:100%;
   aspect-ratio:2 / 3;
@@ -243,7 +246,6 @@ header{
   background:#000;
   outline:1px solid rgba(255,255,255,.12);
 }
-
 .pickTitle{
   margin-top:10px;
   font-size:14px;
@@ -251,20 +253,10 @@ header{
   color:rgba(255,255,255,.86);
   line-height:1.3;
 }
-
 .pickCard:hover{ transform:translateY(-3px); }
+@media(max-width:520px){ .pickCard{ width:140px; } }
 
-@media(max-width:520px){
-  .pickCard{ width:140px; }
-}
-
-.section h2{
-  font-size:28px;
-  margin-bottom:18px;
-  letter-spacing:.2px;
-}
-
-/* Section header row */
+.section h2{font-size:28px;margin-bottom:18px;letter-spacing:.2px}
 .sectionHead{
   display:flex;
   align-items:flex-end;
@@ -274,7 +266,6 @@ header{
 }
 .sectionHead h2{margin-bottom:0}
 
-/* Intro text */
 .sectionLead{
   margin:10px 0 0;
   max-width:72ch;
@@ -283,12 +274,8 @@ header{
   line-height:1.7;
 }
 .editorialIntro{max-width:760px;}
+.featuredHead{display:block;margin-bottom:22px}
 
-/* Featured intro box */
-.featuredHead{
-  display:block;
-  margin-bottom:22px;
-}
 .editorialBox{
   width:min(820px, 100%);
   margin:0 auto;
@@ -313,7 +300,6 @@ header{
   color:rgba(255,255,255,.68);
 }
 
-/* Bullets */
 .editorialBullets{
   margin:14px auto 0;
   padding:0;
@@ -344,8 +330,9 @@ header{
   display:inline-flex;
   align-items:center;
   gap:8px;
-  padding:10px 16px;
-  font-size:13px;
+  padding:12px 18px;
+  min-height:44px;
+  font-size:14px;
   font-weight:800;
   color:rgba(255,255,255,.86);
   border:1px solid rgba(255,255,255,.16);
@@ -360,18 +347,13 @@ header{
   border-color:rgba(255,255,255,.26);
   color:#fff;
 }
-.editorialCTA{
-  display:flex;
-  justify-content:flex-end;
-  margin-top:14px;
-}
+.editorialCTA{display:flex;justify-content:flex-end;margin-top:14px}
 
 /* FEATURED EDITORIALS */
 .feed{display:grid;grid-template-columns:1fr;gap:22px;}
 .feedLink{display:block}
-@media (min-width: 768px){.feed{grid-template-columns:repeat(2, 1fr);}}
+@media (min-width: 768px){ .feed{grid-template-columns:repeat(2, 1fr);} }
 
-/* ✅ Cards use CSS var for bg image (no inline styles needed) */
 .feedCard{
   --bgimg:none;
   position:relative;
@@ -398,7 +380,7 @@ header{
   left:0; top:0; bottom:0;
   width:44%;
   background-image:var(--bgimg);
-  background-size:contain;
+  background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
   background-color:#000;
@@ -437,7 +419,7 @@ header{
   overflow:hidden;
 }
 
-/* CATEGORIES use CSS var too */
+/* CATEGORIES */
 .catGrid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -452,13 +434,11 @@ header{
   isolation:isolate;
   outline:1px solid rgba(255,255,255,.10);
   outline-offset:-1px;
-
   background-image:var(--bgimg);
   background-repeat:no-repeat;
   background-position:center center;
-  background-size:contain;
+  background-size:cover;
   background-color:#000;
-
   transition:transform .18s ease, outline-color .18s ease, filter .18s ease;
   will-change:transform;
 }
@@ -485,7 +465,7 @@ header{
 /* BETWEEN THE FRAMES */
 .btfFeed{grid-template-columns:1fr !important;}
 .btfFeed .feedCard{grid-template-columns:1fr;min-height:340px;}
-.btfFeed .feedCard::before{width:100%;background-position:center;background-size:contain;}
+.btfFeed .feedCard::before{width:100%;background-position:center;background-size:cover;}
 .btfFeed .feedCard::after{
   width:100%;
   background:
@@ -560,6 +540,7 @@ footer p{
   border-radius:14px;
   border:1px solid rgba(255,255,255,.14);
   background:rgba(10,10,14,.82);
+  -webkit-backdrop-filter:blur(14px);
   backdrop-filter:blur(14px);
   box-shadow:0 18px 40px rgba(0,0,0,.55);
 }
@@ -573,6 +554,7 @@ footer p{
 .cookieBtns{display:flex;gap:10px;align-items:center;flex:0 0 auto;}
 .cookieBar button{
   padding:10px 14px;
+  min-height:44px;
   border-radius:999px;
   border:1px solid rgba(255,255,255,.18);
   background:rgba(255,255,255,.08);
@@ -600,6 +582,7 @@ footer p{
   border-radius:18px;
   border:1px solid rgba(255,255,255,.12);
   background:rgba(10,10,14,.92);
+  -webkit-backdrop-filter:blur(16px);
   backdrop-filter:blur(16px);
   box-shadow:0 24px 70px rgba(0,0,0,.6);
   padding:16px;
@@ -620,9 +603,18 @@ footer p{
 .cookieSheetActions{display:flex;justify-content:flex-end;gap:10px;margin-top:12px;}
 
 @media(max-width:520px){
-  .cookieBar{flex-direction:column; align-items:flex-start}
-  .cookieBtns{width:100%}
-  .cookieBar button{width:100%}
+  .cookieBar{flex-direction:column;align-items:flex-start;gap:12px;}
+  .cookieBtns{width:100%;flex-wrap:wrap;}
+  .cookieBar button{flex:1;min-width:100px;}
+}
+
+@media(min-width:761px) and (max-width:1024px){
+  header{padding:0 24px}
+  .hero h1{font-size:52px}
+  .hero p{font-size:17px}
+  .feedCard{min-height:240px}
+  .section h2{font-size:26px}
+  .viewAll{padding:14px 20px;font-size:15px;}
 }
 
 @media(max-width:1024px){
@@ -632,29 +624,67 @@ footer p{
 }
 
 @media(max-width:760px){
-  .container,
-  .heroInner{width:calc(100% - 34px)}
-  .hero{min-height:78vh}
+  .container,.heroInner{width:calc(100% - 32px)}
+  .hero{
+    min-height:78vh;
+    background-size:cover;
+    background-position:50% 30%;
+  }
   .heroInner{padding:56px 0 46px}
-
   .section{padding:60px 0}
   .section.firstSection{padding-top:34px}
-
   .editorialBox{padding:16px 14px 14px}
   .editorialBullets{font-size:14px;line-height:1.8}
 
-  .feedCard{grid-template-columns:1fr;min-height:0;}
-  .feedCard::before,
-  .feedCard::after{width:100%;height:290px;left:0;top:0;right:0;}
-  .feedCard::before{background-size:contain;background-position:center;background-color:#000;}
-  .feedText{grid-column:1;margin-top:290px;}
+  .feedCard{
+    display:flex;
+    flex-direction:column;
+    min-height:320px;
+  }
+  .feedCard::before{
+    position:relative;
+    width:100%;
+    height:auto;
+    min-height:200px;
+    aspect-ratio:16/9;
+    left:auto;top:auto;bottom:auto;
+    background-size:cover;
+    background-position:center;
+  }
+  .feedCard::after{
+    position:absolute;
+    width:100%;
+    height:100%;
+    left:0;top:0;right:0;
+    background:linear-gradient(to bottom, rgba(0,0,0,.10), rgba(0,0,0,.92));
+  }
+  .feedText{
+    grid-column:1;
+    position:relative;
+    margin-top:0;
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+  }
 
   .catGrid{grid-template-columns:1fr;gap:18px;}
   .cat{height:260px;}
+  .viewAll{padding:14px 20px;font-size:15px;}
+  .footerGrid{grid-template-columns:1fr;gap:32px;}
 }
 
 @media(max-width:420px){
+  .container,.heroInner{width:calc(100% - 24px)}
   .hero h1{font-size:38px}
+  .hero p{font-size:15px}
+  .feedCard::before{min-height:180px;}
+}
+
+@media(max-width:375px){
+  .container,.heroInner{width:calc(100% - 20px);padding:0 10px;}
+  .hero h1{font-size:34px}
+  header{padding:0 12px}
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -685,23 +715,20 @@ footer p{
   </div>
 </section>
 
-<!-- HANDPICKED (Homepage — shows ALL picks + clean poster+title UI) -->
+<!-- HANDPICKED -->
 <section class="section handpickedSection">
   <div class="container">
 
     <div class="sectionHead">
       <div>
         <h2 class="handpickedTitle">Handpicked</h2>
-        <p class="sectionLead handpickedLead">
-          Personal picks. No rankings. Click a poster to read why.
-        </p>
+        <p class="sectionLead handpickedLead">Personal picks. No rankings. Click a poster to read why.</p>
       </div>
       <a href="handpick.html" class="viewAll">View all →</a>
     </div>
 
     <div class="handpickedMarquee" id="handpickedMarquee" aria-label="Handpicked carousel">
       <div class="handpickedTrack" id="handpickedTrack">
-
         <!-- Fallback (only used if fetch fails) -->
         <a class="pickCard" href="handpick.html#counterpart">
           <img src="assets/posters/tv/counterpart.jpg.jpeg" alt="Counterpart (2017)">
@@ -723,7 +750,6 @@ footer p{
           <img src="assets/posters/kdrama/tell-me-what-you-saw.jpg.JPG" alt="Tell Me What You Saw">
           <div class="pickTitle">Tell Me What You Saw</div>
         </a>
-
       </div>
     </div>
 
@@ -739,8 +765,8 @@ footer p{
         <h2>Featured editorials</h2>
 
         <p class="sectionLead">
-          Not top-10 lists. Not “best of the year.”<br>
-          Starting points for people who know what they want — but don’t know where to begin.
+          Not top-10 lists. Not "best of the year."<br>
+          Starting points for people who know what they want — but don't know where to begin.
         </p>
 
         <ul class="editorialBullets">
@@ -823,7 +849,7 @@ footer p{
         <div class="feedCard" data-bg="assets/posters/Crime.jpg.JPG">
           <div class="feedText">
             <h3>Our Recommended Crime TV Shows</h3>
-            <p>Character-driven crime series we’ve watched and recommend.</p>
+            <p>Character-driven crime series we've watched and recommend.</p>
           </div>
         </div>
       </a>
@@ -890,7 +916,7 @@ footer p{
       <a class="feedLink" href="are-we-killing-cinema-magic.html">
         <div class="feedCard" data-bg="assets/posters/Killing-cinema-magic.jpg.jpeg">
           <div class="feedText">
-            <h3>Are We Killing Cinema’s Magic Before Entering the Theatre?</h3>
+            <h3>Are We Killing Cinema's Magic Before Entering the Theatre?</h3>
             <p>When trailers, clips, and hype erase the feeling of discovery.</p>
           </div>
         </div>
@@ -947,7 +973,6 @@ footer p{
     We use cookies for analytics and ads to improve Popcorn Picks.
     <a href="privacy.html">Learn more</a>
   </p>
-
   <div class="cookieBtns">
     <button class="ghost" id="cookieReject" type="button">Reject</button>
     <button class="ghost" id="cookieManage" type="button">Manage</button>
@@ -957,7 +982,7 @@ footer p{
 
 <!-- ✅ Manage modal -->
 <div class="cookieModal" id="cookieModal" aria-hidden="true">
-  <div class="cookieSheet" role="dialog" aria-label="Cookie settings">
+  <div class="cookieSheet" role="dialog" aria-modal="true" aria-label="Cookie settings">
     <h4>Cookie settings</h4>
 
     <div class="cookieRow">
@@ -1001,12 +1026,11 @@ footer p{
 
 <script>
 /*
-  ✅ Handpicked (fixes everything you complained about):
-  1) Loads ALL picks from handpick.html
-  2) Builds CLEAN cards: poster + title only (no ugly extra text)
-  3) Auto-loop is FAST but ONLY on true desktop (mouse/trackpad)
-     - iPad/tablet: NO auto-loop, swipe is smooth and not “frozen”
-  4) When user scrolls manually, loop pauses and resumes later
+  ✅ Handpicked carousel (corrected):
+  - Smooth touch scrolling (no snap on touch)
+  - Auto-loop only on true desktop
+  - Pull ONLY a.pickCard from handpick.html (prevents random anchors)
+  - Listeners always attached; guarded by allowAutoLoop() (resize-safe)
 */
 (function(){
   var marquee = document.getElementById("handpickedMarquee");
@@ -1022,7 +1046,8 @@ footer p{
     try{
       var hover = window.matchMedia("(hover: hover)").matches;
       var fine = window.matchMedia("(pointer: fine)").matches;
-      return hover && fine;
+      var minWidth = window.matchMedia("(min-width: 1025px)").matches;
+      return hover && fine && minWidth;
     }catch(e){
       return false;
     }
@@ -1045,42 +1070,33 @@ footer p{
     t = cleanText(t);
     if(!t){
       var img = el.querySelector && el.querySelector("img");
-      if(img){
-        t = cleanText(img.getAttribute("alt") || "");
-      }
+      if(img) t = cleanText(img.getAttribute("alt") || "");
     }
     return t || "Untitled";
   }
 
   function normalizeHref(href){
-    href = href || "";
-    href = href.trim();
+    href = (href || "").trim();
     if(!href) return "handpick.html";
     if(href.indexOf("handpick.html") === 0) return href;
     if(href.charAt(0) === "#") return "handpick.html" + href;
-    return href; // already relative/absolute
+    return href;
   }
 
   function normalizeSrc(src){
-    src = (src || "").trim();
-    return src; // keep your existing relative paths as-is
+    return (src || "").trim();
   }
 
   function buildCleanCardsFromHandpick(doc){
-    // Try multiple patterns (robust):
-    // - a.pickCard
-    // - any link that contains an img and points to #something
-    var candidates = Array.prototype.slice.call(doc.querySelectorAll("a.pickCard, a[href^='#'], a[href*='handpick.html#']"));
+    var candidates = Array.prototype.slice.call(doc.querySelectorAll("a.pickCard"));
     var items = [];
 
     candidates.forEach(function(a){
       var img = a.querySelector("img");
       if(!img) return;
 
-      var href = a.getAttribute("href") || "";
-      // Keep only anchors that link into the handpick page sections
-      var isAnchor = href.indexOf("#") !== -1;
-      if(!isAnchor) return;
+      var href = (a.getAttribute("href") || "").trim();
+      if(href.indexOf("#") === -1) return;
 
       var src = normalizeSrc(img.getAttribute("src") || "");
       if(!src) return;
@@ -1089,7 +1105,6 @@ footer p{
       items.push({ href: normalizeHref(href), src: src, title: title });
     });
 
-    // Deduplicate by href (so we don't repeat)
     var seen = {};
     var uniq = [];
     items.forEach(function(it){
@@ -1141,7 +1156,6 @@ footer p{
     track.setAttribute("data-duplicated","1");
   }
 
-  // ===== Auto loop (desktop only) =====
   var rafId = null;
   var paused = false;
   var resumeTimer = null;
@@ -1156,22 +1170,17 @@ footer p{
     if(!allowAutoLoop()) return;
 
     paused = false;
-
-    // FAST loop (increase if you want even faster)
-    var speedPxPerSec = 220; // fast
+    var speedPxPerSec = 220;
     var last = performance.now();
 
     function tick(now){
-      if(paused){
-        rafId = requestAnimationFrame(tick);
-        return;
-      }
+      if(paused){ rafId = requestAnimationFrame(tick); return; }
+
       var dt = Math.min(50, now - last);
       last = now;
 
       marquee.scrollLeft += (speedPxPerSec * (dt / 1000));
 
-      // seamless jump (since we duplicated)
       var half = track.scrollWidth / 2;
       if(half > 0 && marquee.scrollLeft >= half){
         marquee.scrollLeft -= half;
@@ -1186,35 +1195,18 @@ footer p{
   function pauseTemporarily(ms){
     paused = true;
     if(resumeTimer) clearTimeout(resumeTimer);
-    resumeTimer = setTimeout(function(){
-      paused = false;
-    }, ms || 800);
+    resumeTimer = setTimeout(function(){ paused = false; }, ms || 800);
   }
 
-  // Pause when the user interacts / scrolls
-  marquee.addEventListener("wheel", function(){ pauseTemporarily(900); }, {passive:true});
-  marquee.addEventListener("scroll", function(){
-    if(!allowAutoLoop()) return;
-    pauseTemporarily(900);
-  }, {passive:true});
-
-  marquee.addEventListener("mouseenter", function(){ paused = true; });
-  marquee.addEventListener("mouseleave", function(){ paused = false; });
-
-  marquee.addEventListener("pointerdown", function(){
-    if(!allowAutoLoop()) return;
-    paused = true;
-  });
-  marquee.addEventListener("pointerup", function(){
-    if(!allowAutoLoop()) return;
-    pauseTemporarily(700);
-  });
-
-  // Touch devices: we *do not* auto-loop at all (fixes “frozen” swipe on iPad)
-  marquee.addEventListener("touchstart", function(){ /* manual swipe only */ }, {passive:true});
+  // ✅ listeners always attached; guarded (resize-safe)
+  marquee.addEventListener("wheel", function(){ if(!allowAutoLoop()) return; pauseTemporarily(900); }, {passive:true});
+  marquee.addEventListener("scroll", function(){ if(!allowAutoLoop()) return; pauseTemporarily(900); }, {passive:true});
+  marquee.addEventListener("mouseenter", function(){ if(!allowAutoLoop()) return; paused = true; });
+  marquee.addEventListener("mouseleave", function(){ if(!allowAutoLoop()) return; paused = false; });
+  marquee.addEventListener("pointerdown", function(){ if(!allowAutoLoop()) return; paused = true; });
+  marquee.addEventListener("pointerup", function(){ if(!allowAutoLoop()) return; pauseTemporarily(700); });
 
   function finalize(){
-    // Only duplicate if desktop loop is allowed
     if(allowAutoLoop()){
       duplicateForLoop();
       marquee.scrollLeft = 0;
@@ -1222,32 +1214,22 @@ footer p{
     startLoop();
   }
 
-  // Fetch handpick.html and build clean cards (poster+title only)
   fetch("handpick.html", { cache: "no-store" })
     .then(function(r){ if(!r.ok) throw new Error("fetch failed"); return r.text(); })
     .then(function(html){
       var doc = new DOMParser().parseFromString(html, "text/html");
       var frag = buildCleanCardsFromHandpick(doc);
-      if(frag){
-        replaceTrack(frag);
-      }
+      if(frag) replaceTrack(frag);
     })
     .catch(function(){ /* keep fallback */ })
-    .finally(function(){
-      finalize();
-    });
+    .finally(function(){ finalize(); });
 
-  // Restart loop on resize (desktop ↔ touch/layout changes)
   var resizeTimer = null;
   window.addEventListener("resize", function(){
     if(resizeTimer) clearTimeout(resizeTimer);
     resizeTimer = setTimeout(function(){
       stopLoop();
-      // If we are no longer desktop, stop loop and don't fight touch scroll
-      if(!allowAutoLoop()){
-        paused = true;
-        return;
-      }
+      if(!allowAutoLoop()){ paused = true; return; }
       duplicateForLoop();
       paused = false;
       startLoop();
@@ -1326,7 +1308,6 @@ footer p{
     applyConsent(saved);
     closeBanner();
   }else{
-    closeBanner();
     openBanner();
   }
 
