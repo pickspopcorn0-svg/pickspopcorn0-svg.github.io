@@ -205,7 +205,6 @@ header{
    ========================= */
 .handpickedSection{ padding-top:60px; }
 
-/* ✅ FIXED: touch-action pan-x only, and removed scroll-behavior here */
 .handpickedMarquee{
   overflow-x:auto;
   overflow-y:hidden;
@@ -241,9 +240,9 @@ header{
 .pickCard img{
   width:100%;
   aspect-ratio:2 / 3;
-  object-fit:cover;
+  object-fit:contain;           /* ✅ show full poster */
   border-radius:16px;
-  background:#000;
+  background:#000;              /* ✅ letterbox looks clean */
   outline:1px solid rgba(255,255,255,.12);
 }
 .pickTitle{
@@ -380,7 +379,7 @@ header{
   left:0; top:0; bottom:0;
   width:44%;
   background-image:var(--bgimg);
-  background-size:cover;
+  background-size:contain;      /* ✅ show full poster */
   background-position:center;
   background-repeat:no-repeat;
   background-color:#000;
@@ -437,7 +436,7 @@ header{
   background-image:var(--bgimg);
   background-repeat:no-repeat;
   background-position:center center;
-  background-size:cover;
+  background-size:contain;      /* ✅ show full image */
   background-color:#000;
   transition:transform .18s ease, outline-color .18s ease, filter .18s ease;
   will-change:transform;
@@ -465,7 +464,13 @@ header{
 /* BETWEEN THE FRAMES */
 .btfFeed{grid-template-columns:1fr !important;}
 .btfFeed .feedCard{grid-template-columns:1fr;min-height:340px;}
-.btfFeed .feedCard::before{width:100%;background-position:center;background-size:cover;}
+.btfFeed .feedCard::before{
+  width:100%;
+  background-position:center;
+  background-size:contain;      /* ✅ show full poster */
+  background-repeat:no-repeat;
+  background-color:#000;
+}
 .btfFeed .feedCard::after{
   width:100%;
   background:
@@ -648,8 +653,10 @@ footer p{
     min-height:200px;
     aspect-ratio:16/9;
     left:auto;top:auto;bottom:auto;
-    background-size:cover;
+    background-size:contain;    /* ✅ mobile: show full image */
     background-position:center;
+    background-repeat:no-repeat;
+    background-color:#000;
   }
   .feedCard::after{
     position:absolute;
@@ -1198,7 +1205,6 @@ footer p{
     resumeTimer = setTimeout(function(){ paused = false; }, ms || 800);
   }
 
-  // ✅ listeners always attached; guarded (resize-safe)
   marquee.addEventListener("wheel", function(){ if(!allowAutoLoop()) return; pauseTemporarily(900); }, {passive:true});
   marquee.addEventListener("scroll", function(){ if(!allowAutoLoop()) return; pauseTemporarily(900); }, {passive:true});
   marquee.addEventListener("mouseenter", function(){ if(!allowAutoLoop()) return; paused = true; });
@@ -1221,7 +1227,7 @@ footer p{
       var frag = buildCleanCardsFromHandpick(doc);
       if(frag) replaceTrack(frag);
     })
-    .catch(function(){ /* keep fallback */ })
+    .catch(function(){})
     .finally(function(){ finalize(); });
 
   var resizeTimer = null;
