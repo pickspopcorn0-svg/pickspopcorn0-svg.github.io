@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -10,6 +11,7 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800" crossorigin="anonymous"></script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -70,18 +72,34 @@ img{max-width:100%;display:block}
 @media(max-width:860px){.navSpacer{width:90px}}
 
 .hero{
-  padding:34px 22px 54px;
+  position:relative;
+  padding:80px 22px 54px;
   border-bottom:1px solid #1f1f1f;
-  background:
-    radial-gradient(900px 420px at 15% 20%, rgba(255,90,30,.1), transparent 55%),
-    linear-gradient(to bottom, rgba(0,0,0,.12), rgba(11,11,12,.92));
+  background-image: url('assets/posters/rrr.jpg.JPG');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
 }
-.heroInner{max-width:980px;width:100%;margin:0 auto;}
-.heroPoster{display:flex;justify-content:center;margin-bottom:28px;}
-.heroPoster img{
-  width:min(720px,100%);height:auto;
-  object-fit:contain;border-radius:18px;
-  border:1px solid #222;background:#111;
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, 
+    rgba(11,11,12,0.75) 0%, 
+    rgba(11,11,12,0.85) 40%,
+    rgba(11,11,12,0.95) 100%);
+  z-index: 1;
+}
+.heroInner{
+  position: relative;
+  z-index: 2;
+  max-width:980px;
+  width:100%;
+  margin:0 auto;
 }
 .kicker{
   display:inline-block;font-size:11px;
@@ -110,12 +128,10 @@ img{max-width:100%;display:block}
 .note{margin-top:28px;color:#9a9a9a;font-size:13px;line-height:1.7;max-width:78ch;}
 
 @media(max-width:760px){
-  .hero{padding:28px 16px 46px}
+  .hero{padding:60px 16px 46px}
   .hero h1{font-size:40px}
   .show{padding:22px 16px}
   .show h2{font-size:24px}
-  .heroPoster{margin-bottom:22px}
-  .heroPoster img{border-radius:16px}
 }
 @media(max-width:420px){
   .hero h1{font-size:34px}
@@ -131,6 +147,7 @@ img{max-width:100%;display:block}
   "publisher": {"@type": "Organization", "name": "Popcorn Picks"}
 }
 </script>
+
 </head>
 
 <body>
@@ -151,9 +168,6 @@ img{max-width:100%;display:block}
 
 <header class="hero">
   <div class="heroInner">
-    <div class="heroPoster">
-      <img src="assets/posters/rrr.jpg.JPG" alt="RRR poster" loading="eager" decoding="async">
-    </div>
     <span class="kicker">Editorial • Indian Cinema</span>
     <h1>Indian Cinema at Full Throttle</h1>
     <p>
@@ -174,21 +188,24 @@ img{max-width:100%;display:block}
     <div class="text">
       <p>RRR is the film that changed how the world talks about Indian cinema. It won an Oscar. It got standing ovations at international festivals. It made people who had never watched a three-hour Indian film sit through every minute and immediately search for what to watch next. None of that happened by accident. S.S. Rajamouli made a film so committed to its own emotional logic that skeptical audiences walked out as true believers.</p>
 
-      <p>The story is about two men who become brothers before discovering they are on opposite sides of a war. Bheem is a tribal warrior trying to rescue a kidnapped child from British colonialists. Ram is a Telugu officer serving the empire, carrying a secret mission that forces him to be the system's most brutal enforcer. They meet by chance. The friendship forms in the gap between who they pretend to be and who they actually are.</p>
+```
+  <p>The story is about two men who become brothers before discovering they are on opposite sides of a war. Bheem is a tribal warrior trying to rescue a kidnapped child from British colonialists. Ram is a Telugu officer serving the empire, carrying a secret mission that forces him to be the system's most brutal enforcer. They meet by chance. The friendship forms in the gap between who they pretend to be and who they actually are.</p>
 
-      <p>Rajamouli understands better than almost any filmmaker alive that spectacle only works when it's in service of emotion. The fire and water imagery running through the film is not decoration. Fire is Ram: disciplined, contained, dangerous under control. Water is Bheem: instinctive, powerful, impossible to stop once it moves. When they fight each other surrounded by flames and a flooding river, it's not a setpiece. It's two forces of nature in collision, and every visual choice carries the weight of their history.</p>
+  <p>Rajamouli understands better than almost any filmmaker alive that spectacle only works when it's in service of emotion. The fire and water imagery running through the film is not decoration. Fire is Ram: disciplined, contained, dangerous under control. Water is Bheem: instinctive, powerful, impossible to stop once it moves. When they fight each other surrounded by flames and a flooding river, it's not a setpiece. It's two forces of nature in collision, and every visual choice carries the weight of their history.</p>
 
-      <p>The film is mythological in scale without apology. These characters are not meant to be realistic. They're drawn from actual historical figures but transformed into something closer to gods. They survive things no human could. Rajamouli isn't interested in realism. He's interested in meaning, in the idea that some friendships are large enough to be told like legends.</p>
+  <p>The film is mythological in scale without apology. These characters are not meant to be realistic. They're drawn from actual historical figures but transformed into something closer to gods. They survive things no human could. Rajamouli isn't interested in realism. He's interested in meaning, in the idea that some friendships are large enough to be told like legends.</p>
 
-      <p>Naatu Naatu, the song that won the Oscar, is the film in miniature. Two men dancing in a British colonial palace, performing a folk dance that is physically punishing and culturally specific, right in front of the people who have stolen their country. It's defiance as joy, and the audience feels it in their chest because the film has been teaching them to feel everything at full volume since the opening scene.</p>
+  <p>Naatu Naatu, the song that won the Oscar, is the film in miniature. Two men dancing in a British colonial palace, performing a folk dance that is physically punishing and culturally specific, right in front of the people who have stolen their country. It's defiance as joy, and the audience feels it in their chest because the film has been teaching them to feel everything at full volume since the opening scene.</p>
 
-      <p>The second half lands so hard because the first half built something so strong. Every betrayal, every choice, every moment of anguish hits with full weight because you've watched these two men become brothers. RRR earns its tragedy. It earns its catharsis. It's the most complete argument Indian cinema has made in years for why it deserves the world's full attention.</p>
-    </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/rrr.jpg.JPG" alt="RRR poster" loading="lazy" decoding="async">
-      </div>
-    </div>
+  <p>The second half lands so hard because the first half built something so strong. Every betrayal, every choice, every moment of anguish hits with full weight because you've watched these two men become brothers. RRR earns its tragedy. It earns its catharsis. It's the most complete argument Indian cinema has made in years for why it deserves the world's full attention.</p>
+</div>
+<div class="posterWrap">
+  <div class="poster">
+    <img src="assets/posters/rrr.jpg.JPG" alt="RRR poster" loading="lazy" decoding="async">
+  </div>
+</div>
+```
+
   </article>
 
   <article class="show">
@@ -197,21 +214,24 @@ img{max-width:100%;display:block}
     <div class="text">
       <p>Animal is the most divisive Indian film of the last decade. Half the audience believes it is a masterpiece. The other half believes it is irresponsible. Both reactions are valid responses to the same film, which is exactly what director Sandeep Reddy Vanga intended. He knows precisely what he made. The provocations are not accidents. They are the point.</p>
 
-      <p>Ranvijay Singh is a man whose entire personality was built around his father's emotional absence. His father was successful, powerful, and never present in any meaningful way during his childhood. Ranvijay responded to that rejection not with distance but with obsession. He doesn't want approval anymore. He wants to destroy everything that threatens the man who never loved him properly. The violence in Animal is not random. It is the physical expression of childhood trauma that has hardened into a complete worldview.</p>
+```
+  <p>Ranvijay Singh is a man whose entire personality was built around his father's emotional absence. His father was successful, powerful, and never present in any meaningful way during his childhood. Ranvijay responded to that rejection not with distance but with obsession. He doesn't want approval anymore. He wants to destroy everything that threatens the man who never loved him properly. The violence in Animal is not random. It is the physical expression of childhood trauma that has hardened into a complete worldview.</p>
 
-      <p>Ranbir Kapoor gives the most committed performance of his career here. Ranvijay is possessive, controlling, and absolutely convinced that his love for family justifies every choice he makes. Kapoor plays this without vanity or the usual signals that tell the audience not to take the character at face value. He inhabits the internal logic so fully that you understand exactly how someone becomes this person, even when what they're doing appalls you.</p>
+  <p>Ranbir Kapoor gives the most committed performance of his career here. Ranvijay is possessive, controlling, and absolutely convinced that his love for family justifies every choice he makes. Kapoor plays this without vanity or the usual signals that tell the audience not to take the character at face value. He inhabits the internal logic so fully that you understand exactly how someone becomes this person, even when what they're doing appalls you.</p>
 
-      <p>The film is long, excessive, and deliberately extreme. The action sequences escalate throughout in ways that feel intentional rather than indulgent. The climax is one of the most intensely staged setpieces in recent Indian cinema. But the film's real work happens in the quieter scenes: Ranvijay with his father, the ache underneath the anger, the way every brutal act traces back to a boy who just wanted to be seen by the one person who mattered.</p>
+  <p>The film is long, excessive, and deliberately extreme. The action sequences escalate throughout in ways that feel intentional rather than indulgent. The climax is one of the most intensely staged setpieces in recent Indian cinema. But the film's real work happens in the quieter scenes: Ranvijay with his father, the ache underneath the anger, the way every brutal act traces back to a boy who just wanted to be seen by the one person who mattered.</p>
 
-      <p>Animal doesn't offer redemption or moral clarity. It ends exactly as it should, with the cycle intact and unbroken. Some find this nihilistic. Others find it the most honest depiction of a certain kind of toxic devotion they've ever seen on screen. The film doesn't push you toward either conclusion. It just holds the thing up and lets you sit with it.</p>
+  <p>Animal doesn't offer redemption or moral clarity. It ends exactly as it should, with the cycle intact and unbroken. Some find this nihilistic. Others find it the most honest depiction of a certain kind of toxic devotion they've ever seen on screen. The film doesn't push you toward either conclusion. It just holds the thing up and lets you sit with it.</p>
 
-      <p>You can't watch Animal passively. It forces engagement. It provokes a reaction, and that reaction tells you something. That's what the most interesting films do, and this one does it with full conviction.</p>
-    </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/animal.jpg.JPG" alt="Animal poster" loading="lazy" decoding="async">
-      </div>
-    </div>
+  <p>You can't watch Animal passively. It forces engagement. It provokes a reaction, and that reaction tells you something. That's what the most interesting films do, and this one does it with full conviction.</p>
+</div>
+<div class="posterWrap">
+  <div class="poster">
+    <img src="assets/posters/animal.jpg.JPG" alt="Animal poster" loading="lazy" decoding="async">
+  </div>
+</div>
+```
+
   </article>
 
   <article class="show">
@@ -220,67 +240,82 @@ img{max-width:100%;display:block}
     <div class="text">
       <p>Kill is 99 minutes of sustained, claustrophobic violence, and it is one of the finest pure action films India has ever produced. The concept is stripped to its skeleton: a moving train, a large group of armed criminals, and one army commando who decides none of them are getting off alive. No subtext, no grand themes, no political messaging. Just the single question of how many people one man can fight before his body stops cooperating.</p>
 
-      <p>The setup is clean. Amrit is a commando traveling to stop his love interest's arranged marriage when a gang of around 40 criminals boards the train and starts robbing passengers at knifepoint. Amrit and his friend step in. From that moment, the film locks itself into one gear and refuses to shift out of it.</p>
+```
+  <p>The setup is clean. Amrit is a commando traveling to stop his love interest's arranged marriage when a gang of around 40 criminals boards the train and starts robbing passengers at knifepoint. Amrit and his friend step in. From that moment, the film locks itself into one gear and refuses to shift out of it.</p>
 
-      <p>What makes Kill exceptional is its honesty about physical consequence. These fights don't feel choreographed in the traditional sense. They feel exhausting. Amrit takes serious damage in every encounter. He bleeds, he slows down, his movements become labored. Each fight carries the marks of the previous ones. The film understands something most action movies ignore: the most effective sequences are the ones where you feel the cost, not just the spectacle.</p>
+  <p>What makes Kill exceptional is its honesty about physical consequence. These fights don't feel choreographed in the traditional sense. They feel exhausting. Amrit takes serious damage in every encounter. He bleeds, he slows down, his movements become labored. Each fight carries the marks of the previous ones. The film understands something most action movies ignore: the most effective sequences are the ones where you feel the cost, not just the spectacle.</p>
 
-      <p>The train setting is used with real spatial intelligence. Narrow corridors remove running room and force every encounter to happen at close range with limited visibility. The editing is disciplined enough to track the geography without losing the chaos. You always know where everyone is, which makes the violence legible and therefore more tense. The film never loses its sense of space even as the situation becomes increasingly desperate.</p>
+  <p>The train setting is used with real spatial intelligence. Narrow corridors remove running room and force every encounter to happen at close range with limited visibility. The editing is disciplined enough to track the geography without losing the chaos. You always know where everyone is, which makes the violence legible and therefore more tense. The film never loses its sense of space even as the situation becomes increasingly desperate.</p>
 
-      <p>The villain Fani, played by Raghav Juyal, is the film's greatest asset. Juyal is a trained dancer and it shows in the way he moves: fluid, unpredictable, eerie in a way that larger and more physically imposing villains rarely manage. He's terrifying because he's genuinely enjoying himself. He makes the confrontations personal, sadistic, almost playful. His final showdown with Amrit is the best villain-hero clash in recent Indian action cinema.</p>
+  <p>The villain Fani, played by Raghav Juyal, is the film's greatest asset. Juyal is a trained dancer and it shows in the way he moves: fluid, unpredictable, eerie in a way that larger and more physically imposing villains rarely manage. He's terrifying because he's genuinely enjoying himself. He makes the confrontations personal, sadistic, almost playful. His final showdown with Amrit is the best villain-hero clash in recent Indian action cinema.</p>
 
-      <p>Kill earned international attention because craft travels. It doesn't need cultural context to land. You feel it in your body. That's all it asks.</p>
-    </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/kill.jpeg" alt="Kill poster" loading="lazy" decoding="async">
-      </div>
-    </div>
+  <p>Kill earned international attention because craft travels. It doesn't need cultural context to land. You feel it in your body. That's all it asks.</p>
+</div>
+<div class="posterWrap">
+  <div class="poster">
+    <img src="assets/posters/kill.jpeg" alt="Kill poster" loading="lazy" decoding="async">
+  </div>
+</div>
+```
+
   </article>
 
   <article class="show">
     <h2>Kalki 2898 AD</h2>
     <div class="submeta">2024 • Nag Ashwin • Telugu • Sci-Fi Mythology Epic</div>
     <div class="text">
-      <p>Kalki 2898 AD is Indian cinema attempting something it has never fully committed to before: a mythology-rooted science fiction epic built to compete at global scale, on its own terms, without apology or compromise. Director Nag Ashwin spent years constructing this world, and the ambition is visible in every detail. This is not Indian cinema trying to be Hollywood. It's Indian cinema deciding to be something else entirely.</p>
+      <p>Kalki 2898 AD is Indian cinema attempting something it has never fully committed to before: a mythology-rooted science fiction epic built at massive scale. Director Nag Ashwin spent years constructing this world, and the ambition is visible in every frame. This is Indian cinema staking a claim in large-scale sci-fi storytelling on its own cultural terms.</p>
 
-      <p>The premise fuses Hindu cosmology with dystopian science fiction. In 2898, Earth is nearly dead. A corrupt authoritarian regime controls the remains of civilization from a gleaming citadel city while the rest of humanity scrapes through a vast wasteland. The myth of Kalki, the tenth avatar of Vishnu prophesied to arrive at the end of the Kali Yuga to restore balance, becomes the organizing framework. The regime is trying to prevent that birth. Others are trying to protect it. The war between those two purposes is the film.</p>
+```
+  <p>The premise fuses Hindu cosmology with dystopian science fiction. In 2898, Earth is nearly dead. A corrupt authoritarian regime controls the remains of civilization from a gleaming citadel city while the rest of humanity scrapes through a vast wasteland. The myth of Kalki, the tenth avatar of Vishnu prophesied to arrive at the end of the Kali Yuga to restore balance, becomes the organizing framework. The regime is trying to prevent that birth. Others are trying to protect it. The war between those two purposes is the film.</p>
 
-      <p>What earns the film its place here is how seriously it takes its own mythology. This is not tokenism or cultural window dressing. The religious and philosophical framework is the actual logic of the story. Characters believe in cosmic cycles, in prophecy, in the idea that destruction and renewal are part of the same process. That belief shapes every choice they make. The film doesn't explain or condescend. It trusts the audience to meet it where it lives.</p>
+  <p>What makes the film notable is how seriously it takes its own mythology. The religious and philosophical framework is the actual logic of the story. Characters believe in cosmic cycles, in prophecy, in the idea that destruction and renewal are part of the same process. That belief shapes every choice they make.</p>
 
-      <p>The casting alone is a statement. Prabhas plays Bhairava, a mercenary bounty hunter who has spent his life doing whatever survival requires. Deepika Padukone plays SUM-80, a pregnant woman being hunted by the regime. Amitabh Bachchan plays Ashwatthama, an immortal warrior from the Mahabharata who has been alive for thousands of years, waiting for this specific moment. Casting India's most iconic living actor as an ancient mythological figure in a science fiction future is the kind of decision that could only emerge from this cinema.</p>
+  <p>The casting is significant. Prabhas plays Bhairava, a mercenary bounty hunter who has spent his life doing whatever survival requires. Deepika Padukone plays SUM-80, a pregnant woman being hunted by the regime. Amitabh Bachchan plays Ashwatthama, an immortal warrior from the Mahabharata who has been alive for thousands of years, waiting for this specific moment. It's a bold choice that works more often than it doesn't.</p>
 
-      <p>The visual world is built from Indian architectural traditions pushed into a futuristic context. Ancient temple geometries reimagined as corporate brutalism. A wasteland that evokes Rajasthan filtered through collapse. The film has its own visual identity, borrowed from nothing.</p>
+  <p>The film has real flaws. The hero's entry scene is stretched thin and the forced comedy feels out of place in what's otherwise a serious mythological epic. The pacing stumbles in the middle act, and some of the world-building raises more questions than it answers. The visual effects are ambitious but inconsistent—some sequences are genuinely impressive while others show their seams.</p>
 
-      <p>As a complete story, Kalki 2898 AD is more of a beginning than a conclusion. It establishes more than it resolves. But as proof that Indian cinema can build myth-rooted franchises with genuine scale and visual ambition, it's essential viewing.</p>
-    </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/kalki-2898-ad.jpg.JPG" alt="Kalki 2898 AD poster" loading="lazy" decoding="async">
-      </div>
-    </div>
+  <p>As a complete story, Kalki 2898 AD is more of a beginning than a conclusion. It establishes far more than it resolves. But as proof that Indian cinema can build myth-rooted franchises with genuine scale and ambition, it marks an important step forward, even with its imperfections.</p>
+</div>
+<div class="posterWrap">
+  <div class="poster">
+    <img src="assets/posters/kalki-2898-ad.jpg.JPG" alt="Kalki 2898 AD poster" loading="lazy" decoding="async">
+  </div>
+</div>
+```
+
   </article>
 
   <article class="show">
     <h2>Dhurandhar</h2>
-    <div class="submeta">2025 • Aditya Dhar • Hindi • Action Thriller</div>
+    <div class="submeta">2025 • Aditya Dhar • Hindi • Spy Action Thriller</div>
     <div class="text">
-      <p>Dhurandhar arrives with the kind of pedigree that earns genuine anticipation. Aditya Dhar directed URI: The Surgical Strike, one of the most precisely executed Indian action films of the last decade, and this is his return to the territory he knows best: high-stakes operations, men under pressure, and the specific tension of not knowing who in the room can be trusted. The tools are different here. The stakes are higher. The ambition is larger.</p>
+      <p>Dhurandhar is a 3 hour and 34 minute spy epic that infiltrates Karachi's criminal underworld with the kind of patience most action films don't have. Director Aditya Dhar, who made URI: The Surgical Strike, returns with something far more ambitious and morally complicated. This is not a straightforward patriotic thriller. It's a decade-long intelligence operation told as a crime saga, and it earns every minute of its enormous runtime.</p>
 
-      <p>The film is built around an operative who wins through preparation rather than force. He's not the biggest person in any room he enters. He is the most patient, the most calculated, and the most willing to let his opponents talk themselves into mistakes. In a genre that defaults to physical spectacle, Dhurandhar treats intelligence as a form of violence, which gives its action sequences a texture most thrillers don't bother reaching for.</p>
+```
+  <p>Ranveer Singh plays an undercover Indian intelligence agent who slips into Karachi and rises through the ranks of its most dangerous criminal syndicates and political networks. The mission is to dismantle the ISI-underworld nexus from within. The film draws loose inspiration from real geopolitical events including the IC-814 hijacking, the 2001 Parliament attack, the 26/11 Mumbai attacks, and Pakistan's Operation Lyari crackdown on gangs.</p>
 
-      <p>The world the film operates in is one where the boundaries between patriotism and betrayal, between service and self-interest, are deliberately murky. Nobody is operating from pure motives. Allies may be assets or liabilities depending on what's being asked. The conspiracy the protagonist is trying to expose keeps revealing new layers, and each revelation recontextualizes what came before. This is a thriller that respects the audience's ability to track complexity and rewards that attention.</p>
+  <p>What makes Dhurandhar distinctive is its structure. The film is told in chapters, each one peeling back another layer of the criminal and political ecosystem. You watch the protagonist become part of the machine he's trying to destroy. The film doesn't rush this. It lets you sit in the moral ambiguity, in the violence that becomes routine, in the relationships that blur the line between asset and genuine connection.</p>
 
-      <p>The action setpieces are built for scale. Indian audiences who have grown up on RRR, KGF, and URI expect action that feels consequential, and Dhurandhar is constructed to meet that expectation. The sequences are spatially clear, they escalate with purpose, and they use India's geography as an active element rather than decoration. Cities, landscapes, confined industrial spaces, all of them become part of the conflict.</p>
+  <p>The ensemble cast is stacked. Akshaye Khanna plays Rehman Dakait, a crime lord whose swag and controlled menace dominate every scene he's in. Sanjay Dutt, R. Madhavan, and Arjun Rampal all deliver memorable performances despite limited screen time. Each character leaves a mark. This isn't just Ranveer Singh's show—Dhar ensures everyone gets their moment.</p>
 
-      <p>Vicky Kaushal carries the film with the same controlled intensity he brought to URI. He doesn't play his character as invincible. He plays him as someone who has done this long enough that he's run out of things to fear, which is more unsettling than invincibility. When he's rattled, you feel it. When he commits to a decision, there's a finality to it.</p>
+  <p>The action sequences are brutal and grounded. The film earns its 18+ rating with disturbing violence, particularly in the depiction of the 26/11 attacks and certain sequences involving torture. These moments are not meant to entertain. They're meant to disturb, and they do. The film doesn't shy away from the ugliness of what intelligence work in this world actually looks like.</p>
 
-      <p>Dhurandhar is the direction Indian action cinema has been building toward: technically confident, emotionally grounded, and built for an audience that wants both spectacle and craft without having to choose between them. It earns every bit of the attention it's received before a single frame was released.</p>
-    </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/dhurandhar.jpg.JPG" alt="Dhurandhar poster" loading="lazy" decoding="async">
-      </div>
-    </div>
+  <p>Singh's performance is subdued by his usual standards, which works perfectly here. He broods his way through three and a half hours, playing a man who has spent so long pretending to be someone else that the mask is starting to fuse with his face. It's a restrained, committed turn that anchors the film's darker impulses.</p>
+
+  <p>The film is divisive. Some see it as propaganda dressed up with aesthetic execution. Others see it as a morally complex thriller that doesn't offer easy answers. The jingoistic elements are present—lines about "new India" and patriotic declarations that feel heavy-handed. The film tests your endurance with its length and its willingness to sit in violence without release.</p>
+
+  <p>But it's also undeniably gripping. The world-building is meticulous. The cinematography and production design create a Karachi that feels lived-in and dangerous. Shashwat Sachdev's score amplifies tension without overwhelming it. The editing keeps the sprawling narrative coherent even as it juggles multiple timelines and conspiracies.</p>
+
+  <p>Dhurandhar is the first part of a two-part saga. The second film, subtitled "The Revenge," is set to release in March 2026. This one ends on a cliffhanger that sets up the stakes for what's coming. As a standalone experience, it's incomplete. As the opening chapter of something larger, it's a bold statement about the scale and ambition Indian spy thrillers are now reaching for.</p>
+</div>
+<div class="posterWrap">
+  <div class="poster">
+    <img src="assets/posters/dhurandhar.jpg.JPG" alt="Dhurandhar poster" loading="lazy" decoding="async">
+  </div>
+</div>
+```
+
   </article>
 
   <div class="note">
