@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>TV Shows — Popcorn Picks</title>
 
-<!-- Perf / UX -->
+<meta name="description" content="A curated TV shelf from Popcorn Picks. Espionage, crime, sci-fi, dark fantasy and more — browsable by genre and mood with full details on every show." />
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#0b0b0c">
 <link rel="preconnect" href="https://pagead2.googlesyndication.com">
@@ -14,7 +14,6 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
         crossorigin="anonymous"></script>
 
-<!-- ✅ Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -27,11 +26,9 @@
   *{margin:0;padding:0;box-sizing:border-box}
   html,body{height:100%}
   body{
-    background:#0b0b0c;
-    color:#fff;
+    background:#0b0b0c;color:#fff;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-    -webkit-text-size-adjust:100%;
-    text-rendering:optimizeLegibility;
+    -webkit-text-size-adjust:100%;text-rendering:optimizeLegibility;
   }
   a{text-decoration:none;color:inherit}
   button,input{font:inherit}
@@ -43,232 +40,203 @@
     display:flex;justify-content:space-between;align-items:center;
     padding:16px 20px;
     background:rgba(10,10,10,.88);
-    -webkit-backdrop-filter:blur(10px);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid #222;
-    z-index:50;
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    border-bottom:1px solid #222;z-index:50;
   }
   .top b{font-size:16px}
-  .top a{display:inline-flex;align-items:center;gap:8px}
+  .navLeft{display:flex;gap:10px;align-items:center;flex-wrap:wrap;max-width:65%}
+  .navBtn{
+    padding:8px 12px;border-radius:999px;
+    border:1px solid #222;background:#141414;
+    font-size:13px;color:#ddd;white-space:nowrap;user-select:none;
+  }
+  .navBtn:active{transform:translateY(1px)}
 
   .wrap{padding:18px 18px 8px}
-  .controls{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    align-items:center;
-  }
-  .search{
-    flex:1;
-    min-width:240px;
-    display:flex;
-    gap:10px;
-  }
-  .search input{
-    width:100%;
-    padding:12px 14px;
-    border-radius:12px;
-    border:1px solid #222;
-    background:#111;
-    color:#fff;
-    outline:none;
-  }
-  .btn{
-    padding:12px 14px;
-    border-radius:12px;
-    border:1px solid #222;
-    background:#141414;
-    color:#fff;
-    cursor:pointer;
-  }
-  .btn:active{transform:translateY(1px)}
-  .small{
-    color:#aaa;
-    font-size:12px;
-    padding:10px 2px 0;
-    line-height:1.4;
-  }
 
-  .chips{
-    margin-top:12px;
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
+  .intro{max-width:980px}
+  .intro h1{font-size:18px;font-weight:700;letter-spacing:.2px;line-height:1.2}
+  .intro p{margin-top:10px;color:#cfcfcf;font-size:14px;line-height:1.85}
+
+  .editorials{margin-top:18px}
+  .ed-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#555;margin-bottom:12px}
+  .ed-row{display:flex;gap:12px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;scrollbar-width:none}
+  .ed-row::-webkit-scrollbar{display:none}
+  .ed-card{
+    flex:0 0 auto;width:160px;border-radius:12px;
+    border:1px solid #1e1e1e;background:#0f0f0f;overflow:hidden;
+    display:block;text-decoration:none;transition:border-color .15s;
   }
+  .ed-card:hover{border-color:#2e2e2e}
+  .ed-card:active{opacity:.8}
+  .ed-thumb-bg{width:100%;height:100px;background:#111 no-repeat center/cover;display:block}
+  .ed-body{padding:9px 10px 11px}
+  .ed-tag{font-size:10px;color:#666;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+  .ed-title{font-size:12px;font-weight:600;color:#ccc;line-height:1.35}
+
+  .divider{margin-top:16px;border:0;border-top:1px solid #1f1f1f}
+
+  .controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .search{flex:1;min-width:240px;display:flex;gap:10px}
+  .search input{
+    width:100%;padding:12px 14px;border-radius:12px;
+    border:1px solid #222;background:#111;color:#fff;outline:none;
+  }
+  .btn{padding:12px 14px;border-radius:12px;border:1px solid #222;background:#141414;color:#fff;cursor:pointer}
+  .btn:active{transform:translateY(1px)}
+  .small{color:#aaa;font-size:12px;padding:10px 2px 0;line-height:1.4}
+
+  .chips{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
   .chip{
-    border:1px solid #222;
-    background:#111;
-    color:#ddd;
-    padding:10px 12px;
-    border-radius:999px;
-    font-size:13px;
-    cursor:pointer;
-    user-select:none;
+    border:1px solid #222;background:#111;color:#ddd;
+    padding:10px 12px;border-radius:999px;font-size:13px;cursor:pointer;user-select:none;
   }
-  .chip.on{
-    border-color:#444;
-    background:#1b1b1b;
-    color:#fff;
-  }
+  .chip.on{border-color:#444;background:#1b1b1b;color:#fff}
 
   .grid{
     padding:16px 18px 26px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-    gap:18px;
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;
   }
-
   .card{
-    border-radius:18px;
-    border:1px solid #181818;
-    overflow:hidden;
-    position:relative;
-    background:#111;
-    min-height:320px;
-    cursor:pointer;
+    border-radius:18px;border:1px solid #181818;overflow:hidden;
+    position:relative;background:#111;min-height:320px;cursor:pointer;
   }
   .poster{
-    height:320px;
-    background:#111;
-    background-size:cover;
-    background-position:center;
+    height:320px;background:#111;
+    background-size:contain;background-repeat:no-repeat;background-position:center;
   }
   .poster.fallback{
-    background:
-      radial-gradient(700px 380px at 20% 15%, rgba(255,255,255,.09), transparent 55%),
+    background:radial-gradient(700px 380px at 20% 15%, rgba(255,255,255,.09), transparent 55%),
       linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.8));
   }
   .info{
-    position:absolute;
-    bottom:0;left:0;right:0;
-    padding:14px;
+    position:absolute;bottom:0;left:0;right:0;padding:14px;
     background:linear-gradient(to top,rgba(0,0,0,.92),transparent);
   }
   .title{font-size:18px;font-weight:650;line-height:1.2}
   .meta{font-size:12px;color:#aaa;margin-top:4px}
   .tagsline{
-    font-size:12px;
-    color:#cfcfcf;
-    margin-top:8px;
-    opacity:.9;
-    display:-webkit-box;
-    -webkit-line-clamp:2;
-    -webkit-box-orient:vertical;
-    overflow:hidden;
+    font-size:12px;color:#cfcfcf;margin-top:8px;opacity:.9;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
   }
+  .empty{padding:22px 18px 30px;color:#aaa;display:none}
 
-  .empty{
-    padding:22px 18px 30px;
-    color:#aaa;
-    display:none;
-  }
-
-  /* MODAL (mobile optimized, scrollable content) */
   .modal{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.72);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:18px;
-    z-index:999;
+    position:fixed;inset:0;background:rgba(0,0,0,.72);
+    display:none;align-items:center;justify-content:center;padding:18px;z-index:999;
   }
   .modal.on{display:flex}
-
   .sheet{
-    width:min(980px, 100%);
-    max-height:88vh;
-    overflow:auto;               /* ✅ allows scroll inside modal */
-    -webkit-overflow-scrolling:touch; /* ✅ smooth iOS scroll */
-    border:1px solid #1f1f1f;
-    background:#0f0f0f;
-    border-radius:18px;
+    width:min(980px, 100%);max-height:88vh;
+    overflow:auto;-webkit-overflow-scrolling:touch;
+    border:1px solid #1f1f1f;background:#0f0f0f;border-radius:18px;
   }
-
   .sheetTop{
-    position:sticky; top:0;      /* keeps close button visible while scrolling */
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:14px 14px;
-    border-bottom:1px solid #1f1f1f;
-    background:#0d0d0d;
-    z-index:5;
+    position:sticky;top:0;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:14px 14px;border-bottom:1px solid #1f1f1f;
+    background:#0d0d0d;z-index:5;
   }
-  .closeBtn{
-    border:1px solid #222;
-    background:#141414;
-    color:#fff;
-    border-radius:12px;
-    padding:10px 12px;
-    cursor:pointer;
-  }
-
-  .sheetBody{
-    padding:16px;
-    display:grid;
-    grid-template-columns:320px 1fr;
-    gap:16px;
-  }
-
+  .closeBtn{border:1px solid #222;background:#141414;color:#fff;border-radius:12px;padding:10px 12px;cursor:pointer}
+  .sheetBody{padding:16px;display:grid;grid-template-columns:320px 1fr;gap:16px}
   .bigPoster{
-    height:460px;
-    border-radius:16px;
-    border:1px solid #1b1b1b;
-    background:#111;
-    background-size:cover;
-    background-position:center;
+    height:460px;border-radius:16px;border:1px solid #1b1b1b;background:#111;
+    background-size:contain;background-repeat:no-repeat;background-position:center;
   }
   .bigPoster.fallback{
-    background:
-      radial-gradient(900px 520px at 20% 15%, rgba(255,255,255,.09), transparent 55%),
+    background:radial-gradient(900px 520px at 20% 15%, rgba(255,255,255,.09), transparent 55%),
       linear-gradient(to bottom, rgba(0,0,0,.12), rgba(0,0,0,.85));
   }
-
-  .h1{
-    font-size:26px;
-    font-weight:750;
-    line-height:1.1;
-  }
+  .h1{font-size:26px;font-weight:750;line-height:1.1}
   .muted{color:#aaa;font-size:13px;line-height:1.5;margin-top:8px}
-  .why{
-    margin-top:14px;
-    font-size:14px;
-    line-height:1.8;
-    color:#ddd;
-    white-space:pre-line;
-  }
+  .why{margin-top:14px;font-size:14px;line-height:1.8;color:#ddd;white-space:pre-line}
   .pills{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
-  .pill{
-    font-size:12px;
-    border:1px solid #222;
-    background:#111;
-    padding:8px 10px;
-    border-radius:999px;
-    color:#d8d8d8;
-  }
+  .pill{font-size:12px;border:1px solid #222;background:#111;padding:8px 10px;border-radius:999px;color:#d8d8d8}
 
-  @media(max-width:900px){
-    .sheetBody{grid-template-columns:1fr}
-    .bigPoster{height:420px}
-  }
-
-  /* Prevent background scroll when modal open */
+  @media(max-width:900px){.sheetBody{grid-template-columns:1fr}.bigPoster{height:420px}}
   body.modalOpen{overflow:hidden}
+  @media(max-width:480px){
+    .top{padding:12px 14px}.navBtn{font-size:12px;padding:7px 10px}
+    .intro h1{font-size:17px}.ed-card{width:140px}.ed-thumb-bg{height:86px}
+  }
 </style>
 </head>
 
 <body>
 
 <div class="top">
-  <a href="index.html" aria-label="Back to Home">← Home</a>
+  <div class="navLeft">
+    <a class="navBtn" href="categories.html">← Categories</a>
+    <a class="navBtn" href="index.html">Home</a>
+  </div>
   <b>TV Shows</b>
   <span></span>
 </div>
 
 <div class="wrap">
-  <div class="controls">
+
+  <section class="intro" aria-label="About this TV collection">
+    <h1>TV shows actually worth starting.</h1>
+
+    <p>
+      This is a collection of shows I'd genuinely recommend, not a dump of everything streaming right now.
+      There is a heavy lean toward espionage, crime and thriller here because that category has produced
+      some of the best television writing in the last decade. Shows like Slow Horses, The Bureau, The Americans
+      and Mindhunter are not just entertainment. They are genuinely well constructed. But the list covers a
+      wider range too: dark fantasy, sci-fi, historical drama, procedurals that actually respect your intelligence,
+      and a few lighter action shows for when you want something that does not demand full attention.
+    </p>
+
+    <p>
+      A lot of the international stuff gets ignored because people assume subtitles are a barrier.
+      The Bureau is French and it is probably the best spy series ever made. Dark is German and it will
+      rearrange how you think about storytelling. Chernobyl is a British production about a Soviet disaster
+      and it might be the most tense five hours of television out there. Country of origin has nothing to
+      do with quality. The writing does.
+    </p>
+
+    <p>
+      Use the genre filters below if you already know what mood you are in. If you open a show and read
+      the description, it is written to help you decide quickly whether it is for you right now, not to
+      pitch you a streaming service. Some shows here run seven seasons. Some are one and done. That is
+      noted too so you know what you are committing to.
+    </p>
+
+    <div class="editorials">
+      <div class="ed-label">From the blog</div>
+      <div class="ed-row">
+
+        <a class="ed-card" href="must-watch-espionage.html">
+          <div class="ed-thumb-bg" style="background-image:url('assets/posters/tv/the-bureau.jpg.JPG')"></div>
+          <div class="ed-body">
+            <div class="ed-tag">Espionage</div>
+            <div class="ed-title">Must watch espionage TV: where to start</div>
+          </div>
+        </a>
+
+        <a class="ed-card" href="high-stakes-action-thrillers.html">
+          <div class="ed-thumb-bg" style="background-image:url('assets/posters/tv/silo.jpg.JPG')"></div>
+          <div class="ed-body">
+            <div class="ed-tag">Action</div>
+            <div class="ed-title">High stakes action thrillers worth your time</div>
+          </div>
+        </a>
+
+        <a class="ed-card" href="mustwatch-period.html">
+          <div class="ed-thumb-bg" style="background-image:url('assets/posters/tv/peaky-blinders.jpg.JPG')"></div>
+          <div class="ed-body">
+            <div class="ed-tag">Period</div>
+            <div class="ed-title">Period dramas and historical shows done right</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <hr class="divider" />
+  </section>
+
+  <div class="controls" style="margin-top:14px;">
     <div class="search">
       <input id="q" type="text" placeholder="Search title, year, genre, country, vibe..." autocomplete="off" />
       <button class="btn" id="clearBtn" type="button">Clear</button>
@@ -283,7 +251,6 @@
 <div class="grid" id="grid"></div>
 <div class="empty" id="empty">No matches. Try removing filters or changing the search.</div>
 
-<!-- MODAL -->
 <div class="modal" id="modal" aria-hidden="true">
   <div class="sheet" role="dialog" aria-modal="true" aria-label="Show details">
     <div class="sheetTop">
@@ -303,657 +270,140 @@
 </div>
 
 <script>
-/* =========================
-   TV DATA (EDIT HERE ONLY)
-   ========================= */
 const TV = [
-  {
-    id:"silo",
-    title:"Silo",
-    year:"2023–",
-    meta:"Sci-Fi • Mystery • Thriller",
-    seasons:"2 seasons (ongoing)",
-    genres:["Sci-Fi","Mystery","Thriller","USA","Dystopia"],
-    poster:"assets/posters/tv/silo.jpg.JPG",
-    summary:"In a vast underground silo, society survives on strict rules and a carefully edited version of history. When deaths and disappearances start to line up like clues, an engineer pulls at the first loose thread—and discovers the silo isn’t protecting people from the world outside as much as it’s protecting a lie from the people inside."
-  },
-  {
-    id:"bosch",
-    title:"Bosch",
-    year:"2014–2021",
-    meta:"Crime • Detective • Neo-Noir",
-    seasons:"7 seasons",
-    genres:["Crime","Detective","Neo-Noir","USA","Investigation"],
-    poster:"assets/posters/tv/bosch.jpg.JPG",
-    summary:"Harry Bosch works homicide in Los Angeles with a stubborn moral code and a detective’s obsession for what doesn’t add up. Each case moves through procedure, politics, and pressure, but Bosch keeps going until the evidence tells the story—even when the department would rather close the file and move on."
-  },
-  {
-    id:"slow-horses",
-    title:"Slow Horses",
-    year:"2022–",
-    meta:"Espionage • Dark Comedy • Thriller",
-    seasons:"Multiple seasons (ongoing)",
-    genres:["Espionage","Thriller","UK","Dark Comedy"],
-    poster:"assets/posters/tv/slow-horses.jpg.JPG",
-    summary:"MI5’s rejects are dumped in Slough House to rot in paperwork and regret—until real danger keeps landing on their doorstep. Led by the brilliant and unbearable Jackson Lamb, they stumble into conspiracies the ‘proper’ agents can’t touch, winning through instinct, stubbornness, and tradecraft that still works when it counts."
-  },
-  {
-    id:"the-bureau",
-    title:"The Bureau (Le Bureau des Légendes)",
-    year:"2015–2020",
-    meta:"Espionage • Psychological • Prestige",
-    seasons:"5 seasons",
-    genres:["Espionage","Psychological","France","Tradecraft"],
-    poster:"assets/posters/tv/the-bureau.jpg.JPG",
-    summary:"A French intelligence officer returns from years undercover and finds the hardest part isn’t espionage—it’s coming back to himself. Built around realistic tradecraft, the series treats spying as long-term psychological damage: cover identities, handlers, assets, and the quiet erosion of whatever used to feel real."
-  },
-  {
-    id:"bodyguard",
-    title:"Bodyguard",
-    year:"2018",
-    meta:"Political Thriller • Action",
-    seasons:"1 season",
-    genres:["Thriller","Action","UK","Politics"],
-    poster:"assets/posters/tv/bodyguard.jpg.JPG",
-    summary:"A war-scarred protection officer is assigned to guard a powerful politician he distrusts. As terror threats escalate and government agendas tighten like a noose, every security detail becomes a test of loyalty—and the closer he gets to the truth, the more he looks like the person everyone should fear."
-  },
-  {
-    id:"marco-polo",
-    title:"Marco Polo",
-    year:"2014–2016",
-    meta:"Historical • Adventure • Court Politics",
-    seasons:"2 seasons",
-    genres:["History","Adventure","Politics","International"],
-    poster:"assets/posters/tv/marco-polo.jpg.JPG",
-    summary:"A young outsider is drawn into Kublai Khan’s empire and quickly learns that survival at court isn’t about bravery—it’s about reading power before it moves. Battles, alliances, betrayals, and ambition collide in a world where one wrong conversation can be deadlier than a battlefield."
-  },
-  {
-    id:"jack-ryan",
-    title:"Tom Clancy’s Jack Ryan",
-    year:"2018–2023",
-    meta:"Espionage • Action • Thriller",
-    seasons:"4 seasons",
-    genres:["Espionage","Action","Thriller","USA"],
-    poster:"assets/posters/tv/jack-ryan.jpg.JPG",
-    summary:"An analyst follows a suspicious financial pattern and gets dragged from desk work into global operations. The series blends intel work with high-stakes action as one clue turns into a chain reaction across borders—where every ‘small’ detail is attached to someone’s bigger plan."
-  },
-  {
-    id:"alex-rider",
-    title:"Alex Rider",
-    year:"2020–2024",
-    meta:"Spy • Thriller • Coming-of-Age",
-    seasons:"3 seasons",
-    genres:["Espionage","Thriller","UK"],
-    poster:"assets/posters/tv/alex-rider.jpg.JPG",
-    summary:"After his guardian’s death, a teenager discovers his life was built around secrets—and that he’s been trained for a world he never agreed to enter. Forced into missions designed for adults, he investigates the people who used him, the agency that lied to him, and the truth hidden inside his own past."
-  },
-  {
-    id:"pennyworth",
-    title:"Pennyworth",
-    year:"2019–2022",
-    meta:"Crime • Spy • Origin Story",
-    seasons:"3 seasons",
-    genres:["Crime","Espionage","UK","Stylish"],
-    poster:"assets/posters/tv/pennyworth.jpg.JPG",
-    summary:"Before Gotham myths, Alfred Pennyworth is an ex-soldier running a security business in a London teetering toward chaos. He’s pulled between underground movements, elite conspiracies, and rising violence—where loyalty is currency and every job hints at a larger war forming in the shadows."
-  },
-  {
-    id:"the-originals",
-    title:"The Originals",
-    year:"2013–2018",
-    meta:"Supernatural • Family War • Dark Fantasy",
-    seasons:"5 seasons",
-    genres:["Supernatural","Dark Fantasy","USA"],
-    poster:"assets/posters/tv/the-originals.jpg.JPG",
-    summary:"The first vampire family returns to the city they helped build—only to find it ruled by enemies, fragile alliances, and old grudges that never died. As witches, werewolves, and vampires collide, the story becomes a ruthless power struggle where love is leverage and betrayal is tradition."
-  },
-  {
-    id:"chief-of-war",
-    title:"Chief of War",
-    year:"2025",
-    meta:"Historical • War • Epic Drama",
-    seasons:"1 season (so far)",
-    genres:["History","War","Epic","International"],
-    poster:"assets/posters/tv/chief-of-war.jpg.JPG",
-    summary:"Set amid shifting alliances and colonial pressure, the series follows leaders and warriors fighting to protect land, identity, and sovereignty. Conflict is shown as strategy and consequence—where battles matter, but the hardest choices happen in councils, families, and the fragile space between unity and survival."
-  },
-  {
-    id:"the-mentalist",
-    title:"The Mentalist",
-    year:"2008–2015",
-    meta:"Crime • Case-of-the-Week • Mystery",
-    seasons:"7 seasons",
-    genres:["Crime","Mystery","USA","Investigation"],
-    poster:"assets/posters/tv/the-mentalist.jpg.JPG",
-    summary:"A former con artist uses observation, psychology, and carefully timed deception to help solve murders—while quietly hunting the serial killer who ruined his life. Weekly cases deliver sharp puzzles, but the long arc is about patience: how far you’ll go, and what it costs, to get one person in a room."
-  },
-  {
-    id:"the-good-doctor",
-    title:"The Good Doctor",
-    year:"2017–2024",
-    meta:"Medical • Drama",
-    seasons:"7 seasons",
-    genres:["Drama","Medical","USA"],
-    poster:"assets/posters/tv/the-good-doctor.jpg.JPG",
-    summary:"A gifted young surgeon enters a high-pressure hospital where every decision can change a life in minutes. The cases hit hard, but the real tension is trust—earning respect in a system built on hierarchy, doubt, and the constant demand to prove you belong."
-  },
-  {
-    id:"day-of-the-jackal",
-    title:"The Day of the Jackal",
-    year:"2024",
-    meta:"Espionage • Assassin Thriller",
-    seasons:"1 season (so far)",
-    genres:["Espionage","Thriller","UK","Assassin"],
-    poster:"assets/posters/tv/day-of-the-jackal.jpg.JPG",
-    summary:"A lethal assassin and a relentless investigator spiral into a modern manhunt powered by surveillance, false identities, and quiet funding. Every move triggers the next: safe houses, contacts, cover stories, misdirection—until the chase becomes less about catching a man and more about exposing the network behind him."
-  },
-  {
-    id:"true-detective",
-    title:"True Detective",
-    year:"2014–",
-    meta:"Crime • Thriller • Anthology",
-    seasons:"4 seasons (anthology)",
-    genres:["Crime","Thriller","USA","Investigation"],
-    poster:"assets/posters/tv/true-detective.jpg.JPG",
-    summary:"Each season follows a different case where crime exposes corruption, obsession, and moral decay. The mystery matters, but the deeper hook is what the case does to the investigators over time—how it bends them, breaks them, or leaves them hollow even after the truth comes out."
-  },
-  {
-    id:"mindhunter",
-    title:"Mindhunter",
-    year:"2017–2019",
-    meta:"Crime • Psychological • Serial Killers",
-    seasons:"2 seasons",
-    genres:["Crime","Psychological","USA","Investigation"],
-    poster:"assets/posters/tv/mindhunter.jpg.JPG",
-    summary:"Two FBI agents pioneer a new method: sit down with serial killers and learn how they think before the next murder happens. The tension is slow and clinical, because the danger isn’t a chase—it’s letting monsters explain themselves, and realizing how much of their logic starts to sound familiar."
-  },
-  {
-    id:"the-night-of",
-    title:"The Night Of",
-    year:"2016",
-    meta:"Crime • Courtroom • Character Drama",
-    seasons:"1 season",
-    genres:["Crime","Courtroom","USA","Drama"],
-    poster:"assets/posters/tv/the-night-of.jpg.JPG",
-    summary:"One night turns into a life-altering accusation when a young man wakes up beside a murdered woman. The series traces every stage—police, jail, lawyers, court—and shows how the system reshapes everyone it touches, whether they’re guilty, innocent, or simply trapped by what looks true."
-  },
-  {
-    id:"dark",
-    title:"Dark",
-    year:"2017–2020",
-    meta:"Sci-Fi • Mystery • Time",
-    seasons:"3 seasons",
-    genres:["Sci-Fi","Mystery","Germany","Mind-bending"],
-    poster:"assets/posters/tv/dark.jpg.JPG",
-    summary:"A missing child exposes a hidden structure connecting families across decades. Time travel isn’t a gimmick here—it’s a trap that turns cause and effect into a tightening loop. As secrets surface, the town’s history becomes a puzzle with emotional weight, where every answer creates a new wound."
-  },
-  {
-    id:"chernobyl",
-    title:"Chernobyl",
-    year:"2019",
-    meta:"Historical • Disaster • Political",
-    seasons:"1 season",
-    genres:["History","Drama","International","Politics"],
-    poster:"assets/posters/tv/chernobyl.jpg.JPG",
-    summary:"A nuclear disaster becomes a crisis of physics, politics, and truth. Scientists, officials, and workers fight against denial and delay while the cost rises by the hour. The horror isn’t only the explosion—it’s watching a system choose appearances over reality, even when reality is radioactive."
-  },
-  {
-    id:"narcos",
-    title:"Narcos",
-    year:"2015–2017",
-    meta:"Crime • Cartels • War on Drugs",
-    seasons:"3 seasons",
-    genres:["Crime","Thriller","International","Gritty"],
-    poster:"assets/posters/tv/narcos.jpg.JPG",
-    summary:"The rise of a drug empire triggers an arms race between cartels, governments, and the people trapped in the middle. Told through operations, informants, and shifting alliances, the series shows how power grows—and how violence becomes infrastructure, outlasting the men who built it."
-  },
-  {
-    id:"narcos-mexico",
-    title:"Narcos: Mexico",
-    year:"2018–2021",
-    meta:"Crime • Cartels • Power Shift",
-    seasons:"3 seasons",
-    genres:["Crime","Thriller","International","Gritty"],
-    poster:"assets/posters/tv/narcos-mexico.jpg.JPG",
-    summary:"As the trade consolidates, a new generation tries to turn chaos into an organized empire. The show focuses on systems: how corruption, enforcement, ambition, and fear combine into an industry that adapts to every crackdown—and keeps finding new ways to survive."
-  },
-  {
-    id:"fargo",
-    title:"Fargo",
-    year:"2014–",
-    meta:"Crime • Dark Comedy • Anthology",
-    seasons:"5 seasons (anthology)",
-    genres:["Crime","Dark Comedy","USA","Stylish"],
-    poster:"assets/posters/tv/fargo.jpg.JPG",
-    summary:"Ordinary lives collide with crime and trigger chains of decisions that get worse with every attempt to fix them. Each season stands alone, mixing sharp tension with bleak humor as small moral compromises snowball into disasters nobody can control."
-  },
-  {
-    id:"peaky-blinders",
-    title:"Peaky Blinders",
-    year:"2013–2022",
-    meta:"Crime • Gangster • Period",
-    seasons:"6 seasons",
-    genres:["Crime","History","UK","Stylish"],
-    poster:"assets/posters/tv/peaky-blinders.jpg.JPG",
-    summary:"A post-war gang expands into politics, industry, and international conflict as ambition outgrows loyalty. The series runs on strategy, betrayal, and power moves—where every victory creates a new enemy, and every deal carries a hidden threat."
-  },
-  {
-    id:"the-americans",
-    title:"The Americans",
-    year:"2013–2018",
-    meta:"Espionage • Marriage • Cold War",
-    seasons:"6 seasons",
-    genres:["Espionage","Drama","USA","Psychological"],
-    poster:"assets/posters/tv/the-americans.jpg.JPG",
-    summary:"Two deep-cover Soviet agents live as an American couple while running operations that could destroy them. The missions are tense, but the real pressure is domestic: identity, loyalty, and family strain under years of deception, until even love starts to feel like another cover story."
-  },
-  {
-    id:"the-night-manager",
-    title:"The Night Manager",
-    year:"2016",
-    meta:"Espionage • Undercover • Psychological",
-    seasons:"1 season",
-    genres:["Espionage","Thriller","UK","Psychological"],
-    poster:"assets/posters/tv/the-night-manager.jpg.jpeg",
-    summary:"A former soldier is pulled into an undercover operation against an international arms dealer. The danger comes from proximity—earning trust, living among predators, and surviving one wrong move."
-  },
-  {
-    id:"the-night-agent",
-    title:"The Night Agent",
-    year:"2023–",
-    meta:"Conspiracy • Government • Action",
-    seasons:"2 seasons",
-    genres:["Action","Thriller","Political","USA"],
-    poster:"assets/posters/tv/the-night-agent.jpg.jpeg",
-    summary:"A low-level agent answers a phone that was never meant to ring and ends up uncovering secrets buried deep inside government power. Every truth makes the situation worse."
-  },
-  {
-    id:"the-recruit",
-    title:"The Recruit",
-    year:"2022–",
-    meta:"CIA • Action • Dark humor",
-    seasons:"2 seasons",
-    genres:["Spy","Action","Drama","USA"],
-    poster:"assets/posters/tv/the-recruit.jpg.jpeg",
-    summary:"A CIA lawyer walks into international crises without training, protection, or clear rules. The tension comes from confusion, bad timing, and constantly being one step behind."
-  },
-  {
-    id:"24",
-    title:"24",
-    year:"2001–2010",
-    meta:"Counter-terror • Real-time • High pressure",
-    seasons:"9 seasons",
-    genres:["Action","Thriller","USA","Counter-terror"],
-    poster:"assets/posters/tv/24.jpg.jpeg",
-    summary:"Every season unfolds in real time as crises stack up without pause. Decisions are rushed, mistakes are permanent, and the clock never stops moving."
-  },
-  {
-    id:"agent-hamilton",
-    title:"Agent Hamilton",
-    year:"2020–",
-    meta:"Espionage • Political • Grounded",
-    seasons:"2 seasons",
-    genres:["Espionage","Thriller","Sweden","Political"],
-    poster:"assets/posters/tv/agent-hamilton.jpg.jpeg",
-    summary:"A restrained Swedish spy series focused on compromise, institutional rot, and loyalty limits. Less spectacle, more consequences."
-  },
-  {
-    id:"macgyver",
-    title:"MacGyver",
-    year:"2016–2021",
-    meta:"Action • Adventure • Procedural",
-    seasons:"5 seasons",
-    genres:["Action","Adventure","USA","Procedural"],
-    poster:"assets/posters/tv/macgyver.jpg.jpeg",
-    summary:"A lighter action series built around problem-solving and teamwork rather than paranoia. Easy to watch, low on darkness, high on ingenuity."
-  },
-  {
-    id:"black-doves",
-    title:"Black Doves",
-    year:"2024–",
-    meta:"Espionage • Assassins • Political",
-    seasons:"1 season",
-    genres:["Espionage","Thriller","UK","Political"],
-    poster:"assets/posters/tv/black-doves.jpg.jpeg",
-    summary:"A covert operative balances assassination work with a carefully built civilian life. Secrets pile up, and identity becomes the real risk."
-  },
-  {
-    id:"scorpion",
-    title:"Scorpion",
-    year:"2014–2018",
-    meta:"Action • Drama • Procedural",
-    seasons:"4 seasons",
-    genres:["Action","Drama","USA","Procedural"],
-    poster:"assets/posters/tv/scorpion-poster.jpg.jpeg",
-    summary:"Scorpion follows a team of highly intelligent specialists assembled to respond to large-scale emergencies that move faster than traditional agencies can handle. Led by a socially limited but brilliant strategist, the group is deployed into situations like failing aircraft, national infrastructure breakdowns, and high-risk technological disasters. Each episode revolves around a specific crisis, while the series gradually builds relationships, trust, and internal conflict as the team learns how to function not just as problem-solvers, but as people operating under constant pressure."
-  },
-  {
-    id:"white-collar",
-    title:"White Collar",
-    year:"2009–2014",
-    meta:"Crime • Drama • Procedural",
-    seasons:"6 seasons",
-    genres:["Crime","Drama","USA","Procedural"],
-    poster:"assets/posters/tv/white-collar-poster.jpg.jpeg",
-    summary:"White Collar centers on a skilled con artist who is released from prison on the condition that he helps the FBI solve white-collar crimes. Using his deep knowledge of forgery, art theft, financial scams, and social manipulation, he assists in cases that law enforcement alone can’t crack. While each episode focuses on a new investigation, the series steadily explores the tension between freedom and control, and whether someone built on deception can truly live an honest life."
-  },
-  {
-    id:"burn-notice",
-    title:"Burn Notice",
-    year:"2007–2013",
-    meta:"Action • Spy • Procedural",
-    seasons:"7 seasons",
-    genres:["Action","Spy","USA","Procedural"],
-    poster:"assets/posters/tv/burn-notice-poster.jpg.jpeg",
-    summary:"Burn Notice follows a professional spy who is suddenly cut off from his agency and stranded without resources or answers. While trying to uncover who burned him and why, he takes on freelance jobs that require surveillance, cons, and carefully planned operations. Each episode breaks down how missions are prepared and executed, while the larger narrative slowly reveals the forces behind his isolation. The show balances episodic cases with a long-running investigation into betrayal within the intelligence world."
-  },
-  {
-    id:"the-wheel-of-time",
-    title:"The Wheel of Time",
-    year:"2021–present",
-    meta:"Fantasy • Adventure • Drama",
-    seasons:"3 seasons",
-    genres:["Fantasy","Adventure","Drama","USA"],
-    poster:"assets/posters/tv/the-wheel-of-time.jpeg",
-    summary:"The Wheel of Time follows a group of young villagers whose lives are upended when a powerful magic user arrives, believing one of them is destined to either save the world or destroy it. As dark forces close in, they are pulled into a vast world of ancient prophecies, dangerous magic, and political power struggles. The series explores destiny, sacrifice, and the cost of power, balancing epic fantasy scale with deeply personal character journeys."
-  },
-  {
-    id:"the-originals",
-    title:"The Originals",
-    year:"2013–2018",
-    meta:"Fantasy • Supernatural • Drama",
-    seasons:"5 seasons",
-    genres:["Fantasy","Supernatural","Drama","USA"],
-    poster:"assets/posters/tv/the-originals.jpg.JPG",
-    summary:"The Originals centers on the Mikaelson family, the first vampires in history, whose return to New Orleans reignites old rivalries and supernatural power struggles. Bound together by loyalty and betrayal, the siblings navigate witches, werewolves, and rival vampires while confronting the consequences of their immortal past. The series focuses on family, legacy, and the question of whether monsters can ever truly change."
-  },
-  {
-    id:"a-discovery-of-witches",
-    title:"A Discovery of Witches",
-    year:"2018–2022",
-    meta:"Fantasy • Romance • Mystery",
-    seasons:"3 seasons",
-    genres:["Fantasy","Romance","Mystery","UK"],
-    poster:"assets/posters/tv/a-discovery-of-witches.jpeg",
-    summary:"A Discovery of Witches follows historian Diana Bishop, a reluctant witch who uncovers a long-lost magical manuscript that draws her into a hidden world of witches, vampires, and daemons. Partnering with the vampire Matthew Clairmont, Diana must confront her suppressed powers and centuries-old secrets. The series blends magic, history, and romance, focusing on identity, forbidden relationships, and the responsibility that comes with power."
-  },
-  {
-    id:"the-shannara-chronicles",
-    title:"The Shannara Chronicles",
-    year:"2016–2017",
-    meta:"Fantasy • Adventure • Young Adult",
-    seasons:"2 seasons",
-    genres:["Fantasy","Adventure","Young Adult","USA"],
-    poster:"assets/posters/tv/the-shannara-chronicles.jpeg",
-    summary:"Set in a distant future where magic has replaced modern civilization, The Shannara Chronicles follows three young heroes tasked with stopping an ancient evil from destroying the Four Lands. As demonic forces rise, each must confront their destiny and personal sacrifices. The series combines post-apocalyptic imagery with classic fantasy themes of courage, friendship, and the struggle between light and darkness."
-  },
-  {
-    id:"the-order",
-    title:"The Order",
-    year:"2019–2020",
-    meta:"Fantasy • Horror • Dark Comedy",
-    seasons:"2 seasons",
-    genres:["Fantasy","Horror","Comedy","USA"],
-    poster:"assets/posters/tv/the-order.jpeg",
-    summary:"The Order follows college student Jack Morton as he becomes entangled in a secret magical society while simultaneously joining a group of werewolves sworn to stop dark magic. Caught between rival factions, Jack navigates betrayal, power, and moral compromise. The show blends occult fantasy with dark humor, exploring how ambition and secrecy corrupt even those who believe they are doing the right thing."
-  },
-  {
-    id:"shadowhunters",
-    title:"Shadowhunters",
-    year:"2016–2019",
-    meta:"Fantasy • Action • Romance",
-    seasons:"3 seasons",
-    genres:["Fantasy","Action","Romance","USA"],
-    poster:"assets/posters/tv/shadowhunters.jpeg",
-    summary:"Shadowhunters follows Clary Fray, a young woman who discovers she belongs to a hidden world of demon hunters protecting humanity from supernatural threats. As she learns the truth about her past, Clary is drawn into complex alliances involving vampires, werewolves, warlocks, and angels. The series blends action, romance, and mythology while exploring identity, loyalty, and belonging."
-  },
-  {
-    id:"merlin",
-    title:"Merlin",
-    year:"2008–2012",
-    meta:"Fantasy • Adventure • Drama",
-    seasons:"5 seasons",
-    genres:["Fantasy","Adventure","Drama","UK"],
-    poster:"assets/posters/tv/merlin.webp",
-    summary:"Merlin reimagines the legend of King Arthur through the eyes of a young sorcerer forced to hide his magic in a kingdom where it is forbidden. Tasked with protecting Prince Arthur in secret, Merlin struggles with destiny, friendship, and sacrifice. The series balances humor and adventure with tragic undertones, telling a story about loyalty, fate, and the heavy cost of doing what is right."
-
-  },
- {
-    id:"chuck",
-    title:"Chuck",
-    year:"2007–2012",
-    meta:"Action • Comedy • Spy",
-    seasons:"5 seasons",
-    genres:["Action","Comedy","USA","Spy"],
-    poster:"assets/posters/tv/chuck-poster.jpg.jpeg",
-    summary:"Chuck follows an ordinary electronics store employee whose life changes when sensitive government data is accidentally uploaded into his brain. Suddenly protected and monitored by intelligence agents, he becomes an unwilling but essential asset in ongoing spy missions. Early seasons focus on survival and confusion, while later years track his growth into someone capable of handling danger, responsibility, and leadership. The series mixes weekly missions with a long-term arc about identity, choice, and becoming more than what circumstances first allow."
-  },
-  {
-    id:"limitless",
-    title:"Limitless",
-    year:"2015–2016",
-    meta:"Drama • Thriller • Procedural",
-    seasons:"1 season",
-    genres:["Drama","Thriller","USA","Procedural"],
-    poster:"assets/posters/tv/limitless-poster.jpg.jpeg",
-    summary:"Limitless follows a struggling man whose life shifts after he gains access to a drug that temporarily enhances his cognitive abilities. Recruited by the FBI, he uses this heightened intelligence to solve cases that hinge on complex patterns and rapid analysis. While each episode presents a new investigation, the season builds an underlying story about dependency, control, and the cost of relying on artificial brilliance. Despite its short run, the series maintains a clear narrative arc from discovery to consequence."
-  }
+  {id:"silo",title:"Silo",year:"2023–",meta:"Sci-Fi • Mystery • Thriller",seasons:"2 seasons (ongoing)",genres:["Sci-Fi","Mystery","Thriller","USA","Dystopia"],poster:"assets/posters/tv/silo.jpg.JPG",summary:"In a vast underground silo, society survives on strict rules and a carefully edited version of history. When deaths and disappearances start to line up like clues, an engineer pulls at the first loose thread and discovers the silo isn't protecting people from the world outside as much as it's protecting a lie from the people inside."},
+  {id:"bosch",title:"Bosch",year:"2014–2021",meta:"Crime • Detective • Neo-Noir",seasons:"7 seasons",genres:["Crime","Detective","Neo-Noir","USA","Investigation"],poster:"assets/posters/tv/bosch.jpg.JPG",summary:"Harry Bosch works homicide in Los Angeles with a stubborn moral code and a detective's obsession for what doesn't add up. Each case moves through procedure, politics, and pressure, but Bosch keeps going until the evidence tells the story, even when the department would rather close the file and move on."},
+  {id:"slow-horses",title:"Slow Horses",year:"2022–",meta:"Espionage • Dark Comedy • Thriller",seasons:"Multiple seasons (ongoing)",genres:["Espionage","Thriller","UK","Dark Comedy"],poster:"assets/posters/tv/slow-horses.jpg.JPG",summary:"MI5's rejects are dumped in Slough House to rot in paperwork and regret, until real danger keeps landing on their doorstep. Led by the brilliant and unbearable Jackson Lamb, they stumble into conspiracies the proper agents can't touch, winning through instinct, stubbornness, and tradecraft that still works when it counts."},
+  {id:"the-bureau",title:"The Bureau (Le Bureau des Légendes)",year:"2015–2020",meta:"Espionage • Psychological • Prestige",seasons:"5 seasons",genres:["Espionage","Psychological","France","Tradecraft"],poster:"assets/posters/tv/the-bureau.jpg.JPG",summary:"A French intelligence officer returns from years undercover and finds the hardest part isn't espionage, it's coming back to himself. Built around realistic tradecraft, the series treats spying as long-term psychological damage: cover identities, handlers, assets, and the quiet erosion of whatever used to feel real."},
+  {id:"bodyguard",title:"Bodyguard",year:"2018",meta:"Political Thriller • Action",seasons:"1 season",genres:["Thriller","Action","UK","Politics"],poster:"assets/posters/tv/bodyguard.jpg.JPG",summary:"A war-scarred protection officer is assigned to guard a powerful politician he distrusts. As terror threats escalate and government agendas tighten like a noose, every security detail becomes a test of loyalty and the closer he gets to the truth, the more he looks like the person everyone should fear."},
+  {id:"marco-polo",title:"Marco Polo",year:"2014–2016",meta:"Historical • Adventure • Court Politics",seasons:"2 seasons",genres:["History","Adventure","Politics","International"],poster:"assets/posters/tv/marco-polo.jpg.JPG",summary:"A young outsider is drawn into Kublai Khan's empire and quickly learns that survival at court isn't about bravery, it's about reading power before it moves. Battles, alliances, betrayals, and ambition collide in a world where one wrong conversation can be deadlier than a battlefield."},
+  {id:"jack-ryan",title:"Tom Clancy's Jack Ryan",year:"2018–2023",meta:"Espionage • Action • Thriller",seasons:"4 seasons",genres:["Espionage","Action","Thriller","USA"],poster:"assets/posters/tv/jack-ryan.jpg.JPG",summary:"An analyst follows a suspicious financial pattern and gets dragged from desk work into global operations. The series blends intel work with high-stakes action as one clue turns into a chain reaction across borders, where every small detail is attached to someone's bigger plan."},
+  {id:"alex-rider",title:"Alex Rider",year:"2020–2024",meta:"Spy • Thriller • Coming-of-Age",seasons:"3 seasons",genres:["Espionage","Thriller","UK"],poster:"assets/posters/tv/alex-rider.jpg.JPG",summary:"After his guardian's death, a teenager discovers his life was built around secrets and that he's been trained for a world he never agreed to enter. Forced into missions designed for adults, he investigates the people who used him, the agency that lied to him, and the truth hidden inside his own past."},
+  {id:"pennyworth",title:"Pennyworth",year:"2019–2022",meta:"Crime • Spy • Origin Story",seasons:"3 seasons",genres:["Crime","Espionage","UK","Stylish"],poster:"assets/posters/tv/pennyworth.jpg.JPG",summary:"Before Gotham myths, Alfred Pennyworth is an ex-soldier running a security business in a London teetering toward chaos. He's pulled between underground movements, elite conspiracies, and rising violence, where loyalty is currency and every job hints at a larger war forming in the shadows."},
+  {id:"the-originals",title:"The Originals",year:"2013–2018",meta:"Supernatural • Family War • Dark Fantasy",seasons:"5 seasons",genres:["Supernatural","Dark Fantasy","USA"],poster:"assets/posters/tv/the-originals.jpg.JPG",summary:"The first vampire family returns to the city they helped build, only to find it ruled by enemies, fragile alliances, and old grudges that never died. As witches, werewolves, and vampires collide, the story becomes a ruthless power struggle where love is leverage and betrayal is tradition."},
+  {id:"chief-of-war",title:"Chief of War",year:"2025",meta:"Historical • War • Epic Drama",seasons:"1 season (so far)",genres:["History","War","Epic","International"],poster:"assets/posters/tv/chief-of-war.jpg.JPG",summary:"Set amid shifting alliances and colonial pressure, the series follows leaders and warriors fighting to protect land, identity, and sovereignty. Conflict is shown as strategy and consequence, where battles matter, but the hardest choices happen in councils, families, and the fragile space between unity and survival."},
+  {id:"the-mentalist",title:"The Mentalist",year:"2008–2015",meta:"Crime • Case-of-the-Week • Mystery",seasons:"7 seasons",genres:["Crime","Mystery","USA","Investigation"],poster:"assets/posters/tv/the-mentalist.jpg.JPG",summary:"A former con artist uses observation, psychology, and carefully timed deception to help solve murders, while quietly hunting the serial killer who ruined his life. Weekly cases deliver sharp puzzles, but the long arc is about patience: how far you'll go, and what it costs, to get one person in a room."},
+  {id:"the-good-doctor",title:"The Good Doctor",year:"2017–2024",meta:"Medical • Drama",seasons:"7 seasons",genres:["Drama","Medical","USA"],poster:"assets/posters/tv/the-good-doctor.jpg.JPG",summary:"A gifted young surgeon enters a high-pressure hospital where every decision can change a life in minutes. The cases hit hard, but the real tension is trust: earning respect in a system built on hierarchy, doubt, and the constant demand to prove you belong."},
+  {id:"day-of-the-jackal",title:"The Day of the Jackal",year:"2024",meta:"Espionage • Assassin Thriller",seasons:"1 season (so far)",genres:["Espionage","Thriller","UK","Assassin"],poster:"assets/posters/tv/day-of-the-jackal.jpg.JPG",summary:"A lethal assassin and a relentless investigator spiral into a modern manhunt powered by surveillance, false identities, and quiet funding. Every move triggers the next: safe houses, contacts, cover stories, misdirection, until the chase becomes less about catching a man and more about exposing the network behind him."},
+  {id:"true-detective",title:"True Detective",year:"2014–",meta:"Crime • Thriller • Anthology",seasons:"4 seasons (anthology)",genres:["Crime","Thriller","USA","Investigation"],poster:"assets/posters/tv/true-detective.jpg.JPG",summary:"Each season follows a different case where crime exposes corruption, obsession, and moral decay. The mystery matters, but the deeper hook is what the case does to the investigators over time: how it bends them, breaks them, or leaves them hollow even after the truth comes out."},
+  {id:"mindhunter",title:"Mindhunter",year:"2017–2019",meta:"Crime • Psychological • Serial Killers",seasons:"2 seasons",genres:["Crime","Psychological","USA","Investigation"],poster:"assets/posters/tv/mindhunter.jpg.JPG",summary:"Two FBI agents pioneer a new method: sit down with serial killers and learn how they think before the next murder happens. The tension is slow and clinical, because the danger isn't a chase. It's letting monsters explain themselves, and realizing how much of their logic starts to sound familiar."},
+  {id:"the-night-of",title:"The Night Of",year:"2016",meta:"Crime • Courtroom • Character Drama",seasons:"1 season",genres:["Crime","Courtroom","USA","Drama"],poster:"assets/posters/tv/the-night-of.jpg.JPG",summary:"One night turns into a life-altering accusation when a young man wakes up beside a murdered woman. The series traces every stage: police, jail, lawyers, court, and shows how the system reshapes everyone it touches, whether they're guilty, innocent, or simply trapped by what looks true."},
+  {id:"dark",title:"Dark",year:"2017–2020",meta:"Sci-Fi • Mystery • Time",seasons:"3 seasons",genres:["Sci-Fi","Mystery","Germany","Mind-bending"],poster:"assets/posters/tv/dark.jpg.JPG",summary:"A missing child exposes a hidden structure connecting families across decades. Time travel isn't a gimmick here, it's a trap that turns cause and effect into a tightening loop. As secrets surface, the town's history becomes a puzzle with emotional weight, where every answer creates a new wound."},
+  {id:"chernobyl",title:"Chernobyl",year:"2019",meta:"Historical • Disaster • Political",seasons:"1 season",genres:["History","Drama","International","Politics"],poster:"assets/posters/tv/chernobyl.jpg.JPG",summary:"A nuclear disaster becomes a crisis of physics, politics, and truth. Scientists, officials, and workers fight against denial and delay while the cost rises by the hour. The horror isn't only the explosion. It's watching a system choose appearances over reality, even when reality is radioactive."},
+  {id:"narcos",title:"Narcos",year:"2015–2017",meta:"Crime • Cartels • War on Drugs",seasons:"3 seasons",genres:["Crime","Thriller","International","Gritty"],poster:"assets/posters/tv/narcos.jpg.JPG",summary:"The rise of a drug empire triggers an arms race between cartels, governments, and the people trapped in the middle. Told through operations, informants, and shifting alliances, the series shows how power grows and how violence becomes infrastructure, outlasting the men who built it."},
+  {id:"narcos-mexico",title:"Narcos: Mexico",year:"2018–2021",meta:"Crime • Cartels • Power Shift",seasons:"3 seasons",genres:["Crime","Thriller","International","Gritty"],poster:"assets/posters/tv/narcos-mexico.jpg.JPG",summary:"As the trade consolidates, a new generation tries to turn chaos into an organized empire. The show focuses on systems: how corruption, enforcement, ambition, and fear combine into an industry that adapts to every crackdown and keeps finding new ways to survive."},
+  {id:"fargo",title:"Fargo",year:"2014–",meta:"Crime • Dark Comedy • Anthology",seasons:"5 seasons (anthology)",genres:["Crime","Dark Comedy","USA","Stylish"],poster:"assets/posters/tv/fargo.jpg.JPG",summary:"Ordinary lives collide with crime and trigger chains of decisions that get worse with every attempt to fix them. Each season stands alone, mixing sharp tension with bleak humor as small moral compromises snowball into disasters nobody can control."},
+  {id:"peaky-blinders",title:"Peaky Blinders",year:"2013–2022",meta:"Crime • Gangster • Period",seasons:"6 seasons",genres:["Crime","History","UK","Stylish"],poster:"assets/posters/tv/peaky-blinders.jpg.JPG",summary:"A post-war gang expands into politics, industry, and international conflict as ambition outgrows loyalty. The series runs on strategy, betrayal, and power moves, where every victory creates a new enemy and every deal carries a hidden threat."},
+  {id:"the-americans",title:"The Americans",year:"2013–2018",meta:"Espionage • Marriage • Cold War",seasons:"6 seasons",genres:["Espionage","Drama","USA","Psychological"],poster:"assets/posters/tv/the-americans.jpg.JPG",summary:"Two deep-cover Soviet agents live as an American couple while running operations that could destroy them. The missions are tense, but the real pressure is domestic: identity, loyalty, and family strain under years of deception, until even love starts to feel like another cover story."},
+  {id:"the-night-manager",title:"The Night Manager",year:"2016",meta:"Espionage • Undercover • Psychological",seasons:"1 season",genres:["Espionage","Thriller","UK","Psychological"],poster:"assets/posters/tv/the-night-manager.jpg.jpeg",summary:"A former soldier is pulled into an undercover operation against an international arms dealer. The danger comes from proximity: earning trust, living among predators, and surviving one wrong move."},
+  {id:"the-night-agent",title:"The Night Agent",year:"2023–",meta:"Conspiracy • Government • Action",seasons:"2 seasons",genres:["Action","Thriller","Political","USA"],poster:"assets/posters/tv/the-night-agent.jpg.jpeg",summary:"A low-level agent answers a phone that was never meant to ring and ends up uncovering secrets buried deep inside government power. Every truth makes the situation worse."},
+  {id:"the-recruit",title:"The Recruit",year:"2022–",meta:"CIA • Action • Dark humor",seasons:"2 seasons",genres:["Spy","Action","Drama","USA"],poster:"assets/posters/tv/the-recruit.jpg.jpeg",summary:"A CIA lawyer walks into international crises without training, protection, or clear rules. The tension comes from confusion, bad timing, and constantly being one step behind."},
+  {id:"24",title:"24",year:"2001–2010",meta:"Counter-terror • Real-time • High pressure",seasons:"9 seasons",genres:["Action","Thriller","USA","Counter-terror"],poster:"assets/posters/tv/24.jpg.jpeg",summary:"Every season unfolds in real time as crises stack up without pause. Decisions are rushed, mistakes are permanent, and the clock never stops moving."},
+  {id:"agent-hamilton",title:"Agent Hamilton",year:"2020–",meta:"Espionage • Political • Grounded",seasons:"2 seasons",genres:["Espionage","Thriller","Sweden","Political"],poster:"assets/posters/tv/agent-hamilton.jpg.jpeg",summary:"A restrained Swedish spy series focused on compromise, institutional rot, and loyalty limits. Less spectacle, more consequences."},
+  {id:"macgyver",title:"MacGyver",year:"2016–2021",meta:"Action • Adventure • Procedural",seasons:"5 seasons",genres:["Action","Adventure","USA","Procedural"],poster:"assets/posters/tv/macgyver.jpg.jpeg",summary:"A lighter action series built around problem-solving and teamwork rather than paranoia. Easy to watch, low on darkness, high on ingenuity."},
+  {id:"black-doves",title:"Black Doves",year:"2024–",meta:"Espionage • Assassins • Political",seasons:"1 season",genres:["Espionage","Thriller","UK","Political"],poster:"assets/posters/tv/black-doves.jpg.jpeg",summary:"A covert operative balances assassination work with a carefully built civilian life. Secrets pile up, and identity becomes the real risk."},
+  {id:"scorpion",title:"Scorpion",year:"2014–2018",meta:"Action • Drama • Procedural",seasons:"4 seasons",genres:["Action","Drama","USA","Procedural"],poster:"assets/posters/tv/scorpion-poster.jpg.jpeg",summary:"Scorpion follows a team of highly intelligent specialists assembled to respond to large-scale emergencies that move faster than traditional agencies can handle. Led by a socially limited but brilliant strategist, the group is deployed into situations like failing aircraft, national infrastructure breakdowns, and high-risk technological disasters. Each episode revolves around a specific crisis, while the series gradually builds relationships, trust, and internal conflict as the team learns how to function not just as problem-solvers, but as people operating under constant pressure."},
+  {id:"white-collar",title:"White Collar",year:"2009–2014",meta:"Crime • Drama • Procedural",seasons:"6 seasons",genres:["Crime","Drama","USA","Procedural"],poster:"assets/posters/tv/white-collar-poster.jpg.jpeg",summary:"White Collar centers on a skilled con artist who is released from prison on the condition that he helps the FBI solve white-collar crimes. Using his deep knowledge of forgery, art theft, financial scams, and social manipulation, he assists in cases that law enforcement alone can't crack. While each episode focuses on a new investigation, the series steadily explores the tension between freedom and control, and whether someone built on deception can truly live an honest life."},
+  {id:"burn-notice",title:"Burn Notice",year:"2007–2013",meta:"Action • Spy • Procedural",seasons:"7 seasons",genres:["Action","Spy","USA","Procedural"],poster:"assets/posters/tv/burn-notice-poster.jpg.jpeg",summary:"Burn Notice follows a professional spy who is suddenly cut off from his agency and stranded without resources or answers. While trying to uncover who burned him and why, he takes on freelance jobs that require surveillance, cons, and carefully planned operations. Each episode breaks down how missions are prepared and executed, while the larger narrative slowly reveals the forces behind his isolation. The show balances episodic cases with a long-running investigation into betrayal within the intelligence world."},
+  {id:"the-wheel-of-time",title:"The Wheel of Time",year:"2021–present",meta:"Fantasy • Adventure • Drama",seasons:"3 seasons",genres:["Fantasy","Adventure","Drama","USA"],poster:"assets/posters/tv/the-wheel-of-time.jpeg",summary:"The Wheel of Time follows a group of young villagers whose lives are upended when a powerful magic user arrives, believing one of them is destined to either save the world or destroy it. As dark forces close in, they are pulled into a vast world of ancient prophecies, dangerous magic, and political power struggles. The series explores destiny, sacrifice, and the cost of power, balancing epic fantasy scale with deeply personal character journeys."},
+  {id:"a-discovery-of-witches",title:"A Discovery of Witches",year:"2018–2022",meta:"Fantasy • Romance • Mystery",seasons:"3 seasons",genres:["Fantasy","Romance","Mystery","UK"],poster:"assets/posters/tv/a-discovery-of-witches.jpeg",summary:"A Discovery of Witches follows historian Diana Bishop, a reluctant witch who uncovers a long-lost magical manuscript that draws her into a hidden world of witches, vampires, and daemons. Partnering with the vampire Matthew Clairmont, Diana must confront her suppressed powers and centuries-old secrets. The series blends magic, history, and romance, focusing on identity, forbidden relationships, and the responsibility that comes with power."},
+  {id:"the-shannara-chronicles",title:"The Shannara Chronicles",year:"2016–2017",meta:"Fantasy • Adventure • Young Adult",seasons:"2 seasons",genres:["Fantasy","Adventure","Young Adult","USA"],poster:"assets/posters/tv/the-shannara-chronicles.jpeg",summary:"Set in a distant future where magic has replaced modern civilization, The Shannara Chronicles follows three young heroes tasked with stopping an ancient evil from destroying the Four Lands. As demonic forces rise, each must confront their destiny and personal sacrifices. The series combines post-apocalyptic imagery with classic fantasy themes of courage, friendship, and the struggle between light and darkness."},
+  {id:"the-order",title:"The Order",year:"2019–2020",meta:"Fantasy • Horror • Dark Comedy",seasons:"2 seasons",genres:["Fantasy","Horror","Comedy","USA"],poster:"assets/posters/tv/the-order.jpeg",summary:"The Order follows college student Jack Morton as he becomes entangled in a secret magical society while simultaneously joining a group of werewolves sworn to stop dark magic. Caught between rival factions, Jack navigates betrayal, power, and moral compromise. The show blends occult fantasy with dark humor, exploring how ambition and secrecy corrupt even those who believe they are doing the right thing."},
+  {id:"shadowhunters",title:"Shadowhunters",year:"2016–2019",meta:"Fantasy • Action • Romance",seasons:"3 seasons",genres:["Fantasy","Action","Romance","USA"],poster:"assets/posters/tv/shadowhunters.jpeg",summary:"Shadowhunters follows Clary Fray, a young woman who discovers she belongs to a hidden world of demon hunters protecting humanity from supernatural threats. As she learns the truth about her past, Clary is drawn into complex alliances involving vampires, werewolves, warlocks, and angels. The series blends action, romance, and mythology while exploring identity, loyalty, and belonging."},
+  {id:"merlin",title:"Merlin",year:"2008–2012",meta:"Fantasy • Adventure • Drama",seasons:"5 seasons",genres:["Fantasy","Adventure","Drama","UK"],poster:"assets/posters/tv/merlin.webp",summary:"Merlin reimagines the legend of King Arthur through the eyes of a young sorcerer forced to hide his magic in a kingdom where it is forbidden. Tasked with protecting Prince Arthur in secret, Merlin struggles with destiny, friendship, and sacrifice. The series balances humor and adventure with tragic undertones, telling a story about loyalty, fate, and the heavy cost of doing what is right."},
+  {id:"chuck",title:"Chuck",year:"2007–2012",meta:"Action • Comedy • Spy",seasons:"5 seasons",genres:["Action","Comedy","USA","Spy"],poster:"assets/posters/tv/chuck-poster.jpg.jpeg",summary:"Chuck follows an ordinary electronics store employee whose life changes when sensitive government data is accidentally uploaded into his brain. Suddenly protected and monitored by intelligence agents, he becomes an unwilling but essential asset in ongoing spy missions. Early seasons focus on survival and confusion, while later years track his growth into someone capable of handling danger, responsibility, and leadership. The series mixes weekly missions with a long-term arc about identity, choice, and becoming more than what circumstances first allow."},
+  {id:"limitless",title:"Limitless",year:"2015–2016",meta:"Drama • Thriller • Procedural",seasons:"1 season",genres:["Drama","Thriller","USA","Procedural"],poster:"assets/posters/tv/limitless-poster.jpg.jpeg",summary:"Limitless follows a struggling man whose life shifts after he gains access to a drug that temporarily enhances his cognitive abilities. Recruited by the FBI, he uses this heightened intelligence to solve cases that hinge on complex patterns and rapid analysis. While each episode presents a new investigation, the season builds an underlying story about dependency, control, and the cost of relying on artificial brilliance. Despite its short run, the series maintains a clear narrative arc from discovery to consequence."}
 ];
 
-/* =========================
-   APP LOGIC (DON'T EDIT)
-   ========================= */
 const $ = (id) => document.getElementById(id);
-
-const grid = $("grid");
-const chipsEl = $("chips");
-const qEl = $("q");
-const clearBtn = $("clearBtn");
-const clearFiltersBtn = $("clearFiltersBtn");
-const resultCount = $("resultCount");
-const emptyEl = $("empty");
-
-const modal = $("modal");
-const closeBtn = $("closeBtn");
-const mPoster = $("mPoster");
-const mTitle = $("mTitle");
-const mMeta  = $("mMeta");
-const mPills = $("mPills");
-const mWhy   = $("mWhy");
-
+const grid=$("grid"),chipsEl=$("chips"),qEl=$("q"),clearBtn=$("clearBtn"),clearFiltersBtn=$("clearFiltersBtn"),resultCount=$("resultCount"),emptyEl=$("empty"),modal=$("modal"),closeBtn=$("closeBtn"),mPoster=$("mPoster"),mTitle=$("mTitle"),mMeta=$("mMeta"),mPills=$("mPills"),mWhy=$("mWhy");
 const picked = new Set();
 
-function normalize(s){ return String(s || "").toLowerCase().trim(); }
+function normalize(s){ return String(s||"").toLowerCase().trim(); }
 
 function buildChips(items){
-  const counts = new Map();
-  items.forEach(m=>{
-    (m.genres || []).forEach(t=>{
-      const tag = String(t).trim();
-      if(!tag) return;
-      counts.set(tag, (counts.get(tag) || 0) + 1);
-    });
-  });
-
-  const priority = [
-    "USA","UK","Korea","Japan","Germany","France","International",
-    "Crime","Thriller","Espionage","Mystery","Drama","Sci-Fi","History","War","Courtroom",
-    "Psychological","Dark Comedy","Stylish","Gritty","Mind-bending","Investigation","Dystopia"
-  ];
-
-  const present = new Set([...counts.keys()]);
-  const first = priority.filter(t => present.has(t));
-
-  const rest = [...counts.entries()]
-    .filter(([t]) => !priority.includes(t))
-    .sort((a,b)=> b[1]-a[1] || a[0].localeCompare(b[0]))
-    .map(([t])=>t);
-
-  return [...first, ...rest].slice(0, 40);
-}
-
-function chipButton(tag){
-  const b = document.createElement("div");
-  b.className = "chip" + (picked.has(tag) ? " on" : "");
-  b.textContent = tag;
-  b.onclick = () => {
-    if(picked.has(tag)) picked.delete(tag);
-    else picked.add(tag);
-    paintChips();
-    render();
-  };
-  return b;
+  const counts=new Map();
+  items.forEach(m=>(m.genres||[]).forEach(t=>{const tag=String(t).trim();if(tag)counts.set(tag,(counts.get(tag)||0)+1);}));
+  const priority=["USA","UK","Korea","Japan","Germany","France","Sweden","International","Crime","Thriller","Espionage","Mystery","Drama","Sci-Fi","History","War","Courtroom","Psychological","Dark Comedy","Stylish","Gritty","Mind-bending","Investigation","Dystopia"];
+  const present=new Set([...counts.keys()]);
+  const first=priority.filter(t=>present.has(t));
+  const rest=[...counts.entries()].filter(([t])=>!priority.includes(t)).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0])).map(([t])=>t);
+  return [...first,...rest].slice(0,40);
 }
 
 function paintChips(){
-  chipsEl.innerHTML = "";
-  buildChips(TV).forEach(tag => chipsEl.appendChild(chipButton(tag)));
+  chipsEl.innerHTML="";
+  buildChips(TV).forEach(tag=>{
+    const b=document.createElement("div");
+    b.className="chip"+(picked.has(tag)?" on":"");b.textContent=tag;
+    b.onclick=()=>{if(picked.has(tag))picked.delete(tag);else picked.add(tag);paintChips();render();};
+    chipsEl.appendChild(b);
+  });
 }
 
 function matchesPicked(item){
-  if(picked.size === 0) return true;
-
-  const tagsFromGenres = Array.isArray(item.genres) ? item.genres.map(String) : [];
-  const tagsFromMeta = String(item.meta || "")
-    .split("•")
-    .map(s => s.trim())
-    .filter(Boolean);
-
-  const tags = new Set([...tagsFromGenres, ...tagsFromMeta]);
-
-  for(const p of picked){
-    if(!tags.has(p)) return false;
-  }
-  return true;
+  if(!picked.size)return true;
+  const tags=new Set([...(Array.isArray(item.genres)?item.genres.map(String):[]),...String(item.meta||"").split("•").map(s=>s.trim()).filter(Boolean)]);
+  for(const p of picked){if(!tags.has(p))return false;}return true;
 }
 
-function matchesQuery(item, q){
-  if(!q) return true;
-  const hay = [
-    item.title,
-    item.year,
-    item.meta,
-    item.seasons,
-    (item.genres || []).join(" "),
-    item.summary
-  ].join(" ");
-  return normalize(hay).includes(q);
+function matchesQuery(item,q){
+  if(!q)return true;
+  return normalize([item.title,item.year,item.meta,item.seasons,(item.genres||[]).join(" "),item.summary].join(" ")).includes(q);
 }
 
 function getSorted(items){
   return items.slice().sort((a,b)=>{
-    const ya = parseInt(String(a.year||"").slice(0,4)) || 0;
-    const yb = parseInt(String(b.year||"").slice(0,4)) || 0;
-    if(yb !== ya) return yb - ya;
-    return String(a.title || "").localeCompare(String(b.title || ""));
+    const ya=parseInt(String(a.year||"").slice(0,4))||0,yb=parseInt(String(b.year||"").slice(0,4))||0;
+    if(yb!==ya)return yb-ya;return String(a.title||"").localeCompare(String(b.title||""));
   });
 }
 
-/* ✅ poster fallback without broken images */
-function setPoster(el, url){
-  if(url){
-    el.classList.remove("fallback");
-    el.style.backgroundImage = `url('${String(url).replace(/'/g,"\\'")}')`;
-  }else{
-    el.classList.add("fallback");
-    el.style.backgroundImage = "";
-  }
+function setPoster(el,url){
+  if(url){el.classList.remove("fallback");el.style.backgroundImage=`url('${String(url).replace(/'/g,"\\'")}')`;
+  }else{el.classList.add("fallback");el.style.backgroundImage="";}
 }
 
 function openModal(item){
-  setPoster(mPoster, item.poster || "");
-  mTitle.textContent = item.title || "Untitled";
-
-  const metaBits = [];
-  if(item.year) metaBits.push(item.year);
-  if(item.meta) metaBits.push(item.meta);
-  if(item.seasons) metaBits.push(item.seasons);
-  mMeta.textContent = metaBits.join(" • ");
-
-  mPills.innerHTML = "";
-  const tags = (Array.isArray(item.genres) && item.genres.length)
-    ? item.genres
-    : String(item.meta || "").split("•").map(s=>s.trim()).filter(Boolean);
-
-  tags.slice(0, 8).forEach(t=>{
-    const p = document.createElement("div");
-    p.className = "pill";
-    p.textContent = t;
-    mPills.appendChild(p);
-  });
-
-  mWhy.textContent = item.summary || "No synopsis added yet.";
-
-  modal.classList.add("on");
-  modal.setAttribute("aria-hidden","false");
-  document.body.classList.add("modalOpen");
+  setPoster(mPoster,item.poster||"");
+  mTitle.textContent=item.title||"Untitled";
+  const bits=[];if(item.year)bits.push(item.year);if(item.meta)bits.push(item.meta);if(item.seasons)bits.push(item.seasons);
+  mMeta.textContent=bits.join(" • ");
+  mPills.innerHTML="";
+  const tags=(Array.isArray(item.genres)&&item.genres.length)?item.genres:String(item.meta||"").split("•").map(s=>s.trim()).filter(Boolean);
+  tags.slice(0,8).forEach(t=>{const p=document.createElement("div");p.className="pill";p.textContent=t;mPills.appendChild(p);});
+  mWhy.textContent=item.summary||"No synopsis added yet.";
+  modal.classList.add("on");modal.setAttribute("aria-hidden","false");document.body.classList.add("modalOpen");
 }
 
-function closeModal(){
-  modal.classList.remove("on");
-  modal.setAttribute("aria-hidden","true");
-  document.body.classList.remove("modalOpen");
-}
+function closeModal(){modal.classList.remove("on");modal.setAttribute("aria-hidden","true");document.body.classList.remove("modalOpen");}
 
-closeBtn.onclick = closeModal;
-modal.addEventListener("click", (e)=>{ if(e.target === modal) closeModal(); });
-window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeModal(); });
+closeBtn.onclick=closeModal;
+modal.addEventListener("click",(e)=>{if(e.target===modal)closeModal();});
+window.addEventListener("keydown",(e)=>{if(e.key==="Escape")closeModal();});
 
 function card(item){
-  const div = document.createElement("div");
-  div.className = "card";
-
-  const tagLine = (Array.isArray(item.genres) && item.genres.length)
-    ? item.genres.slice(0, 5).join(" • ")
-    : String(item.meta || "").split("•").map(s=>s.trim()).filter(Boolean).slice(0,5).join(" • ");
-
-  const posterHtml = item.poster
-    ? `<div class="poster" style="background-image:url('${String(item.poster).replace(/'/g,"\\'")}');"></div>`
-    : `<div class="poster fallback"></div>`;
-
-  div.innerHTML = `
-    ${posterHtml}
-    <div class="info">
-      <div class="title">${item.title || "Untitled"}</div>
-      <div class="meta">${item.year || ""}${item.meta ? " • " + item.meta : ""}</div>
-      <div class="tagsline">${tagLine}</div>
-    </div>
-  `;
-
-  div.onclick = () => openModal(item);
-  return div;
+  const div=document.createElement("div");div.className="card";
+  const tagLine=(Array.isArray(item.genres)&&item.genres.length)?item.genres.slice(0,5).join(" • "):String(item.meta||"").split("•").map(s=>s.trim()).filter(Boolean).slice(0,5).join(" • ");
+  const posterHtml=item.poster?`<div class="poster" style="background-image:url('${String(item.poster).replace(/'/g,"\\'")}');background-size:contain;background-repeat:no-repeat;background-position:center;"></div>`:`<div class="poster fallback"></div>`;
+  div.innerHTML=`${posterHtml}<div class="info"><div class="title">${item.title||"Untitled"}</div><div class="meta">${item.year||""}${item.meta?" • "+item.meta:""}</div><div class="tagsline">${tagLine}</div></div>`;
+  div.onclick=()=>openModal(item);return div;
 }
 
 function render(){
-  const q = normalize(qEl.value);
-
-  const filtered = getSorted(
-    TV.filter(m => matchesPicked(m) && matchesQuery(m, q))
-  );
-
-  grid.innerHTML = "";
-  filtered.forEach(m => grid.appendChild(card(m)));
-
-  resultCount.textContent =
-    `${filtered.length} title${filtered.length === 1 ? "" : "s"} found` +
-    (picked.size ? ` • Filters: ${[...picked].join(", ")}` : "");
-
-  emptyEl.style.display = filtered.length ? "none" : "block";
+  const q=normalize(qEl.value);
+  const filtered=getSorted(TV.filter(m=>matchesPicked(m)&&matchesQuery(m,q)));
+  grid.innerHTML="";filtered.forEach(m=>grid.appendChild(card(m)));
+  resultCount.textContent=`${filtered.length} title${filtered.length===1?"":"s"} found`+(picked.size?` • Filters: ${[...picked].join(", ")}`:"");
+  emptyEl.style.display=filtered.length?"none":"block";
 }
 
-/* tiny perf: debounce typing */
-let t = null;
-qEl.addEventListener("input", ()=>{
-  clearTimeout(t);
-  t = setTimeout(render, 60);
-});
+let t=null;
+qEl.addEventListener("input",()=>{clearTimeout(t);t=setTimeout(render,60);});
+clearBtn.onclick=()=>{qEl.value="";render();};
+clearFiltersBtn.onclick=()=>{picked.clear();paintChips();render();};
 
-clearBtn.onclick = () => { qEl.value = ""; render(); };
-clearFiltersBtn.onclick = () => { picked.clear(); paintChips(); render(); };
-
-paintChips();
-render();
+paintChips();render();
 </script>
-
 </body>
 </html>
