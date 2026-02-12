@@ -44,7 +44,6 @@
   }
   .top b{font-size:16px}
 
-  /* ✅ nav group + buttons */
   .navLeft{
     display:flex;
     gap:10px;
@@ -66,13 +65,11 @@
 
   .wrap{padding:18px 18px 8px}
 
-  /* ✅ Intro (adds depth without breaking aesthetics) */
-  .intro{
-    max-width:980px;
-  }
+  /* ── INTRO ── */
+  .intro{max-width:980px}
   .intro h1{
     font-size:18px;
-    font-weight:750;
+    font-weight:700;
     letter-spacing:.2px;
     line-height:1.2;
   }
@@ -81,35 +78,77 @@
     color:#cfcfcf;
     font-size:14px;
     line-height:1.85;
-    opacity:.95;
   }
-  .intro .mini{
-    margin-top:10px;
-    color:#aaa;
-    font-size:12.5px;
-    line-height:1.6;
+
+  /* ── EDITORIAL CARDS ── */
+  .editorials{
+    margin-top:18px;
   }
-  .introLinks{
-    margin-top:12px;
+  .ed-label{
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:#555;
+    margin-bottom:12px;
+  }
+  .ed-row{
     display:flex;
-    gap:10px;
-    flex-wrap:wrap;
+    gap:12px;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    padding-bottom:4px;
+    scrollbar-width:none;
   }
-  .introLink{
-    border:1px solid #222;
+  .ed-row::-webkit-scrollbar{display:none}
+  .ed-card{
+    flex:0 0 auto;
+    width:160px;
+    border-radius:12px;
+    border:1px solid #1e1e1e;
+    background:#0f0f0f;
+    overflow:hidden;
+    display:block;
+    text-decoration:none;
+    transition:border-color .15s;
+  }
+  .ed-card:hover{border-color:#2e2e2e}
+  .ed-card:active{opacity:.8}
+  .ed-thumb{
+    width:100%;
+    height:100px;
+    object-fit:cover;
+    display:block;
     background:#111;
-    color:#ddd;
-    padding:10px 12px;
-    border-radius:999px;
-    font-size:13px;
-    user-select:none;
   }
-  .introLink:hover{border-color:#2b2b2b}
+  /* fallback if image is missing */
+  .ed-thumb-bg{
+    width:100%;
+    height:100px;
+    background:#111 no-repeat center/cover;
+    display:block;
+  }
+  .ed-body{
+    padding:9px 10px 11px;
+  }
+  .ed-tag{
+    font-size:10px;
+    color:#666;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    margin-bottom:4px;
+  }
+  .ed-title{
+    font-size:12px;
+    font-weight:600;
+    color:#ccc;
+    line-height:1.35;
+  }
+
   .divider{
-    margin-top:14px;
+    margin-top:16px;
     border:0;
     border-top:1px solid #1f1f1f;
-    opacity:.9;
   }
 
   .controls{
@@ -189,7 +228,6 @@
     user-select:none;
   }
 
-  /* ✅ full posters (no head-cut on iOS) */
   .poster{
     height:320px;
     background:#111;
@@ -279,7 +317,6 @@
     flex:1 1 auto;
   }
 
-  /* ✅ full poster in modal */
   .bigPoster{
     height:460px;
     border-radius:16px;
@@ -315,7 +352,6 @@
     color:#d8d8d8;
   }
 
-  /* ✅ iOS scroll lock when modal open */
   body.modalOpen{overflow:hidden;touch-action:none}
 
   @media(max-width:900px){
@@ -327,13 +363,14 @@
     .top{padding:12px 14px}
     .navBtn{font-size:12px;padding:7px 10px}
     .intro h1{font-size:17px}
+    .ed-card{width:140px}
+    .ed-thumb,.ed-thumb-bg{height:86px}
   }
 </style>
 </head>
 
 <body>
 
-<!-- ✅ TOP NAV: Categories + Home -->
 <div class="top">
   <div class="navLeft">
     <a class="navBtn" href="categories.html">← Categories</a>
@@ -345,41 +382,65 @@
 
 <div class="wrap">
 
-  <!-- ✅ Curated intro (keeps browsing-first UX, adds depth for AdSense/quality) -->
+  <!-- INTRO -->
   <section class="intro" aria-label="About this movie collection">
-    <h1>Movies, curated — not dumped.</h1>
+    <h1>Films worth watching. No filler.</h1>
 
     <p>
-      This page is a browsing shelf for films we actually want to stand behind. It’s built for the moment when you don’t
-      want an essay — you just want a strong pick, fast. So the layout is intentionally simple: posters you recognize,
-      quick filters when you already know your mood, and a details view that gives you enough context to decide without
-      spoiling the experience. The goal isn’t to cover “everything that exists.” The goal is to keep a tight list where
-      every title earns its spot.
+      These are movies I'd actually tell someone to watch. Not because they topped a list somewhere or because
+      you're supposed to have seen them. Just because they're genuinely good and worth your time. The collection
+      covers a lot of international cinema because some of the best films made in the last 20 years came out of
+      South Korea, Japan, France, Iran and other places people don't always look first. Language has nothing to
+      do with whether a film is good. Story does. Performance does. The way a film makes you feel two hours in
+      is what matters.
     </p>
 
     <p>
-      The common thread here is intention: films with atmosphere, craft, and a point of view — whether that means a
-      slow-burn mystery where tension lives in silence, a romance that respects your intelligence, a thriller that doesn’t
-      insult you with shortcuts, or a drama that stays with you after the credits. You’ll notice a lot of international
-      cinema because the best stories don’t care where they’re from — they care whether they’re honest. You’ll also see
-      Indian cinema here when it’s operating at full power, not playing safe. If a film is included, it’s because it
-      offers something more than “a plot.” It offers texture: performance, rhythm, moral pressure, or an idea that
-      refuses to go away.
+      You'll find thrillers here that actually build tension properly instead of just cutting fast. Dramas that
+      earn their emotional moments. Crime films that treat you like an adult. A few slow burn mysteries where
+      the discomfort stays with you. And yes, some solid action and sci fi when it's done with real craft
+      instead of just spectacle. Indian cinema has a section too because when it operates at full power it can
+      match anything coming out of anywhere in the world. RRR, Andhadhun, Sardar Udham, these are not
+      Bollywood in the old stereotyped sense. These are films with genuine ambition.
     </p>
 
     <p>
-      Use this page in two ways: (1) search a title if you’re trying to remember that one film you heard about, or (2)
-      filter by genre/mood and let the shelf guide you. When you open a title, the summary is written to help decision-making
-      — what kind of film it is, what tone it carries, and why it might click with you — not to copy a database blurb.
-      And if you want deeper reading, we’ve linked a few longer pieces below. They’re not required to use this page —
-      they’re there when you <em>do</em> want the extra context.
+      Use the genre and mood filters if you already know what you want to watch tonight. Or just scroll.
+      Every title here has a short write up inside it that explains what kind of film it is and what to
+      expect from it without spoiling anything. The goal is to help you decide in 30 seconds whether something
+      is for you right now.
     </p>
 
-    <div class="mini">Start deeper (movie editorials):</div>
-    <div class="introLinks">
-      <a class="introLink" href="international-films-that-won-the-oscar-the-last-decade.html">Oscar-winning international films (last decade)</a>
-      <a class="introLink" href="indian-cinema-at-full-throttle.html">Indian cinema at full throttle</a>
-      <a class="introLink" href="indian-introduction.html">Indian cinema: a clean starting point</a>
+    <!-- EDITORIAL CARDS -->
+    <div class="editorials">
+      <div class="ed-label">From the blog</div>
+      <div class="ed-row">
+
+        <a class="ed-card" href="international-films-that-won-the-oscar-the-last-decade.html">
+          <div class="ed-thumb-bg" style="background-image:url('assets/posters/movies/parasite-2019-poster.jpg.JPG')"></div>
+          <div class="ed-body">
+            <div class="ed-tag">International</div>
+            <div class="ed-title">Oscar winning international films of the last decade</div>
+          </div>
+        </a>
+
+        <a class="ed-card" href="indian-cinema-at-full-throttle.html">
+          <div class="ed-thumb-bg" style="background-image:url('assets/posters/movies/rrr-2022-poster.jpg.JPG')"></div>
+          <div class="ed-body">
+            <div class="ed-tag">Indian Cinema</div>
+            <div class="ed-title">Indian cinema at full throttle</div>
+          </div>
+        </a>
+
+        <a class="ed-card" href="indian-introduction.html">
+          <div class="ed-thumb-bg" style="background-image:url('assets/posters/movies/a-separation-2011-poster.jpg.JPG')"></div>
+          <div class="ed-body">
+            <div class="ed-tag">Indian Cinema</div>
+            <div class="ed-title">Indian cinema: a clean starting point</div>
+          </div>
+        </a>
+
+      </div>
     </div>
 
     <hr class="divider" />
@@ -444,7 +505,7 @@
     },
     {
       id:"long-days-journey-into-night-2018",
-      title:"Long Day’s Journey Into Night",
+      title:"Long Day's Journey Into Night",
       year:2018,
       meta:"China • Bi Gan",
       genres:["Mystery","Romance","Neo-noir","Atmospheric"],
@@ -494,7 +555,7 @@
       meta:"South Korea • Park Chan-wook",
       genres:["Romance","Mystery","Thriller","Neo-noir"],
       poster:"assets/posters/movies/decision-to-leave-2022-poster.jpg.JPG",
-      summary:`A meticulous detective investigating a suspicious death becomes emotionally entangled with the victim’s widow. As attraction blurs professional judgment, love and suspicion intertwine, turning the investigation into a tragic noir where desire itself becomes the most dangerous evidence.`
+      summary:`A meticulous detective investigating a suspicious death becomes emotionally entangled with the victim's widow. As attraction blurs professional judgment, love and suspicion intertwine, turning the investigation into a tragic noir where desire itself becomes the most dangerous evidence.`
     },
     {
       id:"the-wailing-2016",
@@ -521,7 +582,7 @@
       meta:"Canada • Denis Villeneuve",
       genres:["Drama","Mystery","War"],
       poster:"assets/posters/movies/incendies-2010-poster.jpg.JPG",
-      summary:`Following their mother’s death, twins uncover a hidden past through letters leading them into a war-torn country. Their journey exposes horrifying family secrets shaped by violence and survival, unfolding like a tragic investigation with devastating emotional impact.`
+      summary:`Following their mother's death, twins uncover a hidden past through letters leading them into a war-torn country. Their journey exposes horrifying family secrets shaped by violence and survival, unfolding like a tragic investigation with devastating emotional impact.`
     },
     {
       id:"city-of-god-2002",
@@ -530,7 +591,7 @@
       meta:"Brazil • Fernando Meirelles / Kátia Lund",
       genres:["Crime","Drama"],
       poster:"assets/posters/movies/city-of-god-2002-poster.jpg.JPG",
-      summary:`Growing up in Rio’s most dangerous favela, a young photographer witnesses the rise of ruthless gang leaders. Told with kinetic energy, the film captures how violence becomes routine and survival depends on choosing identity before the streets choose it for you.`
+      summary:`Growing up in Rio's most dangerous favela, a young photographer witnesses the rise of ruthless gang leaders. Told with kinetic energy, the film captures how violence becomes routine and survival depends on choosing identity before the streets choose it for you.`
     },
     {
       id:"holy-motors-2012",
@@ -584,7 +645,7 @@
       meta:"Iran • Asghar Farhadi",
       genres:["Drama"],
       poster:"assets/posters/movies/a-separation-2011-poster.jpg.JPG",
-      summary:`A couple’s divorce triggers a chain of moral conflicts involving class, pride, and truth. As perspectives clash and consequences multiply, the film exposes how easily justice fractures when everyone believes they are right.`
+      summary:`A couple's divorce triggers a chain of moral conflicts involving class, pride, and truth. As perspectives clash and consequences multiply, the film exposes how easily justice fractures when everyone believes they are right.`
     },
     {
       id:"cold-war-2018",
@@ -629,7 +690,7 @@
       meta:"USA • Doug Liman",
       genres:["Sci-Fi","Action"],
       poster:"assets/posters/movies/edge-of-tomorrow-2014-poster.jpg.jpeg",
-      summary:`A cowardly officer is trapped in a time loop during an alien invasion, reliving the same battle repeatedly. Through death and repetition, he transforms into a soldier capable of changing humanity’s fate.`
+      summary:`A cowardly officer is trapped in a time loop during an alien invasion, reliving the same battle repeatedly. Through death and repetition, he transforms into a soldier capable of changing humanity's fate.`
     }
   ];
 
