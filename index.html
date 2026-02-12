@@ -1,15 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Popcorn Picks | Cinema Beyond Borders</title>
-<meta name="description" content="Popcorn Picks is a curated discovery site for films and series across the world — editorials and thoughtful starting points, not rankings or weekly charts." />
+<meta name="description" content="Popcorn Picks is a curated discovery site for films and series across the world — editorials and thoughtful starting points, not rankings or weekly charts.">
 
-<link rel="canonical" href="https://popcornpicks.in/" />
+<link rel="canonical" href="https://popcornpicks.in/">
 
-<!-- ✅ Schema.org: Organization (NO logo) -->
+<!-- Schema.org: Organization -->
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -20,11 +22,11 @@
 }
 </script>
 
-<!-- ✅ Consent Mode v2 + Google tag (GA4) -->
+<!-- Consent Mode v2 + Google tag (GA4) -->
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-
   gtag('consent', 'default', {
     ad_storage: 'denied',
     ad_user_data: 'denied',
@@ -33,26 +35,28 @@
     wait_for_update: 500
   });
 </script>
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
+
 <script>
   gtag('js', new Date());
   gtag('config', 'G-XZ94ZK9JN4', { anonymize_ip: true });
 </script>
 
-<!-- Perf: preload hero image -->
+<!-- Preload hero image -->
+
 <link rel="preload" as="image" href="assets/home/hero.jpg" fetchpriority="high">
 
-<!-- Perf: hint connections -->
+<!-- DNS prefetch for faster external connections -->
+
 <link rel="preconnect" href="https://pagead2.googlesyndication.com">
 <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
 <link rel="preconnect" href="https://www.googletagservices.com">
 <link rel="dns-prefetch" href="https://www.googletagservices.com">
-<link rel="preconnect" href="https://tpc.googlesyndication.com">
-<link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
 
-<!-- ✅ AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
-  crossorigin="anonymous"></script>
+<!-- AdSense -->
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800" crossorigin="anonymous"></script>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -67,6 +71,8 @@ html{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
   --lineSoft:rgba(255,255,255,.08);
   --muted:rgba(255,255,255,.78);
   --muted2:rgba(255,255,255,.62);
+  --radius:16px;
+  --gap:24px;
 }
 
 body{
@@ -78,21 +84,21 @@ body{
   overflow-x:hidden;
 }
 
-/* ✅ keyboard focus */
+/* Performance: GPU acceleration for transforms */
+.gpu-accelerated{
+  transform:translateZ(0);
+  will-change:transform;
+}
+
+/* Keyboard focus */
 a:focus-visible, button:focus-visible{
   outline:2px solid rgba(255,255,255,.45);
   outline-offset:3px;
 }
 
-/* Perf: skip rendering offscreen sections */
-.section{
-  content-visibility:auto;
-  contain-intrinsic-size: 1000px;
-}
-
-/* layout */
+/* Layout */
 .container{
-  width:min(1120px, calc(100% - 44px));
+  width:min(1160px, calc(100% - 48px));
   margin:0 auto;
 }
 
@@ -103,19 +109,22 @@ header{
   height:64px;
   display:flex;
   align-items:center;
-  justify-content:flex-start;
-  padding:0 40px;
-  background:rgba(10,10,14,.78);
-  -webkit-backdrop-filter:blur(14px);
+  padding:0 max(24px, calc((100vw - 1160px) / 2));
+  background:rgba(10,10,14,.85);
   backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
   border-bottom:1px solid var(--lineSoft);
   z-index:100;
 }
-.logo{font-weight:850;letter-spacing:.4px}
+.logo{
+  font-weight:850;
+  letter-spacing:.4px;
+  font-size:15px;
+}
 
 /* HERO */
 .hero{
-  min-height:88vh;
+  min-height:90vh;
   display:flex;
   align-items:center;
   padding-top:64px;
@@ -123,52 +132,57 @@ header{
     radial-gradient(900px 520px at 18% 22%, rgba(255,140,70,.14), transparent 60%),
     radial-gradient(900px 560px at 84% 28%, rgba(90,170,255,.14), transparent 60%),
     linear-gradient(to bottom, rgba(0,0,0,.38), rgba(0,0,0,.92)),
-    url("assets/home/hero.jpg");
-  background-size:cover;
-  background-position:center center;
-  background-repeat:no-repeat;
+    url("assets/home/hero.jpg") center center / cover no-repeat;
   background-color:#000;
   border-bottom:1px solid rgba(255,255,255,.06);
 }
 .heroInner{
-  width:min(1120px, calc(100% - 44px));
+  width:min(1160px, calc(100% - 48px));
   margin:0 auto;
-  padding:64px 0 58px;
+  padding:72px 0 64px;
 }
 .kicker{
   display:inline-flex;
   align-items:center;
   gap:10px;
-  padding:10px 12px;
+  padding:10px 14px;
   border-radius:999px;
   border:1px solid rgba(255,255,255,.14);
-  background:rgba(0,0,0,.26);
-  color:rgba(255,255,255,.86);
+  background:rgba(0,0,0,.28);
+  color:rgba(255,255,255,.88);
   font-size:11px;
   letter-spacing:.22em;
   text-transform:uppercase;
+  font-weight:700;
 }
 .dot{
-  width:8px;height:8px;border-radius:50%;
-  background:rgba(255,160,90,.90);
-  box-shadow:0 0 18px rgba(255,160,90,.55);
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:rgba(255,160,90,.92);
+  box-shadow:0 0 18px rgba(255,160,90,.6);
 }
 .hero h1{
-  margin-top:18px;
-  font-size:58px;
+  margin-top:20px;
+  font-size:62px;
   line-height:1.05;
-  letter-spacing:-.02em;
+  letter-spacing:-.025em;
+  font-weight:900;
 }
 .hero p{
-  margin-top:14px;
+  margin-top:16px;
   max-width:64ch;
   color:var(--muted);
   font-size:18px;
   line-height:1.65;
 }
-.quoteLine{display:block;margin-top:10px;opacity:.85}
+.quoteLine{
+  display:block;
+  margin-top:12px;
+  opacity:.88;
+}
 .heroActions{
-  margin-top:26px;
+  margin-top:28px;
   display:flex;
   gap:14px;
   flex-wrap:wrap;
@@ -177,241 +191,277 @@ header{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:14px 22px;
-  min-height:44px;
+  padding:15px 24px;
+  min-height:48px;
   border-radius:999px;
   border:1px solid rgba(255,255,255,.18);
   background:rgba(255,255,255,.06);
   font-size:14px;
-  transition:transform .18s ease, background .18s ease, border-color .18s ease;
-  will-change:transform;
+  font-weight:700;
+  transition:all .2s cubic-bezier(.4,0,.2,1);
+  cursor:pointer;
 }
 .btn.primary{
-  background:linear-gradient(90deg, rgba(255,160,90,.22), rgba(90,170,255,.18));
-  border-color:rgba(255,160,90,.45);
+  background:linear-gradient(90deg, rgba(255,160,90,.24), rgba(90,170,255,.2));
+  border-color:rgba(255,160,90,.5);
 }
 .btn:hover{
   transform:translateY(-2px);
-  border-color:rgba(255,255,255,.28);
-  background:rgba(255,255,255,.09);
+  border-color:rgba(255,255,255,.32);
+  background:rgba(255,255,255,.1);
+  box-shadow:0 8px 24px rgba(0,0,0,.3);
+}
+.btn.primary:hover{
+  background:linear-gradient(90deg, rgba(255,160,90,.32), rgba(90,170,255,.28));
 }
 
 /* SECTIONS */
-.section{padding:74px 0}
-.section.firstSection{padding-top:42px}
-
-/* =========================
-   HANDPICKED – smooth touch scrolling on all devices
-   ========================= */
-.handpickedSection{ padding-top:60px; }
-
-.handpickedMarquee{
-  overflow-x:auto;
-  overflow-y:hidden;
-  padding-bottom:12px;
-  scrollbar-width:none;
-  -webkit-overflow-scrolling:touch;
-  touch-action:pan-x;
-  overscroll-behavior-x:contain;
+.section{
+  padding:80px 0;
 }
-.handpickedMarquee::-webkit-scrollbar{ display:none; }
-
-/* ✅ Only enable snap on true desktop */
-@media (hover: hover) and (pointer: fine) and (min-width: 1025px) {
-  .handpickedMarquee{ scroll-snap-type:x proximity; }
+.section.firstSection{
+  padding-top:48px;
 }
 
-.handpickedTrack{
-  display:flex;
-  gap:18px;
-  padding:6px 2px;
-  width:max-content;
-  transform:translateZ(0);
-  will-change:transform;
-}
-.pickCard{
-  flex:0 0 auto;
-  width:160px;
-  text-align:center;
-  scroll-snap-align:start;
-  transition:transform .18s ease;
-  will-change:transform;
-}
-.pickCard img{
-  width:100%;
-  aspect-ratio:2 / 3;
-  object-fit:contain;           /* ✅ show full poster */
-  border-radius:16px;
-  background:#000;              /* ✅ letterbox looks clean */
-  outline:1px solid rgba(255,255,255,.12);
-}
-.pickTitle{
-  margin-top:10px;
-  font-size:14px;
-  font-weight:700;
-  color:rgba(255,255,255,.86);
-  line-height:1.3;
-}
-.pickCard:hover{ transform:translateY(-3px); }
-@media(max-width:520px){ .pickCard{ width:140px; } }
-
-.section h2{font-size:28px;margin-bottom:18px;letter-spacing:.2px}
 .sectionHead{
   display:flex;
   align-items:flex-end;
   justify-content:space-between;
-  gap:18px;
-  margin-bottom:18px;
+  gap:24px;
+  margin-bottom:28px;
 }
-.sectionHead h2{margin-bottom:0}
-
+.sectionHead h2{
+  margin-bottom:0;
+}
+.section h2{
+  font-size:32px;
+  margin-bottom:20px;
+  letter-spacing:-.01em;
+  font-weight:850;
+}
 .sectionLead{
-  margin:10px 0 0;
+  margin-top:12px;
   max-width:72ch;
   color:var(--muted2);
   font-size:16px;
-  line-height:1.7;
+  line-height:1.75;
 }
-.editorialIntro{max-width:760px;}
-.featuredHead{display:block;margin-bottom:22px}
 
+/* HANDPICKED CAROUSEL */
+.handpickedSection{
+  padding-top:64px;
+}
+.handpickedMarquee{
+  overflow-x:auto;
+  overflow-y:hidden;
+  padding-bottom:16px;
+  margin:0 calc(-1 * max(24px, calc((100vw - 1160px) / 2)));
+  padding-left:max(24px, calc((100vw - 1160px) / 2));
+  padding-right:max(24px, calc((100vw - 1160px) / 2));
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+  scroll-behavior:smooth;
+}
+.handpickedMarquee::-webkit-scrollbar{
+  display:none;
+}
+
+/* Only enable snap on desktop */
+@media (hover: hover) and (pointer: fine) and (min-width: 1025px){
+  .handpickedMarquee{
+    scroll-snap-type:x proximity;
+  }
+}
+
+.handpickedTrack{
+  display:flex;
+  gap:20px;
+  width:max-content;
+}
+.pickCard{
+  flex:0 0 auto;
+  width:170px;
+  text-align:center;
+  scroll-snap-align:start;
+  transition:transform .25s cubic-bezier(.4,0,.2,1);
+}
+.pickCard img{
+  width:100%;
+  aspect-ratio:2/3;
+  object-fit:cover;
+  border-radius:var(--radius);
+  background:#000;
+  outline:1px solid rgba(255,255,255,.12);
+  outline-offset:-1px;
+  transition:all .25s cubic-bezier(.4,0,.2,1);
+}
+.pickCard:hover img{
+  outline-color:rgba(255,255,255,.24);
+  box-shadow:0 12px 32px rgba(0,0,0,.4);
+}
+.pickTitle{
+  margin-top:12px;
+  font-size:14px;
+  font-weight:700;
+  color:rgba(255,255,255,.88);
+  line-height:1.35;
+}
+.pickCard:hover{
+  transform:translateY(-4px);
+}
+
+/* EDITORIAL BOX */
 .editorialBox{
-  width:min(820px, 100%);
-  margin:0 auto;
-  padding:18px 18px 16px;
-  border-radius:18px;
+  width:min(860px, 100%);
+  margin:0 auto 32px;
+  padding:28px 28px 26px;
+  border-radius:22px;
   background:
     radial-gradient(900px 420px at 15% 10%, rgba(255,160,90,.08), transparent 60%),
     radial-gradient(900px 420px at 85% 10%, rgba(90,170,255,.08), transparent 60%),
-    linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.18));
-  outline:1px solid rgba(255,255,255,.10);
+    linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.2));
+  outline:1px solid rgba(255,255,255,.11);
   outline-offset:-1px;
-  box-shadow:0 18px 50px rgba(0,0,0,.28);
-  position:relative;
+  box-shadow:0 20px 60px rgba(0,0,0,.32);
 }
-.editorialBox h2{text-align:center;}
+.editorialBox h2{
+  text-align:center;
+  font-size:30px;
+}
 .editorialBox .sectionLead{
   text-align:center;
-  margin-top:10px;
-  max-width:70ch;
-  margin-left:auto;
-  margin-right:auto;
-  color:rgba(255,255,255,.68);
-}
-
-.editorialBullets{
   margin:14px auto 0;
+  max-width:68ch;
+  color:rgba(255,255,255,.7);
+}
+.editorialBullets{
+  margin:18px auto 0;
   padding:0;
   list-style:none;
-  width:min(720px, 100%);
-  color:rgba(255,255,255,.62);
+  width:min(740px, 100%);
+  color:rgba(255,255,255,.64);
   font-size:15px;
-  line-height:1.85;
+  line-height:1.9;
 }
 .editorialBullets li{
-  margin:8px 0;
-  padding-left:14px;
+  margin:10px 0;
+  padding-left:18px;
   position:relative;
 }
 .editorialBullets li::before{
   content:"";
   position:absolute;
   left:0;
-  top:.92em;
-  width:6px;height:6px;
+  top:.95em;
+  width:6px;
+  height:6px;
   border-radius:50%;
-  background:rgba(255,255,255,.28);
-  box-shadow:0 0 14px rgba(255,255,255,.12);
+  background:rgba(255,255,255,.32);
+  box-shadow:0 0 14px rgba(255,255,255,.14);
+}
+.editorialCTA{
+  display:flex;
+  justify-content:flex-end;
+  margin-top:18px;
 }
 
-/* View all button */
+/* VIEW ALL BUTTON */
 .viewAll{
   display:inline-flex;
   align-items:center;
   gap:8px;
-  padding:12px 18px;
-  min-height:44px;
+  padding:13px 20px;
+  min-height:48px;
   font-size:14px;
   font-weight:800;
-  color:rgba(255,255,255,.86);
-  border:1px solid rgba(255,255,255,.16);
+  color:rgba(255,255,255,.88);
+  border:1px solid rgba(255,255,255,.18);
   border-radius:999px;
-  background:rgba(0,0,0,.28);
-  transition:transform .18s ease, background .18s ease, border-color .18s ease, color .18s ease;
+  background:rgba(0,0,0,.3);
+  transition:all .2s cubic-bezier(.4,0,.2,1);
   white-space:nowrap;
 }
 .viewAll:hover{
   transform:translateY(-2px);
-  background:rgba(255,255,255,.06);
-  border-color:rgba(255,255,255,.26);
+  background:rgba(255,255,255,.08);
+  border-color:rgba(255,255,255,.28);
   color:#fff;
+  box-shadow:0 8px 24px rgba(0,0,0,.25);
 }
-.editorialCTA{display:flex;justify-content:flex-end;margin-top:14px}
 
-/* FEATURED EDITORIALS */
-.feed{display:grid;grid-template-columns:1fr;gap:22px;}
-.feedLink{display:block}
-@media (min-width: 768px){ .feed{grid-template-columns:repeat(2, 1fr);} }
+/* FEED CARDS */
+.feed{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:var(--gap);
+}
 
 .feedCard{
   --bgimg:none;
   position:relative;
-  border-radius:22px;
+  border-radius:20px;
   overflow:hidden;
   isolation:isolate;
-  outline:1px solid rgba(255,255,255,.10);
+  outline:1px solid rgba(255,255,255,.11);
   outline-offset:-1px;
   background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
-  min-height:220px;
+  min-height:240px;
   display:grid;
-  grid-template-columns:44% 56%;
-  transition:transform .18s ease, outline-color .18s ease, background .18s ease;
-  will-change:transform;
+  grid-template-columns:46% 54%;
+  transition:all .25s cubic-bezier(.4,0,.2,1);
 }
 .feedCard:hover{
-  transform:translateY(-2px);
-  outline-color:rgba(255,255,255,.18);
-  background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+  transform:translateY(-3px);
+  outline-color:rgba(255,255,255,.2);
+  background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  box-shadow:0 12px 36px rgba(0,0,0,.35);
 }
 .feedCard::before{
   content:"";
   position:absolute;
-  left:0; top:0; bottom:0;
-  width:44%;
+  left:0;
+  top:0;
+  bottom:0;
+  width:46%;
   background-image:var(--bgimg);
-  background-size:contain;      /* ✅ show full poster */
+  background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
   background-color:#000;
   filter:saturate(1.05) contrast(1.02);
-  border-radius:inherit;
 }
 .feedCard::after{
   content:"";
   position:absolute;
-  left:0; top:0; bottom:0;
-  width:44%;
-  background:linear-gradient(90deg, rgba(0,0,0,.06), rgba(0,0,0,.58));
-  border-radius:inherit;
+  left:0;
+  top:0;
+  bottom:0;
+  width:46%;
+  background:linear-gradient(90deg, rgba(0,0,0,.08), rgba(0,0,0,.6));
 }
 .feedText{
   grid-column:2;
   position:relative;
   z-index:1;
-  padding:22px 18px;
+  padding:24px 22px;
   display:flex;
   flex-direction:column;
   justify-content:center;
-  gap:10px;
+  gap:12px;
   background:
     radial-gradient(600px 320px at 10% 40%, rgba(255,255,255,.06), transparent 55%),
-    linear-gradient(180deg, rgba(0,0,0,.40), rgba(0,0,0,.62));
+    linear-gradient(180deg, rgba(0,0,0,.42), rgba(0,0,0,.64));
 }
-.feedText h3{font-size:22px;font-weight:850;letter-spacing:-.02em;line-height:1.15;}
+.feedText h3{
+  font-size:22px;
+  font-weight:850;
+  letter-spacing:-.02em;
+  line-height:1.2;
+}
 .feedText p{
-  color:rgba(255,255,255,.70);
+  color:rgba(255,255,255,.72);
   font-size:13px;
-  line-height:1.6;
+  line-height:1.65;
   display:-webkit-box;
   -webkit-line-clamp:3;
   -webkit-box-orient:vertical;
@@ -421,25 +471,24 @@ header{
 /* CATEGORIES */
 .catGrid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:22px;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:var(--gap);
 }
 .cat{
   --bgimg:none;
-  height:290px;
-  border-radius:20px;
+  height:320px;
+  border-radius:18px;
   position:relative;
   overflow:hidden;
   isolation:isolate;
-  outline:1px solid rgba(255,255,255,.10);
+  outline:1px solid rgba(255,255,255,.11);
   outline-offset:-1px;
   background-image:var(--bgimg);
   background-repeat:no-repeat;
   background-position:center center;
-  background-size:contain;      /* ✅ show full image */
+  background-size:cover;
   background-color:#000;
-  transition:transform .18s ease, outline-color .18s ease, filter .18s ease;
-  will-change:transform;
+  transition:all .25s cubic-bezier(.4,0,.2,1);
 }
 .cat::after{
   content:"";
@@ -447,130 +496,174 @@ header{
   inset:0;
   background:
     radial-gradient(700px 420px at 30% 25%, rgba(255,255,255,.05), transparent 60%),
-    linear-gradient(to top, rgba(0,0,0,.92), rgba(0,0,0,.28), transparent);
-  border-radius:inherit;
+    linear-gradient(to top, rgba(0,0,0,.94), rgba(0,0,0,.3), transparent);
 }
 .cat span{
   position:absolute;
-  left:18px;
-  bottom:18px;
-  font-size:22px;
+  left:22px;
+  bottom:22px;
+  font-size:24px;
   font-weight:900;
   z-index:2;
-  text-shadow:0 10px 22px rgba(0,0,0,.85);
+  text-shadow:0 12px 24px rgba(0,0,0,.9);
+  letter-spacing:-.01em;
 }
-.cat:hover{transform:translateY(-2px);outline-color:rgba(255,255,255,.18);filter:saturate(1.05) contrast(1.02);}
+.cat:hover{
+  transform:translateY(-3px);
+  outline-color:rgba(255,255,255,.2);
+  filter:saturate(1.08) contrast(1.03);
+  box-shadow:0 14px 40px rgba(0,0,0,.4);
+}
 
 /* BETWEEN THE FRAMES */
-.btfFeed{grid-template-columns:1fr !important;}
-.btfFeed .feedCard{grid-template-columns:1fr;min-height:340px;}
+.btfFeed{
+  grid-template-columns:1fr !important;
+}
+.btfFeed .feedCard{
+  grid-template-columns:1fr;
+  min-height:360px;
+}
 .btfFeed .feedCard::before{
   width:100%;
+  background-size:cover;
   background-position:center;
-  background-size:contain;      /* ✅ show full poster */
-  background-repeat:no-repeat;
-  background-color:#000;
 }
 .btfFeed .feedCard::after{
   width:100%;
   background:
     radial-gradient(700px 420px at 30% 25%, rgba(255,255,255,.05), transparent 60%),
-    linear-gradient(to bottom, rgba(0,0,0,.10), rgba(0,0,0,.92));
+    linear-gradient(to bottom, rgba(0,0,0,.12), rgba(0,0,0,.94));
 }
 .btfFeed .feedText{
   grid-column:1;
   position:absolute;
-  left:0;right:0;bottom:0;
+  left:0;
+  right:0;
+  bottom:0;
   background:transparent;
-  padding:22px;
+  padding:26px;
 }
-.btfFeed .feedText h3{font-size:20px}
-.btfFeed .feedText p{font-size:14px;-webkit-line-clamp:2;}
+.btfFeed .feedText h3{
+  font-size:21px;
+}
+.btfFeed .feedText p{
+  font-size:14px;
+  -webkit-line-clamp:2;
+}
 
 /* FOOTER */
 footer{
   border-top:1px solid rgba(255,255,255,.08);
-  padding:60px 0 24px;
-  color:rgba(255,255,255,.65);
+  padding:68px 0 28px;
+  color:rgba(255,255,255,.66);
 }
 .footerGrid{
   display:grid;
   grid-template-columns:1.4fr 1fr 1fr;
-  gap:40px;
+  gap:48px;
   align-items:start;
 }
-footer h4{color:#fff;margin-bottom:12px}
+footer h4{
+  color:#fff;
+  margin-bottom:14px;
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:.02em;
+}
 footer a{
   display:block;
-  margin:6px 0;
+  margin:8px 0;
   font-size:13px;
-  color:rgba(255,255,255,.62);
+  color:rgba(255,255,255,.64);
+  transition:color .2s ease;
 }
-footer a:hover{color:#fff}
+footer a:hover{
+  color:#fff;
+}
 footer p{
-  line-height:1.7;
+  line-height:1.75;
   font-size:13px;
-  color:rgba(255,255,255,.66);
+  color:rgba(255,255,255,.68);
   max-width:48ch;
 }
 .footerBottom{
-  margin-top:26px;
-  padding-top:18px;
+  margin-top:32px;
+  padding-top:20px;
   border-top:1px solid rgba(255,255,255,.06);
   font-size:12px;
-  color:rgba(255,255,255,.45);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  flex-wrap:wrap;
-}
-.footerBottom a{
-  font-size:12px;
-  color:rgba(255,255,255,.55);
-  text-decoration:underline;
-}
-.footerBottom a:hover{color:#fff}
-
-/* COOKIE BANNER */
-.cookieBar{
-  position:fixed;
-  left:16px; right:16px; bottom:16px;
-  z-index:200;
+  color:rgba(255,255,255,.48);
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:14px;
-  padding:12px 14px;
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(10,10,14,.82);
-  -webkit-backdrop-filter:blur(14px);
-  backdrop-filter:blur(14px);
-  box-shadow:0 18px 40px rgba(0,0,0,.55);
+  flex-wrap:wrap;
+}
+.footerBottom a{
+  font-size:12px;
+  color:rgba(255,255,255,.58);
+  text-decoration:underline;
+  margin:0;
+}
+.footerBottom a:hover{
+  color:#fff;
+}
+
+/* COOKIE BANNER */
+.cookieBar{
+  position:fixed;
+  left:18px;
+  right:18px;
+  bottom:18px;
+  z-index:200;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:14px 16px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.15);
+  background:rgba(10,10,14,.88);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  box-shadow:0 20px 50px rgba(0,0,0,.6);
 }
 .cookieBar p{
   margin:0;
-  color:rgba(255,255,255,.72);
+  color:rgba(255,255,255,.74);
   font-size:13px;
-  line-height:1.5;
+  line-height:1.55;
 }
-.cookieBar p a{opacity:.9;text-decoration:underline}
-.cookieBtns{display:flex;gap:10px;align-items:center;flex:0 0 auto;}
+.cookieBar p a{
+  opacity:.92;
+  text-decoration:underline;
+}
+.cookieBtns{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  flex:0 0 auto;
+}
 .cookieBar button{
-  padding:10px 14px;
+  padding:11px 16px;
   min-height:44px;
   border-radius:999px;
-  border:1px solid rgba(255,255,255,.18);
-  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.2);
+  background:rgba(255,255,255,.09);
   color:#fff;
   font-weight:800;
   font-size:13px;
   cursor:pointer;
   white-space:nowrap;
+  transition:all .2s ease;
 }
-.cookieBar button:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.26);}
-.cookieBar .ghost{background:rgba(0,0,0,.10);}
+.cookieBar button:hover{
+  background:rgba(255,255,255,.14);
+  border-color:rgba(255,255,255,.28);
+  transform:translateY(-1px);
+}
+.cookieBar .ghost{
+  background:rgba(0,0,0,.12);
+}
 
 .cookieModal{
   position:fixed;
@@ -579,126 +672,213 @@ footer p{
   display:none;
   align-items:flex-end;
   justify-content:center;
-  padding:16px;
-  background:rgba(0,0,0,.55);
+  padding:18px;
+  background:rgba(0,0,0,.6);
 }
 .cookieSheet{
-  width:min(620px, 100%);
-  border-radius:18px;
-  border:1px solid rgba(255,255,255,.12);
-  background:rgba(10,10,14,.92);
-  -webkit-backdrop-filter:blur(16px);
-  backdrop-filter:blur(16px);
-  box-shadow:0 24px 70px rgba(0,0,0,.6);
-  padding:16px;
+  width:min(640px, 100%);
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(10,10,14,.94);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  box-shadow:0 28px 80px rgba(0,0,0,.7);
+  padding:18px;
 }
-.cookieSheet h4{margin:2px 0 10px;font-size:15px;}
+.cookieSheet h4{
+  margin:4px 0 12px;
+  font-size:16px;
+}
 .cookieRow{
   display:flex;
   justify-content:space-between;
-  gap:12px;
-  padding:10px 0;
+  gap:14px;
+  padding:12px 0;
   border-top:1px solid rgba(255,255,255,.06);
-  color:rgba(255,255,255,.72);
+  color:rgba(255,255,255,.74);
   font-size:13px;
 }
-.cookieRow small{display:block;opacity:.75;margin-top:4px;max-width:44ch}
-.switch{display:inline-flex;align-items:center;gap:10px;}
-.switch input{width:18px;height:18px}
-.cookieSheetActions{display:flex;justify-content:flex-end;gap:10px;margin-top:12px;}
-
-@media(max-width:520px){
-  .cookieBar{flex-direction:column;align-items:flex-start;gap:12px;}
-  .cookieBtns{width:100%;flex-wrap:wrap;}
-  .cookieBar button{flex:1;min-width:100px;}
+.cookieRow small{
+  display:block;
+  opacity:.78;
+  margin-top:5px;
+  max-width:44ch;
+  line-height:1.5;
+}
+.switch{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+.switch input{
+  width:18px;
+  height:18px;
+}
+.cookieSheetActions{
+  display:flex;
+  justify-content:flex-end;
+  gap:12px;
+  margin-top:14px;
 }
 
-@media(min-width:761px) and (max-width:1024px){
-  header{padding:0 24px}
-  .hero h1{font-size:52px}
-  .hero p{font-size:17px}
-  .feedCard{min-height:240px}
-  .section h2{font-size:26px}
-  .viewAll{padding:14px 20px;font-size:15px;}
-}
-
-@media(max-width:1024px){
-  header{padding:0 18px}
-  .hero h1{font-size:46px}
-  .hero p{font-size:16px}
-}
-
-@media(max-width:760px){
-  .container,.heroInner{width:calc(100% - 32px)}
-  .hero{
-    min-height:78vh;
-    background-size:cover;
-    background-position:50% 30%;
+/* MOBILE RESPONSIVE */
+@media (max-width:1024px){
+  .hero h1{
+    font-size:52px;
   }
-  .heroInner{padding:56px 0 46px}
-  .section{padding:60px 0}
-  .section.firstSection{padding-top:34px}
-  .editorialBox{padding:16px 14px 14px}
-  .editorialBullets{font-size:14px;line-height:1.8}
+  .section{
+    padding:68px 0;
+  }
+  .section h2{
+    font-size:28px;
+  }
+}
 
+@media (max-width:768px){
+  .container, .heroInner{
+    width:calc(100% - 36px);
+  }
+  
+  header{
+    padding:0 18px;
+  }
+  
+  .hero{
+    min-height:80vh;
+    background-position:50% 32%;
+  }
+  .heroInner{
+    padding:60px 0 52px;
+  }
+  .hero h1{
+    font-size:44px;
+  }
+  .hero p{
+    font-size:17px;
+  }
+  
+  .section{
+    padding:56px 0;
+  }
+  .section.firstSection{
+    padding-top:38px;
+  }
+  .section h2{
+    font-size:26px;
+  }
+  
+  .editorialBox{
+    padding:22px 20px 20px;
+  }
+  
+  .feed{
+    grid-template-columns:1fr;
+  }
+  
   .feedCard{
     display:flex;
     flex-direction:column;
-    min-height:320px;
+    min-height:340px;
   }
   .feedCard::before{
     position:relative;
     width:100%;
     height:auto;
-    min-height:200px;
+    min-height:220px;
     aspect-ratio:16/9;
-    left:auto;top:auto;bottom:auto;
-    background-size:contain;    /* ✅ mobile: show full image */
-    background-position:center;
-    background-repeat:no-repeat;
-    background-color:#000;
+    left:auto;
+    top:auto;
+    bottom:auto;
   }
   .feedCard::after{
     position:absolute;
     width:100%;
     height:100%;
-    left:0;top:0;right:0;
-    background:linear-gradient(to bottom, rgba(0,0,0,.10), rgba(0,0,0,.92));
+    left:0;
+    top:0;
+    right:0;
+    background:linear-gradient(to bottom, rgba(0,0,0,.12), rgba(0,0,0,.94));
   }
   .feedText{
     grid-column:1;
     position:relative;
     margin-top:0;
     flex:1;
-    display:flex;
-    flex-direction:column;
     justify-content:flex-end;
   }
-
-  .catGrid{grid-template-columns:1fr;gap:18px;}
-  .cat{height:260px;}
-  .viewAll{padding:14px 20px;font-size:15px;}
-  .footerGrid{grid-template-columns:1fr;gap:32px;}
+  
+  .catGrid{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+  .cat{
+    height:280px;
+  }
+  
+  .footerGrid{
+    grid-template-columns:1fr;
+    gap:36px;
+  }
+  
+  .pickCard{
+    width:150px;
+  }
 }
 
-@media(max-width:420px){
-  .container,.heroInner{width:calc(100% - 24px)}
-  .hero h1{font-size:38px}
-  .hero p{font-size:15px}
-  .feedCard::before{min-height:180px;}
+@media (max-width:520px){
+  .container, .heroInner{
+    width:calc(100% - 28px);
+  }
+  
+  .hero h1{
+    font-size:38px;
+  }
+  .hero p{
+    font-size:16px;
+  }
+  .btn{
+    padding:14px 20px;
+  }
+  
+  .cookieBar{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:14px;
+  }
+  .cookieBtns{
+    width:100%;
+    flex-wrap:wrap;
+  }
+  .cookieBar button{
+    flex:1;
+    min-width:100px;
+  }
+  
+  .pickCard{
+    width:140px;
+  }
 }
 
-@media(max-width:375px){
-  .container,.heroInner{width:calc(100% - 20px);padding:0 10px;}
-  .hero h1{font-size:34px}
-  header{padding:0 12px}
+@media (max-width:420px){
+  .hero h1{
+    font-size:34px;
+  }
+  .feedCard::before{
+    min-height:200px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce){
-  *{transition:none !important; animation:none !important}
-  html{scroll-behavior:auto}
+  *{
+    transition:none !important;
+    animation:none !important;
+  }
+  html{
+    scroll-behavior:auto;
+  }
 }
 </style>
+
 </head>
 
 <body>
@@ -723,170 +903,168 @@ footer p{
 </section>
 
 <!-- HANDPICKED -->
+
 <section class="section handpickedSection">
   <div class="container">
-
     <div class="sectionHead">
       <div>
-        <h2 class="handpickedTitle">Handpicked</h2>
-        <p class="sectionLead handpickedLead">Personal picks. No rankings. Click a poster to read why.</p>
+        <h2>Handpicked</h2>
+        <p class="sectionLead">Personal picks. No rankings. Click a poster to read why.</p>
       </div>
       <a href="handpick.html" class="viewAll">View all →</a>
     </div>
+  </div>
 
-    <div class="handpickedMarquee" id="handpickedMarquee" aria-label="Handpicked carousel">
-      <div class="handpickedTrack" id="handpickedTrack">
-        <!-- Fallback (only used if fetch fails) -->
-        <a class="pickCard" href="handpick.html#counterpart">
-          <img src="assets/posters/tv/counterpart.jpg.jpeg" alt="Counterpart (2017)">
-          <div class="pickTitle">Counterpart</div>
-        </a>
-        <a class="pickCard" href="handpick.html#the-bureau">
-          <img src="assets/posters/tv/the-bureau.jpg.JPG" alt="The Bureau">
-          <div class="pickTitle">The Bureau</div>
-        </a>
-        <a class="pickCard" href="handpick.html#shogun">
-          <img src="assets/posters/IMG_2479.jpeg" alt="Shōgun">
-          <div class="pickTitle">Shōgun</div>
-        </a>
-        <a class="pickCard" href="handpick.html#alex-rider">
-          <img src="assets/posters/tv/alex-rider.jpg.JPG" alt="Alex Rider">
-          <div class="pickTitle">Alex Rider</div>
-        </a>
-        <a class="pickCard" href="handpick.html#tell-me-what-you-saw">
-          <img src="assets/posters/kdrama/tell-me-what-you-saw.jpg.JPG" alt="Tell Me What You Saw">
-          <div class="pickTitle">Tell Me What You Saw</div>
-        </a>
-      </div>
+  <div class="handpickedMarquee" id="handpickedMarquee" aria-label="Handpicked carousel">
+    <div class="handpickedTrack gpu-accelerated" id="handpickedTrack">
+      <!-- Fallback content -->
+      <a class="pickCard" href="handpick.html#counterpart">
+        <img src="assets/posters/tv/counterpart.jpg.jpeg" alt="Counterpart (2017)" loading="lazy" decoding="async">
+        <div class="pickTitle">Counterpart</div>
+      </a>
+      <a class="pickCard" href="handpick.html#the-bureau">
+        <img src="assets/posters/tv/the-bureau.jpg.JPG" alt="The Bureau" loading="lazy" decoding="async">
+        <div class="pickTitle">The Bureau</div>
+      </a>
+      <a class="pickCard" href="handpick.html#shogun">
+        <img src="assets/posters/IMG_2479.jpeg" alt="Shōgun" loading="lazy" decoding="async">
+        <div class="pickTitle">Shōgun</div>
+      </a>
+      <a class="pickCard" href="handpick.html#alex-rider">
+        <img src="assets/posters/tv/alex-rider.jpg.JPG" alt="Alex Rider" loading="lazy" decoding="async">
+        <div class="pickTitle">Alex Rider</div>
+      </a>
+      <a class="pickCard" href="handpick.html#tell-me-what-you-saw">
+        <img src="assets/posters/kdrama/tell-me-what-you-saw.jpg.JPG" alt="Tell Me What You Saw" loading="lazy" decoding="async">
+        <div class="pickTitle">Tell Me What You Saw</div>
+      </a>
     </div>
-
   </div>
 </section>
 
 <!-- FEATURED EDITORIALS -->
+
 <section class="section firstSection">
   <div class="container">
-
     <div class="featuredHead">
-      <div class="editorialIntro editorialBox">
+      <div class="editorialBox">
         <h2>Featured editorials</h2>
-
         <p class="sectionLead">
           Not top-10 lists. Not "best of the year."<br>
           Starting points for people who know what they want — but don't know where to begin.
         </p>
-
         <ul class="editorialBullets">
           <li>Espionage series and films, from grounded spy work to high-stakes thrillers</li>
           <li>Period dramas, global television, and long-form storytelling</li>
           <li>Korean, Chinese, and Indian cinema, along with donghua and anime, beyond viral clips and surface impressions</li>
         </ul>
-
         <div class="editorialCTA">
           <a href="editorials.html" class="viewAll">View all →</a>
         </div>
       </div>
     </div>
 
-    <div class="feed">
-      <a class="feedLink" href="must-watch-espionage.html">
-        <div class="feedCard" data-bg="assets/posters/espionage.jpg.JPG">
-          <div class="feedText">
-            <h3>Must Watch Espionage</h3>
-            <p>Tradecraft, double lives, paranoia, and power games.</p>
-          </div>
-        </div>
-      </a>
-
-      <a class="feedLink" href="mustwatch-period.html">
-        <div class="feedCard" data-bg="assets/posters/period.jpg.WEBP">
-          <div class="feedText">
-            <h3>Must Watch Period Dramas</h3>
-            <p>Atmosphere-heavy stories where writing and time matter.</p>
-          </div>
-        </div>
-      </a>
-
-      <a class="feedLink" href="undertheradar-kdrama.html">
-        <div class="feedCard" data-bg="assets/posters/kdrama-editorial.jpg.JPG">
-          <div class="feedText">
-            <h3>Under the Radar K-Dramas</h3>
-            <p>Serious Korean shows that deserved far more attention.</p>
-          </div>
-        </div>
-      </a>
-
-      <a class="feedLink" href="editorial-donghua.html">
-        <div class="feedCard" data-bg="assets/posters/donghua/renegade-immortal.jpg.WEBP">
-          <div class="feedText">
-            <h3>Our Favorite Donghua</h3>
-            <p>Cultivation worlds, long arcs, and myth-heavy storytelling.</p>
-          </div>
-        </div>
-      </a>
-
-      <a class="feedLink" href="international-films-that-won-the-oscar-the-last-decade.html">
-        <div class="feedCard" data-bg="assets/posters/IMG_2842.webp">
-          <div class="feedText">
-            <h3>International Films That Won the Oscar</h3>
-            <p>The last decade of global cinema recognised by the Academy.</p>
-          </div>
-        </div>
-      </a>
-
-      <a class="feedLink" href="editorial-korean-dating-shows.html">
-        <div class="feedCard" data-bg="assets/posters/singles-inferno.jpg.JPG">
-          <div class="feedText">
-            <h3>Korean Dating Shows Worth Your Time</h3>
-            <p>Reality formats that understand emotions, not chaos.</p>
-          </div>
-        </div>
-      </a>
-
-      <a class="feedLink" href="indian-introduction.html">
-        <div class="feedCard" data-bg="assets/posters/india-editorial.jpg.WEBP">
-          <div class="feedText">
-            <h3>Your First Steps into Indian Cinema</h3>
-            <p>Mainstream hits to powerful modern classics.</p>
-          </div>
-        </div>
-      </a>
-
-      <a class="feedLink" href="recommended-crime-tv-shows.html">
-        <div class="feedCard" data-bg="assets/posters/Crime.jpg.JPG">
-          <div class="feedText">
-            <h3>Our Recommended Crime TV Shows</h3>
-            <p>Character-driven crime series we've watched and recommend.</p>
-          </div>
-        </div>
-      </a>
-
-      <a class="feedLink" href="high-stakes-action-thrillers.html">
-        <div class="feedCard" data-bg="assets/posters/tv/the-terminal-list.jpg.jpeg">
-          <div class="feedText">
-            <h3>High-Stakes Action Thrillers</h3>
-            <p>Bingeable spy and action shows with constant pressure.</p>
-          </div>
-        </div>
-      </a>
-
-      <a class="feedLink" href="chinese-fantasy-dramas-guide.html">
-        <div class="feedCard" data-bg="assets/posters/cdrama/battle-through-the-heavens-poster.jpg.jpeg">
-          <div class="feedText">
-            <h3>Best Chinese Fantasy Dramas</h3>
-            <p>Xianxia, wuxia fantasy, cultivation — the ones worth your time.</p>
-          </div>
-        </div>
-      </a>
+```
+<div class="feed">
+  <a class="feedLink" href="must-watch-espionage.html">
+    <div class="feedCard" data-bg="assets/posters/espionage.jpg.JPG">
+      <div class="feedText">
+        <h3>Must Watch Espionage</h3>
+        <p>Tradecraft, double lives, paranoia, and power games.</p>
+      </div>
     </div>
+  </a>
+
+  <a class="feedLink" href="mustwatch-period.html">
+    <div class="feedCard" data-bg="assets/posters/period.jpg.WEBP">
+      <div class="feedText">
+        <h3>Must Watch Period Dramas</h3>
+        <p>Atmosphere-heavy stories where writing and time matter.</p>
+      </div>
+    </div>
+  </a>
+
+  <a class="feedLink" href="undertheradar-kdrama.html">
+    <div class="feedCard" data-bg="assets/posters/kdrama-editorial.jpg.JPG">
+      <div class="feedText">
+        <h3>Under the Radar K-Dramas</h3>
+        <p>Serious Korean shows that deserved far more attention.</p>
+      </div>
+    </div>
+  </a>
+
+  <a class="feedLink" href="editorial-donghua.html">
+    <div class="feedCard" data-bg="assets/posters/donghua/renegade-immortal.jpg.WEBP">
+      <div class="feedText">
+        <h3>Our Favorite Donghua</h3>
+        <p>Cultivation worlds, long arcs, and myth-heavy storytelling.</p>
+      </div>
+    </div>
+  </a>
+
+  <a class="feedLink" href="international-films-that-won-the-oscar-the-last-decade.html">
+    <div class="feedCard" data-bg="assets/posters/IMG_2842.webp">
+      <div class="feedText">
+        <h3>International Films That Won the Oscar</h3>
+        <p>The last decade of global cinema recognised by the Academy.</p>
+      </div>
+    </div>
+  </a>
+
+  <a class="feedLink" href="editorial-korean-dating-shows.html">
+    <div class="feedCard" data-bg="assets/posters/singles-inferno.jpg.JPG">
+      <div class="feedText">
+        <h3>Korean Dating Shows Worth Your Time</h3>
+        <p>Reality formats that understand emotions, not chaos.</p>
+      </div>
+    </div>
+  </a>
+
+  <a class="feedLink" href="indian-introduction.html">
+    <div class="feedCard" data-bg="assets/posters/india-editorial.jpg.WEBP">
+      <div class="feedText">
+        <h3>Your First Steps into Indian Cinema</h3>
+        <p>Mainstream hits to powerful modern classics.</p>
+      </div>
+    </div>
+  </a>
+
+  <a class="feedLink" href="recommended-crime-tv-shows.html">
+    <div class="feedCard" data-bg="assets/posters/Crime.jpg.JPG">
+      <div class="feedText">
+        <h3>Our Recommended Crime TV Shows</h3>
+        <p>Character-driven crime series we've watched and recommend.</p>
+      </div>
+    </div>
+  </a>
+
+  <a class="feedLink" href="high-stakes-action-thrillers.html">
+    <div class="feedCard" data-bg="assets/posters/tv/the-terminal-list.jpg.jpeg">
+      <div class="feedText">
+        <h3>High-Stakes Action Thrillers</h3>
+        <p>Bingeable spy and action shows with constant pressure.</p>
+      </div>
+    </div>
+  </a>
+
+  <a class="feedLink" href="chinese-fantasy-dramas-guide.html">
+    <div class="feedCard" data-bg="assets/posters/cdrama/battle-through-the-heavens-poster.jpg.jpeg">
+      <div class="feedText">
+        <h3>Best Chinese Fantasy Dramas</h3>
+        <p>Xianxia, wuxia fantasy, cultivation — the ones worth your time.</p>
+      </div>
+    </div>
+  </a>
+</div>
+```
 
   </div>
 </section>
 
 <!-- CATEGORIES -->
+
 <section class="section">
   <div class="container">
-
     <div class="sectionHead">
       <div>
         <h2>Browse categories</h2>
@@ -895,54 +1073,59 @@ footer p{
       <a href="categories.html" class="viewAll">View all →</a>
     </div>
 
-    <div class="catGrid">
-      <a class="cat" href="movies.html" data-bg="assets/categories/movies.jpg.JPG"><span>Movies</span></a>
-      <a class="cat" href="tv-shows.html" data-bg="assets/categories/tv-shows.jpg.JPG"><span>TV Shows</span></a>
-      <a class="cat" href="kdrama.html" data-bg="assets/categories/k-drama.jpg.JPG"><span>K Drama</span></a>
-      <a class="cat" href="cdrama.html" data-bg="assets/categories/c-drama.jpg.JPG"><span>C Drama</span></a>
-      <a class="cat" href="anime.html" data-bg="assets/categories/anime.jpg.JPG"><span>Anime</span></a>
-      <a class="cat" href="donghua.html" data-bg="assets/categories/donghua.jpg.JPG"><span>Donghua</span></a>
-    </div>
+```
+<div class="catGrid">
+  <a class="cat gpu-accelerated" href="movies.html" data-bg="assets/categories/movies.jpg.JPG"><span>Movies</span></a>
+  <a class="cat gpu-accelerated" href="tv-shows.html" data-bg="assets/categories/tv-shows.jpg.JPG"><span>TV Shows</span></a>
+  <a class="cat gpu-accelerated" href="kdrama.html" data-bg="assets/categories/k-drama.jpg.JPG"><span>K Drama</span></a>
+  <a class="cat gpu-accelerated" href="cdrama.html" data-bg="assets/categories/c-drama.jpg.JPG"><span>C Drama</span></a>
+  <a class="cat gpu-accelerated" href="anime.html" data-bg="assets/categories/anime.jpg.JPG"><span>Anime</span></a>
+  <a class="cat gpu-accelerated" href="donghua.html" data-bg="assets/categories/donghua.jpg.JPG"><span>Donghua</span></a>
+</div>
+```
 
   </div>
 </section>
 
 <!-- BETWEEN THE FRAMES -->
+
 <section class="section">
   <div class="container">
-
     <div class="sectionHead">
-      <div class="editorialIntro">
+      <div>
         <h2>Between the Frames</h2>
         <p class="sectionLead">Observations on cinema, attention, and the quiet decisions we make before a film even begins.</p>
       </div>
       <a href="between-the-frames.html" class="viewAll">View all →</a>
     </div>
 
-    <div class="feed btfFeed">
-      <a class="feedLink" href="are-we-killing-cinema-magic.html">
-        <div class="feedCard" data-bg="assets/posters/Killing-cinema-magic.jpg.jpeg">
-          <div class="feedText">
-            <h3>Are We Killing Cinema's Magic Before Entering the Theatre?</h3>
-            <p>When trailers, clips, and hype erase the feeling of discovery.</p>
-          </div>
-        </div>
-      </a>
-
-      <a class="feedLink" href="the-quiet-hesitation-around-subtitled-films.html">
-        <div class="feedCard" data-bg="assets/posters/-we-dont-watch-subtitles.JPG.JPG">
-          <div class="feedText">
-            <h3>The Quiet Hesitation Around Subtitled Films</h3>
-            <p>Why mental fatigue, habit, and timing matter more than taste.</p>
-          </div>
-        </div>
-      </a>
+```
+<div class="feed btfFeed">
+  <a class="feedLink" href="are-we-killing-cinema-magic.html">
+    <div class="feedCard" data-bg="assets/posters/Killing-cinema-magic.jpg.jpeg">
+      <div class="feedText">
+        <h3>Are We Killing Cinema's Magic Before Entering the Theatre?</h3>
+        <p>When trailers, clips, and hype erase the feeling of discovery.</p>
+      </div>
     </div>
+  </a>
+
+  <a class="feedLink" href="the-quiet-hesitation-around-subtitled-films.html">
+    <div class="feedCard" data-bg="assets/posters/-we-dont-watch-subtitles.JPG.JPG">
+      <div class="feedText">
+        <h3>The Quiet Hesitation Around Subtitled Films</h3>
+        <p>Why mental fatigue, habit, and timing matter more than taste.</p>
+      </div>
+    </div>
+  </a>
+</div>
+```
 
   </div>
 </section>
 
 <!-- FOOTER -->
+
 <footer>
   <div class="container footerGrid">
     <div class="footerBrand">
@@ -953,19 +1136,27 @@ footer p{
       </p>
     </div>
 
-    <div>
-      <h4>Explore</h4>
-      <a href="editorials.html">Editorials</a>
-      <a href="between-the-frames.html">Between the Frames</a>
-      <a href="categories.html">Browse categories</a>
-      <a href="contact.html">Contact</a>
-    </div>
+```
+<div>
+  <h4>Explore</h4>
+  <a href="editorials.html">Editorials</a>
+  <a href="between-the-frames.html">Between the Frames</a>
+  <a href="categories.html">Browse categories</a>
+  <a href="handpick.html">Handpicked</a>
+</div>
 
-    <div>
-      <h4>Site</h4>
-      <a href="about.html">About</a>
-      <a href="privacy.html">Privacy Policy</a>
-    </div>
+<div>
+  <h4>Site</h4>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="faq.html">FAQ</a>
+  <a href="privacy.html">Privacy</a>
+  <a href="terms.html">Terms</a>
+  <a href="disclaimer.html">Disclaimer</a>
+  <a href="cookie-policy.html">Cookies</a>
+</div>
+```
+
   </div>
 
   <div class="container footerBottom">
@@ -974,7 +1165,8 @@ footer p{
   </div>
 </footer>
 
-<!-- ✅ Cookie banner -->
+<!-- COOKIE BANNER -->
+
 <div class="cookieBar" id="cookieBar" role="dialog" aria-live="polite" aria-label="Cookie notice">
   <p>
     We use cookies for analytics and ads to improve Popcorn Picks.
@@ -987,40 +1179,44 @@ footer p{
   </div>
 </div>
 
-<!-- ✅ Manage modal -->
+<!-- COOKIE MODAL -->
+
 <div class="cookieModal" id="cookieModal" aria-hidden="true">
   <div class="cookieSheet" role="dialog" aria-modal="true" aria-label="Cookie settings">
     <h4>Cookie settings</h4>
 
-    <div class="cookieRow">
-      <div>
-        <strong>Analytics</strong>
-        <small>Helps us understand what people read and improve the site.</small>
-      </div>
-      <label class="switch">
-        <input type="checkbox" id="toggleAnalytics">
-      </label>
-    </div>
+```
+<div class="cookieRow">
+  <div>
+    <strong>Analytics</strong>
+    <small>Helps us understand what people read and improve the site.</small>
+  </div>
+  <label class="switch">
+    <input type="checkbox" id="toggleAnalytics">
+  </label>
+</div>
 
-    <div class="cookieRow">
-      <div>
-        <strong>Ads</strong>
-        <small>Helps fund the site. You’ll still see ads if you turn this off, but they may be less personalized.</small>
-      </div>
-      <label class="switch">
-        <input type="checkbox" id="toggleAds">
-      </label>
-    </div>
+<div class="cookieRow">
+  <div>
+    <strong>Ads</strong>
+    <small>Helps fund the site. You'll still see ads if you turn this off, but they may be less personalized.</small>
+  </div>
+  <label class="switch">
+    <input type="checkbox" id="toggleAds">
+  </label>
+</div>
 
-    <div class="cookieSheetActions">
-      <button class="ghost" id="cookieCancel" type="button">Cancel</button>
-      <button id="cookieSave" type="button">Save</button>
-    </div>
+<div class="cookieSheetActions">
+  <button class="ghost" id="cookieCancel" type="button">Cancel</button>
+  <button id="cookieSave" type="button">Save</button>
+</div>
+```
+
   </div>
 </div>
 
 <script>
-/* ✅ Apply bg images from data-bg into CSS variable --bgimg */
+/* Apply background images from data-bg */
 (function(){
   try{
     document.querySelectorAll("[data-bg]").forEach(function(el){
@@ -1032,13 +1228,7 @@ footer p{
 </script>
 
 <script>
-/*
-  ✅ Handpicked carousel (corrected):
-  - Smooth touch scrolling (no snap on touch)
-  - Auto-loop only on true desktop
-  - Pull ONLY a.pickCard from handpick.html (prevents random anchors)
-  - Listeners always attached; guarded by allowAutoLoop() (resize-safe)
-*/
+/* Handpicked carousel with smooth scrolling */
 (function(){
   var marquee = document.getElementById("handpickedMarquee");
   var track = document.getElementById("handpickedTrack");
@@ -1245,13 +1435,7 @@ footer p{
 </script>
 
 <script>
-/*
-  ✅ Long-term consent system:
-  - Stores choice in localStorage
-  - Supports Accept / Reject / Manage
-  - Updates Google Consent Mode v2
-  - Footer "Cookie settings" lets users change later
-*/
+/* Cookie consent system */
 (function(){
   var KEY = "pp_consent_v1";
 
@@ -1284,22 +1468,17 @@ footer p{
 
   var bar = document.getElementById("cookieBar");
   var modal = document.getElementById("cookieModal");
-
   var btnAccept = document.getElementById("cookieAccept");
   var btnReject = document.getElementById("cookieReject");
   var btnManage = document.getElementById("cookieManage");
-
   var toggleAnalytics = document.getElementById("toggleAnalytics");
   var toggleAds = document.getElementById("toggleAds");
-
   var btnSave = document.getElementById("cookieSave");
   var btnCancel = document.getElementById("cookieCancel");
-
   var settingsLink = document.getElementById("cookieSettingsLink");
 
   function openBanner(){ bar.style.display = "flex"; }
   function closeBanner(){ bar.style.display = "none"; }
-
   function openModal(){
     modal.style.display = "flex";
     modal.setAttribute("aria-hidden","false");
@@ -1363,19 +1542,6 @@ footer p{
   modal.addEventListener("click", function(e){
     if(e.target === modal) closeModal();
   });
-})();
-</script>
-
-<!-- ✅ Perf: Lazy-load non-critical images -->
-<script>
-(function(){
-  try{
-    var imgs = document.querySelectorAll("img");
-    imgs.forEach(function(img){
-      if(!img.hasAttribute("loading")) img.setAttribute("loading","lazy");
-      if(!img.hasAttribute("decoding")) img.setAttribute("decoding","async");
-    });
-  }catch(e){}
 })();
 </script>
 
