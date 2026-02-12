@@ -2,595 +2,318 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>K-Drama — Popcorn Picks</title>
+<meta name="description" content="Curated K-drama collection spanning thrillers, romance, historical, crime, fantasy, and slice of life. Find your next Korean drama." />
 
-<!-- Google AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
-        crossorigin="anonymous"></script>
-
-<!-- Google Analytics (GA4) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
+  window.dataLayer=window.dataLayer||[];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XZ94ZK9JN4');
+  gtag('js',new Date());
+  gtag('config','G-XZ94ZK9JN4');
 </script>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#0b0b0c;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial}
+html,body{height:100%}
+body{
+  background:#0b0b0c;color:#fff;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  -webkit-text-size-adjust:100%;
+}
 a{text-decoration:none;color:inherit}
+a,button,.card{-webkit-tap-highlight-color:transparent}
+button,input{font:inherit}
+
 .top{
   position:sticky;top:0;z-index:50;
   display:flex;justify-content:space-between;align-items:center;
-  padding:16px 20px;background:rgba(10,10,10,.88);
-  backdrop-filter:blur(10px);border-bottom:1px solid #222;
+  padding:14px 18px;
+  background:rgba(10,10,10,.88);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  border-bottom:1px solid #222;gap:12px;
 }
-.top b{font-size:16px}
+.top b{font-size:15px;white-space:nowrap}
+.navLeft{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.navBtn{
+  padding:8px 13px;border-radius:999px;
+  border:1px solid #2a2a2a;background:#141414;
+  font-size:12px;color:#ddd;white-space:nowrap;cursor:pointer;transition:.15s;
+}
+.navBtn:hover{border-color:#444;color:#fff}
+.navBtn:active{transform:translateY(1px)}
 
-.wrap{padding:16px 18px 6px}
-.searchRow{display:flex;gap:10px;flex-wrap:wrap}
+.intro{max-width:860px;margin:0 auto;padding:28px 20px 6px}
+.intro h1{font-size:26px;font-weight:750;letter-spacing:-.02em;line-height:1.1;margin-bottom:12px}
+.intro p{color:#c8c8c8;font-size:15px;line-height:1.8;max-width:72ch}
+
+.wrap{padding:14px 18px 8px}
+.searchRow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .searchRow input{
-  flex:1;min-width:240px;
-  padding:12px 14px;border-radius:12px;
-  border:1px solid #222;background:#111;color:#fff;outline:none;
+  flex:1;min-width:220px;padding:12px 14px;border-radius:12px;
+  border:1px solid #222;background:#111;color:#fff;outline:none;font-size:14px;
 }
+.searchRow input::placeholder{color:#666}
 .btn{
   padding:12px 14px;border-radius:12px;
-  border:1px solid #222;background:#141414;color:#fff;cursor:pointer;
+  border:1px solid #222;background:#141414;color:#fff;
+  cursor:pointer;white-space:nowrap;font-size:13px;
 }
 .btn:active{transform:translateY(1px)}
-.small{color:#aaa;font-size:12px;padding:10px 2px 0;line-height:1.4}
+.small{color:#888;font-size:12px;padding:10px 2px 0;line-height:1.4}
 
 .grid{
-  padding:16px 18px 26px;
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:18px;
+  padding:16px 18px 40px;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;
 }
+
 .card{
-  border-radius:18px;border:1px solid #181818;overflow:hidden;
-  position:relative;background:#111;min-height:320px;
-}
-.poster{height:320px;background:#111;background-size:cover;background-position:center}
-.info{
-  position:absolute;bottom:0;left:0;right:0;
-  padding:14px;background:linear-gradient(to top,rgba(0,0,0,.92),transparent);
-}
-.title{font-size:18px;font-weight:650;line-height:1.2}
-.meta{font-size:12px;color:#aaa;margin-top:4px}
-.tagline{
-  font-size:12px;color:#cfcfcf;margin-top:8px;opacity:.9;
-  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  border-radius:16px;border:1px solid #181818;
+  overflow:hidden;position:relative;background:#0f0f0f;cursor:pointer;
+  display:flex;flex-direction:column;
 }
 
-.empty{padding:22px 18px 30px;color:#aaa;display:none}
+/* POSTER — contain, no crop, full image always visible */
+.posterBox{
+  width:100%;aspect-ratio:2/3;background:#111;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+}
+.posterBox img{
+  width:100%;height:100%;
+  object-fit:contain;display:block;background:#111;
+}
 
-/* Detail modal */
+.info{padding:12px;background:#0f0f0f;border-top:1px solid #181818;flex:1}
+.cardTitle{font-size:14px;font-weight:650;line-height:1.25;margin-bottom:4px}
+.cardMeta{font-size:11px;color:#888;line-height:1.4;margin-bottom:6px}
+.tagline{font-size:11px;color:#bbb;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+.empty{padding:22px 18px 30px;color:#888;display:none}
+
+/* MODAL */
 .modal{
-  position:fixed;
-  inset:0;
-  z-index:100;
-  background:rgba(0,0,0,.72);
-  display:none;
-
-  /* center the modal */
-  align-items:center;
-  justify-content:center;
-
-  padding:18px;
+  position:fixed;inset:0;z-index:999;
+  background:rgba(0,0,0,.75);
+  display:none;align-items:center;justify-content:center;
+  padding:16px;overscroll-behavior:contain;
 }
+.modal.on{display:flex}
 
 .sheet{
-  width:min(980px, 100%);
-  max-height:88vh;
-  overflow:auto;
-
-  background:#0f0f10;
-  border:1px solid #222;
-  border-radius:18px;
+  width:min(960px,100%);max-height:calc(100dvh - 32px);
+  background:#0f0f10;border:1px solid #222;border-radius:18px;
+  overflow:hidden;display:flex;flex-direction:column;
 }
-.sheetInner{padding:16px 18px 22px}
-.detailTop{
+
+.sheetTop{
   display:flex;justify-content:space-between;align-items:center;
-  gap:12px;padding:10px 0 14px;
+  padding:13px 16px;border-bottom:1px solid #1e1e1e;
+  background:#0d0d0d;flex:0 0 auto;
 }
-.closeX{
-  border:1px solid #222;background:#141414;color:#fff;
-  border-radius:12px;padding:10px 12px;cursor:pointer;
+.sheetTop span{font-size:14px;font-weight:700;color:#ddd}
+.closeBtn{
+  border:1px solid #2a2a2a;background:#181818;color:#fff;
+  border-radius:10px;padding:9px 13px;cursor:pointer;font-size:13px;
 }
-.hero{
-  display:grid;
-  grid-template-columns:320px 1fr;
-  gap:16px;
-  align-items:start;
+.closeBtn:hover{border-color:#444}
+
+.sheetBody{
+  padding:16px;display:grid;grid-template-columns:280px 1fr;gap:16px;
+  overflow-y:auto;-webkit-overflow-scrolling:touch;
+  overscroll-behavior:contain;flex:1 1 auto;
 }
 
-.heroPoster{
-  width:100%;
-  height:460px;
-  border-radius:16px;
-  border:1px solid #222;
-  background:#111;
-  background-size:cover;
-  background-position:center;
+/* Modal poster — full image, no crop */
+.bigPosterBox{
+  width:100%;aspect-ratio:2/3;border-radius:14px;
+  border:1px solid #222;background:#111;
+  overflow:hidden;display:flex;align-items:center;justify-content:center;
 }
+.bigPosterBox img{width:100%;height:100%;object-fit:contain;display:block;background:#111}
 
-.h1{
-  font-size:26px;
-  font-weight:800;
-  line-height:1.1;
+.mTitle{font-size:22px;font-weight:750;line-height:1.15}
+.mMeta{color:#888;font-size:12px;line-height:1.5;margin-top:8px}
+.badges{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+.badge{font-size:11px;border:1px solid #222;background:#111;padding:7px 10px;border-radius:999px;color:#ccc}
+.synopsis{margin-top:14px;font-size:14px;line-height:1.85;color:#d8d8d8}
+
+body.modalOpen{overflow:hidden;touch-action:none}
+
+@media(max-width:700px){
+  .sheetBody{grid-template-columns:1fr}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+  .intro h1{font-size:22px}
 }
-
-.h2{
-  margin-top:8px;
-  color:#aaa;
-  font-size:13px;
-  line-height:1.5;
+@media(max-width:480px){
+  .top{padding:11px 14px}
+  .navBtn{font-size:11px;padding:7px 10px}
+  .grid{grid-template-columns:repeat(2,1fr);gap:10px}
 }
-
-.badges{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:12px;
-}
-
-.badge{
-  font-size:12px;
-  border:1px solid #222;
-  background:#111;
-  color:#ddd;
-  padding:8px 10px;
-  border-radius:999px;
-}
-
-.synopsis{
-  margin-top:14px;
-  color:#e7e7e7;
-  font-size:14px;
-  line-height:1.85;
-}
-
-@media(max-width:900px){
-  .hero{grid-template-columns:1fr}
-  .heroPoster{height:420px}
+@media(max-height:500px) and (orientation:landscape){
+  .posterBox{aspect-ratio:3/2}
+  .bigPosterBox{aspect-ratio:3/2}
 }
 </style>
 </head>
-
 <body>
 
 <div class="top">
-  <a href="index.html">← Home</a>
+  <div class="navLeft">
+    <a class="navBtn" href="categories.html">← Categories</a>
+    <a class="navBtn" href="index.html">Home</a>
+  </div>
   <b>K-Drama</b>
   <span></span>
 </div>
 
+<div class="intro">
+  <h1>K-Drama</h1>
+  <p>
+    Korean drama has spent the last decade proving it belongs in the same conversation as the world's best television. This collection covers the full range: tight crime thrillers where every clue matters, historical epics that build political worlds with real weight, romance stories that earn their emotion slowly, slice-of-life dramas about ordinary lives told with extraordinary care, and fantasy series where the magic actually serves the story. Every show here was chosen because it does something specific well. Use the search to find by title or genre, or browse the full catalog.
+  </p>
+</div>
+
 <div class="wrap">
   <div class="searchRow">
-    <input id="q" type="text" placeholder="Search title, year, genre…" autocomplete="off">
-    <button class="btn" id="clearBtn" type="button">Clear</button>
+    <input id="q" type="text" placeholder="Search title, year, genre..." autocomplete="off" />
+    <button class="btn" id="clearBtn">Clear</button>
   </div>
-  <div class="small" id="count">Loading…</div>
+  <div class="small" id="count">Loading...</div>
 </div>
 
 <div class="grid" id="grid"></div>
 <div class="empty" id="empty">No matches.</div>
 
-<!-- Detail modal -->
-<div class="modal" id="modal">
-  <div class="sheet">
-    <div class="sheetInner">
-      <div class="detailTop">
-        <b>Details</b>
-        <button class="closeX" id="closeBtn">Close</button>
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="sheet" role="dialog" aria-modal="true">
+    <div class="sheetTop">
+      <span>Details</span>
+      <button class="closeBtn" id="closeBtn">Close</button>
+    </div>
+    <div class="sheetBody" id="sheetBody">
+      <div class="bigPosterBox">
+        <img id="dPosterImg" src="" alt="" loading="lazy" />
       </div>
-
-      <div class="hero">
-        <div class="heroPoster" id="dPoster"></div>
-        <div>
-          <div class="h1" id="dTitle"></div>
-          <div class="h2" id="dMeta"></div>
-          <div class="badges" id="dBadges"></div>
-        </div>
+      <div>
+        <div class="mTitle" id="dTitle"></div>
+        <div class="mMeta" id="dMeta"></div>
+        <div class="badges" id="dBadges"></div>
+        <div class="synopsis" id="dSynopsis"></div>
       </div>
-
-      <div class="synopsis" id="dSynopsis"></div>
     </div>
   </div>
 </div>
 
 <script>
-/*
-IMPORTANT:
-Your filenames MUST match exactly what’s in GitHub.
-Example you confirmed works:
-assets/posters/kdrama/a-piece-of-your-mind.jpg.JPG
-So use the same style for every poster line below.
-*/
-
-const KDRAMA = [
-  {
-    id: "insider",
-    title: "Insider",
-    year: "2022",
-    meta: "Crime • Thriller",
-    episodes: "12 episodes",
-    poster: "assets/posters/kdrama/insider.jpg.JPG",
-    synopsis: "A judicial trainee is pulled into an undercover gambling sting—and it goes wrong fast. Trapped inside prison with no protection and too many people wanting favors, he’s forced to play a dangerous double game where every alliance costs something."
-  },
-  {
-    id: "six-flying-dragons",
-    title: "Six Flying Dragons",
-    year: "2015",
-    meta: "Historical • Political • Action",
-    episodes: "50 episodes",
-    poster: "assets/posters/kdrama/six-flying-dragons.jpg.jpeg",
-    synopsis: "As an old dynasty collapses, six key figures collide in the fight to build a new world. Ideals turn into strategy, strategy turns into blood, and the biggest question becomes: what do you have to sacrifice to create a nation—and who do you become after?"
-  },
-  {
-    id: "song-of-the-bandits",
-    title: "Song of the Bandits",
-    year: "2023",
-    meta: "Period • Action • Western",
-    episodes: "9 episodes",
-    poster: "assets/posters/kdrama/song-of-the-bandits.jpeg",
-    synopsis: "In the lawless borderlands of the 1920s, refugees and outlaws are hunted from every side. A man carrying guilt gathers a crew to protect the powerless, turning dusty towns into battlegrounds where survival is the only law."
-  },
-  {
-    id: "mr-sunshine",
-    title: "Mr. Sunshine",
-    year: "2018",
-    meta: "Historical • Romance • Melodrama",
-    episodes: "24 episodes",
-    poster: "assets/posters/kdrama/mr-sunshine.jpeg",
-    synopsis: "A boy who escaped Korea returns years later as a U.S. officer—only to be pulled into a country on the edge of collapse. He meets a noblewoman living a secret life as a resistance sniper, and their slow-burn connection grows while history closes in."
-  },
-  {
-    id: "my-dearest",
-    title: "My Dearest",
-    year: "2023",
-    meta: "Historical • Romance • War",
-    episodes: "20 episodes",
-    poster: "assets/posters/kdrama/my-dearest.jpeg",
-    synopsis: "A flirtatious stranger and a proud young woman meet in a world that still feels safe—until invasion turns everything into survival. Their romance is built on separation, harsh choices, and the way war forces people to become strangers to themselves."
-  },
-  {
-    id: "bossam-steal-the-fate",
-    title: "Bossam: Steal the Fate",
-    year: "2021",
-    meta: "Historical • Romance • Drama",
-    episodes: "20 episodes",
-    poster: "assets/posters/kdrama/bossam-steal-the-fate.jpeg",
-    synopsis: "A street-smart man makes money performing ‘bossam’ kidnappings for remarriage—until he grabs the wrong target: a princess who should never be touched. Overnight, the mistake turns into a chase through politics, hidden identities, and an unexpected found-family bond."
-  },
-  {
-    id: "gyeongseong-creature",
-    title: "Gyeongseong Creature",
-    year: "2023",
-    meta: "Period • Thriller • Horror",
-    episodes: "10 episodes",
-    poster: "assets/posters/kdrama/gyeongseong-creature.jpeg",
-    synopsis: "In 1945 Seoul, a wealthy pawnshop owner and a relentless tracker follow a disappearance into a military hospital that isn’t treating anyone. What they uncover isn’t just a monster—it’s the human cruelty that created it."
-  },
-  {
-    id: "alchemy-of-souls",
-    title: "Alchemy of Souls",
-    year: "2022",
-    meta: "Fantasy • Romance • Action",
-    episodes: "30 episodes",
-    poster: "assets/posters/kdrama/alchemy-of-souls.jpeg",
-    synopsis: "A legendary assassin’s soul ends up trapped in the body of a weak servant girl. She strikes a secret deal with a disgraced young master: she’ll train him to become powerful—if he keeps her identity hidden in a world where soul-swapping is a death sentence."
-  },
-  {
-    id: "the-rebel-thief-who-stole-the-people",
-    title: "The Rebel: Thief Who Stole the People",
-    year: "2017",
-    meta: "Historical • Action • Drama",
-    episodes: "30 episodes",
-    poster: "assets/posters/kdrama/the-rebel-thief-who-stole-the-people.jpeg",
-    synopsis: "Born to a slave family, a boy with unusual strength grows up watching the powerful treat ordinary lives as disposable. When a cruel king tightens his grip, he’s pushed from survival into rebellion—building a band of outcasts into a threat the palace can’t ignore."
-  },
-  {
-    id: "kingdom",
-    title: "Kingdom",
-    year: "2019",
-    meta: "Historical • Horror • Political",
-    episodes: "12 episodes",
-    poster: "assets/posters/kdrama/kingdom.jpeg",
-    synopsis: "A crown prince investigates rumors around a sealed palace—and finds a plague spreading faster than the court can lie about it. With each nightfall, the outbreak grows, and the real fight becomes survival versus a political machine that would rather sacrifice people than lose control."
-  },
-  {
-    id: "tell-me-that-you-love-me",
-    title: "Tell Me That You Love Me",
-    year: "2023",
-    meta: "Romance • Slice of Life",
-    episodes: "16 episodes",
-    poster: "assets/posters/kdrama/tell-me-that-you-love-me.jpg.jpeg",
-    synopsis: "A quiet painter who communicates differently and a woman exhausted by her own loneliness begin to understand each other in small, careful steps. It’s not a loud romance—more like watching two people slowly learn a shared language for comfort, honesty, and staying."
-  },
-  {
-    id: "priest",
-    title: "Priest",
-    year: "2018",
-    meta: "Horror • Supernatural",
-    episodes: "16 episodes",
-    poster: "assets/posters/kdrama/priest.jpg.JPG",
-    synopsis: "A priest trained in exorcism and a doctor who trusts only science clash over patients showing violent, impossible symptoms. As the cases stack up, the line between trauma and possession blurs—and treating the body might not be enough to save the person."
-  },
-  {
-    id: "tempest",
-    title: "Tempest",
-    year: "2022",
-    meta: "Political • Action • Thriller",
-    poster: "assets/posters/kdrama/Tempest.jpg.jpeg",
-    synopsis: "A sudden international incident pulls a diplomat into a hidden war of intelligence agencies and staged truths. Teaming with an agent who doesn’t share his rules, he’s forced to chase a conspiracy where every answer creates a bigger question."
-  },
-  {
-    id: "su-ji-and-u-ri",
-    title: "Su Ji & U Ri",
-    year: "2024",
-    meta: "Family • Slice of Life",
-    episodes: "120 episodes",
-    poster: "assets/posters/kdrama/su-ji-and-u-ri.jpg.jpeg",
-    synopsis: "A long-form family drama about people trying to repair what pride and misunderstandings broke. It moves through daily-life conflicts—parents, careers, love, and regret—letting relationships change slowly, the way they do in real life."
-  },
-  {
-    id: "flower-of-evil",
-    title: "Flower of Evil",
-    year: "2020",
-    meta: "Thriller • Mystery",
-    episodes: "16 episodes",
-    poster: "assets/posters/kdrama/flower-of-evil.jpg.JPG",
-    synopsis: "A detective’s latest case begins pointing toward the one person she trusts most—her husband. As she investigates, their perfect marriage starts to feel like a carefully built cover, and the question shifts from ‘who is he?’ to ‘what is he hiding, and why?’"
-  },
-  {
-    id: "the-veil",
-    title: "The Veil",
-    year: "2021",
-    meta: "Spy • Action • Thriller",
-    episodes: "12 episodes",
-    poster: "assets/posters/kdrama/the-veil.jpg.JPG",
-    synopsis: "A top intelligence agent returns after a year missing, his memory fractured and his team destroyed. He goes hunting for the traitor from inside his own agency—where every colleague is a suspect and the truth is designed to look like a lie."
-  },
-  {
-    id: "my-liberation-notes",
-    title: "My Liberation Notes",
-    year: "2022",
-    meta: "Slice of Life • Drama",
-    episodes: "16 episodes",
-    poster: "assets/posters/kdrama/my-liberation-notes.jpg.JPG",
-    synopsis: "Three siblings drag themselves through routine, commuting, and quiet disappointment—until a mysterious outsider enters their orbit. Nothing ‘big’ happens, but everything shifts: the way they speak, the way they want, and the courage it takes to ask for more from life."
-  },
-  {
-    id: "hymn-of-death",
-    title: "Hymn of Death",
-    year: "2018",
-    meta: "Period • Romance • Tragedy",
-    episodes: "3 episodes",
-    poster: "assets/posters/kdrama/hymn-of-death.jpg.JPG",
-    synopsis: "In 1920s Korea under Japanese rule, a groundbreaking soprano and a playwright fall into a love that society refuses to recognize. It’s short and haunting—art, ambition, and freedom colliding with a future that feels impossible to escape."
-  },
-  {
-    id: "undercover",
-    title: "Undercover",
-    year: "2021",
-    meta: "Political • Thriller",
-    episodes: "16 episodes",
-    poster: "assets/posters/kdrama/undercover.jpg.JPG",
-    synopsis: "A human rights lawyer rises into the public spotlight—only for her husband’s buried identity to become a threat to their entire family. As pressure mounts from above, the question becomes whether love can survive when the truth turns into a weapon."
-  },
-  {
-    id: "the-k2",
-    title: "The K2",
-    year: "2016",
-    meta: "Action • Thriller",
-    episodes: "16 episodes",
-    poster: "assets/posters/kdrama/the-k2.jpg.JPG",
-    synopsis: "A fugitive ex-soldier becomes bodyguard to a powerful political family and gets trapped between ambition, secrets, and a sheltered woman used as a pawn. Every ‘protection’ job turns into a fight for control—inside the house and out on the streets."
-  },
-  {
-    id: "descendants-of-the-sun",
-    title: "Descendants of the Sun",
-    year: "2016",
-    meta: "Romance • Action",
-    episodes: "16 episodes",
-    poster: "assets/posters/kdrama/descendants-of-the-sun.jpg.JPG",
-    synopsis: "A soldier and a doctor keep crossing paths in a disaster zone where duty never pauses for feelings. Between rescues, moral choices, and constant risk, the romance builds under pressure—because in their world, tomorrow is never guaranteed."
-  },
-  {
-    id: "tell-me-what-you-saw",
-    title: "Tell Me What You Saw",
-    year: "2020",
-    meta: "Crime • Thriller",
-    episodes: "16 episodes",
-    poster: "assets/posters/kdrama/tell-me-what-you-saw.jpg.JPG",
-    synopsis: "A profiler who lost everything partners with a rookie detective blessed with near-photographic memory. Their cases lead back to a killer who should be gone—and every clue suggests someone is manipulating the investigation from the shadows."
-  },
-  {
-    id: "love-affairs-in-the-afternoon",
-    title: "Love Affairs in the Afternoon",
-    year: "2019",
-    meta: "Romance • Drama",
-    episodes: "16 episodes",
-    poster: "assets/posters/kdrama/love-affairs-in-the-afternoon.jpg.JPG",
-    synopsis: "A woman trapped in a quiet marriage drifts into a world where people survive through secret relationships. It’s less about shock and more about emotional hunger—how loneliness makes boundaries feel negotiable, and how one choice can rewrite a life."
-  },
-  {
-    id: "mouse",
-    title: "Mouse",
-    year: "2021",
-    meta: "Psychological • Thriller",
-    episodes: "20 episodes",
-    poster: "assets/posters/kdrama/mouse.jpg.JPG",
-    synopsis: "A kind rookie cop is thrown into a brutal serial case that keeps changing shape. The investigation pulls him into questions about identity, fear, and what makes someone ‘good’ or ‘monstrous’—and the closer he gets, the less he trusts his own reality."
-  },
-  {
-    id: "our-movie",
-    title: "Our Movie",
-    year: "2025",
-    meta: "Drama • Romance",
-    poster: "assets/posters/kdrama/our-movie.jpg.JPG",
-    synopsis: "Two people meet at a point where ambition and timing don’t cooperate. What starts as attraction becomes a test of choices—what you chase, what you postpone, and what you risk losing when life refuses to slow down for feelings."
-  },
-  {
-    id: "dr-prisoner",
-    title: "Doctor Prisoner",
-    year: "2019",
-    meta: "Revenge • Thriller",
-    episodes: "32 episodes",
-    poster: "assets/posters/kdrama/doctor-prisoner.jpg.JPG",
-    synopsis: "A brilliant doctor is ruined by powerful people and disappears—only to resurface inside the prison system, where medical treatment becomes leverage. He doesn’t fight with fists; he fights with diagnoses, deals, and a plan to make the elites beg for help."
-  },
-  {
-    id: "the-devil-judge",
-    title: "The Devil Judge",
-    year: "2021",
-    meta: "Dystopian • Thriller",
-    episodes: "16 episodes",
-    poster: "assets/posters/kdrama/the-devil-judge.jpg.JPG",
-    synopsis: "In a near-future Korea where trials are broadcast like entertainment, a celebrity judge becomes the face of ‘public justice.’ But his real intentions are unclear—and as a young judge gets close to him, the line between reform and revenge starts to vanish."
-  },
-  {
-    id: "queen-of-tears",
-    title: "Queen of Tears",
-    year: "2024",
-    meta: "Romance • Drama",
-    episodes: "16 episodes",
-    poster: "assets/posters/kdrama/queen-of-tears.jpg.JPG",
-    synopsis: "A couple who look perfect on paper are quietly collapsing behind closed doors. A sudden crisis forces them back into the same space—old resentment, old tenderness, and the question of whether love can return after it’s been neglected for too long."
-  },
-  {
-    id: "a-piece-of-your-mind",
-    title: "A Piece of Your Mind",
-    year: "2020",
-    meta: "Healing • Romance",
-    episodes: "12 episodes",
-    poster: "assets/posters/kdrama/a-piece-of-your-mind.jpg.JPG",
-    synopsis: "A programmer stuck in grief meets a sound engineer who has learned to live with her own quiet losses. Their connection isn’t dramatic—it’s gentle, slow, and built on small moments that begin to loosen the hold the past has on them."
-  },
-  {
-    id: "dr-romantic",
-    title: "Dr. Romantic",
-    year: "2016",
-    meta: "Medical • Drama",
-    episodes: "21 episodes",
-    poster: "assets/posters/kdrama/dr-romantic.jpg.JPG",
-    synopsis: "Two ambitious young doctors are thrown into a small hospital under a legendary mentor who refuses to compromise on ethics. Every case becomes a lesson in pressure, responsibility, and what it means to treat patients like people—not numbers."
-  },
-  {
-    id: "she-would-never-know",
-    title: "She Would Never Know",
-    year: "2021",
-    meta: "Workplace • Romance",
-    episodes: "16 episodes",
-    poster: "assets/posters/kdrama/she-would-never-know.jpg.JPG",
-    synopsis: "At a cosmetics company, a senior marketer’s carefully managed life is disrupted by a younger colleague who refuses to stay ‘just a junior.’ The romance grows through small workplace moments—confessions, pride, timing, and the risk of choosing honesty."
-  },
-  {
-    id: "dr-john",
-    title: "Doctor John",
-    year: "2019",
-    meta: "Medical • Drama",
-    episodes: "32 episodes",
-    poster: "assets/posters/kdrama/doctor-john.jpg.JPG",
-    synopsis: "A genius pain specialist who can ‘read’ patients like puzzles takes on cases other hospitals avoid. As he digs into the truth behind suffering, the drama keeps circling ethical lines—how far doctors should go, and what it costs to be right."
-  }
+const KDRAMA=[
+  {id:"insider",title:"Insider",year:"2022",meta:"Crime • Thriller",episodes:"12 episodes",poster:"assets/posters/kdrama/insider.jpg.JPG",synopsis:"A judicial trainee is pulled into an undercover gambling sting—and it goes wrong fast. Trapped inside prison with no protection and too many people wanting favors, he's forced to play a dangerous double game where every alliance costs something."},
+  {id:"six-flying-dragons",title:"Six Flying Dragons",year:"2015",meta:"Historical • Political • Action",episodes:"50 episodes",poster:"assets/posters/kdrama/six-flying-dragons.jpg.jpeg",synopsis:"As an old dynasty collapses, six key figures collide in the fight to build a new world. Ideals turn into strategy, strategy turns into blood, and the biggest question becomes: what do you have to sacrifice to create a nation—and who do you become after?"},
+  {id:"song-of-the-bandits",title:"Song of the Bandits",year:"2023",meta:"Period • Action • Western",episodes:"9 episodes",poster:"assets/posters/kdrama/song-of-the-bandits.jpeg",synopsis:"In the lawless borderlands of the 1920s, refugees and outlaws are hunted from every side. A man carrying guilt gathers a crew to protect the powerless, turning dusty towns into battlegrounds where survival is the only law."},
+  {id:"mr-sunshine",title:"Mr. Sunshine",year:"2018",meta:"Historical • Romance • Melodrama",episodes:"24 episodes",poster:"assets/posters/kdrama/mr-sunshine.jpeg",synopsis:"A boy who escaped Korea returns years later as a U.S. officer—only to be pulled into a country on the edge of collapse. He meets a noblewoman living a secret life as a resistance sniper, and their slow-burn connection grows while history closes in."},
+  {id:"my-dearest",title:"My Dearest",year:"2023",meta:"Historical • Romance • War",episodes:"20 episodes",poster:"assets/posters/kdrama/my-dearest.jpeg",synopsis:"A flirtatious stranger and a proud young woman meet in a world that still feels safe—until invasion turns everything into survival. Their romance is built on separation, harsh choices, and the way war forces people to become strangers to themselves."},
+  {id:"bossam-steal-the-fate",title:"Bossam: Steal the Fate",year:"2021",meta:"Historical • Romance • Drama",episodes:"20 episodes",poster:"assets/posters/kdrama/bossam-steal-the-fate.jpeg",synopsis:"A street-smart man makes money performing kidnappings for remarriage—until he grabs the wrong target: a princess who should never be touched. The mistake turns into a chase through politics, hidden identities, and an unexpected found-family bond."},
+  {id:"gyeongseong-creature",title:"Gyeongseong Creature",year:"2023",meta:"Period • Thriller • Horror",episodes:"10 episodes",poster:"assets/posters/kdrama/gyeongseong-creature.jpeg",synopsis:"In 1945 Seoul, a wealthy pawnshop owner and a relentless tracker follow a disappearance into a military hospital that isn't treating anyone. What they uncover isn't just a monster—it's the human cruelty that created it."},
+  {id:"alchemy-of-souls",title:"Alchemy of Souls",year:"2022",meta:"Fantasy • Romance • Action",episodes:"30 episodes",poster:"assets/posters/kdrama/alchemy-of-souls.jpeg",synopsis:"A legendary assassin's soul ends up trapped in the body of a weak servant girl. She strikes a secret deal with a disgraced young master: she'll train him to become powerful—if he keeps her identity hidden in a world where soul-swapping is a death sentence."},
+  {id:"the-rebel-thief",title:"The Rebel: Thief Who Stole the People",year:"2017",meta:"Historical • Action • Drama",episodes:"30 episodes",poster:"assets/posters/kdrama/the-rebel-thief-who-stole-the-people.jpeg",synopsis:"Born to a slave family, a boy with unusual strength grows up watching the powerful treat ordinary lives as disposable. When a cruel king tightens his grip, he's pushed from survival into rebellion."},
+  {id:"kingdom",title:"Kingdom",year:"2019",meta:"Historical • Horror • Political",episodes:"12 episodes",poster:"assets/posters/kdrama/kingdom.jpeg",synopsis:"A crown prince investigates rumors around a sealed palace—and finds a plague spreading faster than the court can lie about it. With each nightfall, the outbreak grows, and the real fight becomes survival versus a political machine."},
+  {id:"tell-me-that-you-love-me",title:"Tell Me That You Love Me",year:"2023",meta:"Romance • Slice of Life",episodes:"16 episodes",poster:"assets/posters/kdrama/tell-me-that-you-love-me.jpg.jpeg",synopsis:"A quiet painter who communicates differently and a woman exhausted by her own loneliness begin to understand each other in small, careful steps. It's not a loud romance—more like watching two people slowly learn a shared language for comfort and honesty."},
+  {id:"priest",title:"Priest",year:"2018",meta:"Horror • Supernatural",episodes:"16 episodes",poster:"assets/posters/kdrama/priest.jpg.JPG",synopsis:"A priest trained in exorcism and a doctor who trusts only science clash over patients showing violent, impossible symptoms. As the cases stack up, the line between trauma and possession blurs."},
+  {id:"tempest",title:"Tempest",year:"2022",meta:"Political • Action • Thriller",poster:"assets/posters/kdrama/Tempest.jpg.jpeg",synopsis:"A sudden international incident pulls a diplomat into a hidden war of intelligence agencies and staged truths. Teaming with an agent who doesn't share his rules, he chases a conspiracy where every answer creates a bigger question."},
+  {id:"su-ji-and-u-ri",title:"Su Ji & U Ri",year:"2024",meta:"Family • Slice of Life",episodes:"120 episodes",poster:"assets/posters/kdrama/su-ji-and-u-ri.jpg.jpeg",synopsis:"A long-form family drama about people trying to repair what pride and misunderstandings broke. It moves through daily-life conflicts—parents, careers, love, and regret—letting relationships change slowly, the way they do in real life."},
+  {id:"flower-of-evil",title:"Flower of Evil",year:"2020",meta:"Thriller • Mystery",episodes:"16 episodes",poster:"assets/posters/kdrama/flower-of-evil.jpg.JPG",synopsis:"A detective's latest case begins pointing toward the one person she trusts most—her husband. As she investigates, their perfect marriage starts to feel like a carefully built cover."},
+  {id:"the-veil",title:"The Veil",year:"2021",meta:"Spy • Action • Thriller",episodes:"12 episodes",poster:"assets/posters/kdrama/the-veil.jpg.JPG",synopsis:"A top intelligence agent returns after a year missing, his memory fractured and his team destroyed. He goes hunting for the traitor from inside his own agency—where every colleague is a suspect."},
+  {id:"my-liberation-notes",title:"My Liberation Notes",year:"2022",meta:"Slice of Life • Drama",episodes:"16 episodes",poster:"assets/posters/kdrama/my-liberation-notes.jpg.JPG",synopsis:"Three siblings drag themselves through routine, commuting, and quiet disappointment—until a mysterious outsider enters their orbit. Nothing 'big' happens, but everything shifts."},
+  {id:"hymn-of-death",title:"Hymn of Death",year:"2018",meta:"Period • Romance • Tragedy",episodes:"3 episodes",poster:"assets/posters/kdrama/hymn-of-death.jpg.JPG",synopsis:"In 1920s Korea under Japanese rule, a groundbreaking soprano and a playwright fall into a love that society refuses to recognize. Short and haunting—art, ambition, and freedom colliding with an impossible future."},
+  {id:"undercover",title:"Undercover",year:"2021",meta:"Political • Thriller",episodes:"16 episodes",poster:"assets/posters/kdrama/undercover.jpg.JPG",synopsis:"A human rights lawyer rises into the public spotlight—only for her husband's buried identity to become a threat to their entire family. The question becomes whether love can survive when the truth turns into a weapon."},
+  {id:"the-k2",title:"The K2",year:"2016",meta:"Action • Thriller",episodes:"16 episodes",poster:"assets/posters/kdrama/the-k2.jpg.JPG",synopsis:"A fugitive ex-soldier becomes bodyguard to a powerful political family and gets trapped between ambition, secrets, and a sheltered woman used as a pawn."},
+  {id:"descendants-of-the-sun",title:"Descendants of the Sun",year:"2016",meta:"Romance • Action",episodes:"16 episodes",poster:"assets/posters/kdrama/descendants-of-the-sun.jpg.JPG",synopsis:"A soldier and a doctor keep crossing paths in a disaster zone where duty never pauses for feelings. The romance builds under pressure—because in their world, tomorrow is never guaranteed."},
+  {id:"tell-me-what-you-saw",title:"Tell Me What You Saw",year:"2020",meta:"Crime • Thriller",episodes:"16 episodes",poster:"assets/posters/kdrama/tell-me-what-you-saw.jpg.JPG",synopsis:"A profiler who lost everything partners with a rookie detective with near-photographic memory. Their cases lead back to a killer who should be gone—and every clue suggests someone is manipulating the investigation."},
+  {id:"love-affairs-in-the-afternoon",title:"Love Affairs in the Afternoon",year:"2019",meta:"Romance • Drama",episodes:"16 episodes",poster:"assets/posters/kdrama/love-affairs-in-the-afternoon.jpg.JPG",synopsis:"A woman trapped in a quiet marriage drifts into a world where people survive through secret relationships. It's about emotional hunger—how loneliness makes boundaries feel negotiable."},
+  {id:"mouse",title:"Mouse",year:"2021",meta:"Psychological • Thriller",episodes:"20 episodes",poster:"assets/posters/kdrama/mouse.jpg.JPG",synopsis:"A kind rookie cop is thrown into a brutal serial case that keeps changing shape. The investigation pulls him into questions about identity, fear, and what makes someone 'good' or 'monstrous.'"},
+  {id:"our-movie",title:"Our Movie",year:"2025",meta:"Drama • Romance",poster:"assets/posters/kdrama/our-movie.jpg.JPG",synopsis:"Two people meet at a point where ambition and timing don't cooperate. What starts as attraction becomes a test of choices—what you chase, what you postpone, and what you risk losing when life refuses to slow down."},
+  {id:"dr-prisoner",title:"Doctor Prisoner",year:"2019",meta:"Revenge • Thriller",episodes:"32 episodes",poster:"assets/posters/kdrama/doctor-prisoner.jpg.JPG",synopsis:"A brilliant doctor is ruined by powerful people and resurfaces inside the prison system, where medical treatment becomes leverage. He fights with diagnoses, deals, and a plan to make the elites beg for help."},
+  {id:"the-devil-judge",title:"The Devil Judge",year:"2021",meta:"Dystopian • Thriller",episodes:"16 episodes",poster:"assets/posters/kdrama/the-devil-judge.jpg.JPG",synopsis:"In a near-future Korea where trials are broadcast like entertainment, a celebrity judge becomes the face of 'public justice.' But his real intentions are unclear—and the line between reform and revenge starts to vanish."},
+  {id:"queen-of-tears",title:"Queen of Tears",year:"2024",meta:"Romance • Drama",episodes:"16 episodes",poster:"assets/posters/kdrama/queen-of-tears.jpg.JPG",synopsis:"A couple who look perfect on paper are quietly collapsing behind closed doors. A sudden crisis forces them back together—old resentment, old tenderness, and the question of whether love can return after neglect."},
+  {id:"a-piece-of-your-mind",title:"A Piece of Your Mind",year:"2020",meta:"Healing • Romance",episodes:"12 episodes",poster:"assets/posters/kdrama/a-piece-of-your-mind.jpg.JPG",synopsis:"A programmer stuck in grief meets a sound engineer who has learned to live with her own quiet losses. Their connection is gentle, slow, and built on small moments that begin to loosen the hold the past has on them."},
+  {id:"dr-romantic",title:"Dr. Romantic",year:"2016",meta:"Medical • Drama",episodes:"21 episodes",poster:"assets/posters/kdrama/dr-romantic.jpg.JPG",synopsis:"Two ambitious young doctors are thrown into a small hospital under a legendary mentor who refuses to compromise on ethics. Every case becomes a lesson in pressure, responsibility, and what it means to treat patients like people."},
+  {id:"she-would-never-know",title:"She Would Never Know",year:"2021",meta:"Workplace • Romance",episodes:"16 episodes",poster:"assets/posters/kdrama/she-would-never-know.jpg.JPG",synopsis:"At a cosmetics company, a senior marketer's carefully managed life is disrupted by a younger colleague who refuses to stay 'just a junior.' The romance grows through small workplace moments—confessions, pride, and the risk of choosing honesty."},
+  {id:"dr-john",title:"Doctor John",year:"2019",meta:"Medical • Drama",episodes:"32 episodes",poster:"assets/posters/kdrama/doctor-john.jpg.JPG",synopsis:"A genius pain specialist takes on cases other hospitals avoid. As he digs into the truth behind suffering, the drama keeps circling ethical lines—how far doctors should go, and what it costs to be right."}
 ];
 
-const $ = (id)=>document.getElementById(id);
-const grid = $("grid");
-const qEl = $("q");
-const emptyEl = $("empty");
-const countEl = $("count");
+const $=(id)=>document.getElementById(id);
+const grid=$("grid"),qEl=$("q"),emptyEl=$("empty"),countEl=$("count");
+const modal=$("modal"),closeBtn=$("closeBtn"),sheetBody=$("sheetBody");
+const dPosterImg=$("dPosterImg"),dTitle=$("dTitle"),dMeta=$("dMeta"),dBadges=$("dBadges"),dSynopsis=$("dSynopsis");
 
-const modal = $("modal");
-const closeBtn = $("closeBtn");
-const dPoster = $("dPoster");
-const dTitle = $("dTitle");
-const dMeta = $("dMeta");
-const dBadges = $("dBadges");
-const dSynopsis = $("dSynopsis");
-
-function normalize(s){ return String(s||"").toLowerCase().trim(); }
+function normalize(s){return String(s||"").toLowerCase().trim();}
 
 function openDetail(item){
-  dPoster.style.backgroundImage = `url('${String(item.poster).replace(/'/g,"\\'")}')`;
-  dTitle.textContent = item.title || "";
-  dMeta.textContent = `${item.year || ""}${item.meta ? " • " + item.meta : ""}`;
-  dBadges.innerHTML = "";
-  (String(item.meta||"").split("•").map(x=>x.trim()).filter(Boolean)).forEach(t=>{
-    const b = document.createElement("div");
-    b.className = "badge";
-    b.textContent = t;
-    dBadges.appendChild(b);
+  dPosterImg.src=item.poster||"";
+  dPosterImg.alt=item.title+" poster";
+  dTitle.textContent=item.title||"";
+  dMeta.textContent=[item.year,item.meta,item.episodes].filter(Boolean).join(" • ");
+  dBadges.innerHTML="";
+  String(item.meta||"").split("•").map(x=>x.trim()).filter(Boolean).forEach(t=>{
+    const b=document.createElement("div");b.className="badge";b.textContent=t;dBadges.appendChild(b);
   });
-  dSynopsis.textContent = item.synopsis || "";
-  modal.style.display = "flex";
-
-  // update URL hash (optional)
-  location.hash = item.id;
+  dSynopsis.textContent=item.synopsis||"";
+  modal.classList.add("on");
+  modal.setAttribute("aria-hidden","false");
+  document.body.classList.add("modalOpen");
+  if(sheetBody)sheetBody.scrollTop=0;
 }
-
 function closeDetail(){
-  modal.style.display = "none";
-  if(location.hash) history.replaceState(null, "", location.pathname);
+  modal.classList.remove("on");
+  modal.setAttribute("aria-hidden","true");
+  document.body.classList.remove("modalOpen");
+  if(location.hash)history.replaceState(null,"",location.pathname);
 }
 
-closeBtn.onclick = closeDetail;
-modal.addEventListener("click", (e)=>{ if(e.target === modal) closeDetail(); });
+$("closeBtn").onclick=closeDetail;
+modal.addEventListener("click",e=>{if(e.target===modal)closeDetail();});
+window.addEventListener("keydown",e=>{if(e.key==="Escape")closeDetail();});
 
 function card(item){
-  const a = document.createElement("a");
-  a.className = "card";
-  a.href = "#"+encodeURIComponent(item.id);
-  const safePoster = String(item.poster).replace(/'/g,"\\'");
-  a.innerHTML = `
-    <div class="poster" style="background-image:url('${safePoster}');"></div>
-    <div class="info">
-      <div class="title">${item.title}</div>
-      <div class="meta">${item.year}${item.meta ? " • " + item.meta : ""}</div>
-      <div class="tagline">${item.synopsis}</div>
+  const div=document.createElement("div");div.className="card";
+  div.innerHTML=`
+    <div class="posterBox">
+      <img src="${(item.poster||"").replace(/"/g,"&quot;")}" alt="${item.title} poster" loading="lazy" />
     </div>
-  `;
-  a.onclick = (ev)=>{ ev.preventDefault(); openDetail(item); };
-  return a;
+    <div class="info">
+      <div class="cardTitle">${item.title}</div>
+      <div class="cardMeta">${item.year}${item.meta?" • "+item.meta:""}</div>
+      <div class="tagline">${item.synopsis||""}</div>
+    </div>`;
+  div.onclick=()=>{ openDetail(item); location.hash=encodeURIComponent(item.id); };
+  return div;
 }
 
 function render(){
-  const q = normalize(qEl.value);
-
-  const filtered = KDRAMA
-    .filter(x=>{
-      const hay = [x.title,x.year,x.meta,x.synopsis].join(" ");
-      return normalize(hay).includes(q);
-    })
+  const q=normalize(qEl.value);
+  const filtered=KDRAMA.filter(x=>normalize([x.title,x.year,x.meta,x.synopsis].join(" ")).includes(q))
     .sort((a,b)=>String(a.title).localeCompare(String(b.title)));
-
-  grid.innerHTML = "";
+  grid.innerHTML="";
   filtered.forEach(x=>grid.appendChild(card(x)));
-
-  countEl.textContent = `${filtered.length} title${filtered.length===1?"":"s"} found`;
-  emptyEl.style.display = filtered.length ? "none" : "block";
+  countEl.textContent=`${filtered.length} title${filtered.length===1?"":"s"} found`;
+  emptyEl.style.display=filtered.length?"none":"block";
 }
 
-$("clearBtn").onclick = ()=>{ qEl.value=""; render(); };
-qEl.addEventListener("input", render);
+$("clearBtn").onclick=()=>{qEl.value="";render();};
+let t=null;
+qEl.addEventListener("input",()=>{clearTimeout(t);t=setTimeout(render,60);});
 
-// open detail if hash exists
 function tryOpenFromHash(){
-  const id = decodeURIComponent((location.hash || "").replace("#",""));
-  if(!id) return;
-  const item = KDRAMA.find(x=>x.id === id);
-  if(item) openDetail(item);
+  const id=decodeURIComponent((location.hash||"").replace("#",""));
+  if(!id)return;
+  const item=KDRAMA.find(x=>x.id===id);
+  if(item)openDetail(item);
 }
 
 render();
 tryOpenFromHash();
-window.addEventListener("hashchange", tryOpenFromHash);
+window.addEventListener("hashchange",tryOpenFromHash);
 </script>
-
 </body>
 </html>
