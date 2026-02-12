@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Popcorn Picks | Cinema Beyond Borders</title>
-<meta name="description" content="Popcorn Picks is a curated discovery site for films and series across the world — editorials and thoughtful starting points, not rankings or weekly charts." />
-<link rel="canonical" href="https://popcornpicks.in/" />
+<meta name="description" content="Popcorn Picks is a curated discovery site for films and series across the world — editorials and thoughtful starting points, not rankings or weekly charts.">
+
+<link rel="canonical" href="https://popcornpicks.in/">
 
 <!-- Schema.org: Organization -->
 <script type="application/ld+json">
@@ -38,13 +39,16 @@
   gtag('config', 'G-XZ94ZK9JN4', { anonymize_ip: true });
 </script>
 
-<link rel="preload" as="image" href="assets/home/hero.jpg" fetchpriority="high" />
+<!-- Preload hero image -->
+<link rel="preload" as="image" href="assets/home/hero.jpg" fetchpriority="high">
 
-<link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-<link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-<link rel="preconnect" href="https://www.googletagservices.com" />
-<link rel="dns-prefetch" href="https://www.googletagservices.com" />
+<!-- DNS prefetch for faster external connections -->
+<link rel="preconnect" href="https://pagead2.googlesyndication.com">
+<link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+<link rel="preconnect" href="https://www.googletagservices.com">
+<link rel="dns-prefetch" href="https://www.googletagservices.com">
 
+<!-- AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800" crossorigin="anonymous"></script>
 
 <style>
@@ -64,6 +68,9 @@ html{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
   --gap:24px;
 }
 
+/* Safety net: never allow white background */
+html, body{background:var(--bg); color:#fff}
+
 body{
   background:var(--bg);
   color:#fff;
@@ -73,10 +80,7 @@ body{
   overflow-x:hidden;
 }
 
-/* Prevent random white blocks if some page forgets styling */
-body, main, section, footer{background-color:transparent}
-
-/* Performance */
+/* Performance: GPU acceleration for transforms */
 .gpu-accelerated{
   transform:translateZ(0);
   will-change:transform;
@@ -88,6 +92,7 @@ a:focus-visible, button:focus-visible{
   outline-offset:3px;
 }
 
+/* Layout */
 .container{
   width:min(1160px, calc(100% - 48px));
   margin:0 auto;
@@ -207,8 +212,12 @@ header{
 }
 
 /* SECTIONS */
-.section{padding:80px 0}
-.section.firstSection{padding-top:48px}
+.section{
+  padding:80px 0;
+}
+.section.firstSection{
+  padding-top:48px;
+}
 
 .sectionHead{
   display:flex;
@@ -217,6 +226,7 @@ header{
   gap:24px;
   margin-bottom:28px;
 }
+.sectionHead h2{margin-bottom:0}
 .section h2{
   font-size:32px;
   margin-bottom:20px;
@@ -231,7 +241,7 @@ header{
   line-height:1.75;
 }
 
-/* HANDPICKED */
+/* HANDPICKED CAROUSEL */
 .handpickedSection{padding-top:64px}
 .handpickedMarquee{
   overflow-x:auto;
@@ -246,11 +256,16 @@ header{
 }
 .handpickedMarquee::-webkit-scrollbar{display:none}
 
+/* Only enable snap on desktop */
 @media (hover: hover) and (pointer: fine) and (min-width: 1025px){
   .handpickedMarquee{scroll-snap-type:x proximity}
 }
 
-.handpickedTrack{display:flex;gap:20px;width:max-content}
+.handpickedTrack{
+  display:flex;
+  gap:20px;
+  width:max-content;
+}
 .pickCard{
   flex:0 0 auto;
   width:170px;
@@ -262,6 +277,7 @@ header{
   width:100%;
   aspect-ratio:2/3;
   object-fit:cover;
+  object-position:center top;
   border-radius:var(--radius);
   background:#000;
   outline:1px solid rgba(255,255,255,.12);
@@ -333,7 +349,7 @@ header{
   margin-top:18px;
 }
 
-/* BUTTON */
+/* VIEW ALL BUTTON */
 .viewAll{
   display:inline-flex;
   align-items:center;
@@ -358,8 +374,11 @@ header{
 }
 
 /* FEED CARDS */
-.feed{display:grid;grid-template-columns:repeat(2, 1fr);gap:var(--gap)}
-.feedLink{display:block}
+.feed{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:var(--gap);
+}
 
 .feedCard{
   --bgimg:none;
@@ -390,7 +409,7 @@ header{
   width:46%;
   background-image:var(--bgimg);
   background-size:cover;
-  background-position:center;
+  background-position:center top; /* poster-friendly */
   background-repeat:no-repeat;
   background-color:#000;
   filter:saturate(1.05) contrast(1.02);
@@ -482,7 +501,10 @@ header{
 
 /* BETWEEN THE FRAMES */
 .btfFeed{grid-template-columns:1fr !important}
-.btfFeed .feedCard{grid-template-columns:1fr;min-height:360px}
+.btfFeed .feedCard{
+  grid-template-columns:1fr;
+  min-height:360px;
+}
 .btfFeed .feedCard::before{
   width:100%;
   background-size:cover;
@@ -497,7 +519,9 @@ header{
 .btfFeed .feedText{
   grid-column:1;
   position:absolute;
-  left:0;right:0;bottom:0;
+  left:0;
+  right:0;
+  bottom:0;
   background:transparent;
   padding:26px;
 }
@@ -509,10 +533,6 @@ footer{
   border-top:1px solid rgba(255,255,255,.08);
   padding:68px 0 28px;
   color:rgba(255,255,255,.66);
-  background:
-    radial-gradient(900px 520px at 18% -10%, rgba(255,255,255,.06), transparent 55%),
-    radial-gradient(900px 520px at 85% 0%, rgba(255,255,255,.04), transparent 60%),
-    var(--bg);
 }
 .footerGrid{
   display:grid;
@@ -561,10 +581,12 @@ footer p{
 }
 .footerBottom a:hover{color:#fff}
 
-/* COOKIE */
+/* COOKIE BANNER */
 .cookieBar{
   position:fixed;
-  left:18px;right:18px;bottom:18px;
+  left:18px;
+  right:18px;
+  bottom:18px;
   z-index:200;
   display:flex;
   align-items:center;
@@ -584,7 +606,10 @@ footer p{
   font-size:13px;
   line-height:1.55;
 }
-.cookieBar p a{opacity:.92;text-decoration:underline}
+.cookieBar p a{
+  opacity:.92;
+  text-decoration:underline;
+}
 .cookieBtns{
   display:flex;
   gap:12px;
@@ -631,7 +656,10 @@ footer p{
   box-shadow:0 28px 80px rgba(0,0,0,.7);
   padding:18px;
 }
-.cookieSheet h4{margin:4px 0 12px;font-size:16px}
+.cookieSheet h4{
+  margin:4px 0 12px;
+  font-size:16px;
+}
 .cookieRow{
   display:flex;
   justify-content:space-between;
@@ -648,7 +676,11 @@ footer p{
   max-width:44ch;
   line-height:1.5;
 }
-.switch{display:inline-flex;align-items:center;gap:10px}
+.switch{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
 .switch input{width:18px;height:18px}
 .cookieSheetActions{
   display:flex;
@@ -657,7 +689,7 @@ footer p{
   margin-top:14px;
 }
 
-/* RESPONSIVE */
+/* MOBILE RESPONSIVE */
 @media (max-width:1024px){
   .hero h1{font-size:52px}
   .section{padding:68px 0}
@@ -668,7 +700,10 @@ footer p{
   .container, .heroInner{width:calc(100% - 36px)}
   header{padding:0 18px}
 
-  .hero{min-height:80vh;background-position:50% 32%}
+  .hero{
+    min-height:80vh;
+    background-position:50% 32%;
+  }
   .heroInner{padding:60px 0 52px}
   .hero h1{font-size:44px}
   .hero p{font-size:17px}
@@ -678,25 +713,21 @@ footer p{
   .section h2{font-size:26px}
 
   .editorialBox{padding:22px 20px 20px}
+
   .feed{grid-template-columns:1fr}
 
-  /* Mobile posters: show full image (no crop) */
   .feedCard{
     display:flex;
     flex-direction:column;
-    min-height:360px;
+    min-height:340px;
   }
   .feedCard::before{
     position:relative;
     width:100%;
+    min-height:220px;
+    aspect-ratio:16/9;
     left:auto;top:auto;bottom:auto;
-    min-height:260px;
-    aspect-ratio:2/3;
-    background-size:contain;
-    background-position:center;
-    background-repeat:no-repeat;
-    background-color:#000;
-    filter:none;
+    background-position:center top;
   }
   .feedCard::after{
     position:absolute;
@@ -706,22 +737,15 @@ footer p{
     background:linear-gradient(to bottom, rgba(0,0,0,.12), rgba(0,0,0,.94));
   }
   .feedText{
-    grid-column:1;
     position:relative;
+    margin-top:0;
     flex:1;
     justify-content:flex-end;
   }
 
-  /* Between the Frames stays cinematic (landscape) */
-  .btfFeed .feedCard::before{
-    aspect-ratio:16/9;
-    min-height:220px;
-    background-size:cover;
-    filter:saturate(1.05) contrast(1.02);
-  }
-
   .catGrid{grid-template-columns:1fr;gap:20px}
   .cat{height:280px}
+
   .footerGrid{grid-template-columns:1fr;gap:36px}
   .pickCard{width:150px}
 }
@@ -732,15 +756,19 @@ footer p{
   .hero p{font-size:16px}
   .btn{padding:14px 20px}
 
-  .cookieBar{flex-direction:column;align-items:flex-start;gap:14px}
+  .cookieBar{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:14px;
+  }
   .cookieBtns{width:100%;flex-wrap:wrap}
   .cookieBar button{flex:1;min-width:100px}
-
   .pickCard{width:140px}
 }
 
 @media (max-width:420px){
   .hero h1{font-size:34px}
+  .feedCard::before{min-height:200px}
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -771,6 +799,7 @@ footer p{
   </div>
 </section>
 
+<!-- HANDPICKED -->
 <section class="section handpickedSection">
   <div class="container">
     <div class="sectionHead">
@@ -785,44 +814,47 @@ footer p{
   <div class="handpickedMarquee" id="handpickedMarquee" aria-label="Handpicked carousel">
     <div class="handpickedTrack gpu-accelerated" id="handpickedTrack">
       <a class="pickCard" href="handpick.html#counterpart">
-        <img src="assets/posters/tv/counterpart.jpg.jpeg" alt="Counterpart (2017)" loading="lazy" decoding="async" />
+        <img src="assets/posters/tv/counterpart.jpg.jpeg" alt="Counterpart (2017)" loading="lazy" decoding="async">
         <div class="pickTitle">Counterpart</div>
       </a>
       <a class="pickCard" href="handpick.html#the-bureau">
-        <img src="assets/posters/tv/the-bureau.jpg.JPG" alt="The Bureau" loading="lazy" decoding="async" />
+        <img src="assets/posters/tv/the-bureau.jpg.JPG" alt="The Bureau" loading="lazy" decoding="async">
         <div class="pickTitle">The Bureau</div>
       </a>
       <a class="pickCard" href="handpick.html#shogun">
-        <img src="assets/posters/IMG_2479.jpeg" alt="Shōgun" loading="lazy" decoding="async" />
+        <img src="assets/posters/IMG_2479.jpeg" alt="Shōgun" loading="lazy" decoding="async">
         <div class="pickTitle">Shōgun</div>
       </a>
       <a class="pickCard" href="handpick.html#alex-rider">
-        <img src="assets/posters/tv/alex-rider.jpg.JPG" alt="Alex Rider" loading="lazy" decoding="async" />
+        <img src="assets/posters/tv/alex-rider.jpg.JPG" alt="Alex Rider" loading="lazy" decoding="async">
         <div class="pickTitle">Alex Rider</div>
       </a>
       <a class="pickCard" href="handpick.html#tell-me-what-you-saw">
-        <img src="assets/posters/kdrama/tell-me-what-you-saw.jpg.JPG" alt="Tell Me What You Saw" loading="lazy" decoding="async" />
+        <img src="assets/posters/kdrama/tell-me-what-you-saw.jpg.JPG" alt="Tell Me What You Saw" loading="lazy" decoding="async">
         <div class="pickTitle">Tell Me What You Saw</div>
       </a>
     </div>
   </div>
 </section>
 
+<!-- FEATURED EDITORIALS -->
 <section class="section firstSection">
   <div class="container">
-    <div class="editorialBox">
-      <h2>Featured editorials</h2>
-      <p class="sectionLead">
-        Not top-10 lists. Not "best of the year."<br />
-        Starting points for people who know what they want but don't know where to begin.
-      </p>
-      <ul class="editorialBullets">
-        <li>Espionage series and films, from grounded spy work to high-stakes thrillers</li>
-        <li>Period dramas, global television, and long-form storytelling</li>
-        <li>Korean, Chinese, and Indian cinema, along with donghua and anime, beyond viral clips and surface impressions</li>
-      </ul>
-      <div class="editorialCTA">
-        <a href="editorials.html" class="viewAll">View all →</a>
+    <div class="featuredHead">
+      <div class="editorialBox">
+        <h2>Featured editorials</h2>
+        <p class="sectionLead">
+          Not top-10 lists. Not "best of the year."<br>
+          Starting points for people who know what they want — but don't know where to begin.
+        </p>
+        <ul class="editorialBullets">
+          <li>Espionage series and films, from grounded spy work to high-stakes thrillers</li>
+          <li>Period dramas, global television, and long-form storytelling</li>
+          <li>Korean, Chinese, and Indian cinema, along with donghua and anime, beyond viral clips and surface impressions</li>
+        </ul>
+        <div class="editorialCTA">
+          <a href="editorials.html" class="viewAll">View all →</a>
+        </div>
       </div>
     </div>
 
@@ -912,15 +944,15 @@ footer p{
         <div class="feedCard" data-bg="assets/posters/cdrama/battle-through-the-heavens-poster.jpg.jpeg">
           <div class="feedText">
             <h3>Best Chinese Fantasy Dramas</h3>
-            <p>Xianxia, wuxia fantasy, cultivation, the ones worth your time.</p>
+            <p>Xianxia, wuxia fantasy, cultivation — the ones worth your time.</p>
           </div>
         </div>
       </a>
     </div>
-
   </div>
 </section>
 
+<!-- CATEGORIES -->
 <section class="section">
   <div class="container">
     <div class="sectionHead">
@@ -942,6 +974,7 @@ footer p{
   </div>
 </section>
 
+<!-- BETWEEN THE FRAMES -->
 <section class="section">
   <div class="container">
     <div class="sectionHead">
@@ -971,16 +1004,16 @@ footer p{
         </div>
       </a>
     </div>
-
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="container footerGrid">
     <div class="footerBrand">
       <h4>Popcorn Picks</h4>
       <p>
-        Cinema beyond borders.<br />
+        Cinema beyond borders.<br>
         Carefully curated films and series from around the world.
       </p>
     </div>
@@ -1011,6 +1044,7 @@ footer p{
   </div>
 </footer>
 
+<!-- COOKIE BANNER -->
 <div class="cookieBar" id="cookieBar" role="dialog" aria-live="polite" aria-label="Cookie notice">
   <p>
     We use cookies for analytics and ads to improve Popcorn Picks.
@@ -1023,6 +1057,7 @@ footer p{
   </div>
 </div>
 
+<!-- COOKIE MODAL -->
 <div class="cookieModal" id="cookieModal" aria-hidden="true">
   <div class="cookieSheet" role="dialog" aria-modal="true" aria-label="Cookie settings">
     <h4>Cookie settings</h4>
@@ -1033,7 +1068,7 @@ footer p{
         <small>Helps us understand what people read and improve the site.</small>
       </div>
       <label class="switch">
-        <input type="checkbox" id="toggleAnalytics" />
+        <input type="checkbox" id="toggleAnalytics">
       </label>
     </div>
 
@@ -1043,7 +1078,7 @@ footer p{
         <small>Helps fund the site. You'll still see ads if you turn this off, but they may be less personalized.</small>
       </div>
       <label class="switch">
-        <input type="checkbox" id="toggleAds" />
+        <input type="checkbox" id="toggleAds">
       </label>
     </div>
 
@@ -1055,6 +1090,7 @@ footer p{
 </div>
 
 <script>
+/* Apply background images from data-bg */
 (function(){
   try{
     document.querySelectorAll("[data-bg]").forEach(function(el){
@@ -1066,6 +1102,7 @@ footer p{
 </script>
 
 <script>
+/* Handpicked carousel with smooth scrolling */
 (function(){
   var marquee = document.getElementById("handpickedMarquee");
   var track = document.getElementById("handpickedTrack");
@@ -1085,9 +1122,13 @@ footer p{
     }catch(e){ return false; }
   }
 
-  function allowAutoLoop(){ return !prefersReduced && isTrueDesktop(); }
+  function allowAutoLoop(){
+    return !prefersReduced && isTrueDesktop();
+  }
 
-  function cleanText(s){ return (s || "").replace(/\s+/g," ").trim(); }
+  function cleanText(s){
+    return (s || "").replace(/\s+/g," ").trim();
+  }
 
   function bestTitleFrom(el){
     var t =
@@ -1111,6 +1152,10 @@ footer p{
     return href;
   }
 
+  function normalizeSrc(src){
+    return (src || "").trim();
+  }
+
   function buildCleanCardsFromHandpick(doc){
     var candidates = Array.prototype.slice.call(doc.querySelectorAll("a.pickCard"));
     var items = [];
@@ -1122,7 +1167,7 @@ footer p{
       var href = (a.getAttribute("href") || "").trim();
       if(href.indexOf("#") === -1) return;
 
-      var src = (img.getAttribute("src") || "").trim();
+      var src = normalizeSrc(img.getAttribute("src") || "");
       if(!src) return;
 
       var title = bestTitleFrom(a);
@@ -1184,7 +1229,10 @@ footer p{
   var paused = false;
   var resumeTimer = null;
 
-  function stopLoop(){ if(rafId) cancelAnimationFrame(rafId); rafId = null; }
+  function stopLoop(){
+    if(rafId) cancelAnimationFrame(rafId);
+    rafId = null;
+  }
 
   function startLoop(){
     stopLoop();
@@ -1259,6 +1307,7 @@ footer p{
 </script>
 
 <script>
+/* Cookie consent system */
 (function(){
   var KEY = "pp_consent_v1";
 
