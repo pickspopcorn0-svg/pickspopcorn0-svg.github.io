@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About — Popcorn Picks</title>
-  <meta name="description" content="About Popcorn Picks — a curated discovery site for films and series across the world." />
+  <meta name="description" content="About Popcorn Picks — a curated discovery site for films and series across the world, helping you find quality international cinema worth your time." />
   <link rel="canonical" href="https://popcornpicks.in/about.html" />
 
   <style>
@@ -74,6 +75,11 @@
       font-size:13px;
       font-weight:800;
     }
+    .back:hover{
+      background:rgba(255,255,255,.06);
+      border-color:rgba(255,255,255,.22);
+      color:#fff;
+    }
 
     .hero{
       margin-top:10px;
@@ -87,7 +93,7 @@
       box-shadow:var(--shadow);
     }
 
-    h1{font-size:34px}
+    h1{font-size:34px;letter-spacing:-.02em;line-height:1.1}
     .sub{margin-top:10px;color:var(--muted);line-height:1.75;font-size:14px}
 
     .grid{
@@ -106,9 +112,10 @@
     .cardHead{
       padding:16px;
       border-bottom:1px solid rgba(255,255,255,.06);
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.05));
     }
 
-    .cardHead h2{font-size:18px}
+    .cardHead h2{font-size:18px;letter-spacing:.2px}
 
     .cardBody{
       padding:14px 16px 16px;
@@ -117,8 +124,17 @@
       font-size:14px;
     }
 
-    ul{margin-left:18px}
+    .cardBody p{margin:10px 0}
+    .cardBody p:first-child{margin-top:0}
+
+    ul{margin:10px 0 0 18px;color:rgba(255,255,255,.70);line-height:1.9}
     li{margin:6px 0}
+
+    .inlineLink{
+      text-decoration:underline;
+      text-underline-offset:3px;
+      color:rgba(255,255,255,.85);
+    }
 
     footer{
       margin-top:18px;
@@ -132,12 +148,26 @@
       color:rgba(255,255,255,.52);
     }
 
-    footer a{text-decoration:underline}
+    footer a{
+      color:rgba(255,255,255,.62);
+      text-decoration:underline;
+      text-underline-offset:3px;
+    }
 
     @media(max-width:520px){
+      body{padding:26px 14px}
       h1{font-size:30px}
+      .hero{padding:18px 14px}
+      .cardHead{padding:14px 14px 12px}
+      .cardBody{padding:12px 14px 14px}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      *{transition:none !important; animation:none !important}
     }
   </style>
+
 </head>
 
 <body>
@@ -149,78 +179,193 @@
   </div>
 
   <section class="hero">
-    <h1>About</h1>
+    <h1>About Popcorn Picks</h1>
     <p class="sub">
-      Popcorn Picks is a curated discovery site for films and series across the world —
-      built for people who care about storytelling, craft, and meaningful recommendations.
+      Popcorn Picks is a curated discovery platform for international films and series —
+      built for people who care about storytelling, craft, and meaningful recommendations that cut through the noise.
     </p>
   </section>
 
   <main class="grid">
 
-    <article class="card">
-      <div class="cardHead"><h2>1) What Popcorn Picks Is</h2></div>
-      <div class="cardBody">
-        Popcorn Picks exists to reduce noise and decision fatigue.
-        Every recommendation is editorially selected — not driven by trends or algorithms.
-      </div>
-    </article>
+```
+<article class="card">
+  <div class="cardHead"><h2>1) What Popcorn Picks Is</h2></div>
+  <div class="cardBody">
+    <p>
+      Popcorn Picks exists to reduce decision fatigue in an era of endless streaming options. 
+      We believe that great storytelling transcends borders, languages, and cultures — and that 
+      the best films and series often get lost in the algorithm-driven noise of modern streaming platforms.
+    </p>
+    <p>
+      Every recommendation on our site is editorially selected by real people who have watched 
+      and evaluated each piece of content. We don't rely on algorithms, trending metrics, or 
+      what's popular this week. Instead, we focus on quality, craft, and whether something is 
+      genuinely worth your time.
+    </p>
+    <p>
+      Our mission is simple: help viewers discover exceptional international cinema and television 
+      that they might have otherwise overlooked.
+    </p>
+  </div>
+</article>
 
-    <article class="card">
-      <div class="cardHead"><h2>2) What We Cover</h2></div>
-      <div class="cardBody">
-        Global cinema, TV shows, K-dramas, C-dramas, anime, donghua,
-        and international storytelling that deserves attention.
-      </div>
-    </article>
+<article class="card">
+  <div class="cardHead"><h2>2) What We Cover</h2></div>
+  <div class="cardBody">
+    <p>
+      Popcorn Picks focuses on international entertainment across multiple categories:
+    </p>
+    <ul>
+      <li><strong>Korean Dramas (K-Dramas):</strong> From sweeping historical epics to contemporary romance and thriller series</li>
+      <li><strong>Chinese Dramas (C-Dramas):</strong> Historical palace dramas, wuxia martial arts, and modern romance</li>
+      <li><strong>Japanese Anime:</strong> Thoughtfully curated anime series and films across all genres</li>
+      <li><strong>Chinese Animation (Donghua):</strong> The rapidly evolving world of Chinese animated content</li>
+      <li><strong>Indian Cinema:</strong> Bollywood, regional cinema, and independent films from across India</li>
+      <li><strong>French Cinema & European Films:</strong> Arthouse, thriller, and character-driven narratives</li>
+      <li><strong>Global Television:</strong> Crime dramas, espionage series, period pieces, and more from around the world</li>
+    </ul>
+    <p>
+      We celebrate diversity in storytelling while maintaining high standards for production quality, 
+      narrative coherence, and emotional impact.
+    </p>
+  </div>
+</article>
 
-    <article class="card">
-      <div class="cardHead"><h2>3) How We Recommend</h2></div>
-      <div class="cardBody">
-        Recommendations are starting points, not rankings.
-        The goal is clarity — not endless scrolling.
-      </div>
-    </article>
+<article class="card">
+  <div class="cardHead"><h2>3) How We Recommend</h2></div>
+  <div class="cardBody">
+    <p>
+      Our recommendations are starting points, not definitive rankings. We don't believe in 
+      "Top 10" lists or star ratings that reduce complex storytelling to a single number.
+    </p>
+    <p>
+      Instead, we provide context: What makes this worth watching? Who is it for? What should 
+      you expect going in? Our goal is to give you enough information to decide whether something 
+      aligns with your interests — not to tell you what you should like.
+    </p>
+    <p>
+      We organize content thematically rather than by popularity. Whether you're looking for 
+      historical Korean dramas, Chinese fantasy series, grounded espionage thrillers, or 
+      underrated anime, we create curated collections that help you find what you're actually 
+      looking for.
+    </p>
+    <p>
+      The goal is clarity and discovery — not endless scrolling through algorithmically generated suggestions.
+    </p>
+  </div>
+</article>
 
-    <article class="card">
-      <div class="cardHead"><h2>4) Streaming & Third-Party Links</h2></div>
-      <div class="cardBody">
-        Popcorn Picks does not host or stream any content.
-        Links are provided only for discovery and reference.
-      </div>
-    </article>
+<article class="card">
+  <div class="cardHead"><h2>4) Our Editorial Philosophy</h2></div>
+  <div class="cardBody">
+    <p>
+      We believe in:
+    </p>
+    <ul>
+      <li><strong>Quality over quantity:</strong> Fewer, more thoughtful recommendations rather than exhaustive databases</li>
+      <li><strong>Cultural context:</strong> Understanding the storytelling traditions and cultural references that shape international content</li>
+      <li><strong>Accessibility for newcomers:</strong> Helping first-time viewers of subtitled content overcome the initial hesitation</li>
+      <li><strong>Honest assessment:</strong> Not every critically acclaimed film or trending series makes it onto our site</li>
+      <li><strong>Respect for diverse tastes:</strong> Acknowledging that entertainment is subjective and what works for one viewer may not work for another</li>
+    </ul>
+  </div>
+</article>
 
-    <article class="card">
-      <div class="cardHead"><h2>5) Support & Transparency</h2></div>
-      <div class="cardBody">
-        Ads help support the site. Any future affiliate links will be clearly disclosed.
-      </div>
-    </article>
+<article class="card">
+  <div class="cardHead"><h2>5) Streaming & Third-Party Links</h2></div>
+  <div class="cardBody">
+    <p>
+      Popcorn Picks does not host, stream, or distribute any video content. We are a discovery 
+      platform that helps you find where to watch content legally through legitimate streaming services.
+    </p>
+    <p>
+      All links to streaming platforms (Netflix, Amazon Prime Video, Disney+, Viki, etc.) are 
+      provided for reference and convenience only. We are not affiliated with any streaming service 
+      and do not receive compensation for directing traffic to these platforms unless explicitly disclosed.
+    </p>
+    <p>
+      We strongly encourage viewers to support content creators by watching through legal, 
+      authorized channels.
+    </p>
+  </div>
+</article>
 
-    <article class="card">
-      <div class="cardHead"><h2>6) Contact</h2></div>
-      <div class="cardBody">
-        Email: <a href="mailto:pickspopcorn0@gmail.com">pickspopcorn0@gmail.com</a>
-      </div>
-    </article>
+<article class="card">
+  <div class="cardHead"><h2>6) Support & Transparency</h2></div>
+  <div class="cardBody">
+    <p>
+      Popcorn Picks is supported through advertising (Google AdSense). We may also participate 
+      in affiliate programs in the future, and any such relationships will be clearly disclosed 
+      in accordance with FTC guidelines and applicable regulations.
+    </p>
+    <p>
+      Our editorial integrity is never compromised by advertising or affiliate relationships. 
+      We only recommend content we genuinely believe is worth watching, regardless of commercial considerations.
+    </p>
+    <p>
+      If you appreciate what we're building and want to support independent content curation, 
+      simply visiting the site and engaging with our recommendations helps us continue this work.
+    </p>
+  </div>
+</article>
 
-    <!-- ✅ IMAGE DISCLAIMER (ADDED) -->
-    <article class="card">
-      <div class="cardHead"><h2>7) Image Disclaimer</h2></div>
-      <div class="cardBody">
-        All posters and images used on Popcorn Picks are for editorial and identification
-        purposes only. All rights remain with their respective owners.
-      </div>
-    </article>
+<article class="card">
+  <div class="cardHead"><h2>7) Image Disclaimer</h2></div>
+  <div class="cardBody">
+    <p>
+      All movie posters, promotional images, and visual materials displayed on Popcorn Picks 
+      are used for editorial, informational, and identification purposes only under fair use principles.
+    </p>
+    <p>
+      All images remain the property of their respective copyright holders (studios, distributors, 
+      streaming platforms, production companies). We do not claim ownership of any copyrighted materials.
+    </p>
+    <p>
+      If you are a copyright holder and believe any image on our site infringes your rights, 
+      please contact us and we will promptly address your concerns.
+    </p>
+  </div>
+</article>
+
+<article class="card">
+  <div class="cardHead"><h2>8) Contact</h2></div>
+  <div class="cardBody">
+    <p>
+      We welcome feedback, suggestions, and questions. If you have recommendations for content 
+      we should consider, corrections to existing information, or general inquiries, reach out:
+    </p>
+    <p>
+      <strong>Email:</strong> <a class="inlineLink" href="mailto:pickspopcorn0@gmail.com">pickspopcorn0@gmail.com</a>
+    </p>
+    <p>
+      While we read every message, please note that we may not be able to respond to every inquiry 
+      individually. For common questions, check our <a class="inlineLink" href="faq.html">FAQ page</a>.
+    </p>
+  </div>
+</article>
+```
 
   </main>
 
   <footer>
-    <div>© 2026 Popcorn Picks</div>
+    <div>© 2025 Popcorn Picks. All rights reserved.</div>
     <div>
-      <a href="index.html">Home</a> ·
-      <a href="about.html">About</a> ·
+      <a href="index.html">Home</a>
+      <span style="opacity:.5"> · </span>
+      <a href="about.html" aria-current="page">About</a>
+      <span style="opacity:.5"> · </span>
+      <a href="contact.html">Contact</a>
+      <span style="opacity:.5"> · </span>
+      <a href="faq.html">FAQ</a>
+      <span style="opacity:.5"> · </span>
       <a href="privacy.html">Privacy</a>
+      <span style="opacity:.5"> · </span>
+      <a href="terms.html">Terms</a>
+      <span style="opacity:.5"> · </span>
+      <a href="disclaimer.html">Disclaimer</a>
+      <span style="opacity:.5"> · </span>
+      <a href="cookie-policy.html">Cookies</a>
     </div>
   </footer>
 
