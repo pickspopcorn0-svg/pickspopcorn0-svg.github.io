@@ -9,7 +9,6 @@
 
 <link rel="canonical" href="https://popcornpicks.in/handpick.html" />
 
-<!-- ✅ Schema.org: CollectionPage -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -25,11 +24,9 @@
 }
 </script>
 
-<!-- ✅ Consent Mode v2 + Google tag (GA4) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-
   gtag('consent', 'default', {
     ad_storage: 'denied',
     ad_user_data: 'denied',
@@ -45,7 +42,6 @@
   gtag('config', 'G-XZ94ZK9JN4', { anonymize_ip: true });
 </script>
 
-<!-- ✅ AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
   crossorigin="anonymous"></script>
 
@@ -63,51 +59,30 @@ html{scroll-behavior:smooth}
   --muted2:rgba(255,255,255,.62);
   --shadow:0 18px 50px rgba(0,0,0,.35);
 }
-
 body{
-  background:var(--bg);
-  color:#fff;
+  background:var(--bg);color:#fff;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
   text-rendering:optimizeLegibility;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
-
-/* layout */
-.container{
-  width:min(1120px, calc(100% - 44px));
-  margin:0 auto;
-}
-
-/* HEADER */
+.container{width:min(1120px, calc(100% - 44px));margin:0 auto;}
 header{
-  position:sticky;
-  top:0;left:0;right:0;
-  height:64px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+  position:sticky;top:0;left:0;right:0;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
   padding:0 40px;
-  background:rgba(10,10,14,.78);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--lineSoft);
-  z-index:100;
+  background:rgba(10,10,14,.78);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--lineSoft);z-index:100;
 }
 .logo{font-weight:850;letter-spacing:.4px}
 .navRight a{
-  font-size:13px;
-  color:rgba(255,255,255,.72);
-  padding:8px 12px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.12);
-  background:rgba(255,255,255,.04);
+  font-size:13px;color:rgba(255,255,255,.72);
+  padding:8px 12px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);
 }
 .navRight a:hover{color:#fff;border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.06);}
-
-/* HERO */
 .hero{
-  padding:48px 0 16px;
-  border-bottom:1px solid rgba(255,255,255,.06);
+  padding:48px 0 16px;border-bottom:1px solid rgba(255,255,255,.06);
   background:
     radial-gradient(900px 520px at 18% 22%, rgba(255,140,70,.12), transparent 60%),
     radial-gradient(900px 560px at 84% 28%, rgba(90,170,255,.12), transparent 60%),
@@ -115,348 +90,132 @@ header{
 }
 .heroInner{padding:18px 0 34px}
 .kicker{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:10px 12px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(0,0,0,.20);
-  color:rgba(255,255,255,.86);
-  font-size:11px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:10px;
+  padding:10px 12px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.20);
+  color:rgba(255,255,255,.86);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
 }
-.dot{
-  width:8px;height:8px;border-radius:50%;
-  background:rgba(255,160,90,.90);
-  box-shadow:0 0 18px rgba(255,160,90,.55);
-}
-.hero h1{
-  margin-top:16px;
-  font-size:44px;
-  line-height:1.06;
-  letter-spacing:-.02em;
-}
-.hero p{
-  margin-top:12px;
-  max-width:72ch;
-  color:var(--muted);
-  font-size:16px;
-  line-height:1.75;
-}
-
-/* SECTION */
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,160,90,.90);box-shadow:0 0 18px rgba(255,160,90,.55);}
+.hero h1{margin-top:16px;font-size:44px;line-height:1.06;letter-spacing:-.02em;}
+.hero p{margin-top:12px;max-width:72ch;color:var(--muted);font-size:16px;line-height:1.75;}
 .section{padding:46px 0}
-.sectionHead{
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-  gap:18px;
-  margin-bottom:14px;
-}
-.sectionHead h2{
-  font-size:26px;
-  letter-spacing:.2px;
-}
-.sectionLead{
-  margin-top:10px;
-  max-width:78ch;
-  color:var(--muted2);
-  font-size:15px;
-  line-height:1.7;
-}
-
-/* HANDPICKED rail (same vibe as homepage) */
+.sectionHead{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:14px;}
+.sectionHead h2{font-size:26px;letter-spacing:.2px;}
+.sectionLead{margin-top:10px;max-width:78ch;color:var(--muted2);font-size:15px;line-height:1.7;}
 .handpickedMarquee{
-  position:relative;
-  margin-top:18px;
-  padding-bottom:6px;
-  overflow-x:auto;
-  -webkit-overflow-scrolling:touch;
-  scrollbar-width:none;
-  scroll-behavior:auto;
-  overscroll-behavior-x:contain;
-  mask-image:linear-gradient(
-    to right,
-    transparent 0,
-    #000 48px,
-    #000 calc(100% - 48px),
-    transparent 100%
-  );
+  position:relative;margin-top:18px;padding-bottom:6px;
+  overflow-x:auto;-webkit-overflow-scrolling:touch;
+  scrollbar-width:none;scroll-behavior:auto;overscroll-behavior-x:contain;
+  mask-image:linear-gradient(to right,transparent 0,#000 48px,#000 calc(100% - 48px),transparent 100%);
 }
 .handpickedMarquee::-webkit-scrollbar{display:none;}
 .handpickedTrack{display:flex;gap:18px;width:max-content;}
-
 .pickCard{
-  flex:0 0 220px;
-  position:relative;
-  border-radius:18px;
-  overflow:hidden;
-  outline:1px solid rgba(255,255,255,.10);
-  outline-offset:-1px;
+  flex:0 0 220px;position:relative;border-radius:18px;overflow:hidden;
+  outline:1px solid rgba(255,255,255,.10);outline-offset:-1px;
   background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.25));
   transition:transform .18s ease, outline-color .18s ease;
 }
 .pickCard:hover{transform:translateY(-2px);outline-color:rgba(255,255,255,.18);}
-.pickCard img{
-  width:100%;
-  aspect-ratio:2/3;
-  object-fit:contain;
-  background:#000;
-}
+.pickCard img{width:100%;aspect-ratio:2/3;object-fit:contain;background:#000;}
 .pickOverlay{
-  position:absolute;
-  inset:0;
-  padding:14px;
+  position:absolute;inset:0;padding:14px;
   background:linear-gradient(to top, rgba(0,0,0,.95), rgba(0,0,0,.55), transparent 60%);
-  opacity:0;
-  transition:opacity .25s ease;
-  pointer-events:none;
+  opacity:0;transition:opacity .25s ease;pointer-events:none;
 }
 .pickCard:hover .pickOverlay{opacity:1}
 .pickYear{font-size:12px;opacity:.88}
 .pickGenres{font-size:12px;opacity:.65;margin-top:4px}
 .pickSynopsis{margin-top:8px;font-size:13px;line-height:1.45;color:rgba(255,255,255,.88);}
-.pickTitle{
-  padding:10px 12px;
-  font-size:14px;
-  font-weight:850;
-  background:rgba(0,0,0,.65);
-}
-
+.pickTitle{padding:10px 12px;font-size:14px;font-weight:850;background:rgba(0,0,0,.65);}
 @media(max-width:760px){.pickCard{flex-basis:170px}}
-
-/* DETAILS */
-.detailWrap{
-  padding:22px 0 8px;
-  border-top:1px solid rgba(255,255,255,.06);
-}
-
+.detailWrap{padding:22px 0 8px;border-top:1px solid rgba(255,255,255,.06);}
 .handpickDetail{
-  scroll-margin-top:88px;
-  margin-top:26px;
-  border-radius:22px;
-  overflow:hidden;
+  scroll-margin-top:88px;margin-top:26px;border-radius:22px;overflow:hidden;
   background:
     radial-gradient(900px 520px at 18% 22%, rgba(255,140,70,.06), transparent 60%),
     radial-gradient(900px 560px at 84% 28%, rgba(90,170,255,.06), transparent 60%),
     linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.28));
-  outline:1px solid rgba(255,255,255,.10);
-  outline-offset:-1px;
-  box-shadow:var(--shadow);
+  outline:1px solid rgba(255,255,255,.10);outline-offset:-1px;box-shadow:var(--shadow);
 }
-
-.handpickDetail:target{
-  outline-color:rgba(255,255,255,.22);
-  box-shadow:0 24px 70px rgba(0,0,0,.55);
-}
-
+.handpickDetail:target{outline-color:rgba(255,255,255,.22);box-shadow:0 24px 70px rgba(0,0,0,.55);}
 .detailHero{
-  display:grid;
-  grid-template-columns:220px 1fr;
-  gap:18px;
-  padding:18px;
-  border-bottom:1px solid rgba(255,255,255,.06);
-  background:rgba(0,0,0,.18);
+  display:grid;grid-template-columns:220px 1fr;gap:18px;
+  padding:18px;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(0,0,0,.18);
 }
-.detailHero img{
-  border-radius:16px;
-  outline:1px solid rgba(255,255,255,.10);
-  background:#000;
-}
-.detailMeta h3{
-  font-size:26px;
-  letter-spacing:-.02em;
-  line-height:1.15;
-}
-.metaLine{
-  margin-top:8px;
-  color:rgba(255,255,255,.72);
-  font-size:13px;
-  line-height:1.6;
-}
-.metaBadges{
-  margin-top:10px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-}
+.detailHero img{border-radius:16px;outline:1px solid rgba(255,255,255,.10);background:#000;}
+.detailMeta h3{font-size:26px;letter-spacing:-.02em;line-height:1.15;}
+.metaLine{margin-top:8px;color:rgba(255,255,255,.72);font-size:13px;line-height:1.6;}
+.metaBadges{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px;}
 .badge{
-  font-size:12px;
-  color:rgba(255,255,255,.78);
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(255,255,255,.05);
-  padding:7px 10px;
-  border-radius:999px;
+  font-size:12px;color:rgba(255,255,255,.78);
+  border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);
+  padding:7px 10px;border-radius:999px;
 }
-
-.detailBody{
-  padding:18px 18px 22px;
-}
-.detailBody h4{
-  margin-top:16px;
-  font-size:15px;
-  letter-spacing:.2px;
-}
-.detailBody p{
-  margin-top:10px;
-  color:rgba(255,255,255,.74);
-  font-size:14px;
-  line-height:1.85;
-  max-width:88ch;
-}
-.detailBody ul{
-  margin-top:10px;
-  padding-left:18px;
-  color:rgba(255,255,255,.74);
-  font-size:14px;
-  line-height:1.85;
-  max-width:88ch;
-}
-.detailBody li{margin:6px 0}
-
-.detailLinks{
-  margin-top:16px;
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
+.detailLinks{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;}
 .smallBtn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:10px 14px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.16);
-  background:rgba(0,0,0,.22);
-  color:rgba(255,255,255,.84);
-  font-size:13px;
-  font-weight:800;
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:10px 14px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.22);
+  color:rgba(255,255,255,.84);font-size:13px;font-weight:800;
 }
 .smallBtn:hover{border-color:rgba(255,255,255,.26);background:rgba(255,255,255,.06);color:#fff}
-
-/* FOOTER */
-footer{
-  border-top:1px solid rgba(255,255,255,.08);
-  padding:44px 0 24px;
-  color:rgba(255,255,255,.65);
-  margin-top:38px;
-}
-.footerGrid{
-  display:grid;
-  grid-template-columns:1.4fr 1fr 1fr;
-  gap:40px;
-  align-items:start;
-}
+.detailBody{padding:18px 18px 22px;}
+.detailBody h4{margin-top:16px;font-size:15px;letter-spacing:.2px;}
+.detailBody p{margin-top:10px;color:rgba(255,255,255,.74);font-size:14px;line-height:1.85;max-width:88ch;}
+.detailBody ul{margin-top:10px;padding-left:18px;color:rgba(255,255,255,.74);font-size:14px;line-height:1.85;max-width:88ch;}
+.detailBody li{margin:6px 0}
+footer{border-top:1px solid rgba(255,255,255,.08);padding:44px 0 24px;color:rgba(255,255,255,.65);margin-top:38px;}
+.footerGrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;align-items:start;}
 footer h4{color:#fff;margin-bottom:12px}
-footer a{
-  display:block;
-  margin:6px 0;
-  font-size:13px;
-  color:rgba(255,255,255,.62);
-}
+footer a{display:block;margin:6px 0;font-size:13px;color:rgba(255,255,255,.62);}
 footer a:hover{color:#fff}
-footer p{
-  line-height:1.7;
-  font-size:13px;
-  color:rgba(255,255,255,.66);
-  max-width:48ch;
-}
+footer p{line-height:1.7;font-size:13px;color:rgba(255,255,255,.66);max-width:48ch;}
 .footerBottom{
-  margin-top:26px;
-  padding-top:18px;
-  border-top:1px solid rgba(255,255,255,.06);
-  font-size:12px;
-  color:rgba(255,255,255,.45);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  flex-wrap:wrap;
+  margin-top:26px;padding-top:18px;border-top:1px solid rgba(255,255,255,.06);
+  font-size:12px;color:rgba(255,255,255,.45);
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
 }
-.footerBottom a{
-  font-size:12px;
-  color:rgba(255,255,255,.55);
-  text-decoration:underline;
-}
+.footerBottom a{font-size:12px;color:rgba(255,255,255,.55);text-decoration:underline;}
 .footerBottom a:hover{color:#fff}
-
-/* COOKIE BANNER (same as your site) */
 .cookieBar{
-  position:fixed;
-  left:16px; right:16px; bottom:16px;
-  z-index:200;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:14px;
-  padding:12px 14px;
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(10,10,14,.82);
-  backdrop-filter:blur(14px);
-  box-shadow:0 18px 40px rgba(0,0,0,.55);
+  position:fixed;left:16px;right:16px;bottom:16px;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:12px 14px;border-radius:14px;
+  border:1px solid rgba(255,255,255,.14);background:rgba(10,10,14,.82);
+  backdrop-filter:blur(14px);box-shadow:0 18px 40px rgba(0,0,0,.55);
 }
-.cookieBar p{
-  margin:0;
-  color:rgba(255,255,255,.72);
-  font-size:13px;
-  line-height:1.5;
-}
+.cookieBar p{margin:0;color:rgba(255,255,255,.72);font-size:13px;line-height:1.5;}
 .cookieBar p a{opacity:.9;text-decoration:underline}
 .cookieBtns{display:flex;gap:10px;align-items:center;flex:0 0 auto;}
 .cookieBar button{
-  padding:10px 14px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.18);
-  background:rgba(255,255,255,.08);
-  color:#fff;
-  font-weight:800;
-  font-size:13px;
-  cursor:pointer;
-  white-space:nowrap;
+  padding:10px 14px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);
+  color:#fff;font-weight:800;font-size:13px;cursor:pointer;white-space:nowrap;
 }
 .cookieBar button:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.26);}
 .cookieBar .ghost{background:rgba(0,0,0,.10);}
-
 .cookieModal{
-  position:fixed;
-  inset:0;
-  z-index:220;
-  display:none;
-  align-items:flex-end;
-  justify-content:center;
-  padding:16px;
-  background:rgba(0,0,0,.55);
+  position:fixed;inset:0;z-index:220;display:none;
+  align-items:flex-end;justify-content:center;padding:16px;background:rgba(0,0,0,.55);
 }
 .cookieSheet{
-  width:min(620px, 100%);
-  border-radius:18px;
-  border:1px solid rgba(255,255,255,.12);
-  background:rgba(10,10,14,.92);
-  backdrop-filter:blur(16px);
-  box-shadow:0 24px 70px rgba(0,0,0,.6);
-  padding:16px;
+  width:min(620px, 100%);border-radius:18px;
+  border:1px solid rgba(255,255,255,.12);background:rgba(10,10,14,.92);
+  backdrop-filter:blur(16px);box-shadow:0 24px 70px rgba(0,0,0,.6);padding:16px;
 }
 .cookieSheet h4{margin:2px 0 10px;font-size:15px;}
 .cookieRow{
-  display:flex;
-  justify-content:space-between;
-  gap:12px;
-  padding:10px 0;
-  border-top:1px solid rgba(255,255,255,.06);
-  color:rgba(255,255,255,.72);
-  font-size:13px;
+  display:flex;justify-content:space-between;gap:12px;padding:10px 0;
+  border-top:1px solid rgba(255,255,255,.06);color:rgba(255,255,255,.72);font-size:13px;
 }
 .cookieRow small{display:block;opacity:.75;margin-top:4px;max-width:44ch}
 .switch{display:inline-flex;align-items:center;gap:10px;}
 .switch input{width:18px;height:18px}
 .cookieSheetActions{display:flex;justify-content:flex-end;gap:10px;margin-top:12px;}
-
 @media(max-width:520px){
   header{padding:0 18px}
-  .cookieBar{flex-direction:column; align-items:flex-start}
+  .cookieBar{flex-direction:column;align-items:flex-start}
   .cookieBtns{width:100%}
   .cookieBar button{width:100%}
 }
@@ -467,7 +226,7 @@ footer p{
   .hero h1{font-size:36px}
 }
 @media (prefers-reduced-motion: reduce){
-  *{transition:none !important; animation:none !important}
+  *{transition:none !important;animation:none !important}
   html{scroll-behavior:auto}
 }
 </style>
@@ -477,30 +236,29 @@ footer p{
 
 <header>
   <div class="logo"><a href="index.html">Popcorn Picks</a></div>
-  <div class="navRight">
-    <a href="categories.html">Browse</a>
-  </div>
+  <div class="navRight"><a href="categories.html">Browse</a></div>
 </header>
 
 <section class="hero">
   <div class="container heroInner">
     <div class="kicker"><span class="dot"></span> Handpicked</div>
-    <h1>Handpicked — personal picks, not “content.”</h1>
+    <h1>Things I would actually put in a friend's watchlist.</h1>
     <p>
-      This page is the opposite of a ranking. It’s just what I’d put in a friend’s watchlist —
-      things that actually respect your attention, with notes on the *feel* of the show/film, not plot dumps.
-      Click any poster below to jump straight to the recommendation.
+      No rankings, no scores, no algorithm. This is just the list I would send someone if they
+      asked what to watch next and actually meant it. Each one here earned its place through the
+      specific feeling it leaves behind. Some are tense in a way that stays with you after the
+      episode ends. Some are quiet in a way that is hard to find. A few I came back to and liked
+      more the second time. Click any poster below to read what I actually think about it.
     </p>
   </div>
 </section>
 
-<!-- TOP RAIL (homepage-style) -->
 <section class="section" id="top">
   <div class="container">
     <div class="sectionHead">
       <div>
         <h2>Handpicked</h2>
-        <p class="sectionLead">A few favourites. Pure signal. Click a poster — it opens the recommendation below.</p>
+        <p class="sectionLead">Ten picks with real notes attached. Click a poster to jump to the write-up.</p>
       </div>
       <a class="smallBtn" href="index.html">Back to home</a>
     </div>
@@ -513,7 +271,7 @@ footer p{
           <div class="pickOverlay">
             <div class="pickYear">TV Series · 2015</div>
             <div class="pickGenres">Espionage · Drama</div>
-            <p class="pickSynopsis">The most realistic spy show I’ve watched. No glamour, just tradecraft.</p>
+            <p class="pickSynopsis">The most realistic spy show I have watched. The tension comes from the job itself, not explosions.</p>
           </div>
           <div class="pickTitle">The Bureau</div>
         </a>
@@ -523,7 +281,7 @@ footer p{
           <div class="pickOverlay">
             <div class="pickYear">TV Series · 2024</div>
             <div class="pickGenres">Period · Drama · War</div>
-            <p class="pickSynopsis">A period drama that feels lived-in, tense, and intelligent.</p>
+            <p class="pickSynopsis">A period drama where the real action is every conversation. Incredibly controlled television.</p>
           </div>
           <div class="pickTitle">Shōgun</div>
         </a>
@@ -533,7 +291,7 @@ footer p{
           <div class="pickOverlay">
             <div class="pickYear">K-Drama · 2020</div>
             <div class="pickGenres">Thriller · Crime</div>
-            <p class="pickSynopsis">A sharp Korean thriller with momentum, restraint, and real tension.</p>
+            <p class="pickSynopsis">The K-drama thriller I recommend when someone wants no fluff and actual tension.</p>
           </div>
           <div class="pickTitle">Tell Me What You Saw</div>
         </a>
@@ -543,7 +301,7 @@ footer p{
           <div class="pickOverlay">
             <div class="pickYear">Film · 2021</div>
             <div class="pickGenres">Biopic · History</div>
-            <p class="pickSynopsis">Quiet rage. No chest-thumping. Just weight and consequence.</p>
+            <p class="pickSynopsis">A biopic that does not celebrate loudly. It just sits with the weight of what happened.</p>
           </div>
           <div class="pickTitle">Sardar Udham</div>
         </a>
@@ -553,7 +311,7 @@ footer p{
           <div class="pickOverlay">
             <div class="pickYear">C-Drama · 2022</div>
             <div class="pickGenres">Romance · Youth</div>
-            <p class="pickSynopsis">Not fluffy. A slow burn with sharp edges and real consequences.</p>
+            <p class="pickSynopsis">Not soft. A romance built around real damage and the timing of who you are when you meet someone.</p>
           </div>
           <div class="pickTitle">Lighter &amp; Princess</div>
         </a>
@@ -563,7 +321,7 @@ footer p{
           <div class="pickOverlay">
             <div class="pickYear">TV Series · 2019</div>
             <div class="pickGenres">Crime · Thriller</div>
-            <p class="pickSynopsis">Darkly entertaining crime with a lead who’s barely holding it together.</p>
+            <p class="pickSynopsis">Darkly entertaining and harder to shake than it should be given how unhinged the premise is.</p>
           </div>
           <div class="pickTitle">Prodigal Son</div>
         </a>
@@ -573,7 +331,7 @@ footer p{
           <div class="pickOverlay">
             <div class="pickYear">TV Series · 2020</div>
             <div class="pickGenres">Spy · Action</div>
-            <p class="pickSynopsis">The best teen spy show — serious, tense, and not childish.</p>
+            <p class="pickSynopsis">Sharper and colder than anyone expects from a show about a teenage spy.</p>
           </div>
           <div class="pickTitle">Alex Rider</div>
         </a>
@@ -583,7 +341,7 @@ footer p{
           <div class="pickOverlay">
             <div class="pickYear">C-Drama · 2019</div>
             <div class="pickGenres">Wuxia · Fantasy</div>
-            <p class="pickSynopsis">Classic wuxia setup: cultivation, revenge, and court politics.</p>
+            <p class="pickSynopsis">Classic wuxia done properly. Sects, cultivation, court politics, and a protagonist who earns every step.</p>
           </div>
           <div class="pickTitle">Sword Dynasty</div>
         </a>
@@ -593,18 +351,17 @@ footer p{
           <div class="pickOverlay">
             <div class="pickYear">K-Drama · 2023</div>
             <div class="pickGenres">Romance · Slice of Life</div>
-            <p class="pickSynopsis">A quiet romance that trusts silence more than dialogue.</p>
+            <p class="pickSynopsis">A romance that trusts silence. Rare in this genre and good because of it.</p>
           </div>
           <div class="pickTitle">Tell Me That You Love Me</div>
         </a>
 
-        <!-- NEW ADD: Counterpart -->
         <a class="pickCard" href="#counterpart" aria-label="Counterpart">
           <img src="assets/posters/tv/counterpart.jpg.jpeg" alt="Counterpart (2017)">
           <div class="pickOverlay">
             <div class="pickYear">TV Series · 2017</div>
             <div class="pickGenres">Espionage · Sci-Fi · Drama</div>
-            <p class="pickSynopsis">A spy story wearing sci-fi clothing. Smart, cold, and addictive.</p>
+            <p class="pickSynopsis">A spy thriller wearing sci-fi clothes. The premise is clever but the regret is what stays.</p>
           </div>
           <div class="pickTitle">Counterpart</div>
         </a>
@@ -613,7 +370,7 @@ footer p{
     </div>
 
     <div class="detailWrap">
-      <!-- DETAILS START -->
+
       <article class="handpickDetail" id="counterpart">
         <div class="detailHero">
           <img src="assets/posters/tv/counterpart.jpg.jpeg" alt="Counterpart (2017)">
@@ -624,7 +381,7 @@ footer p{
               <span class="badge">Espionage</span>
               <span class="badge">Sci-Fi</span>
               <span class="badge">Cold tension</span>
-              <span class="badge">Identity / regret</span>
+              <span class="badge">Identity and regret</span>
             </div>
             <div class="detailLinks">
               <a class="smallBtn" href="#top">Back to posters</a>
@@ -632,35 +389,49 @@ footer p{
           </div>
         </div>
         <div class="detailBody">
-          <h4>Why this is handpicked</h4>
+          <h4>Why it is here</h4>
           <p>
-            This show is quietly insane in the best way. It doesn’t scream for attention, it doesn’t do cheap “twists” for screenshots —
-            it just builds pressure like a sealed room slowly losing oxygen.
+            This show does something most spy thrillers never attempt. It takes a central premise
+            that sounds like high concept science fiction and uses it almost entirely as an emotional
+            instrument. The sci-fi is the mechanism. What the show is actually about is the life you
+            chose versus the life you could have had, and what it costs to look that question directly
+            in the face.
           </p>
           <p>
-            The setup is clever, but that’s not the reason it stays with you. The real hook is what it does to people.
-            It turns identity into a weapon, turns regret into a plot engine, and somehow keeps everything grounded like an actual spy drama.
+            It builds pressure the way a good cold war thriller does: slowly, procedurally, through
+            small betrayals and institutional paranoia. J.K. Simmons carries two versions of the same
+            character across two seasons and neither one ever feels like a performance. There is a
+            scene in season one where both versions sit across a table from each other and the whole
+            weight of the show lands in about four minutes of silence and carefully chosen words.
+            That is the kind of television this is.
+          </p>
+          <p>
+            It ran two seasons, got cancelled before it finished its story, and still ends up feeling
+            more complete than most shows that get five seasons and lose the thread.
           </p>
 
-          <h4>What it feels like</h4>
-          <ul>
-            <li>Muted, controlled, and tense — the kind of show where silence has weight.</li>
-            <li>More tradecraft and paranoia than “sci-fi fireworks.”</li>
-            <li>Emotionally heavy in a grown-up way: choices, consequences, the life you didn’t live.</li>
-          </ul>
+          <h4>What it feels like to watch</h4>
+          <p>
+            Very controlled. Muted colour, quiet rooms, conversations where nobody says exactly
+            what they mean. The tension does not come from chases or action sequences. It comes
+            from people in meetings making decisions that will destroy someone, and you watching
+            them do it. If you found Slow Horses or The Americans too slow, this will frustrate
+            you. If you liked either of those, this belongs on the same list.
+          </p>
 
           <h4>Watch this if</h4>
-          <ul>
-            <li>You like espionage stories that treat intelligence work as ugly, procedural, and personal.</li>
-            <li>You enjoy slow burn tension that pays off without turning silly.</li>
-            <li>You want a show that respects your attention span.</li>
-          </ul>
+          <p>
+            You want a show that treats you like an adult and does not explain itself every ten
+            minutes. Give it three episodes before you decide. It takes that long to understand
+            what kind of show it actually is.
+          </p>
 
-          <h4>Don’t expect</h4>
-          <ul>
-            <li>Nonstop action. This is chess, not fireworks.</li>
-            <li>Big speeches. It’s more glances and quiet decisions.</li>
-          </ul>
+          <h4>What it is not</h4>
+          <p>
+            It is not action heavy. There is violence but that is not where the show lives.
+            If you need plot movement and momentum from the first episode, the early going will
+            test your patience. The patience is worth it.
+          </p>
         </div>
       </article>
 
@@ -682,41 +453,51 @@ footer p{
           </div>
         </div>
         <div class="detailBody">
-          <h4>Why this is handpicked</h4>
+          <h4>Why it is here</h4>
           <p>
-            This was my first French espionage show — and it immediately ruined a lot of other spy series for me.
-            Not because it’s “bigger.” Because it’s real.
+            This was the first French series I watched that made me realise how far behind most
+            English language spy shows actually are. Not in terms of budget or production value.
+            In terms of what the genre is willing to be about.
           </p>
           <p>
-            If you’re tired of spy fiction that behaves like superhero content, this is the antidote.
-            No glamour. No cool one-liners. Just the craft: building covers, managing assets, the bureaucracy, the paranoia,
-            and the slow psychological cost of living as someone else.
+            The Bureau follows a DGSE officer returning from years undercover, and the central
+            problem is not the mission. The problem is that he has been living as someone else for
+            so long that he is no longer entirely sure who he actually is. The show takes that
+            question seriously across five seasons. It never turns into an action series. It never
+            loses interest in the human cost of the work. Every relationship in it is complicated
+            by secrecy, and the show understands that the most interesting part of intelligence
+            work is not the operation itself. It is what the operation does to the people running it.
           </p>
           <p>
-            When people say “best spy show,” they usually mean “best action.” This is different.
-            If we’re talking about realism — about how the job actually works and what it does to you —
-            <strong>this is probably the best TV show in the genre.</strong>
+            If someone asks for a single recommendation for the best spy series ever made, this
+            is the one I give. Not because it is the most exciting. Because it is the most honest
+            about what the job actually costs.
           </p>
 
-          <h4>What it feels like</h4>
-          <ul>
-            <li>Quietly intense. The tension is professional, not theatrical.</li>
-            <li>Adult writing: mistakes matter, emotions have consequences, nobody is invincible.</li>
-            <li>Deep focus on identity — the line between “cover” and “self” starts to dissolve.</li>
-          </ul>
+          <h4>What it feels like to watch</h4>
+          <p>
+            Quiet and procedural in the best sense. There are no car chases through Paris.
+            There are briefings, cover stories falling apart under small details, assets being
+            slowly compromised, and two people in a room trying to figure out who is actually
+            in control of the situation. The French bureaucratic setting is specific and grounded
+            and that groundedness is exactly what makes the personal stakes feel heavy rather
+            than theatrical.
+          </p>
 
           <h4>Watch this if</h4>
-          <ul>
-            <li>You like grounded intelligence work (assets, surveillance, pressure, politics).</li>
-            <li>You want writing that doesn’t treat you like you need constant stimulation.</li>
-            <li>You’re into morally grey characters who still feel real.</li>
-          </ul>
+          <p>
+            You want espionage that respects the craft rather than replacing it with spectacle.
+            You are comfortable with subtitles. You liked Slow Horses and want something that goes
+            even deeper into the psychology of sustained deception. The first episode does not
+            explain much. Trust it.
+          </p>
 
-          <h4>Don’t expect</h4>
-          <ul>
-            <li>James Bond vibes. This is not fantasy.</li>
-            <li>Fast binge pacing. It’s deliberate — and that’s the point.</li>
-          </ul>
+          <h4>What it is not</h4>
+          <p>
+            This is not a comfort watch. Season one takes a few episodes to reveal what kind of
+            show it is. Resolution does not come at the end of episodes. It is built for patience
+            and it rewards that patience fully.
+          </p>
         </div>
       </article>
 
@@ -738,34 +519,41 @@ footer p{
           </div>
         </div>
         <div class="detailBody">
-          <h4>Why this is handpicked</h4>
+          <h4>Why it is here</h4>
           <p>
-            If you love period dramas, this is mandatory. It’s not “pretty history cosplay.”
-            It feels like a world with rules, danger, and consequences — where power isn’t loud, it’s calculated.
+            Period dramas usually fall into one of two categories. Either they are obsessed with
+            costumes and spectacle and the history is just decoration, or they are so focused on
+            being informative that they forget to be compelling. Shōgun is neither of those things.
           </p>
           <p>
-            What makes it special is the control. The show doesn’t rush.
-            It lets scenes breathe, lets tension build, lets politics feel like politics — not exposition.
-            You watch people measure every word because one wrong sentence can end them.
+            It is a show about power and what people do to protect it, and it happens to be set in
+            feudal Japan in a way that feels specific and real rather than generic. The language
+            barrier between the English navigator and the Japanese lord is not a gimmick, it is
+            the central tension of the entire story. Every misunderstanding has stakes. Every
+            alliance is provisional. Nobody in this show is safe because nobody in this world is
+            safe, and the series never lets you forget that.
+          </p>
+          <p>
+            The 2024 version is one of the best things produced for television in recent years.
+            It won almost everything it was nominated for and it deserved all of it.
           </p>
 
-          <h4>What it feels like</h4>
-          <ul>
-            <li>Elegant but brutal. Beautiful but never soft.</li>
-            <li>Strategic storytelling — you’re watching minds at work.</li>
-            <li>Big atmosphere: weather, spaces, silence, ritual. It all matters.</li>
-          </ul>
+          <h4>What it feels like to watch</h4>
+          <p>
+            Slow in a way that feels earned rather than padded. The show is interested in ritual,
+            in silence, in what a bow communicates that words cannot. Violence when it comes is
+            sudden and final. Emotional scenes hit harder because the show spends so much time
+            in restraint before them. It is television where you notice the sound design and the
+            quality of light because both are doing work the script is not trying to explain.
+          </p>
 
           <h4>Watch this if</h4>
-          <ul>
-            <li>You like period drama with real tension, not melodrama.</li>
-            <li>You enjoy power games, loyalty tests, and slow turns that pay off.</li>
-          </ul>
-
-          <h4>Don’t expect</h4>
-          <ul>
-            <li>Constant action. The “action” is often a conversation.</li>
-          </ul>
+          <p>
+            You want prestige drama that earns that label. You liked Rome or The Americans and
+            want something in that register with a completely different cultural setting. Watch
+            it in Japanese with subtitles. The English dub exists but it is a different experience
+            and a lesser one.
+          </p>
         </div>
       </article>
 
@@ -787,34 +575,37 @@ footer p{
           </div>
         </div>
         <div class="detailBody">
-          <h4>Why this is handpicked</h4>
+          <h4>Why it is here</h4>
           <p>
-            This is the best teen spy show — and that’s exactly because it doesn’t behave like “teen content.”
-            No cringe humour. No childish missions. No cartoon villains.
+            The honest reason this is on the list is that it surprised me. I expected something
+            aimed at kids with watered down stakes and a lead who is basically invincible. That
+            is not what this is.
           </p>
           <p>
-            It treats the premise with seriousness: a kid pulled into adult violence, adult systems, adult consequences.
-            It’s tense, well-paced, and surprisingly grounded. The show understands that the most interesting part isn’t gadgets —
-            it’s pressure.
+            The show commits to the premise that a teenager being pulled into intelligence operations
+            is actually a disturbing situation. It does not glamorise that. Alex is in real danger,
+            he is out of his depth in ways that feel genuine, and the adults around him are using
+            him in ways that are morally uncomfortable even when they are supposedly the good side.
+            The writing has more restraint than you would expect and the pacing is tight enough
+            that it never drags. Each season has a specific threat and a specific emotional arc
+            and both land properly.
           </p>
 
-          <h4>What it feels like</h4>
-          <ul>
-            <li>Fast and clean. You keep saying “one more episode.”</li>
-            <li>Spy tension without pretending the lead is a superhero.</li>
-            <li>A real sense of danger — not just “school drama with spies.”</li>
-          </ul>
+          <h4>What it feels like to watch</h4>
+          <p>
+            Fast and clean. The episodes move well and you do want the next one. But there is
+            a consistent undercurrent of dread the show maintains because it never lets Alex feel
+            comfortable and never lets the audience feel comfortable on his behalf either. The
+            threat feels real because the show respects its own premise enough to take it seriously.
+          </p>
 
           <h4>Watch this if</h4>
-          <ul>
-            <li>You want espionage energy but with a younger lead done correctly.</li>
-            <li>You like tight pacing and plots that actually move.</li>
-          </ul>
-
-          <h4>Don’t expect</h4>
-          <ul>
-            <li>Disney teen tone. This is sharper and colder than you think.</li>
-          </ul>
+          <p>
+            You want something bingeable that does not ask you to switch your brain off. It works
+            for younger audiences but it is genuinely enjoyable for adults who like tightly
+            constructed spy stories. The first season is the strongest entry point but the second
+            and third build well on what it establishes.
+          </p>
         </div>
       </article>
 
@@ -836,28 +627,34 @@ footer p{
           </div>
         </div>
         <div class="detailBody">
-          <h4>Why this is handpicked</h4>
+          <h4>Why it is here</h4>
           <p>
-            If you want a Korean thriller that doesn’t waste your time, this is it.
-            It’s sharp, it moves, and it keeps tension alive without turning into noise.
+            Korean crime dramas often mix their thriller content with romantic subplots, comic
+            relief characters, and tonal shifts that dilute the tension. This one does not do that.
+            Tell Me What You Saw commits to a single register and stays there for its whole run.
           </p>
           <p>
-            The tone is serious — not “cute side-plot every five minutes.”
-            You’re here for investigation pressure, unsettling choices, and that steady feeling that the room is closing in.
+            It is a procedural built around a profiler with an extraordinary visual memory and a
+            rookie detective, and the show is serious about the investigation in a way that keeps
+            the pressure consistent from episode to episode. The antagonist is handled better than
+            most. The cat and mouse structure works because both sides of it are written with actual
+            intelligence. You are never watching someone lose to someone incompetent or win through
+            convenience. Every move has a reason behind it.
           </p>
 
-          <h4>What it feels like</h4>
-          <ul>
-            <li>Lean thriller pacing — scene to scene, no fluff.</li>
-            <li>Genuinely tense, with a dark undercurrent.</li>
-            <li>Focused on the hunt and the cost of the hunt.</li>
-          </ul>
+          <h4>What it feels like to watch</h4>
+          <p>
+            Lean and tense. There is no wasted episode here. The show has a strong sense of what
+            it is and does not drift from it. The darkness is functional rather than gratuitous.
+            It creates the weight that makes the investigation feel like something real is at stake
+            rather than just procedural movement toward a resolution.
+          </p>
 
           <h4>Watch this if</h4>
-          <ul>
-            <li>You like serious crime dramas and procedural momentum.</li>
-            <li>You want a K-drama thriller that doesn’t soften itself.</li>
-          </ul>
+          <p>
+            You want a K-drama thriller that is serious about its genre. If you have watched Signal
+            or Voice and want something in that territory, this belongs on the same list.
+          </p>
         </div>
       </article>
 
@@ -879,21 +676,32 @@ footer p{
           </div>
         </div>
         <div class="detailBody">
-          <h4>Why this is handpicked</h4>
+          <h4>Why it is here</h4>
           <p>
-            This is how you do a biopic without turning it into a loud motivational speech.
-            The film is restrained — and that restraint is exactly what makes it powerful.
+            Biopics about revolutionaries usually follow a formula. Injustice, transformation,
+            confrontation, speech. Sardar Udham ignores almost all of that structure and is better
+            for it.
           </p>
           <p>
-            It lets history feel heavy, not heroic. It respects silence. It respects grief.
-            And it doesn’t sell the audience easy comfort.
+            The film is about Udham Singh and the years he spent after the Jallianwala Bagh massacre
+            working toward the assassination of Michael O'Dwyer. But it is less interested in the
+            assassination itself than in what that event cost the people who survived it and carried
+            it forward. The Jallianwala sequence when it comes is one of the most devastating pieces
+            of filmmaking in recent Indian cinema. Not because it is spectacular. Because of how long
+            it holds on grief without looking away and without making it feel like spectacle.
+          </p>
+          <p>
+            Vicky Kaushal does not play this as a hero. He plays it as a man carrying something
+            too heavy to put down and too important to drop. The film respects that weight and
+            never tries to make it feel smaller than it is.
           </p>
 
           <h4>Watch this if</h4>
-          <ul>
-            <li>You want historical cinema with weight, not “energy.”</li>
-            <li>You prefer restraint over melodrama.</li>
-          </ul>
+          <p>
+            You want historical cinema willing to be uncomfortable and slow. The film runs long
+            and earns every minute. Watch it with full attention. It does not work as background
+            viewing and it does not want to be one.
+          </p>
         </div>
       </article>
 
@@ -915,21 +723,37 @@ footer p{
           </div>
         </div>
         <div class="detailBody">
-          <h4>Why this is handpicked</h4>
+          <h4>Why it is here</h4>
           <p>
-            This isn’t sugar romance. It’s messy in a believable way.
-            The characters don’t always do the “right” thing, and the show doesn’t pretend love fixes everything instantly.
+            The reason this drama works is that it understands something most romance stories prefer
+            to avoid. The way you treat someone when you are under pressure reveals who you actually
+            are. The lead here is talented, difficult, and capable of real cruelty when he feels
+            cornered, and the show does not soften that or excuse it. When things break between the
+            two characters they break in ways that feel earned rather than manufactured for dramatic
+            effect.
           </p>
           <p>
-            It’s a slow burn, but not a lazy one — it builds tension, builds damage, builds attachment.
-            When it hits, it hits because you’ve actually lived inside it.
+            The first half is set in a competitive university environment and builds the relationship
+            carefully enough that the second half, which follows both characters into adulthood and
+            through the consequences of the first half, actually lands with weight. The separation
+            arc hurts in proportion to how much the show made you care about them together. That
+            proportion is correct and the show earns it.
+          </p>
+
+          <h4>What it feels like to watch</h4>
+          <p>
+            The pace is slow in the opening stretch but it is building. The romance does not perform
+            warmth at you. It shows two people orbiting each other imperfectly over time and trusts
+            you to feel the pull of that without underlining it every scene. When the emotional
+            weight arrives it is heavy because the setup was patient enough to justify it.
           </p>
 
           <h4>Watch this if</h4>
-          <ul>
-            <li>You want romance that feels real, not packaged.</li>
-            <li>You like long-form relationship arcs with consequences.</li>
-          </ul>
+          <p>
+            You want a C-drama romance with actual emotional weight rather than obstacle after
+            manufactured obstacle. This is for viewers who want the relationship to feel real
+            rather than just satisfying in a surface way.
+          </p>
         </div>
       </article>
 
@@ -951,13 +775,27 @@ footer p{
           </div>
         </div>
         <div class="detailBody">
-          <h4>Why this is handpicked</h4>
+          <h4>Why it is here</h4>
           <p>
-            A crime show with a lead who’s constantly on the edge — and it’s weirdly addictive.
-            It balances dark subject matter with just enough sharp humour to keep it from becoming unbearable.
+            On paper this sounds like a procedural that should wear out fast. A criminal profiler
+            solves cases. His father is a famous serial killer. The two of them have a relationship
+            that is by definition broken. In execution it is genuinely compelling and harder to
+            stop watching than it has any right to be.
           </p>
           <p>
-            The hook isn’t “cases.” It’s the character tension underneath everything — the kind that doesn’t switch off when the episode ends.
+            The reason it works is the lead. Malcolm Bright is barely holding himself together in
+            every scene and the show leans into that rather than cleaning him up into a functional
+            professional. He is brilliant in the way that comes attached to real psychological
+            damage, and watching him function inside institutions not built for people like him
+            is what makes the show feel specific rather than generic. Tom Payne plays it with a
+            physical restlessness that makes the character feel genuinely uncontained. Michael
+            Sheen as the father is exactly as good as you would expect and a little better than that.
+          </p>
+
+          <h4>Watch this if</h4>
+          <p>
+            You want something fast and entertaining that has more going on underneath it than
+            the premise suggests. Two seasons, cancelled too soon, but both worth watching in full.
           </p>
         </div>
       </article>
@@ -980,17 +818,27 @@ footer p{
           </div>
         </div>
         <div class="detailBody">
-          <h4>Why this is handpicked</h4>
+          <h4>Why it is here</h4>
           <p>
-            This is for when you want classic wuxia energy: cultivation paths, rival schools, revenge fuel, and politics sitting behind every fight.
-            It’s not trying to be Western fantasy. It knows exactly what world it’s in — and leans into it.
+            Wuxia works when it commits fully to its own internal logic and Sword Dynasty does that
+            consistently. The cultivation hierarchy, the rival schools, the court politics running
+            underneath the martial world are all handled with enough specificity that the world feels
+            like it has real rules rather than convenient ones that shift when the story needs them to.
+          </p>
+          <p>
+            The lead starts from a genuinely low position and rises through the kind of incremental
+            effort that makes progression satisfying rather than arbitrary. The antagonist relationships
+            are layered properly. The show understands that in wuxia the best conflicts are never purely
+            physical. They are about competing philosophies of what strength is for and who deserves
+            to hold it, and those questions stay active across the whole run.
           </p>
 
           <h4>Watch this if</h4>
-          <ul>
-            <li>You like cultivation/wuxia setups and long arcs.</li>
-            <li>You enjoy power structures and factions as much as fights.</li>
-          </ul>
+          <p>
+            You are already interested in wuxia and want a title that takes the genre seriously.
+            If you watched Nirvana in Fire and want something with more active martial arts content
+            alongside the politics, this sits comfortably in that space.
+          </p>
         </div>
       </article>
 
@@ -1012,39 +860,43 @@ footer p{
           </div>
         </div>
         <div class="detailBody">
-          <h4>Why this is handpicked</h4>
+          <h4>Why it is here</h4>
           <p>
-            A lot of romances try to be “cute.” This one is just… gentle.
-            It’s the kind of drama where a pause matters, a look matters, and the show trusts you to feel what it’s saying without spelling it out.
+            One of the leads communicates through sign language and the show builds its entire
+            emotional language around that fact. What you get is a romance unusually attentive to
+            what people do when they cannot fill silence with words. Looks matter here. Proximity
+            matters. The small physical decisions that characters make in each other's company carry
+            weight because the show slows down enough to let them land rather than rushing past them
+            toward the next plot point.
           </p>
           <p>
-            If you’re in the mood for loud chemistry and dramatic triangles, skip it.
-            If you want something soft, human, and quietly beautiful — this is the one.
+            It is not a dramatic romance. Nobody is hiding a terminal illness or carrying a secret
+            that will detonate the relationship in episode eight. The tension is quieter than that.
+            It is two people figuring out how to be understood by someone else, which is harder than
+            most romance narratives are willing to admit. When a show commits to that difficulty
+            without manufacturing shortcuts around it, the result is something genuinely moving.
           </p>
 
           <h4>Watch this if</h4>
-          <ul>
-            <li>You like calm, emotionally mature romance.</li>
-            <li>You want something that feels like breathing slower.</li>
-          </ul>
+          <p>
+            You want something gentle after watching something heavy. This is the kind of drama
+            that leaves you feeling calmer rather than wrung out. It is well made, the leads have
+            real chemistry, and the show knows exactly what it is trying to do and does it without
+            overcrowding the space with noise.
+          </p>
         </div>
       </article>
-      <!-- DETAILS END -->
+
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="container footerGrid">
     <div class="footerBrand">
       <h4>Popcorn Picks</h4>
-      <p>
-        Cinema beyond borders.<br>
-        Carefully curated films and series from around the world.
-      </p>
+      <p>Cinema beyond borders.<br>Carefully curated films and series from around the world.</p>
     </div>
-
     <div>
       <h4>Explore</h4>
       <a href="editorials.html">Editorials</a>
@@ -1052,7 +904,6 @@ footer p{
       <a href="categories.html">Browse categories</a>
       <a href="contact.html">Contact</a>
     </div>
-
     <div>
       <h4>Site</h4>
       <a href="about.html">About</a>
@@ -1060,20 +911,14 @@ footer p{
       <a href="handpick.html">Handpicked</a>
     </div>
   </div>
-
   <div class="container footerBottom">
     <span>© 2026 Popcorn Picks. All rights reserved.</span>
     <a href="#" id="cookieSettingsLink">Cookie settings</a>
   </div>
 </footer>
 
-<!-- ✅ Cookie banner -->
 <div class="cookieBar" id="cookieBar" role="dialog" aria-live="polite" aria-label="Cookie notice">
-  <p>
-    We use cookies for analytics and ads to improve Popcorn Picks.
-    <a href="privacy.html">Learn more</a>
-  </p>
-
+  <p>We use cookies for analytics and ads to improve Popcorn Picks. <a href="privacy.html">Learn more</a></p>
   <div class="cookieBtns">
     <button class="ghost" id="cookieReject" type="button">Reject</button>
     <button class="ghost" id="cookieManage" type="button">Manage</button>
@@ -1081,31 +926,17 @@ footer p{
   </div>
 </div>
 
-<!-- ✅ Manage modal -->
 <div class="cookieModal" id="cookieModal" aria-hidden="true">
   <div class="cookieSheet" role="dialog" aria-label="Cookie settings">
     <h4>Cookie settings</h4>
-
     <div class="cookieRow">
-      <div>
-        <strong>Analytics</strong>
-        <small>Helps us understand what people read and improve the site.</small>
-      </div>
-      <label class="switch">
-        <input type="checkbox" id="toggleAnalytics">
-      </label>
+      <div><strong>Analytics</strong><small>Helps us understand what people read and improve the site.</small></div>
+      <label class="switch"><input type="checkbox" id="toggleAnalytics"></label>
     </div>
-
     <div class="cookieRow">
-      <div>
-        <strong>Ads</strong>
-        <small>Helps fund the site. You’ll still see ads if you turn this off, but they may be less personalized.</small>
-      </div>
-      <label class="switch">
-        <input type="checkbox" id="toggleAds">
-      </label>
+      <div><strong>Ads</strong><small>Helps fund the site. You'll still see ads if you turn this off, but they may be less personalized.</small></div>
+      <label class="switch"><input type="checkbox" id="toggleAds"></label>
     </div>
-
     <div class="cookieSheetActions">
       <button class="ghost" id="cookieCancel" type="button">Cancel</button>
       <button id="cookieSave" type="button">Save</button>
@@ -1114,129 +945,40 @@ footer p{
 </div>
 
 <script>
-/*
-  ✅ Consent system (same as your site)
-*/
 (function(){
-  var KEY = "pp_consent_v1";
-
-  function safeGtagConsentUpdate(consentObj){
-    if (typeof gtag === "function") gtag('consent', 'update', consentObj);
-  }
-  function applyConsent(state){
-    safeGtagConsentUpdate({
-      analytics_storage: state.analytics ? 'granted' : 'denied',
-      ad_storage: state.ads ? 'granted' : 'denied',
-      ad_user_data: state.ads ? 'granted' : 'denied',
-      ad_personalization: state.ads ? 'granted' : 'denied'
-    });
-  }
-  function readStored(){
-    try{
-      var raw = localStorage.getItem(KEY);
-      if(!raw) return null;
-      var obj = JSON.parse(raw);
-      if(typeof obj.analytics !== "boolean" || typeof obj.ads !== "boolean") return null;
-      return obj;
-    }catch(e){ return null; }
-  }
-  function store(state){
-    try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){}
-  }
-
-  var bar = document.getElementById("cookieBar");
-  var modal = document.getElementById("cookieModal");
-
-  var btnAccept = document.getElementById("cookieAccept");
-  var btnReject = document.getElementById("cookieReject");
-  var btnManage = document.getElementById("cookieManage");
-
-  var toggleAnalytics = document.getElementById("toggleAnalytics");
-  var toggleAds = document.getElementById("toggleAds");
-
-  var btnSave = document.getElementById("cookieSave");
-  var btnCancel = document.getElementById("cookieCancel");
-
-  var settingsLink = document.getElementById("cookieSettingsLink");
-
-  function openBanner(){ bar.style.display = "flex"; }
-  function closeBanner(){ bar.style.display = "none"; }
-
-  function openModal(){
-    modal.style.display = "flex";
-    modal.setAttribute("aria-hidden","false");
-  }
-  function closeModal(){
-    modal.style.display = "none";
-    modal.setAttribute("aria-hidden","true");
-  }
-
-  var saved = readStored();
-  if(saved){
-    applyConsent(saved);
-    closeBanner();
-  }else{
-    closeBanner();
-    openBanner();
-  }
-
-  btnAccept.addEventListener("click", function(){
-    var state = { analytics:true, ads:true };
-    store(state);
-    applyConsent(state);
-    closeBanner();
-    closeModal();
-  });
-
-  btnReject.addEventListener("click", function(){
-    var state = { analytics:false, ads:false };
-    store(state);
-    applyConsent(state);
-    closeBanner();
-    closeModal();
-  });
-
-  btnManage.addEventListener("click", function(){
-    var current = readStored() || { analytics:false, ads:false };
-    toggleAnalytics.checked = current.analytics;
-    toggleAds.checked = current.ads;
-    openModal();
-  });
-
-  btnSave.addEventListener("click", function(){
-    var state = { analytics: !!toggleAnalytics.checked, ads: !!toggleAds.checked };
-    store(state);
-    applyConsent(state);
-    closeBanner();
-    closeModal();
-  });
-
-  btnCancel.addEventListener("click", function(){
-    closeModal();
-  });
-
-  settingsLink.addEventListener("click", function(e){
-    e.preventDefault();
-    var current = readStored() || { analytics:false, ads:false };
-    toggleAnalytics.checked = current.analytics;
-    toggleAds.checked = current.ads;
-    openModal();
-  });
-
-  modal.addEventListener("click", function(e){
-    if(e.target === modal) closeModal();
-  });
+  var KEY="pp_consent_v1";
+  function safeGtagConsentUpdate(o){if(typeof gtag==="function")gtag('consent','update',o);}
+  function applyConsent(s){safeGtagConsentUpdate({analytics_storage:s.analytics?'granted':'denied',ad_storage:s.ads?'granted':'denied',ad_user_data:s.ads?'granted':'denied',ad_personalization:s.ads?'granted':'denied'});}
+  function readStored(){try{var r=localStorage.getItem(KEY);if(!r)return null;var o=JSON.parse(r);if(typeof o.analytics!=="boolean"||typeof o.ads!=="boolean")return null;return o;}catch(e){return null;}}
+  function store(s){try{localStorage.setItem(KEY,JSON.stringify(s));}catch(e){}}
+  var bar=document.getElementById("cookieBar"),modal=document.getElementById("cookieModal");
+  var btnAccept=document.getElementById("cookieAccept"),btnReject=document.getElementById("cookieReject"),btnManage=document.getElementById("cookieManage");
+  var tA=document.getElementById("toggleAnalytics"),tAd=document.getElementById("toggleAds");
+  var btnSave=document.getElementById("cookieSave"),btnCancel=document.getElementById("cookieCancel");
+  var settingsLink=document.getElementById("cookieSettingsLink");
+  function openBanner(){bar.style.display="flex";}
+  function closeBanner(){bar.style.display="none";}
+  function openModal(){modal.style.display="flex";modal.setAttribute("aria-hidden","false");}
+  function closeModal(){modal.style.display="none";modal.setAttribute("aria-hidden","true");}
+  var saved=readStored();
+  if(saved){applyConsent(saved);closeBanner();}else{closeBanner();openBanner();}
+  btnAccept.addEventListener("click",function(){var s={analytics:true,ads:true};store(s);applyConsent(s);closeBanner();closeModal();});
+  btnReject.addEventListener("click",function(){var s={analytics:false,ads:false};store(s);applyConsent(s);closeBanner();closeModal();});
+  btnManage.addEventListener("click",function(){var c=readStored()||{analytics:false,ads:false};tA.checked=c.analytics;tAd.checked=c.ads;openModal();});
+  btnSave.addEventListener("click",function(){var s={analytics:!!tA.checked,ads:!!tAd.checked};store(s);applyConsent(s);closeBanner();closeModal();});
+  btnCancel.addEventListener("click",function(){closeModal();});
+  settingsLink.addEventListener("click",function(e){e.preventDefault();var c=readStored()||{analytics:false,ads:false};tA.checked=c.analytics;tAd.checked=c.ads;openModal();});
+  modal.addEventListener("click",function(e){if(e.target===modal)closeModal();});
 })();
 </script>
 
-<!-- ✅ Perf: Lazy-load images -->
 <script>
 (function(){
   try{
-    var imgs = document.querySelectorAll("img");
+    var imgs=document.querySelectorAll("img");
     imgs.forEach(function(img){
-      if(!img.hasAttribute("loading")) img.setAttribute("loading","lazy");
-      if(!img.hasAttribute("decoding")) img.setAttribute("decoding","async");
+      if(!img.hasAttribute("loading"))img.setAttribute("loading","lazy");
+      if(!img.hasAttribute("decoding"))img.setAttribute("decoding","async");
     });
   }catch(e){}
 })();
