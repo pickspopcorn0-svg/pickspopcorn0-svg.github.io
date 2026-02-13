@@ -1,18 +1,18 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Movies — Popcorn Picks</title>
 
-<meta name="description" content="A curated movie shelf from Popcorn Picks: search, filter, and open full details. International cinema, Indian cinema, thrillers, dramas, slow-burn mysteries, and more — chosen with intent, not rankings." />
+<meta name="description" content="Curated film collection from Popcorn Picks: thrillers, dramas, mysteries, and more. International and Indian cinema, chosen for craft and storytelling." />
 
-<!-- ✅ AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
         crossorigin="anonymous"></script>
 
-<!-- ✅ Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -65,22 +65,36 @@
 
   .wrap{padding:18px 18px 8px}
 
-  /* ── INTRO ── */
   .intro{max-width:980px}
   .intro h1{
-    font-size:18px;
-    font-weight:700;
-    letter-spacing:.2px;
-    line-height:1.2;
+    font-size:28px;
+    font-weight:800;
+    letter-spacing:-.02em;
+    line-height:1.15;
+    margin-bottom:16px;
   }
   .intro p{
-    margin-top:10px;
-    color:#cfcfcf;
-    font-size:14px;
+    margin-top:0;
+    margin-bottom:16px;
+    color:#c8c8c8;
+    font-size:15px;
     line-height:1.85;
   }
 
-  /* ── EDITORIAL CARDS ── */
+  .contentSection{
+    max-width:980px;
+    padding:24px 0;
+    border-top:1px solid #1f1f1f;
+  }
+  .contentSection h2{
+    font-size:22px;font-weight:750;letter-spacing:-.01em;
+    margin-bottom:14px;color:#fff;
+  }
+  .contentSection p{
+    color:#c8c8c8;font-size:15px;line-height:1.85;
+    max-width:72ch;margin-bottom:14px;
+  }
+
   .editorials{
     margin-top:18px;
   }
@@ -121,7 +135,6 @@
     display:block;
     background:#111;
   }
-  /* fallback if image is missing */
   .ed-thumb-bg{
     width:100%;
     height:100px;
@@ -211,7 +224,7 @@
   }
 
   .grid{
-    padding:16px 18px 26px;
+    padding:16px 0 26px;
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
     gap:18px;
@@ -258,12 +271,11 @@
   }
 
   .empty{
-    padding:22px 18px 30px;
+    padding:22px 0 30px;
     color:#aaa;
     display:none;
   }
 
-  /* MODAL */
   .modal{
     position:fixed;
     inset:0;
@@ -362,11 +374,13 @@
   @media(max-width:480px){
     .top{padding:12px 14px}
     .navBtn{font-size:12px;padding:7px 10px}
-    .intro h1{font-size:17px}
+    .intro h1{font-size:24px}
+    .contentSection h2{font-size:20px}
     .ed-card{width:140px}
     .ed-thumb,.ed-thumb-bg{height:86px}
   }
 </style>
+
 </head>
 
 <body>
@@ -382,68 +396,85 @@
 
 <div class="wrap">
 
-  <!-- INTRO -->
   <section class="intro" aria-label="About this movie collection">
-    <h1>Films worth watching. No filler.</h1>
+    <h1>Films Worth Watching</h1>
 
-    <p>
-      These are movies I'd actually tell someone to watch. Not because they topped a list somewhere or because
-      you're supposed to have seen them. Just because they're genuinely good and worth your time. The collection
-      covers a lot of international cinema because some of the best films made in the last 20 years came out of
-      South Korea, Japan, France, Iran and other places people don't always look first. Language has nothing to
-      do with whether a film is good. Story does. Performance does. The way a film makes you feel two hours in
-      is what matters.
-    </p>
+```
+<p>
+  These are movies I would actually tell someone to watch. Not because they topped a list somewhere or because you are supposed to have seen them, but because they are genuinely good and worth your time. The collection covers a lot of ground because great filmmaking happens everywhere. You will find thrillers that build tension properly, dramas that earn their emotional moments, crime films that treat audiences with intelligence, and a few slow burn mysteries where the discomfort stays with you long after the credits roll.
+</p>
 
-    <p>
-      You'll find thrillers here that actually build tension properly instead of just cutting fast. Dramas that
-      earn their emotional moments. Crime films that treat you like an adult. A few slow burn mysteries where
-      the discomfort stays with you. And yes, some solid action and sci fi when it's done with real craft
-      instead of just spectacle. Indian cinema has a section too because when it operates at full power it can
-      match anything coming out of anywhere in the world. RRR, Andhadhun, Sardar Udham, these are not
-      Bollywood in the old stereotyped sense. These are films with genuine ambition.
-    </p>
+<p>
+  Film has always been a global medium, and the best movies from the past two decades demonstrate that storytelling excellence does not depend on where a film is made or what language it speaks. Korean cinema has produced some of the most tightly crafted thrillers and social commentaries in recent memory. Japanese directors continue to explore human connection and alienation with unmatched sensitivity. French filmmakers have maintained their tradition of treating cinema as both art and entertainment without compromise. These films are here because they deliver on craft, vision, and execution.
+</p>
 
-    <p>
-      Use the genre and mood filters if you already know what you want to watch tonight. Or just scroll.
-      Every title here has a short write up inside it that explains what kind of film it is and what to
-      expect from it without spoiling anything. The goal is to help you decide in 30 seconds whether something
-      is for you right now.
-    </p>
+<p>
+  Indian cinema gets its own focus within this collection because when it operates at full strength, it delivers filmmaking that is ambitious, technically impressive, and emotionally uncompromising. Movies like RRR, Andhadhun, and Sardar Udham represent a shift away from old stereotypes toward work that competes on every level. The genre variety is real, from action epics to intimate character studies, and the quality speaks for itself. Use the genre and mood filters if you already know what you want to watch tonight, or just scroll and let the synopses guide you.
+</p>
 
-    <!-- EDITORIAL CARDS -->
-    <div class="editorials">
-      <div class="ed-label">From the blog</div>
-      <div class="ed-row">
+<div class="editorials">
+  <div class="ed-label">From the blog</div>
+  <div class="ed-row">
 
-        <a class="ed-card" href="international-films-that-won-the-oscar-the-last-decade.html">
-          <div class="ed-thumb-bg" style="background-image:url('assets/posters/movies/parasite-2019-poster.jpg.JPG')"></div>
-          <div class="ed-body">
-            <div class="ed-tag">International</div>
-            <div class="ed-title">Oscar winning international films of the last decade</div>
-          </div>
-        </a>
-
-        <a class="ed-card" href="indian-cinema-at-full-throttle.html">
-          <div class="ed-thumb-bg" style="background-image:url('assets/posters/movies/rrr-2022-poster.jpg.JPG')"></div>
-          <div class="ed-body">
-            <div class="ed-tag">Indian Cinema</div>
-            <div class="ed-title">Indian cinema at full throttle</div>
-          </div>
-        </a>
-
-        <a class="ed-card" href="indian-introduction.html">
-          <div class="ed-thumb-bg" style="background-image:url('assets/posters/movies/a-separation-2011-poster.jpg.JPG')"></div>
-          <div class="ed-body">
-            <div class="ed-tag">Indian Cinema</div>
-            <div class="ed-title">Indian cinema: a clean starting point</div>
-          </div>
-        </a>
-
+    <a class="ed-card" href="international-films-that-won-the-oscar-the-last-decade.html">
+      <div class="ed-thumb-bg" style="background-image:url('assets/posters/movies/parasite-2019-poster.jpg.JPG')"></div>
+      <div class="ed-body">
+        <div class="ed-tag">International</div>
+        <div class="ed-title">Oscar winning international films of the last decade</div>
       </div>
-    </div>
+    </a>
 
-    <hr class="divider" />
+    <a class="ed-card" href="indian-cinema-at-full-throttle.html">
+      <div class="ed-thumb-bg" style="background-image:url('assets/posters/movies/rrr-2022-poster.jpg.JPG')"></div>
+      <div class="ed-body">
+        <div class="ed-tag">Indian Cinema</div>
+        <div class="ed-title">Indian cinema at full throttle</div>
+      </div>
+    </a>
+
+    <a class="ed-card" href="indian-introduction.html">
+      <div class="ed-thumb-bg" style="background-image:url('assets/posters/movies/a-separation-2011-poster.jpg.JPG')"></div>
+      <div class="ed-body">
+        <div class="ed-tag">Indian Cinema</div>
+        <div class="ed-title">Indian cinema: a clean starting point</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<hr class="divider" />
+```
+
+  </section>
+
+  <section class="contentSection">
+    <h2>Why These Films Matter</h2>
+    <p>
+      Great cinema shares certain qualities regardless of origin: strong performances, thoughtful direction, scripts that respect the audience's intelligence, and technical execution that serves the story rather than overwhelming it. The films in this collection meet those standards. Some are visually stunning. Some are deliberately restrained. What they share is intention, where every creative choice feels purposeful rather than accidental or dictated by formula.
+    </p>
+    <p>
+      Genre diversity matters too because not every viewing experience needs to be the same. Thrillers that genuinely create tension are rare. Dramas that avoid manipulative emotional beats are even rarer. The collection balances accessible entertainment with films that demand more attention, because both have value depending on what you need from a movie on any given night. A tightly constructed mystery offers a different kind of satisfaction than an experimental art film, and both belong in a well-rounded viewing diet.
+    </p>
+    <p>
+      The writeups for each film are designed to help you decide quickly whether something is for you right now, not to pitch you on watching it regardless of your mood or preferences. Some movies here require subtitles. Some run longer than two hours. Some end without clear resolution. That information is provided upfront so you can make informed choices about what to start and when to save something for later.
+    </p>
+  </section>
+
+  <section class="contentSection" style="border-bottom:1px solid #1f1f1f">
+    <h2>How to Navigate This Collection</h2>
+    <p>
+      If you already know what kind of film you want tonight, use the genre filters to narrow the list. The tags cover both traditional genres like Crime, Thriller, and Drama, as well as stylistic descriptors like Slow-burn, Psychological, and Neo-noir. These combinations help you find films that match not just subject matter but also pacing and tone, which often matter more than plot when choosing what to watch.
+    </p>
+    <p>
+      For viewers new to cinema from specific regions, start with films that have clear genre hooks. Parasite works as both a thriller and a social commentary. Burning functions as a mystery even as it explores class and obsession. The Handmaiden delivers on its premise as a stylish thriller while also being about power and desire. These entry points make the transition into less familiar storytelling styles easier because you have genre expectations to anchor the experience.
+    </p>
+    <p>
+      Every film here includes the director's name and country of origin not as trivia but as useful context. Certain directors have recognizable styles and thematic preoccupations that persist across their work. If you connect with one film, exploring that director's other work often pays off. Similarly, understanding which country's film industry produced something can help you find similar work, as national cinemas often share certain aesthetic and narrative tendencies even across different directors.
+    </p>
+    <p>
+      The collection will grow over time as new films earn their place and older works get rediscovered. What won't change is the selection criteria: craft, storytelling, and whether the film genuinely delivers on what it promises. No film is here because it is supposed to be important or because it fits a diversity checklist. Everything included has been watched, evaluated, and recommended because it works as cinema first and foremost.
+    </p>
   </section>
 
   <div class="controls" style="margin-top:14px;">
@@ -461,7 +492,6 @@
 <div class="grid" id="grid"></div>
 <div class="empty" id="empty">No matches. Try removing filters or changing the search.</div>
 
-<!-- MODAL -->
 <div class="modal" id="modal" aria-hidden="true">
   <div class="sheet" role="dialog" aria-modal="true">
     <div class="sheetTop">
@@ -481,9 +511,6 @@
 </div>
 
 <script>
-  // =========================
-  // MOVIES DATA (EDIT HERE)
-  // =========================
   const MOVIES = [
     {
       id:"burning-2018",
@@ -694,9 +721,6 @@
     }
   ];
 
-  // =========================
-  // APP (DO NOT EDIT BELOW)
-  // =========================
   const $ = (id) => document.getElementById(id);
 
   const grid = $("grid");
