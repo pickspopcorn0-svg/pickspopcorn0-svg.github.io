@@ -1,17 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>K-Drama — Popcorn Picks</title>
-<meta name="description" content="Curated K-drama collection spanning thrillers, romance, historical, crime, fantasy, and slice of life. Find your next Korean drama." />
+<meta name="description" content="Curated K-drama collection spanning thrillers, romance, historical, crime, fantasy, and slice of life. Discover Korean drama worth your time." />
 
-<!-- ✅ AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
-        crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800" crossorigin="anonymous"></script>
 
-<!-- ✅ GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -67,17 +66,33 @@
   .wrap{padding:18px 18px 8px}
   .intro{max-width:980px}
   .intro h1{
-    font-size:18px;
-    font-weight:700;
-    letter-spacing:.2px;
-    line-height:1.2;
+    font-size:28px;
+    font-weight:800;
+    letter-spacing:-.02em;
+    line-height:1.15;
+    margin-bottom:16px;
   }
   .intro p{
-    margin-top:10px;
-    color:#cfcfcf;
-    font-size:14px;
+    margin-top:0;
+    margin-bottom:16px;
+    color:#c8c8c8;
+    font-size:15px;
     line-height:1.85;
     max-width:72ch;
+  }
+
+  .contentSection{
+    max-width:980px;
+    padding:24px 0;
+    border-top:1px solid #1f1f1f;
+  }
+  .contentSection h2{
+    font-size:22px;font-weight:750;letter-spacing:-.01em;
+    margin-bottom:14px;color:#fff;
+  }
+  .contentSection p{
+    color:#c8c8c8;font-size:15px;line-height:1.85;
+    max-width:72ch;margin-bottom:14px;
   }
 
   /* EDITORIAL CARDS (same as Movies) */
@@ -179,7 +194,7 @@
 
   /* GRID (same card style as Movies) */
   .grid{
-    padding:16px 18px 26px;
+    padding:16px 0 26px;
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
     gap:18px;
@@ -225,7 +240,7 @@
     overflow:hidden;
   }
 
-  .empty{padding:22px 18px 30px;color:#aaa;display:none}
+  .empty{padding:22px 0 30px;color:#aaa;display:none}
 
   /* MODAL (same as Movies) */
   .modal{
@@ -316,10 +331,8 @@
     color:#d8d8d8;
   }
 
-  /* IMPORTANT: match Movies behavior (no touch-action:none) */
   body.modalOpen{overflow:hidden}
 
-  /* Responsive (match Movies) */
   @media(max-width:900px){
     .sheetBody{grid-template-columns:1fr}
     .bigPoster{height:420px}
@@ -328,18 +341,19 @@
   @media(max-width:480px){
     .top{padding:12px 14px}
     .navBtn{font-size:12px;padding:7px 10px}
-    .intro h1{font-size:17px}
+    .intro h1{font-size:24px}
+    .contentSection h2{font-size:20px}
     .ed-card{width:140px}
     .ed-thumb-bg{height:86px}
   }
 
-  /* Disable hover on touch devices (fix sticky hover on iOS) */
   @media (hover: none) and (pointer: coarse){
     .navBtn:hover{border-color:#222;color:#ddd}
     .ed-card:hover{border-color:#1e1e1e}
     .closeBtn:hover{border-color:#222}
   }
 </style>
+
 </head>
 <body>
 
@@ -354,45 +368,85 @@
 
 <div class="wrap">
   <section class="intro">
-    <h1>K-Drama</h1>
+    <h1>Korean Drama Worth Watching</h1>
     <p>
-      Korean drama has spent the last decade proving it belongs in the same conversation as the world's best television.
-      This collection covers the full range: tight crime thrillers where every clue matters, historical epics that build
-      political worlds with real weight, romance stories that earn their emotion slowly, slice-of-life dramas about ordinary
-      lives told with extraordinary care, and fantasy series where the magic actually serves the story.
+      Korean drama has spent the last decade proving it belongs in the same conversation as the world's best television. This collection covers the full range: tight crime thrillers where every clue matters, historical epics that build political worlds with real weight, romance stories that earn their emotion slowly, slice-of-life dramas about ordinary lives told with extraordinary care, and fantasy series where the magic actually serves the story.
+    </p>
+    <p>
+      What separates strong Korean drama from the mediocre stuff is craft. The best shows understand pacing in ways that Western television often forgets, they know when to rush and when to sit with a moment. They build characters through small details rather than exposition dumps. They treat silence as a storytelling tool instead of dead air that needs to be filled. The production values have caught up to anything coming out of the US or UK, but the writing often feels more willing to take risks with structure, tone, and audience expectations.
+    </p>
+    <p>
+      The range is also wider than people expect. Historical dramas can be political thrillers as much as period pieces. Romance doesn't always mean lightness, some of the most emotionally brutal stories in this collection are love stories. Crime procedurals blend genre expectations with character studies. Even the fantasy series tend to use their supernatural elements to explore themes rather than just spectacle. This isn't a genre that stays in one lane, and that's exactly what makes it worth exploring beyond the handful of titles that break through to international audiences.
     </p>
 
-    <!-- Editorials -->
-    <div class="editorials">
-      <div class="ed-label">From the blog</div>
-      <div class="ed-row">
-        <a class="ed-card" href="editorial-historical-kdramas-for-skeptics.html">
-          <div class="ed-thumb-bg" style="background-image:url('assets/posters/kdrama/mr-sunshine.jpeg')"></div>
-          <div class="ed-body">
-            <div class="ed-tag">Historical</div>
-            <div class="ed-title">Historical K-dramas for people who think they won't like them</div>
-          </div>
-        </a>
-
-        <a class="ed-card" href="undertheradar-kdrama.html">
-          <div class="ed-thumb-bg" style="background-image:url('assets/posters/kdrama/insider.jpg.JPG')"></div>
-          <div class="ed-body">
-            <div class="ed-tag">Hidden Picks</div>
-            <div class="ed-title">Under the radar K-dramas worth finding</div>
-          </div>
-        </a>
-
-        <a class="ed-card" href="editorial-korean-dating-shows.html">
-          <div class="ed-thumb-bg" style="background-image:url('assets/posters/kdrama/love-affairs-in-the-afternoon.jpg.JPG')"></div>
-          <div class="ed-body">
-            <div class="ed-tag">Romance</div>
-            <div class="ed-title">Korean dating shows and what makes them work</div>
-          </div>
-        </a>
+```
+<div class="editorials">
+  <div class="ed-label">From the blog</div>
+  <div class="ed-row">
+    <a class="ed-card" href="editorial-historical-kdramas-for-skeptics.html">
+      <div class="ed-thumb-bg" style="background-image:url('assets/posters/kdrama/mr-sunshine.jpeg')"></div>
+      <div class="ed-body">
+        <div class="ed-tag">Historical</div>
+        <div class="ed-title">Historical K-dramas for people who think they won't like them</div>
       </div>
-    </div>
+    </a>
 
-    <hr class="divider" />
+    <a class="ed-card" href="undertheradar-kdrama.html">
+      <div class="ed-thumb-bg" style="background-image:url('assets/posters/kdrama/insider.jpg.JPG')"></div>
+      <div class="ed-body">
+        <div class="ed-tag">Hidden Picks</div>
+        <div class="ed-title">Under the radar K-dramas worth finding</div>
+      </div>
+    </a>
+
+    <a class="ed-card" href="editorial-korean-dating-shows.html">
+      <div class="ed-thumb-bg" style="background-image:url('assets/posters/kdrama/love-affairs-in-the-afternoon.jpg.JPG')"></div>
+      <div class="ed-body">
+        <div class="ed-tag">Romance</div>
+        <div class="ed-title">Korean dating shows and what makes them work</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<hr class="divider" />
+```
+
+  </section>
+
+  <section class="contentSection">
+    <h2>Why Watch K-Drama?</h2>
+    <p>
+      Korean drama has developed its own grammar for storytelling that feels distinct from Western television. Episode counts are usually fixed at 12, 16, or 20 episodes, which means writers know exactly how much time they have and can structure arcs accordingly. This eliminates the bloat that comes from shows getting renewed mid-season or stretched beyond their natural endpoint. When a story is designed for 16 episodes, it uses all 16 without filler and doesn't overstay its welcome.
+    </p>
+    <p>
+      The production model also differs in ways that affect quality. Korean dramas are often written and filmed close to their air dates, which means writers can respond to how stories are landing with audiences. This creates tighter, more focused storytelling because there's less room for error. If something isn't working, adjustments happen quickly. The downside is production can be grueling, but the upside is that finished episodes tend to feel more intentional than shows filmed months in advance with no feedback loop.
+    </p>
+    <p>
+      Culturally, Korean drama operates in a space where melodrama is not a dirty word. Emotions are allowed to be big without the story winking at the audience or undercutting itself with irony. This can feel foreign to viewers used to Western television's constant need to soften sincerity with humor, but it also allows for moments of genuine emotional weight that land harder because they're played straight. When a character breaks down or makes a declaration, the show commits to it fully rather than hedging.
+    </p>
+  </section>
+
+  <section class="contentSection" style="border-bottom:1px solid #1f1f1f">
+    <h2>Getting Started with K-Drama</h2>
+    <p>
+      If you're new to Korean drama, starting with something that matches your existing taste in television will make the transition easier. The subtitle barrier is real for the first episode or two, but your brain adjusts faster than you expect. By the third or fourth episode, you stop noticing them consciously and start absorbing the story naturally.
+    </p>
+    <p>
+      <strong>For thriller and crime fans:</strong> Flower of Evil and Insider both deliver tight plotting and genuine suspense without sacrificing character development. Flower of Evil builds a marriage thriller where the tension comes from secrets unraveling, while Insider throws you into an undercover operation inside a prison where every alliance is transactional. Both treat their premises seriously and follow through on consequences.
+    </p>
+    <p>
+      <strong>For historical and political drama enthusiasts:</strong> Six Flying Dragons and Mr. Sunshine are the high-water marks. Six Flying Dragons is a 50-episode epic about nation-building that earns its length through political intrigue and character depth. Mr. Sunshine is shorter and more focused, blending historical setting with romance and espionage as Korea faces the end of the Joseon era. Both are visually stunning and narratively complex.
+    </p>
+    <p>
+      <strong>For romance with weight:</strong> My Liberation Notes and A Piece of Your Mind take quieter approaches to connection. My Liberation Notes follows three siblings stuck in routines until a stranger shifts their perspective on what's possible. A Piece of Your Mind is a healing romance about two people learning to move past grief through small, careful moments. Both avoid melodrama in favor of subtle emotional shifts.
+    </p>
+    <p>
+      <strong>For horror and supernatural:</strong> Kingdom and Priest both understand that atmosphere matters as much as scares. Kingdom uses a zombie plague outbreak as the backdrop for political maneuvering at the end of the Joseon dynasty. Priest blends exorcism with medical drama, questioning where trauma ends and possession begins. Both are genuinely unsettling without relying on jump scares.
+    </p>
+    <p>
+      <strong>For slice-of-life:</strong> Su Ji & U Ri is a long-form family drama that moves through daily conflicts with patience and care. It's 120 episodes of people trying to repair relationships damaged by pride and misunderstanding, letting growth happen slowly the way it does in real life. It's not for everyone, but if you want something grounded and emotionally honest, this is it.
+    </p>
   </section>
 
   <div class="controls">
@@ -408,7 +462,6 @@
 <div class="grid" id="grid"></div>
 <div class="empty" id="empty">No matches.</div>
 
-<!-- MODAL -->
 <div class="modal" id="modal" aria-hidden="true">
   <div class="sheet" role="dialog" aria-modal="true">
     <div class="sheetTop">
@@ -429,38 +482,38 @@
 
 <script>
 const KDRAMA=[
-  {id:"insider",title:"Insider",year:"2022",meta:"Crime • Thriller",episodes:"12 episodes",poster:"assets/posters/kdrama/insider.jpg.JPG",synopsis:"A judicial trainee is pulled into an undercover gambling sting—and it goes wrong fast. Trapped inside prison with no protection and too many people wanting favors, he's forced to play a dangerous double game where every alliance costs something."},
-  {id:"six-flying-dragons",title:"Six Flying Dragons",year:"2015",meta:"Historical • Political • Action",episodes:"50 episodes",poster:"assets/posters/kdrama/six-flying-dragons.jpg.jpeg",synopsis:"As an old dynasty collapses, six key figures collide in the fight to build a new world. Ideals turn into strategy, strategy turns into blood, and the biggest question becomes: what do you have to sacrifice to create a nation—and who do you become after?"},
+  {id:"insider",title:"Insider",year:"2022",meta:"Crime • Thriller",episodes:"12 episodes",poster:"assets/posters/kdrama/insider.jpg.JPG",synopsis:"A judicial trainee is pulled into an undercover gambling sting and it goes wrong fast. Trapped inside prison with no protection and too many people wanting favors, he's forced to play a dangerous double game where every alliance costs something."},
+  {id:"six-flying-dragons",title:"Six Flying Dragons",year:"2015",meta:"Historical • Political • Action",episodes:"50 episodes",poster:"assets/posters/kdrama/six-flying-dragons.jpg.jpeg",synopsis:"As an old dynasty collapses, six key figures collide in the fight to build a new world. Ideals turn into strategy, strategy turns into blood, and the biggest question becomes what you have to sacrifice to create a nation and who you become after."},
   {id:"song-of-the-bandits",title:"Song of the Bandits",year:"2023",meta:"Period • Action • Western",episodes:"9 episodes",poster:"assets/posters/kdrama/song-of-the-bandits.jpeg",synopsis:"In the lawless borderlands of the 1920s, refugees and outlaws are hunted from every side. A man carrying guilt gathers a crew to protect the powerless, turning dusty towns into battlegrounds where survival is the only law."},
-  {id:"mr-sunshine",title:"Mr. Sunshine",year:"2018",meta:"Historical • Romance • Melodrama",episodes:"24 episodes",poster:"assets/posters/kdrama/mr-sunshine.jpeg",synopsis:"A boy who escaped Korea returns years later as a U.S. officer—only to be pulled into a country on the edge of collapse. He meets a noblewoman living a secret life as a resistance sniper, and their slow-burn connection grows while history closes in."},
-  {id:"my-dearest",title:"My Dearest",year:"2023",meta:"Historical • Romance • War",episodes:"20 episodes",poster:"assets/posters/kdrama/my-dearest.jpeg",synopsis:"A flirtatious stranger and a proud young woman meet in a world that still feels safe—until invasion turns everything into survival. Their romance is built on separation, harsh choices, and the way war forces people to become strangers to themselves."},
-  {id:"bossam-steal-the-fate",title:"Bossam: Steal the Fate",year:"2021",meta:"Historical • Romance • Drama",episodes:"20 episodes",poster:"assets/posters/kdrama/bossam-steal-the-fate.jpeg",synopsis:"A street-smart man makes money performing kidnappings for remarriage—until he grabs the wrong target: a princess who should never be touched. The mistake turns into a chase through politics, hidden identities, and an unexpected found-family bond."},
-  {id:"gyeongseong-creature",title:"Gyeongseong Creature",year:"2023",meta:"Period • Thriller • Horror",episodes:"10 episodes",poster:"assets/posters/kdrama/gyeongseong-creature.jpeg",synopsis:"In 1945 Seoul, a wealthy pawnshop owner and a relentless tracker follow a disappearance into a military hospital that isn't treating anyone. What they uncover isn't just a monster—it's the human cruelty that created it."},
-  {id:"alchemy-of-souls",title:"Alchemy of Souls",year:"2022",meta:"Fantasy • Romance • Action",episodes:"30 episodes",poster:"assets/posters/kdrama/alchemy-of-souls.jpeg",synopsis:"A legendary assassin's soul ends up trapped in the body of a weak servant girl. She strikes a secret deal with a disgraced young master: she'll train him to become powerful—if he keeps her identity hidden in a world where soul-swapping is a death sentence."},
+  {id:"mr-sunshine",title:"Mr. Sunshine",year:"2018",meta:"Historical • Romance • Melodrama",episodes:"24 episodes",poster:"assets/posters/kdrama/mr-sunshine.jpeg",synopsis:"A boy who escaped Korea returns years later as a U.S. officer, only to be pulled into a country on the edge of collapse. He meets a noblewoman living a secret life as a resistance sniper, and their slow-burn connection grows while history closes in."},
+  {id:"my-dearest",title:"My Dearest",year:"2023",meta:"Historical • Romance • War",episodes:"20 episodes",poster:"assets/posters/kdrama/my-dearest.jpeg",synopsis:"A flirtatious stranger and a proud young woman meet in a world that still feels safe until invasion turns everything into survival. Their romance is built on separation, harsh choices, and the way war forces people to become strangers to themselves."},
+  {id:"bossam-steal-the-fate",title:"Bossam: Steal the Fate",year:"2021",meta:"Historical • Romance • Drama",episodes:"20 episodes",poster:"assets/posters/kdrama/bossam-steal-the-fate.jpeg",synopsis:"A street-smart man makes money performing kidnappings for remarriage until he grabs the wrong target: a princess who should never be touched. The mistake turns into a chase through politics, hidden identities, and an unexpected found-family bond."},
+  {id:"gyeongseong-creature",title:"Gyeongseong Creature",year:"2023",meta:"Period • Thriller • Horror",episodes:"10 episodes",poster:"assets/posters/kdrama/gyeongseong-creature.jpeg",synopsis:"In 1945 Seoul, a wealthy pawnshop owner and a relentless tracker follow a disappearance into a military hospital that isn't treating anyone. What they uncover isn't just a monster, it's the human cruelty that created it."},
+  {id:"alchemy-of-souls",title:"Alchemy of Souls",year:"2022",meta:"Fantasy • Romance • Action",episodes:"30 episodes",poster:"assets/posters/kdrama/alchemy-of-souls.jpeg",synopsis:"A legendary assassin's soul ends up trapped in the body of a weak servant girl. She strikes a secret deal with a disgraced young master: she'll train him to become powerful if he keeps her identity hidden in a world where soul-swapping is a death sentence."},
   {id:"the-rebel-thief",title:"The Rebel: Thief Who Stole the People",year:"2017",meta:"Historical • Action • Drama",episodes:"30 episodes",poster:"assets/posters/kdrama/the-rebel-thief-who-stole-the-people.jpeg",synopsis:"Born to a slave family, a boy with unusual strength grows up watching the powerful treat ordinary lives as disposable. When a cruel king tightens his grip, he's pushed from survival into rebellion."},
-  {id:"kingdom",title:"Kingdom",year:"2019",meta:"Historical • Horror • Political",episodes:"12 episodes",poster:"assets/posters/kdrama/kingdom.jpeg",synopsis:"A crown prince investigates rumors around a sealed palace—and finds a plague spreading faster than the court can lie about it. With each nightfall, the outbreak grows, and the real fight becomes survival versus a political machine."},
-  {id:"tell-me-that-you-love-me",title:"Tell Me That You Love Me",year:"2023",meta:"Romance • Slice of Life",episodes:"16 episodes",poster:"assets/posters/kdrama/tell-me-that-you-love-me.jpg.jpeg",synopsis:"A quiet painter who communicates differently and a woman exhausted by her own loneliness begin to understand each other in small, careful steps. It's not a loud romance—more like watching two people slowly learn a shared language for comfort and honesty."},
+  {id:"kingdom",title:"Kingdom",year:"2019",meta:"Historical • Horror • Political",episodes:"12 episodes",poster:"assets/posters/kdrama/kingdom.jpeg",synopsis:"A crown prince investigates rumors around a sealed palace and finds a plague spreading faster than the court can lie about it. With each nightfall, the outbreak grows, and the real fight becomes survival versus a political machine."},
+  {id:"tell-me-that-you-love-me",title:"Tell Me That You Love Me",year:"2023",meta:"Romance • Slice of Life",episodes:"16 episodes",poster:"assets/posters/kdrama/tell-me-that-you-love-me.jpg.jpeg",synopsis:"A quiet painter who communicates differently and a woman exhausted by her own loneliness begin to understand each other in small, careful steps. It's not a loud romance, more like watching two people slowly learn a shared language for comfort and honesty."},
   {id:"priest",title:"Priest",year:"2018",meta:"Horror • Supernatural",episodes:"16 episodes",poster:"assets/posters/kdrama/priest.jpg.JPG",synopsis:"A priest trained in exorcism and a doctor who trusts only science clash over patients showing violent, impossible symptoms. As the cases stack up, the line between trauma and possession blurs."},
   {id:"tempest",title:"Tempest",year:"2022",meta:"Political • Action • Thriller",poster:"assets/posters/kdrama/Tempest.jpg.jpeg",synopsis:"A sudden international incident pulls a diplomat into a hidden war of intelligence agencies and staged truths. Teaming with an agent who doesn't share his rules, he chases a conspiracy where every answer creates a bigger question."},
-  {id:"su-ji-and-u-ri",title:"Su Ji & U Ri",year:"2024",meta:"Family • Slice of Life",episodes:"120 episodes",poster:"assets/posters/kdrama/su-ji-and-u-ri.jpg.jpeg",synopsis:"A long-form family drama about people trying to repair what pride and misunderstandings broke. It moves through daily-life conflicts—parents, careers, love, and regret—letting relationships change slowly, the way they do in real life."},
-  {id:"flower-of-evil",title:"Flower of Evil",year:"2020",meta:"Thriller • Mystery",episodes:"16 episodes",poster:"assets/posters/kdrama/flower-of-evil.jpg.JPG",synopsis:"A detective's latest case begins pointing toward the one person she trusts most—her husband. As she investigates, their perfect marriage starts to feel like a carefully built cover."},
-  {id:"the-veil",title:"The Veil",year:"2021",meta:"Spy • Action • Thriller",episodes:"12 episodes",poster:"assets/posters/kdrama/the-veil.jpg.JPG",synopsis:"A top intelligence agent returns after a year missing, his memory fractured and his team destroyed. He goes hunting for the traitor from inside his own agency—where every colleague is a suspect."},
-  {id:"my-liberation-notes",title:"My Liberation Notes",year:"2022",meta:"Slice of Life • Drama",episodes:"16 episodes",poster:"assets/posters/kdrama/my-liberation-notes.jpg.JPG",synopsis:"Three siblings drag themselves through routine, commuting, and quiet disappointment—until a mysterious outsider enters their orbit. Nothing 'big' happens, but everything shifts."},
-  {id:"hymn-of-death",title:"Hymn of Death",year:"2018",meta:"Period • Romance • Tragedy",episodes:"3 episodes",poster:"assets/posters/kdrama/hymn-of-death.jpg.JPG",synopsis:"In 1920s Korea under Japanese rule, a groundbreaking soprano and a playwright fall into a love that society refuses to recognize. Short and haunting—art, ambition, and freedom colliding with an impossible future."},
-  {id:"undercover",title:"Undercover",year:"2021",meta:"Political • Thriller",episodes:"16 episodes",poster:"assets/posters/kdrama/undercover.jpg.JPG",synopsis:"A human rights lawyer rises into the public spotlight—only for her husband's buried identity to become a threat to their entire family. The question becomes whether love can survive when the truth turns into a weapon."},
+  {id:"su-ji-and-u-ri",title:"Su Ji & U Ri",year:"2024",meta:"Family • Slice of Life",episodes:"120 episodes",poster:"assets/posters/kdrama/su-ji-and-u-ri.jpg.jpeg",synopsis:"A long-form family drama about people trying to repair what pride and misunderstandings broke. It moves through daily-life conflicts, parents, careers, love, and regret, letting relationships change slowly, the way they do in real life."},
+  {id:"flower-of-evil",title:"Flower of Evil",year:"2020",meta:"Thriller • Mystery",episodes:"16 episodes",poster:"assets/posters/kdrama/flower-of-evil.jpg.JPG",synopsis:"A detective's latest case begins pointing toward the one person she trusts most, her husband. As she investigates, their perfect marriage starts to feel like a carefully built cover."},
+  {id:"the-veil",title:"The Veil",year:"2021",meta:"Spy • Action • Thriller",episodes:"12 episodes",poster:"assets/posters/kdrama/the-veil.jpg.JPG",synopsis:"A top intelligence agent returns after a year missing, his memory fractured and his team destroyed. He goes hunting for the traitor from inside his own agency where every colleague is a suspect."},
+  {id:"my-liberation-notes",title:"My Liberation Notes",year:"2022",meta:"Slice of Life • Drama",episodes:"16 episodes",poster:"assets/posters/kdrama/my-liberation-notes.jpg.JPG",synopsis:"Three siblings drag themselves through routine, commuting, and quiet disappointment until a mysterious outsider enters their orbit. Nothing big happens, but everything shifts."},
+  {id:"hymn-of-death",title:"Hymn of Death",year:"2018",meta:"Period • Romance • Tragedy",episodes:"3 episodes",poster:"assets/posters/kdrama/hymn-of-death.jpg.JPG",synopsis:"In 1920s Korea under Japanese rule, a groundbreaking soprano and a playwright fall into a love that society refuses to recognize. Short and haunting, art, ambition, and freedom colliding with an impossible future."},
+  {id:"undercover",title:"Undercover",year:"2021",meta:"Political • Thriller",episodes:"16 episodes",poster:"assets/posters/kdrama/undercover.jpg.JPG",synopsis:"A human rights lawyer rises into the public spotlight only for her husband's buried identity to become a threat to their entire family. The question becomes whether love can survive when the truth turns into a weapon."},
   {id:"the-k2",title:"The K2",year:"2016",meta:"Action • Thriller",episodes:"16 episodes",poster:"assets/posters/kdrama/the-k2.jpg.JPG",synopsis:"A fugitive ex-soldier becomes bodyguard to a powerful political family and gets trapped between ambition, secrets, and a sheltered woman used as a pawn."},
-  {id:"descendants-of-the-sun",title:"Descendants of the Sun",year:"2016",meta:"Romance • Action",episodes:"16 episodes",poster:"assets/posters/kdrama/descendants-of-the-sun.jpg.JPG",synopsis:"A soldier and a doctor keep crossing paths in a disaster zone where duty never pauses for feelings. The romance builds under pressure—because in their world, tomorrow is never guaranteed."},
-  {id:"tell-me-what-you-saw",title:"Tell Me What You Saw",year:"2020",meta:"Crime • Thriller",episodes:"16 episodes",poster:"assets/posters/kdrama/tell-me-what-you-saw.jpg.JPG",synopsis:"A profiler who lost everything partners with a rookie detective with near-photographic memory. Their cases lead back to a killer who should be gone—and every clue suggests someone is manipulating the investigation."},
-  {id:"love-affairs-in-the-afternoon",title:"Love Affairs in the Afternoon",year:"2019",meta:"Romance • Drama",episodes:"16 episodes",poster:"assets/posters/kdrama/love-affairs-in-the-afternoon.jpg.JPG",synopsis:"A woman trapped in a quiet marriage drifts into a world where people survive through secret relationships. It's about emotional hunger—how loneliness makes boundaries feel negotiable."},
-  {id:"mouse",title:"Mouse",year:"2021",meta:"Psychological • Thriller",episodes:"20 episodes",poster:"assets/posters/kdrama/mouse.jpg.JPG",synopsis:"A kind rookie cop is thrown into a brutal serial case that keeps changing shape. The investigation pulls him into questions about identity, fear, and what makes someone 'good' or 'monstrous.'"},
-  {id:"our-movie",title:"Our Movie",year:"2025",meta:"Drama • Romance",poster:"assets/posters/kdrama/our-movie.jpg.JPG",synopsis:"Two people meet at a point where ambition and timing don't cooperate. What starts as attraction becomes a test of choices—what you chase, what you postpone, and what you risk losing when life refuses to slow down."},
+  {id:"descendants-of-the-sun",title:"Descendants of the Sun",year:"2016",meta:"Romance • Action",episodes:"16 episodes",poster:"assets/posters/kdrama/descendants-of-the-sun.jpg.JPG",synopsis:"A soldier and a doctor keep crossing paths in a disaster zone where duty never pauses for feelings. The romance builds under pressure because in their world, tomorrow is never guaranteed."},
+  {id:"tell-me-what-you-saw",title:"Tell Me What You Saw",year:"2020",meta:"Crime • Thriller",episodes:"16 episodes",poster:"assets/posters/kdrama/tell-me-what-you-saw.jpg.JPG",synopsis:"A profiler who lost everything partners with a rookie detective with near-photographic memory. Their cases lead back to a killer who should be gone and every clue suggests someone is manipulating the investigation."},
+  {id:"love-affairs-in-the-afternoon",title:"Love Affairs in the Afternoon",year:"2019",meta:"Romance • Drama",episodes:"16 episodes",poster:"assets/posters/kdrama/love-affairs-in-the-afternoon.jpg.JPG",synopsis:"A woman trapped in a quiet marriage drifts into a world where people survive through secret relationships. It's about emotional hunger, how loneliness makes boundaries feel negotiable."},
+  {id:"mouse",title:"Mouse",year:"2021",meta:"Psychological • Thriller",episodes:"20 episodes",poster:"assets/posters/kdrama/mouse.jpg.JPG",synopsis:"A kind rookie cop is thrown into a brutal serial case that keeps changing shape. The investigation pulls him into questions about identity, fear, and what makes someone good or monstrous."},
+  {id:"our-movie",title:"Our Movie",year:"2025",meta:"Drama • Romance",poster:"assets/posters/kdrama/our-movie.jpg.JPG",synopsis:"Two people meet at a point where ambition and timing don't cooperate. What starts as attraction becomes a test of choices, what you chase, what you postpone, and what you risk losing when life refuses to slow down."},
   {id:"dr-prisoner",title:"Doctor Prisoner",year:"2019",meta:"Revenge • Thriller",episodes:"32 episodes",poster:"assets/posters/kdrama/doctor-prisoner.jpg.JPG",synopsis:"A brilliant doctor is ruined by powerful people and resurfaces inside the prison system, where medical treatment becomes leverage. He fights with diagnoses, deals, and a plan to make the elites beg for help."},
-  {id:"the-devil-judge",title:"The Devil Judge",year:"2021",meta:"Dystopian • Thriller",episodes:"16 episodes",poster:"assets/posters/kdrama/the-devil-judge.jpg.JPG",synopsis:"In a near-future Korea where trials are broadcast like entertainment, a celebrity judge becomes the face of 'public justice.' But his real intentions are unclear—and the line between reform and revenge starts to vanish."},
-  {id:"queen-of-tears",title:"Queen of Tears",year:"2024",meta:"Romance • Drama",episodes:"16 episodes",poster:"assets/posters/kdrama/queen-of-tears.jpg.JPG",synopsis:"A couple who look perfect on paper are quietly collapsing behind closed doors. A sudden crisis forces them back together—old resentment, old tenderness, and the question of whether love can return after neglect."},
+  {id:"the-devil-judge",title:"The Devil Judge",year:"2021",meta:"Dystopian • Thriller",episodes:"16 episodes",poster:"assets/posters/kdrama/the-devil-judge.jpg.JPG",synopsis:"In a near-future Korea where trials are broadcast like entertainment, a celebrity judge becomes the face of public justice. But his real intentions are unclear and the line between reform and revenge starts to vanish."},
+  {id:"queen-of-tears",title:"Queen of Tears",year:"2024",meta:"Romance • Drama",episodes:"16 episodes",poster:"assets/posters/kdrama/queen-of-tears.jpg.JPG",synopsis:"A couple who look perfect on paper are quietly collapsing behind closed doors. A sudden crisis forces them back together, old resentment, old tenderness, and the question of whether love can return after neglect."},
   {id:"a-piece-of-your-mind",title:"A Piece of Your Mind",year:"2020",meta:"Healing • Romance",episodes:"12 episodes",poster:"assets/posters/kdrama/a-piece-of-your-mind.jpg.JPG",synopsis:"A programmer stuck in grief meets a sound engineer who has learned to live with her own quiet losses. Their connection is gentle, slow, and built on small moments that begin to loosen the hold the past has on them."},
   {id:"dr-romantic",title:"Dr. Romantic",year:"2016",meta:"Medical • Drama",episodes:"21 episodes",poster:"assets/posters/kdrama/dr-romantic.jpg.JPG",synopsis:"Two ambitious young doctors are thrown into a small hospital under a legendary mentor who refuses to compromise on ethics. Every case becomes a lesson in pressure, responsibility, and what it means to treat patients like people."},
-  {id:"she-would-never-know",title:"She Would Never Know",year:"2021",meta:"Workplace • Romance",episodes:"16 episodes",poster:"assets/posters/kdrama/she-would-never-know.jpg.JPG",synopsis:"At a cosmetics company, a senior marketer's carefully managed life is disrupted by a younger colleague who refuses to stay 'just a junior.' The romance grows through small workplace moments—confessions, pride, and the risk of choosing honesty."},
-  {id:"dr-john",title:"Doctor John",year:"2019",meta:"Medical • Drama",episodes:"32 episodes",poster:"assets/posters/kdrama/doctor-john.jpg.JPG",synopsis:"A genius pain specialist takes on cases other hospitals avoid. As he digs into the truth behind suffering, the drama keeps circling ethical lines—how far doctors should go, and what it costs to be right."}
+  {id:"she-would-never-know",title:"She Would Never Know",year:"2021",meta:"Workplace • Romance",episodes:"16 episodes",poster:"assets/posters/kdrama/she-would-never-know.jpg.JPG",synopsis:"At a cosmetics company, a senior marketer's carefully managed life is disrupted by a younger colleague who refuses to stay just a junior. The romance grows through small workplace moments, confessions, pride, and the risk of choosing honesty."},
+  {id:"dr-john",title:"Doctor John",year:"2019",meta:"Medical • Drama",episodes:"32 episodes",poster:"assets/posters/kdrama/doctor-john.jpg.JPG",synopsis:"A genius pain specialist takes on cases other hospitals avoid. As he digs into the truth behind suffering, the drama keeps circling ethical lines, how far doctors should go, and what it costs to be right."}
 ];
 
 const $=(id)=>document.getElementById(id);
