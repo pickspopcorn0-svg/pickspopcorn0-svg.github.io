@@ -49,6 +49,25 @@ button,input{font:inherit}
 .intro h1{font-size:26px;font-weight:750;letter-spacing:-.02em;line-height:1.1;margin-bottom:12px}
 .intro p{color:#c8c8c8;font-size:15px;line-height:1.8;max-width:72ch}
 
+/* EDITORIAL CARDS */
+.editorials{margin-top:20px}
+.ed-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#555;margin-bottom:12px}
+.ed-row{display:flex;gap:12px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;scrollbar-width:none}
+.ed-row::-webkit-scrollbar{display:none}
+.ed-card{
+  flex:0 0 auto;width:160px;border-radius:12px;
+  border:1px solid #1e1e1e;background:#0f0f0f;overflow:hidden;
+  display:block;text-decoration:none;transition:border-color .15s;
+}
+.ed-card:hover{border-color:#2e2e2e}
+.ed-card:active{opacity:.8}
+.ed-thumb-bg{width:100%;height:100px;background:#111 no-repeat center/cover;display:block}
+.ed-body{padding:9px 10px 11px}
+.ed-tag{font-size:10px;color:#666;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.ed-title{font-size:12px;font-weight:600;color:#ccc;line-height:1.35}
+
+.divider{margin-top:18px;border:0;border-top:1px solid #1f1f1f}
+
 .wrap{padding:14px 18px 8px}
 .searchRow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .searchRow input{
@@ -75,7 +94,6 @@ button,input{font:inherit}
   display:flex;flex-direction:column;
 }
 
-/* POSTER — contain, no crop, full image always visible */
 .posterBox{
   width:100%;aspect-ratio:2/3;background:#111;
   display:flex;align-items:center;justify-content:center;overflow:hidden;
@@ -125,7 +143,6 @@ button,input{font:inherit}
   overscroll-behavior:contain;flex:1 1 auto;
 }
 
-/* Modal poster — full image, no crop */
 .bigPosterBox{
   width:100%;aspect-ratio:2/3;border-radius:14px;
   border:1px solid #222;background:#111;
@@ -145,6 +162,8 @@ body.modalOpen{overflow:hidden;touch-action:none}
   .sheetBody{grid-template-columns:1fr}
   .grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
   .intro h1{font-size:22px}
+  .ed-card{width:140px}
+  .ed-thumb-bg{height:86px}
 }
 @media(max-width:480px){
   .top{padding:11px 14px}
@@ -173,6 +192,40 @@ body.modalOpen{overflow:hidden;touch-action:none}
   <p>
     Korean drama has spent the last decade proving it belongs in the same conversation as the world's best television. This collection covers the full range: tight crime thrillers where every clue matters, historical epics that build political worlds with real weight, romance stories that earn their emotion slowly, slice-of-life dramas about ordinary lives told with extraordinary care, and fantasy series where the magic actually serves the story. Every show here was chosen because it does something specific well. Use the search to find by title or genre, or browse the full catalog.
   </p>
+
+  <!-- EDITORIAL CARDS -->
+  <div class="editorials">
+    <div class="ed-label">From the blog</div>
+    <div class="ed-row">
+
+      <a class="ed-card" href="editorial-historical-kdramas-for-skeptics.html">
+        <div class="ed-thumb-bg" style="background-image:url('assets/posters/kdrama/mr-sunshine.jpeg')"></div>
+        <div class="ed-body">
+          <div class="ed-tag">Historical</div>
+          <div class="ed-title">Historical K-dramas for people who think they won't like them</div>
+        </div>
+      </a>
+
+      <a class="ed-card" href="undertheradar-kdrama.html">
+        <div class="ed-thumb-bg" style="background-image:url('assets/posters/kdrama/insider.jpg.JPG')"></div>
+        <div class="ed-body">
+          <div class="ed-tag">Hidden Picks</div>
+          <div class="ed-title">Under the radar K-dramas worth finding</div>
+        </div>
+      </a>
+
+      <a class="ed-card" href="editorial-korean-dating-shows.html">
+        <div class="ed-thumb-bg" style="background-image:url('assets/posters/kdrama/love-affairs-in-the-afternoon.jpg.JPG')"></div>
+        <div class="ed-body">
+          <div class="ed-tag">Romance</div>
+          <div class="ed-title">Korean dating shows and what makes them work</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <hr class="divider" />
 </div>
 
 <div class="wrap">
