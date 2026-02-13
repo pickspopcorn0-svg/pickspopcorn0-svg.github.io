@@ -1,38 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Core pages -->
   <url><loc>https://popcornpicks.in/</loc></url>
   <url><loc>https://popcornpicks.in/index.html</loc></url>
+  <url><loc>https://popcornpicks.in/categories.html</loc></url>
+  <url><loc>https://popcornpicks.in/about.html</loc></url>
+  <url><loc>https://popcornpicks.in/contact.html</loc></url>
+  <url><loc>https://popcornpicks.in/privacy.html</loc></url>
+  <url><loc>https://popcornpicks.in/handpick.html</loc></url>
 
+  <!-- Category pages -->
   <url><loc>https://popcornpicks.in/movies.html</loc></url>
   <url><loc>https://popcornpicks.in/tv-shows.html</loc></url>
-  <url><loc>https://popcornpicks.in/editorials.html</loc></url>
-  <url><loc>https://popcornpicks.in/between-the-frames.html</loc></url>
-  <url><loc>https://popcornpicks.in/categories.html</loc></url>
-
   <url><loc>https://popcornpicks.in/kdrama.html</loc></url>
   <url><loc>https://popcornpicks.in/cdrama.html</loc></url>
   <url><loc>https://popcornpicks.in/anime.html</loc></url>
   <url><loc>https://popcornpicks.in/donghua.html</loc></url>
+  <url><loc>https://popcornpicks.in/french.html</loc></url>
+  <url><loc>https://popcornpicks.in/indian.html</loc></url>
 
-  <url><loc>https://popcornpicks.in/about.html</loc></url>
-  <url><loc>https://popcornpicks.in/contact.html</loc></url>
-  <url><loc>https://popcornpicks.in/privacy.html</loc></url>
+  <!-- Editorials hub -->
+  <url><loc>https://popcornpicks.in/editorials.html</loc></url>
 
-  <!-- Featured Editorials -->
+  <!-- Editorial articles -->
   <url><loc>https://popcornpicks.in/must-watch-espionage.html</loc></url>
   <url><loc>https://popcornpicks.in/mustwatch-period.html</loc></url>
-  <url><loc>https://popcornpicks.in/undertheradar-kdrama.html</loc></url>
-  <url><loc>https://popcornpicks.in/editorial-donghua.html</loc></url>
-  <url><loc>https://popcornpicks.in/international-films-that-won-the-oscar-the-last-decade.html</loc></url>
-  <url><loc>https://popcornpicks.in/editorial-korean-dating-shows.html</loc></url>
-  <url><loc>https://popcornpicks.in/indian-introduction.html</loc></url>
-  <url><loc>https://popcornpicks.in/recommended-crime-tv-shows.html</loc></url>
   <url><loc>https://popcornpicks.in/high-stakes-action-thrillers.html</loc></url>
+  <url><loc>https://popcornpicks.in/undertheradar-kdrama.html</loc></url>
+  <url><loc>https://popcornpicks.in/editorial-historical-kdramas-for-skeptics.html</loc></url>
+  <url><loc>https://popcornpicks.in/editorial-korean-dating-shows.html</loc></url>
+  <url><loc>https://popcornpicks.in/editorial-donghua.html</loc></url>
+  <url><loc>https://popcornpicks.in/editorial-modern-military-tv.html</loc></url>
+  <url><loc>https://popcornpicks.in/recommended-crime-tv-shows.html</loc></url>
+  <url><loc>https://popcornpicks.in/fantasy-tv-shows-we-recommend.html</loc></url>
+  <url><loc>https://popcornpicks.in/high-stakes-action-thrillers.html</loc></url>
+  <url><loc>https://popcornpicks.in/macgyver-style-tv.html</loc></url>
+  <url><loc>https://popcornpicks.in/international-films-that-won-the-oscar-the-last-decade.html</loc></url>
   <url><loc>https://popcornpicks.in/chinese-fantasy-dramas-guide.html</loc></url>
+  <url><loc>https://popcornpicks.in/our-favorite-chinese-romance-dramas.html</loc></url>
+  <url><loc>https://popcornpicks.in/between-the-frames-wuxia-xianxia-explained.html</loc></url>
+  <url><loc>https://popcornpicks.in/indian-introduction.html</loc></url>
+  <url><loc>https://popcornpicks.in/indian-cinema-at-full-throttle.html</loc></url>
+  <url><loc>https://popcornpicks.in/why-indian-cinema-is-so-misunderstood.html</loc></url>
+  <url><loc>https://popcornpicks.in/isekai-anime-worth-your-time.html</loc></url>
+  <url><loc>https://popcornpicks.in/editorial-sports-anime-we-recommend.html</loc></url>
 
-  <!-- Between The Frames -->
+  <!-- Between the Frames essays -->
+  <url><loc>https://popcornpicks.in/between-the-frames.html</loc></url>
   <url><loc>https://popcornpicks.in/are-we-killing-cinema-magic.html</loc></url>
   <url><loc>https://popcornpicks.in/the-quiet-hesitation-around-subtitled-films.html</loc></url>
+  <url><loc>https://popcornpicks.in/between-the-frames-i-can-watch-five-episodes.html</loc></url>
 
 </urlset>
