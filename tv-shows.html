@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>TV Shows — Popcorn Picks</title>
 
-<meta name="description" content="A curated TV shelf from Popcorn Picks. Espionage, crime, sci-fi, dark fantasy and more — browsable by genre and mood with full details on every show." />
+<meta name="description" content="Curated TV collection from Popcorn Picks. Espionage, crime, sci-fi, dark fantasy and more. Browse by genre and mood with full details on every show." />
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#0b0b0c">
 <link rel="preconnect" href="https://pagead2.googlesyndication.com">
@@ -15,6 +16,7 @@
         crossorigin="anonymous"></script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -55,8 +57,34 @@
   .wrap{padding:18px 18px 8px}
 
   .intro{max-width:980px}
-  .intro h1{font-size:18px;font-weight:700;letter-spacing:.2px;line-height:1.2}
-  .intro p{margin-top:10px;color:#cfcfcf;font-size:14px;line-height:1.85}
+  .intro h1{
+    font-size:28px;
+    font-weight:800;
+    letter-spacing:-.02em;
+    line-height:1.15;
+    margin-bottom:16px;
+  }
+  .intro p{
+    margin-top:0;
+    margin-bottom:16px;
+    color:#c8c8c8;
+    font-size:15px;
+    line-height:1.85;
+  }
+
+  .contentSection{
+    max-width:980px;
+    padding:24px 0;
+    border-top:1px solid #1f1f1f;
+  }
+  .contentSection h2{
+    font-size:22px;font-weight:750;letter-spacing:-.01em;
+    margin-bottom:14px;color:#fff;
+  }
+  .contentSection p{
+    color:#c8c8c8;font-size:15px;line-height:1.85;
+    max-width:72ch;margin-bottom:14px;
+  }
 
   .editorials{margin-top:18px}
   .ed-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#555;margin-bottom:12px}
@@ -94,7 +122,7 @@
   .chip.on{border-color:#444;background:#1b1b1b;color:#fff}
 
   .grid{
-    padding:16px 18px 26px;
+    padding:16px 0 26px;
     display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;
   }
   .card{
@@ -119,7 +147,7 @@
     font-size:12px;color:#cfcfcf;margin-top:8px;opacity:.9;
     display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
   }
-  .empty{padding:22px 18px 30px;color:#aaa;display:none}
+  .empty{padding:22px 0 30px;color:#aaa;display:none}
 
   .modal{
     position:fixed;inset:0;background:rgba(0,0,0,.72);
@@ -157,9 +185,11 @@
   body.modalOpen{overflow:hidden}
   @media(max-width:480px){
     .top{padding:12px 14px}.navBtn{font-size:12px;padding:7px 10px}
-    .intro h1{font-size:17px}.ed-card{width:140px}.ed-thumb-bg{height:86px}
+    .intro h1{font-size:24px}.contentSection h2{font-size:20px}
+    .ed-card{width:140px}.ed-thumb-bg{height:86px}
   }
 </style>
+
 </head>
 
 <body>
@@ -176,64 +206,84 @@
 <div class="wrap">
 
   <section class="intro" aria-label="About this TV collection">
-    <h1>TV shows actually worth starting.</h1>
+    <h1>TV Shows Worth Starting</h1>
 
-    <p>
-      This is a collection of shows I'd genuinely recommend, not a dump of everything streaming right now.
-      There is a heavy lean toward espionage, crime and thriller here because that category has produced
-      some of the best television writing in the last decade. Shows like Slow Horses, The Bureau, The Americans
-      and Mindhunter are not just entertainment. They are genuinely well constructed. But the list covers a
-      wider range too: dark fantasy, sci-fi, historical drama, procedurals that actually respect your intelligence,
-      and a few lighter action shows for when you want something that does not demand full attention.
-    </p>
+```
+<p>
+  This is a collection of shows I would genuinely recommend, not a dump of everything streaming right now. There is a heavy lean toward espionage, crime and thriller here because that category has produced some of the best television writing in the last decade. Shows like Slow Horses, The Bureau, The Americans and Mindhunter are not just entertainment, they are genuinely well constructed. The writing treats intelligence work, investigation, and moral compromise with the weight they deserve rather than turning everything into spectacle.
+</p>
 
-    <p>
-      A lot of the international stuff gets ignored because people assume subtitles are a barrier.
-      The Bureau is French and it is probably the best spy series ever made. Dark is German and it will
-      rearrange how you think about storytelling. Chernobyl is a British production about a Soviet disaster
-      and it might be the most tense five hours of television out there. Country of origin has nothing to
-      do with quality. The writing does.
-    </p>
+<p>
+  Television has changed significantly over the past 15 years. Streaming freed writers from traditional network constraints, which created space for shows that take risks with structure, tone, and subject matter. The best espionage series now treat intelligence work with the psychological weight it deserves. Crime procedurals have evolved beyond formula into character studies. Even genre shows like sci-fi and dark fantasy can deliver genuine emotional depth when the writing commits to consequences and avoids easy resolutions.
+</p>
 
-    <p>
-      Use the genre filters below if you already know what mood you are in. If you open a show and read
-      the description, it is written to help you decide quickly whether it is for you right now, not to
-      pitch you a streaming service. Some shows here run seven seasons. Some are one and done. That is
-      noted too so you know what you are committing to.
-    </p>
+<p>
+  The collection covers a wider range too: dark fantasy, historical drama, procedurals that actually respect your intelligence, and a few lighter action shows for when you want something that does not demand full attention. International productions get their proper space here because some of the strongest television in recent years has come from France, Germany, and the UK. The Bureau is probably the best spy series ever made. Dark will rearrange how you think about storytelling. Chernobyl is five hours of sustained tension about institutional failure and human cost.
+</p>
 
-    <div class="editorials">
-      <div class="ed-label">From the blog</div>
-      <div class="ed-row">
+<div class="editorials">
+  <div class="ed-label">From the blog</div>
+  <div class="ed-row">
 
-        <a class="ed-card" href="must-watch-espionage.html">
-          <div class="ed-thumb-bg" style="background-image:url('assets/posters/tv/the-bureau.jpg.JPG')"></div>
-          <div class="ed-body">
-            <div class="ed-tag">Espionage</div>
-            <div class="ed-title">Must watch espionage TV: where to start</div>
-          </div>
-        </a>
-
-        <a class="ed-card" href="high-stakes-action-thrillers.html">
-          <div class="ed-thumb-bg" style="background-image:url('assets/posters/tv/silo.jpg.JPG')"></div>
-          <div class="ed-body">
-            <div class="ed-tag">Action</div>
-            <div class="ed-title">High stakes action thrillers worth your time</div>
-          </div>
-        </a>
-
-        <a class="ed-card" href="mustwatch-period.html">
-          <div class="ed-thumb-bg" style="background-image:url('assets/posters/tv/peaky-blinders.jpg.JPG')"></div>
-          <div class="ed-body">
-            <div class="ed-tag">Period</div>
-            <div class="ed-title">Period dramas and historical shows done right</div>
-          </div>
-        </a>
-
+    <a class="ed-card" href="must-watch-espionage.html">
+      <div class="ed-thumb-bg" style="background-image:url('assets/posters/tv/the-bureau.jpg.JPG')"></div>
+      <div class="ed-body">
+        <div class="ed-tag">Espionage</div>
+        <div class="ed-title">Must watch espionage TV: where to start</div>
       </div>
-    </div>
+    </a>
 
-    <hr class="divider" />
+    <a class="ed-card" href="high-stakes-action-thrillers.html">
+      <div class="ed-thumb-bg" style="background-image:url('assets/posters/tv/silo.jpg.JPG')"></div>
+      <div class="ed-body">
+        <div class="ed-tag">Action</div>
+        <div class="ed-title">High stakes action thrillers worth your time</div>
+      </div>
+    </a>
+
+    <a class="ed-card" href="mustwatch-period.html">
+      <div class="ed-thumb-bg" style="background-image:url('assets/posters/tv/peaky-blinders.jpg.JPG')"></div>
+      <div class="ed-body">
+        <div class="ed-tag">Period</div>
+        <div class="ed-title">Period dramas and historical shows done right</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<hr class="divider" />
+```
+
+  </section>
+
+  <section class="contentSection">
+    <h2>Why These Shows Matter</h2>
+    <p>
+      This collection leans toward quality over quantity. Every show here meets a simple test: would I actually tell someone to start it? That means no half-hearted recommendations, no "it gets better after season two," and no shows kept alive by brand recognition alone. What you will find are series that respect your time, deliver on their premises, and understand that great television comes from strong writing, not just high budgets or recognizable intellectual property.
+    </p>
+    <p>
+      The espionage and crime shows dominate because those genres have become laboratories for sophisticated storytelling. Modern spy series treat intelligence work as long-term psychological damage rather than glamorous adventure. Crime dramas have moved beyond procedural formula to explore institutional failure, moral compromise, and the human cost of seeking truth or justice. When done well, these shows operate at a level of narrative complexity that rivals the best novels.
+    </p>
+    <p>
+      Genre shows like science fiction and dark fantasy have also matured significantly. Silo treats its dystopian premise with the seriousness of a political thriller. The Originals uses vampire mythology to explore family loyalty and power dynamics. Dark builds a time travel narrative that functions as emotional tragedy. These shows prove that genre elements can enhance rather than replace genuine character work and thematic depth.
+    </p>
+  </section>
+
+  <section class="contentSection" style="border-bottom:1px solid #1f1f1f">
+    <h2>How to Use This Collection</h2>
+    <p>
+      The genre filters exist because mood matters as much as quality. Sometimes you want the slow tension of a spy thriller. Other times you need action that moves fast without insulting your intelligence. The collection covers that range, from shows that demand full attention to ones you can enjoy while doing something else. Episode counts and season lengths are noted so you know what you are committing to before you start.
+    </p>
+    <p>
+      For viewers new to international television, start with series that have clear genre hooks. The Bureau works as spy thriller. Dark functions as mystery despite its complex timeline. Chernobyl delivers disaster narrative. These entry points make the transition into different storytelling styles easier because you have familiar genre expectations to anchor the viewing experience, even when the execution differs from what American television typically delivers.
+    </p>
+    <p>
+      Each show description includes season count and status because that information matters when deciding whether to start something. A complete series offers closure. An ongoing show means committing to uncertainty about how the story resolves. Both have value, but they serve different viewing needs. The synopses are written to help you make that decision quickly rather than selling you on watching regardless of fit.
+    </p>
+    <p>
+      Use the search and filters to narrow by genre, country, or specific qualities like "psychological" or "procedural." The tags combine traditional genres with tonal descriptors so you can find shows that match not just subject matter but also pacing and atmosphere. A slow-burn espionage drama offers a different experience than a fast-paced action thriller even when both technically fall under "spy" shows.
+    </p>
   </section>
 
   <div class="controls" style="margin-top:14px;">
@@ -405,5 +455,6 @@ clearFiltersBtn.onclick=()=>{picked.clear();paintChips();render();};
 
 paintChips();render();
 </script>
+
 </body>
 </html>
