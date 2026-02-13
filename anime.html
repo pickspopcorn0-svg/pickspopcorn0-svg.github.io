@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Anime — Popcorn Picks</title>
+<meta name="description" content="Curated anime collection: sports, isekai, action, psychological and more. Find your next anime." />
 
-<!-- ✅ Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -13,247 +13,219 @@
   gtag('js', new Date());
   gtag('config', 'G-XZ94ZK9JN4');
 </script>
-
-<!-- ✅ AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
-  crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800" crossorigin="anonymous"></script>
 
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
   html,body{height:100%}
   body{
-    background:#0b0b0c;
-    color:#fff;
+    background:#0b0b0c;color:#fff;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
     -webkit-text-size-adjust:100%;
   }
   a{text-decoration:none;color:inherit}
-  /* prevent iOS tap highlight */
-  a,button,.card{ -webkit-tap-highlight-color: transparent; }
+  a,button,.card{-webkit-tap-highlight-color:transparent}
+  button,input{font:inherit}
 
-  /* ✅ TOP BAR (fixed + centered title + iPhone safe area) */
   .top{
-    position:sticky;
-    top:0;
-    z-index:50;
-
-    display:grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items:center;
-
-    padding: calc(12px + env(safe-area-inset-top)) 14px 12px;
+    position:sticky;top:0;z-index:50;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:calc(12px + env(safe-area-inset-top)) 18px 12px;
     background:rgba(10,10,10,.88);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid #222;
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    border-bottom:1px solid #222;gap:12px;
   }
-  .top b{
-    justify-self:center;
-    font-size:16px;
-    font-weight:800;
-    letter-spacing:.2px;
+  .top b{font-size:15px;white-space:nowrap}
+  .navLeft{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .navBtn{
+    padding:8px 13px;border-radius:999px;
+    border:1px solid #2a2a2a;background:#141414;
+    font-size:12px;color:#ddd;white-space:nowrap;cursor:pointer;transition:.15s;
   }
-  .top a{
-    justify-self:start;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:10px 12px;
-    border-radius:999px;
-    border:1px solid rgba(255,255,255,.14);
-    background:rgba(255,255,255,.04);
-    font-size:13px;
-    white-space:nowrap;
-  }
-  .top a:hover{
-    background:rgba(255,255,255,.07);
-    border-color:rgba(255,255,255,.22);
-  }
-  .top span{justify-self:end}
+  .navBtn:hover{border-color:#444;color:#fff}
+  .navBtn:active{transform:translateY(1px)}
 
-  .wrap{padding:18px 18px 10px}
-  .small{
-    color:#aaa;
-    font-size:12px;
-    padding:6px 2px 0;
-    line-height:1.4;
-  }
+  /* INTRO */
+  .intro{max-width:860px;margin:0 auto;padding:28px 20px 6px}
+  .intro h1{font-size:22px;font-weight:700;letter-spacing:-.01em;line-height:1.2;margin-bottom:10px}
+  .intro p{color:#c8c8c8;font-size:14px;line-height:1.8;max-width:72ch}
 
+  /* EDITORIAL CARDS */
+  .editorials{margin-top:20px}
+  .ed-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#555;margin-bottom:12px}
+  .ed-row{display:flex;gap:12px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;scrollbar-width:none}
+  .ed-row::-webkit-scrollbar{display:none}
+  .ed-card{
+    flex:0 0 auto;width:160px;border-radius:12px;
+    border:1px solid #1e1e1e;background:#0f0f0f;overflow:hidden;
+    display:block;text-decoration:none;transition:border-color .15s;
+  }
+  .ed-card:hover{border-color:#2e2e2e}
+  .ed-card:active{opacity:.8}
+  .ed-thumb-bg{width:100%;height:100px;background:#111 no-repeat center/cover;display:block}
+  .ed-body{padding:9px 10px 11px}
+  .ed-tag{font-size:10px;color:#666;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+  .ed-title{font-size:12px;font-weight:600;color:#ccc;line-height:1.35}
+
+  .divider{margin-top:18px;border:0;border-top:1px solid #1f1f1f}
+
+  /* SEARCH + CHIPS */
+  .wrap{padding:14px 18px 8px}
+  .searchRow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .searchRow input{
+    flex:1;min-width:220px;padding:12px 14px;border-radius:12px;
+    border:1px solid #222;background:#111;color:#fff;outline:none;font-size:14px;
+  }
+  .searchRow input::placeholder{color:#666}
+  .btn{
+    padding:12px 14px;border-radius:12px;
+    border:1px solid #222;background:#141414;color:#fff;
+    cursor:pointer;white-space:nowrap;font-size:13px;
+  }
+  .btn:active{transform:translateY(1px)}
+  .small{color:#888;font-size:12px;padding:10px 2px 0;line-height:1.4}
+
+  .chips{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+  .chip{border:1px solid #222;background:#111;color:#ddd;padding:10px 12px;border-radius:999px;font-size:13px;cursor:pointer;user-select:none}
+  .chip.on{border-color:#444;background:#1b1b1b;color:#fff}
+
+  /* GRID */
   .grid{
     padding:16px 18px 34px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-    gap:18px;
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;
   }
-
   .card{
-    border-radius:18px;
-    border:1px solid #181818;
-    overflow:hidden;
-    position:relative;
-    background:#111;
-    min-height:320px;
-    cursor:pointer;
-    user-select:none;
+    border-radius:18px;border:1px solid #181818;overflow:hidden;
+    position:relative;background:#111;min-height:320px;cursor:pointer;user-select:none;
   }
   .poster{
-    height:320px;
-    background:#101010;
-    background-size:cover;
-    background-position:center;
+    height:320px;background:#101010;
+    background-size:contain;background-repeat:no-repeat;background-position:center;
   }
   .poster.fallback{
-    background:
-      radial-gradient(700px 380px at 20% 15%, rgba(255,255,255,.10), transparent 55%),
+    background:radial-gradient(700px 380px at 20% 15%, rgba(255,255,255,.10), transparent 55%),
       linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.85));
   }
-  .info{
-    position:absolute;
-    bottom:0;left:0;right:0;
-    padding:14px;
-    background:linear-gradient(to top,rgba(0,0,0,.92),transparent);
-  }
+  .info{position:absolute;bottom:0;left:0;right:0;padding:14px;background:linear-gradient(to top,rgba(0,0,0,.92),transparent)}
   .title{font-size:18px;font-weight:700;line-height:1.2}
   .meta{font-size:12px;color:#aaa;margin-top:4px}
-  .tagsline{
-    font-size:12px;
-    color:#cfcfcf;
-    margin-top:8px;
-    opacity:.92;
-    display:-webkit-box;
-    -webkit-line-clamp:2;
-    -webkit-box-orient:vertical;
-    overflow:hidden;
-  }
+  .tagsline{font-size:12px;color:#cfcfcf;margin-top:8px;opacity:.92;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .empty{padding:22px 18px 30px;color:#888;display:none}
 
   /* MODAL */
   .modal{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.72);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:18px;
-    z-index:999;
-    overscroll-behavior:contain;
+    position:fixed;inset:0;background:rgba(0,0,0,.72);
+    display:none;align-items:center;justify-content:center;
+    padding:18px;z-index:999;overscroll-behavior:contain;
   }
   .modal.on{display:flex}
-
-  /* sheet height bounded on mobile + scroll inside */
   .sheet{
-    width:min(980px, 100%);
-    max-height:calc(100dvh - 36px);
-    border:1px solid #1f1f1f;
-    background:#0f0f0f;
-    border-radius:18px;
-    overflow:hidden;
-    display:flex;
-    flex-direction:column;
+    width:min(980px, 100%);max-height:calc(100dvh - 36px);
+    border:1px solid #1f1f1f;background:#0f0f0f;border-radius:18px;
+    overflow:hidden;display:flex;flex-direction:column;
   }
-
   .sheetTop{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:14px 14px;
-    border-bottom:1px solid #1f1f1f;
-    background:#0d0d0d;
-    flex:0 0 auto;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:14px;border-bottom:1px solid #1f1f1f;background:#0d0d0d;flex:0 0 auto;
   }
-  .closeBtn{
-    border:1px solid #222;
-    background:#141414;
-    color:#fff;
-    border-radius:12px;
-    padding:10px 12px;
-    cursor:pointer;
-  }
-
-  /* scroll happens here */
+  .closeBtn{border:1px solid #222;background:#141414;color:#fff;border-radius:12px;padding:10px 12px;cursor:pointer}
   .sheetBody{
-    padding:16px;
-    display:grid;
-    grid-template-columns:320px 1fr;
-    gap:16px;
-
-    overflow:auto;
-    -webkit-overflow-scrolling:touch;
-    overscroll-behavior:contain;
-    flex:1 1 auto;
+    padding:16px;display:grid;grid-template-columns:320px 1fr;gap:16px;
+    overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;flex:1 1 auto;
   }
-
   .bigPoster{
-    height:460px;
-    border-radius:16px;
-    border:1px solid #1b1b1b;
-    background:#111;
-    background-size:cover;
-    background-position:center;
+    height:460px;border-radius:16px;border:1px solid #1b1b1b;background:#111;
+    background-size:contain;background-repeat:no-repeat;background-position:center;
   }
   .bigPoster.fallback{
-    background:
-      radial-gradient(900px 520px at 20% 15%, rgba(255,255,255,.10), transparent 55%),
+    background:radial-gradient(900px 520px at 20% 15%, rgba(255,255,255,.10), transparent 55%),
       linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.88));
   }
-  .h1{
-    font-size:26px;
-    font-weight:800;
-    line-height:1.1;
-  }
+  .h1{font-size:26px;font-weight:800;line-height:1.1}
   .muted{color:#aaa;font-size:13px;line-height:1.5;margin-top:8px}
-  .why{
-    margin-top:14px;
-    font-size:14px;
-    line-height:1.85;
-    color:#ddd;
-    white-space:pre-line;
-  }
+  .why{margin-top:14px;font-size:14px;line-height:1.85;color:#ddd;white-space:pre-line}
   .pills{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
-  .pill{
-    font-size:12px;
-    border:1px solid #222;
-    background:#111;
-    padding:8px 10px;
-    border-radius:999px;
-    color:#d8d8d8;
-  }
+  .pill{font-size:12px;border:1px solid #222;background:#111;padding:8px 10px;border-radius:999px;color:#d8d8d8}
 
-  /* Mobile tuning */
+  body.modalOpen{overflow:hidden;touch-action:none}
+
   @media(max-width:900px){
-    .grid{grid-template-columns:1fr; padding:14px 14px 26px; gap:14px;}
-    .wrap{padding:16px 14px 8px}
-    .card{min-height:300px}
-    .poster{height:300px}
-
-    .sheet{max-height:calc(100dvh - 24px)}
-    .sheetBody{grid-template-columns:1fr}
-    .bigPoster{height:380px}
-    .h1{font-size:22px}
+    .grid{grid-template-columns:1fr;padding:14px 14px 26px;gap:14px}
+    .wrap{padding:16px 14px 8px}.card{min-height:300px}.poster{height:300px}
+    .sheet{max-height:calc(100dvh - 24px)}.sheetBody{grid-template-columns:1fr}
+    .bigPoster{height:380px}.h1{font-size:22px}
   }
-
-  /* lock background scroll when modal open */
-  body.modalOpen{
-    overflow:hidden;
-    touch-action:none;
+  @media(max-width:480px){
+    .top{padding:11px 14px}.navBtn{font-size:11px;padding:7px 10px}
+    .intro h1{font-size:19px}.ed-card{width:140px}.ed-thumb-bg{height:86px}
   }
 </style>
 </head>
-
 <body>
 
 <div class="top">
-  <a href="index.html">← Home</a>
+  <div class="navLeft">
+    <a class="navBtn" href="categories.html">← Categories</a>
+    <a class="navBtn" href="index.html">Home</a>
+  </div>
   <b>Anime</b>
   <span></span>
 </div>
 
+<div class="intro">
+  <h1>Anime worth watching.</h1>
+  <p>
+    The collection here covers a lot of ground: sports series that build genuine investment in fictional
+    competitions, isekai shows that range from thoughtful to just enjoyably ridiculous, psychological
+    thrillers, dark fantasy, and a few that do not fit neatly anywhere. Sports anime in particular
+    gets underrated because people assume it is just for fans of the actual sport. It is not.
+    Haikyuu, Ping Pong the Animation and Run with the Wind work because the competition is a frame
+    for character pressure, not a substitute for it. The isekai genre has a reputation for being
+    repetitive, and some of it is, but Overlord, The Rising of the Shield Hero and Solo Leveling
+    each do something different enough to be worth the time. Attack on Titan is here because it
+    earns its place in any serious list. Made in Abyss is here because nothing else feels like it.
+    Use the filters to narrow by genre or mood, or just browse.
+  </p>
+
+  <div class="editorials">
+    <div class="ed-label">From the blog</div>
+    <div class="ed-row">
+
+      <a class="ed-card" href="editorial-sports-anime-we-recommend.html">
+        <div class="ed-thumb-bg" style="background-image:url('assets/posters/anime/anime-haikyuu-poster.jpg.JPG')"></div>
+        <div class="ed-body">
+          <div class="ed-tag">Sports</div>
+          <div class="ed-title">Sports anime we actually recommend</div>
+        </div>
+      </a>
+
+      <a class="ed-card" href="isekai-anime-worth-your-time.html">
+        <div class="ed-thumb-bg" style="background-image:url('assets/posters/anime/overlord.jpeg')"></div>
+        <div class="ed-body">
+          <div class="ed-tag">Isekai</div>
+          <div class="ed-title">Isekai anime worth your time</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <hr class="divider" />
+</div>
+
 <div class="wrap">
+  <div class="searchRow">
+    <input id="q" type="text" placeholder="Search title, year, genre..." autocomplete="off" />
+    <button class="btn" id="clearBtn">Clear</button>
+  </div>
   <div class="small" id="resultCount">Loading...</div>
+  <div class="chips" id="chips"></div>
 </div>
 
 <div class="grid" id="grid"></div>
+<div class="empty" id="empty">No matches.</div>
 
-<!-- MODAL -->
 <div class="modal" id="modal" aria-hidden="true">
   <div class="sheet" role="dialog" aria-modal="true" aria-label="Anime details">
     <div class="sheetTop">
@@ -273,286 +245,111 @@
 </div>
 
 <script>
-  const $ = (id) => document.getElementById(id);
-
-  const grid = $("grid");
-  const resultCount = $("resultCount");
-
-  const modal = $("modal");
-  const closeBtn = $("closeBtn");
-  const sheetBody = $("sheetBody");
-  const mPoster = $("mPoster");
-  const mTitle = $("mTitle");
-  const mMeta  = $("mMeta");
-  const mPills = $("mPills");
-  const mWhy   = $("mWhy");
-
 const ANIME = [
-  {
-    title:"Attack on Titan",
-    year:2013,
-    meta:"Action • Dark fantasy",
-    genres:["Action","Drama","Political","War"],
-    poster:"assets/posters/anime/anime-attack-on-titan-poster.jpg.JPG",
-    synopsis:`Humanity lives behind walls to survive against giant humanoid Titans. What begins as survival horror evolves into a layered political and moral conflict involving war, ideology, and freedom.`
-  },
-  {
-    title:"Blue Lock",
-    year:2022,
-    meta:"Sports • Psychological",
-    genres:["Sports","Psychological","Competition"],
-    poster:"assets/posters/anime/anime-blue-lock-poster.jpg.jpeg",
-    synopsis:`A radical football program locks hundreds of strikers together to create the world’s most ego-driven forward.`
-  },
-  {
-    title:"Haikyuu!!",
-    year:2014,
-    meta:"Sports • Volleyball",
-    genres:["Sports","Drama","Teamwork"],
-    poster:"assets/posters/anime/anime-haikyuu-poster.jpg.JPG",
-    synopsis:`A high-energy volleyball series built on momentum, rivalry, and growth.`
-  },
-  {
-    title:"Classroom of the Elite",
-    year:2017,
-    meta:"Psychological • School",
-    genres:["Psychological","Thriller","Drama"],
-    poster:"assets/posters/anime/anime-classroom-of-the-elite-poster.jpg.JPG",
-    synopsis:`Set in an elite academy where students are ranked and rewarded.`
-  },
-  {
-    title:"That Time I Got Reincarnated as a Slime",
-    year:2018,
-    meta:"Fantasy • Isekai",
-    genres:["Fantasy","Adventure","World-building"],
-    poster:"assets/posters/anime/anime-that-time-i-got-reincarnated-as-a-slime-poster.jpg.JPG",
-    synopsis:`Reborn in another world as a slime, the protagonist builds a new society.`
-  },
-  {
-    title:"Spy×Family",
-    year:2022,
-    meta:"Comedy • Espionage",
-    genres:["Comedy","Action","Family"],
-    poster:"assets/posters/anime/anime-spy-family-poster.jpg.JPG",
-    synopsis:`A spy assembles a fake family for a mission.`
-  },
-  {
-    title:"Solo Leveling",
-    year:2024,
-    meta:"Action • Power fantasy",
-    genres:["Action","Fantasy","Dungeon"],
-    poster:"assets/posters/anime/anime-solo-leveling-poster.jpg.PNG",
-    synopsis:`A weak hunter gains the ability to grow infinitely stronger.`
-  },
-  {
-    title:"Sword Art Online",
-    year:2012,
-    meta:"Sci-fi • Virtual worlds",
-    genres:["Sci-Fi","Romance","Adventure"],
-    poster:"assets/posters/anime/anime-sword-art-online-poster.jpg.JPG",
-    synopsis:`Players trapped inside a virtual reality game must clear levels to escape.`
-  },
-  {
-    title:"Noblesse",
-    year:2020,
-    meta:"Supernatural • Action",
-    genres:["Action","Supernatural","Mythology"],
-    poster:"assets/posters/anime/anime-noblesse-poster.jpg.JPG",
-    synopsis:`An ancient noble awakens in the modern world.`
-  },
-  {
-    title:"Ping Pong the Animation",
-    year:2014,
-    meta:"Sports • Character study",
-    genres:["Sports","Psychological","Drama"],
-    poster:"assets/posters/anime/anime-ping-pong-the-animation-poster.jpg.JPG",
-    synopsis:`A minimalist, experimental take on competitive table tennis.`
-  },
-  {
-    title:"Run with the Wind",
-    year:2018,
-    meta:"Sports • Endurance",
-    genres:["Sports","Drama","Teamwork"],
-    poster:"assets/posters/anime/anime-run-with-the-wind-poster.jpg.JPG",
-    synopsis:`A group of unlikely runners attempt Japan’s toughest marathon relay.`
-  },
-  {
-    title:"Chihayafuru",
-    year:2011,
-    meta:"Sports • Culture",
-    genres:["Sports","Romance","Drama"],
-    poster:"assets/posters/anime/anime-chihayafuru-poster.jpg.JPG",
-    synopsis:`Competitive karuta as mental and emotional battle.`
-  },
-  {
-    title:"March Comes in Like a Lion",
-    year:2016,
-    meta:"Psychological • Slice of life",
-    genres:["Drama","Psychological","Slice of Life"],
-    poster:"assets/posters/anime/anime-march-comes-in-like-a-lion-poster.jpg.JPG",
-    synopsis:`A professional shogi player struggles with loneliness and healing.`
-  },
-  {
-    title:"Made in Abyss",
-    year:2017,
-    meta:"Adventure • Dark fantasy",
-    genres:["Adventure","Fantasy","Psychological"],
-    poster:"assets/posters/anime/anime-made-in-abyss-poster.jpg.JPG",
-    synopsis:`Children descend into a vast and dangerous abyss.`
-  },
-  {
-  title:"Ace of Diamond",
-  year:2013,
-  meta:"Sports • Baseball",
-  genres:["Sports","Drama","School"],
-  poster:"assets/posters/anime/ace-of-diamond.jpeg",
-  synopsis:`A passionate pitcher joins an elite baseball school determined to become the best in Japan.`
-},
-{
-  title:"Ao Ashi",
-  year:2022,
-  meta:"Sports • Football",
-  genres:["Sports","Drama","School"],
-  poster:"assets/posters/anime/ao-ashi.jpeg",
-  synopsis:`A talented but raw football player enters a prestigious youth academy and must evolve beyond individual talent.`
-},
-{
-  title:"King From Now On!",
-  year:2004,
-  meta:"Fantasy • Isekai",
-  genres:["Fantasy","Adventure","Comedy"],
-  poster:"assets/posters/anime/king-from-now-on.jpeg",
-  synopsis:`An ordinary student is transported to a fantasy world where he unexpectedly becomes its reluctant king.`
-},
-{
-  title:"Overlord",
-  year:2015,
-  meta:"Dark Fantasy • Isekai",
-  genres:["Fantasy","Action","Adventure"],
-  poster:"assets/posters/anime/overlord.jpeg",
-  synopsis:`A gamer remains trapped inside a virtual world and embraces his role as an all-powerful skeletal overlord.`
-},
-{
-  title:"Rising Impact",
-  year:2024,
-  meta:"Sports • Golf",
-  genres:["Sports","Drama"],
-  poster:"assets/posters/anime/rising-impact.jpeg",
-  synopsis:`A gifted young boy with a natural swing enters the competitive world of professional golf.`
-},
-{
-  title:"Saga of Tanya the Evil",
-  year:2017,
-  meta:"Military • Isekai",
-  genres:["Action","Fantasy","War"],
-  poster:"assets/posters/anime/saga-of-tanya-the-evil.jpeg",
-  synopsis:`A ruthless salaryman is reborn as a young girl in a war-torn world and rises through military ranks with cold precision.`
-},
-{
-  title:"The Eminence in Shadow",
-  year:2022,
-  meta:"Fantasy • Action",
-  genres:["Fantasy","Action","Comedy"],
-  poster:"assets/posters/anime/the-eminence-in-shadow.jpeg",
-  synopsis:`A boy obsessed with operating from the shadows creates a secret organization that accidentally becomes real.`
-},
-{
-  title:"The Rising of the Shield Hero",
-  year:2019,
-  meta:"Fantasy • Isekai",
-  genres:["Fantasy","Adventure","Drama"],
-  poster:"assets/posters/anime/the-rising-of-the-shield-hero.jpeg",
-  synopsis:`Summoned as the Shield Hero, a betrayed young man must rebuild his reputation while defending a hostile world.`
-},
-{
-  title:"Tsukimichi: Moonlit Fantasy",
-  year:2021,
-  meta:"Fantasy • Isekai",
-  genres:["Fantasy","Adventure","Comedy"],
-  poster:"assets/posters/anime/tsukimichi-moonlit-fantasy.jpeg",
-  synopsis:`A high schooler is transported to another world but rejected by its goddess, forcing him to carve his own path.`
-},
-{
-  title:"Welcome to Demon School! Iruma-kun",
-  year:2019,
-  meta:"Fantasy • School",
-  genres:["Fantasy","Comedy","Supernatural"],
-  poster:"assets/posters/anime/welcome-to-demon-school-iruma-kun.jpeg",
-  synopsis:`A kind-hearted human boy is sold to a demon and must survive by blending into a school full of monsters.`
-}
+  {title:"Attack on Titan",year:2013,meta:"Action • Dark fantasy",genres:["Action","Drama","Political","War"],poster:"assets/posters/anime/anime-attack-on-titan-poster.jpg.JPG",synopsis:`Humanity lives behind walls to survive against giant humanoid Titans. What begins as survival horror evolves into a layered political and moral conflict involving war, ideology, and freedom.`},
+  {title:"Blue Lock",year:2022,meta:"Sports • Psychological",genres:["Sports","Psychological","Competition"],poster:"assets/posters/anime/anime-blue-lock-poster.jpg.jpeg",synopsis:`A radical football program locks hundreds of strikers together to create the world's most ego-driven forward.`},
+  {title:"Haikyuu!!",year:2014,meta:"Sports • Volleyball",genres:["Sports","Drama","Teamwork"],poster:"assets/posters/anime/anime-haikyuu-poster.jpg.JPG",synopsis:`A high-energy volleyball series built on momentum, rivalry, and growth.`},
+  {title:"Classroom of the Elite",year:2017,meta:"Psychological • School",genres:["Psychological","Thriller","Drama"],poster:"assets/posters/anime/anime-classroom-of-the-elite-poster.jpg.JPG",synopsis:`Set in an elite academy where students are ranked and rewarded.`},
+  {title:"That Time I Got Reincarnated as a Slime",year:2018,meta:"Fantasy • Isekai",genres:["Fantasy","Adventure","World-building"],poster:"assets/posters/anime/anime-that-time-i-got-reincarnated-as-a-slime-poster.jpg.JPG",synopsis:`Reborn in another world as a slime, the protagonist builds a new society.`},
+  {title:"Spy×Family",year:2022,meta:"Comedy • Espionage",genres:["Comedy","Action","Family"],poster:"assets/posters/anime/anime-spy-family-poster.jpg.JPG",synopsis:`A spy assembles a fake family for a mission.`},
+  {title:"Solo Leveling",year:2024,meta:"Action • Power fantasy",genres:["Action","Fantasy","Dungeon"],poster:"assets/posters/anime/anime-solo-leveling-poster.jpg.PNG",synopsis:`A weak hunter gains the ability to grow infinitely stronger.`},
+  {title:"Sword Art Online",year:2012,meta:"Sci-fi • Virtual worlds",genres:["Sci-Fi","Romance","Adventure"],poster:"assets/posters/anime/anime-sword-art-online-poster.jpg.JPG",synopsis:`Players trapped inside a virtual reality game must clear levels to escape.`},
+  {title:"Noblesse",year:2020,meta:"Supernatural • Action",genres:["Action","Supernatural","Mythology"],poster:"assets/posters/anime/anime-noblesse-poster.jpg.JPG",synopsis:`An ancient noble awakens in the modern world.`},
+  {title:"Ping Pong the Animation",year:2014,meta:"Sports • Character study",genres:["Sports","Psychological","Drama"],poster:"assets/posters/anime/anime-ping-pong-the-animation-poster.jpg.JPG",synopsis:`A minimalist, experimental take on competitive table tennis.`},
+  {title:"Run with the Wind",year:2018,meta:"Sports • Endurance",genres:["Sports","Drama","Teamwork"],poster:"assets/posters/anime/anime-run-with-the-wind-poster.jpg.JPG",synopsis:`A group of unlikely runners attempt Japan's toughest marathon relay.`},
+  {title:"Chihayafuru",year:2011,meta:"Sports • Culture",genres:["Sports","Romance","Drama"],poster:"assets/posters/anime/anime-chihayafuru-poster.jpg.JPG",synopsis:`Competitive karuta as mental and emotional battle.`},
+  {title:"March Comes in Like a Lion",year:2016,meta:"Psychological • Slice of life",genres:["Drama","Psychological","Slice of Life"],poster:"assets/posters/anime/anime-march-comes-in-like-a-lion-poster.jpg.JPG",synopsis:`A professional shogi player struggles with loneliness and healing.`},
+  {title:"Made in Abyss",year:2017,meta:"Adventure • Dark fantasy",genres:["Adventure","Fantasy","Psychological"],poster:"assets/posters/anime/anime-made-in-abyss-poster.jpg.JPG",synopsis:`Children descend into a vast and dangerous abyss.`},
+  {title:"Ace of Diamond",year:2013,meta:"Sports • Baseball",genres:["Sports","Drama","School"],poster:"assets/posters/anime/ace-of-diamond.jpeg",synopsis:`A passionate pitcher joins an elite baseball school determined to become the best in Japan.`},
+  {title:"Ao Ashi",year:2022,meta:"Sports • Football",genres:["Sports","Drama","School"],poster:"assets/posters/anime/ao-ashi.jpeg",synopsis:`A talented but raw football player enters a prestigious youth academy and must evolve beyond individual talent.`},
+  {title:"King From Now On!",year:2004,meta:"Fantasy • Isekai",genres:["Fantasy","Adventure","Comedy"],poster:"assets/posters/anime/king-from-now-on.jpeg",synopsis:`An ordinary student is transported to a fantasy world where he unexpectedly becomes its reluctant king.`},
+  {title:"Overlord",year:2015,meta:"Dark Fantasy • Isekai",genres:["Fantasy","Action","Adventure"],poster:"assets/posters/anime/overlord.jpeg",synopsis:`A gamer remains trapped inside a virtual world and embraces his role as an all-powerful skeletal overlord.`},
+  {title:"Rising Impact",year:2024,meta:"Sports • Golf",genres:["Sports","Drama"],poster:"assets/posters/anime/rising-impact.jpeg",synopsis:`A gifted young boy with a natural swing enters the competitive world of professional golf.`},
+  {title:"Saga of Tanya the Evil",year:2017,meta:"Military • Isekai",genres:["Action","Fantasy","War"],poster:"assets/posters/anime/saga-of-tanya-the-evil.jpeg",synopsis:`A ruthless salaryman is reborn as a young girl in a war-torn world and rises through military ranks with cold precision.`},
+  {title:"The Eminence in Shadow",year:2022,meta:"Fantasy • Action",genres:["Fantasy","Action","Comedy"],poster:"assets/posters/anime/the-eminence-in-shadow.jpeg",synopsis:`A boy obsessed with operating from the shadows creates a secret organization that accidentally becomes real.`},
+  {title:"The Rising of the Shield Hero",year:2019,meta:"Fantasy • Isekai",genres:["Fantasy","Adventure","Drama"],poster:"assets/posters/anime/the-rising-of-the-shield-hero.jpeg",synopsis:`Summoned as the Shield Hero, a betrayed young man must rebuild his reputation while defending a hostile world.`},
+  {title:"Tsukimichi: Moonlit Fantasy",year:2021,meta:"Fantasy • Isekai",genres:["Fantasy","Adventure","Comedy"],poster:"assets/posters/anime/tsukimichi-moonlit-fantasy.jpeg",synopsis:`A high schooler is transported to another world but rejected by its goddess, forcing him to carve his own path.`},
+  {title:"Welcome to Demon School! Iruma-kun",year:2019,meta:"Fantasy • School",genres:["Fantasy","Comedy","Supernatural"],poster:"assets/posters/anime/welcome-to-demon-school-iruma-kun.jpeg",synopsis:`A kind-hearted human boy is sold to a demon and must survive by blending into a school full of monsters.`}
 ];
 
-function openModal(item){
-  const poster = item.poster || "";
+const $=(id)=>document.getElementById(id);
+const grid=$("grid"),qEl=$("q"),emptyEl=$("empty"),resultCount=$("resultCount"),chipsEl=$("chips");
+const modal=$("modal"),closeBtn=$("closeBtn"),sheetBody=$("sheetBody");
+const mPoster=$("mPoster"),mTitle=$("mTitle"),mMeta=$("mMeta"),mPills=$("mPills"),mWhy=$("mWhy");
+const picked=new Set();
 
-  if(poster){
-    mPoster.classList.remove("fallback");
-    mPoster.style.backgroundImage = `url('${String(poster).replace(/'/g,"\\'")}')`;
-  }else{
-    mPoster.classList.add("fallback");
-    mPoster.style.backgroundImage = "";
-  }
+function normalize(s){return String(s||"").toLowerCase().trim();}
 
-  mTitle.textContent = item.title || "Untitled";
-  mMeta.textContent = `${item.year || ""}${item.meta ? " • " + item.meta : ""}`;
+function buildChips(){
+  const counts=new Map();
+  ANIME.forEach(m=>(m.genres||[]).forEach(t=>{const tag=String(t).trim();if(tag)counts.set(tag,(counts.get(tag)||0)+1);}));
+  const priority=["Sports","Action","Fantasy","Isekai","Drama","Psychological","Sci-Fi","Adventure","Comedy","Supernatural","War"];
+  const present=new Set([...counts.keys()]);
+  const first=priority.filter(t=>present.has(t));
+  const rest=[...counts.entries()].filter(([t])=>!priority.includes(t)).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0])).map(([t])=>t);
+  return [...first,...rest].slice(0,30);
+}
 
-  mPills.innerHTML = "";
-  (item.genres || []).slice(0,10).forEach(g=>{
-    const p = document.createElement("div");
-    p.className = "pill";
-    p.textContent = g;
-    mPills.appendChild(p);
+function paintChips(){
+  chipsEl.innerHTML="";
+  buildChips().forEach(tag=>{
+    const b=document.createElement("div");
+    b.className="chip"+(picked.has(tag)?" on":"");b.textContent=tag;
+    b.onclick=()=>{if(picked.has(tag))picked.delete(tag);else picked.add(tag);paintChips();render();};
+    chipsEl.appendChild(b);
   });
+}
 
-  mWhy.textContent = item.synopsis || "";
+function matchesPicked(m){
+  if(!picked.size)return true;
+  const tags=new Set(m.genres||[]);
+  for(const p of picked){if(!tags.has(p))return false;}return true;
+}
 
-  modal.classList.add("on");
-  modal.setAttribute("aria-hidden","false");
+function openModal(item){
+  const poster=item.poster||"";
+  if(poster){mPoster.classList.remove("fallback");mPoster.style.backgroundImage=`url('${String(poster).replace(/'/g,"\\'")}')`;
+  }else{mPoster.classList.add("fallback");mPoster.style.backgroundImage="";}
+  mTitle.textContent=item.title||"Untitled";
+  mMeta.textContent=`${item.year||""}${item.meta?" • "+item.meta:""}`;
+  mPills.innerHTML="";
+  (item.genres||[]).slice(0,10).forEach(g=>{const p=document.createElement("div");p.className="pill";p.textContent=g;mPills.appendChild(p);});
+  mWhy.textContent=item.synopsis||"";
+  modal.classList.add("on");modal.setAttribute("aria-hidden","false");
   document.body.classList.add("modalOpen");
-
-  sheetBody.scrollTop = 0;
+  sheetBody.scrollTop=0;
 }
 
 function closeModal(){
-  modal.classList.remove("on");
-  modal.setAttribute("aria-hidden","true");
+  modal.classList.remove("on");modal.setAttribute("aria-hidden","true");
   document.body.classList.remove("modalOpen");
 }
 
-closeBtn.addEventListener("click", closeModal);
-modal.addEventListener("click", (e)=>{ if(e.target === modal) closeModal(); });
-window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeModal(); });
+closeBtn.addEventListener("click",closeModal);
+modal.addEventListener("click",(e)=>{if(e.target===modal)closeModal();});
+window.addEventListener("keydown",(e)=>{if(e.key==="Escape")closeModal();});
 
 function card(item){
-  const div = document.createElement("div");
-  div.className = "card";
-
-  const poster = item.poster || "";
-  const posterHtml = poster
-    ? `<div class="poster" style="background-image:url('${String(poster).replace(/'/g,"\\'")}');"></div>`
-    : `<div class="poster fallback"></div>`;
-
-  div.innerHTML = `
-    ${posterHtml}
-    <div class="info">
-      <div class="title">${item.title || "Untitled"}</div>
-      <div class="meta">${item.year || ""}${item.meta ? " • " + item.meta : ""}</div>
-      <div class="tagsline">${(item.genres || []).slice(0,4).join(" • ")}</div>
-    </div>
-  `;
-
-  div.addEventListener("click", () => openModal(item), {passive:true});
-  return div;
+  const div=document.createElement("div");div.className="card";
+  const poster=item.poster||"";
+  const posterHtml=poster?`<div class="poster" style="background-image:url('${String(poster).replace(/'/g,"\\'")}');background-size:contain;background-repeat:no-repeat;background-position:center;"></div>`:`<div class="poster fallback"></div>`;
+  div.innerHTML=`${posterHtml}<div class="info"><div class="title">${item.title||"Untitled"}</div><div class="meta">${item.year||""}${item.meta?" • "+item.meta:""}</div><div class="tagsline">${(item.genres||[]).slice(0,4).join(" • ")}</div></div>`;
+  div.addEventListener("click",()=>openModal(item),{passive:true});return div;
 }
 
 function render(){
-  grid.innerHTML="";
-  ANIME.forEach(a=>grid.appendChild(card(a)));
-  resultCount.textContent=`${ANIME.length} titles`;
+  const q=normalize(qEl.value);
+  const filtered=ANIME.filter(m=>matchesPicked(m)&&normalize([m.title,m.year,m.meta,m.synopsis,(m.genres||[]).join(" ")].join(" ")).includes(q));
+  grid.innerHTML="";filtered.forEach(a=>grid.appendChild(card(a)));
+  resultCount.textContent=`${filtered.length} title${filtered.length===1?"":"s"} found`+(picked.size?` • Filters: ${[...picked].join(", ")}` :"");
+  emptyEl.style.display=filtered.length?"none":"block";
 }
 
-render();
-</script>
+$("clearBtn").onclick=()=>{qEl.value="";render();};
+let t=null;
+qEl.addEventListener("input",()=>{clearTimeout(t);t=setTimeout(render,60);});
 
+paintChips();render();
+</script>
 </body>
 </html>
