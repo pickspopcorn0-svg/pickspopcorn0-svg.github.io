@@ -4,12 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>French Cinema — Popcorn Picks</title>
+<meta name="description" content="Curated French cinema: espionage series, crime thrillers, political drama, romance, and more." />
 
-<!-- ✅ AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
-        crossorigin="anonymous"></script>
-
-<!-- ✅ Google Analytics (GA4) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -22,189 +19,150 @@
   *{margin:0;padding:0;box-sizing:border-box}
   html,body{height:100%}
   body{
-    background:#0b0b0c;
-    color:#fff;
+    background:#0b0b0c;color:#fff;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
     -webkit-text-size-adjust:100%;
   }
   a{text-decoration:none;color:inherit}
-  button{font:inherit}
+  a,button,.card{-webkit-tap-highlight-color:transparent}
+  button,input{font:inherit}
   :focus-visible{outline:2px solid rgba(255,255,255,.22);outline-offset:2px;border-radius:12px}
+  body.modalOpen{overflow:hidden}
 
   .top{
-    position:sticky;top:0;
+    position:sticky;top:0;z-index:50;
     display:flex;justify-content:space-between;align-items:center;
-    padding:16px 20px;
+    padding:14px 18px;
     background:rgba(10,10,10,.88);
-    -webkit-backdrop-filter:blur(10px);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid #222;
-    z-index:50;
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    border-bottom:1px solid #222;gap:12px;
   }
-  .top b{font-size:16px}
-
-  .wrap{padding:18px 18px 10px}
-  .small{
-    color:#aaa;
-    font-size:12px;
-    padding:6px 2px 0;
-    line-height:1.4;
+  .top b{font-size:15px;white-space:nowrap}
+  .navLeft{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .navBtn{
+    padding:8px 13px;border-radius:999px;
+    border:1px solid #2a2a2a;background:#141414;
+    font-size:12px;color:#ddd;white-space:nowrap;cursor:pointer;transition:.15s;
   }
+  .navBtn:hover{border-color:#444;color:#fff}
+  .navBtn:active{transform:translateY(1px)}
 
+  /* INTRO */
+  .intro{max-width:860px;margin:0 auto;padding:28px 20px 6px}
+  .intro h1{font-size:22px;font-weight:700;letter-spacing:-.01em;line-height:1.2;margin-bottom:10px}
+  .intro p{color:#c8c8c8;font-size:14px;line-height:1.8;max-width:72ch}
+
+  .divider{margin-top:18px;border:0;border-top:1px solid #1f1f1f}
+
+  /* SEARCH + CHIPS */
+  .wrap{padding:14px 18px 8px}
+  .searchRow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .searchRow input{
+    flex:1;min-width:220px;padding:12px 14px;border-radius:12px;
+    border:1px solid #222;background:#111;color:#fff;outline:none;font-size:14px;
+  }
+  .searchRow input::placeholder{color:#666}
+  .btn{
+    padding:12px 14px;border-radius:12px;
+    border:1px solid #222;background:#141414;color:#fff;
+    cursor:pointer;white-space:nowrap;font-size:13px;
+  }
+  .btn:active{transform:translateY(1px)}
+  .small{color:#888;font-size:12px;padding:10px 2px 0;line-height:1.4}
+  .chips{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+  .chip{border:1px solid #222;background:#111;color:#ddd;padding:10px 12px;border-radius:999px;font-size:13px;cursor:pointer;user-select:none}
+  .chip.on{border-color:#444;background:#1b1b1b;color:#fff}
+
+  /* GRID */
   .grid{
     padding:16px 18px 34px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-    gap:18px;
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;
   }
-
-  .card{
-    border-radius:18px;
-    border:1px solid #181818;
-    overflow:hidden;
-    position:relative;
-    background:#111;
-    min-height:320px;
-    cursor:pointer;
-  }
+  .card{border-radius:18px;border:1px solid #181818;overflow:hidden;position:relative;background:#111;min-height:320px;cursor:pointer}
   .poster{
-    height:320px;
-    background:#101010;
-    background-size:cover;
-    background-position:center;
+    height:320px;background:#101010;
+    background-size:contain;background-repeat:no-repeat;background-position:center;
   }
   .poster.fallback{
-    background:
-      radial-gradient(700px 380px at 20% 15%, rgba(255,255,255,.09), transparent 55%),
+    background:radial-gradient(700px 380px at 20% 15%, rgba(255,255,255,.09), transparent 55%),
       linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.8));
   }
-  .info{
-    position:absolute;
-    bottom:0;left:0;right:0;
-    padding:14px;
-    background:linear-gradient(to top,rgba(0,0,0,.92),transparent);
-  }
+  .info{position:absolute;bottom:0;left:0;right:0;padding:14px;background:linear-gradient(to top,rgba(0,0,0,.92),transparent)}
   .title{font-size:18px;font-weight:700;line-height:1.2}
   .meta{font-size:12px;color:#aaa;margin-top:4px}
-  .tagsline{
-    font-size:12px;
-    color:#cfcfcf;
-    margin-top:8px;
-    opacity:.92;
-    display:-webkit-box;
-    -webkit-line-clamp:2;
-    -webkit-box-orient:vertical;
-    overflow:hidden;
-  }
+  .tagsline{font-size:12px;color:#cfcfcf;margin-top:8px;opacity:.92;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .empty{padding:22px 18px 30px;color:#888;display:none}
 
-  /* MODAL (scrollable + iOS-friendly) */
-  .modal{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.72);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:18px;
-    z-index:999;
-  }
+  /* MODAL */
+  .modal{position:fixed;inset:0;background:rgba(0,0,0,.72);display:none;align-items:center;justify-content:center;padding:18px;z-index:999}
   .modal.on{display:flex}
-
-  .sheet{
-    width:min(980px, 100%);
-    max-height:88vh;
-    overflow:auto;
-    -webkit-overflow-scrolling:touch;
-    border:1px solid #1f1f1f;
-    background:#0f0f0f;
-    border-radius:18px;
-  }
-  .sheetTop{
-    position:sticky; top:0;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:14px 14px;
-    border-bottom:1px solid #1f1f1f;
-    background:#0d0d0d;
-    z-index:5;
-  }
-  .closeBtn{
-    border:1px solid #222;
-    background:#141414;
-    color:#fff;
-    border-radius:12px;
-    padding:10px 12px;
-    cursor:pointer;
-  }
-
-  .sheetBody{
-    padding:16px;
-    display:grid;
-    grid-template-columns:320px 1fr;
-    gap:16px;
-  }
+  .sheet{width:min(980px, 100%);max-height:88vh;overflow:auto;-webkit-overflow-scrolling:touch;border:1px solid #1f1f1f;background:#0f0f0f;border-radius:18px}
+  .sheetTop{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;padding:14px;border-bottom:1px solid #1f1f1f;background:#0d0d0d;z-index:5}
+  .closeBtn{border:1px solid #222;background:#141414;color:#fff;border-radius:12px;padding:10px 12px;cursor:pointer}
+  .sheetBody{padding:16px;display:grid;grid-template-columns:320px 1fr;gap:16px}
   .bigPoster{
-    height:460px;
-    border-radius:16px;
-    border:1px solid #1b1b1b;
-    background:#111;
-    background-size:cover;
-    background-position:center;
+    height:460px;border-radius:16px;border:1px solid #1b1b1b;background:#111;
+    background-size:contain;background-repeat:no-repeat;background-position:center;
   }
   .bigPoster.fallback{
-    background:
-      radial-gradient(900px 520px at 20% 15%, rgba(255,255,255,.09), transparent 55%),
+    background:radial-gradient(900px 520px at 20% 15%, rgba(255,255,255,.09), transparent 55%),
       linear-gradient(to bottom, rgba(0,0,0,.12), rgba(0,0,0,.85));
   }
-  .h1{
-    font-size:26px;
-    font-weight:800;
-    line-height:1.1;
-  }
+  .h1{font-size:26px;font-weight:800;line-height:1.1}
   .muted{color:#aaa;font-size:13px;line-height:1.5;margin-top:8px}
-  .why{
-    margin-top:14px;
-    font-size:14px;
-    line-height:1.85;
-    color:#ddd;
-    white-space:pre-line;
-  }
+  .why{margin-top:14px;font-size:14px;line-height:1.85;color:#ddd;white-space:pre-line}
   .pills{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
-  .pill{
-    font-size:12px;
-    border:1px solid #222;
-    background:#111;
-    padding:8px 10px;
-    border-radius:999px;
-    color:#d8d8d8;
-  }
+  .pill{font-size:12px;border:1px solid #222;background:#111;padding:8px 10px;border-radius:999px;color:#d8d8d8}
 
-  @media(max-width:900px){
-    .sheetBody{grid-template-columns:1fr}
-    .bigPoster{height:420px}
+  @media(max-width:900px){.sheetBody{grid-template-columns:1fr}.bigPoster{height:420px}}
+  @media(max-width:480px){
+    .top{padding:11px 14px}.navBtn{font-size:11px;padding:7px 10px}
+    .intro h1{font-size:19px}
   }
-
-  /* Prevent background scroll when modal open */
-  body.modalOpen{overflow:hidden}
 </style>
 </head>
-
 <body>
 
 <div class="top">
-  <a href="index.html">← Home</a>
+  <div class="navLeft">
+    <a class="navBtn" href="categories.html">← Categories</a>
+    <a class="navBtn" href="index.html">Home</a>
+  </div>
   <b>French Cinema</b>
   <span></span>
 </div>
 
+<div class="intro">
+  <h1>French cinema worth watching.</h1>
+  <p>
+    French cinema covers more ground than most people give it credit for. The reputation is
+    arthouse and romance, but this collection sits mostly elsewhere: espionage, crime, political
+    thriller, survival, and social drama. Le Bureau des Légendes is the best spy series made
+    anywhere in the last decade and it happens to be French. Spiral ran eight seasons as one of
+    the most credible police procedurals on television. Tell No One is a thriller that moves
+    faster than most American equivalents. La Haine is a 1995 film about one day in a city
+    under pressure and it has not dated. A Prophet is a prison rise film that belongs next to
+    anything in that genre from anywhere. The collection also includes Lupin for when you want
+    something lighter and inventive, and Portrait of a Lady on Fire for when you want something
+    quieter and precise. Language is not a barrier here. Every one of these works because of
+    how it is written and directed, not in spite of being French.
+  </p>
+  <hr class="divider" />
+</div>
+
 <div class="wrap">
+  <div class="searchRow">
+    <input id="q" type="text" placeholder="Search title, year, genre..." autocomplete="off" />
+    <button class="btn" id="clearBtn">Clear</button>
+  </div>
   <div class="small" id="resultCount">Loading...</div>
+  <div class="chips" id="chips"></div>
 </div>
 
 <div class="grid" id="grid"></div>
+<div class="empty" id="empty">No matches.</div>
 
-<!-- MODAL -->
 <div class="modal" id="modal" aria-hidden="true">
   <div class="sheet" role="dialog" aria-modal="true" aria-label="Title details">
     <div class="sheetTop">
@@ -224,243 +182,101 @@
 </div>
 
 <script>
-  const $ = (id) => document.getElementById(id);
+const FRENCH = [
+  {id:"le-bureau-des-legendes",title:"Le Bureau des Légendes (The Bureau)",year:2015,meta:"Espionage • France • Series",genres:["Espionage","Thriller","Drama"],poster:"assets/posters/french/le-bureau-des-legendes.jpg.JPG",synopsis:`A modern intelligence drama set inside France's foreign intelligence service, following officers who run long-term undercover identities ("legends"). The tension comes from procedure and psychology: building sources, managing surveillance, and keeping a fake life intact for years. Cases escalate, but the real pressure is personal—relationships, loyalties, and the moment a cover story starts to crack under scrutiny.`},
+  {id:"les-revenants",title:"The Returned (Les Revenants)",year:2012,meta:"Mystery • Supernatural • France • Series",genres:["Mystery","Supernatural","Drama"],poster:"assets/posters/french/les-revenants.jpg.JPG",synopsis:`In a mountain town, people who died years earlier return without explanation—unchanged, confused, and trying to resume ordinary life. The series treats the supernatural as a social crisis: families split between hope and fear, secrets resurfacing, and the town's calm turning unstable. It builds dread slowly through atmosphere, unanswered questions, and the ripple effects of the impossible becoming normal.`},
+  {id:"spiral",title:"Spiral (Engrenages)",year:2005,meta:"Crime • Legal • Paris • Series",genres:["Crime","Thriller","Drama"],poster:"assets/posters/french/spiral-engrenages.jpg.JPG",synopsis:`A gritty Paris crime series told across police investigation, prosecution, and the courts. Cases are messy rather than neat—evidence is imperfect, institutions collide, and personal choices complicate "justice." The show's strength is procedural realism: how a murder becomes paperwork, how pressure produces shortcuts, and how the system's compromises follow everyone home.`},
+  {id:"baron-noir",title:"Baron Noir",year:2016,meta:"Political thriller • France • Series",genres:["Politics","Thriller","Drama"],poster:"assets/posters/french/baron-noir.jpg.JPG",synopsis:`A political thriller about strategy, betrayal, and survival inside French party power. It follows an operator who understands how influence really works: media control, backroom deals, and rival factions. Campaigns are treated as combat: alliances shift daily, scandals become weapons, and the line between ideology and ambition collapses under the need to win.`},
+  {id:"lupin",title:"Lupin",year:2021,meta:"Heist • Mystery • Revenge • Series",genres:["Heist","Mystery","Thriller"],poster:"assets/posters/french/lupin.jpg.JPG",synopsis:`A stylish modern heist series following a master of disguise who uses illusion, misdirection, and planning to target the powerful. The plot is driven by revenge tied to a decades-old injustice, but each episode plays like a puzzle: cons, escapes, and reveals designed to outsmart both police and criminals. The charm is in the tricks, and the stakes are personal.`},
+  {id:"revenge-2017",title:"Revenge",year:2017,meta:"Action • Survival • France",genres:["Action","Thriller","Revenge"],poster:"assets/posters/french/revenge-2017.jpg.JPG",synopsis:`A survival revenge thriller where a violent betrayal turns a remote getaway into a hunt. The story follows a woman left for dead who returns with clarity and rage, flipping the power dynamic on the men who tried to erase her. It's built as escalation: pursuit, traps, and endurance, with momentum coming from pure survival rather than speeches.`},
+  {id:"a-prophet",title:"A Prophet (Un prophète)",year:2009,meta:"Crime • Prison rise • France",genres:["Crime","Drama","Thriller"],poster:"assets/posters/french/a-prophet.jpg.JPG",synopsis:`A young man enters prison with no power and quickly learns that survival requires alliances, favors, and violence. The film tracks his rise through competing criminal groups, showing how institutions become training grounds for strategy and brutality. It's both a gangster origin story and a prison system portrait: identity reshaped by necessity, control earned at a cost.`},
+  {id:"the-intouchables",title:"The Intouchables",year:2011,meta:"Drama • Comedy • Friendship • France",genres:["Drama","Comedy"],poster:"assets/posters/french/the-intouchables.jpg.JPG",synopsis:`A wealthy man living with paralysis hires an unlikely caretaker, and their relationship shifts from necessity to friendship. The film balances humor with grounded life detail: daily routines, social class friction, and the way two very different people influence each other's sense of freedom. Its heart is in character contrast without turning into a sermon.`},
+  {id:"portrait-of-a-lady-on-fire",title:"Portrait of a Lady on Fire",year:2019,meta:"Period romance • France",genres:["Romance","Drama","Period"],poster:"assets/posters/french/portrait-of-a-lady-on-fire.jpg.JPG",synopsis:`On an isolated coast, a painter is hired to secretly paint a woman's wedding portrait while observing her in silence. The film builds intimacy through gaze, attention, and the slow shift from subject and observer to equals. It's structured around restraint: small gestures carrying weight, until romance becomes inevitable and memory becomes the final frame.`},
+  {id:"athena",title:"Athena",year:2022,meta:"Urban war drama • France",genres:["Drama","Action","Thriller"],poster:"assets/posters/french/athena.jpg.JPG",synopsis:`After a community tragedy, a housing estate erupts into conflict that escalates into siege-like chaos. The film follows brothers pulled into different roles: anger, leadership, and attempts at control as the situation spirals. It's staged with momentum and tension, showing how grief becomes collective fury and how violence multiplies once the first line is crossed.`},
+  {id:"the-beat-that-my-heart-skipped",title:"The Beat That My Heart Skipped",year:2005,meta:"Psychological drama • Crime-adjacent • France",genres:["Drama","Psychological"],poster:"assets/posters/french/the-beat-that-my-heart-skipped.jpg.JPG",synopsis:`A real-estate thug with a violent job tries to rebuild a life through music, training to become a pianist while his criminal world keeps pulling him back. The film runs on inner conflict: discipline versus impulse, art versus survival, and the fear that change is impossible. It's tension driven by choices, not twists.`},
+  {id:"elle",title:"Elle",year:2016,meta:"Psychological thriller • France",genres:["Thriller","Psychological","Drama"],poster:"assets/posters/french/elle.jpg.JPG",synopsis:`After a traumatic assault, a woman refuses to respond in expected ways and instead begins navigating the aftermath on her own terms: controlling information, testing boundaries, and investigating through proximity rather than protection. The film is built on discomfort and ambiguity, constantly shifting power dynamics and questions of agency and performance.`},
+  {id:"blue-is-the-warmest-color",title:"Blue Is the Warmest Color",year:2013,meta:"Relationship drama • Coming-of-age • France",genres:["Romance","Drama"],poster:"assets/posters/french/blue-is-the-warmest-color.jpg.JPG",synopsis:`A young woman experiences first intense love through a relationship that reshapes her identity, friendships, and future. The film follows the arc in detail: discovery, dependence, friction, and the slow shift from desire to incompatibility. It's a relationship portrait focused on everyday intimacy and emotional instability.`},
+  {id:"tell-no-one",title:"Tell No One",year:2006,meta:"Thriller • Mystery • France",genres:["Thriller","Mystery","Crime"],poster:"assets/posters/french/tell-no-one.jpg.JPG",synopsis:`Years after his wife's death, a doctor receives a message that suggests she may still be alive. What begins as hope becomes a high-speed mystery of hidden identities, old enemies, and evidence that keeps changing meaning. The film moves like a chase puzzle: each clue triggers the next while he tries to prove innocence and uncover what really happened.`},
+  {id:"la-haine",title:"La Haine",year:1995,meta:"Social drama • Urban • France",genres:["Drama","Social","Crime"],poster:"assets/posters/french/la-haine.jpg.JPG",synopsis:`Over one day after a night of unrest, three friends drift through the city carrying anger, fear, and exhaustion. The film tracks how pressure builds through humiliation, policing, and exclusion: small moments accumulating into inevitability. It's a tense social portrait of a system that produces conflict and then punishes the people living inside it.`}
+];
 
-  const grid = $("grid");
-  const resultCount = $("resultCount");
+const $=(id)=>document.getElementById(id);
+const grid=$("grid"),qEl=$("q"),emptyEl=$("empty"),resultCount=$("resultCount"),chipsEl=$("chips");
+const modal=$("modal"),closeBtn=$("closeBtn");
+const mPoster=$("mPoster"),mTitle=$("mTitle"),mMeta=$("mMeta"),mPills=$("mPills"),mWhy=$("mWhy");
+const picked=new Set();
 
-  const modal = $("modal");
-  const closeBtn = $("closeBtn");
-  const mPoster = $("mPoster");
-  const mTitle = $("mTitle");
-  const mMeta  = $("mMeta");
-  const mPills = $("mPills");
-  const mWhy   = $("mWhy");
+function normalize(s){return String(s||"").toLowerCase().trim();}
 
-  // Posters optional: set poster:"assets/posters/french/xxx.jpg.JPG"
-  const FRENCH = [
-    {
-      id:"le-bureau-des-legendes",
-      title:"Le Bureau des Légendes (The Bureau)",
-      year:2015,
-      meta:"Espionage • France • Series",
-      genres:["Espionage","Thriller","Drama"],
-      poster:"assets/posters/french/le-bureau-des-legendes.jpg.JPG",
-      synopsis:
-`A modern intelligence drama set inside France’s foreign intelligence service, following officers who run long-term undercover identities (“legends”). The tension comes from procedure and psychology: building sources, managing surveillance, and keeping a fake life intact for years. Cases escalate, but the real pressure is personal—relationships, loyalties, and the moment a cover story starts to crack under scrutiny.`
-    },
-    {
-      id:"les-revenants",
-      title:"The Returned (Les Revenants)",
-      year:2012,
-      meta:"Mystery • Supernatural • France • Series",
-      genres:["Mystery","Supernatural","Drama"],
-      poster:"assets/posters/french/les-revenants.jpg.JPG",
-      synopsis:
-`In a mountain town, people who died years earlier return without explanation—unchanged, confused, and trying to resume ordinary life. The series treats the supernatural as a social crisis: families split between hope and fear, secrets resurfacing, and the town’s calm turning unstable. It builds dread slowly through atmosphere, unanswered questions, and the ripple effects of the impossible becoming normal.`
-    },
-    {
-      id:"spiral",
-      title:"Spiral (Engrenages)",
-      year:2005,
-      meta:"Crime • Legal • Paris • Series",
-      genres:["Crime","Thriller","Drama"],
-      poster:"assets/posters/french/spiral-engrenages.jpg.JPG",
-      synopsis:
-`A gritty Paris crime series told across police investigation, prosecution, and the courts. Cases are messy rather than neat—evidence is imperfect, institutions collide, and personal choices complicate “justice.” The show’s strength is procedural realism: how a murder becomes paperwork, how pressure produces shortcuts, and how the system’s compromises follow everyone home.`
-    },
-    {
-      id:"baron-noir",
-      title:"Baron Noir",
-      year:2016,
-      meta:"Political thriller • France • Series",
-      genres:["Politics","Thriller","Drama"],
-      poster:"assets/posters/french/baron-noir.jpg.JPG",
-      synopsis:
-`A political thriller about strategy, betrayal, and survival inside French party power. It follows an operator who understands how influence really works: media control, backroom deals, and rival factions. Campaigns are treated as combat: alliances shift daily, scandals become weapons, and the line between ideology and ambition collapses under the need to win.`
-    },
-    {
-      id:"lupin",
-      title:"Lupin",
-      year:2021,
-      meta:"Heist • Mystery • Revenge • Series",
-      genres:["Heist","Mystery","Thriller"],
-      poster:"assets/posters/french/lupin.jpg.JPG",
-      synopsis:
-`A stylish modern heist series following a master of disguise who uses illusion, misdirection, and planning to target the powerful. The plot is driven by revenge tied to a decades-old injustice, but each episode plays like a puzzle: cons, escapes, and reveals designed to outsmart both police and criminals. The charm is in the tricks, and the stakes are personal.`
-    },
-    {
-      id:"revenge-2017",
-      title:"Revenge",
-      year:2017,
-      meta:"Action • Survival • France",
-      genres:["Action","Thriller","Revenge"],
-      poster:"assets/posters/french/revenge-2017.jpg.JPG",
-      synopsis:
-`A survival revenge thriller where a violent betrayal turns a remote getaway into a hunt. The story follows a woman left for dead who returns with clarity and rage, flipping the power dynamic on the men who tried to erase her. It’s built as escalation: pursuit, traps, and endurance, with momentum coming from pure survival rather than speeches.`
-    },
-    {
-      id:"a-prophet",
-      title:"A Prophet (Un prophète)",
-      year:2009,
-      meta:"Crime • Prison rise • France",
-      genres:["Crime","Drama","Thriller"],
-      poster:"assets/posters/french/a-prophet.jpg.JPG",
-      synopsis:
-`A young man enters prison with no power and quickly learns that survival requires alliances, favors, and violence. The film tracks his rise through competing criminal groups, showing how institutions become training grounds for strategy and brutality. It’s both a gangster origin story and a prison system portrait: identity reshaped by necessity, control earned at a cost.`
-    },
-    {
-      id:"the-intouchables",
-      title:"The Intouchables",
-      year:2011,
-      meta:"Drama • Comedy • Friendship • France",
-      genres:["Drama","Comedy"],
-      poster:"assets/posters/french/the-intouchables.jpg.JPG",
-      synopsis:
-`A wealthy man living with paralysis hires an unlikely caretaker, and their relationship shifts from necessity to friendship. The film balances humor with grounded life detail: daily routines, social class friction, and the way two very different people influence each other’s sense of freedom. Its heart is in character contrast without turning into a sermon.`
-    },
-    {
-      id:"portrait-of-a-lady-on-fire",
-      title:"Portrait of a Lady on Fire",
-      year:2019,
-      meta:"Period romance • France",
-      genres:["Romance","Drama","Period"],
-      poster:"assets/posters/french/portrait-of-a-lady-on-fire.jpg.JPG",
-      synopsis:
-`On an isolated coast, a painter is hired to secretly paint a woman’s wedding portrait while observing her in silence. The film builds intimacy through gaze, attention, and the slow shift from subject and observer to equals. It’s structured around restraint: small gestures carrying weight, until romance becomes inevitable and memory becomes the final frame.`
-    },
-    {
-      id:"athena",
-      title:"Athena",
-      year:2022,
-      meta:"Urban war drama • France",
-      genres:["Drama","Action","Thriller"],
-      poster:"assets/posters/french/athena.jpg.JPG",
-      synopsis:
-`After a community tragedy, a housing estate erupts into conflict that escalates into siege-like chaos. The film follows brothers pulled into different roles: anger, leadership, and attempts at control as the situation spirals. It’s staged with momentum and tension, showing how grief becomes collective fury and how violence multiplies once the first line is crossed.`
-    },
-    {
-      id:"the-beat-that-my-heart-skipped",
-      title:"The Beat That My Heart Skipped",
-      year:2005,
-      meta:"Psychological drama • Crime-adjacent • France",
-      genres:["Drama","Psychological"],
-      poster:"assets/posters/french/the-beat-that-my-heart-skipped.jpg.JPG",
-      synopsis:
-`A real-estate thug with a violent job tries to rebuild a life through music, training to become a pianist while his criminal world keeps pulling him back. The film runs on inner conflict: discipline versus impulse, art versus survival, and the fear that change is impossible. It’s tension driven by choices, not twists.`
-    },
-    {
-      id:"elle",
-      title:"Elle",
-      year:2016,
-      meta:"Psychological thriller • France",
-      genres:["Thriller","Psychological","Drama"],
-      poster:"assets/posters/french/elle.jpg.JPG",
-      synopsis:
-`After a traumatic assault, a woman refuses to respond in expected ways and instead begins navigating the aftermath on her own terms: controlling information, testing boundaries, and investigating through proximity rather than protection. The film is built on discomfort and ambiguity, constantly shifting power dynamics and questions of agency and performance.`
-    },
-    {
-      id:"blue-is-the-warmest-color",
-      title:"Blue Is the Warmest Color",
-      year:2013,
-      meta:"Relationship drama • Coming-of-age • France",
-      genres:["Romance","Drama"],
-      poster:"assets/posters/french/blue-is-the-warmest-color.jpg.JPG",
-      synopsis:
-`A young woman experiences first intense love through a relationship that reshapes her identity, friendships, and future. The film follows the arc in detail: discovery, dependence, friction, and the slow shift from desire to incompatibility. It’s a relationship portrait focused on everyday intimacy and emotional instability.`
-    },
-    {
-      id:"tell-no-one",
-      title:"Tell No One",
-      year:2006,
-      meta:"Thriller • Mystery • France",
-      genres:["Thriller","Mystery","Crime"],
-      poster:"assets/posters/french/tell-no-one.jpg.JPG",
-      synopsis:
-`Years after his wife’s death, a doctor receives a message that suggests she may still be alive. What begins as hope becomes a high-speed mystery of hidden identities, old enemies, and evidence that keeps changing meaning. The film moves like a chase puzzle: each clue triggers the next while he tries to prove innocence and uncover what really happened.`
-    },
-    {
-      id:"la-haine",
-      title:"La Haine",
-      year:1995,
-      meta:"Social drama • Urban • France",
-      genres:["Drama","Social","Crime"],
-      poster:"assets/posters/french/la-haine.jpg.JPG",
-      synopsis:
-`Over one day after a night of unrest, three friends drift through the city carrying anger, fear, and exhaustion. The film tracks how pressure builds through humiliation, policing, and exclusion: small moments accumulating into inevitability. It’s a tense social portrait of a system that produces conflict and then punishes the people living inside it.`
-    }
-  ];
+function buildChips(){
+  const counts=new Map();
+  FRENCH.forEach(m=>(m.genres||[]).forEach(t=>{const tag=String(t).trim();if(tag)counts.set(tag,(counts.get(tag)||0)+1);}));
+  const priority=["Thriller","Crime","Drama","Espionage","Mystery","Action","Politics","Romance","Psychological","Supernatural","Heist","Social"];
+  const present=new Set([...counts.keys()]);
+  const first=priority.filter(t=>present.has(t));
+  const rest=[...counts.entries()].filter(([t])=>!priority.includes(t)).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0])).map(([t])=>t);
+  return [...first,...rest].slice(0,30);
+}
 
-  function openModal(item){
-    const poster = item.poster || "";
-    if(poster){
-      mPoster.classList.remove("fallback");
-      mPoster.style.backgroundImage = `url('${String(poster).replace(/'/g,"\\'")}')`;
-    }else{
-      mPoster.classList.add("fallback");
-      mPoster.style.backgroundImage = "";
-    }
+function paintChips(){
+  chipsEl.innerHTML="";
+  buildChips().forEach(tag=>{
+    const b=document.createElement("div");
+    b.className="chip"+(picked.has(tag)?" on":"");b.textContent=tag;
+    b.onclick=()=>{if(picked.has(tag))picked.delete(tag);else picked.add(tag);paintChips();render();};
+    chipsEl.appendChild(b);
+  });
+}
 
-    mTitle.textContent = item.title || "Untitled";
-    mMeta.textContent = `${item.year || ""}${item.meta ? " • " + item.meta : ""}`;
+function matchesPicked(m){
+  if(!picked.size)return true;
+  const tags=new Set(m.genres||[]);
+  for(const p of picked){if(!tags.has(p))return false;}return true;
+}
 
-    mPills.innerHTML = "";
-    (item.genres || []).slice(0, 10).forEach(t=>{
-      const p = document.createElement("div");
-      p.className = "pill";
-      p.textContent = t;
-      mPills.appendChild(p);
-    });
+function openModal(item){
+  const poster=item.poster||"";
+  if(poster){mPoster.classList.remove("fallback");mPoster.style.backgroundImage=`url('${String(poster).replace(/'/g,"\\'")}')`;
+  }else{mPoster.classList.add("fallback");mPoster.style.backgroundImage="";}
+  mTitle.textContent=item.title||"Untitled";
+  mMeta.textContent=`${item.year||""}${item.meta?" • "+item.meta:""}`;
+  mPills.innerHTML="";
+  (item.genres||[]).slice(0,10).forEach(t=>{const p=document.createElement("div");p.className="pill";p.textContent=t;mPills.appendChild(p);});
+  mWhy.textContent=item.synopsis||"No synopsis added yet.";
+  modal.classList.add("on");modal.setAttribute("aria-hidden","false");
+  document.body.classList.add("modalOpen");
+}
 
-    mWhy.textContent = item.synopsis || "No synopsis added yet.";
+function closeModal(){
+  modal.classList.remove("on");modal.setAttribute("aria-hidden","true");
+  document.body.classList.remove("modalOpen");
+}
 
-    modal.classList.add("on");
-    modal.setAttribute("aria-hidden","false");
-    document.body.classList.add("modalOpen");
-  }
+closeBtn.onclick=closeModal;
+modal.addEventListener("click",(e)=>{if(e.target===modal)closeModal();});
+window.addEventListener("keydown",(e)=>{if(e.key==="Escape")closeModal();});
 
-  function closeModal(){
-    modal.classList.remove("on");
-    modal.setAttribute("aria-hidden","true");
-    document.body.classList.remove("modalOpen");
-  }
+function card(item){
+  const div=document.createElement("div");div.className="card";
+  const poster=item.poster||"";
+  const posterHtml=poster?`<div class="poster" style="background-image:url('${String(poster).replace(/'/g,"\\'")}');background-size:contain;background-repeat:no-repeat;background-position:center;"></div>`:`<div class="poster fallback"></div>`;
+  div.innerHTML=`${posterHtml}<div class="info"><div class="title">${item.title||"Untitled"}</div><div class="meta">${item.year||""}${item.meta?" • "+item.meta:""}</div><div class="tagsline">${(item.genres||[]).slice(0,5).join(" • ")}</div></div>`;
+  div.onclick=()=>openModal(item);return div;
+}
 
-  closeBtn.onclick = closeModal;
-  modal.addEventListener("click", (e)=>{ if(e.target === modal) closeModal(); });
-  window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeModal(); });
+function render(){
+  const q=normalize(qEl.value);
+  const filtered=FRENCH.filter(m=>matchesPicked(m)&&normalize([m.title,m.year,m.meta,m.synopsis,(m.genres||[]).join(" ")].join(" ")).includes(q));
+  grid.innerHTML="";filtered.forEach(s=>grid.appendChild(card(s)));
+  resultCount.textContent=`${filtered.length} title${filtered.length===1?"":"s"} found`+(picked.size?` • Filters: ${[...picked].join(", ")}` :"");
+  emptyEl.style.display=filtered.length?"none":"block";
+}
 
-  function card(item){
-    const div = document.createElement("div");
-    div.className = "card";
+$("clearBtn").onclick=()=>{qEl.value="";render();};
+let t=null;
+qEl.addEventListener("input",()=>{clearTimeout(t);t=setTimeout(render,60);});
 
-    const poster = item.poster || "";
-    const tags = (item.genres || []).slice(0, 5).join(" • ");
-
-    const posterHtml = poster
-      ? `<div class="poster" style="background-image:url('${String(poster).replace(/'/g,"\\'")}');"></div>`
-      : `<div class="poster fallback"></div>`;
-
-    div.innerHTML = `
-      ${posterHtml}
-      <div class="info">
-        <div class="title">${item.title || "Untitled"}</div>
-        <div class="meta">${item.year || ""}${item.meta ? " • " + item.meta : ""}</div>
-        <div class="tagsline">${tags}</div>
-      </div>
-    `;
-
-    div.onclick = () => openModal(item);
-    return div;
-  }
-
-  function render(){
-    grid.innerHTML = "";
-    FRENCH.forEach(s => grid.appendChild(card(s)));
-    resultCount.textContent = `${FRENCH.length} titles`;
-  }
-
-  render();
+paintChips();render();
 </script>
-
 </body>
 </html>
