@@ -4,12 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Indian Cinema — Popcorn Picks</title>
+<meta name="description" content="Curated Indian cinema: Bollywood, South Indian films, historical biopics, action epics, thrillers and more." />
 
-<!-- ✅ AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
-        crossorigin="anonymous"></script>
-
-<!-- ✅ Google Analytics (GA4) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -20,209 +17,210 @@
 
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
   body{
-    background:#0b0b0c;
-    color:#fff;
+    background:#0b0b0c;color:#fff;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    -webkit-text-size-adjust:100%;
   }
   a{text-decoration:none;color:inherit}
-
-  /* lock scroll when modal is open */
+  a,button,.card{-webkit-tap-highlight-color:transparent}
+  button,input{font:inherit}
   body.noscroll{overflow:hidden;touch-action:none}
 
   .top{
-    position:sticky;top:0;
+    position:sticky;top:0;z-index:50;
     display:flex;justify-content:space-between;align-items:center;
-    padding:16px 20px;
+    padding:14px 18px;
     background:rgba(10,10,10,.88);
-    -webkit-backdrop-filter:blur(10px);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid #222;
-    z-index:50;
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    border-bottom:1px solid #222;gap:12px;
   }
-  .top b{font-size:16px}
-
-  .wrap{padding:18px 18px 10px}
-  .small{
-    color:#aaa;
-    font-size:12px;
-    padding:6px 2px 0;
-    line-height:1.4;
+  .top b{font-size:15px;white-space:nowrap}
+  .navLeft{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .navBtn{
+    padding:8px 13px;border-radius:999px;
+    border:1px solid #2a2a2a;background:#141414;
+    font-size:12px;color:#ddd;white-space:nowrap;cursor:pointer;transition:.15s;
   }
+  .navBtn:hover{border-color:#444;color:#fff}
+  .navBtn:active{transform:translateY(1px)}
 
+  /* INTRO */
+  .intro{max-width:860px;margin:0 auto;padding:28px 20px 6px}
+  .intro h1{font-size:22px;font-weight:700;letter-spacing:-.01em;line-height:1.2;margin-bottom:10px}
+  .intro p{color:#c8c8c8;font-size:14px;line-height:1.8;max-width:72ch}
+
+  /* EDITORIAL CARDS */
+  .editorials{margin-top:20px}
+  .ed-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#555;margin-bottom:12px}
+  .ed-row{display:flex;gap:12px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;scrollbar-width:none}
+  .ed-row::-webkit-scrollbar{display:none}
+  .ed-card{
+    flex:0 0 auto;width:160px;border-radius:12px;
+    border:1px solid #1e1e1e;background:#0f0f0f;overflow:hidden;
+    display:block;text-decoration:none;transition:border-color .15s;
+  }
+  .ed-card:hover{border-color:#2e2e2e}
+  .ed-card:active{opacity:.8}
+  .ed-thumb-bg{width:100%;height:100px;background:#111 no-repeat center/cover;display:block}
+  .ed-body{padding:9px 10px 11px}
+  .ed-tag{font-size:10px;color:#666;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+  .ed-title{font-size:12px;font-weight:600;color:#ccc;line-height:1.35}
+
+  .divider{margin-top:18px;border:0;border-top:1px solid #1f1f1f}
+
+  /* SEARCH + CHIPS */
+  .wrap{padding:14px 18px 8px}
+  .searchRow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .searchRow input{
+    flex:1;min-width:220px;padding:12px 14px;border-radius:12px;
+    border:1px solid #222;background:#111;color:#fff;outline:none;font-size:14px;
+  }
+  .searchRow input::placeholder{color:#666}
+  .btn{
+    padding:12px 14px;border-radius:12px;
+    border:1px solid #222;background:#141414;color:#fff;
+    cursor:pointer;white-space:nowrap;font-size:13px;
+  }
+  .btn:active{transform:translateY(1px)}
+  .small{color:#888;font-size:12px;padding:10px 2px 0;line-height:1.4}
+  .chips{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+  .chip{border:1px solid #222;background:#111;color:#ddd;padding:10px 12px;border-radius:999px;font-size:13px;cursor:pointer;user-select:none}
+  .chip.on{border-color:#444;background:#1b1b1b;color:#fff}
+
+  /* GRID */
   .grid{
     padding:16px 18px 34px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-    gap:18px;
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;
   }
-
   .card{
-    border-radius:18px;
-    border:1px solid #181818;
-    overflow:hidden;
-    position:relative;
-    background:#111;
-    min-height:320px;
-    cursor:pointer;
-    -webkit-tap-highlight-color:transparent;
+    border-radius:18px;border:1px solid #181818;overflow:hidden;
+    position:relative;background:#111;min-height:320px;cursor:pointer;
   }
   .poster{
-    height:320px;
-    background:#101010;
-    background-size:cover;
-    background-position:center;
+    height:320px;background:#101010;
+    background-size:contain;background-repeat:no-repeat;background-position:center;
   }
   .poster.fallback{
-    background:
-      radial-gradient(700px 380px at 20% 15%, rgba(255,255,255,.09), transparent 55%),
+    background:radial-gradient(700px 380px at 20% 15%, rgba(255,255,255,.09), transparent 55%),
       linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.8));
   }
-  .info{
-    position:absolute;
-    bottom:0;left:0;right:0;
-    padding:14px;
-    background:linear-gradient(to top,rgba(0,0,0,.92),transparent);
-  }
+  .info{position:absolute;bottom:0;left:0;right:0;padding:14px;background:linear-gradient(to top,rgba(0,0,0,.92),transparent)}
   .title{font-size:18px;font-weight:700;line-height:1.2}
   .meta{font-size:12px;color:#aaa;margin-top:4px}
-  .tagsline{
-    font-size:12px;
-    color:#cfcfcf;
-    margin-top:8px;
-    opacity:.92;
-    display:-webkit-box;
-    -webkit-line-clamp:2;
-    -webkit-box-orient:vertical;
-    overflow:hidden;
-  }
+  .tagsline{font-size:12px;color:#cfcfcf;margin-top:8px;opacity:.92;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .empty{padding:22px 18px 30px;color:#888;display:none}
 
   /* MODAL */
   .modal{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.72);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:18px;
-    z-index:999;
+    position:fixed;inset:0;background:rgba(0,0,0,.72);
+    display:none;align-items:center;justify-content:center;padding:18px;z-index:999;
   }
   .modal.on{display:flex}
-
-  /* Make the modal content scrollable on mobile */
   .sheet{
-    width:min(980px, 100%);
-    border:1px solid #1f1f1f;
-    background:#0f0f0f;
-    border-radius:18px;
-    overflow:hidden;
-    max-height:calc(100dvh - 36px);
-    display:flex;
-    flex-direction:column;
+    width:min(980px, 100%);max-height:calc(100dvh - 36px);
+    border:1px solid #1f1f1f;background:#0f0f0f;border-radius:18px;
+    overflow:hidden;display:flex;flex-direction:column;
   }
-
   .sheetTop{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:14px 14px;
-    border-bottom:1px solid #1f1f1f;
-    background:#0d0d0d;
-    flex:0 0 auto;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:14px;border-bottom:1px solid #1f1f1f;background:#0d0d0d;flex:0 0 auto;
   }
-  .closeBtn{
-    border:1px solid #222;
-    background:#141414;
-    color:#fff;
-    border-radius:12px;
-    padding:10px 12px;
-    cursor:pointer;
-  }
-
+  .closeBtn{border:1px solid #222;background:#141414;color:#fff;border-radius:12px;padding:10px 12px;cursor:pointer}
   .sheetBody{
-    padding:16px;
-    display:grid;
-    grid-template-columns:320px 1fr;
-    gap:16px;
-
-    /* key: allow internal scrolling */
-    overflow:auto;
-    -webkit-overflow-scrolling:touch;
-    overscroll-behavior:contain;
-    flex:1 1 auto;
+    padding:16px;display:grid;grid-template-columns:320px 1fr;gap:16px;
+    overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;flex:1 1 auto;
   }
-
   .bigPoster{
-    height:460px;
-    border-radius:16px;
-    border:1px solid #1b1b1b;
-    background:#111;
-    background-size:cover;
-    background-position:center;
+    height:460px;border-radius:16px;border:1px solid #1b1b1b;background:#111;
+    background-size:contain;background-repeat:no-repeat;background-position:center;
   }
   .bigPoster.fallback{
-    background:
-      radial-gradient(900px 520px at 20% 15%, rgba(255,255,255,.09), transparent 55%),
+    background:radial-gradient(900px 520px at 20% 15%, rgba(255,255,255,.09), transparent 55%),
       linear-gradient(to bottom, rgba(0,0,0,.12), rgba(0,0,0,.85));
   }
-  .h1{
-    font-size:26px;
-    font-weight:800;
-    line-height:1.1;
-  }
+  .h1{font-size:26px;font-weight:800;line-height:1.1}
   .muted{color:#aaa;font-size:13px;line-height:1.5;margin-top:8px}
-  .why{
-    margin-top:14px;
-    font-size:14px;
-    line-height:1.85;
-    color:#ddd;
-    white-space:pre-line;
-  }
+  .why{margin-top:14px;font-size:14px;line-height:1.85;color:#ddd;white-space:pre-line}
   .pills{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
-  .pill{
-    font-size:12px;
-    border:1px solid #222;
-    background:#111;
-    padding:8px 10px;
-    border-radius:999px;
-    color:#d8d8d8;
-  }
+  .pill{font-size:12px;border:1px solid #222;background:#111;padding:8px 10px;border-radius:999px;color:#d8d8d8}
 
-  /* Mobile polish */
-  @media(max-width:900px){
-    .sheetBody{grid-template-columns:1fr}
-    .bigPoster{height:360px}
-    .h1{font-size:22px}
-  }
+  @media(max-width:900px){.sheetBody{grid-template-columns:1fr}.bigPoster{height:360px}.h1{font-size:22px}}
   @media(max-width:520px){
-    .grid{grid-template-columns:1fr}
-    .wrap{padding:16px 14px 8px}
-    .grid{padding:14px 14px 28px}
-    .top{padding:14px 14px}
-    .poster{height:340px}
-    .card{min-height:340px}
-    .modal{padding:12px}
-    .sheet{max-height:calc(100dvh - 24px)}
+    .grid{grid-template-columns:1fr;padding:14px 14px 28px}
+    .wrap{padding:16px 14px 8px}.top{padding:14px 14px}
+    .poster{height:340px}.card{min-height:340px}
+    .intro h1{font-size:19px}.ed-card{width:140px}.ed-thumb-bg{height:86px}
   }
 </style>
 </head>
-
 <body>
 
 <div class="top">
-  <a href="index.html">← Home</a>
+  <div class="navLeft">
+    <a class="navBtn" href="categories.html">← Categories</a>
+    <a class="navBtn" href="index.html">Home</a>
+  </div>
   <b>Indian Cinema</b>
   <span></span>
 </div>
 
+<div class="intro">
+  <h1>Indian cinema worth your time.</h1>
+  <p>
+    Indian cinema is one of the most varied film industries in the world and one of the most
+    misunderstood outside it. The Bollywood label gets applied to everything, but the actual
+    output spans multiple industries across different languages with completely different
+    sensibilities. South Indian cinema in particular has been producing some of the most
+    ambitious filmmaking anywhere for the last decade. RRR is an action epic with genuine
+    emotional scale. Andhadhun is a thriller that plays with moral logic better than most
+    Hollywood films manage. Sardar Udham is a restrained, slow-burn political biography that
+    demands patience and rewards it. The collection here covers that range: action, drama,
+    comedy, historical, thriller, and the mythic epic. If you are new to Indian cinema,
+    the intro editorial is a good place to start. If you already know the space, the
+    full-throttle piece covers the films that go hardest.
+  </p>
+
+  <div class="editorials">
+    <div class="ed-label">From the blog</div>
+    <div class="ed-row">
+
+      <a class="ed-card" href="indian-introduction.html">
+        <div class="ed-thumb-bg" style="background-image:url('assets/posters/andhadhun.jpg.JPG')"></div>
+        <div class="ed-body">
+          <div class="ed-tag">Introduction</div>
+          <div class="ed-title">Indian cinema: where to start if you're new</div>
+        </div>
+      </a>
+
+      <a class="ed-card" href="indian-cinema-at-full-throttle.html">
+        <div class="ed-thumb-bg" style="background-image:url('assets/posters/rrr.jpg.JPG')"></div>
+        <div class="ed-body">
+          <div class="ed-tag">Action</div>
+          <div class="ed-title">Indian cinema at full throttle</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <hr class="divider" />
+</div>
+
 <div class="wrap">
+  <div class="searchRow">
+    <input id="q" type="text" placeholder="Search title, year, genre..." autocomplete="off" />
+    <button class="btn" id="clearBtn">Clear</button>
+  </div>
   <div class="small" id="resultCount">Loading...</div>
+  <div class="chips" id="chips"></div>
 </div>
 
 <div class="grid" id="grid"></div>
+<div class="empty" id="empty">No matches.</div>
 
-<!-- MODAL -->
 <div class="modal" id="modal" aria-hidden="true">
   <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="mTitle">
     <div class="sheetTop">
@@ -242,209 +240,98 @@
 </div>
 
 <script>
-  const $ = (id) => document.getElementById(id);
+const INDIAN = [
+  {id:"dhurandhar",title:"Dhurandhar",year:2026,meta:"Espionage • Action thriller • India",genres:["Espionage","Action","Thriller"],poster:"assets/posters/dhurandhar.jpg.JPG",synopsis:`An intelligence-driven thriller built around surveillance, cover identities, and the cost of living two lives. The story follows an operative pulled into a mission where information is weaponised and loyalty is constantly tested by enemies, institutions, and personal compromises.`},
+  {id:"animal",title:"Animal",year:2023,meta:"Crime drama • Family obsession • Violent",genres:["Crime","Drama","Action"],poster:"assets/posters/animal.jpg.JPG",synopsis:`A father–son relationship mutates into obsession and brutality. The film explores masculinity, power, and emotional inheritance as personal loyalty escalates into cycles of revenge and destruction.`},
+  {id:"sardar-udham",title:"Sardar Udham",year:2021,meta:"Historical • Biographical • Political",genres:["History","Biography","Drama"],poster:"assets/posters/sardar-udham.jpg.JPG",synopsis:`A restrained political biography tracing the journey toward the assassination of Michael O'Dwyer. The film focuses on memory, trauma, and the mechanics of justice rather than spectacle.`},
+  {id:"jugnuma-the-fable",title:"Jugnuma: The Fable",year:2025,meta:"Fantasy • Folklore • Mythic tone",genres:["Fantasy","Folklore","Drama"],poster:"assets/posters/jugnu-ma-the-fable.jpg.JPG",synopsis:`A myth-inspired fantasy where fate, ritual, and identity intersect. The story unfolds like a modern legend, favouring atmosphere and symbolism over realism.`},
+  {id:"kalki-2898-ad",title:"Kalki 2898 AD",year:2024,meta:"Sci-fi epic • Mythology • Dystopia",genres:["Sci-Fi","Action","Mythology"],poster:"assets/posters/kalki-2898-ad.jpg.JPG",synopsis:`A future shaped by collapse and prophecy. Ancient myth collides with science fiction as factions battle over a figure believed to trigger renewal or destruction.`},
+  {id:"rrr",title:"RRR",year:2022,meta:"Action epic • Friendship • Revolution",genres:["Action","Adventure","Historical"],poster:"assets/posters/rrr.jpg.JPG",synopsis:`Two revolutionaries form an unbreakable bond before discovering they stand on opposing sides of a larger conflict. The film builds mythic emotion through spectacle and loyalty.`},
+  {id:"3-idiots",title:"3 Idiots",year:2009,meta:"Comedy-drama • Education • Friendship",genres:["Comedy","Drama"],poster:"assets/posters/3-idiots.jpg.JPG",synopsis:`A critique of rigid education systems told through friendship and memory. The film balances humour and regret while questioning how success is defined.`},
+  {id:"zindagi-na-milegi-dobara",title:"Zindagi Na Milegi Dobara",year:2011,meta:"Road film • Friendship • Self-discovery",genres:["Drama","Adventure"],poster:"assets/posters/zindagi-na-milegi-dobara.jpg.JPG",synopsis:`Three friends reunite on a journey that forces them to confront fear, ambition, and emotional honesty. Change happens quietly, through experience rather than confrontation.`},
+  {id:"taare-zameen-par",title:"Taare Zameen Par",year:2007,meta:"Family drama • Childhood • Learning",genres:["Drama","Family"],poster:"assets/posters/taare-zameen-par.jpg.JPG",synopsis:`A child's struggles reveal how institutions mistake difference for failure. The film focuses on empathy, creativity, and the impact of being truly seen.`},
+  {id:"yeh-jawaani-hai-deewani",title:"Yeh Jawaani Hai Deewani",year:2013,meta:"Romance • Friendship • Adulthood",genres:["Romance","Drama","Comedy"],poster:"assets/posters/yeh-jawaani-hai-deewani.jpg.JPG",synopsis:`A story about ambition and connection unfolding over years. Love and friendship are tested as personal dreams pull people in different directions.`},
+  {id:"andhadhun",title:"Andhadhun",year:2018,meta:"Black comedy • Crime • Thriller",genres:["Thriller","Crime","Black Comedy"],poster:"assets/posters/andhadhun.jpg.JPG",synopsis:`A blind pianist becomes entangled in murder and deception. The film thrives on misdirection, coincidence, and moral ambiguity, constantly reshaping the truth.`}
+];
 
-  const grid = $("grid");
-  const resultCount = $("resultCount");
+const $=(id)=>document.getElementById(id);
+const grid=$("grid"),qEl=$("q"),emptyEl=$("empty"),resultCount=$("resultCount"),chipsEl=$("chips");
+const modal=$("modal"),closeBtn=$("closeBtn"),sheetBody=$("sheetBody");
+const mPoster=$("mPoster"),mTitle=$("mTitle"),mMeta=$("mMeta"),mPills=$("mPills"),mWhy=$("mWhy");
+const picked=new Set();
 
-  const modal = $("modal");
-  const closeBtn = $("closeBtn");
-  const sheetBody = $("sheetBody");
+function normalize(s){return String(s||"").toLowerCase().trim();}
 
-  const mPoster = $("mPoster");
-  const mTitle = $("mTitle");
-  const mMeta  = $("mMeta");
-  const mPills = $("mPills");
-  const mWhy   = $("mWhy");
+function buildChips(){
+  const counts=new Map();
+  INDIAN.forEach(m=>(m.genres||[]).forEach(t=>{const tag=String(t).trim();if(tag)counts.set(tag,(counts.get(tag)||0)+1);}));
+  const priority=["Action","Drama","Thriller","Crime","History","Romance","Comedy","Sci-Fi","Fantasy","Biography","Adventure"];
+  const present=new Set([...counts.keys()]);
+  const first=priority.filter(t=>present.has(t));
+  const rest=[...counts.entries()].filter(([t])=>!priority.includes(t)).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0])).map(([t])=>t);
+  return [...first,...rest].slice(0,30);
+}
 
-  // If you upload posters, put exact paths (same case + extension) in poster:"..."
-  // Example: poster:"assets/posters/indian/rrr.jpg.JPG"
-  const INDIAN = [
-    {
-      id:"dhurandhar",
-      title:"Dhurandhar",
-      year:2026,
-      meta:"Espionage • Action thriller • India",
-      genres:["Espionage","Action","Thriller"],
-      poster:"assets/posters/dhurandhar.jpg.JPG",
-      synopsis:
-`An intelligence-driven thriller built around surveillance, cover identities, and the cost of living two lives. The story follows an operative pulled into a mission where information is weaponised and loyalty is constantly tested by enemies, institutions, and personal compromises.`
-    },
-    {
-      id:"animal",
-      title:"Animal",
-      year:2023,
-      meta:"Crime drama • Family obsession • Violent",
-      genres:["Crime","Drama","Action"],
-      poster:"assets/posters/animal.jpg.JPG",
-      synopsis:
-`A father–son relationship mutates into obsession and brutality. The film explores masculinity, power, and emotional inheritance as personal loyalty escalates into cycles of revenge and destruction.`
-    },
-    {
-      id:"sardar-udham",
-      title:"Sardar Udham",
-      year:2021,
-      meta:"Historical • Biographical • Political",
-      genres:["History","Biography","Drama"],
-      poster:"assets/posters/sardar-udham.jpg.JPG",
-      synopsis:
-`A restrained political biography tracing the journey toward the assassination of Michael O’Dwyer. The film focuses on memory, trauma, and the mechanics of justice rather than spectacle.`
-    },
-    {
-      id:"jugnuma-the-fable",
-      title:"Jugnuma: The Fable",
-      year:2025,
-      meta:"Fantasy • Folklore • Mythic tone",
-      genres:["Fantasy","Folklore","Drama"],
-      poster:"assets/posters/jugnu-ma-the-fable.jpg.JPG",
-      synopsis:
-`A myth-inspired fantasy where fate, ritual, and identity intersect. The story unfolds like a modern legend, favouring atmosphere and symbolism over realism.`
-    },
-    {
-      id:"kalki-2898-ad",
-      title:"Kalki 2898 AD",
-      year:2024,
-      meta:"Sci-fi epic • Mythology • Dystopia",
-      genres:["Sci-Fi","Action","Mythology"],
-      poster:"assets/posters/kalki-2898-ad.jpg.JPG",
-      synopsis:
-`A future shaped by collapse and prophecy. Ancient myth collides with science fiction as factions battle over a figure believed to trigger renewal or destruction.`
-    },
-    {
-      id:"rrr",
-      title:"RRR",
-      year:2022,
-      meta:"Action epic • Friendship • Revolution",
-      genres:["Action","Adventure","Historical"],
-      poster:"assets/posters/rrr.jpg.JPG",
-      synopsis:
-`Two revolutionaries form an unbreakable bond before discovering they stand on opposing sides of a larger conflict. The film builds mythic emotion through spectacle and loyalty.`
-    },
-    {
-      id:"3-idiots",
-      title:"3 Idiots",
-      year:2009,
-      meta:"Comedy-drama • Education • Friendship",
-      genres:["Comedy","Drama"],
-      poster:"assets/posters/3-idiots.jpg.JPG",
-      synopsis:
-`A critique of rigid education systems told through friendship and memory. The film balances humour and regret while questioning how success is defined.`
-    },
-    {
-      id:"zindagi-na-milegi-dobara",
-      title:"Zindagi Na Milegi Dobara",
-      year:2011,
-      meta:"Road film • Friendship • Self-discovery",
-      genres:["Drama","Adventure"],
-      poster:"assets/posters/zindagi-na-milegi-dobara.jpg.JPG",
-      synopsis:
-`Three friends reunite on a journey that forces them to confront fear, ambition, and emotional honesty. Change happens quietly, through experience rather than confrontation.`
-    },
-    {
-      id:"taare-zameen-par",
-      title:"Taare Zameen Par",
-      year:2007,
-      meta:"Family drama • Childhood • Learning",
-      genres:["Drama","Family"],
-      poster:"assets/posters/taare-zameen-par.jpg.JPG",
-      synopsis:
-`A child’s struggles reveal how institutions mistake difference for failure. The film focuses on empathy, creativity, and the impact of being truly seen.`
-    },
-    {
-      id:"yeh-jawaani-hai-deewani",
-      title:"Yeh Jawaani Hai Deewani",
-      year:2013,
-      meta:"Romance • Friendship • Adulthood",
-      genres:["Romance","Drama","Comedy"],
-      poster:"assets/posters/yeh-jawaani-hai-deewani.jpg.JPG",
-      synopsis:
-`A story about ambition and connection unfolding over years. Love and friendship are tested as personal dreams pull people in different directions.`
-    },
-    {
-      id:"andhadhun",
-      title:"Andhadhun",
-      year:2018,
-      meta:"Black comedy • Crime • Thriller",
-      genres:["Thriller","Crime","Black Comedy"],
-      poster:"assets/posters/andhadhun.jpg.JPG",
-      synopsis:
-`A blind pianist becomes entangled in murder and deception. The film thrives on misdirection, coincidence, and moral ambiguity, constantly reshaping the truth.`
-    }
-  ];
+function paintChips(){
+  chipsEl.innerHTML="";
+  buildChips().forEach(tag=>{
+    const b=document.createElement("div");
+    b.className="chip"+(picked.has(tag)?" on":"");b.textContent=tag;
+    b.onclick=()=>{if(picked.has(tag))picked.delete(tag);else picked.add(tag);paintChips();render();};
+    chipsEl.appendChild(b);
+  });
+}
 
-  function openModal(item){
-    const poster = item.poster || "";
-    if(poster){
-      mPoster.classList.remove("fallback");
-      mPoster.style.backgroundImage = `url('${String(poster).replace(/'/g,"\\'")}')`;
-    }else{
-      mPoster.classList.add("fallback");
-      mPoster.style.backgroundImage = "";
-    }
+function matchesPicked(m){
+  if(!picked.size)return true;
+  const tags=new Set(m.genres||[]);
+  for(const p of picked){if(!tags.has(p))return false;}return true;
+}
 
-    mTitle.textContent = item.title || "Untitled";
-    mMeta.textContent = `${item.year || ""}${item.meta ? " • " + item.meta : ""}`;
+function openModal(item){
+  const poster=item.poster||"";
+  if(poster){mPoster.classList.remove("fallback");mPoster.style.backgroundImage=`url('${String(poster).replace(/'/g,"\\'")}')`;
+  }else{mPoster.classList.add("fallback");mPoster.style.backgroundImage="";}
+  mTitle.textContent=item.title||"Untitled";
+  mMeta.textContent=`${item.year||""}${item.meta?" • "+item.meta:""}`;
+  mPills.innerHTML="";
+  (item.genres||[]).slice(0,10).forEach(t=>{const p=document.createElement("div");p.className="pill";p.textContent=t;mPills.appendChild(p);});
+  mWhy.textContent=item.synopsis||"No synopsis added yet.";
+  if(sheetBody)sheetBody.scrollTop=0;
+  modal.classList.add("on");modal.setAttribute("aria-hidden","false");
+  document.body.classList.add("noscroll");
+}
 
-    mPills.innerHTML = "";
-    (item.genres || []).slice(0, 10).forEach(t=>{
-      const p = document.createElement("div");
-      p.className = "pill";
-      p.textContent = t;
-      mPills.appendChild(p);
-    });
+function closeModal(){
+  modal.classList.remove("on");modal.setAttribute("aria-hidden","true");
+  document.body.classList.remove("noscroll");
+}
 
-    mWhy.textContent = item.synopsis || "No synopsis added yet.";
+closeBtn.onclick=closeModal;
+modal.addEventListener("click",(e)=>{if(e.target===modal)closeModal();});
+window.addEventListener("keydown",(e)=>{if(e.key==="Escape")closeModal();});
 
-    // reset modal scroll to top each open
-    if(sheetBody) sheetBody.scrollTop = 0;
+function card(item){
+  const div=document.createElement("div");div.className="card";
+  const poster=item.poster||"";
+  const posterHtml=poster?`<div class="poster" style="background-image:url('${String(poster).replace(/'/g,"\\'")}');background-size:contain;background-repeat:no-repeat;background-position:center;"></div>`:`<div class="poster fallback"></div>`;
+  div.innerHTML=`${posterHtml}<div class="info"><div class="title">${item.title||"Untitled"}</div><div class="meta">${item.year||""}${item.meta?" • "+item.meta:""}</div><div class="tagsline">${(item.genres||[]).slice(0,5).join(" • ")}</div></div>`;
+  div.onclick=()=>openModal(item);return div;
+}
 
-    modal.classList.add("on");
-    modal.setAttribute("aria-hidden","false");
-    document.body.classList.add("noscroll");
-  }
+function render(){
+  const q=normalize(qEl.value);
+  const filtered=INDIAN.filter(m=>matchesPicked(m)&&normalize([m.title,m.year,m.meta,m.synopsis,(m.genres||[]).join(" ")].join(" ")).includes(q));
+  grid.innerHTML="";filtered.forEach(s=>grid.appendChild(card(s)));
+  resultCount.textContent=`${filtered.length} title${filtered.length===1?"":"s"} found`+(picked.size?` • Filters: ${[...picked].join(", ")}` :"");
+  emptyEl.style.display=filtered.length?"none":"block";
+}
 
-  function closeModal(){
-    modal.classList.remove("on");
-    modal.setAttribute("aria-hidden","true");
-    document.body.classList.remove("noscroll");
-  }
+$("clearBtn").onclick=()=>{qEl.value="";render();};
+let t=null;
+qEl.addEventListener("input",()=>{clearTimeout(t);t=setTimeout(render,60);});
 
-  closeBtn.onclick = closeModal;
-  modal.addEventListener("click", (e)=>{ if(e.target === modal) closeModal(); });
-  window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeModal(); });
-
-  function card(item){
-    const div = document.createElement("div");
-    div.className = "card";
-
-    const poster = item.poster || "";
-    const tags = (item.genres || []).slice(0, 5).join(" • ");
-
-    const posterHtml = poster
-      ? `<div class="poster" style="background-image:url('${String(poster).replace(/'/g,"\\'")}');"></div>`
-      : `<div class="poster fallback"></div>`;
-
-    div.innerHTML = `
-      ${posterHtml}
-      <div class="info">
-        <div class="title">${item.title || "Untitled"}</div>
-        <div class="meta">${item.year || ""}${item.meta ? " • " + item.meta : ""}</div>
-        <div class="tagsline">${tags}</div>
-      </div>
-    `;
-
-    div.onclick = () => openModal(item);
-    return div;
-  }
-
-  function render(){
-    grid.innerHTML = "";
-    INDIAN.forEach(s => grid.appendChild(card(s)));
-    resultCount.textContent = `${INDIAN.length} titles`;
-  }
-
-  render();
+paintChips();render();
 </script>
-
 </body>
 </html>
