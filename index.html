@@ -9,7 +9,6 @@
 
 <link rel="canonical" href="https://popcornpicks.in/">
 
-<!-- Schema.org: Organization -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -20,7 +19,6 @@
 }
 </script>
 
-<!-- Consent Mode v2 + Google tag (GA4) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -39,16 +37,12 @@
   gtag('config', 'G-XZ94ZK9JN4', { anonymize_ip: true });
 </script>
 
-<!-- Preload hero image -->
 <link rel="preload" as="image" href="assets/home/hero.jpg" fetchpriority="high">
-
-<!-- DNS prefetch for faster external connections -->
 <link rel="preconnect" href="https://pagead2.googlesyndication.com">
 <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
 <link rel="preconnect" href="https://www.googletagservices.com">
 <link rel="dns-prefetch" href="https://www.googletagservices.com">
 
-<!-- AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800" crossorigin="anonymous"></script>
 
 <style>
@@ -65,8 +59,6 @@ html{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
   --muted:rgba(255,255,255,.78);
   --muted2:rgba(255,255,255,.62);
   --radius:16px;
-
-  /* Mobile/tablet defaults */
   --wrap: 1160px;
   --sidePad: 28px;
   --sectionPad: 56px;
@@ -74,15 +66,12 @@ html{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
   --h1Size: 38px;
   --h2Size: 26px;
   --cardGap: 24px;
-
-  /* Hero spacing (we will override on desktop) */
   --headerH: 64px;
   --heroPadTop: 64px;
   --heroInnerTop: 60px;
   --heroInnerBottom: 52px;
 }
 
-/* Safety net: never allow white background */
 html, body{background:var(--bg); color:#fff}
 
 body{
@@ -94,19 +83,13 @@ body{
   overflow-x:hidden;
 }
 
-/* Performance */
-.gpu-accelerated{
-  transform:translateZ(0);
-  will-change:transform;
-}
+.gpu-accelerated{transform:translateZ(0);will-change:transform;}
 
-/* Keyboard focus */
 a:focus-visible, button:focus-visible{
   outline:2px solid rgba(255,255,255,.45);
   outline-offset:3px;
 }
 
-/* Layout */
 .container{
   width:min(var(--wrap), calc(100% - var(--sidePad)));
   margin:0 auto;
@@ -128,11 +111,7 @@ header{
   border-bottom:1px solid var(--lineSoft);
   z-index:100;
 }
-.logo{
-  font-weight:850;
-  letter-spacing:.4px;
-  font-size:15px;
-}
+.logo{font-weight:850;letter-spacing:.4px;font-size:15px;}
 
 /* HERO */
 .hero{
@@ -154,75 +133,47 @@ header{
   padding:var(--heroInnerTop) 0 var(--heroInnerBottom);
 }
 .kicker{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:10px 14px;
-  border-radius:999px;
+  display:inline-flex;align-items:center;gap:10px;
+  padding:10px 14px;border-radius:999px;
   border:1px solid rgba(255,255,255,.14);
   background:rgba(0,0,0,.28);
   color:rgba(255,255,255,.88);
-  font-size:11px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  font-weight:700;
+  font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;
 }
 .dot{
-  width:8px;
-  height:8px;
-  border-radius:50%;
+  width:8px;height:8px;border-radius:50%;
   background:rgba(255,160,90,.92);
   box-shadow:0 0 18px rgba(255,160,90,.6);
 }
 .hero h1{
   margin-top:20px;
   font-size:var(--h1Size);
-  line-height:1.04;
-  letter-spacing:-.03em;
-  font-weight:900;
-  max-width: 18ch;
+  line-height:1.04;letter-spacing:-.03em;font-weight:900;
+  max-width:18ch;
 }
 .hero p{
-  margin-top:16px;
-  max-width:62ch;
+  margin-top:16px;max-width:62ch;
   color:var(--muted);
   font-size:clamp(16px, 1.25vw, 18px);
   line-height:1.7;
 }
-.quoteLine{
-  display:block;
-  margin-top:12px;
-  opacity:.88;
-}
-.heroActions{
-  margin-top:28px;
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-}
+.quoteLine{display:block;margin-top:12px;opacity:.88;}
+.heroActions{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;}
 .btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:15px 24px;
-  min-height:48px;
-  border-radius:999px;
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:15px 24px;min-height:48px;border-radius:999px;
   border:1px solid rgba(255,255,255,.18);
   background:rgba(255,255,255,.06);
-  font-size:14px;
-  font-weight:700;
-  transition:all .2s cubic-bezier(.4,0,.2,1);
-  cursor:pointer;
+  font-size:14px;font-weight:700;
+  transition:all .2s cubic-bezier(.4,0,.2,1);cursor:pointer;
 }
 .btn.primary{
   background:linear-gradient(90deg, rgba(255,160,90,.24), rgba(90,170,255,.2));
   border-color:rgba(255,160,90,.5);
 }
 .btn:hover{
-  transform:translateY(-2px);
-  border-color:rgba(255,255,255,.32);
-  background:rgba(255,255,255,.1);
-  box-shadow:0 8px 24px rgba(0,0,0,.3);
+  transform:translateY(-2px);border-color:rgba(255,255,255,.32);
+  background:rgba(255,255,255,.1);box-shadow:0 8px 24px rgba(0,0,0,.3);
 }
 .btn.primary:hover{
   background:linear-gradient(90deg, rgba(255,160,90,.32), rgba(90,170,255,.28));
@@ -233,39 +184,21 @@ header{
 .section.firstSection{padding-top:calc(var(--sectionPad) * 0.7)}
 
 .sectionHead{
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-  gap:24px;
-  margin-bottom:28px;
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:24px;margin-bottom:28px;
 }
 .sectionHead h2{margin-bottom:0}
-.section h2{
-  font-size:var(--h2Size);
-  margin-bottom:20px;
-  letter-spacing:-.01em;
-  font-weight:850;
-}
-.sectionLead{
-  margin-top:12px;
-  max-width:72ch;
-  color:var(--muted2);
-  font-size:16px;
-  line-height:1.75;
-}
+.section h2{font-size:var(--h2Size);margin-bottom:20px;letter-spacing:-.01em;font-weight:850;}
+.sectionLead{margin-top:12px;max-width:72ch;color:var(--muted2);font-size:16px;line-height:1.75;}
 
 /* HANDPICKED CAROUSEL */
 .handpickedSection{padding-top:calc(var(--sectionPad) * 1.2)}
 .handpickedMarquee{
-  overflow-x:auto;
-  overflow-y:hidden;
-  padding-bottom:16px;
+  overflow-x:auto;overflow-y:hidden;padding-bottom:16px;
   margin:0 calc(-1 * max(var(--sidePad)/2, calc((100vw - var(--wrap)) / 2)));
   padding-left:max(var(--sidePad)/2, calc((100vw - var(--wrap)) / 2));
   padding-right:max(var(--sidePad)/2, calc((100vw - var(--wrap)) / 2));
-  scrollbar-width:none;
-  -webkit-overflow-scrolling:touch;
-  scroll-behavior:smooth;
+  scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-behavior:smooth;
 }
 .handpickedMarquee::-webkit-scrollbar{display:none}
 @media (hover: hover) and (pointer: fine) and (min-width: 1025px){
@@ -273,222 +206,123 @@ header{
 }
 .handpickedTrack{display:flex;gap:var(--cardGap);width:max-content}
 .pickCard{
-  flex:0 0 auto;
-  width:150px;
-  text-align:center;
+  flex:0 0 auto;width:150px;text-align:center;
   scroll-snap-align:start;
   transition:transform .25s cubic-bezier(.4,0,.2,1);
 }
 .pickCard img{
-  width:100%;
-  aspect-ratio:2/3;
-  object-fit:cover;
-  object-position:center top;
-  border-radius:var(--radius);
-  background:#000;
-  outline:1px solid rgba(255,255,255,.12);
-  outline-offset:-1px;
+  width:100%;aspect-ratio:2/3;object-fit:cover;object-position:center top;
+  border-radius:var(--radius);background:#000;
+  outline:1px solid rgba(255,255,255,.12);outline-offset:-1px;
   transition:all .25s cubic-bezier(.4,0,.2,1);
 }
-.pickCard:hover img{
-  outline-color:rgba(255,255,255,.24);
-  box-shadow:0 12px 32px rgba(0,0,0,.4);
-}
-.pickTitle{
-  margin-top:12px;
-  font-size:14px;
-  font-weight:700;
-  color:rgba(255,255,255,.88);
-  line-height:1.35;
-}
+.pickCard:hover img{outline-color:rgba(255,255,255,.24);box-shadow:0 12px 32px rgba(0,0,0,.4);}
+.pickTitle{margin-top:12px;font-size:14px;font-weight:700;color:rgba(255,255,255,.88);line-height:1.35;}
 .pickCard:hover{transform:translateY(-4px)}
 
 /* EDITORIAL BOX */
 .editorialBox{
-  width:min(920px, 100%);
-  margin:0 auto 38px;
-  padding:22px 20px 20px;
-  border-radius:22px;
+  width:min(920px, 100%);margin:0 auto 38px;
+  padding:22px 20px 20px;border-radius:22px;
   background:
     radial-gradient(900px 420px at 15% 10%, rgba(255,160,90,.08), transparent 60%),
     radial-gradient(900px 420px at 85% 10%, rgba(90,170,255,.08), transparent 60%),
     linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.2));
-  outline:1px solid rgba(255,255,255,.11);
-  outline-offset:-1px;
+  outline:1px solid rgba(255,255,255,.11);outline-offset:-1px;
   box-shadow:0 20px 60px rgba(0,0,0,.32);
 }
 .editorialBox h2{text-align:center;font-size:26px}
 .editorialBox .sectionLead{
-  text-align:center;
-  margin:14px auto 0;
-  max-width:70ch;
-  color:rgba(255,255,255,.7);
-  font-size:15px;
+  text-align:center;margin:14px auto 0;max-width:70ch;
+  color:rgba(255,255,255,.7);font-size:15px;
 }
 .editorialBullets{
-  margin:18px auto 0;
-  padding:0;
-  list-style:none;
-  width:min(780px, 100%);
-  color:rgba(255,255,255,.64);
-  font-size:14px;
-  line-height:1.9;
+  margin:18px auto 0;padding:0;list-style:none;
+  width:min(780px, 100%);color:rgba(255,255,255,.64);
+  font-size:14px;line-height:1.9;
 }
-.editorialBullets li{
-  margin:10px 0;
-  padding-left:18px;
-  position:relative;
-}
+.editorialBullets li{margin:10px 0;padding-left:18px;position:relative;}
 .editorialBullets li::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:.95em;
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  background:rgba(255,255,255,.32);
-  box-shadow:0 0 14px rgba(255,255,255,.14);
+  content:"";position:absolute;left:0;top:.95em;
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(255,255,255,.32);box-shadow:0 0 14px rgba(255,255,255,.14);
 }
 .editorialCTA{display:flex;justify-content:flex-end;margin-top:18px}
 
-/* VIEW ALL BUTTON */
+/* VIEW ALL */
 .viewAll{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:13px 20px;
-  min-height:48px;
-  font-size:14px;
-  font-weight:800;
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 20px;min-height:48px;font-size:14px;font-weight:800;
   color:rgba(255,255,255,.88);
-  border:1px solid rgba(255,255,255,.18);
-  border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);border-radius:999px;
   background:rgba(0,0,0,.3);
-  transition:all .2s cubic-bezier(.4,0,.2,1);
-  white-space:nowrap;
+  transition:all .2s cubic-bezier(.4,0,.2,1);white-space:nowrap;
 }
 .viewAll:hover{
-  transform:translateY(-2px);
-  background:rgba(255,255,255,.08);
-  border-color:rgba(255,255,255,.28);
-  color:#fff;
-  box-shadow:0 8px 24px rgba(0,0,0,.25);
+  transform:translateY(-2px);background:rgba(255,255,255,.08);
+  border-color:rgba(255,255,255,.28);color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.25);
 }
 
 /* FEED CARDS */
-.feed{
-  display:grid;
-  grid-template-columns:repeat(2, 1fr);
-  gap:var(--cardGap);
-}
+.feed{display:grid;grid-template-columns:repeat(2, 1fr);gap:var(--cardGap);}
 .feedCard{
-  --bgimg:none;
-  position:relative;
-  border-radius:20px;
-  overflow:hidden;
-  isolation:isolate;
-  outline:1px solid rgba(255,255,255,.11);
-  outline-offset:-1px;
+  --bgimg:none;position:relative;border-radius:20px;overflow:hidden;isolation:isolate;
+  outline:1px solid rgba(255,255,255,.11);outline-offset:-1px;
   background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
-  min-height:240px;
-  display:grid;
-  grid-template-columns:46% 54%;
+  min-height:240px;display:grid;grid-template-columns:46% 54%;
   transition:all .25s cubic-bezier(.4,0,.2,1);
 }
 .feedCard:hover{
-  transform:translateY(-3px);
-  outline-color:rgba(255,255,255,.2);
+  transform:translateY(-3px);outline-color:rgba(255,255,255,.2);
   background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
   box-shadow:0 12px 36px rgba(0,0,0,.35);
 }
 .feedCard::before{
-  content:"";
-  position:absolute;
-  left:0;top:0;bottom:0;
-  width:46%;
-  background-image:var(--bgimg);
-  background-size:cover;
-  background-position:center top;
-  background-repeat:no-repeat;
-  background-color:#000;
+  content:"";position:absolute;left:0;top:0;bottom:0;width:46%;
+  background-image:var(--bgimg);background-size:cover;
+  background-position:center top;background-repeat:no-repeat;background-color:#000;
   filter:saturate(1.05) contrast(1.02);
 }
 .feedCard::after{
-  content:"";
-  position:absolute;
-  left:0;top:0;bottom:0;
-  width:46%;
+  content:"";position:absolute;left:0;top:0;bottom:0;width:46%;
   background:linear-gradient(90deg, rgba(0,0,0,.08), rgba(0,0,0,.6));
 }
 .feedText{
-  grid-column:2;
-  position:relative;
-  z-index:1;
-  padding:20px 20px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  gap:12px;
+  grid-column:2;position:relative;z-index:1;
+  padding:20px 20px;display:flex;flex-direction:column;justify-content:center;gap:12px;
   background:
     radial-gradient(600px 320px at 10% 40%, rgba(255,255,255,.06), transparent 55%),
     linear-gradient(180deg, rgba(0,0,0,.42), rgba(0,0,0,.64));
 }
 .feedText h3{font-size:19px;font-weight:850;letter-spacing:-.02em;line-height:1.2}
 .feedText p{
-  color:rgba(255,255,255,.72);
-  font-size:13px;
-  line-height:1.65;
-  display:-webkit-box;
-  -webkit-line-clamp:3;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
+  color:rgba(255,255,255,.72);font-size:13px;line-height:1.65;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
 }
 
 /* CATEGORIES */
-.catGrid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
-  gap:var(--cardGap);
-}
+.catGrid{display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:var(--cardGap);}
 .cat{
-  --bgimg:none;
-  height:280px;
-  border-radius:18px;
-  position:relative;
-  overflow:hidden;
-  isolation:isolate;
-  outline:1px solid rgba(255,255,255,.11);
-  outline-offset:-1px;
-  background-image:var(--bgimg);
-  background-repeat:no-repeat;
-  background-position:center center;
-  background-size:cover;
-  background-color:#000;
+  --bgimg:none;height:280px;border-radius:18px;position:relative;overflow:hidden;isolation:isolate;
+  outline:1px solid rgba(255,255,255,.11);outline-offset:-1px;
+  background-image:var(--bgimg);background-repeat:no-repeat;
+  background-position:center center;background-size:cover;background-color:#000;
   transition:all .25s cubic-bezier(.4,0,.2,1);
 }
 .cat::after{
-  content:"";
-  position:absolute;
-  inset:0;
+  content:"";position:absolute;inset:0;
   background:
     radial-gradient(700px 420px at 30% 25%, rgba(255,255,255,.05), transparent 60%),
     linear-gradient(to top, rgba(0,0,0,.94), rgba(0,0,0,.3), transparent);
 }
 .cat span{
-  position:absolute;
-  left:22px;bottom:22px;
-  font-size:24px;
-  font-weight:900;
-  z-index:2;
-  text-shadow:0 12px 24px rgba(0,0,0,.9);
-  letter-spacing:-.01em;
+  position:absolute;left:22px;bottom:22px;
+  font-size:24px;font-weight:900;z-index:2;
+  text-shadow:0 12px 24px rgba(0,0,0,.9);letter-spacing:-.01em;
 }
 .cat:hover{
-  transform:translateY(-3px);
-  outline-color:rgba(255,255,255,.2);
-  filter:saturate(1.08) contrast(1.03);
-  box-shadow:0 14px 40px rgba(0,0,0,.4);
+  transform:translateY(-3px);outline-color:rgba(255,255,255,.2);
+  filter:saturate(1.08) contrast(1.03);box-shadow:0 14px 40px rgba(0,0,0,.4);
 }
 
 /* BETWEEN THE FRAMES */
@@ -502,161 +336,69 @@ header{
     linear-gradient(to bottom, rgba(0,0,0,.12), rgba(0,0,0,.94));
 }
 .btfFeed .feedText{
-  grid-column:1;
-  position:absolute;
-  left:0;right:0;bottom:0;
-  background:transparent;
-  padding:26px;
+  grid-column:1;position:absolute;left:0;right:0;bottom:0;
+  background:transparent;padding:26px;
 }
 .btfFeed .feedText h3{font-size:21px}
 .btfFeed .feedText p{font-size:14px;-webkit-line-clamp:2}
 
 /* FOOTER */
-footer{
-  border-top:1px solid rgba(255,255,255,.08);
-  padding:72px 0 28px;
-  color:rgba(255,255,255,.66);
-}
-.footerGrid{
-  display:grid;
-  grid-template-columns:1.4fr 1fr 1fr;
-  gap:52px;
-  align-items:start;
-}
-footer h4{
-  color:#fff;
-  margin-bottom:14px;
-  font-size:14px;
-  font-weight:800;
-  letter-spacing:.02em;
-}
-footer a{
-  display:block;
-  margin:8px 0;
-  font-size:13px;
-  color:rgba(255,255,255,.64);
-  transition:color .2s ease;
-}
+footer{border-top:1px solid rgba(255,255,255,.08);padding:72px 0 28px;color:rgba(255,255,255,.66);}
+.footerGrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:52px;align-items:start;}
+footer h4{color:#fff;margin-bottom:14px;font-size:14px;font-weight:800;letter-spacing:.02em;}
+footer a{display:block;margin:8px 0;font-size:13px;color:rgba(255,255,255,.64);transition:color .2s ease;}
 footer a:hover{color:#fff}
-footer p{
-  line-height:1.75;
-  font-size:13px;
-  color:rgba(255,255,255,.68);
-  max-width:48ch;
-}
+footer p{line-height:1.75;font-size:13px;color:rgba(255,255,255,.68);max-width:48ch;}
 .footerBottom{
-  margin-top:32px;
-  padding-top:20px;
-  border-top:1px solid rgba(255,255,255,.06);
-  font-size:12px;
-  color:rgba(255,255,255,.48);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:14px;
-  flex-wrap:wrap;
+  margin-top:32px;padding-top:20px;border-top:1px solid rgba(255,255,255,.06);
+  font-size:12px;color:rgba(255,255,255,.48);
+  display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
 }
-.footerBottom a{
-  font-size:12px;
-  color:rgba(255,255,255,.58);
-  text-decoration:underline;
-  margin:0;
-}
+.footerBottom a{font-size:12px;color:rgba(255,255,255,.58);text-decoration:underline;margin:0;}
 .footerBottom a:hover{color:#fff}
 
-/* COOKIE BANNER + MODAL (unchanged) */
+/* COOKIE */
 .cookieBar{
-  position:fixed;
-  left:18px;
-  right:18px;
-  bottom:18px;
-  z-index:200;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
-  padding:14px 16px;
-  border-radius:16px;
-  border:1px solid rgba(255,255,255,.15);
-  background:rgba(10,10,14,.88);
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
+  position:fixed;left:18px;right:18px;bottom:18px;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:14px 16px;border-radius:16px;
+  border:1px solid rgba(255,255,255,.15);background:rgba(10,10,14,.88);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
   box-shadow:0 20px 50px rgba(0,0,0,.6);
 }
-.cookieBar p{
-  margin:0;
-  color:rgba(255,255,255,.74);
-  font-size:13px;
-  line-height:1.55;
-}
+.cookieBar p{margin:0;color:rgba(255,255,255,.74);font-size:13px;line-height:1.55;}
 .cookieBar p a{opacity:.92;text-decoration:underline}
 .cookieBtns{display:flex;gap:12px;align-items:center;flex:0 0 auto}
 .cookieBar button{
-  padding:11px 16px;
-  min-height:44px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.2);
-  background:rgba(255,255,255,.09);
-  color:#fff;
-  font-weight:800;
-  font-size:13px;
-  cursor:pointer;
-  white-space:nowrap;
+  padding:11px 16px;min-height:44px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.09);
+  color:#fff;font-weight:800;font-size:13px;cursor:pointer;white-space:nowrap;
   transition:all .2s ease;
 }
-.cookieBar button:hover{
-  background:rgba(255,255,255,.14);
-  border-color:rgba(255,255,255,.28);
-  transform:translateY(-1px);
-}
+.cookieBar button:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.28);transform:translateY(-1px);}
 .cookieBar .ghost{background:rgba(0,0,0,.12)}
-
 .cookieModal{
-  position:fixed;
-  inset:0;
-  z-index:220;
-  display:none;
-  align-items:flex-end;
-  justify-content:center;
-  padding:18px;
-  background:rgba(0,0,0,.6);
+  position:fixed;inset:0;z-index:220;display:none;
+  align-items:flex-end;justify-content:center;padding:18px;background:rgba(0,0,0,.6);
 }
 .cookieSheet{
-  width:min(640px, 100%);
-  border-radius:20px;
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(10,10,14,.94);
-  backdrop-filter:blur(18px);
-  -webkit-backdrop-filter:blur(18px);
-  box-shadow:0 28px 80px rgba(0,0,0,.7);
-  padding:18px;
+  width:min(640px, 100%);border-radius:20px;
+  border:1px solid rgba(255,255,255,.14);background:rgba(10,10,14,.94);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  box-shadow:0 28px 80px rgba(0,0,0,.7);padding:18px;
 }
 .cookieSheet h4{margin:4px 0 12px;font-size:16px}
 .cookieRow{
-  display:flex;
-  justify-content:space-between;
-  gap:14px;
-  padding:12px 0;
-  border-top:1px solid rgba(255,255,255,.06);
-  color:rgba(255,255,255,.74);
-  font-size:13px;
+  display:flex;justify-content:space-between;gap:14px;
+  padding:12px 0;border-top:1px solid rgba(255,255,255,.06);
+  color:rgba(255,255,255,.74);font-size:13px;
 }
-.cookieRow small{
-  display:block;
-  opacity:.78;
-  margin-top:5px;
-  max-width:44ch;
-  line-height:1.5;
-}
+.cookieRow small{display:block;opacity:.78;margin-top:5px;max-width:44ch;line-height:1.5;}
 .switch{display:inline-flex;align-items:center;gap:10px}
 .switch input{width:18px;height:18px}
 .cookieSheetActions{display:flex;justify-content:flex-end;gap:12px;margin-top:14px}
 
-/* ========================================
-   DESKTOP FIXES (the actual change)
-   ======================================== */
-
-/* Tablet improvements */
+/* ─── TABLET ─── */
 @media (min-width:769px){
   :root{
     --sidePad: 48px;
@@ -667,142 +409,127 @@ footer p{
   .hero{background-position:center center}
 }
 
-/* Desktop: reduce hero dominance + increase section breathing */
+/* ─── DESKTOP ─── the only block that changed ─── */
 @media (min-width:1025px){
   :root{
-    --wrap: 1280px;
-    --sidePad: 80px;
+    --wrap: 1200px;
+    --sidePad: 60px;
 
-    /* Main fix: more breathing */
-    --sectionPad: 120px;
+    /* Comfortable section breathing, not cavernous */
+    --sectionPad: 80px;
 
-    /* Main fix: hero not too tall */
-    --heroHeight: 72vh;
+    /* Hero: tall enough to feel cinematic, not full-screen */
+    --heroHeight: 62vh;
 
-    --headerH: 72px;
-    --heroPadTop: 72px;
-    --heroInnerTop: 78px;
-    --heroInnerBottom: 66px;
+    --headerH: 68px;
+    --heroPadTop: 68px;
+    --heroInnerTop: 60px;
+    --heroInnerBottom: 56px;
 
-    --h1Size: clamp(56px, 4.8vw, 78px);
-    --h2Size: 40px;
+    /* Typography: readable and confident, not giant */
+    --h1Size: clamp(38px, 3vw, 52px);
+    --h2Size: 30px;
 
-    --cardGap: 44px;
+    /* Tighter card gap — more content visible */
+    --cardGap: 22px;
   }
 
   header{
     height:var(--headerH);
-    padding:0 max(80px, calc((100vw - 1280px) / 2));
+    padding:0 max(60px, calc((100vw - 1200px) / 2));
   }
 
-  .logo{font-size:16px}
+  .logo{font-size:15px}
   .hero{padding-top:var(--heroPadTop)}
   .heroInner{padding:var(--heroInnerTop) 0 var(--heroInnerBottom)}
+  .hero h1{max-width:20ch;line-height:1.06}
+  .hero p{font-size:17px;line-height:1.8;margin-top:18px}
+  .heroActions{margin-top:30px;gap:14px}
+  .btn{padding:14px 26px;min-height:48px;font-size:14px}
 
-  .hero h1{max-width:22ch;line-height:1.06}
-  .hero p{font-size:19px;line-height:1.85;margin-top:22px}
-  .heroActions{margin-top:40px;gap:18px}
-  .btn{padding:17px 32px;min-height:54px;font-size:15px}
+  /* Handpicked: slightly larger posters */
+  .pickCard{width:170px}
+  .pickTitle{font-size:14px;margin-top:12px}
 
-  /* Handpicked: bigger posters */
-  .pickCard{width:240px}
-  .pickTitle{font-size:16px;margin-top:14px}
-
-  /* Editorial box: more spacious */
+  /* Editorial box: comfortable but not bloated */
   .editorialBox{
-    width:min(1160px, 100%);
-    padding:44px 54px 42px;
-    margin-bottom:64px;
+    width:min(1100px, 100%);
+    padding:32px 36px 28px;
+    margin-bottom:44px;
   }
-  .editorialBox h2{font-size:40px}
-  .editorialBox .sectionLead{font-size:17px;line-height:1.9;margin-top:18px}
-  .editorialBullets{
-    font-size:16px;
-    line-height:2.05;
-    margin-top:30px;
-    width:min(980px, 100%);
-  }
-  .editorialBullets li{margin:14px 0;padding-left:24px}
+  .editorialBox h2{font-size:28px}
+  .editorialBox .sectionLead{font-size:15px;line-height:1.8;margin-top:14px}
+  .editorialBullets{font-size:14px;line-height:1.95;margin-top:22px;width:min(880px, 100%);}
+  .editorialBullets li{margin:10px 0;padding-left:20px}
 
-  /* Feed cards: taller + more padding */
+  /* Feed cards: reasonable height, readable text */
   .feed{gap:var(--cardGap)}
-  .feedCard{min-height:420px;border-radius:26px}
-  .feedText{padding:42px 46px;gap:18px}
-  .feedText h3{font-size:28px;line-height:1.25}
-  .feedText p{font-size:16px;line-height:1.75}
+  .feedCard{min-height:280px;border-radius:20px}
+  .feedText{padding:24px 26px;gap:12px}
+  .feedText h3{font-size:20px;line-height:1.25}
+  .feedText p{font-size:13px;line-height:1.65}
 
-  /* Categories: bigger tiles */
+  /* 3-column feed on wide desktop for editorials */
+  .feed:not(.btfFeed){grid-template-columns:repeat(3, 1fr)}
+
+  /* Categories: sensible tile height */
   .catGrid{
     gap:var(--cardGap);
-    grid-template-columns:repeat(auto-fit, minmax(380px, 1fr));
+    grid-template-columns:repeat(3, 1fr);
   }
-  .cat{height:520px;border-radius:26px}
-  .cat span{left:38px;bottom:36px;font-size:36px}
+  .cat{height:300px;border-radius:20px}
+  .cat span{left:24px;bottom:24px;font-size:26px}
 
-  /* Between the frames: cinematic */
-  .btfFeed .feedCard{min-height:560px}
-  .btfFeed .feedText{padding:54px 58px}
-  .btfFeed .feedText h3{font-size:38px;line-height:1.22}
-  .btfFeed .feedText p{font-size:17px;line-height:1.85}
+  /* Between the Frames: cinematic but not absurd */
+  .btfFeed{grid-template-columns:repeat(2, 1fr) !important}
+  .btfFeed .feedCard{min-height:340px;grid-template-columns:1fr}
+  .btfFeed .feedText{padding:28px 30px}
+  .btfFeed .feedText h3{font-size:24px;line-height:1.25}
+  .btfFeed .feedText p{font-size:14px;line-height:1.75}
 
-  /* Footer spacing */
-  footer{padding:120px 0 48px}
-  .footerGrid{gap:80px}
-  footer h4{font-size:15px;margin-bottom:18px}
-  footer a{font-size:14px;margin:10px 0}
-  footer p{font-size:14px;line-height:1.85}
-  .viewAll{padding:15px 26px;min-height:52px;font-size:15px}
+  /* Footer */
+  footer{padding:80px 0 36px}
+  .footerGrid{gap:60px}
+  footer h4{font-size:14px;margin-bottom:14px}
+  footer a{font-size:13px;margin:8px 0}
+  footer p{font-size:13px;line-height:1.8}
+  .viewAll{padding:12px 20px;min-height:44px;font-size:14px}
 }
 
-/* Ultra-wide: a bit more space */
+/* ─── ULTRA-WIDE: gentle nudge only ─── */
 @media (min-width:1441px){
   :root{
-    --wrap: 1480px;
-    --sidePad: 110px;
-    --sectionPad: 140px;
-    --heroHeight: 70vh;
-    --h1Size: clamp(70px, 4.8vw, 92px);
-    --h2Size: 48px;
-    --cardGap: 56px;
+    --wrap: 1360px;
+    --sidePad: 80px;
+    --sectionPad: 96px;
+    --heroHeight: 60vh;
+    --h1Size: clamp(44px, 3vw, 56px);
+    --h2Size: 32px;
+    --cardGap: 26px;
   }
 }
 
-/* Keep mobile exactly as before */
+/* ─── MOBILE: exactly as before ─── */
 @media (max-width:768px){
-  :root{
-    --sidePad: 36px;
-    --sectionPad: 56px;
-  }
-
+  :root{--sidePad: 36px;--sectionPad: 56px;}
   .container, .heroInner{width:calc(100% - 36px)}
   header{padding:0 18px}
   .heroInner{padding:60px 0 52px}
   .section.firstSection{padding-top:38px}
-
   .editorialBox{padding:22px 20px 20px}
-
   .feed{grid-template-columns:1fr}
   .feedCard{display:flex;flex-direction:column;min-height:340px}
   .feedCard::before{
-    position:relative;
-    width:100%;
-    min-height:220px;
-    aspect-ratio:16/9;
-    left:auto;top:auto;bottom:auto;
-    background-position:center top;
+    position:relative;width:100%;min-height:220px;aspect-ratio:16/9;
+    left:auto;top:auto;bottom:auto;background-position:center top;
   }
   .feedCard::after{
-    position:absolute;
-    width:100%;
-    height:100%;
-    left:0;top:0;right:0;
+    position:absolute;width:100%;height:100%;left:0;top:0;right:0;
     background:linear-gradient(to bottom, rgba(0,0,0,.12), rgba(0,0,0,.94));
   }
   .feedText{position:relative;margin-top:0;flex:1;justify-content:flex-end}
-
   .catGrid{grid-template-columns:1fr;gap:20px}
   .cat{height:280px}
-
   .footerGrid{grid-template-columns:1fr;gap:36px}
   .pickCard{width:150px}
 }
@@ -911,91 +638,52 @@ footer p{
     <div class="feed">
       <a class="feedLink" href="must-watch-espionage.html">
         <div class="feedCard" data-bg="assets/posters/espionage.jpg.JPG">
-          <div class="feedText">
-            <h3>Must Watch Espionage</h3>
-            <p>Tradecraft, double lives, paranoia, and power games.</p>
-          </div>
+          <div class="feedText"><h3>Must Watch Espionage</h3><p>Tradecraft, double lives, paranoia, and power games.</p></div>
         </div>
       </a>
-
       <a class="feedLink" href="mustwatch-period.html">
         <div class="feedCard" data-bg="assets/posters/period.jpg.WEBP">
-          <div class="feedText">
-            <h3>Must Watch Period Dramas</h3>
-            <p>Atmosphere-heavy stories where writing and time matter.</p>
-          </div>
+          <div class="feedText"><h3>Must Watch Period Dramas</h3><p>Atmosphere-heavy stories where writing and time matter.</p></div>
         </div>
       </a>
-
       <a class="feedLink" href="undertheradar-kdrama.html">
         <div class="feedCard" data-bg="assets/posters/kdrama-editorial.jpg.JPG">
-          <div class="feedText">
-            <h3>Under the Radar K-Dramas</h3>
-            <p>Serious Korean shows that deserved far more attention.</p>
-          </div>
+          <div class="feedText"><h3>Under the Radar K-Dramas</h3><p>Serious Korean shows that deserved far more attention.</p></div>
         </div>
       </a>
-
       <a class="feedLink" href="editorial-donghua.html">
         <div class="feedCard" data-bg="assets/posters/donghua/renegade-immortal.jpg.WEBP">
-          <div class="feedText">
-            <h3>Our Favorite Donghua</h3>
-            <p>Cultivation worlds, long arcs, and myth-heavy storytelling.</p>
-          </div>
+          <div class="feedText"><h3>Our Favorite Donghua</h3><p>Cultivation worlds, long arcs, and myth-heavy storytelling.</p></div>
         </div>
       </a>
-
       <a class="feedLink" href="international-films-that-won-the-oscar-the-last-decade.html">
         <div class="feedCard" data-bg="assets/posters/IMG_2842.webp">
-          <div class="feedText">
-            <h3>International Films That Won the Oscar</h3>
-            <p>The last decade of global cinema recognised by the Academy.</p>
-          </div>
+          <div class="feedText"><h3>International Films That Won the Oscar</h3><p>The last decade of global cinema recognised by the Academy.</p></div>
         </div>
       </a>
-
       <a class="feedLink" href="editorial-korean-dating-shows.html">
         <div class="feedCard" data-bg="assets/posters/singles-inferno.jpg.JPG">
-          <div class="feedText">
-            <h3>Korean Dating Shows Worth Your Time</h3>
-            <p>Reality formats that understand emotions, not chaos.</p>
-          </div>
+          <div class="feedText"><h3>Korean Dating Shows Worth Your Time</h3><p>Reality formats that understand emotions, not chaos.</p></div>
         </div>
       </a>
-
       <a class="feedLink" href="indian-introduction.html">
         <div class="feedCard" data-bg="assets/posters/india-editorial.jpg.WEBP">
-          <div class="feedText">
-            <h3>Your First Steps into Indian Cinema</h3>
-            <p>Mainstream hits to powerful modern classics.</p>
-          </div>
+          <div class="feedText"><h3>Your First Steps into Indian Cinema</h3><p>Mainstream hits to powerful modern classics.</p></div>
         </div>
       </a>
-
       <a class="feedLink" href="recommended-crime-tv-shows.html">
         <div class="feedCard" data-bg="assets/posters/Crime.jpg.JPG">
-          <div class="feedText">
-            <h3>Our Recommended Crime TV Shows</h3>
-            <p>Character-driven crime series we've watched and recommend.</p>
-          </div>
+          <div class="feedText"><h3>Our Recommended Crime TV Shows</h3><p>Character-driven crime series we've watched and recommend.</p></div>
         </div>
       </a>
-
       <a class="feedLink" href="high-stakes-action-thrillers.html">
         <div class="feedCard" data-bg="assets/posters/tv/the-terminal-list.jpg.jpeg">
-          <div class="feedText">
-            <h3>High-Stakes Action Thrillers</h3>
-            <p>Bingeable spy and action shows with constant pressure.</p>
-          </div>
+          <div class="feedText"><h3>High-Stakes Action Thrillers</h3><p>Bingeable spy and action shows with constant pressure.</p></div>
         </div>
       </a>
-
       <a class="feedLink" href="chinese-fantasy-dramas-guide.html">
         <div class="feedCard" data-bg="assets/posters/cdrama/battle-through-the-heavens-poster.jpg.jpeg">
-          <div class="feedText">
-            <h3>Best Chinese Fantasy Dramas</h3>
-            <p>Xianxia, wuxia fantasy, cultivation — the ones worth your time.</p>
-          </div>
+          <div class="feedText"><h3>Best Chinese Fantasy Dramas</h3><p>Xianxia, wuxia fantasy, cultivation — the ones worth your time.</p></div>
         </div>
       </a>
     </div>
@@ -1012,7 +700,6 @@ footer p{
       </div>
       <a href="categories.html" class="viewAll">View all →</a>
     </div>
-
     <div class="catGrid">
       <a class="cat gpu-accelerated" href="movies.html" data-bg="assets/categories/movies.jpg.JPG"><span>Movies</span></a>
       <a class="cat gpu-accelerated" href="tv-shows.html" data-bg="assets/categories/tv-shows.jpg.JPG"><span>TV Shows</span></a>
@@ -1034,7 +721,6 @@ footer p{
       </div>
       <a href="between-the-frames.html" class="viewAll">View all →</a>
     </div>
-
     <div class="feed btfFeed">
       <a class="feedLink" href="are-we-killing-cinema-magic.html">
         <div class="feedCard" data-bg="assets/posters/Killing-cinema-magic.jpg.jpeg">
@@ -1044,7 +730,6 @@ footer p{
           </div>
         </div>
       </a>
-
       <a class="feedLink" href="the-quiet-hesitation-around-subtitled-films.html">
         <div class="feedCard" data-bg="assets/posters/-we-dont-watch-subtitles.JPG.JPG">
           <div class="feedText">
@@ -1062,12 +747,8 @@ footer p{
   <div class="container footerGrid">
     <div class="footerBrand">
       <h4>Popcorn Picks</h4>
-      <p>
-        Cinema beyond borders.<br>
-        Carefully curated films and series from around the world.
-      </p>
+      <p>Cinema beyond borders.<br>Carefully curated films and series from around the world.</p>
     </div>
-
     <div>
       <h4>Explore</h4>
       <a href="editorials.html">Editorials</a>
@@ -1075,7 +756,6 @@ footer p{
       <a href="categories.html">Browse categories</a>
       <a href="handpick.html">Handpicked</a>
     </div>
-
     <div>
       <h4>Site</h4>
       <a href="about.html">About</a>
@@ -1087,7 +767,6 @@ footer p{
       <a href="cookie-policy.html">Cookies</a>
     </div>
   </div>
-
   <div class="container footerBottom">
     <span>© 2026 Popcorn Picks. All rights reserved.</span>
     <a href="#" id="cookieSettingsLink">Cookie settings</a>
@@ -1096,10 +775,7 @@ footer p{
 
 <!-- COOKIE BANNER -->
 <div class="cookieBar" id="cookieBar" role="dialog" aria-live="polite" aria-label="Cookie notice">
-  <p>
-    We use cookies for analytics and ads to improve Popcorn Picks.
-    <a href="privacy.html">Learn more</a>
-  </p>
+  <p>We use cookies for analytics and ads to improve Popcorn Picks. <a href="privacy.html">Learn more</a></p>
   <div class="cookieBtns">
     <button class="ghost" id="cookieReject" type="button">Reject</button>
     <button class="ghost" id="cookieManage" type="button">Manage</button>
@@ -1111,27 +787,14 @@ footer p{
 <div class="cookieModal" id="cookieModal" aria-hidden="true">
   <div class="cookieSheet" role="dialog" aria-modal="true" aria-label="Cookie settings">
     <h4>Cookie settings</h4>
-
     <div class="cookieRow">
-      <div>
-        <strong>Analytics</strong>
-        <small>Helps us understand what people read and improve the site.</small>
-      </div>
-      <label class="switch">
-        <input type="checkbox" id="toggleAnalytics">
-      </label>
+      <div><strong>Analytics</strong><small>Helps us understand what people read and improve the site.</small></div>
+      <label class="switch"><input type="checkbox" id="toggleAnalytics"></label>
     </div>
-
     <div class="cookieRow">
-      <div>
-        <strong>Ads</strong>
-        <small>Helps fund the site. You'll still see ads if you turn this off, but they may be less personalized.</small>
-      </div>
-      <label class="switch">
-        <input type="checkbox" id="toggleAds">
-      </label>
+      <div><strong>Ads</strong><small>Helps fund the site. You'll still see ads if you turn this off, but they may be less personalized.</small></div>
+      <label class="switch"><input type="checkbox" id="toggleAds"></label>
     </div>
-
     <div class="cookieSheetActions">
       <button class="ghost" id="cookieCancel" type="button">Cancel</button>
       <button id="cookieSave" type="button">Save</button>
@@ -1140,7 +803,6 @@ footer p{
 </div>
 
 <script>
-/* Apply background images from data-bg */
 (function(){
   try{
     document.querySelectorAll("[data-bg]").forEach(function(el){
@@ -1152,45 +814,30 @@ footer p{
 </script>
 
 <script>
-/* Handpicked carousel with smooth scrolling */
 (function(){
   var marquee = document.getElementById("handpickedMarquee");
   var track = document.getElementById("handpickedTrack");
   if(!marquee || !track) return;
 
   var prefersReduced = false;
-  try{
-    prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  }catch(e){}
+  try{ prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches; }catch(e){}
 
   function isTrueDesktop(){
     try{
-      var hover = window.matchMedia("(hover: hover)").matches;
-      var fine = window.matchMedia("(pointer: fine)").matches;
-      var minWidth = window.matchMedia("(min-width: 1025px)").matches;
-      return hover && fine && minWidth;
+      return window.matchMedia("(hover: hover)").matches &&
+             window.matchMedia("(pointer: fine)").matches &&
+             window.matchMedia("(min-width: 1025px)").matches;
     }catch(e){ return false; }
   }
 
-  function allowAutoLoop(){
-    return !prefersReduced && isTrueDesktop();
-  }
+  function allowAutoLoop(){ return !prefersReduced && isTrueDesktop(); }
 
-  function cleanText(s){
-    return (s || "").replace(/\s+/g," ").trim();
-  }
+  function cleanText(s){ return (s || "").replace(/\s+/g," ").trim(); }
 
   function bestTitleFrom(el){
-    var t =
-      (el.querySelector && el.querySelector(".pickTitle") && el.querySelector(".pickTitle").textContent) ||
-      (el.querySelector && el.querySelector("[data-title]") && el.querySelector("[data-title]").getAttribute("data-title")) ||
-      (el.getAttribute && el.getAttribute("data-title")) ||
-      "";
+    var t = (el.querySelector && el.querySelector(".pickTitle") && el.querySelector(".pickTitle").textContent) || "";
     t = cleanText(t);
-    if(!t){
-      var img = el.querySelector && el.querySelector("img");
-      if(img) t = cleanText(img.getAttribute("alt") || "");
-    }
+    if(!t){ var img = el.querySelector && el.querySelector("img"); if(img) t = cleanText(img.getAttribute("alt") || ""); }
     return t || "Untitled";
   }
 
@@ -1202,268 +849,105 @@ footer p{
     return href;
   }
 
-  function normalizeSrc(src){
-    return (src || "").trim();
-  }
-
   function buildCleanCardsFromHandpick(doc){
     var candidates = Array.prototype.slice.call(doc.querySelectorAll("a.pickCard"));
     var items = [];
-
     candidates.forEach(function(a){
       var img = a.querySelector("img");
       if(!img) return;
-
       var href = (a.getAttribute("href") || "").trim();
       if(href.indexOf("#") === -1) return;
-
-      var src = normalizeSrc(img.getAttribute("src") || "");
+      var src = (img.getAttribute("src") || "").trim();
       if(!src) return;
-
-      var title = bestTitleFrom(a);
-      items.push({ href: normalizeHref(href), src: src, title: title });
+      items.push({ href: normalizeHref(href), src: src, title: bestTitleFrom(a) });
     });
-
-    var seen = {};
-    var uniq = [];
-    items.forEach(function(it){
-      if(seen[it.href]) return;
-      seen[it.href] = 1;
-      uniq.push(it);
-    });
-
+    var seen = {}, uniq = [];
+    items.forEach(function(it){ if(seen[it.href]) return; seen[it.href]=1; uniq.push(it); });
     if(!uniq.length) return null;
-
     var frag = document.createDocumentFragment();
     uniq.forEach(function(it){
-      var a = document.createElement("a");
-      a.className = "pickCard";
-      a.setAttribute("href", it.href);
-
-      var img = document.createElement("img");
-      img.setAttribute("src", it.src);
-      img.setAttribute("alt", it.title);
-      img.setAttribute("loading","lazy");
-      img.setAttribute("decoding","async");
-
-      var title = document.createElement("div");
-      title.className = "pickTitle";
-      title.textContent = it.title;
-
-      a.appendChild(img);
-      a.appendChild(title);
-      frag.appendChild(a);
+      var a = document.createElement("a"); a.className="pickCard"; a.setAttribute("href",it.href);
+      var img = document.createElement("img"); img.setAttribute("src",it.src); img.setAttribute("alt",it.title); img.setAttribute("loading","lazy"); img.setAttribute("decoding","async");
+      var title = document.createElement("div"); title.className="pickTitle"; title.textContent=it.title;
+      a.appendChild(img); a.appendChild(title); frag.appendChild(a);
     });
-
     return frag;
   }
 
-  function replaceTrack(frag){
-    if(!frag) return;
-    track.innerHTML = "";
-    track.appendChild(frag);
-    track.removeAttribute("data-duplicated");
-  }
+  function replaceTrack(frag){ if(!frag) return; track.innerHTML=""; track.appendChild(frag); track.removeAttribute("data-duplicated"); }
 
   function duplicateForLoop(){
-    if(track.getAttribute("data-duplicated") === "1") return;
-    var cards = track.querySelectorAll(".pickCard");
-    if(!cards.length) return;
+    if(track.getAttribute("data-duplicated")==="1") return;
+    var cards = track.querySelectorAll(".pickCard"); if(!cards.length) return;
     var frag = document.createDocumentFragment();
     cards.forEach(function(c){ frag.appendChild(c.cloneNode(true)); });
-    track.appendChild(frag);
-    track.setAttribute("data-duplicated","1");
+    track.appendChild(frag); track.setAttribute("data-duplicated","1");
   }
 
-  var rafId = null;
-  var paused = false;
-  var resumeTimer = null;
-
-  function stopLoop(){
-    if(rafId) cancelAnimationFrame(rafId);
-    rafId = null;
-  }
-
+  var rafId=null, paused=false, resumeTimer=null;
+  function stopLoop(){ if(rafId) cancelAnimationFrame(rafId); rafId=null; }
   function startLoop(){
-    stopLoop();
-    if(!allowAutoLoop()) return;
-
-    paused = false;
-    var speedPxPerSec = 220;
-    var last = performance.now();
-
+    stopLoop(); if(!allowAutoLoop()) return;
+    paused=false; var speedPxPerSec=220, last=performance.now();
     function tick(now){
-      if(paused){ rafId = requestAnimationFrame(tick); return; }
-
-      var dt = Math.min(50, now - last);
-      last = now;
-
-      marquee.scrollLeft += (speedPxPerSec * (dt / 1000));
-
-      var half = track.scrollWidth / 2;
-      if(half > 0 && marquee.scrollLeft >= half){
-        marquee.scrollLeft -= half;
-      }
-
-      rafId = requestAnimationFrame(tick);
+      if(paused){ rafId=requestAnimationFrame(tick); return; }
+      var dt=Math.min(50,now-last); last=now;
+      marquee.scrollLeft+=(speedPxPerSec*(dt/1000));
+      var half=track.scrollWidth/2;
+      if(half>0&&marquee.scrollLeft>=half) marquee.scrollLeft-=half;
+      rafId=requestAnimationFrame(tick);
     }
-
-    rafId = requestAnimationFrame(tick);
+    rafId=requestAnimationFrame(tick);
   }
+  function pauseTemporarily(ms){ paused=true; if(resumeTimer) clearTimeout(resumeTimer); resumeTimer=setTimeout(function(){ paused=false; },ms||800); }
 
-  function pauseTemporarily(ms){
-    paused = true;
-    if(resumeTimer) clearTimeout(resumeTimer);
-    resumeTimer = setTimeout(function(){ paused = false; }, ms || 800);
-  }
+  marquee.addEventListener("wheel",function(){ if(!allowAutoLoop()) return; pauseTemporarily(900); },{passive:true});
+  marquee.addEventListener("scroll",function(){ if(!allowAutoLoop()) return; pauseTemporarily(900); },{passive:true});
+  marquee.addEventListener("mouseenter",function(){ if(!allowAutoLoop()) return; paused=true; });
+  marquee.addEventListener("mouseleave",function(){ if(!allowAutoLoop()) return; paused=false; });
+  marquee.addEventListener("pointerdown",function(){ if(!allowAutoLoop()) return; paused=true; });
+  marquee.addEventListener("pointerup",function(){ if(!allowAutoLoop()) return; pauseTemporarily(700); });
 
-  marquee.addEventListener("wheel", function(){ if(!allowAutoLoop()) return; pauseTemporarily(900); }, {passive:true});
-  marquee.addEventListener("scroll", function(){ if(!allowAutoLoop()) return; pauseTemporarily(900); }, {passive:true});
-  marquee.addEventListener("mouseenter", function(){ if(!allowAutoLoop()) return; paused = true; });
-  marquee.addEventListener("mouseleave", function(){ if(!allowAutoLoop()) return; paused = false; });
-  marquee.addEventListener("pointerdown", function(){ if(!allowAutoLoop()) return; paused = true; });
-  marquee.addEventListener("pointerup", function(){ if(!allowAutoLoop()) return; pauseTemporarily(700); });
+  function finalize(){ if(allowAutoLoop()){ duplicateForLoop(); marquee.scrollLeft=0; } startLoop(); }
 
-  function finalize(){
-    if(allowAutoLoop()){
-      duplicateForLoop();
-      marquee.scrollLeft = 0;
-    }
-    startLoop();
-  }
-
-  fetch("handpick.html", { cache: "no-store" })
-    .then(function(r){ if(!r.ok) throw new Error("fetch failed"); return r.text(); })
-    .then(function(html){
-      var doc = new DOMParser().parseFromString(html, "text/html");
-      var frag = buildCleanCardsFromHandpick(doc);
-      if(frag) replaceTrack(frag);
-    })
+  fetch("handpick.html",{cache:"no-store"})
+    .then(function(r){ if(!r.ok) throw new Error(); return r.text(); })
+    .then(function(html){ var doc=new DOMParser().parseFromString(html,"text/html"); var frag=buildCleanCardsFromHandpick(doc); if(frag) replaceTrack(frag); })
     .catch(function(){})
     .finally(function(){ finalize(); });
 
-  var resizeTimer = null;
-  window.addEventListener("resize", function(){
+  var resizeTimer=null;
+  window.addEventListener("resize",function(){
     if(resizeTimer) clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(function(){
-      stopLoop();
-      if(!allowAutoLoop()){ paused = true; return; }
-      duplicateForLoop();
-      paused = false;
-      startLoop();
-    }, 200);
+    resizeTimer=setTimeout(function(){ stopLoop(); if(!allowAutoLoop()){ paused=true; return; } duplicateForLoop(); paused=false; startLoop(); },200);
   });
 })();
 </script>
 
 <script>
-/* Cookie consent system */
 (function(){
-  var KEY = "pp_consent_v1";
-
-  function safeGtagConsentUpdate(consentObj){
-    if (typeof gtag === "function") gtag('consent', 'update', consentObj);
-  }
-
-  function applyConsent(state){
-    safeGtagConsentUpdate({
-      analytics_storage: state.analytics ? 'granted' : 'denied',
-      ad_storage: state.ads ? 'granted' : 'denied',
-      ad_user_data: state.ads ? 'granted' : 'denied',
-      ad_personalization: state.ads ? 'granted' : 'denied'
-    });
-  }
-
-  function readStored(){
-    try{
-      var raw = localStorage.getItem(KEY);
-      if(!raw) return null;
-      var obj = JSON.parse(raw);
-      if(typeof obj.analytics !== "boolean" || typeof obj.ads !== "boolean") return null;
-      return obj;
-    }catch(e){ return null; }
-  }
-
-  function store(state){
-    try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){}
-  }
-
-  var bar = document.getElementById("cookieBar");
-  var modal = document.getElementById("cookieModal");
-  var btnAccept = document.getElementById("cookieAccept");
-  var btnReject = document.getElementById("cookieReject");
-  var btnManage = document.getElementById("cookieManage");
-  var toggleAnalytics = document.getElementById("toggleAnalytics");
-  var toggleAds = document.getElementById("toggleAds");
-  var btnSave = document.getElementById("cookieSave");
-  var btnCancel = document.getElementById("cookieCancel");
-  var settingsLink = document.getElementById("cookieSettingsLink");
-
-  function openBanner(){ bar.style.display = "flex"; }
-  function closeBanner(){ bar.style.display = "none"; }
-  function openModal(){
-    modal.style.display = "flex";
-    modal.setAttribute("aria-hidden","false");
-  }
-  function closeModal(){
-    modal.style.display = "none";
-    modal.setAttribute("aria-hidden","true");
-  }
-
-  var saved = readStored();
-  if(saved){
-    applyConsent(saved);
-    closeBanner();
-  }else{
-    openBanner();
-  }
-
-  btnAccept.addEventListener("click", function(){
-    var state = { analytics:true, ads:true };
-    store(state);
-    applyConsent(state);
-    closeBanner();
-    closeModal();
-  });
-
-  btnReject.addEventListener("click", function(){
-    var state = { analytics:false, ads:false };
-    store(state);
-    applyConsent(state);
-    closeBanner();
-    closeModal();
-  });
-
-  btnManage.addEventListener("click", function(){
-    var current = readStored() || { analytics:false, ads:false };
-    toggleAnalytics.checked = current.analytics;
-    toggleAds.checked = current.ads;
-    openModal();
-  });
-
-  btnSave.addEventListener("click", function(){
-    var state = { analytics: !!toggleAnalytics.checked, ads: !!toggleAds.checked };
-    store(state);
-    applyConsent(state);
-    closeBanner();
-    closeModal();
-  });
-
-  btnCancel.addEventListener("click", function(){
-    closeModal();
-  });
-
-  settingsLink.addEventListener("click", function(e){
-    e.preventDefault();
-    var current = readStored() || { analytics:false, ads:false };
-    toggleAnalytics.checked = current.analytics;
-    toggleAds.checked = current.ads;
-    openModal();
-  });
-
-  modal.addEventListener("click", function(e){
-    if(e.target === modal) closeModal();
-  });
+  var KEY="pp_consent_v1";
+  function safeGtagConsentUpdate(c){ if(typeof gtag==="function") gtag('consent','update',c); }
+  function applyConsent(s){ safeGtagConsentUpdate({analytics_storage:s.analytics?'granted':'denied',ad_storage:s.ads?'granted':'denied',ad_user_data:s.ads?'granted':'denied',ad_personalization:s.ads?'granted':'denied'}); }
+  function readStored(){ try{ var r=localStorage.getItem(KEY); if(!r) return null; var o=JSON.parse(r); if(typeof o.analytics!=="boolean"||typeof o.ads!=="boolean") return null; return o; }catch(e){ return null; } }
+  function store(s){ try{ localStorage.setItem(KEY,JSON.stringify(s)); }catch(e){} }
+  var bar=document.getElementById("cookieBar"),modal=document.getElementById("cookieModal");
+  var btnAccept=document.getElementById("cookieAccept"),btnReject=document.getElementById("cookieReject"),btnManage=document.getElementById("cookieManage");
+  var toggleAnalytics=document.getElementById("toggleAnalytics"),toggleAds=document.getElementById("toggleAds");
+  var btnSave=document.getElementById("cookieSave"),btnCancel=document.getElementById("cookieCancel"),settingsLink=document.getElementById("cookieSettingsLink");
+  function openBanner(){ bar.style.display="flex"; }
+  function closeBanner(){ bar.style.display="none"; }
+  function openModal(){ modal.style.display="flex"; modal.setAttribute("aria-hidden","false"); }
+  function closeModal(){ modal.style.display="none"; modal.setAttribute("aria-hidden","true"); }
+  var saved=readStored();
+  if(saved){ applyConsent(saved); closeBanner(); }else{ openBanner(); }
+  btnAccept.addEventListener("click",function(){ var s={analytics:true,ads:true}; store(s); applyConsent(s); closeBanner(); closeModal(); });
+  btnReject.addEventListener("click",function(){ var s={analytics:false,ads:false}; store(s); applyConsent(s); closeBanner(); closeModal(); });
+  btnManage.addEventListener("click",function(){ var c=readStored()||{analytics:false,ads:false}; toggleAnalytics.checked=c.analytics; toggleAds.checked=c.ads; openModal(); });
+  btnSave.addEventListener("click",function(){ var s={analytics:!!toggleAnalytics.checked,ads:!!toggleAds.checked}; store(s); applyConsent(s); closeBanner(); closeModal(); });
+  btnCancel.addEventListener("click",function(){ closeModal(); });
+  settingsLink.addEventListener("click",function(e){ e.preventDefault(); var c=readStored()||{analytics:false,ads:false}; toggleAnalytics.checked=c.analytics; toggleAds.checked=c.ads; openModal(); });
+  modal.addEventListener("click",function(e){ if(e.target===modal) closeModal(); });
 })();
 </script>
 
