@@ -16,7 +16,7 @@
   "@type": "Organization",
   "name": "Popcorn Picks",
   "url": "https://popcornpicks.in/",
-  "description": "A curated discovery site for films and series across the world."
+  "description": "Popcorn Picks is a curated discovery site for films and series across the world."
 }
 </script>
 
@@ -105,8 +105,8 @@ header{
   height:64px;
   display:flex;
   align-items:center;
-  justify-content:space-between; /* ✅ added */
-  gap:14px;                     /* ✅ added */
+  justify-content:space-between;
+  gap:14px;
   padding:0 max(24px, calc((100vw - 1160px) / 2));
   background:rgba(10,10,14,.85);
   backdrop-filter:blur(14px);
@@ -838,9 +838,11 @@ footer p{
 <header>
   <div class="logo">Popcorn Picks</div>
 
-  <!-- ✅ SEARCH (homepage only): searches your entire domain via Google -->
+  <!-- ✅ SEARCH (homepage only): FIXED to stay inside your site (no Google). -->
+  <!-- This now scrolls/highlights matches on the SAME homepage sections only.
+       (It does NOT search other pages. It's just a safe "find on this page".) -->
   <form class="siteSearch" id="siteSearchForm" role="search" aria-label="Search Popcorn Picks">
-    <input id="siteSearchInput" type="search" placeholder="Search kdrama, shows, editorials…" autocomplete="off" aria-label="Search Popcorn Picks">
+    <input id="siteSearchInput" type="search" placeholder="Find on this page…" autocomplete="off" aria-label="Search Popcorn Picks">
     <button type="submit" aria-label="Search">
       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2"/>
@@ -1168,20 +1170,99 @@ footer p{
 </script>
 
 <script>
-/* ✅ Homepage search -> Google site search */
+/* ✅ FIXED: Homepage search stays INSIDE this page (no Google, no new tab)
+   - Finds first matching card/title text on THIS homepage
+   - Scrolls to it
+   - Temporarily highlights it
+*/
 (function(){
   var form = document.getElementById("siteSearchForm");
   var input = document.getElementById("siteSearchInput");
   if(!form || !input) return;
 
+  function norm(s){ return (s || "").toLowerCase().replace(/\s+/g," ").trim(); }
+
+  function clearHighlights(){
+    document.querySelectorAll("[data-pp-highlight='1']").forEach(function(el){
+      el.removeAttribute("data-pp-highlight");
+      el.style.boxShadow = "";
+      el.style.outline = "";
+    });
+  }
+
+  function highlight(el){
+    clearHighlights();
+    el.setAttribute("data-pp-highlight","1");
+    el.style.outline = "2px solid rgba(255,255,255,.32)";
+    el.style.boxShadow = "0 18px 50px rgba(0,0,0,.55)";
+    setTimeout(function(){ clearHighlights(); }, 1800);
+  }
+
+  function findMatch(q){
+    // Search across visible titles/descriptions on the homepage
+    var nodes = [];
+
+    // feed cards text
+    document.querySelectorAll(".feedLink, .feedCard, .feedText, .cat, .pickCard, footer").forEach(function(el){
+      // Only keep clickable/meaningful containers
+      if(el.classList.contains("feedLink") || el.classList.contains("cat") || el.classList.contains("pickCard")) nodes.push(el);
+    });
+
+    // Also match by headings
+    document.querySelectorAll("h1,h2,h3,.pickTitle,.title,.desc").forEach(function(el){
+      // prefer nearest clickable parent
+      var link = el.closest("a");
+      if(link) nodes.push(link);
+    });
+
+    // de-dupe
+    var seen = new Set();
+    var uniq = [];
+    nodes.forEach(function(n){
+      if(!n || seen.has(n)) return;
+      seen.add(n);
+      uniq.push(n);
+    });
+
+    for(var i=0;i<uniq.length;i++){
+      var el = uniq[i];
+      var text = norm(el.textContent || "");
+      if(text && text.indexOf(q) !== -1) return el;
+      // also try aria-label/alt
+      var img = el.querySelector && el.querySelector("img");
+      if(img){
+        var alt = norm(img.getAttribute("alt") || "");
+        if(alt && alt.indexOf(q) !== -1) return el;
+      }
+    }
+    return null;
+  }
+
   form.addEventListener("submit", function(e){
     e.preventDefault();
-    var q = (input.value || "").trim();
+    var q = norm(input.value);
     if(!q) return;
 
-    // Google search limited to your domain
-    var url = "https://www.google.com/search?q=" + encodeURIComponent("site:popcornpicks.in " + q);
-    window.open(url, "_blank", "noopener");
+    var match = findMatch(q);
+    if(!match){
+      // small shake feedback (no alerts)
+      input.style.transform = "translateX(-2px)";
+      setTimeout(function(){ input.style.transform = ""; }, 120);
+      return;
+    }
+
+    var y = match.getBoundingClientRect().top + window.pageYOffset - 86;
+    window.scrollTo({ top: Math.max(0,y), behavior: "smooth" });
+    setTimeout(function(){ highlight(match); }, 450);
+  });
+
+  // ESC clears
+  input.addEventListener("keydown", function(e){
+    if(e.key === "Escape"){
+      input.value = "";
+      clearHighlights();
+      input.blur();
+    }
   });
 })();
 </script>
