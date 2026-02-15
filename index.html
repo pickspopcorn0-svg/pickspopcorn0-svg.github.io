@@ -16,7 +16,7 @@
   "@type": "Organization",
   "name": "Popcorn Picks",
   "url": "https://popcornpicks.in/",
-  "description": "Popcorn Picks is a curated discovery site for films and series across the world."
+  "description": "A curated discovery site for films and series across the world."
 }
 </script>
 
@@ -120,52 +120,6 @@ header{
   font-size:15px;
 }
 
-/* ✅ SITE SEARCH (homepage only) */
-.siteSearch{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  flex:0 0 auto;
-}
-.siteSearch input{
-  width:260px;
-  height:40px;
-  padding:0 14px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.16);
-  background:rgba(255,255,255,.06);
-  color:#fff;
-  font-size:13px;
-  outline:none;
-  transition:all .2s ease;
-}
-.siteSearch input::placeholder{color:rgba(255,255,255,.55)}
-.siteSearch input:focus{
-  border-color:rgba(255,255,255,.28);
-  background:rgba(255,255,255,.09);
-  box-shadow:0 10px 26px rgba(0,0,0,.25);
-}
-.siteSearch button{
-  width:40px;
-  height:40px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.16);
-  background:rgba(255,255,255,.06);
-  color:#fff;
-  cursor:pointer;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  transition:all .2s ease;
-}
-.siteSearch button:hover{
-  transform:translateY(-1px);
-  border-color:rgba(255,255,255,.28);
-  background:rgba(255,255,255,.1);
-  box-shadow:0 10px 26px rgba(0,0,0,.25);
-}
-.siteSearch svg{width:18px;height:18px;opacity:.9}
-
 /* HERO */
 .hero{
   min-height:90vh;
@@ -260,12 +214,8 @@ header{
 }
 
 /* SECTIONS */
-.section{
-  padding:80px 0;
-}
-.section.firstSection{
-  padding-top:48px;
-}
+.section{padding:80px 0}
+.section.firstSection{padding-top:48px}
 
 .sectionHead{
   display:flex;
@@ -304,16 +254,11 @@ header{
 }
 .handpickedMarquee::-webkit-scrollbar{display:none}
 
-/* Only enable snap on desktop */
 @media (hover: hover) and (pointer: fine) and (min-width: 1025px){
   .handpickedMarquee{scroll-snap-type:x proximity}
 }
 
-.handpickedTrack{
-  display:flex;
-  gap:20px;
-  width:max-content;
-}
+.handpickedTrack{display:flex;gap:20px;width:max-content}
 .pickCard{
   flex:0 0 auto;
   width:170px;
@@ -391,11 +336,7 @@ header{
   background:rgba(255,255,255,.32);
   box-shadow:0 0 14px rgba(255,255,255,.14);
 }
-.editorialCTA{
-  display:flex;
-  justify-content:flex-end;
-  margin-top:18px;
-}
+.editorialCTA{display:flex;justify-content:flex-end;margin-top:18px}
 
 /* VIEW ALL BUTTON */
 .viewAll{
@@ -422,12 +363,7 @@ header{
 }
 
 /* FEED CARDS */
-.feed{
-  display:grid;
-  grid-template-columns:repeat(2, 1fr);
-  gap:var(--gap);
-}
-
+.feed{display:grid;grid-template-columns:repeat(2, 1fr);gap:var(--gap)}
 .feedCard{
   --bgimg:none;
   position:relative;
@@ -451,13 +387,11 @@ header{
 .feedCard::before{
   content:"";
   position:absolute;
-  left:0;
-  top:0;
-  bottom:0;
+  left:0;top:0;bottom:0;
   width:46%;
   background-image:var(--bgimg);
   background-size:cover;
-  background-position:center top; /* poster-friendly */
+  background-position:center top;
   background-repeat:no-repeat;
   background-color:#000;
   filter:saturate(1.05) contrast(1.02);
@@ -465,9 +399,7 @@ header{
 .feedCard::after{
   content:"";
   position:absolute;
-  left:0;
-  top:0;
-  bottom:0;
+  left:0;top:0;bottom:0;
   width:46%;
   background:linear-gradient(90deg, rgba(0,0,0,.08), rgba(0,0,0,.6));
 }
@@ -484,12 +416,7 @@ header{
     radial-gradient(600px 320px at 10% 40%, rgba(255,255,255,.06), transparent 55%),
     linear-gradient(180deg, rgba(0,0,0,.42), rgba(0,0,0,.64));
 }
-.feedText h3{
-  font-size:22px;
-  font-weight:850;
-  letter-spacing:-.02em;
-  line-height:1.2;
-}
+.feedText h3{font-size:22px;font-weight:850;letter-spacing:-.02em;line-height:1.2}
 .feedText p{
   color:rgba(255,255,255,.72);
   font-size:13px;
@@ -501,11 +428,7 @@ header{
 }
 
 /* CATEGORIES */
-.catGrid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-  gap:var(--gap);
-}
+.catGrid{display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:var(--gap)}
 .cat{
   --bgimg:none;
   height:320px;
@@ -532,8 +455,7 @@ header{
 }
 .cat span{
   position:absolute;
-  left:22px;
-  bottom:22px;
+  left:22px;bottom:22px;
   font-size:24px;
   font-weight:900;
   z-index:2;
@@ -549,15 +471,8 @@ header{
 
 /* BETWEEN THE FRAMES */
 .btfFeed{grid-template-columns:1fr !important}
-.btfFeed .feedCard{
-  grid-template-columns:1fr;
-  min-height:360px;
-}
-.btfFeed .feedCard::before{
-  width:100%;
-  background-size:cover;
-  background-position:center;
-}
+.btfFeed .feedCard{grid-template-columns:1fr;min-height:360px}
+.btfFeed .feedCard::before{width:100%;background-size:cover;background-position:center}
 .btfFeed .feedCard::after{
   width:100%;
   background:
@@ -567,9 +482,7 @@ header{
 .btfFeed .feedText{
   grid-column:1;
   position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
+  left:0;right:0;bottom:0;
   background:transparent;
   padding:26px;
 }
@@ -654,16 +567,8 @@ footer p{
   font-size:13px;
   line-height:1.55;
 }
-.cookieBar p a{
-  opacity:.92;
-  text-decoration:underline;
-}
-.cookieBtns{
-  display:flex;
-  gap:12px;
-  align-items:center;
-  flex:0 0 auto;
-}
+.cookieBar p a{opacity:.92;text-decoration:underline}
+.cookieBtns{display:flex;gap:12px;align-items:center;flex:0 0 auto}
 .cookieBar button{
   padding:11px 16px;
   min-height:44px;
@@ -704,10 +609,7 @@ footer p{
   box-shadow:0 28px 80px rgba(0,0,0,.7);
   padding:18px;
 }
-.cookieSheet h4{
-  margin:4px 0 12px;
-  font-size:16px;
-}
+.cookieSheet h4{margin:4px 0 12px;font-size:16px}
 .cookieRow{
   display:flex;
   justify-content:space-between;
@@ -724,18 +626,9 @@ footer p{
   max-width:44ch;
   line-height:1.5;
 }
-.switch{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-}
+.switch{display:inline-flex;align-items:center;gap:10px}
 .switch input{width:18px;height:18px}
-.cookieSheetActions{
-  display:flex;
-  justify-content:flex-end;
-  gap:12px;
-  margin-top:14px;
-}
+.cookieSheetActions{display:flex;justify-content:flex-end;gap:12px;margin-top:14px}
 
 /* MOBILE RESPONSIVE */
 @media (max-width:1024px){
@@ -743,35 +636,19 @@ footer p{
   .section{padding:68px 0}
   .section h2{font-size:28px}
 }
-
-/* ✅ Search responsive */
 @media (max-width:768px){
   .container, .heroInner{width:calc(100% - 36px)}
   header{padding:0 18px}
-
-  .siteSearch input{width:160px}
-
-  .hero{
-    min-height:80vh;
-    background-position:50% 32%;
-  }
+  .hero{min-height:80vh;background-position:50% 32%}
   .heroInner{padding:60px 0 52px}
   .hero h1{font-size:44px}
   .hero p{font-size:17px}
-
   .section{padding:56px 0}
   .section.firstSection{padding-top:38px}
   .section h2{font-size:26px}
-
   .editorialBox{padding:22px 20px 20px}
-
   .feed{grid-template-columns:1fr}
-
-  .feedCard{
-    display:flex;
-    flex-direction:column;
-    min-height:340px;
-  }
+  .feedCard{display:flex;flex-direction:column;min-height:340px}
   .feedCard::before{
     position:relative;
     width:100%;
@@ -787,45 +664,26 @@ footer p{
     left:0;top:0;right:0;
     background:linear-gradient(to bottom, rgba(0,0,0,.12), rgba(0,0,0,.94));
   }
-  .feedText{
-    position:relative;
-    margin-top:0;
-    flex:1;
-    justify-content:flex-end;
-  }
-
+  .feedText{position:relative;margin-top:0;flex:1;justify-content:flex-end}
   .catGrid{grid-template-columns:1fr;gap:20px}
   .cat{height:280px}
-
   .footerGrid{grid-template-columns:1fr;gap:36px}
   .pickCard{width:150px}
 }
-
 @media (max-width:520px){
   .container, .heroInner{width:calc(100% - 28px)}
   .hero h1{font-size:38px}
   .hero p{font-size:16px}
   .btn{padding:14px 20px}
-
-  /* ✅ On very small screens, show icon-only search */
-  .siteSearch input{display:none}
-  .siteSearch button{width:42px;height:42px}
-
-  .cookieBar{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:14px;
-  }
+  .cookieBar{flex-direction:column;align-items:flex-start;gap:14px}
   .cookieBtns{width:100%;flex-wrap:wrap}
   .cookieBar button{flex:1;min-width:100px}
   .pickCard{width:140px}
 }
-
 @media (max-width:420px){
   .hero h1{font-size:34px}
   .feedCard::before{min-height:200px}
 }
-
 @media (prefers-reduced-motion: reduce){
   *{transition:none !important;animation:none !important}
   html{scroll-behavior:auto}
@@ -837,19 +695,6 @@ footer p{
 
 <header>
   <div class="logo">Popcorn Picks</div>
-
-  <!-- ✅ SEARCH (homepage only): FIXED to stay inside your site (no Google). -->
-  <!-- This now scrolls/highlights matches on the SAME homepage sections only.
-       (It does NOT search other pages. It's just a safe "find on this page".) -->
-  <form class="siteSearch" id="siteSearchForm" role="search" aria-label="Search Popcorn Picks">
-    <input id="siteSearchInput" type="search" placeholder="Find on this page…" autocomplete="off" aria-label="Search Popcorn Picks">
-    <button type="submit" aria-label="Search">
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2"/>
-        <path d="M16.2 16.2 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-    </button>
-  </form>
 </header>
 
 <section class="hero">
@@ -1166,104 +1011,6 @@ footer p{
       if(url) el.style.setProperty("--bgimg", "url('" + url + "')");
     });
   }catch(e){}
-})();
-</script>
-
-<script>
-/* ✅ FIXED: Homepage search stays INSIDE this page (no Google, no new tab)
-   - Finds first matching card/title text on THIS homepage
-   - Scrolls to it
-   - Temporarily highlights it
-*/
-(function(){
-  var form = document.getElementById("siteSearchForm");
-  var input = document.getElementById("siteSearchInput");
-  if(!form || !input) return;
-
-  function norm(s){ return (s || "").toLowerCase().replace(/\s+/g," ").trim(); }
-
-  function clearHighlights(){
-    document.querySelectorAll("[data-pp-highlight='1']").forEach(function(el){
-      el.removeAttribute("data-pp-highlight");
-      el.style.boxShadow = "";
-      el.style.outline = "";
-    });
-  }
-
-  function highlight(el){
-    clearHighlights();
-    el.setAttribute("data-pp-highlight","1");
-    el.style.outline = "2px solid rgba(255,255,255,.32)";
-    el.style.boxShadow = "0 18px 50px rgba(0,0,0,.55)";
-    setTimeout(function(){ clearHighlights(); }, 1800);
-  }
-
-  function findMatch(q){
-    // Search across visible titles/descriptions on the homepage
-    var nodes = [];
-
-    // feed cards text
-    document.querySelectorAll(".feedLink, .feedCard, .feedText, .cat, .pickCard, footer").forEach(function(el){
-      // Only keep clickable/meaningful containers
-      if(el.classList.contains("feedLink") || el.classList.contains("cat") || el.classList.contains("pickCard")) nodes.push(el);
-    });
-
-    // Also match by headings
-    document.querySelectorAll("h1,h2,h3,.pickTitle,.title,.desc").forEach(function(el){
-      // prefer nearest clickable parent
-      var link = el.closest("a");
-      if(link) nodes.push(link);
-    });
-
-    // de-dupe
-    var seen = new Set();
-    var uniq = [];
-    nodes.forEach(function(n){
-      if(!n || seen.has(n)) return;
-      seen.add(n);
-      uniq.push(n);
-    });
-
-    for(var i=0;i<uniq.length;i++){
-      var el = uniq[i];
-      var text = norm(el.textContent || "");
-      if(text && text.indexOf(q) !== -1) return el;
-      // also try aria-label/alt
-      var img = el.querySelector && el.querySelector("img");
-      if(img){
-        var alt = norm(img.getAttribute("alt") || "");
-        if(alt && alt.indexOf(q) !== -1) return el;
-      }
-    }
-    return null;
-  }
-
-  form.addEventListener("submit", function(e){
-    e.preventDefault();
-    var q = norm(input.value);
-    if(!q) return;
-
-    var match = findMatch(q);
-    if(!match){
-      // small shake feedback (no alerts)
-      input.style.transform = "translateX(-2px)";
-      setTimeout(function(){ input.style.transform = ""; }, 120);
-      return;
-    }
-
-    var y = match.getBoundingClientRect().top + window.pageYOffset - 86;
-    window.scrollTo({ top: Math.max(0,y), behavior: "smooth" });
-    setTimeout(function(){ highlight(match); }, 450);
-  });
-
-  // ESC clears
-  input.addEventListener("keydown", function(e){
-    if(e.key === "Escape"){
-      input.value = "";
-      clearHighlights();
-      input.blur();
-    }
-  });
 })();
 </script>
 
