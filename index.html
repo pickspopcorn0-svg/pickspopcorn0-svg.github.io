@@ -1,3 +1,22 @@
+<!-- ✅ CHANGE LOG (what I changed) -->
+<!--
+MUST / HIGH IMPACT (Desktop “zoomy/doesn’t breathe” fixes)
+- Added a simple desktop navigation in the header (Movies / TV / Editorials / Categories / Handpicked).
+- Introduced a slightly wider desktop container on very large screens (1240px @ 1400px+) to reduce “zoomy” feel.
+- Adjusted hero sizing for desktop: more controlled height, better headline scaling using clamp(), better breathing.
+- Increased desktop section spacing for a more “website” feel (more rhythm between blocks).
+- Improved Handpicked rail presence on desktop: slightly bigger cards + added subtle edge fade (desktop only).
+
+SAFE / POLISH (won’t break mobile; minimal visual changes)
+- Added safe-area padding for cookie bar on iOS.
+- Added optional 2-line clamp for Handpicked titles to avoid ugly wraps (does not change short titles).
+- Kept your mobile layout/structure intact. No redesign.
+
+NOT CHANGED
+- No change to your cookie consent logic, GA/AdSense setup, carousel loop logic, or content structure.
+- No change to your core color palette / aesthetic.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -118,11 +137,34 @@ header{
   font-weight:850;
   letter-spacing:.4px;
   font-size:15px;
+  white-space:nowrap;
+}
+
+/* ✅ New: simple desktop nav (hidden on small screens) */
+.nav{
+  display:none;
+  align-items:center;
+  gap:18px;
+  font-size:13px;
+  color:rgba(255,255,255,.72);
+}
+.nav a{
+  padding:8px 10px;
+  border-radius:999px;
+  transition:all .2s ease;
+}
+.nav a:hover{
+  color:#fff;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.14);
 }
 
 /* HERO */
 .hero{
+  /* Keep your fallback */
   min-height:90vh;
+  /* Better behavior on modern mobile address-bar layouts */
+  min-height:90svh;
   display:flex;
   align-items:center;
   padding-top:64px;
@@ -241,6 +283,8 @@ header{
 
 /* HANDPICKED CAROUSEL */
 .handpickedSection{padding-top:64px}
+
+/* ✅ New: subtle edge fade on desktop so rail looks intentional */
 .handpickedMarquee{
   overflow-x:auto;
   overflow-y:hidden;
@@ -255,7 +299,11 @@ header{
 .handpickedMarquee::-webkit-scrollbar{display:none}
 
 @media (hover: hover) and (pointer: fine) and (min-width: 1025px){
-  .handpickedMarquee{scroll-snap-type:x proximity}
+  .handpickedMarquee{
+    scroll-snap-type:x proximity;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 28px, #000 calc(100% - 28px), transparent);
+            mask-image: linear-gradient(to right, transparent, #000 28px, #000 calc(100% - 28px), transparent);
+  }
 }
 
 .handpickedTrack{display:flex;gap:20px;width:max-content}
@@ -287,6 +335,13 @@ header{
   font-weight:700;
   color:rgba(255,255,255,.88);
   line-height:1.35;
+
+  /* ✅ keep long titles neat (2 lines max) */
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+  min-height:2.7em;
 }
 .pickCard:hover{transform:translateY(-4px)}
 
@@ -554,6 +609,7 @@ footer p{
   justify-content:space-between;
   gap:16px;
   padding:14px 16px;
+  padding-bottom:calc(14px + env(safe-area-inset-bottom)); /* ✅ safe area */
   border-radius:16px;
   border:1px solid rgba(255,255,255,.15);
   background:rgba(10,10,14,.88);
@@ -630,7 +686,46 @@ footer p{
 .switch input{width:18px;height:18px}
 .cookieSheetActions{display:flex;justify-content:flex-end;gap:12px;margin-top:14px}
 
-/* MOBILE RESPONSIVE */
+/* =========================
+   ✅ DESKTOP “BREATHING” RULES
+========================= */
+@media (min-width:1025px){
+
+  /* show nav on desktop */
+  .nav{display:flex}
+
+  /* hero: less “zoomy”, more controlled */
+  .hero{
+    min-height:78vh;
+    max-height:860px;
+    padding-top:64px;
+  }
+  .heroInner{
+    padding:84px 0 72px;
+  }
+  .hero h1{
+    font-size:clamp(54px, 4.2vw, 72px);
+    line-height:1.02;
+    max-width:18ch;
+  }
+
+  /* bigger section rhythm so it feels like a website */
+  .section{padding:92px 0}
+  .handpickedSection{padding-top:76px}
+
+  /* handpicked cards slightly bigger on desktop */
+  .pickCard{width:190px}
+  .handpickedTrack{gap:22px}
+}
+
+/* Extra wide desktops */
+@media (min-width:1400px){
+  .container{width:min(1240px, calc(100% - 64px))}
+  header{padding:0 max(32px, calc((100vw - 1240px) / 2))}
+  .heroInner{width:min(1240px, calc(100% - 64px))}
+}
+
+/* MOBILE RESPONSIVE (unchanged) */
 @media (max-width:1024px){
   .hero h1{font-size:52px}
   .section{padding:68px 0}
@@ -669,6 +764,7 @@ footer p{
   .cat{height:280px}
   .footerGrid{grid-template-columns:1fr;gap:36px}
   .pickCard{width:150px}
+  .nav{display:none}
 }
 @media (max-width:520px){
   .container, .heroInner{width:calc(100% - 28px)}
@@ -695,6 +791,15 @@ footer p{
 
 <header>
   <div class="logo">Popcorn Picks</div>
+
+  <!-- ✅ New desktop nav -->
+  <nav class="nav" aria-label="Primary navigation">
+    <a href="movies.html">Movies</a>
+    <a href="tv-shows.html">TV</a>
+    <a href="editorials.html">Editorials</a>
+    <a href="categories.html">Categories</a>
+    <a href="handpick.html">Handpicked</a>
+  </nav>
 </header>
 
 <section class="hero">
