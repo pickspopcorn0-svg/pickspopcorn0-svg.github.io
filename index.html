@@ -105,6 +105,8 @@ header{
   height:64px;
   display:flex;
   align-items:center;
+  justify-content:space-between; /* ✅ added */
+  gap:14px;                     /* ✅ added */
   padding:0 max(24px, calc((100vw - 1160px) / 2));
   background:rgba(10,10,14,.85);
   backdrop-filter:blur(14px);
@@ -117,6 +119,52 @@ header{
   letter-spacing:.4px;
   font-size:15px;
 }
+
+/* ✅ SITE SEARCH (homepage only) */
+.siteSearch{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex:0 0 auto;
+}
+.siteSearch input{
+  width:260px;
+  height:40px;
+  padding:0 14px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.06);
+  color:#fff;
+  font-size:13px;
+  outline:none;
+  transition:all .2s ease;
+}
+.siteSearch input::placeholder{color:rgba(255,255,255,.55)}
+.siteSearch input:focus{
+  border-color:rgba(255,255,255,.28);
+  background:rgba(255,255,255,.09);
+  box-shadow:0 10px 26px rgba(0,0,0,.25);
+}
+.siteSearch button{
+  width:40px;
+  height:40px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.06);
+  color:#fff;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  transition:all .2s ease;
+}
+.siteSearch button:hover{
+  transform:translateY(-1px);
+  border-color:rgba(255,255,255,.28);
+  background:rgba(255,255,255,.1);
+  box-shadow:0 10px 26px rgba(0,0,0,.25);
+}
+.siteSearch svg{width:18px;height:18px;opacity:.9}
 
 /* HERO */
 .hero{
@@ -696,9 +744,12 @@ footer p{
   .section h2{font-size:28px}
 }
 
+/* ✅ Search responsive */
 @media (max-width:768px){
   .container, .heroInner{width:calc(100% - 36px)}
   header{padding:0 18px}
+
+  .siteSearch input{width:160px}
 
   .hero{
     min-height:80vh;
@@ -756,6 +807,10 @@ footer p{
   .hero p{font-size:16px}
   .btn{padding:14px 20px}
 
+  /* ✅ On very small screens, show icon-only search */
+  .siteSearch input{display:none}
+  .siteSearch button{width:42px;height:42px}
+
   .cookieBar{
     flex-direction:column;
     align-items:flex-start;
@@ -782,6 +837,17 @@ footer p{
 
 <header>
   <div class="logo">Popcorn Picks</div>
+
+  <!-- ✅ SEARCH (homepage only): searches your entire domain via Google -->
+  <form class="siteSearch" id="siteSearchForm" role="search" aria-label="Search Popcorn Picks">
+    <input id="siteSearchInput" type="search" placeholder="Search kdrama, shows, editorials…" autocomplete="off" aria-label="Search Popcorn Picks">
+    <button type="submit" aria-label="Search">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2"/>
+        <path d="M16.2 16.2 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </form>
 </header>
 
 <section class="hero">
@@ -1098,6 +1164,25 @@ footer p{
       if(url) el.style.setProperty("--bgimg", "url('" + url + "')");
     });
   }catch(e){}
+})();
+</script>
+
+<script>
+/* ✅ Homepage search -> Google site search */
+(function(){
+  var form = document.getElementById("siteSearchForm");
+  var input = document.getElementById("siteSearchInput");
+  if(!form || !input) return;
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var q = (input.value || "").trim();
+    if(!q) return;
+
+    // Google search limited to your domain
+    var url = "https://www.google.com/search?q=" + encodeURIComponent("site:popcornpicks.in " + q);
+    window.open(url, "_blank", "noopener");
+  });
 })();
 </script>
 
