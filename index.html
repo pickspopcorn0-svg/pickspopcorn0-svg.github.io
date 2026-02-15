@@ -1,22 +1,3 @@
-<!-- ✅ CHANGE LOG (what I changed) -->
-<!--
-MUST / HIGH IMPACT (Desktop “zoomy/doesn’t breathe” fixes)
-- Added a simple desktop navigation in the header (Movies / TV / Editorials / Categories / Handpicked).
-- Introduced a slightly wider desktop container on very large screens (1240px @ 1400px+) to reduce “zoomy” feel.
-- Adjusted hero sizing for desktop: more controlled height, better headline scaling using clamp(), better breathing.
-- Increased desktop section spacing for a more “website” feel (more rhythm between blocks).
-- Improved Handpicked rail presence on desktop: slightly bigger cards + added subtle edge fade (desktop only).
-
-SAFE / POLISH (won’t break mobile; minimal visual changes)
-- Added safe-area padding for cookie bar on iOS.
-- Added optional 2-line clamp for Handpicked titles to avoid ugly wraps (does not change short titles).
-- Kept your mobile layout/structure intact. No redesign.
-
-NOT CHANGED
-- No change to your cookie consent logic, GA/AdSense setup, carousel loop logic, or content structure.
-- No change to your core color palette / aesthetic.
--->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -85,6 +66,10 @@ html{scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
   --muted2:rgba(255,255,255,.62);
   --radius:16px;
   --gap:24px;
+
+  /* desktop breathing control */
+  --wrap: 1240px; /* was 1160px */
+  --sidePad: 48px; /* default desktop padding */
 }
 
 /* Safety net: never allow white background */
@@ -113,7 +98,7 @@ a:focus-visible, button:focus-visible{
 
 /* Layout */
 .container{
-  width:min(1160px, calc(100% - 48px));
+  width:min(var(--wrap), calc(100% - var(--sidePad)));
   margin:0 auto;
 }
 
@@ -126,7 +111,7 @@ header{
   align-items:center;
   justify-content:space-between;
   gap:14px;
-  padding:0 max(24px, calc((100vw - 1160px) / 2));
+  padding:0 max(24px, calc((100vw - var(--wrap)) / 2));
   background:rgba(10,10,14,.85);
   backdrop-filter:blur(14px);
   -webkit-backdrop-filter:blur(14px);
@@ -137,34 +122,12 @@ header{
   font-weight:850;
   letter-spacing:.4px;
   font-size:15px;
-  white-space:nowrap;
-}
-
-/* ✅ New: simple desktop nav (hidden on small screens) */
-.nav{
-  display:none;
-  align-items:center;
-  gap:18px;
-  font-size:13px;
-  color:rgba(255,255,255,.72);
-}
-.nav a{
-  padding:8px 10px;
-  border-radius:999px;
-  transition:all .2s ease;
-}
-.nav a:hover{
-  color:#fff;
-  background:rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.14);
 }
 
 /* HERO */
 .hero{
-  /* Keep your fallback */
-  min-height:90vh;
-  /* Better behavior on modern mobile address-bar layouts */
-  min-height:90svh;
+  /* desktop feels less “giant banner” now */
+  min-height:84vh; /* was 90vh */
   display:flex;
   align-items:center;
   padding-top:64px;
@@ -177,9 +140,9 @@ header{
   border-bottom:1px solid rgba(255,255,255,.06);
 }
 .heroInner{
-  width:min(1160px, calc(100% - 48px));
+  width:min(var(--wrap), calc(100% - var(--sidePad)));
   margin:0 auto;
-  padding:72px 0 64px;
+  padding:68px 0 58px; /* a bit tighter on desktop */
 }
 .kicker{
   display:inline-flex;
@@ -204,17 +167,19 @@ header{
 }
 .hero h1{
   margin-top:20px;
-  font-size:62px;
-  line-height:1.05;
-  letter-spacing:-.025em;
+  /* key desktop fix: scale naturally instead of staying “62px everywhere” */
+  font-size:clamp(38px, 4.3vw, 60px);
+  line-height:1.04;
+  letter-spacing:-.03em;
   font-weight:900;
+  max-width: 16ch;
 }
 .hero p{
   margin-top:16px;
-  max-width:64ch;
+  max-width:62ch;
   color:var(--muted);
-  font-size:18px;
-  line-height:1.65;
+  font-size:clamp(16px, 1.25vw, 18px);
+  line-height:1.7;
 }
 .quoteLine{
   display:block;
@@ -256,8 +221,8 @@ header{
 }
 
 /* SECTIONS */
-.section{padding:80px 0}
-.section.firstSection{padding-top:48px}
+.section{padding:88px 0} /* was 80px – more breathing on desktop */
+.section.firstSection{padding-top:56px}
 
 .sectionHead{
   display:flex;
@@ -282,16 +247,14 @@ header{
 }
 
 /* HANDPICKED CAROUSEL */
-.handpickedSection{padding-top:64px}
-
-/* ✅ New: subtle edge fade on desktop so rail looks intentional */
+.handpickedSection{padding-top:70px}
 .handpickedMarquee{
   overflow-x:auto;
   overflow-y:hidden;
   padding-bottom:16px;
-  margin:0 calc(-1 * max(24px, calc((100vw - 1160px) / 2)));
-  padding-left:max(24px, calc((100vw - 1160px) / 2));
-  padding-right:max(24px, calc((100vw - 1160px) / 2));
+  margin:0 calc(-1 * max(24px, calc((100vw - var(--wrap)) / 2)));
+  padding-left:max(24px, calc((100vw - var(--wrap)) / 2));
+  padding-right:max(24px, calc((100vw - var(--wrap)) / 2));
   scrollbar-width:none;
   -webkit-overflow-scrolling:touch;
   scroll-behavior:smooth;
@@ -299,17 +262,13 @@ header{
 .handpickedMarquee::-webkit-scrollbar{display:none}
 
 @media (hover: hover) and (pointer: fine) and (min-width: 1025px){
-  .handpickedMarquee{
-    scroll-snap-type:x proximity;
-    -webkit-mask-image: linear-gradient(to right, transparent, #000 28px, #000 calc(100% - 28px), transparent);
-            mask-image: linear-gradient(to right, transparent, #000 28px, #000 calc(100% - 28px), transparent);
-  }
+  .handpickedMarquee{scroll-snap-type:x proximity}
 }
 
-.handpickedTrack{display:flex;gap:20px;width:max-content}
+.handpickedTrack{display:flex;gap:22px;width:max-content}
 .pickCard{
   flex:0 0 auto;
-  width:170px;
+  width:172px;
   text-align:center;
   scroll-snap-align:start;
   transition:transform .25s cubic-bezier(.4,0,.2,1);
@@ -335,21 +294,14 @@ header{
   font-weight:700;
   color:rgba(255,255,255,.88);
   line-height:1.35;
-
-  /* ✅ keep long titles neat (2 lines max) */
-  display:-webkit-box;
-  -webkit-line-clamp:2;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
-  min-height:2.7em;
 }
 .pickCard:hover{transform:translateY(-4px)}
 
 /* EDITORIAL BOX */
 .editorialBox{
-  width:min(860px, 100%);
-  margin:0 auto 32px;
-  padding:28px 28px 26px;
+  width:min(920px, 100%); /* slightly wider to breathe on desktop */
+  margin:0 auto 38px;
+  padding:30px 30px 28px;
   border-radius:22px;
   background:
     radial-gradient(900px 420px at 15% 10%, rgba(255,160,90,.08), transparent 60%),
@@ -363,14 +315,14 @@ header{
 .editorialBox .sectionLead{
   text-align:center;
   margin:14px auto 0;
-  max-width:68ch;
+  max-width:70ch;
   color:rgba(255,255,255,.7);
 }
 .editorialBullets{
   margin:18px auto 0;
   padding:0;
   list-style:none;
-  width:min(740px, 100%);
+  width:min(780px, 100%);
   color:rgba(255,255,255,.64);
   font-size:15px;
   line-height:1.9;
@@ -418,7 +370,11 @@ header{
 }
 
 /* FEED CARDS */
-.feed{display:grid;grid-template-columns:repeat(2, 1fr);gap:var(--gap)}
+.feed{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:calc(var(--gap) + 2px);
+}
 .feedCard{
   --bgimg:none;
   position:relative;
@@ -428,7 +384,7 @@ header{
   outline:1px solid rgba(255,255,255,.11);
   outline-offset:-1px;
   background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
-  min-height:240px;
+  min-height:228px; /* was 240px – slightly less “blocky” on desktop */
   display:grid;
   grid-template-columns:46% 54%;
   transition:all .25s cubic-bezier(.4,0,.2,1);
@@ -462,7 +418,7 @@ header{
   grid-column:2;
   position:relative;
   z-index:1;
-  padding:24px 22px;
+  padding:22px 22px; /* slightly tighter */
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -471,7 +427,7 @@ header{
     radial-gradient(600px 320px at 10% 40%, rgba(255,255,255,.06), transparent 55%),
     linear-gradient(180deg, rgba(0,0,0,.42), rgba(0,0,0,.64));
 }
-.feedText h3{font-size:22px;font-weight:850;letter-spacing:-.02em;line-height:1.2}
+.feedText h3{font-size:21px;font-weight:850;letter-spacing:-.02em;line-height:1.2}
 .feedText p{
   color:rgba(255,255,255,.72);
   font-size:13px;
@@ -483,7 +439,11 @@ header{
 }
 
 /* CATEGORIES */
-.catGrid{display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:var(--gap)}
+.catGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+  gap:var(--gap);
+}
 .cat{
   --bgimg:none;
   height:320px;
@@ -547,13 +507,13 @@ header{
 /* FOOTER */
 footer{
   border-top:1px solid rgba(255,255,255,.08);
-  padding:68px 0 28px;
+  padding:72px 0 28px;
   color:rgba(255,255,255,.66);
 }
 .footerGrid{
   display:grid;
   grid-template-columns:1.4fr 1fr 1fr;
-  gap:48px;
+  gap:52px;
   align-items:start;
 }
 footer h4{
@@ -609,7 +569,6 @@ footer p{
   justify-content:space-between;
   gap:16px;
   padding:14px 16px;
-  padding-bottom:calc(14px + env(safe-area-inset-bottom)); /* ✅ safe area */
   border-radius:16px;
   border:1px solid rgba(255,255,255,.15);
   background:rgba(10,10,14,.88);
@@ -686,58 +645,18 @@ footer p{
 .switch input{width:18px;height:18px}
 .cookieSheetActions{display:flex;justify-content:flex-end;gap:12px;margin-top:14px}
 
-/* =========================
-   ✅ DESKTOP “BREATHING” RULES
-========================= */
-@media (min-width:1025px){
-
-  /* show nav on desktop */
-  .nav{display:flex}
-
-  /* hero: less “zoomy”, more controlled */
-  .hero{
-    min-height:78vh;
-    max-height:860px;
-    padding-top:64px;
-  }
-  .heroInner{
-    padding:84px 0 72px;
-  }
-  .hero h1{
-    font-size:clamp(54px, 4.2vw, 72px);
-    line-height:1.02;
-    max-width:18ch;
-  }
-
-  /* bigger section rhythm so it feels like a website */
-  .section{padding:92px 0}
-  .handpickedSection{padding-top:76px}
-
-  /* handpicked cards slightly bigger on desktop */
-  .pickCard{width:190px}
-  .handpickedTrack{gap:22px}
-}
-
-/* Extra wide desktops */
-@media (min-width:1400px){
-  .container{width:min(1240px, calc(100% - 64px))}
-  header{padding:0 max(32px, calc((100vw - 1240px) / 2))}
-  .heroInner{width:min(1240px, calc(100% - 64px))}
-}
-
-/* MOBILE RESPONSIVE (unchanged) */
+/* MOBILE RESPONSIVE (kept basically the same as your current) */
 @media (max-width:1024px){
-  .hero h1{font-size:52px}
+  :root{ --wrap: 1160px; --sidePad: 48px; } /* basically your old scale here */
+  .hero{min-height:80vh;background-position:50% 32%}
   .section{padding:68px 0}
   .section h2{font-size:28px}
 }
 @media (max-width:768px){
+  :root{ --sidePad: 36px; }
   .container, .heroInner{width:calc(100% - 36px)}
   header{padding:0 18px}
-  .hero{min-height:80vh;background-position:50% 32%}
   .heroInner{padding:60px 0 52px}
-  .hero h1{font-size:44px}
-  .hero p{font-size:17px}
   .section{padding:56px 0}
   .section.firstSection{padding-top:38px}
   .section h2{font-size:26px}
@@ -764,12 +683,10 @@ footer p{
   .cat{height:280px}
   .footerGrid{grid-template-columns:1fr;gap:36px}
   .pickCard{width:150px}
-  .nav{display:none}
 }
 @media (max-width:520px){
+  :root{ --sidePad: 28px; }
   .container, .heroInner{width:calc(100% - 28px)}
-  .hero h1{font-size:38px}
-  .hero p{font-size:16px}
   .btn{padding:14px 20px}
   .cookieBar{flex-direction:column;align-items:flex-start;gap:14px}
   .cookieBtns{width:100%;flex-wrap:wrap}
@@ -777,7 +694,6 @@ footer p{
   .pickCard{width:140px}
 }
 @media (max-width:420px){
-  .hero h1{font-size:34px}
   .feedCard::before{min-height:200px}
 }
 @media (prefers-reduced-motion: reduce){
@@ -791,15 +707,6 @@ footer p{
 
 <header>
   <div class="logo">Popcorn Picks</div>
-
-  <!-- ✅ New desktop nav -->
-  <nav class="nav" aria-label="Primary navigation">
-    <a href="movies.html">Movies</a>
-    <a href="tv-shows.html">TV</a>
-    <a href="editorials.html">Editorials</a>
-    <a href="categories.html">Categories</a>
-    <a href="handpick.html">Handpicked</a>
-  </nav>
 </header>
 
 <section class="hero">
