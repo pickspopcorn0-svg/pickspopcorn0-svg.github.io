@@ -11,171 +11,117 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-  background:#0b0b0c;
-  color:#fff;
+  background:#0b0b0c;color:#fff;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 
-/* TOPBAR */
 .topbar{
-  position:sticky; top:0; z-index:50;
-  display:flex; align-items:center; justify-content:space-between;
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
   padding:16px 20px;
   background:rgba(10,10,10,.88);
-  backdrop-filter: blur(10px);
+  backdrop-filter:blur(10px);
   border-bottom:1px solid #222;
 }
-
-/* ✅ LEFT NAV BUTTONS (matches your screenshot) */
-.navLeft{
-  display:flex;
-  gap:10px;
-  align-items:center;
-}
+.navLeft{display:flex;gap:10px;align-items:center;}
 .navBtn{
-  font-size:13px;
-  color:#d0d0d0;
-  padding:7px 14px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(255,255,255,.04);
-  transition:.15s ease;
+  font-size:13px;color:#d0d0d0;padding:7px 14px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);transition:.15s ease;
 }
-.navBtn:hover{
-  color:#fff;
-  border-color:rgba(255,255,255,.25);
-  background:rgba(255,255,255,.08);
-}
-
+.navBtn:hover{color:#fff;border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.08);}
 .brand{font-weight:650;letter-spacing:.5px;font-size:14px}
 
-/* HERO */
 .hero{
   min-height:68vh;
-  display:flex;
-  align-items:flex-end;
+  display:flex;align-items:center;
   padding:72px 22px 54px;
-  position:relative;
-  background:
-    radial-gradient(900px 420px at 15% 20%, rgba(255,255,255,.08), transparent 55%),
-    linear-gradient(to bottom, rgba(0,0,0,.20), rgba(11,11,12,.92)),
-    url("assets/posters/action-thriller-editorial.jpg.WEBP");
-  background-size:cover;
-  background-position:center;
+  position:relative;overflow:hidden;
   border-bottom:1px solid #1f1f1f;
+  background:#0b0b0c;
 }
-.heroInner{
-  max-width:980px;
-  width:100%;
-  margin:0 auto;
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 40%, rgba(255,60,60,.13), transparent 60%),
+    radial-gradient(ellipse 60% 80% at 90% 20%, rgba(255,140,40,.10), transparent 60%),
+    radial-gradient(ellipse 50% 50% at 50% 100%, rgba(90,120,255,.08), transparent 55%);
+  animation:heroShift 10s ease-in-out infinite alternate;
 }
+@keyframes heroShift{
+  0%{opacity:.7;transform:scale(1)}
+  100%{opacity:1;transform:scale(1.04)}
+}
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size:60px 60px;
+  mask-image:linear-gradient(to bottom, transparent, rgba(0,0,0,.6) 30%, rgba(0,0,0,.6) 70%, transparent);
+}
+.heroInner{max-width:980px;width:100%;margin:0 auto;position:relative;z-index:2;}
 .kicker{
-  display:inline-block;
-  font-size:11px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:#eaeaea;
-  padding:8px 10px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.18);
-  background:rgba(255,255,255,.04);
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  color:#eaeaea;padding:8px 12px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.04);
+}
+.kickerDot{
+  width:7px;height:7px;border-radius:50%;
+  background:rgba(255,80,60,.95);box-shadow:0 0 10px rgba(255,80,60,.6);
 }
 .hero h1{
-  margin-top:16px;
-  font-size:54px;
-  line-height:1.05;
-  letter-spacing:-.03em;
+  margin-top:20px;font-size:54px;line-height:1.05;
+  letter-spacing:-.03em;max-width:18ch;
 }
-.hero p{
-  margin-top:14px;
-  max-width:80ch;
-  color:#d0d0d0;
-  line-height:1.75;
-  font-size:16px;
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(90deg,rgba(255,100,60,1),rgba(255,180,60,1));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
 }
-.metaLine{
-  margin-top:16px;
-  color:#9a9a9a;
-  font-size:12px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
+.hero p{margin-top:16px;max-width:64ch;color:#c8c8c8;line-height:1.8;font-size:16px;}
+.heroBadges{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
+.heroBadge{
+  font-size:12px;padding:6px 14px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.05);
+  color:rgba(255,255,255,.7);letter-spacing:.04em;
 }
+.metaLine{margin-top:20px;color:#9a9a9a;font-size:12px;letter-spacing:.08em;text-transform:uppercase;}
 
-/* WRAP */
-.wrap{
-  max-width:980px;
-  margin:0 auto;
-  padding:46px 22px 90px;
-}
+.wrap{max-width:980px;margin:0 auto;padding:46px 22px 90px;}
 
-/* SHOW BLOCK */
 .show{
-  padding:26px 22px;
-  border:1px solid #181818;
-  border-radius:20px;
-  background:rgba(255,255,255,.02);
-  margin-bottom:26px;
+  padding:26px 22px;border:1px solid #181818;border-radius:20px;
+  background:rgba(255,255,255,.02);margin-bottom:26px;
 }
-.show h2{
-  font-size:28px;
-  letter-spacing:-.02em;
-  line-height:1.12;
+.showNum{
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,100,60,.8);font-weight:700;margin-bottom:8px;
 }
-.submeta{
-  margin-top:10px;
-  color:#a9a9a9;
-  font-size:13px;
-  line-height:1.5;
-}
-.text{
-  margin-top:14px;
-  max-width:78ch;
-}
-.text p{
-  color:#d7d7d7;
-  line-height:1.9;
-  font-size:16px;
-  margin:0 0 14px 0;
-}
+.show h2{font-size:28px;letter-spacing:-.02em;line-height:1.12;}
+.submeta{margin-top:10px;color:#a9a9a9;font-size:13px;line-height:1.5;}
+.text{margin-top:14px;max-width:78ch;}
+.text p{color:#d7d7d7;line-height:1.9;font-size:16px;margin:0 0 14px 0;}
 
-/* POSTER */
-.posterWrap{
-  margin-top:18px;
-  display:flex;
-  justify-content:center;
-}
+.posterWrap{margin-top:18px;display:flex;justify-content:center;}
 .poster{
-  width:min(420px, 100%);
-  border-radius:18px;
-  overflow:hidden;
-  border:1px solid #232323;
-  background:#111;
+  width:min(420px,100%);border-radius:18px;overflow:hidden;
+  border:1px solid #232323;background:#111;
 }
-.poster img{
-  width:100%;
-  height:auto;
-}
+.poster img{width:100%;height:auto;}
+.more{margin-top:22px;color:#9a9a9a;font-size:13px;line-height:1.6;}
 
-/* FOOTER NOTE */
-.more{
-  margin-top:22px;
-  color:#9a9a9a;
-  font-size:13px;
-  line-height:1.6;
-}
-
-/* MOBILE */
 @media(max-width:760px){
-  .hero h1{font-size:40px}
+  .hero h1{font-size:36px}
   .show{padding:22px 16px}
   .show h2{font-size:24px}
   .topbar{padding:14px 14px}
 }
 </style>
 </head>
-
 <body>
 
 <div class="topbar">
@@ -183,45 +129,41 @@ img{max-width:100%;display:block}
     <a class="navBtn" href="editorials.html">← Editorials</a>
     <a class="navBtn" href="index.html">Home</a>
   </div>
-
   <div class="brand">Popcorn Picks</div>
-
   <div style="width:120px"></div>
 </div>
 
 <header class="hero">
   <div class="heroInner">
-    <span class="kicker">Editorial • Action Thrillers</span>
-    <h1>High-Stakes Action Thrillers Built for Binge-Watching</h1>
-
+    <span class="kicker"><span class="kickerDot"></span>Editorial • Action Thrillers</span>
+    <h1>High-Stakes Action Thrillers <em>Built for Binge-Watching</em></h1>
     <p>
-      These are the shows you start thinking you will watch one episode and then you look up and the day is gone.
-      Different styles, different countries, but all of them have that pressure feeling where something is always happening,
-      someone is always hiding something, and the story keeps pulling you forward.
+      These are the shows you start at a reasonable hour and finish in the dark wondering where the day went.
+      Different countries, different styles, but all of them share that same pressure — something is always happening,
+      someone is always hiding something, and stopping feels like a bad idea.
     </p>
-
-    <div class="metaLine">Popcorn Picks</div>
+    <div class="heroBadges">
+      <span class="heroBadge">Spy</span>
+      <span class="heroBadge">Conspiracy</span>
+      <span class="heroBadge">Manhunt</span>
+      <span class="heroBadge">Undercover</span>
+      <span class="heroBadge">Counter-terror</span>
+    </div>
+    <div class="metaLine">Popcorn Picks • 11 Picks</div>
   </div>
 </header>
 
 <main class="wrap">
 
   <article class="show">
-    <h2>1) The Terminal List</h2>
+    <div class="showNum">01</div>
+    <h2>The Terminal List</h2>
     <div class="submeta">Action • Thriller • Paranoia</div>
     <div class="text">
-      <p>
-        This one is heavy right from the start. It drops you straight into loss, confusion, and a lead character who is clearly not in a stable place, mentally or emotionally. You’re not eased into the story. You’re thrown into it, and that feeling of unease stays with you.
-      </p>
-      <p>
-        As the episodes go on, it becomes less about simple revenge and more about trying to understand what actually happened. The show constantly plays with memory, trust, and paranoia. You’re never fully sure whether what you’re seeing is the truth or something shaped by trauma and manipulation.
-      </p>
-      <p>
-        What really works is the balance between personal grief and bigger conspiracies. Some moments feel quiet and emotional, focused on loss and guilt, and then suddenly the story opens up into something much darker involving people in power and systems that don’t care who they destroy.
-      </p>
-      <p>
-        If you like action thrillers that feel serious, bleak, and emotionally loaded — not flashy or fun — this one pulls you in hard and doesn’t let go easily.
-      </p>
+      <p>The Terminal List does not ease you in. From the opening it places you inside the mind of a man who has lost something enormous and is not sure how much of what he remembers is real. James Reece comes back from a mission that went catastrophically wrong, carrying grief, guilt, and a growing suspicion that what happened was not an accident. The show lives in that space between trauma and certainty, and it keeps you there for a long time before it lets anything resolve.</p>
+      <p>Chris Pratt plays this completely against type. There is nothing charming or light here. Reece is damaged, methodical, and quietly terrifying when he decides to act. The show earns that menace slowly, which makes it land harder when it arrives.</p>
+      <p>What separates it from standard revenge thrillers is the grief underneath everything. The conspiracy is real and worth following, but the emotional core is a person trying to hold together while the world keeps pulling at the seams. Those two things coexist in a way that makes both feel more serious than they would alone.</p>
+      <p>Watch it if you want action that feels heavy, personal, and bleak rather than exciting. This one does not let you feel good about what is happening on screen.</p>
     </div>
     <div class="posterWrap">
       <div class="poster">
@@ -231,21 +173,14 @@ img{max-width:100%;display:block}
   </article>
 
   <article class="show">
-    <h2>2) Jack Ryan</h2>
+    <div class="showNum">02</div>
+    <h2>Jack Ryan</h2>
     <div class="submeta">Spy • Action • Global stakes</div>
     <div class="text">
-      <p>
-        Jack Ryan is one of those shows that is very easy to binge because it’s built cleanly and confidently. Each season has its own main crisis, usually starting with something that feels small or technical and then slowly growing into a global problem.
-      </p>
-      <p>
-        The appeal is the international scale. Different countries, different political situations, different kinds of threats. It feels like a modern spy thriller that wants to move constantly, without getting stuck in one place for too long.
-      </p>
-      <p>
-        What makes it binge-friendly is how episodes end. There’s almost always a reveal, a new problem, or a shift in power that makes stopping feel unnatural. You tell yourself “one more episode” and suddenly it’s late.
-      </p>
-      <p>
-        If you want a polished, fast-moving action thriller that still takes its world seriously, Jack Ryan is an easy recommendation.
-      </p>
+      <p>Jack Ryan is confident television. It knows what it is, it builds its world properly, and it trusts you to keep up. Each season drops you into a different geopolitical situation, starts with something that looks manageable, and then methodically expands it until the scale of what is actually happening becomes clear. The escalation feels earned rather than forced because the groundwork is laid carefully before the big moments arrive.</p>
+      <p>John Krasinski plays Ryan as someone who is smart but not infallible, determined but not invulnerable. That balance matters. He makes mistakes. He gets in over his head. The situations he ends up in feel genuinely dangerous rather than like puzzles he was always going to solve.</p>
+      <p>The international settings are not just backdrops. Each season uses its location properly, which gives the show a texture that a lot of American action television lacks. You feel like you are somewhere real rather than a dressed set.</p>
+      <p>Watch it if you want a spy thriller that moves well, takes its politics seriously, and never mistakes speed for storytelling.</p>
     </div>
     <div class="posterWrap">
       <div class="poster">
@@ -255,21 +190,14 @@ img{max-width:100%;display:block}
   </article>
 
   <article class="show">
-    <h2>3) The Night Manager</h2>
+    <div class="showNum">03</div>
+    <h2>The Night Manager</h2>
     <div class="submeta">Undercover • Slow burn • Tension</div>
     <div class="text">
-      <p>
-        The Night Manager is slow, controlled, and tense in a very specific way. It’s not about constant action. It’s about proximity to danger. Watching someone stay calm while standing inches away from people who could destroy him at any moment.
-      </p>
-      <p>
-        The undercover aspect is where the show shines. Every conversation feels loaded. Every smile feels forced. You’re constantly aware that one wrong word or one wrong reaction could end everything.
-      </p>
-      <p>
-        Instead of explosions or chase scenes, the tension comes from small details — eye contact, pauses, the way information is shared or withheld. That makes it feel more realistic and more uncomfortable.
-      </p>
-      <p>
-        If you like thrillers that rely on atmosphere, performance, and slow-burn anxiety rather than noise, this one stays with you.
-      </p>
+      <p>The Night Manager is one of the best examples of undercover tension on television because it understands that the real fear is not getting shot. It is being found out. Every scene where the lead is inside the arms dealer's world carries that anxiety underneath it. He is performing constantly, and the performance has to be perfect, because one slipped word, one wrong reaction, one moment of genuine feeling visible on his face could end everything.</p>
+      <p>Tom Hiddleston plays Jonathan Pine with a control that mirrors exactly what the character needs to do to survive. Hugh Laurie as the villain is not a cartoon. He is charming, cultured, and genuinely perceptive, which makes every scene between them feel like a chess match where one player does not know the board has been set up against him.</p>
+      <p>The show moves slowly and deliberately, and that pacing is entirely intentional. It wants you to feel the weight of the situation rather than just watch events happen. By the time the tension finally breaks, you have been holding it for long enough that the release hits hard.</p>
+      <p>Watch it if you want a thriller that works through atmosphere and performance rather than action, where the danger is always present but rarely loud.</p>
     </div>
     <div class="posterWrap">
       <div class="poster">
@@ -279,21 +207,14 @@ img{max-width:100%;display:block}
   </article>
 
   <article class="show">
-    <h2>4) The Night Agent</h2>
+    <div class="showNum">04</div>
+    <h2>The Night Agent</h2>
     <div class="submeta">Conspiracy • Fast pace • Government secrets</div>
     <div class="text">
-      <p>
-        This show moves fast and doesn’t pretend otherwise. It starts with a single event and immediately spirals into something much bigger. There’s very little downtime, and the pacing is clearly designed for binge-watching.
-      </p>
-      <p>
-        What keeps it engaging is the constant feeling that nobody can be trusted. Information keeps changing, alliances keep shifting, and the people who should be protecting others often feel just as dangerous as the villains.
-      </p>
-      <p>
-        Each episode stacks problems on top of each other instead of resolving them cleanly. You’re always aware that stopping now means leaving characters in the middle of a mess.
-      </p>
-      <p>
-        If you enjoy fast-paced conspiracy thrillers where momentum matters more than subtlety, this one is built for long viewing sessions.
-      </p>
+      <p>The Night Agent commits to momentum and does not apologise for it. A low-level FBI agent answers an emergency line one night and ends up pulled into a conspiracy that reaches further into government than either he or the audience expects. The show wastes almost no time between that setup and the point where everything starts unravelling simultaneously.</p>
+      <p>The real tension engine is the trust problem. Almost every character the lead encounters could be compromised. The people who should be safe sometimes turn out not to be, and the show is smart enough to make those reveals feel earned rather than arbitrary. You are constantly recalibrating your read on everyone around him.</p>
+      <p>It is not trying to be The Night Manager. It is not slow or atmospheric. It is designed for forward momentum, and within that design it is very well executed. The episodes end in a way that makes the idea of stopping feel genuinely uncomfortable.</p>
+      <p>Watch it when you want something that moves fast, keeps the stakes high from the beginning, and does not slow down long enough for you to feel settled.</p>
     </div>
     <div class="posterWrap">
       <div class="poster">
@@ -303,21 +224,14 @@ img{max-width:100%;display:block}
   </article>
 
   <article class="show">
-    <h2>5) The Recruit</h2>
-    <div class="submeta">Spy • Action • Fun chaos</div>
+    <div class="showNum">05</div>
+    <h2>The Recruit</h2>
+    <div class="submeta">Spy • Action • Controlled chaos</div>
     <div class="text">
-      <p>
-        The Recruit works because it feels messy and uncomfortable in a good way. The lead is clearly not prepared for the world he’s thrown into, and the show doesn’t try to make him look cool or competent right away.
-      </p>
-      <p>
-        Instead, a lot of the tension comes from watching him panic, make bad decisions, and scramble to survive situations he barely understands. That makes it feel more human than the usual spy fantasy.
-      </p>
-      <p>
-        The tone balances danger with chaos. Serious things are happening, but the lead’s inexperience keeps everything unstable. You never feel like he’s fully in control.
-      </p>
-      <p>
-        If you want a spy show that feels modern, slightly unpolished, and different from traditional agent stories, this one stands out.
-      </p>
+      <p>The Recruit is refreshing because its lead is genuinely unprepared and the show does not rush to fix that. Owen Hendricks is a new CIA lawyer who gets handed a dangerous situation before he has the experience or the instincts to handle it cleanly. He improvises badly. He misjudges people. He ends up in rooms he has no business being in and has to work out how to leave them without making things worse.</p>
+      <p>That incompetence is not played for laughs. It is the source of real tension. Watching someone navigate a world built for professionals when he is still figuring out the basics creates a different kind of anxiety than the standard spy drama. You cannot relax behind the assumption that he knows what he is doing.</p>
+      <p>The show also has a tone that is harder to place than most in this genre. It sits somewhere between thriller and dark comedy without fully committing to either, which keeps it unpredictable. Scenes shift suddenly, and that instability feels accurate to the world it is depicting.</p>
+      <p>Watch it if you want a spy show that earns its chaos honestly and does not smooth its lead into competence before he deserves it.</p>
     </div>
     <div class="posterWrap">
       <div class="poster">
@@ -327,13 +241,14 @@ img{max-width:100%;display:block}
   </article>
 
   <article class="show">
-    <h2>6) 24</h2>
-    <div class="submeta">Classic • Counter terror • Pure urgency</div>
+    <div class="showNum">06</div>
+    <h2>24</h2>
+    <div class="submeta">Classic • Counter-terror • Pure urgency</div>
     <div class="text">
-      <p>24 is pure urgency. From the moment it starts, it commits completely to pressure and escalation. There’s always a ticking clock, always another crisis waiting.</p>
-      <p>It’s not subtle and it doesn’t try to be. The show thrives on constant threats, moral compromises, and situations where there is no clean solution.</p>
-      <p>What makes it memorable is how little relief it gives. Just when you think a problem is solved, another one appears, usually worse than the last.</p>
-      <p>If you want old-school action television that is intense, relentless, and unapologetic, 24 still delivers that experience.</p>
+      <p>24 invented a version of television tension that almost nobody has successfully replicated since. The real-time structure means the pressure never fully releases. Every hour of the show is one hour of the story, which sounds like a gimmick until you are three episodes in at midnight and realise you cannot stop because Jack Bauer literally cannot stop either. The format creates a shared urgency between the character and the audience that is almost unfair in how well it works.</p>
+      <p>The show operates on escalation as a core principle. A problem gets solved. A worse problem immediately replaces it. Any moment of breathing room is a setup for the next crisis, and the crises keep getting larger until the finale. What makes that sustainable rather than exhausting is how well the show understands that the human stakes underneath the action matter as much as the ticking clocks.</p>
+      <p>Jack Bauer as a character is genuinely compelling because the show never fully lets him win. He saves the situation, but the cost is always real and it accumulates. By later seasons you are watching someone who has given everything and keeps having to give more, and Kiefer Sutherland carries that weight without making it feel theatrical.</p>
+      <p>Watch it if you have not already. If you have, the early seasons hold up better than almost anything else from that era of television.</p>
     </div>
     <div class="posterWrap">
       <div class="poster">
@@ -343,13 +258,14 @@ img{max-width:100%;display:block}
   </article>
 
   <article class="show">
-    <h2>7) Alex Rider</h2>
+    <div class="showNum">07</div>
+    <h2>Alex Rider</h2>
     <div class="submeta">Spy • Young lead • Surprisingly intense</div>
     <div class="text">
-      <p>Alex Rider looks lighter on the surface, but the story itself is surprisingly harsh. A young lead is forced into dangerous situations without real protection, and the show never lets you forget how unfair that is.</p>
-      <p>Adults make decisions around him, use him as a resource, and rarely stop to consider the damage it causes. That imbalance creates a constant sense of tension.</p>
-      <p>The danger feels real because mistakes have consequences. There’s no guarantee that someone will step in and fix things.</p>
-      <p>If you like spy thrillers with a strong emotional undercurrent and a sense of vulnerability, Alex Rider is more intense than it first appears.</p>
+      <p>Alex Rider is one of those shows that earns the right to be taken seriously because it takes itself seriously first. The premise, a teenager recruited into intelligence work, could have been played as adventure fantasy. Instead the show treats the situation as what it actually is: a young person being used by adults who are not particularly concerned with what it costs him.</p>
+      <p>That framing creates a consistent discomfort that runs under everything. He is capable, sometimes impressively so, but he does not have the emotional armor that adult characters in this genre usually carry. He feels things more visibly, which makes the dangerous situations feel more dangerous. When something goes wrong, there is no well-practiced composure to hide behind.</p>
+      <p>The writing is sharp about the institutions around him, MI6, school, the various people who claim to want to protect him while actually wanting to use him. The show understands that the real tension is not in the missions. It is in whether anyone in this world actually has his interests at heart.</p>
+      <p>Watch it expecting something more morally serious than the premise suggests. It delivers on that consistently across its run.</p>
     </div>
     <div class="posterWrap">
       <div class="poster">
@@ -359,13 +275,14 @@ img{max-width:100%;display:block}
   </article>
 
   <article class="show">
-    <h2>8) Agent Hamilton</h2>
+    <div class="showNum">08</div>
+    <h2>Agent Hamilton</h2>
     <div class="submeta">Swedish • Spy • Grounded</div>
     <div class="text">
-      <p>Agent Hamilton takes a more grounded approach to spy storytelling. It avoids glamour and focuses instead on the cost of the job.</p>
-      <p>The tone is serious and restrained. Decisions feel heavy, and the consequences aren’t brushed away easily.</p>
-      <p>Power structures are shown as messy and compromised rather than heroic. You often feel like no one is fully clean.</p>
-      <p>If you prefer spy shows that feel realistic, uncomfortable, and morally grey, this one fits that mood well.</p>
+      <p>Agent Hamilton is what spy television looks like when you remove the fantasy of the genre and leave the structure. Carl Hamilton is exceptionally good at what he does, but the world he operates in does not reward that cleanly. The institutions around him are compromised, the alliances are unreliable, and the line between protecting the country and serving powerful interests is drawn differently depending on who is drawing it.</p>
+      <p>The Swedish setting gives the show a texture that feels genuinely different from British or American spy drama. The politics are specific, the bureaucracy is real, and the show is not interested in making its protagonist look like the hero of a larger story. He is good at his job inside a system that is not always worth being good for.</p>
+      <p>It moves at a considered pace, which suits the material. The weight of each decision is felt properly because the show does not rush past consequences. That restraint makes it more affecting than a faster version would be.</p>
+      <p>Watch it if you want spy television that is genuinely grounded, morally complicated, and interested in the cost of the work rather than the excitement of it.</p>
     </div>
     <div class="posterWrap">
       <div class="poster">
@@ -375,13 +292,14 @@ img{max-width:100%;display:block}
   </article>
 
   <article class="show">
-    <h2>9) Black Doves</h2>
+    <div class="showNum">09</div>
+    <h2>Black Doves</h2>
     <div class="submeta">Spy • Crime • Dark energy</div>
     <div class="text">
-      <p>Black Doves leans into a darker, modern spy tone where trust is rare and everyone has an angle.</p>
-      <p>Relationships feel transactional, and violence always seems close to the surface. You’re constantly questioning motivations.</p>
-      <p>The show doesn’t rush to explain everything, which adds to the tension and uncertainty.</p>
-      <p>If you like spy thrillers that feel sharp, dangerous, and morally messy, this one is worth checking out.</p>
+      <p>Black Doves has a particular mood that is hard to describe exactly but easy to recognise. It is cold and sharp and slightly off-kilter from the start. The world it builds is one where everyone is operating with an agenda they are not sharing, and the show is in no hurry to clarify whose agenda is whose. That ambiguity is not a weakness. It is the point.</p>
+      <p>Keira Knightley plays a spy embedded in a political marriage, gathering intelligence while managing a life built entirely on concealment. Ben Whishaw is the fixer brought in when her handler is killed. Their dynamic works because neither of them is straightforward, and the show lets that complexity sit without trying to resolve it into something simpler.</p>
+      <p>Violence in this show does not arrive with dramatic music or slow motion. It arrives suddenly, which is closer to accurate and considerably more disturbing. The show understands that the real menace is not what has already happened but what you can feel building underneath every conversation.</p>
+      <p>Watch it if you want spy television with a genuinely distinct tone, where the darkness is ambient rather than theatrical and the story does not care about being likeable.</p>
     </div>
     <div class="posterWrap">
       <div class="poster">
@@ -391,13 +309,14 @@ img{max-width:100%;display:block}
   </article>
 
   <article class="show">
-    <h2>10) The Day of the Jackal</h2>
+    <div class="showNum">10</div>
+    <h2>The Day of the Jackal</h2>
     <div class="submeta">Assassin • Manhunt • High tension</div>
     <div class="text">
-      <p>This is a classic manhunt-style thriller built around precision and patience. You watch a professional execute a plan while others race to stop it.</p>
-      <p>The tension comes from preparation and timing rather than constant action. Every detail matters.</p>
-      <p>Both sides feel intelligent, which makes the chase more engaging.</p>
-      <p>If you enjoy thrillers where planning and execution are the main focus, this one delivers steady, controlled tension.</p>
+      <p>The premise of The Day of the Jackal is deceptively simple. A professional assassin has a target. Someone is trying to stop him. That structure has existed in thrillers for decades, but this version works because it invests equal time and equal intelligence in both sides. You are not just watching a hunt. You are watching two very capable people move toward the same point from opposite directions, and the show trusts that the collision alone is enough.</p>
+      <p>Eddie Redmayne plays the Jackal as someone who is almost entirely illegible. He is not a monster with a backstory or a professional with a code. He is a person who has separated himself so completely from normal human attachment that watching him interact with the world is consistently unnerving without anything overtly horrible happening.</p>
+      <p>The tension here is architectural. The show builds the situation carefully, lays the pieces out precisely, and then lets the pressure accumulate from the structure itself rather than from constant incident. That kind of patience is rare in modern television and it makes the moments of action hit differently because of what surrounds them.</p>
+      <p>Watch it if you want a thriller where the planning and preparation are as gripping as the execution, and where both sides of the chase deserve your attention equally.</p>
     </div>
     <div class="posterWrap">
       <div class="poster">
@@ -407,13 +326,14 @@ img{max-width:100%;display:block}
   </article>
 
   <article class="show">
-    <h2>11) MacGyver</h2>
+    <div class="showNum">11</div>
+    <h2>MacGyver</h2>
     <div class="submeta">Action • Adventure • Easy watch</div>
     <div class="text">
-      <p>MacGyver is the lightest entry on this list, and it knows it. The tone is more hopeful and solution-focused.</p>
-      <p>Instead of brutality or despair, the show emphasizes creativity, teamwork, and problem-solving.</p>
-      <p>It’s the kind of action show you can watch comfortably without emotional exhaustion.</p>
-      <p>If you want action that still feels positive and easy to follow, this is a good way to end the list.</p>
+      <p>MacGyver ends this list deliberately because it is the show that asks the least of you, and there is nothing wrong with that. After ten entries that lean into paranoia, grief, moral compromise, and institutional corruption, sometimes you want something that just works and feels good about doing it. MacGyver is exactly that.</p>
+      <p>The show is built around a simple pleasure: watching a smart person solve an impossible problem with whatever happens to be in the room. Angus MacGyver does not shoot his way through situations. He thinks his way through them, which sounds like a small distinction but completely changes the feel of the show. Every crisis becomes a puzzle rather than a fight, and the audience is invited to try and keep up.</p>
+      <p>The team around him is warm, the dynamic is easy, and nobody dies to make a point about how serious the world is. That is not a failure of ambition. It is a choice, and the show is consistent about it throughout.</p>
+      <p>Watch it when you want action that is creative and comfortable rather than heavy, and when the rest of this list has given you enough darkness for one sitting.</p>
     </div>
     <div class="posterWrap">
       <div class="poster">
@@ -427,6 +347,5 @@ img{max-width:100%;display:block}
   </p>
 
 </main>
-
 </body>
 </html>
