@@ -1,20 +1,14 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Fantasy TV Shows We Recommend — Popcorn Picks</title>
+<title>Fantasy TV Shows We Recommend .  Popcorn Picks</title>
 
-<!-- Google AdSense -->
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
+<script async src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-6052420824639800"
   crossorigin="anonymous"></script>
 
-<!-- Google Analytics (GA4) -->
-
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
-
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -25,240 +19,144 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-  background:#0b0b0c;
-  color:#fff;
+  background:#0b0b0c;color:#fff;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 
-/* TOPBAR */
 .topbar{
-  position:sticky; top:0; z-index:50;
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 20px;
   background:rgba(10,10,10,.88);
-  backdrop-filter: blur(10px);
+  backdrop-filter:blur(10px);
   border-bottom:1px solid #222;
 }
-.topbarInner{
-  max-width:1100px;
-  margin:0 auto;
-  padding:14px 18px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
-}
-.navLeft{
-  display:flex;
-  gap:10px;
-  align-items:center;
-}
+.navLeft{display:flex;gap:10px;align-items:center;}
 .navBtn{
-  font-size:13px;
-  color:rgba(255,255,255,.78);
-  padding:7px 14px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(255,255,255,.04);
-  transition:.15s ease;
-  white-space:nowrap;
+  font-size:13px;color:#d0d0d0;padding:7px 14px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);transition:.15s ease;
 }
-.navBtn:hover{
-  color:#fff;
-  border-color:rgba(255,255,255,.25);
-  background:rgba(255,255,255,.08);
-}
-.brandCenter{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-weight:700;
-  letter-spacing:.2px;
-  justify-content:center;
-  flex:1;
-  font-size:14px;
-}
-.brandDot{
-  width:10px;height:10px;border-radius:50%;
-  background:rgba(255,120,70,.95);
-  box-shadow:0 0 0 4px rgba(255,120,70,.16);
-}
-.navSpacer{width:160px}
-@media(max-width:860px){
-  .navSpacer{width:90px}
-}
+.navBtn:hover{color:#fff;border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.08);}
+.brand{font-weight:650;letter-spacing:.5px;font-size:14px}
 
-/* HERO */
 .hero{
-  min-height:70vh;
-  display:flex;
-  align-items:flex-end;
+  min-height:68vh;
+  display:flex;align-items:center;
   padding:72px 22px 54px;
-  position:relative;
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.85)),
-    radial-gradient(1000px 500px at 50% 25%, rgba(0,0,0,.25), rgba(0,0,0,.9)),
-    url("assets/posters/tv/the-wheel-of-time.jpeg");
-  background-size:cover;
-  background-position:center top;
+  position:relative;overflow:hidden;
   border-bottom:1px solid #1f1f1f;
+  background:#0b0b0c;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 40%, rgba(120,80,200,.13), transparent 60%),
+    radial-gradient(ellipse 60% 80% at 90% 20%, rgba(200,120,80,.10), transparent 60%),
+    radial-gradient(ellipse 50% 50% at 50% 100%, rgba(80,140,200,.09), transparent 55%);
+  animation:heroShift 10s ease-in-out infinite alternate;
+}
+@keyframes heroShift{
+  0%{opacity:.7;transform:scale(1)}
+  100%{opacity:1;transform:scale(1.04)}
 }
 .hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(11,11,12,.95) 100%);
-  pointer-events:none;
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size:60px 60px;
+  mask-image:linear-gradient(to bottom, transparent, rgba(0,0,0,.6) 30%, rgba(0,0,0,.6) 70%, transparent);
 }
-.heroInner{
-  position:relative;
-  max-width:980px;
-  width:100%;
-  margin:0 auto;
-  z-index:2;
-}
+.heroInner{max-width:980px;width:100%;margin:0 auto;position:relative;z-index:2;}
 .kicker{
-  display:inline-block;
-  font-size:11px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:#eaeaea;
-  padding:8px 10px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.18);
-  background:rgba(0,0,0,.35);
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  color:#eaeaea;padding:8px 12px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.04);
+}
+.kickerDot{
+  width:7px;height:7px;border-radius:50%;
+  background:rgba(120,80,200,.95);box-shadow:0 0 10px rgba(120,80,200,.6);
 }
 .hero h1{
-  margin-top:16px;
-  font-size:54px;
-  line-height:1.05;
-  letter-spacing:-.03em;
+  margin-top:20px;font-size:54px;line-height:1.05;
+  letter-spacing:-.03em;max-width:20ch;
 }
-.hero p{
-  margin-top:14px;
-  max-width:80ch;
-  color:#d0d0d0;
-  line-height:1.75;
-  font-size:16px;
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(90deg,rgba(120,80,200,1),rgba(200,120,80,1));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
 }
-.metaLine{
-  margin-top:16px;
-  color:#9a9a9a;
-  font-size:12px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
+.hero p{margin-top:16px;max-width:64ch;color:#c8c8c8;line-height:1.8;font-size:16px;}
+.heroBadges{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
+.heroBadge{
+  font-size:12px;padding:6px 14px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.05);
+  color:rgba(255,255,255,.7);letter-spacing:.04em;
 }
+.metaLine{margin-top:20px;color:#9a9a9a;font-size:12px;letter-spacing:.08em;text-transform:uppercase;}
 
-/* WRAP */
-.wrap{
-  max-width:980px;
-  margin:0 auto;
-  padding:46px 22px 90px;
-}
+.wrap{max-width:980px;margin:0 auto;padding:46px 22px 90px;}
 
-/* SHOW BLOCK */
 .show{
-  padding:26px 22px;
-  border:1px solid #181818;
-  border-radius:20px;
-  background:rgba(255,255,255,.02);
-  margin-bottom:26px;
+  padding:26px 22px;border:1px solid #181818;border-radius:20px;
+  background:rgba(255,255,255,.02);margin-bottom:26px;
 }
-.show h2{
-  font-size:28px;
-  letter-spacing:-.02em;
-  line-height:1.12;
-  margin-top:18px;
-}
-.submeta{
-  margin-top:10px;
-  color:#a9a9a9;
-  font-size:13px;
-  line-height:1.5;
-}
-.text{
-  margin-top:14px;
-  max-width:78ch;
-}
-.text p{
-  color:#d7d7d7;
-  line-height:1.9;
-  font-size:16px;
-  margin:0 0 14px 0;
-}
+.show h2{font-size:32px;letter-spacing:-.02em;line-height:1.12;color:#ffffff;font-weight:800;}
+.submeta{margin-top:10px;color:#a9a9a9;font-size:13px;line-height:1.5;}
+.text{margin-top:14px;max-width:78ch;}
+.text p{color:#d7d7d7;line-height:1.9;font-size:16px;margin:0 0 14px 0;}
 
-/* POSTER */
-.posterWrap{
-  display:flex;
-  justify-content:center;
-}
+.posterWrap{display:flex;justify-content:center;}
 .poster{
-  width:min(420px, 100%);
-  border-radius:18px;
-  overflow:hidden;
-  border:1px solid #232323;
-  background:#111;
+  width:min(420px,100%);border-radius:18px;overflow:hidden;
+  border:1px solid #232323;background:#111;
 }
-.poster img{
-  width:100%;
-  height:auto;
-}
+.poster img{width:100%;height:auto;}
 
-/* MOBILE */
 @media(max-width:760px){
-  .hero h1{font-size:40px}
+  .hero h1{font-size:36px}
   .show{padding:22px 16px}
   .show h2{font-size:24px}
+  .topbar{padding:14px 14px}
 }
 </style>
-
 </head>
-
 <body>
 
-<header class="topbar">
-  <div class="topbarInner">
-    <div class="navLeft">
-      <a class="navBtn" href="editorials.html">← Editorials</a>
-      <a class="navBtn" href="index.html">Home</a>
-    </div>
-
-```
-<a class="brandCenter" href="index.html" aria-label="Popcorn Picks home">
-  <span class="brandDot"></span>
-  <span>Popcorn Picks</span>
-</a>
-
-<div class="navSpacer" aria-hidden="true"></div>
-```
-
+<div class="topbar">
+  <div class="navLeft">
+    <a class="navBtn" href="editorials.html">← Editorials</a>
+    <a class="navBtn" href="index.html">Home</a>
   </div>
-</header>
+  <div class="brand">Popcorn Picks</div>
+  <div style="width:120px"></div>
+</div>
 
 <header class="hero">
   <div class="heroInner">
-    <span class="kicker">Editorial • TV Shows</span>
-    <h1>Fantasy TV Shows We Recommend</h1>
-
-```
-<p>
-  Fantasy television offers escape into worlds where magic is real, ancient prophecies matter, and the impossible becomes everyday. These shows transport you to realms of wonder, danger, and discovery.
-</p>
-
-<p>
-  Below is a curated selection of fantasy series that deliver compelling worlds, rich mythology, and characters worth following through darkness and light. Each brings something different to the genre, but all share that essential quality: they make you believe.
-</p>
-
-<div class="metaLine">Popcorn Picks</div>
-```
-
+    <span class="kicker"><span class="kickerDot"></span>Editorial • TV • Fantasy</span>
+    <h1><em>Fantasy TV Shows</em> We Recommend</h1>
+    <p>
+      Fantasy television offers escape into worlds where magic is real, ancient prophecies matter, and the impossible becomes everyday. These shows transport you to realms of wonder, danger, and discovery.
+    </p>
+    <p>
+      Below is a curated selection of fantasy series that deliver compelling worlds, rich mythology, and characters worth following through darkness and light. Each brings something different to the genre, but all share that essential quality: they make you believe.
+    </p>
+    <div class="heroBadges">
+      <span class="heroBadge">Magic</span>
+      <span class="heroBadge">Mythology</span>
+      <span class="heroBadge">World-Building</span>
+      <span class="heroBadge">Epic</span>
+    </div>
+    <div class="metaLine">Popcorn Picks • 7 Picks</div>
   </div>
 </header>
 
 <main class="wrap">
-
-  <!-- The Wheel of Time -->
 
   <article class="show">
     <div class="posterWrap">
@@ -266,23 +164,15 @@ img{max-width:100%;display:block}
         <img src="assets/posters/tv/the-wheel-of-time.jpeg" alt="The Wheel of Time poster">
       </div>
     </div>
-    <h2>The Wheel of Time</h2>
+    <h2>1) The Wheel of Time</h2>
     <div class="submeta">2021–present</div>
     <div class="text">
       <p>The Wheel of Time arrives with the weight of epic fantasy expectations and largely delivers on the promise of Robert Jordan's massive book series. This is high fantasy at full scale: a world where magic exists but comes at terrible cost, where ancient evils stir after centuries of sleep, and where a small group of villagers discover they're caught in prophecies that will reshape everything.</p>
-
-```
-  <p>The story follows Moiraine, a member of the powerful all-female Aes Sedai order, as she arrives in a remote village searching for the Dragon Reborn—a prophesied figure who will either save the world or break it. Five young people from the village become her focus, and when dark forces attack, they're forced to flee into a world far larger and more dangerous than they ever imagined. The question of which one might be the Dragon Reborn drives the early tension, but the show quickly expands into something richer: a story about power, destiny, and the costs of both.</p>
-  
-  <p>What makes The Wheel of Time compelling is its willingness to explore the complexity of magic. The One Power can be wielded by women through the Aes Sedai, but men who touch it go mad, corrupted by an ancient taint. This creates a world where power is gendered, where institutional structures have formed around controlling magic, and where the very thing that might save humanity is also deeply dangerous. The show doesn't shy away from these contradictions—it builds its drama around them.</p>
-  
-  <p>The production values are ambitious. From the sprawling city of Tar Valon to the haunted ruins of ancient civilizations, the show creates a world that feels lived-in and layered. The costume design, the different cultures, the visual approach to magic—all of it works to make this feel like a place with real history and real stakes. It's not perfect; some storylines feel rushed, some character arcs could use more room to breathe. But when it works, it captures that essential fantasy feeling: the sense that you're watching a world with depths you haven't yet explored, where every revelation hints at larger mysteries still waiting.</p>
-</div>
-```
-
+      <p>The story follows Moiraine, a member of the powerful all-female Aes Sedai order, as she arrives in a remote village searching for the Dragon Reborn, a prophesied figure who will either save the world or break it. Five young people from the village become her focus, and when dark forces attack, they're forced to flee into a world far larger and more dangerous than they ever imagined. The question of which one might be the Dragon Reborn drives the early tension, but the show quickly expands into something richer: a story about power, destiny, and the costs of both.</p>
+      <p>What makes The Wheel of Time compelling is its willingness to explore the complexity of magic. The One Power can be wielded by women through the Aes Sedai, but men who touch it go mad, corrupted by an ancient taint. This creates a world where power is gendered, where institutional structures have formed around controlling magic, and where the very thing that might save humanity is also deeply dangerous. The show doesn't shy away from these contradictions. It builds its drama around them.</p>
+      <p>The production values are ambitious. From the sprawling city of Tar Valon to the haunted ruins of ancient civilizations, the show creates a world that feels lived-in and layered. The costume design, the different cultures, the visual approach to magic all of it works to make this feel like a place with real history and real stakes. It's not perfect; some storylines feel rushed, some character arcs could use more room to breathe. But when it works, it captures that essential fantasy feeling: the sense that you're watching a world with depths you haven't yet explored, where every revelation hints at larger mysteries still waiting.</p>
+    </div>
   </article>
-
-  <!-- The Originals -->
 
   <article class="show">
     <div class="posterWrap">
@@ -290,25 +180,16 @@ img{max-width:100%;display:block}
         <img src="assets/posters/tv/the-originals.jpg.JPG" alt="The Originals poster">
       </div>
     </div>
-    <h2>The Originals</h2>
+    <h2>2) The Originals</h2>
     <div class="submeta">2013–2018 • 5 seasons</div>
     <div class="text">
-      <p>The Originals takes the vampire mythology established in The Vampire Diaries and transforms it into something darker, more operatic, and deeply rooted in family drama. This is a show about the first vampires—the Mikaelson siblings—and their thousand-year history of love, betrayal, and survival. It's Gothic fantasy with a Southern Gothic setting, and it fully commits to both.</p>
-
-```
-  <p>Klaus Mikaelson returns to New Orleans, the city his family helped build centuries ago, only to find it's been taken over by his former protégé. What starts as a power play becomes something more complicated when Klaus discovers he's going to be a father—an impossibility for a vampire, and a development that changes everything. Alongside his siblings Elijah and Rebekah, Klaus fights to reclaim the city while navigating the messy politics of werewolves, witches, and vampires all competing for control.</p>
-  
-  <p>The show's greatest strength is its focus on family as both salvation and curse. The Mikaelsons are immortal, unkillable, and absolutely toxic to each other. They've spent a thousand years making promises to stand together "always and forever," and just as long breaking those promises. Klaus is a monster who desperately wants to be loved. Elijah is noble to a fault, constantly sacrificing his own happiness to protect his brother. Rebekah just wants to be free of both of them. Their dynamic is messy, painful, and utterly compelling.</p>
-  
-  <p>New Orleans itself becomes a character. The show uses the city's real history—its French Quarter architecture, its voodoo traditions, its complicated racial and cultural legacy—to build a supernatural underworld that feels authentic. The witches draw power from ancestral magic tied to the land. The werewolves are cursed to transform with the full moon. The vampires rule through old-world aristocratic traditions. It's a rich mythology that never feels generic.</p>
-  
-  <p>The Originals doesn't reinvent the vampire genre, but it refines it. It's melodramatic in the best way, with heightened emotions, grand gestures, and stakes that feel genuinely tragic. When characters make sacrifices, they matter. When alliances break, they shatter. And through it all, the show maintains that central question: can people who've done terrible things for a thousand years ever truly change, or are they doomed to repeat the same patterns forever?</p>
-</div>
-```
-
+      <p>The Originals takes the vampire mythology established in The Vampire Diaries and transforms it into something darker, more operatic, and deeply rooted in family drama. This is a show about the first vampires, the Mikaelson siblings, and their thousand-year history of love, betrayal, and survival. It's Gothic fantasy with a Southern Gothic setting, and it fully commits to both.</p>
+      <p>Klaus Mikaelson returns to New Orleans, the city his family helped build centuries ago, only to find it's been taken over by his former protégé. What starts as a power play becomes something more complicated when Klaus discovers he's going to be a father, an impossibility for a vampire, and a development that changes everything. Alongside his siblings Elijah and Rebekah, Klaus fights to reclaim the city while navigating the messy politics of werewolves, witches, and vampires all competing for control.</p>
+      <p>The show's greatest strength is its focus on family as both salvation and curse. The Mikaelsons are immortal, unkillable, and absolutely toxic to each other. They've spent a thousand years making promises to stand together "always and forever," and just as long breaking those promises. Klaus is a monster who desperately wants to be loved. Elijah is noble to a fault, constantly sacrificing his own happiness to protect his brother. Rebekah just wants to be free of both of them. Their dynamic is messy, painful, and utterly compelling.</p>
+      <p>New Orleans itself becomes a character. The show uses the city's real history its French Quarter architecture, its voodoo traditions, its complicated racial and cultural legacy to build a supernatural underworld that feels authentic. The witches draw power from ancestral magic tied to the land. The werewolves are cursed to transform with the full moon. The vampires rule through old-world aristocratic traditions. It's a rich mythology that never feels generic.</p>
+      <p>The Originals doesn't reinvent the vampire genre, but it refines it. It's melodramatic in the best way, with heightened emotions, grand gestures, and stakes that feel genuinely tragic. When characters make sacrifices, they matter. When alliances break, they shatter. And through it all, the show maintains that central question: can people who've done terrible things for a thousand years ever truly change, or are they doomed to repeat the same patterns forever?</p>
+    </div>
   </article>
-
-  <!-- A Discovery of Witches -->
 
   <article class="show">
     <div class="posterWrap">
@@ -316,25 +197,16 @@ img{max-width:100%;display:block}
         <img src="assets/posters/tv/a-discovery-of-witches.jpeg" alt="A Discovery of Witches poster">
       </div>
     </div>
-    <h2>A Discovery of Witches</h2>
+    <h2>3) A Discovery of Witches</h2>
     <div class="submeta">2018–2022 • 3 seasons</div>
     <div class="text">
-      <p>A Discovery of Witches is fantasy for people who like their magic steeped in history, academia, and slow-burning romance. Based on Deborah Harkness's All Souls trilogy, it follows Diana Bishop, a historian and reluctant witch who discovers an enchanted manuscript in Oxford's Bodleian Library—a book that's been lost for centuries and that every magical creature in the world seems desperate to find.</p>
-
-```
-  <p>Diana has spent her adult life suppressing her magic, trying to live as a normal scholar. But when the manuscript chooses her, she's thrown into a hidden world of witches, vampires, and daemons, all governed by an ancient covenant that forbids interspecies relationships. Enter Matthew Clairmont, a centuries-old vampire and geneticist who's spent his immortal life studying the origins of magical creatures. He's drawn to Diana, and she to him, which violates every rule their world has established.</p>
-  
-  <p>What makes the show work is how seriously it takes its intellectual side. This isn't just magic—it's magic as science, history, and philosophy. Matthew approaches Diana's powers as a research problem. Diana uncovers magical secrets hidden in medieval alchemical texts. The show spends real time in libraries, laboratories, and historical settings, and it trusts that viewers will find that compelling. It's fantasy for people who appreciate research montages as much as spell-casting.</p>
-  
-  <p>The romance is deliberate and earned. Matthew is dangerous—he's a vampire who struggles with bloodlust, who's lived through centuries of violence, who's capable of genuine cruelty. Diana is powerful but inexperienced, brilliant but traumatized by her parents' mysterious deaths. Their relationship develops slowly, built on mutual respect and genuine curiosity about each other. When they time-travel to Elizabethan London in the second season, the show fully leans into historical fantasy, placing them in a world of alchemy, espionage, and the School of Night.</p>
-  
-  <p>A Discovery of Witches is measured and patient in a way that won't work for everyone. It's not interested in rapid-fire plotting or constant action. But if you want fantasy that feels literate, that treats magic as something ancient and complex, and that builds a romance between two people who are genuinely fascinated by each other's minds, this delivers exactly that.</p>
-</div>
-```
-
+      <p>A Discovery of Witches is fantasy for people who like their magic steeped in history, academia, and slow-burning romance. Based on Deborah Harkness's All Souls trilogy, it follows Diana Bishop, a historian and reluctant witch who discovers an enchanted manuscript in Oxford's Bodleian Library, a book that's been lost for centuries and that every magical creature in the world seems desperate to find.</p>
+      <p>Diana has spent her adult life suppressing her magic, trying to live as a normal scholar. But when the manuscript chooses her, she's thrown into a hidden world of witches, vampires, and daemons, all governed by an ancient covenant that forbids interspecies relationships. Enter Matthew Clairmont, a centuries-old vampire and geneticist who's spent his immortal life studying the origins of magical creatures. He's drawn to Diana, and she to him, which violates every rule their world has established.</p>
+      <p>What makes the show work is how seriously it takes its intellectual side. This isn't just magic. It's magic as science, history, and philosophy. Matthew approaches Diana's powers as a research problem. Diana uncovers magical secrets hidden in medieval alchemical texts. The show spends real time in libraries, laboratories, and historical settings, and it trusts that viewers will find that compelling. It's fantasy for people who appreciate research montages as much as spell-casting.</p>
+      <p>The romance is deliberate and earned. Matthew is dangerous. He's a vampire who struggles with bloodlust, who's lived through centuries of violence, who's capable of genuine cruelty. Diana is powerful but inexperienced, brilliant but traumatized by her parents' mysterious deaths. Their relationship develops slowly, built on mutual respect and genuine curiosity about each other. When they time-travel to Elizabethan London in the second season, the show fully leans into historical fantasy, placing them in a world of alchemy, espionage, and the School of Night.</p>
+      <p>A Discovery of Witches is measured and patient in a way that won't work for everyone. It's not interested in rapid-fire plotting or constant action. But if you want fantasy that feels literate, that treats magic as something ancient and complex, and that builds a romance between two people who are genuinely fascinated by each other's minds, this delivers exactly that.</p>
+    </div>
   </article>
-
-  <!-- The Shannara Chronicles -->
 
   <article class="show">
     <div class="posterWrap">
@@ -342,25 +214,16 @@ img{max-width:100%;display:block}
         <img src="assets/posters/tv/the-shannara-chronicles.jpeg" alt="The Shannara Chronicles poster">
       </div>
     </div>
-    <h2>The Shannara Chronicles</h2>
+    <h2>4) The Shannara Chronicles</h2>
     <div class="submeta">2016–2017 • 2 seasons</div>
     <div class="text">
       <p>The Shannara Chronicles takes Terry Brooks's post-apocalyptic fantasy novels and turns them into a brisk, visually striking adventure series. Set thousands of years after our world ended, it follows a reality where magic has returned, elves rule the Four Lands, and an ancient tree called the Ellcrys is the only thing keeping demonic forces imprisoned. When the tree begins to die, a young elf princess, a half-elf wanderer, and a human rover must find a way to save it before darkness consumes everything.</p>
-
-```
-  <p>The show's most distinctive element is its setting. This isn't generic medieval fantasy—it's a world built on the ruins of ours. Characters travel through overgrown cities where skyscrapers have become forests. Ancient human technology is treated as mysterious relics. The blending of post-apocalyptic imagery with high fantasy gives the show a unique visual identity, even if the execution doesn't always match the ambition of the concept.</p>
-  
-  <p>The core trio carries the story. Amberle is the first female chosen by the Ellcrys in generations, a responsibility she never wanted. Wil is a half-elf haunted by his family legacy, carrying magical stones that are as dangerous as they are powerful. Eretria is a human rover raised among thieves, tough and pragmatic, who gets pulled into the quest against her better judgment. Their dynamic is classic adventure storytelling: three people from different worlds forced to trust each other against impossible odds.</p>
-  
-  <p>The Shannara Chronicles is unabashedly a young adult fantasy series, and it leans into that energy. The pacing is quick, the tone is earnest, and the romances are front and center. It's not interested in grim complexity or moral ambiguity—it wants to tell a straightforward story about young people discovering their destinies and fighting to save their world. Some viewers will find that refreshing; others will find it shallow. The show knows what it is and commits fully.</p>
-  
-  <p>Where it stumbles is in depth. The world-building hints at fascinating ideas but rarely explores them. The political intrigue in the elven court feels underdeveloped. Secondary characters often get sidelined just when they're becoming interesting. The show ended after two seasons, leaving some storylines unresolved. But if you're looking for accessible, fast-paced fantasy with striking visuals and a clear hero's journey, The Shannara Chronicles delivers that without pretension.</p>
-</div>
-```
-
+      <p>The show's most distinctive element is its setting. This isn't generic medieval fantasy. It's a world built on the ruins of ours. Characters travel through overgrown cities where skyscrapers have become forests. Ancient human technology is treated as mysterious relics. The blending of post-apocalyptic imagery with high fantasy gives the show a unique visual identity, even if the execution doesn't always match the ambition of the concept.</p>
+      <p>The core trio carries the story. Amberle is the first female chosen by the Ellcrys in generations, a responsibility she never wanted. Wil is a half-elf haunted by his family legacy, carrying magical stones that are as dangerous as they are powerful. Eretria is a human rover raised among thieves, tough and pragmatic, who gets pulled into the quest against her better judgment. Their dynamic is classic adventure storytelling: three people from different worlds forced to trust each other against impossible odds.</p>
+      <p>The Shannara Chronicles is unabashedly a young adult fantasy series, and it leans into that energy. The pacing is quick, the tone is earnest, and the romances are front and center. It's not interested in grim complexity or moral ambiguity. It wants to tell a straightforward story about young people discovering their destinies and fighting to save their world. Some viewers will find that refreshing; others will find it shallow. The show knows what it is and commits fully.</p>
+      <p>Where it stumbles is in depth. The world-building hints at fascinating ideas but rarely explores them. The political intrigue in the elven court feels underdeveloped. Secondary characters often get sidelined just when they're becoming interesting. The show ended after two seasons, leaving some storylines unresolved. But if you're looking for accessible, fast-paced fantasy with striking visuals and a clear hero's journey, The Shannara Chronicles delivers that without pretension.</p>
+    </div>
   </article>
-
-  <!-- The Order -->
 
   <article class="show">
     <div class="posterWrap">
@@ -368,25 +231,16 @@ img{max-width:100%;display:block}
         <img src="assets/posters/tv/the-order.jpeg" alt="The Order poster">
       </div>
     </div>
-    <h2>The Order</h2>
+    <h2>5) The Order</h2>
     <div class="submeta">2019–2020 • 2 seasons</div>
     <div class="text">
-      <p>The Order is fantasy with a sharp sense of humor about itself. Set at the fictional Belgrave University, it follows Jack Morton, a student who joins a secret magical society called the Hermetic Order of the Blue Rose, only to discover that magic is real, powerful, and deeply irresponsible in the hands of entitled undergraduates. Things get more complicated when he's also chosen by a werewolf hide, making him part of the Knights of Saint Christopher—a group dedicated to hunting dark magic practitioners. Jack is now a double agent in a war he barely understands.</p>
-
-```
-  <p>The show's tone is its defining feature. It's not self-serious or brooding—it's sarcastic, fast-paced, and fully aware of how ridiculous its premise is. The Order is basically a magical fraternity where students learn spells, perform rituals, and accidentally unleash demonic forces while dealing with crushes, rivalries, and hangovers. The werewolves aren't tortured souls—they're a dysfunctional found family who bicker constantly and treat transformations like an annoying chore. The comedy doesn't undercut the stakes; it just makes the whole thing more fun to watch.</p>
-  
-  <p>Jack is a solid protagonist because he's genuinely in over his head. He joined the Order for revenge—his mother was a member who died under mysterious circumstances—but he quickly realizes that magic is far more dangerous and morally complicated than he anticipated. His relationship with Alyssa, a talented Order member with her own secrets, adds emotional weight. And his integration into the werewolf crew provides most of the show's best character dynamics. These are people who shouldn't work together but somehow do.</p>
-  
-  <p>The magic system is deliberately theatrical. Spells require incantations, ritual components, and genuine sacrifice. The Order's leaders are power-hungry and reckless, treating magic as a tool for personal gain rather than responsibility. The werewolves are bound to ancient hides that choose their hosts and grant them supernatural strength. The show plays with these elements creatively, using magic for both dramatic tension and comedic payoff.</p>
-  
-  <p>The Order only ran for two seasons before being canceled, and it ends on a cliffhanger that will never be resolved. That's frustrating, but the show still works as a contained experience. If you want fantasy that doesn't take itself too seriously, that mixes horror, comedy, and campus intrigue, and that treats its supernatural premise as a playground rather than a burden, The Order is a fun, bingeable watch.</p>
-</div>
-```
-
+      <p>The Order is fantasy with a sharp sense of humor about itself. Set at the fictional Belgrave University, it follows Jack Morton, a student who joins a secret magical society called the Hermetic Order of the Blue Rose, only to discover that magic is real, powerful, and deeply irresponsible in the hands of entitled undergraduates. Things get more complicated when he's also chosen by a werewolf hide, making him part of the Knights of Saint Christopher, a group dedicated to hunting dark magic practitioners. Jack is now a double agent in a war he barely understands.</p>
+      <p>The show's tone is its defining feature. It's not self-serious or brooding. It's sarcastic, fast-paced, and fully aware of how ridiculous its premise is. The Order is basically a magical fraternity where students learn spells, perform rituals, and accidentally unleash demonic forces while dealing with crushes, rivalries, and hangovers. The werewolves aren't tortured souls. They're a dysfunctional found family who bicker constantly and treat transformations like an annoying chore. The comedy doesn't undercut the stakes; it just makes the whole thing more fun to watch.</p>
+      <p>Jack is a solid protagonist because he's genuinely in over his head. He joined the Order for revenge, his mother was a member who died under mysterious circumstances, but he quickly realizes that magic is far more dangerous and morally complicated than he anticipated. His relationship with Alyssa, a talented Order member with her own secrets, adds emotional weight. And his integration into the werewolf crew provides most of the show's best character dynamics. These are people who shouldn't work together but somehow do.</p>
+      <p>The magic system is deliberately theatrical. Spells require incantations, ritual components, and genuine sacrifice. The Order's leaders are power-hungry and reckless, treating magic as a tool for personal gain rather than responsibility. The werewolves are bound to ancient hides that choose their hosts and grant them supernatural strength. The show plays with these elements creatively, using magic for both dramatic tension and comedic payoff.</p>
+      <p>The Order only ran for two seasons before being canceled, and it ends on a cliffhanger that will never be resolved. That's frustrating, but the show still works as a contained experience. If you want fantasy that doesn't take itself too seriously, that mixes horror, comedy, and campus intrigue, and that treats its supernatural premise as a playground rather than a burden, The Order is a fun, bingeable watch.</p>
+    </div>
   </article>
-
-  <!-- Shadowhunters -->
 
   <article class="show">
     <div class="posterWrap">
@@ -394,25 +248,16 @@ img{max-width:100%;display:block}
         <img src="assets/posters/tv/shadowhunters.jpeg" alt="Shadowhunters poster">
       </div>
     </div>
-    <h2>Shadowhunters</h2>
+    <h2>6) Shadowhunters</h2>
     <div class="submeta">2016–2019 • 3 seasons</div>
     <div class="text">
-      <p>Shadowhunters is urban fantasy built on a foundation of mythology, chosen-one narratives, and deeply complicated family drama. Based on Cassandra Clare's Mortal Instruments series, it follows Clary Fray, a Brooklyn art student who discovers she's part of a secret world of Shadowhunters—half-angel warriors who protect humanity from demons, vampires, werewolves, and other supernatural threats. Her mother's disappearance forces Clary into this hidden world, where she learns her family history is far darker and more significant than she ever imagined.</p>
-
-```
-  <p>The show throws you immediately into a richly developed supernatural ecosystem. Shadowhunters operate out of Institutes, wielding angelic runes that grant them enhanced abilities. Downworlders—vampires, werewolves, warlocks, and faeries—live in uneasy coexistence with the Shadowhunters, governed by treaties and ancient prejudices. The politics are messy, the alliances are fragile, and everyone has conflicting loyalties. It's a world with depth, even if the show doesn't always take the time to explore every corner.</p>
-  
-  <p>Clary's journey from ordinary teenager to powerful Shadowhunter is familiar territory, but the show commits to it fully. She's impulsive, stubborn, and prone to charging into danger without thinking—which frustrates her new companions but also makes her effective. Jace, the skilled but emotionally guarded Shadowhunter who becomes her partner, brings the tortured-warrior energy. Simon, Clary's best friend who gets turned into a vampire, provides the outsider perspective and much of the show's humor. Alec and Magnus—a Shadowhunter struggling with his identity and a centuries-old warlock with impeccable style—develop one of the show's most compelling relationships.</p>
-  
-  <p>Shadowhunters is melodramatic in the way young adult fantasy often is. Emotions run high, relationships are intense, and every revelation about Clary's parentage seems designed to make things more complicated. Some of that works; some of it feels overwrought. But the show has genuine heart, particularly in its handling of Alec and Magnus's relationship, which was groundbreaking for representation in the genre and treated with real care and respect.</p>
-  
-  <p>The series ended after three seasons, giving it just enough time to resolve its main storylines while leaving some threads dangling. It's not prestige television, but it's earnest, ambitious, and unapologetically romantic. If you want urban fantasy that fully embraces its heightened emotions and complex mythology, Shadowhunters delivers that without hesitation.</p>
-</div>
-```
-
+      <p>Shadowhunters is urban fantasy built on a foundation of mythology, chosen-one narratives, and deeply complicated family drama. Based on Cassandra Clare's Mortal Instruments series, it follows Clary Fray, a Brooklyn art student who discovers she's part of a secret world of Shadowhunters, half-angel warriors who protect humanity from demons, vampires, werewolves, and other supernatural threats. Her mother's disappearance forces Clary into this hidden world, where she learns her family history is far darker and more significant than she ever imagined.</p>
+      <p>The show throws you immediately into a richly developed supernatural ecosystem. Shadowhunters operate out of Institutes, wielding angelic runes that grant them enhanced abilities. Downworlders, vampires, werewolves, warlocks, and faeries, live in uneasy coexistence with the Shadowhunters, governed by treaties and ancient prejudices. The politics are messy, the alliances are fragile, and everyone has conflicting loyalties. It's a world with depth, even if the show doesn't always take the time to explore every corner.</p>
+      <p>Clary's journey from ordinary teenager to powerful Shadowhunter is familiar territory, but the show commits to it fully. She's impulsive, stubborn, and prone to charging into danger without thinking which frustrates her new companions but also makes her effective. Jace, the skilled but emotionally guarded Shadowhunter who becomes her partner, brings the tortured-warrior energy. Simon, Clary's best friend who gets turned into a vampire, provides the outsider perspective and much of the show's humor. Alec and Magnus, a Shadowhunter struggling with his identity and a centuries-old warlock with impeccable style, develop one of the show's most compelling relationships.</p>
+      <p>Shadowhunters is melodramatic in the way young adult fantasy often is. Emotions run high, relationships are intense, and every revelation about Clary's parentage seems designed to make things more complicated. Some of that works; some of it feels overwrought. But the show has genuine heart, particularly in its handling of Alec and Magnus's relationship, which was groundbreaking for representation in the genre and treated with real care and respect.</p>
+      <p>The series ended after three seasons, giving it just enough time to resolve its main storylines while leaving some threads dangling. It's not prestige television, but it's earnest, ambitious, and unapologetically romantic. If you want urban fantasy that fully embraces its heightened emotions and complex mythology, Shadowhunters delivers that without hesitation.</p>
+    </div>
   </article>
-
-  <!-- Merlin -->
 
   <article class="show">
     <div class="posterWrap">
@@ -420,25 +265,17 @@ img{max-width:100%;display:block}
         <img src="assets/posters/tv/merlin.webp" alt="Merlin poster">
       </div>
     </div>
-    <h2>Merlin</h2>
+    <h2>7) Merlin</h2>
     <div class="submeta">2008–2012 • 5 seasons</div>
     <div class="text">
-      <p>Merlin reimagines the Arthurian legend as a coming-of-age story about a young warlock and a young prince who are destined to change the world—if they don't drive each other crazy first. Set in the kingdom of Camelot, where magic is banned on pain of death, the show follows Merlin as he arrives in the city and quickly discovers he's meant to protect Arthur, the arrogant prince who will one day become the greatest king in history. The twist: Merlin has to do it all in secret, because revealing his magic would mean execution.</p>
-
-```
-  <p>The genius of the show is making Merlin and Arthur contemporaries rather than mentor and student. They start as antagonists—Merlin thinks Arthur is a spoiled bully, Arthur thinks Merlin is an incompetent servant—but over five seasons, they become brothers in all but blood. Their friendship is the emotional core of the series, built on trust, loyalty, and the tragic irony that Arthur can never know the truth about Merlin's magic, even as Merlin uses it constantly to save his life.</p>
-  
-  <p>The show takes a deliberately accessible approach to fantasy. Episodes are largely self-contained, following a monster-of-the-week structure where Merlin and Arthur face magical threats ranging from cursed knights to vengeful sorcerers to mythical beasts. It's family-friendly without being juvenile, balancing humor and heart with genuine danger. The tone is lighter than most modern fantasy, but the stakes are real, and the show isn't afraid to let characters suffer or make devastating choices.</p>
-  
-  <p>What gives Merlin staying power is its willingness to embrace tragedy. This is a story where you know how it ends—Camelot falls, Arthur dies, magic returns too late. The show plays with that knowledge, building toward the inevitable while giving you reasons to hope it might turn out differently. When characters make decisions that lead them closer to that doomed future, it hurts, because you've spent years caring about them. The final season commits fully to the darker aspects of the legend, and the ending is heartbreaking in exactly the way it should be.</p>
-  
-  <p>Merlin is comfort-food fantasy with genuine emotional weight. It's a show about destiny, friendship, and the painful gap between the world as it is and the world as it should be. If you want something that's fun, heartfelt, and ultimately tragic in the best way myths can be, Merlin earns every bit of its reputation.</p>
-</div>
-```
-
+      <p>Merlin reimagines the Arthurian legend as a coming-of-age story about a young warlock and a young prince who are destined to change the world if they don't drive each other crazy first. Set in the kingdom of Camelot, where magic is banned on pain of death, the show follows Merlin as he arrives in the city and quickly discovers he's meant to protect Arthur, the arrogant prince who will one day become the greatest king in history. The twist: Merlin has to do it all in secret, because revealing his magic would mean execution.</p>
+      <p>The genius of the show is making Merlin and Arthur contemporaries rather than mentor and student. They start as antagonists. Merlin thinks Arthur is a spoiled bully, Arthur thinks Merlin is an incompetent servant. But over five seasons, they become brothers in all but blood. Their friendship is the emotional core of the series, built on trust, loyalty, and the tragic irony that Arthur can never know the truth about Merlin's magic, even as Merlin uses it constantly to save his life.</p>
+      <p>The show takes a deliberately accessible approach to fantasy. Episodes are largely self-contained, following a monster-of-the-week structure where Merlin and Arthur face magical threats ranging from cursed knights to vengeful sorcerers to mythical beasts. It's family-friendly without being juvenile, balancing humor and heart with genuine danger. The tone is lighter than most modern fantasy, but the stakes are real, and the show isn't afraid to let characters suffer or make devastating choices.</p>
+      <p>What gives Merlin staying power is its willingness to embrace tragedy. This is a story where you know how it ends. Camelot falls, Arthur dies, magic returns too late. The show plays with that knowledge, building toward the inevitable while giving you reasons to hope it might turn out differently. When characters make decisions that lead them closer to that doomed future, it hurts, because you've spent years caring about them. The final season commits fully to the darker aspects of the legend, and the ending is heartbreaking in exactly the way it should be.</p>
+      <p>Merlin is comfort-food fantasy with genuine emotional weight. It's a show about destiny, friendship, and the painful gap between the world as it is and the world as it should be. If you want something that's fun, heartfelt, and ultimately tragic in the best way myths can be, Merlin earns every bit of its reputation.</p>
+    </div>
   </article>
 
 </main>
-
 </body>
 </html>
