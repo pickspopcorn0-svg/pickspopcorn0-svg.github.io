@@ -5,11 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Our Favorite Chinese Romance Dramas — Popcorn Picks</title>
 
-<!-- ✅ Correct AdSense script -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
   crossorigin="anonymous"></script>
 
-<!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -20,585 +18,252 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:#0b0b0c;color:#fff;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 
-:root{
-  --bg1:#07070a;
-  --bg2:#0b0b12;
-  --card:#0f0f18;
-  --line:rgba(255,255,255,.12);
-  --lineSoft:rgba(255,255,255,.08);
-  --text:#fff;
-  --muted:rgba(255,255,255,.76);
-  --muted2:rgba(255,255,255,.62);
-  --accent:rgba(255,120,70,.95);
-}
-
-body{
-  color:var(--text);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  background:
-    radial-gradient(1000px 600px at 15% -10%, rgba(255,120,70,.14), transparent 60%),
-    radial-gradient(900px 520px at 90% 0%, rgba(120,120,255,.10), transparent 62%),
-    linear-gradient(180deg, var(--bg1), var(--bg2));
-  min-height:100vh;
-}
-
-/* ✅ TOPBAR (match your screenshot style) */
 .topbar{
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:rgba(7,7,10,.72);
-  backdrop-filter: blur(10px);
-  border-bottom:1px solid var(--lineSoft);
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 20px;
+  background:rgba(10,10,10,.88);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid #222;
 }
-.topbarInner{
-  max-width:1100px;
-  margin:0 auto;
-  padding:14px 18px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
-}
-
-/* left pill buttons */
-.navLeft{
-  display:flex;
-  gap:10px;
-  align-items:center;
-}
+.navLeft{display:flex;gap:10px;align-items:center;}
 .navBtn{
-  font-size:13px;
-  color:rgba(255,255,255,.78);
-  padding:7px 14px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(255,255,255,.04);
-  transition:.15s ease;
-  white-space:nowrap;
+  font-size:13px;color:#d0d0d0;padding:7px 14px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);transition:.15s ease;
 }
-.navBtn:hover{
-  color:#fff;
-  border-color:rgba(255,255,255,.25);
-  background:rgba(255,255,255,.08);
-}
+.navBtn:hover{color:#fff;border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.08);}
+.brand{font-weight:650;letter-spacing:.5px;font-size:14px}
 
-/* centered brand */
-.brandCenter{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-weight:700;
-  letter-spacing:.2px;
-  justify-content:center;
-  flex:1;
-}
-.brandDot{
-  width:10px;height:10px;border-radius:50%;
-  background:var(--accent);
-  box-shadow:0 0 0 4px rgba(255,120,70,.16);
-}
-
-/* spacer so brand stays centered */
-.navSpacer{width:160px}
-
-/* LAYOUT */
-.wrap{
-  max-width:1100px;
-  margin:0 auto;
-  padding:26px 18px 70px;
-}
 .hero{
-  border:1px solid var(--lineSoft);
+  min-height:68vh;
+  display:flex;align-items:center;
+  padding:72px 22px 54px;
+  position:relative;overflow:hidden;
+  border-bottom:1px solid #1f1f1f;
+  background:#0b0b0c;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
   background:
-    radial-gradient(900px 380px at 10% 0%, rgba(255,120,70,.18), transparent 60%),
-    linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
-  border-radius:16px;
-  overflow:hidden;
+    radial-gradient(ellipse 80% 60% at 10% 40%, rgba(255,100,150,.13), transparent 60%),
+    radial-gradient(ellipse 60% 80% at 90% 20%, rgba(255,140,100,.10), transparent 60%),
+    radial-gradient(ellipse 50% 50% at 50% 100%, rgba(200,100,200,.08), transparent 55%);
+  animation:heroShift 10s ease-in-out infinite alternate;
 }
-.heroInner{
-  padding:28px 22px;
-  display:grid;
-  grid-template-columns: 1.2fr .8fr;
-  gap:18px;
+@keyframes heroShift{
+  0%{opacity:.7;transform:scale(1)}
+  100%{opacity:1;transform:scale(1.04)}
 }
-@media (max-width: 860px){
-  .heroInner{grid-template-columns:1fr}
-  .navSpacer{width:90px}
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size:60px 60px;
+  mask-image:linear-gradient(to bottom, transparent, rgba(0,0,0,.6) 30%, rgba(0,0,0,.6) 70%, transparent);
 }
-
+.heroInner{max-width:980px;width:100%;margin:0 auto;position:relative;z-index:2;}
 .kicker{
-  color:var(--muted2);
-  font-size:13px;
-  letter-spacing:.12em;
-  text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  color:#eaeaea;padding:8px 12px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.04);
 }
-.hTitle{
-  margin-top:8px;
-  font-size:34px;
-  line-height:1.12;
-  letter-spacing:-.02em;
+.kickerDot{
+  width:7px;height:7px;border-radius:50%;
+  background:rgba(255,100,140,.95);box-shadow:0 0 10px rgba(255,100,140,.6);
 }
-.meta{
-  margin-top:10px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  color:var(--muted2);
-  font-size:14px;
+.hero h1{
+  margin-top:20px;font-size:54px;line-height:1.05;
+  letter-spacing:-.03em;max-width:20ch;
 }
-.pill{
-  border:1px solid var(--lineSoft);
-  background:rgba(255,255,255,.02);
-  border-radius:999px;
-  padding:6px 10px;
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(90deg,rgba(255,100,150,1),rgba(255,140,100,1));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
 }
+.hero p{margin-top:16px;max-width:64ch;color:#c8c8c8;line-height:1.8;font-size:16px;}
+.heroBadges{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
+.heroBadge{
+  font-size:12px;padding:6px 14px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.05);
+  color:rgba(255,255,255,.7);letter-spacing:.04em;
+}
+.metaLine{margin-top:20px;color:#9a9a9a;font-size:12px;letter-spacing:.08em;text-transform:uppercase;}
 
-.heroCard{
-  border:1px solid var(--lineSoft);
-  background:rgba(15,15,24,.55);
-  border-radius:14px;
-  padding:16px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-.heroCard h3{
-  font-size:14px;
-  color:var(--muted);
-  font-weight:600;
-  letter-spacing:.02em;
-}
-.heroCard p{
-  color:var(--muted2);
-  font-size:14px;
-  line-height:1.6;
-}
-.divline{height:1px;background:var(--lineSoft);margin:2px 0}
+.wrap{max-width:980px;margin:0 auto;padding:46px 22px 90px;}
 
-/* INTRO ARTICLE */
-.article{
-  margin-top:18px;
-  border:1px solid var(--lineSoft);
-  background:rgba(255,255,255,.02);
-  border-radius:16px;
-  padding:22px;
+.show{
+  padding:26px 22px;border:1px solid #181818;border-radius:20px;
+  background:rgba(255,255,255,.02);margin-bottom:26px;
 }
-.article p{
-  color:var(--muted);
-  font-size:16px;
-  line-height:1.8;
-  margin:12px 0;
-}
-.sectionTitle{
-  margin-top:6px;
-  font-size:18px;
-  letter-spacing:-.01em;
-}
-.note{
-  margin-top:14px;
-  color:var(--muted2);
-  font-size:14px;
-  line-height:1.7;
-  border-left:2px solid rgba(255,120,70,.55);
-  padding:10px 12px;
-  background:rgba(255,120,70,.06);
-  border-radius:10px;
-}
+.show h2{font-size:32px;letter-spacing:-.02em;line-height:1.12;color:#ffffff;font-weight:800;}
+.submeta{margin-top:10px;color:#a9a9a9;font-size:13px;line-height:1.5;}
+.text{margin-top:14px;max-width:78ch;}
+.text p{color:#d7d7d7;line-height:1.9;font-size:16px;margin:0 0 14px 0;}
 
-/* DRAMA LIST */
-.dramaList{
-  margin-top:18px;
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-}
-.dramaCard{
-  border:1px solid var(--lineSoft);
-  background:rgba(255,255,255,.02);
-  border-radius:16px;
-  overflow:hidden;
-}
-.dramaInner{
-  display:grid;
-  grid-template-columns: 160px 1fr;
-  gap:16px;
-  padding:16px;
-}
-@media (max-width: 720px){
-  .dramaInner{grid-template-columns: 120px 1fr}
-}
-@media (max-width: 520px){
-  .dramaInner{grid-template-columns: 1fr}
-}
-
+.posterWrap{margin-top:18px;display:flex;justify-content:center;}
 .poster{
-  border-radius:12px;
-  overflow:hidden;
-  border:1px solid var(--lineSoft);
-  background:rgba(15,15,24,.6);
-  aspect-ratio: 2 / 3;
+  width:min(420px,100%);border-radius:18px;overflow:hidden;
+  border:1px solid #232323;background:#111;
 }
-.poster img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
+.poster img{width:100%;height:auto;}
+.more{margin-top:22px;color:#9a9a9a;font-size:13px;line-height:1.6;}
 
-.dramaTitle{
-  font-size:22px;
-  letter-spacing:-.01em;
-  line-height:1.15;
-}
-.dramaMeta{
-  margin-top:6px;
-  color:var(--muted2);
-  font-size:14px;
-}
-.dramaText{
-  margin-top:10px;
-  color:var(--muted);
-  font-size:15.5px;
-  line-height:1.85;
-}
-.dramaText p{margin:10px 0}
-
-.softDivider{
-  height:1px;
-  background:var(--lineSoft);
-}
-
-/* FOOTER */
-.footer{
-  margin-top:22px;
-  color:var(--muted2);
-  font-size:13px;
-  padding:10px 2px 0;
-  opacity:.95;
+@media(max-width:760px){
+  .hero h1{font-size:36px}
+  .show{padding:22px 16px}
+  .show h2{font-size:24px}
+  .topbar{padding:14px 14px}
 }
 </style>
 </head>
-
 <body>
 
-<header class="topbar">
-  <div class="topbarInner">
-    <!-- ✅ Left buttons -->
-    <div class="navLeft">
-      <a class="navBtn" href="editorials.html">← Editorials</a>
-      <a class="navBtn" href="index.html">Home</a>
+<div class="topbar">
+  <div class="navLeft">
+    <a class="navBtn" href="editorials.html">← Editorials</a>
+    <a class="navBtn" href="index.html">Home</a>
+  </div>
+  <div class="brand">Popcorn Picks</div>
+  <div style="width:120px"></div>
+</div>
+
+<header class="hero">
+  <div class="heroInner">
+    <span class="kicker"><span class="kickerDot"></span>Editorial • China • Romance</span>
+    <h1>Our Favorite <em>Chinese Romance Dramas</em></h1>
+    <p>
+      These are romance dramas that do not waste your time with endless misunderstandings or jealousy arcs. 
+      They focus on people who actually talk to each other, relationships that grow through everyday moments, 
+      and love that feels calm instead of chaotic.
+    </p>
+    <div class="heroBadges">
+      <span class="heroBadge">Modern Romance</span>
+      <span class="heroBadge">No Drama</span>
+      <span class="heroBadge">Real Communication</span>
+      <span class="heroBadge">Grounded</span>
     </div>
-
-    <!-- ✅ Center brand -->
-    <a class="brandCenter" href="index.html" aria-label="Popcorn Picks home">
-      <span class="brandDot"></span>
-      <span>Popcorn Picks</span>
-    </a>
-
-    <!-- spacer to keep brand centered -->
-    <div class="navSpacer" aria-hidden="true"></div>
+    <div class="metaLine">Popcorn Picks • 6 Picks</div>
   </div>
 </header>
 
 <main class="wrap">
 
-  <section class="hero">
-    <div class="heroInner">
-      <div>
-        <div class="kicker">Editorial</div>
-        <h1 class="hTitle">🥇 Our Favorite Chinese Romance Dramas</h1>
-        <div class="meta">
-          <span class="pill">Modern CDrama Romance</span>
-          <span class="pill">Warm, grounded love stories</span>
-          <span class="pill">No messy noise</span>
-        </div>
-      </div>
-
-      <aside class="heroCard">
-        <h3>Why these ones</h3>
-        <div class="divline"></div>
-        <p>
-          These picks lean into emotional safety, real communication, and relationships that grow through everyday life.
-          No stretched misunderstandings. No endless jealousy loops. Just connection that feels earned.
-        </p>
-      </aside>
+  <article class="show">
+    <h2>1) Fireworks of My Heart</h2>
+    <div class="submeta">2023 • 40 episodes</div>
+    <div class="text">
+      <p>Fireworks of My Heart is a reunion romance that takes its time. Two people who had something years ago meet again as adults with different lives, careers, and baggage. The show does not rush them back together. It lets them figure out if who they are now still fits.</p>
+      <p>What makes it work is how real the obstacles feel. There are no evil exes or manufactured misunderstandings. The problems are just life. Family expectations. Career pressure. Old hurt that never fully healed. Those are harder to solve than a villain you can outsmart.</p>
+      <p>Both leads have jobs that matter to the story. He is a firefighter. She works in emergency response. Those careers are not just background decoration. They shape how the characters think, what they are willing to risk, and why hesitation exists even when feelings are clear.</p>
+      <p>The emotional pacing is slow but not boring. When the drama finally lets them talk honestly, it feels like something that had to be earned through time rather than just handed to you because the episode count says so.</p>
+      <p>Watch it when you want a romance that feels grown up. Two people trying to figure out if the past can turn into a future without pretending the years in between did not happen.</p>
     </div>
-  </section>
-
-  <article class="article">
-    <h2 class="sectionTitle">A romance lane that actually breathes</h2>
-
-    <p>
-      Modern Chinese romance dramas often get dismissed too quickly. Many viewers expect exaggerated misunderstandings,
-      endless third party interference, or conflicts that exist only because characters refuse to communicate.
-      While those tropes do exist, they don’t define the entire genre anymore.
-    </p>
-
-    <p>
-      The dramas in this editorial stand apart because they actively avoid that noise. They don’t rely on constant jealousy arcs,
-      unnecessary love triangles, or misunderstandings stretched far beyond logic. Instead, they focus on something quieter
-      and more grounded: connection built over time.
-    </p>
-
-    <p>
-      Relationships here grow through shared routines, mutual respect, emotional safety, and an understanding that love
-      doesn’t need chaos to feel meaningful.
-    </p>
-
-    <p>
-      These are romances where people actually talk, listen, and change. Where careers, personal growth, and healing matter
-      as much as affection. They feel less like fantasy and more like companionship, which is exactly why they linger.
-    </p>
-
-    <div class="note">
-      This list is for people who want romance that feels grown, calm, and real.
-      If you are looking for loud chaos and constant jealousy, this editorial is not that lane.
+    <div class="posterWrap">
+      <div class="poster">
+        <img src="assets/posters/cdrama/fireworks-of-my-heart-poster.jpg.JPG" alt="Fireworks of My Heart poster">
+      </div>
     </div>
   </article>
 
-  <section class="dramaList">
-
-    <!-- FIREWORKS OF MY HEART -->
-    <article class="dramaCard">
-      <div class="dramaInner">
-        <div class="poster">
-          <img src="assets/posters/cdrama/fireworks-of-my-heart-poster.jpg.JPG" alt="Fireworks of My Heart poster" loading="lazy">
-        </div>
-        <div>
-          <h2 class="dramaTitle">Fireworks of My Heart</h2>
-          <div class="dramaMeta">2023 · 40 Episodes</div>
-          <div class="dramaText">
-            <p>
-              Fireworks of My Heart is a modern romance that brings emotional weight without relying on melodrama.
-              At its center is a relationship shaped by time, separation, and adult responsibility rather than sudden infatuation.
-              The drama begins with distance emotional, social, and circumstantial and slowly works its way toward reconnection.
-            </p>
-            <p>
-              What immediately sets this series apart is how grounded its conflict feels. The obstacles between the leads are not
-              built from petty misunderstandings or manipulative third parties. Instead, they come from real world pressures:
-              family expectations, career choices, and the emotional residue left behind by past decisions.
-            </p>
-            <p>
-              Both leads are professionals who take their work seriously. Their careers are not decorative backdrops but active
-              forces shaping their personalities and choices. Because of this, the romance never feels isolated from reality.
-              Love must coexist with duty, risk, and responsibility, which gives the relationship a mature tone.
-            </p>
-            <p>
-              The emotional pacing is deliberate. Rather than rushing toward confession or resolution, the drama allows hesitation,
-              reflection, and gradual trust building. When emotions surface, they feel restrained, weighted, and earned.
-            </p>
-            <p>
-              Another strength is how the reunion is handled. The drama asks whether two people can reconnect as the people they
-              have become, not just as who they used to be. That question keeps everything grounded.
-            </p>
-            <p>
-              Overall, this is a romance for viewers who prefer emotional realism over fantasy. It doesn’t deny pain, but it doesn’t
-              exploit it either. Love here requires courage, patience, and the willingness to face unresolved feelings.
-            </p>
-          </div>
-        </div>
+  <article class="show">
+    <h2>2) Lighter and Princess</h2>
+    <div class="submeta">2022 • 36 episodes</div>
+    <div class="text">
+      <p>Lighter and Princess is intense in a way that might not work for everyone, but if it works for you it really works. The male lead is brilliant and difficult. The female lead is steady and does not break under pressure. Their relationship is not smooth. It crashes, burns, separates, and comes back different.</p>
+      <p>The show does not romanticize the hard parts. When the power dynamic feels off, it shows that as a problem instead of making it look attractive. When pride gets in the way, people get hurt. The drama does not fix things quickly just to keep the romance comfortable.</p>
+      <p>The second half is where it earns its place on this list. After time apart, both characters have changed. The reunion is not automatic. They have to rebuild trust slowly, and the show makes you feel how cautious that process is. Forgiveness is not instant. Conversations are careful. That restraint makes the ending feel real.</p>
+      <p>This is not a comfort watch in the usual way. But it is here because it respects consequences and does not take shortcuts. Growth is required, not just wanted.</p>
+      <p>Watch it if you can handle intensity and want a romance that does not pretend difficult relationships fix themselves just because people still have feelings.</p>
+    </div>
+    <div class="posterWrap">
+      <div class="poster">
+        <img src="assets/posters/cdrama/lighter-and-princess-poster.jpg.JPG" alt="Lighter and Princess poster">
       </div>
-    </article>
+    </div>
+  </article>
 
-    <!-- LIGHTER AND PRINCESS -->
-    <article class="dramaCard">
-      <div class="dramaInner">
-        <div class="poster">
-          <img src="assets/posters/cdrama/lighter-and-princess-poster.jpg.JPG" alt="Lighter and Princess poster" loading="lazy">
-        </div>
-        <div>
-          <h2 class="dramaTitle">Lighter and Princess</h2>
-          <div class="dramaMeta">2022 · 36 Episodes</div>
-          <div class="dramaText">
-            <p>
-              Lighter and Princess is often described as a youth or campus romance, but its emotional reach goes far beyond that label.
-              At its core, it is a story about two very different personalities learning how to coexist, clash, separate, and eventually
-              understand each other on deeper terms.
-            </p>
-            <p>
-              The relationship is intense, but not chaotic in a cheap way. The male lead is brilliant, difficult, and emotionally closed off,
-              while the female lead is steady, resilient, and quietly strong. Their connection forms not because they are perfectly matched,
-              but because they challenge each other in uncomfortable and transformative ways.
-            </p>
-            <p>
-              The drama acknowledges imbalance without romanticizing it. Power dynamics, emotional distance, and pride are treated as real problems
-              rather than attractive traits. When the relationship breaks under pressure, it feels inevitable rather than forced.
-            </p>
-            <p>
-              The second half carries much of the emotional weight. Time apart allows both characters to grow independently. When they meet again,
-              the romance is no longer built on youthful intensity alone, but on experience, regret, and a clearer understanding of boundaries.
-            </p>
-            <p>
-              Importantly, it does not rush forgiveness. Emotional wounds are not healed overnight. Conversations are cautious and restrained,
-              reflecting the reality of reconnecting after hurt. That restraint makes the eventual reconnection feel earned.
-            </p>
-            <p>
-              This is not a comfort romance in the usual way, but it belongs here because it avoids shortcuts and respects consequence.
-              Love requires growth, humility, and the willingness to confront one’s own flaws.
-            </p>
-          </div>
-        </div>
+  <article class="show">
+    <h2>3) Meet Yourself</h2>
+    <div class="submeta">2023 • 40 episodes</div>
+    <div class="text">
+      <p>Meet Yourself is the quietest romance on this list. It is about a woman who is burned out from city life and work pressure. She takes a break in a small rural town. The romance happens slowly while she is learning how to rest and what actually matters to her.</p>
+      <p>The male lead is calm and does not push. He is part of the community, grounded in a slower pace of life, and he lets her figure things out without inserting himself into her healing process. That patience is what makes their connection feel safe instead of rushed.</p>
+      <p>There are no big conflicts here. No villains. No misunderstandings. The drama trusts atmosphere and small moments. Shared meals. Quiet conversations. Everyday routines. Love grows through presence instead of drama, which is rare enough to be worth pointing out.</p>
+      <p>The show is about choosing a different kind of life and realizing that companionship does not need chaos to be meaningful. The romance feels like an extension of that realization rather than the main event.</p>
+      <p>Watch it when you need something gentle. This is comfort television that does not feel shallow.</p>
+    </div>
+    <div class="posterWrap">
+      <div class="poster">
+        <img src="assets/posters/cdrama/meet-yourself.jpg.jpeg" alt="Meet Yourself poster">
       </div>
-    </article>
+    </div>
+  </article>
 
-    <!-- MEET YOURSELF -->
-    <article class="dramaCard">
-      <div class="dramaInner">
-        <div class="poster">
-          <img src="assets/posters/cdrama/meet-yourself.jpg.jpeg" alt="Meet Yourself poster" loading="lazy">
-        </div>
-        <div>
-          <h2 class="dramaTitle">Meet Yourself</h2>
-          <div class="dramaMeta">2023 · 40 Episodes</div>
-          <div class="dramaText">
-            <p>
-              Meet Yourself is one of the quietest romances in modern Chinese drama, and also one of the most emotionally sincere.
-              It is less about falling in love and more about learning how to exist again after loss, exhaustion, and burnout.
-            </p>
-            <p>
-              The female lead arrives in a rural setting carrying grief and emotional fatigue. The drama does not rush her healing
-              or treat romance as a solution. It allows space for rest, reflection, and small human connections that slowly rebuild her.
-            </p>
-            <p>
-              The male lead is calm, grounded, and connected to the community around him. He doesn’t push romance forward or insert himself
-              into her healing. He offers companionship without expectation, and that becomes the foundation for something deeper.
-            </p>
-            <p>
-              Romance unfolds quietly while the foreground stays focused on everyday life conversations, shared meals, local routines,
-              and moments of stillness. Love grows not from tension, but from safety.
-            </p>
-            <p>
-              There are no exaggerated conflicts. No villains disrupting peace. No artificial misunderstandings. The drama trusts atmosphere,
-              character, and time. Connection is shown through presence rather than declaration.
-            </p>
-            <p>
-              This is a story about choosing a slower pace of life and learning what truly matters. The romance feels like an extension of that,
-              not the destination itself. Comforting without being shallow, reflective without being heavy.
-            </p>
-          </div>
-        </div>
+  <article class="show">
+    <h2>4) You Are My Glory</h2>
+    <div class="submeta">2021 • 32 episodes</div>
+    <div class="text">
+      <p>You Are My Glory is the warmest pick here. Both leads are competent adults. She is a successful actress. He is an aerospace engineer. Neither one needs saving. The relationship is built on mutual respect and encouragement instead of one person fixing the other.</p>
+      <p>What makes it unusual is how little interference there is. No aggressive third parties trying to break them up. No jealousy loops that last for ten episodes. When doubts appear, they come from inside the characters themselves, usually about whether they are good enough or whether their lives are too different to fit together.</p>
+      <p>The show also treats ambition as something positive. Success is not framed as a threat to love. They support each other's careers and personal goals, and that support is what holds the relationship together when things get uncertain.</p>
+      <p>The tone is consistently kind. Problems get talked through. Misunderstandings get cleared up quickly. It is rare to see a romance this healthy without it feeling boring, but this one manages it because the chemistry is genuinely there.</p>
+      <p>Watch it when you want a romance that feels good the whole way through. No manufactured pain. Just two people who like each other and figure out how to make it work.</p>
+    </div>
+    <div class="posterWrap">
+      <div class="poster">
+        <img src="assets/posters/cdrama/you-are-my-glory-poster.jpg.JPG" alt="You Are My Glory poster">
       </div>
-    </article>
+    </div>
+  </article>
 
-    <!-- YOU ARE MY GLORY -->
-    <article class="dramaCard">
-      <div class="dramaInner">
-        <div class="poster">
-          <img src="assets/posters/cdrama/you-are-my-glory-poster.jpg.JPG" alt="You Are My Glory poster" loading="lazy">
-        </div>
-        <div>
-          <h2 class="dramaTitle">You Are My Glory</h2>
-          <div class="dramaMeta">2021 · 32 Episodes</div>
-          <div class="dramaText">
-            <p>
-              You Are My Glory is often remembered for its warmth, and that reputation is well earned. This is a romance built on mutual admiration,
-              respect, and emotional balance something surprisingly rare in modern romance dramas.
-            </p>
-            <p>
-              Both leads are highly competent. The female lead is confident, accomplished, and emotionally open. The male lead is intelligent but insecure,
-              struggling with self worth despite his abilities. What makes their relationship work is how neither diminishes the other to make romance fit.
-            </p>
-            <p>
-              There is no persistent third party interference and no prolonged jealousy loops. The tension comes from internal doubts and personal expectations.
-              When misunderstandings arise, they are addressed rather than dragged out, creating a dynamic that feels unusually healthy.
-            </p>
-            <p>
-              The story also emphasizes support. Success is not portrayed as a threat to love, and ambition is not framed as something that must be sacrificed.
-              They encourage each other’s growth, and that encouragement becomes the emotional thread that holds everything together.
-            </p>
-            <p>
-              This drama works because it believes romance doesn’t need chaos to be engaging. Kindness, patience, and mutual respect create a warmth that lingers
-              long after it ends.
-            </p>
-          </div>
-        </div>
+  <article class="show">
+    <h2>5) Love Me, Love My Voice</h2>
+    <div class="submeta">2023 • 33 episodes</div>
+    <div class="text">
+      <p>Love Me, Love My Voice is one of the gentlest modern romances out there. It is built around voice acting, music, and creative work. The connection starts through appreciation for someone's voice and grows from there into something quieter and more personal.</p>
+      <p>There is almost no manufactured conflict. No third party drama. No misunderstandings that could be solved by one honest conversation. The leads are just two people getting comfortable with each other at their own pace, without pressure from the story to rush it.</p>
+      <p>The female lead is introspective and lives a quieter life. The male lead is patient and emotionally aware. He listens. He waits. He does not push for things before she is ready. That dynamic creates a sense of safety that runs through the whole show.</p>
+      <p>The romance is made of small moments. Late night conversations. Shared creative work. Encouragement that goes both ways. Intimacy comes from being seen and accepted rather than from dramatic gestures or grand declarations.</p>
+      <p>Watch it when you want a romance that feels safe and soft. No chaos. Just two people choosing to be close because it feels right.</p>
+    </div>
+    <div class="posterWrap">
+      <div class="poster">
+        <img src="assets/posters/cdrama/love-me-love-my-voice-poster.jpg.JPG" alt="Love Me, Love My Voice poster">
       </div>
-    </article>
+    </div>
+  </article>
 
-    <!-- LOVE ME, LOVE MY VOICE -->
-    <article class="dramaCard">
-      <div class="dramaInner">
-        <div class="poster">
-          <img src="assets/posters/cdrama/love-me-love-my-voice-poster.jpg.JPG" alt="Love Me, Love My Voice poster" loading="lazy">
-        </div>
-        <div>
-          <h2 class="dramaTitle">Love Me, Love My Voice</h2>
-          <div class="dramaMeta">2023 · 33 Episodes</div>
-          <div class="dramaText">
-            <p>
-              Love Me, Love My Voice is one of the gentlest modern Chinese romances in recent years, and that gentleness is its defining strength.
-              Built around music, voice acting, and creative expression, its emotional core is simple: two people slowly getting comfortable with each other,
-              without pressure.
-            </p>
-            <p>
-              What makes it stand out is the absence of manufactured conflict. No aggressive third party pushing into the relationship.
-              No misunderstandings that could be solved in one honest conversation. The leads are allowed to exist as complete individuals first.
-            </p>
-            <p>
-              The female lead lives a quiet, introspective life connected to art and sound. Her admiration begins through the male lead’s voice and work,
-              creating a rare foundation built on appreciation rather than fantasy. The male lead is calm, emotionally aware, and patient.
-              He listens, waits, and responds.
-            </p>
-            <p>
-              The drama is made of small moments shared meals, late night conversations, creative collaboration, mutual encouragement.
-              Intimacy comes from being seen and accepted without needing to perform.
-            </p>
-            <p>
-              The relationship feels emotionally safe. Disagreements are handled with maturity. Boundaries are respected. Support flows both ways.
-              The pacing is relaxed, but not empty. By the time the romance fully settles, it feels earned through time shared.
-            </p>
-          </div>
-        </div>
+  <article class="show">
+    <h2>6) Amidst a Snowstorm of Love</h2>
+    <div class="submeta">2024 • 30 episodes</div>
+    <div class="text">
+      <p>Amidst a Snowstorm of Love takes a similar emotional approach but sets it in a colder, more restrained world. Both leads are focused on their careers in competitive sports. The romance grows alongside that focus instead of replacing it. Love does not derail ambition here. It steadies it.</p>
+      <p>There is no parade of rivals trying to break them up. The tension comes from internal struggles. Fear of vulnerability. Professional pressure. Trying to balance feelings with long term goals. Those are harder obstacles than a jealous ex because they cannot be solved by just choosing each other loudly.</p>
+      <p>The relationship develops through shared environments and mutual respect. Conversations are understated. When emotions surface, they do so quietly through pauses, body language, and things left unsaid. That restraint makes the moments when they do connect feel more significant.</p>
+      <p>The snowstorm metaphor works. The world outside is cold and demanding, but warmth gets built carefully inside it. Love is not proven through suffering. It is proven through consistency, trust, and showing up repeatedly without spectacle.</p>
+      <p>Watch it if you appreciate emotional maturity. This is a romance for people who believe love should feel steady instead of loud.</p>
+    </div>
+    <div class="posterWrap">
+      <div class="poster">
+        <img src="assets/posters/cdrama/amidst-a-snowstorm-of-love-poster.jpg.JPG" alt="Amidst a Snowstorm of Love poster">
       </div>
-    </article>
+    </div>
+  </article>
 
-    <!-- AMIDST A SNOWSTORM OF LOVE -->
-    <article class="dramaCard">
-      <div class="dramaInner">
-        <div class="poster">
-          <img src="assets/posters/cdrama/amidst-a-snowstorm-of-love-poster.jpg.JPG" alt="Amidst a Snowstorm of Love poster" loading="lazy">
-        </div>
-        <div>
-          <h2 class="dramaTitle">Amidst a Snowstorm of Love</h2>
-          <div class="dramaMeta">2024 · 30 Episodes</div>
-          <div class="dramaText">
-            <p>
-              Amidst a Snowstorm of Love takes a similar emotional approach but places it in a colder, more restrained atmosphere.
-              Set against winter landscapes and competitive sports, the drama carries a quiet intensity that mirrors its characters.
-            </p>
-            <p>
-              At its heart, this is a story about discipline, focus, and emotional restraint. Both leads are committed to their paths,
-              and the romance grows alongside that commitment rather than replacing it. Love doesn’t derail ambition; it steadies it.
-            </p>
-            <p>
-              The drama avoids unnecessary interference. There is no endless parade of rivals trying to sabotage the relationship.
-              The tension comes from internal struggles fear of vulnerability, professional pressure, and balancing feelings with long term goals.
-            </p>
-            <p>
-              The relationship develops through shared environments and mutual respect. Conversations feel natural and understated.
-              When emotions surface, they do so quietly through body language, pauses, and unspoken understanding.
-            </p>
-            <p>
-              The snowstorm metaphor works. The world feels cold and demanding, but warmth is built carefully inside it.
-              Love grows because both people choose it again and again, without spectacle.
-            </p>
-            <p>
-              This drama is for viewers who appreciate emotional maturity. Love is not proven through suffering, but through consistency,
-              trust, and presence.
-            </p>
-          </div>
-        </div>
-      </div>
-    </article>
-
-  </section>
-
-  <div class="footer">
-    <span>Popcorn Picks • Cinema Beyond Borders</span>
-  </div>
+  <p class="more">
+    These six shows avoid the usual noise. No endless jealousy. No misunderstandings stretched for ten episodes. 
+    Just people figuring out how to be together without making it harder than it needs to be.
+  </p>
 
 </main>
 </body>
