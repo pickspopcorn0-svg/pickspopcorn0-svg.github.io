@@ -3,13 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Must-Watch Period Dramas — Popcorn Picks</title>
+<title>Must-Watch Period Dramas .  Popcorn Picks</title>
 
-<!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
         crossorigin="anonymous"></script>
 
-<!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -21,230 +19,150 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-  background:#0b0b0c;
-  color:#fff;
+  background:#0b0b0c;color:#fff;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 
 .topbar{
-  position:sticky; top:0; z-index:50;
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 20px;
   background:rgba(10,10,10,.88);
-  backdrop-filter: blur(10px);
+  backdrop-filter:blur(10px);
   border-bottom:1px solid #222;
 }
-.topbarInner{
-  max-width:1100px;
-  margin:0 auto;
-  padding:14px 18px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
-}
-.navLeft{
-  display:flex;
-  gap:10px;
-  align-items:center;
-}
+.navLeft{display:flex;gap:10px;align-items:center;}
 .navBtn{
-  font-size:13px;
-  color:rgba(255,255,255,.78);
-  padding:7px 14px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(255,255,255,.04);
-  transition:.15s ease;
-  white-space:nowrap;
+  font-size:13px;color:#d0d0d0;padding:7px 14px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);transition:.15s ease;
 }
-.navBtn:hover{
-  color:#fff;
-  border-color:rgba(255,255,255,.25);
-  background:rgba(255,255,255,.08);
-}
-.brandCenter{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-weight:700;
-  letter-spacing:.2px;
-  justify-content:center;
-  flex:1;
-  font-size:14px;
-}
-.brandDot{
-  width:10px;height:10px;border-radius:50%;
-  background:rgba(255,120,70,.95);
-  box-shadow:0 0 0 4px rgba(255,120,70,.16);
-}
-.navSpacer{width:160px}
-@media(max-width:860px){
-  .navSpacer{width:90px}
-}
+.navBtn:hover{color:#fff;border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.08);}
+.brand{font-weight:650;letter-spacing:.5px;font-size:14px}
 
 .hero{
   min-height:68vh;
-  display:flex;
-  align-items:flex-end;
+  display:flex;align-items:center;
   padding:72px 22px 54px;
-  background:
-    radial-gradient(1400px 600px at 50% 25%, rgba(0,0,0,.15), rgba(0,0,0,.85) 70%, rgba(0,0,0,.95) 100%),
-    radial-gradient(800px 420px at 20% 40%, rgba(220,150,80,.22), transparent 60%),
-    radial-gradient(900px 520px at 85% 20%, rgba(80,110,150,.16), transparent 65%),
-    repeating-linear-gradient(
-      45deg,
-      rgba(255,255,255,.03),
-      rgba(255,255,255,.03) 1px,
-      rgba(0,0,0,.03) 1px,
-      rgba(0,0,0,.03) 2px
-    ),
-    #0b0b0c;
+  position:relative;overflow:hidden;
   border-bottom:1px solid #1f1f1f;
+  background:#0b0b0c;
 }
-.heroInner{
-  max-width:980px;
-  width:100%;
-  margin:0 auto;
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 40%, rgba(180,120,60,.12), transparent 60%),
+    radial-gradient(ellipse 60% 80% at 90% 20%, rgba(140,100,70,.09), transparent 60%),
+    radial-gradient(ellipse 50% 50% at 50% 100%, rgba(100,80,60,.08), transparent 55%);
+  animation:heroShift 10s ease-in-out infinite alternate;
 }
+@keyframes heroShift{
+  0%{opacity:.7;transform:scale(1)}
+  100%{opacity:1;transform:scale(1.04)}
+}
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size:60px 60px;
+  mask-image:linear-gradient(to bottom, transparent, rgba(0,0,0,.6) 30%, rgba(0,0,0,.6) 70%, transparent);
+}
+.heroInner{max-width:980px;width:100%;margin:0 auto;position:relative;z-index:2;}
 .kicker{
-  display:inline-block;
-  font-size:11px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:#eaeaea;
-  padding:8px 10px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.18);
-  background:rgba(255,255,255,.04);
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  color:#eaeaea;padding:8px 12px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.04);
+}
+.kickerDot{
+  width:7px;height:7px;border-radius:50%;
+  background:rgba(180,120,60,.95);box-shadow:0 0 10px rgba(180,120,60,.6);
 }
 .hero h1{
-  margin-top:16px;
-  font-size:54px;
-  line-height:1.05;
-  letter-spacing:-.03em;
+  margin-top:20px;font-size:54px;line-height:1.05;
+  letter-spacing:-.03em;max-width:20ch;
 }
-.hero p{
-  margin-top:14px;
-  max-width:78ch;
-  color:#d0d0d0;
-  line-height:1.75;
-  font-size:16px;
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(90deg,rgba(180,120,60,1),rgba(140,100,70,1));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
 }
-.metaLine{
-  margin-top:16px;
-  color:#9a9a9a;
-  font-size:12px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
+.hero p{margin-top:16px;max-width:64ch;color:#c8c8c8;line-height:1.8;font-size:16px;}
+.heroBadges{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
+.heroBadge{
+  font-size:12px;padding:6px 14px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.05);
+  color:rgba(255,255,255,.7);letter-spacing:.04em;
 }
+.metaLine{margin-top:20px;color:#9a9a9a;font-size:12px;letter-spacing:.08em;text-transform:uppercase;}
 
-.wrap{
-  max-width:980px;
-  margin:0 auto;
-  padding:46px 22px 90px;
-}
+.wrap{max-width:980px;margin:0 auto;padding:46px 22px 90px;}
 
 .show{
-  padding:26px 22px;
-  border:1px solid #181818;
-  border-radius:20px;
-  background:rgba(255,255,255,.02);
-  margin-bottom:26px;
+  padding:26px 22px;border:1px solid #181818;border-radius:20px;
+  background:rgba(255,255,255,.02);margin-bottom:26px;
 }
-.show h2{
-  font-size:28px;
-  letter-spacing:-.02em;
-  line-height:1.12;
-}
-.submeta{
-  margin-top:10px;
-  color:#a9a9a9;
-  font-size:13px;
-  line-height:1.5;
-}
-.text{
-  margin-top:14px;
-  max-width:78ch;
-}
-.text p{
-  color:#d7d7d7;
-  line-height:1.9;
-  font-size:16px;
-  margin:0 0 14px 0;
-}
-.posterWrap{
-  margin-top:18px;
-  display:flex;
-  justify-content:center;
-}
+.show h2{font-size:32px;letter-spacing:-.02em;line-height:1.12;color:#ffffff;font-weight:800;}
+.submeta{margin-top:10px;color:#a9a9a9;font-size:13px;line-height:1.5;}
+.text{margin-top:14px;max-width:78ch;}
+.text p{color:#d7d7d7;line-height:1.9;font-size:16px;margin:0 0 14px 0;}
+
+.posterWrap{margin-top:18px;display:flex;justify-content:center;}
 .poster{
-  width:min(420px, 100%);
-  border-radius:18px;
-  overflow:hidden;
-  border:1px solid #232323;
-  background:#111;
+  width:min(420px,100%);border-radius:18px;overflow:hidden;
+  border:1px solid #232323;background:#111;
 }
-.poster img{
-  width:100%;
-  height:auto;
-  display:block;
-}
+.poster img{width:100%;height:auto;display:block;}
 .posterFallback{
-  padding:44px 18px;
-  text-align:center;
-  color:#9a9a9a;
-  font-size:13px;
-  border-top:1px solid #1b1b1b;
+  padding:44px 18px;text-align:center;color:#9a9a9a;font-size:13px;border-top:1px solid #1b1b1b;
 }
 
 @media(max-width:760px){
-  .hero h1{font-size:40px}
+  .hero h1{font-size:36px}
   .show{padding:22px 16px}
   .show h2{font-size:24px}
+  .topbar{padding:14px 14px}
 }
 </style>
 </head>
-
 <body>
 
-<header class="topbar">
-  <div class="topbarInner">
-    <div class="navLeft">
-      <a class="navBtn" href="editorials.html">← Editorials</a>
-      <a class="navBtn" href="index.html">Home</a>
-    </div>
-
-    <a class="brandCenter" href="index.html" aria-label="Popcorn Picks home">
-      <span class="brandDot"></span>
-      <span>Popcorn Picks</span>
-    </a>
-
-    <div class="navSpacer" aria-hidden="true"></div>
+<div class="topbar">
+  <div class="navLeft">
+    <a class="navBtn" href="editorials.html">← Editorials</a>
+    <a class="navBtn" href="index.html">Home</a>
   </div>
-</header>
+  <div class="brand">Popcorn Picks</div>
+  <div style="width:120px"></div>
+</div>
 
 <header class="hero">
   <div class="heroInner">
-    <span class="kicker">Editorial • Period Drama</span>
-    <h1>Must-Watch Period Dramas</h1>
-
+    <span class="kicker"><span class="kickerDot"></span>Editorial • Period Drama</span>
+    <h1><em>Must-Watch</em> Period Dramas</h1>
     <p>
       Period dramas are not costume parties. The best ones understand that history is built from power, survival, and the weight of decisions made under systems that don't forgive weakness. They show what it costs to live inside a time when your choices are constrained by tradition, politics, and forces larger than yourself.
     </p>
-
     <p>
       These six series work because they treat the past as pressure. They're not nostalgia. They're explorations of what happens when individuals collide with empires, faith, war, and social codes that were written centuries before they were born.
     </p>
-
-    <div class="metaLine">Popcorn Picks</div>
+    <div class="heroBadges">
+      <span class="heroBadge">Historical</span>
+      <span class="heroBadge">Political</span>
+      <span class="heroBadge">Power</span>
+      <span class="heroBadge">Systems</span>
+    </div>
+    <div class="metaLine">Popcorn Picks • 6 Picks</div>
   </div>
 </header>
 
 <main class="wrap">
 
   <article class="show">
-    <h2>Shōgun</h2>
+    <h2>1) Shōgun</h2>
     <div class="submeta">Feudal Japan • Political Intrigue • Cultural Collision</div>
     <div class="text">
       <p>Shōgun drops you into feudal Japan with zero handholding. An English pilot washes ashore in a country on the brink of civil war, where every word carries weight, every gesture has meaning, and a single misstep can end your life before you understand what you did wrong. The brilliance of the show is that it refuses to simplify. Japan is not a mysterious backdrop. It's a fully realized society with its own logic, hierarchies, and codes that the outsider must learn or die trying.</p>
@@ -268,7 +186,7 @@ img{max-width:100%;display:block}
   </article>
 
   <article class="show">
-    <h2>House of David</h2>
+    <h2>2) House of David</h2>
     <div class="submeta">Biblical Drama • Power & Prophecy • 2 Seasons</div>
     <div class="text">
       <p>House of David takes a story everyone thinks they know and strips it back to human psychology. This is not a sermon. It's a political thriller set in a world where divine mandate is the ultimate currency and losing favor with God means losing everything. The series follows David from shepherd to king, but what makes it compelling is how it treats destiny as a burden rather than a gift. Being chosen doesn't make life easier. It makes you a target.</p>
@@ -292,7 +210,7 @@ img{max-width:100%;display:block}
   </article>
 
   <article class="show">
-    <h2>Marco Polo</h2>
+    <h2>3) Marco Polo</h2>
     <div class="submeta">Mongol Empire • Court Politics • 2 Seasons</div>
     <div class="text">
       <p>Marco Polo is a show about being foreign in the most dangerous place in the world. The Mongol court under Kublai Khan is not a place where mistakes are forgiven. It's a machine built on conquest, strategy, and the absolute authority of a ruler who controls half the known world. Marco arrives as a hostage, a bargaining chip left behind by his father, and his survival depends on becoming useful fast. The show uses his outsider status to explore how power operates when it's this concentrated and this ruthless.</p>
@@ -316,7 +234,7 @@ img{max-width:100%;display:block}
   </article>
 
   <article class="show">
-    <h2>Rise of the Raven</h2>
+    <h2>4) Rise of the Raven</h2>
     <div class="submeta">Hungarian History • War & Ambition • 2025 Release</div>
     <div class="text">
       <p>Rise of the Raven is a period drama from a part of European history that rarely gets screen time. It's set in medieval Hungary during a period of constant border wars, shifting alliances, and kingdoms that could rise or fall within a generation. The series understands that this was not a time of stability. It was a time when violence was structural, where survival required both military skill and political cunning, and where identity was something you defended with blood.</p>
@@ -340,7 +258,7 @@ img{max-width:100%;display:block}
   </article>
 
   <article class="show">
-    <h2>Pennyworth</h2>
+    <h2>5) Pennyworth</h2>
     <div class="submeta">1960s London • Crime & Politics • 3 Seasons</div>
     <div class="text">
       <p>Pennyworth is a period crime drama that uses 1960s London as more than a backdrop. This is a city teetering on the edge, where class tensions are boiling over, political extremism is rising, and violence is becoming normalized. The series follows Alfred Pennyworth, a former SAS soldier trying to build a security business in a world that's increasingly unstable. The period setting matters because it's a time when the old order is crumbling and no one knows what will replace it.</p>
@@ -364,7 +282,7 @@ img{max-width:100%;display:block}
   </article>
 
   <article class="show">
-    <h2>The Essex Serpent</h2>
+    <h2>6) The Essex Serpent</h2>
     <div class="submeta">Victorian Gothic • Faith vs. Science • Limited Series</div>
     <div class="text">
       <p>The Essex Serpent is a period drama about fear, loneliness, and the stories people tell themselves to make sense of uncertainty. Set in Victorian England, it follows a widow who moves to a coastal village rumored to be haunted by a mythical sea creature. The surface plot is about investigating the serpent, but the real story is about what happens to communities under pressure, how isolation warps perception, and the quiet desperation of people trapped by social expectations.</p>
@@ -388,6 +306,5 @@ img{max-width:100%;display:block}
   </article>
 
 </main>
-
 </body>
 </html>
