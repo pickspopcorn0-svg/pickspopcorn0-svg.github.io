@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -9,10 +8,7 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
   crossorigin="anonymous"></script>
 
-<!-- Google Analytics (GA4) -->
-
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
-
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -22,251 +18,158 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-
 body{
-  background:#0b0b0c;
-  color:#fff;
+  background:#0b0b0c;color:#fff;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
-
 a{color:inherit;text-decoration:none}
-img{display:block;max-width:100%;height:auto}
+img{max-width:100%;display:block}
 
-/* TOPBAR */
 .topbar{
-  position:sticky;
-  top:0;
-  z-index:50;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
   padding:16px 20px;
   background:rgba(10,10,10,.88);
   backdrop-filter:blur(10px);
   border-bottom:1px solid #222;
 }
-.back{color:#aaa;font-size:13px}
-.back:hover{color:#fff}
-.brand{font-weight:650;font-size:14px}
+.navLeft{display:flex;gap:10px;align-items:center;}
+.navBtn{
+  font-size:13px;color:#d0d0d0;padding:7px 14px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);transition:.15s ease;
+}
+.navBtn:hover{color:#fff;border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.08);}
+.brand{font-weight:650;letter-spacing:.5px;font-size:14px}
 
-/* HERO */
 .hero{
-  min-height:70vh;
-  position:relative;
-  display:flex;
-  align-items:flex-end;
+  min-height:68vh;
+  display:flex;align-items:center;
   padding:72px 22px 54px;
-  overflow:hidden;
-
-  background:
-    radial-gradient(
-      500px 280px at 50% 40%,
-      rgba(255,255,255,.10),
-      rgba(255,255,255,.04) 40%,
-      transparent 70%
-    ),
-    linear-gradient(
-      to bottom,
-      #0f0f12 0%,
-      #0a0a0d 45%,
-      #050506 100%
-    );
+  position:relative;overflow:hidden;
+  border-bottom:1px solid #1f1f1f;
+  background:#0b0b0c;
 }
-
-/* subtle film grain */
 .hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
+  content:"";position:absolute;inset:0;
   background:
-    repeating-linear-gradient(
-      0deg,
-      rgba(255,255,255,.012),
-      rgba(255,255,255,.012) 1px,
-      transparent 1px,
-      transparent 2px
-    );
-  opacity:.22;
-  pointer-events:none;
+    radial-gradient(ellipse 80% 60% at 10% 40%, rgba(180,40,40,.11), transparent 60%),
+    radial-gradient(ellipse 60% 80% at 90% 20%, rgba(100,100,100,.08), transparent 60%),
+    radial-gradient(ellipse 50% 50% at 50% 100%, rgba(60,60,80,.07), transparent 55%);
+  animation:heroShift 10s ease-in-out infinite alternate;
 }
-
-/* vignette / interrogation-room pressure */
+@keyframes heroShift{
+  0%{opacity:.7;transform:scale(1)}
+  100%{opacity:1;transform:scale(1.04)}
+}
 .hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(
-      to right,
-      rgba(0,0,0,.55),
-      rgba(0,0,0,0) 30%,
-      rgba(0,0,0,0) 70%,
-      rgba(0,0,0,.55)
-    );
-  pointer-events:none;
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size:60px 60px;
+  mask-image:linear-gradient(to bottom, transparent, rgba(0,0,0,.6) 30%, rgba(0,0,0,.6) 70%, transparent);
 }
-
-.heroInner{
-  position:relative;
-  max-width:980px;
-  margin:0 auto;
-}
-
+.heroInner{max-width:980px;width:100%;margin:0 auto;position:relative;z-index:2;}
 .kicker{
-  display:inline-block;
-  font-size:11px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  padding:8px 12px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.18);
-  background:rgba(255,255,255,.04);
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  color:#eaeaea;padding:8px 12px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.04);
 }
-
+.kickerDot{
+  width:7px;height:7px;border-radius:50%;
+  background:rgba(180,40,40,.95);box-shadow:0 0 10px rgba(180,40,40,.6);
+}
 .hero h1{
-  margin-top:18px;
-  font-size:54px;
-  line-height:1.05;
-  letter-spacing:-.03em;
+  margin-top:20px;font-size:54px;line-height:1.05;
+  letter-spacing:-.03em;max-width:20ch;
 }
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(90deg,rgba(180,40,40,1),rgba(100,100,100,1));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero p{margin-top:16px;max-width:64ch;color:#c8c8c8;line-height:1.8;font-size:16px;}
+.heroBadges{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
+.heroBadge{
+  font-size:12px;padding:6px 14px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.05);
+  color:rgba(255,255,255,.7);letter-spacing:.04em;
+}
+.metaLine{margin-top:20px;color:#9a9a9a;font-size:12px;letter-spacing:.08em;text-transform:uppercase;}
 
-.hero p{
-  margin-top:14px;
-  max-width:80ch;
-  color:#d0d0d0;
-  line-height:1.75;
-}
+.wrap{max-width:980px;margin:0 auto;padding:46px 22px 90px;}
 
-/* WRAP */
-.wrap{
-  max-width:980px;
-  margin:0 auto;
-  padding:46px 22px 90px;
+.show{
+  padding:26px 22px;border:1px solid #181818;border-radius:20px;
+  background:rgba(255,255,255,.02);margin-bottom:26px;
 }
+.show h2{font-size:32px;letter-spacing:-.02em;line-height:1.12;color:#ffffff;font-weight:800;}
+.submeta{margin-top:10px;color:#a9a9a9;font-size:13px;line-height:1.5;}
+.text{margin-top:14px;max-width:78ch;}
+.text p{color:#d7d7d7;line-height:1.9;font-size:16px;margin:0 0 14px 0;}
 
-.sectionTitle{
-  font-size:26px;
-  margin-bottom:10px;
-}
-.sectionLead{
-  color:#bdbdbd;
-  line-height:1.75;
-  font-size:15px;
-  margin-bottom:34px;
-  max-width:82ch;
-}
-
-/* SHOW CARD */
-.film{
-  border:1px solid #181818;
-  border-radius:22px;
-  background:rgba(255,255,255,.02);
-  padding:26px 22px;
-  margin-bottom:30px;
-}
-.film h2{
-  font-size:26px;
-}
-.submeta{
-  margin-top:8px;
-  color:#a9a9a9;
-  font-size:13px;
-}
-.text{
-  margin-top:16px;
-  max-width:80ch;
-}
-.text p{
-  font-size:16px;
-  line-height:1.9;
-  color:#d7d7d7;
-  margin-bottom:16px;
-}
-
-/* POSTER */
-.posterWrap{
-  margin-top:20px;
-}
+.posterWrap{margin-top:18px;display:flex;justify-content:center;}
 .poster{
-  max-width:420px;
-  border-radius:16px;
-  overflow:hidden;
-  border:1px solid #1f1f1f;
-  background:#0f0f10;
+  width:min(420px,100%);border-radius:18px;overflow:hidden;
+  border:1px solid #232323;background:#111;
 }
-.poster img{width:100%}
+.poster img{width:100%;height:auto;}
 .posterFallback{
-  padding:18px 14px;
-  text-align:center;
-  color:#9a9a9a;
-  font-size:13px;
+  padding:44px 18px;text-align:center;color:#9a9a9a;font-size:13px;border-top:1px solid #1b1b1b;
 }
 
-/* MOBILE */
 @media(max-width:760px){
-  .hero h1{font-size:38px}
-  .film{padding:22px 16px}
-  .film h2{font-size:22px}
-  .poster{max-width:100%}
+  .hero h1{font-size:36px}
+  .show{padding:22px 16px}
+  .show h2{font-size:24px}
+  .topbar{padding:14px 14px}
 }
 </style>
-
 </head>
-
 <body>
 
 <div class="topbar">
-  <a class="back" href="index.html">← Back</a>
+  <div class="navLeft">
+    <a class="navBtn" href="editorials.html">← Editorials</a>
+    <a class="navBtn" href="index.html">Home</a>
+  </div>
   <div class="brand">Popcorn Picks</div>
-  <div style="width:40px"></div>
+  <div style="width:120px"></div>
 </div>
 
 <header class="hero">
   <div class="heroInner">
-    <span class="kicker">Editorial Crime TV</span>
-    <h1>Our Recommended Crime TV Shows</h1>
-
-```
-<p>
-  Crime television works best when it remembers that cases are only as compelling as the people solving them. These three series understand that principle completely. Each approaches the genre from a different angle, but all of them prioritize character over formula. They give you procedural satisfaction without forgetting that the real mysteries are always human.
-</p>
-```
-
+    <span class="kicker"><span class="kickerDot"></span>Editorial • TV • Crime</span>
+    <h1>Our Recommended <em>Crime TV Shows</em></h1>
+    <p>
+      Crime television works best when it remembers that cases are only as compelling as the people solving them. These three series understand that principle completely. Each approaches the genre from a different angle, but all of them prioritize character over formula. They give you procedural satisfaction without forgetting that the real mysteries are always human.
+    </p>
+    <p>
+      What separates these shows from generic procedurals is how they use crime as a lens to explore deeper questions. How do you solve murders when you understand the killers too well? What happens when the law and justice point in different directions? Can you build a life on observation and deduction alone? These are the questions that make crime television worth watching.
+    </p>
+    <div class="heroBadges">
+      <span class="heroBadge">Investigation</span>
+      <span class="heroBadge">Psychology</span>
+      <span class="heroBadge">Character-Driven</span>
+    </div>
+    <div class="metaLine">Popcorn Picks • 3 Picks</div>
   </div>
 </header>
 
 <main class="wrap">
 
-<h2 class="sectionTitle">Three shows worth your time</h2>
-<p class="sectionLead">
-Each one offers something distinct. Together, they represent what crime television looks like when it refuses to take the easy path.
-</p>
-
-<article class="film">
+<article class="show">
   <h2>1) Prodigal Son</h2>
   <div class="submeta">2 seasons • Psychological crime thriller</div>
-
   <div class="text">
-    <p>
-      Prodigal Son operates in the uncomfortable space between understanding evil and becoming it. Malcolm Bright is a criminal profiler with an extraordinary gift for getting inside the minds of killers. The reason for his talent is also the reason he can barely sleep at night. His father is one of the most notorious serial killers in history, currently serving multiple life sentences while maintaining an unnerving obsession with his son's work and wellbeing.
-    </p>
-
-```
-<p>
-  The show could have used this premise as pure shock value, but it does something more interesting. It examines what it means to carry darkness as inheritance. Malcolm didn't choose his bloodline, but he lives with its weight every day. His mother pretends the past can be buried under wealth and social standing. His sister channels her trauma into surgical precision. Malcolm channels his into catching monsters, all while wondering if he's destined to become one himself.
-</p>
-
-<p>
-  The procedural cases are solid, often genuinely disturbing, but they exist to push Malcolm closer to the edge he's constantly walking. Every visit to his father in prison peels back another layer of dysfunction. Their conversations are electric because neither can fully trust the other, yet they need each other in ways that feel deeply wrong. The show doesn't shy away from how toxic this relationship is, and that honesty makes it compelling rather than exploitative.
-</p>
-
-<p>
-  Prodigal Son is not comfort viewing. It's tense, psychologically knotty, and willing to go places most network crime shows avoid. If you want something that feels dangerous and earned, this delivers it without apology.
-</p>
-```
-
+    <p>Prodigal Son operates in the uncomfortable space between understanding evil and becoming it. Malcolm Bright is a criminal profiler with an extraordinary gift for getting inside the minds of killers. The reason for his talent is also the reason he can barely sleep at night. His father is one of the most notorious serial killers in history, currently serving multiple life sentences while maintaining an unnerving obsession with his son's work and wellbeing.</p>
+    <p>The show could have used this premise as pure shock value, but it does something more interesting. It examines what it means to carry darkness as inheritance. Malcolm didn't choose his bloodline, but he lives with its weight every day. His mother pretends the past can be buried under wealth and social standing. His sister channels her trauma into surgical precision. Malcolm channels his into catching monsters, all while wondering if he's destined to become one himself.</p>
+    <p>The procedural cases are solid, often genuinely disturbing, but they exist to push Malcolm closer to the edge he's constantly walking. Every visit to his father in prison peels back another layer of dysfunction. Their conversations are electric because neither can fully trust the other, yet they need each other in ways that feel deeply wrong. The show doesn't shy away from how toxic this relationship is, and that honesty makes it compelling rather than exploitative.</p>
+    <p>The supporting cast adds layers. Malcolm's NYPD team treats him with a mix of respect and concern because they know he gets results but also that he operates on the edge of breakdown. His relationships are complicated by the fact that getting close to him means getting close to his father's legacy. The show understands that trauma is not something you solve. It's something you manage, and some days you manage it better than others.</p>
+    <p>Prodigal Son is not comfort viewing. It's tense, psychologically knotty, and willing to go places most network crime shows avoid. If you want something that feels dangerous and earned, this delivers it without apology.</p>
   </div>
-
   <div class="posterWrap">
     <div class="poster">
       <img src="assets/posters/tv/prodigal-son.jpg.JPG" alt="Prodigal Son poster"
@@ -275,31 +178,16 @@ Each one offers something distinct. Together, they represent what crime televisi
   </div>
 </article>
 
-<article class="film">
+<article class="show">
   <h2>2) Harrow</h2>
   <div class="submeta">3 seasons • Forensic medical drama</div>
-
   <div class="text">
-    <p>
-      Harrow is Australian television doing what it does best: grounded crime drama with real emotional stakes and no patience for melodrama. The show follows Daniel Harrow, a forensic pathologist in Brisbane who approaches death with curiosity rather than horror. He talks to bodies like colleagues, treating each one as a puzzle that deserves solving. His methods are unorthodox, his personal life is a disaster, and his obsession with finding truth makes him both brilliant and difficult to work with.
-    </p>
-
-```
-<p>
-  What separates Harrow from typical medical procedurals is its refusal to sanitize death or the people who investigate it. Daniel is not a tortured genius with a heart of gold. He's deeply flawed, capable of bending rules when he believes the cause justifies it, and haunted by past decisions that weren't as clean as he wanted them to be. The show respects the fact that spending your days examining how people died changes you, and not always for the better.
-</p>
-
-<p>
-  The cases themselves range from straightforward to genuinely complex, but they're always treated with seriousness. Victims aren't just plot devices. Families matter. The human cost of violence is never glossed over for the sake of pacing. This commitment to weight makes the procedural elements satisfying rather than routine. You're watching someone who genuinely cares about justice, even when his definition of it conflicts with the law.
-</p>
-
-<p>
-  Harrow is smart without being showy about it. It trusts you to follow complex medical detail, to sit with uncomfortable truths, and to accept that not every mystery has a clean resolution. If you're looking for crime television that feels like it's made for adults, this is exactly that.
-</p>
-```
-
+    <p>Harrow is Australian television doing what it does best: grounded crime drama with real emotional stakes and no patience for melodrama. The show follows Daniel Harrow, a forensic pathologist in Brisbane who approaches death with curiosity rather than horror. He talks to bodies like colleagues, treating each one as a puzzle that deserves solving. His methods are unorthodox, his personal life is a disaster, and his obsession with finding truth makes him both brilliant and difficult to work with.</p>
+    <p>What separates Harrow from typical medical procedurals is its refusal to sanitize death or the people who investigate it. Daniel is not a tortured genius with a heart of gold. He's deeply flawed, capable of bending rules when he believes the cause justifies it, and haunted by past decisions that weren't as clean as he wanted them to be. The show respects the fact that spending your days examining how people died changes you, and not always for the better.</p>
+    <p>The cases themselves range from straightforward to genuinely complex, but they're always treated with seriousness. Victims aren't just plot devices. Families matter. The human cost of violence is never glossed over for the sake of pacing. This commitment to weight makes the procedural elements satisfying rather than routine. You're watching someone who genuinely cares about justice, even when his definition of it conflicts with the law.</p>
+    <p>The Brisbane setting gives the show a specific texture that feels different from American or British crime dramas. The heat, the river, the mix of urban and coastal environments all create an atmosphere that suits the material. The show does not try to be glamorous. It feels lived in, practical, and real.</p>
+    <p>Harrow is smart without being showy about it. It trusts you to follow complex medical detail, to sit with uncomfortable truths, and to accept that not every mystery has a clean resolution. If you're looking for crime television that feels like it's made for adults, this is exactly that.</p>
   </div>
-
   <div class="posterWrap">
     <div class="poster">
       <img src="assets/posters/tv/harrow.jpg.JPG" alt="Harrow poster"
@@ -308,31 +196,16 @@ Each one offers something distinct. Together, they represent what crime televisi
   </div>
 </article>
 
-<article class="film">
+<article class="show">
   <h2>3) The Mentalist</h2>
   <div class="submeta">7 seasons • Crime procedural with serialized elements</div>
-
   <div class="text">
-    <p>
-      The Mentalist is the most purely enjoyable show on this list. It's built around Patrick Jane, a former fake psychic turned consultant for California's Bureau of Investigation. He reads people the way most of us read road signs, noticing microexpressions, verbal patterns, and behavioral tells that reveal far more than suspects intend to give away. His methods are theatrical, occasionally manipulative, and consistently effective. He's also carrying a grief so profound that it colors everything he does, even when he's playing the charming trickster.
-    </p>
-
-```
-<p>
-  Jane's family was murdered by a serial killer known as Red John, a crime that occurred because Jane publicly mocked him during his psychic act days. The guilt is immense. The need for revenge is absolute. This backstory could have been a heavy anchor, but the show balances it perfectly. Most episodes are self-contained procedural cases where Jane's observational brilliance and unconventional tactics solve crimes while driving his law enforcement partners to frustration. But underneath runs the Red John investigation, a slow-burning thread that gives the entire series emotional gravity.
-</p>
-
-<p>
-  What makes The Mentalist special is how genuinely fun it is to watch. Jane is witty, confident, and deeply likable despite his flaws. His relationship with Teresa Lisbon, the CBI agent who supervises him, develops from mutual wariness to something far deeper over the course of the series. The supporting cast is strong, the cases are varied, and the show knows when to be light and when to be devastating.
-</p>
-
-<p>
-  This is comfort food crime television done right. It's smart without being exhausting, emotional without drowning in darkness, and constructed well enough that rewatching feels like visiting old friends. If you want a long-running series that delivers consistent quality and genuine payoff, The Mentalist earns that investment completely.
-</p>
-```
-
+    <p>The Mentalist is the most purely enjoyable show on this list. It's built around Patrick Jane, a former fake psychic turned consultant for California's Bureau of Investigation. He reads people the way most of us read road signs, noticing microexpressions, verbal patterns, and behavioral tells that reveal far more than suspects intend to give away. His methods are theatrical, occasionally manipulative, and consistently effective. He's also carrying a grief so profound that it colors everything he does, even when he's playing the charming trickster.</p>
+    <p>Jane's family was murdered by a serial killer known as Red John, a crime that occurred because Jane publicly mocked him during his psychic act days. The guilt is immense. The need for revenge is absolute. This backstory could have been a heavy anchor, but the show balances it perfectly. Most episodes are self-contained procedural cases where Jane's observational brilliance and unconventional tactics solve crimes while driving his law enforcement partners to frustration. But underneath runs the Red John investigation, a slow-burning thread that gives the entire series emotional gravity.</p>
+    <p>What makes The Mentalist special is how genuinely fun it is to watch. Jane is witty, confident, and deeply likable despite his flaws. His relationship with Teresa Lisbon, the CBI agent who supervises him, develops from mutual wariness to something far deeper over the course of the series. The supporting cast is strong, the cases are varied, and the show knows when to be light and when to be devastating.</p>
+    <p>The show ran for seven seasons and managed to land its ending properly, which is rarer than it should be for long-running procedurals. The Red John resolution happens earlier than the final season, which some viewers initially questioned, but the show knew what it was doing. The post-Red John episodes explore what happens when the driving mission of your life is complete and you have to figure out who you are without it. That's a bold narrative choice and it pays off.</p>
+    <p>This is comfort food crime television done right. It's smart without being exhausting, emotional without drowning in darkness, and constructed well enough that rewatching feels like visiting old friends. If you want a long-running series that delivers consistent quality and genuine payoff, The Mentalist earns that investment completely.</p>
   </div>
-
   <div class="posterWrap">
     <div class="poster">
       <img src="assets/posters/tv/the-mentalist.jpg.JPG" alt="The Mentalist poster"
@@ -342,6 +215,5 @@ Each one offers something distinct. Together, they represent what crime televisi
 </article>
 
 </main>
-
 </body>
 </html>
