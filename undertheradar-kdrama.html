@@ -8,226 +8,152 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
   crossorigin="anonymous"></script>
 
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-XZ94ZK9JN4');
 </script>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-  background:#0b0b0c;
-  color:#fff;
+  background:#0b0b0c;color:#fff;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 
-/* ✅ TOPBAR (Editorials + Home like your screenshot) */
 .topbar{
-  position:sticky; top:0; z-index:50;
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 20px;
   background:rgba(10,10,10,.88);
-  backdrop-filter: blur(10px);
+  backdrop-filter:blur(10px);
   border-bottom:1px solid #222;
 }
-.topbarInner{
-  max-width:1100px;
-  margin:0 auto;
-  padding:14px 18px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
-}
-.navLeft{
-  display:flex;
-  gap:10px;
-  align-items:center;
-}
+.navLeft{display:flex;gap:10px;align-items:center;}
 .navBtn{
-  font-size:13px;
-  color:rgba(255,255,255,.78);
-  padding:7px 14px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(255,255,255,.04);
-  transition:.15s ease;
-  white-space:nowrap;
+  font-size:13px;color:#d0d0d0;padding:7px 14px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);transition:.15s ease;
 }
-.navBtn:hover{
-  color:#fff;
-  border-color:rgba(255,255,255,.25);
-  background:rgba(255,255,255,.08);
-}
-.brandCenter{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-weight:700;
-  letter-spacing:.2px;
-  justify-content:center;
-  flex:1;
-  font-size:14px;
-}
-.brandDot{
-  width:10px;height:10px;border-radius:50%;
-  background:rgba(255,120,70,.95);
-  box-shadow:0 0 0 4px rgba(255,120,70,.16);
-}
-.navSpacer{width:160px}
-@media(max-width:860px){
-  .navSpacer{width:90px}
-}
+.navBtn:hover{color:#fff;border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.08);}
+.brand{font-weight:650;letter-spacing:.5px;font-size:14px}
 
-/* HERO */
 .hero{
   min-height:68vh;
-  display:flex;
-  align-items:flex-end;
+  display:flex;align-items:center;
   padding:72px 22px 54px;
-  background:
-    radial-gradient(900px 420px at 15% 20%, rgba(255,255,255,.08), transparent 55%),
-    linear-gradient(to bottom, rgba(0,0,0,.22), rgba(11,11,12,.92)),
-    url("https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?auto=format&fit=crop&w=2200&q=80");
-  background-size:cover;
-  background-position:center;
+  position:relative;overflow:hidden;
   border-bottom:1px solid #1f1f1f;
+  background:#0b0b0c;
 }
-.heroInner{
-  max-width:980px;
-  width:100%;
-  margin:0 auto;
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 40%, rgba(140,100,200,.12), transparent 60%),
+    radial-gradient(ellipse 60% 80% at 90% 20%, rgba(80,120,180,.10), transparent 60%),
+    radial-gradient(ellipse 50% 50% at 50% 100%, rgba(200,140,180,.08), transparent 55%);
+  animation:heroShift 10s ease-in-out infinite alternate;
 }
+@keyframes heroShift{
+  0%{opacity:.7;transform:scale(1)}
+  100%{opacity:1;transform:scale(1.04)}
+}
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size:60px 60px;
+  mask-image:linear-gradient(to bottom, transparent, rgba(0,0,0,.6) 30%, rgba(0,0,0,.6) 70%, transparent);
+}
+.heroInner{max-width:980px;width:100%;margin:0 auto;position:relative;z-index:2;}
 .kicker{
-  display:inline-block;
-  font-size:11px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:#eaeaea;
-  padding:8px 10px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.18);
-  background:rgba(255,255,255,.04);
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  color:#eaeaea;padding:8px 12px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.04);
+}
+.kickerDot{
+  width:7px;height:7px;border-radius:50%;
+  background:rgba(140,100,200,.95);box-shadow:0 0 10px rgba(140,100,200,.6);
 }
 .hero h1{
-  margin-top:16px;
-  font-size:54px;
-  line-height:1.05;
-  letter-spacing:-.03em;
+  margin-top:20px;font-size:54px;line-height:1.05;
+  letter-spacing:-.03em;max-width:20ch;
 }
-.hero p{
-  margin-top:14px;
-  max-width:78ch;
-  color:#d0d0d0;
-  line-height:1.75;
-  font-size:16px;
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(90deg,rgba(140,100,200,1),rgba(80,120,180,1));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
 }
-.metaLine{
-  margin-top:16px;
-  color:#9a9a9a;
-  font-size:12px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
+.hero p{margin-top:16px;max-width:64ch;color:#c8c8c8;line-height:1.8;font-size:16px;}
+.heroBadges{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
+.heroBadge{
+  font-size:12px;padding:6px 14px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.05);
+  color:rgba(255,255,255,.7);letter-spacing:.04em;
 }
+.metaLine{margin-top:20px;color:#9a9a9a;font-size:12px;letter-spacing:.08em;text-transform:uppercase;}
 
-/* WRAP */
-.wrap{
-  max-width:980px;
-  margin:0 auto;
-  padding:46px 22px 90px;
-}
+.wrap{max-width:980px;margin:0 auto;padding:46px 22px 90px;}
 
-/* SHOW BLOCK */
 .show{
-  padding:26px 22px;
-  border:1px solid #181818;
-  border-radius:20px;
-  background:rgba(255,255,255,.02);
-  margin-bottom:26px;
+  padding:26px 22px;border:1px solid #181818;border-radius:20px;
+  background:rgba(255,255,255,.02);margin-bottom:26px;
 }
-.show h2{
-  font-size:28px;
-  letter-spacing:-.02em;
-  line-height:1.12;
-}
-.submeta{
-  margin-top:10px;
-  color:#a9a9a9;
-  font-size:13px;
-  line-height:1.5;
-}
-.text{
-  margin-top:14px;
-  max-width:78ch;
-}
-.text p{
-  color:#d7d7d7;
-  line-height:1.9;
-  font-size:16px;
-  margin:0 0 14px 0;
-}
-.posterWrap{
-  margin-top:18px;
-  display:flex;
-  justify-content:center;
-}
+.show h2{font-size:32px;letter-spacing:-.02em;line-height:1.12;color:#ffffff;font-weight:800;}
+.submeta{margin-top:10px;color:#a9a9a9;font-size:13px;line-height:1.5;}
+.text{margin-top:14px;max-width:78ch;}
+.text p{color:#d7d7d7;line-height:1.9;font-size:16px;margin:0 0 14px 0;}
+
+.posterWrap{margin-top:18px;display:flex;justify-content:center;}
 .poster{
-  width:min(420px, 100%);
-  border-radius:18px;
-  overflow:hidden;
-  border:1px solid #232323;
-  background:#111;
+  width:min(420px,100%);border-radius:18px;overflow:hidden;
+  border:1px solid #232323;background:#111;
 }
 
-/* MOBILE */
 @media(max-width:760px){
-  .hero h1{font-size:40px}
+  .hero h1{font-size:36px}
   .show{padding:22px 16px}
   .show h2{font-size:24px}
+  .topbar{padding:14px 14px}
 }
 </style>
 </head>
-
 <body>
 
-<!-- ✅ Updated topbar: Editorials + Home -->
-<header class="topbar">
-  <div class="topbarInner">
-    <div class="navLeft">
-      <a class="navBtn" href="editorials.html">← Editorials</a>
-      <a class="navBtn" href="index.html">Home</a>
-    </div>
-
-    <a class="brandCenter" href="index.html" aria-label="Popcorn Picks home">
-      <span class="brandDot"></span>
-      <span>Popcorn Picks</span>
-    </a>
-
-    <div class="navSpacer" aria-hidden="true"></div>
+<div class="topbar">
+  <div class="navLeft">
+    <a class="navBtn" href="editorials.html">← Editorials</a>
+    <a class="navBtn" href="index.html">Home</a>
   </div>
-</header>
+  <div class="brand">Popcorn Picks</div>
+  <div style="width:120px"></div>
+</div>
 
 <header class="hero">
   <div class="heroInner">
-    <span class="kicker">Editorial • K-Drama</span>
-    <h1>Under the Radar K-Drama</h1>
-
+    <span class="kicker"><span class="kickerDot"></span>Editorial • K-Drama</span>
+    <h1><em>Under the Radar</em> K-Drama</h1>
     <p>
       Not every great Korean drama is loud or trending. Some of the best ones stay quiet, aimed at adults who want mood, emotion,
       and real human conflict rather than spectacle.
     </p>
-
     <p>
       These five dramas are all different in genre, but they share one thing: they trust the audience. They are slower, deeper,
       and far more personal than mainstream hits.
     </p>
-
-    <div class="metaLine">Popcorn Picks • Updated for 2026</div>
+    <div class="heroBadges">
+      <span class="heroBadge">Adult</span>
+      <span class="heroBadge">Atmospheric</span>
+      <span class="heroBadge">Emotional</span>
+      <span class="heroBadge">Underrated</span>
+    </div>
+    <div class="metaLine">Popcorn Picks • 5 Picks</div>
   </div>
 </header>
 
@@ -237,9 +163,11 @@ img{max-width:100%;display:block}
     <h2>1) Priest</h2>
     <div class="submeta">2018 • Supernatural / Thriller</div>
     <div class="text">
-      <p><em>Priest</em> blends medical drama with dark supernatural horror. It follows doctors and priests who secretly work together to save people possessed by violent spirits.</p>
-      <p>The show is less about jump scares and more about atmosphere. Hospitals, rituals, and quiet fear give it a heavy, unsettling tone.</p>
-      <p>It is perfect for viewers who enjoy slow-burn horror with emotional weight.</p>
+      <p>Priest blends medical drama with dark supernatural horror in a way that feels genuinely unsettling. It follows doctors and priests who secretly work together to save people possessed by violent spirits. The premise sounds like it could go loud and dramatic, but the show stays restrained and that restraint is what makes it effective.</p>
+      <p>The atmosphere is heavy throughout. Hospitals at night. Rituals performed in basements. Quiet fear that sits in the room even when nothing is actively happening. The horror here is not about jump scares. It is about dread. About watching something wrong unfold slowly and knowing you cannot stop it.</p>
+      <p>What makes Priest different from other supernatural K-dramas is how seriously it takes the spiritual side. The exorcisms feel rooted in tradition rather than spectacle. The priests are not action heroes. They are tired, scared, and aware that what they are fighting is bigger than them. That vulnerability makes the danger feel real.</p>
+      <p>The pacing is slow and deliberate. Some viewers will find that frustrating. Others will appreciate how much space the show gives to build tension. When things do go wrong, it feels earned rather than sudden.</p>
+      <p>Watch it if you want slow-burn horror with emotional weight and an atmosphere that stays with you after the episode ends.</p>
     </div>
     <div class="posterWrap">
       <div class="poster">
@@ -252,17 +180,12 @@ img{max-width:100%;display:block}
     <h2>2) Hymn of Death</h2>
     <div class="submeta">2018 • Historical / Romance</div>
     <div class="text">
-      <p>This is not the kind of drama you watch casually. It asks for quiet, patience, and a certain emotional readiness. From the beginning, you can sense where it’s heading, and that inevitability is part of what makes it heavy.</p>
-
+      <p>This is not the kind of drama you watch casually. It asks for quiet, patience, and a certain emotional readiness. From the beginning, you can sense where it's heading, and that inevitability is part of what makes it heavy.</p>
       <p>At first, it feels like a restrained period romance. Artists, theatre, music, admiration. But very quickly, the weight of reality settles in. Society presses in. Expectations harden. Love becomes something that cannot survive in the open.</p>
-
       <p>What the drama stays focused on is choice. Choosing art over safety. Choosing love over comfort. Choosing truth even when it leads somewhere painful. Nothing is exaggerated. Emotions are held back, and that restraint makes the sorrow feel sharper.</p>
-
-      <p>Music plays a quiet but powerful role here. There is one song in particular that captures the entire mood of the drama so completely that it stays with you long after the episodes end. If you’ve seen the show, you already know which one it is. I still find myself returning to it, and every time I do, the feeling of the drama comes back instantly.</p>
-
-      <p>The performances follow the same approach. Pain shows up in pauses, unfinished sentences, and the things left unsaid. The sadness doesn’t come from shock, but from knowing how long the ending has been unavoidable.</p>
-
-      <p>This is not a comforting watch. It is short, restrained, and deeply tragic. But for viewers who value quiet storytelling that lingers through memory and emotion, <em>Hymn of Death</em> leaves a lasting mark.</p>
+      <p>Music plays a quiet but powerful role here. There is one song in particular that captures the entire mood of the drama so completely that it stays with you long after the episodes end. If you've seen the show, you already know which one it is. I still find myself returning to it, and every time I do, the feeling of the drama comes back instantly.</p>
+      <p>The performances follow the same approach. Pain shows up in pauses, unfinished sentences, and the things left unsaid. The sadness doesn't come from shock, but from knowing how long the ending has been unavoidable.</p>
+      <p>This is not a comforting watch. It is short, restrained, and deeply tragic. But for viewers who value quiet storytelling that lingers through memory and emotion, Hymn of Death leaves a lasting mark.</p>
     </div>
     <div class="posterWrap">
       <div class="poster">
@@ -275,9 +198,11 @@ img{max-width:100%;display:block}
     <h2>3) Undercover</h2>
     <div class="submeta">2021 • Spy / Family Drama</div>
     <div class="text">
-      <p>An undercover agent hides his past from his wife, who later becomes a powerful prosecutor.</p>
-      <p>The show focuses on marriage, trust, and the cost of living a lie.</p>
-      <p>It is a grounded, emotional take on espionage.</p>
+      <p>Undercover is a spy drama that cares more about marriage than espionage. An undercover agent has been living a double life for years. His wife, who knows nothing about his past, later becomes a powerful prosecutor. When the truth starts coming out, the show does not turn into an action thriller. It becomes a slow, painful examination of what happens when the foundation of a relationship is revealed to be a lie.</p>
+      <p>The espionage elements are present but they are not the focus. The real tension comes from watching two people who love each other try to survive a betrayal that cannot be undone. Trust is not something you can rebuild with an apology. Forgiveness is not guaranteed. The show sits with that discomfort instead of rushing to fix it.</p>
+      <p>Both leads are strong performers and they carry the emotional weight without overplaying it. The hurt is quiet. The anger is controlled. That restraint makes everything feel more real and more devastating.</p>
+      <p>The pacing is deliberate. There are long conversations. Silences that stretch. Moments where you watch someone process something they cannot fully accept yet. If you need constant plot momentum, this will feel slow. If you appreciate character work and emotional realism, it delivers.</p>
+      <p>Watch it if you want a grounded take on espionage that focuses on the human cost of living a lie rather than the thrill of the mission.</p>
     </div>
     <div class="posterWrap">
       <div class="poster">
@@ -290,42 +215,12 @@ img{max-width:100%;display:block}
     <h2>4) Tell Me What You Saw</h2>
     <div class="submeta">2020 • Crime / Psychological Thriller</div>
     <div class="text">
-      <p>
-        Tell Me What You Saw is not the kind of show you watch while scrolling. Blink once and you miss
-        something important. This one wants your full attention. And then it quietly gets inside your head.
-      </p>
-
-      <p>
-        At first, it feels like a standard serial killer drama. Dead bodies. Patterns. Police chasing
-        shadows. You think you know where this is going. But then the show starts slowing down, and
-        suddenly you feel uncomfortable for reasons you cannot explain.
-      </p>
-
-      <p>
-        What really pulls you in is its obsession with memory and observation. What you saw versus what
-        you think you saw. The show cares about tiny details. A glance. A pause. Something that feels
-        slightly off. It does not stop to explain everything. It trusts you to keep up. If you miss
-        something, that is on you.
-      </p>
-
-      <p>
-        Jang Hyuk’s character is especially interesting. He is not charming or heroic. He feels broken,
-        sharp, withdrawn, and honestly a little frightening in how calm he stays. The relationship
-        between him and the rookie detective never feels easy or comfortable. Trust does not come
-        automatically here. People hesitate. They doubt each other. They make mistakes.
-      </p>
-
-      <p>
-        What stayed with me the most is the atmosphere. Cold rooms. Empty streets. Long silences. This
-        drama understands that fear does not always come from violence. Sometimes it comes from waiting.
-        From knowing something bad is coming and not knowing when.
-      </p>
-
-      <p>
-        This is not a fun binge drama. It is a lights off, phone away, sit alone kind of watch. I can say this confidently. It is objectively strong. If you
-        like crime stories that respect your intelligence and do not rush to comfort you, this one
-        absolutely deserves its place here.
-      </p>
+      <p>Tell Me What You Saw is not the kind of show you watch while scrolling. Blink once and you miss something important. This one wants your full attention. And then it quietly gets inside your head.</p>
+      <p>At first, it feels like a standard serial killer drama. Dead bodies. Patterns. Police chasing shadows. You think you know where this is going. But then the show starts slowing down, and suddenly you feel uncomfortable for reasons you cannot explain.</p>
+      <p>What really pulls you in is its obsession with memory and observation. What you saw versus what you think you saw. The show cares about tiny details. A glance. A pause. Something that feels slightly off. It does not stop to explain everything. It trusts you to keep up. If you miss something, that is on you.</p>
+      <p>Jang Hyuk's character is especially interesting. He is not charming or heroic. He feels broken, sharp, withdrawn, and honestly a little frightening in how calm he stays. The relationship between him and the rookie detective never feels easy or comfortable. Trust does not come automatically here. People hesitate. They doubt each other. They make mistakes.</p>
+      <p>What stayed with me the most is the atmosphere. Cold rooms. Empty streets. Long silences. This drama understands that fear does not always come from violence. Sometimes it comes from waiting. From knowing something bad is coming and not knowing when.</p>
+      <p>This is not a fun binge drama. It is a lights off, phone away, sit alone kind of watch. I can say this confidently. It is objectively strong. If you like crime stories that respect your intelligence and do not rush to comfort you, this one absolutely deserves its place here.</p>
     </div>
     <div class="posterWrap">
       <div class="poster">
@@ -338,54 +233,14 @@ img{max-width:100%;display:block}
     <h2>5) Love Affairs in the Afternoon</h2>
     <div class="submeta">2019 • Romance / Slice of Life</div>
     <div class="text">
-      <p>
-        Honestly, this is the kind of drama I usually stay away from. Just the theme itself makes me hesitate.
-        Infidelity. Affairs. That whole space. Most dramas like this either romanticize it, ignore the damage,
-        or turn it into something stylish and fake-deep. And yeah, I usually avoid those.
-      </p>
-
-      <p>
-        But for some reason, I started this. Then I kept going. And before I realized it, I was completely
-        pulled in.
-      </p>
-
-      <p>
-        Love Affairs in the Afternoon is about infidelity. There is no way around that. But it treats the
-        subject in a very grounded and uncomfortable way. It is not flashy. It is not built on dramatic
-        revenge, screaming fights, or exaggerated confrontations. It stays quiet. Almost uncomfortably
-        quiet. And that is exactly why it works.
-      </p>
-
-      <p>
-        Let me be clear. This drama does not justify cheating. Feeling lonely, ignored, or trapped does not
-        give anyone the right to betray someone. I am not defending that, and neither is the show. What it
-        does instead is sit inside the mess. The guilt. The hesitation. The confusion. It does not try to
-        sell it as romance or destiny.
-      </p>
-
-      <p>
-        Park Ha sun’s performance is a big reason this worked for me. There is a lot of restraint in her
-        acting. She does not overplay pain. She does not beg for sympathy. You just see it. In her pauses,
-        her expressions, the way she exists in scenes. It feels uncomfortably real, like watching someone’s
-        private life unfold without permission.
-      </p>
-
-      <p>
-        The pacing is slow, but it is not empty. Scenes are allowed to breathe. Conversations do not rush
-        toward conclusions. Sometimes an episode ends and you realize not much happened in terms of plot,
-        yet emotionally you feel drained. That kind of immersion is rare, and this drama somehow achieves it.
-      </p>
-
-      <p>
-        What surprised me most is how invested I became despite my initial resistance to the theme. I was
-        not watching to support anyone or judge anyone. I was just watching, fully absorbed, trying to
-        understand these people without being told what to think.
-      </p>
-
-      <p>
-        This is not a comfort watch. It is not meant to make you feel good. But it is honest, restrained,
-        and quietly powerful.
-      </p>
+      <p>Honestly, this is the kind of drama I usually stay away from. Just the theme itself makes me hesitate. Infidelity. Affairs. That whole space. Most dramas like this either romanticize it, ignore the damage, or turn it into something stylish and fake-deep. And yeah, I usually avoid those.</p>
+      <p>But for some reason, I started this. Then I kept going. And before I realized it, I was completely pulled in.</p>
+      <p>Love Affairs in the Afternoon is about infidelity. There is no way around that. But it treats the subject in a very grounded and uncomfortable way. It is not flashy. It is not built on dramatic revenge, screaming fights, or exaggerated confrontations. It stays quiet. Almost uncomfortably quiet. And that is exactly why it works.</p>
+      <p>Let me be clear. This drama does not justify cheating. Feeling lonely, ignored, or trapped does not give anyone the right to betray someone. I am not defending that, and neither is the show. What it does instead is sit inside the mess. The guilt. The hesitation. The confusion. It does not try to sell it as romance or destiny.</p>
+      <p>Park Ha sun's performance is a big reason this worked for me. There is a lot of restraint in her acting. She does not overplay pain. She does not beg for sympathy. You just see it. In her pauses, her expressions, the way she exists in scenes. It feels uncomfortably real, like watching someone's private life unfold without permission.</p>
+      <p>The pacing is slow, but it is not empty. Scenes are allowed to breathe. Conversations do not rush toward conclusions. Sometimes an episode ends and you realize not much happened in terms of plot, yet emotionally you feel drained. That kind of immersion is rare, and this drama somehow achieves it.</p>
+      <p>What surprised me most is how invested I became despite my initial resistance to the theme. I was not watching to support anyone or judge anyone. I was just watching, fully absorbed, trying to understand these people without being told what to think.</p>
+      <p>This is not a comfort watch. It is not meant to make you feel good. But it is honest, restrained, and quietly powerful.</p>
     </div>
     <div class="posterWrap">
       <div class="poster">
@@ -395,6 +250,5 @@ img{max-width:100%;display:block}
   </article>
 
 </main>
-
 </body>
 </html>
