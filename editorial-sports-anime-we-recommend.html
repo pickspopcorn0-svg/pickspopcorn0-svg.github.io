@@ -5,8 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Our Best Sports Anime Recommendations — Popcorn Picks</title>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
-        crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800" crossorigin="anonymous"></script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
 <script>
@@ -16,276 +15,353 @@
   gtag('config', 'G-XZ94ZK9JN4');
 </script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  background:#0b0b0c;color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+:root {
+  --ink: #f2ede4;
+  --ink-dim: #9e9890;
+  --ink-muted: #5e574e;
+  --paper: #0c0b09;
+  --rule: rgba(242,237,228,0.08);
+  --rule-strong: rgba(242,237,228,0.13);
+  --accent: #c4956e;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'DM Mono', monospace;
 }
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
 
-.topbar{
-  position:sticky;top:0;z-index:50;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:16px 20px;
-  background:rgba(10,10,10,.88);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid #222;
-}
-.navLeft{display:flex;gap:10px;align-items:center;}
-.navBtn{
-  font-size:13px;color:#d0d0d0;padding:7px 14px;border-radius:999px;
-  border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);transition:.15s ease;
-}
-.navBtn:hover{color:#fff;border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.08);}
-.brand{font-weight:650;letter-spacing:.5px;font-size:14px}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
-.hero{
-  min-height:68vh;
-  display:flex;align-items:center;
-  padding:72px 22px 54px;
-  position:relative;overflow:hidden;
-  border-bottom:1px solid #1f1f1f;
-  background:#0b0b0c;
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
-.hero::before{
-  content:"";position:absolute;inset:0;
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* TOPBAR */
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 28px;
+  background: rgba(12,11,9,0.93);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--rule);
+}
+.brand { font-family: var(--serif); font-weight: 700; font-size: 15px; letter-spacing: .04em; }
+.back {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-muted); transition: color .2s;
+}
+.back:hover { color: var(--accent); }
+
+/* HERO - OPTIMIZED FOR NO CROPPING */
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('assets/posters/anime/anime-blue-lock-poster.jpg.jpeg') center center/cover no-repeat;
+  background-position: center 40%; /* Keeps important parts visible */
+}
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 10% 40%, rgba(255,120,40,.14), transparent 60%),
-    radial-gradient(ellipse 60% 80% at 90% 20%, rgba(60,140,255,.11), transparent 60%),
-    radial-gradient(ellipse 50% 50% at 50% 100%, rgba(255,200,60,.09), transparent 55%);
-  animation:heroShift 10s ease-in-out infinite alternate;
+    linear-gradient(to bottom,
+      rgba(12,11,9,0.22) 0%,
+      rgba(12,11,9,0.08) 22%,
+      rgba(12,11,9,0.68) 60%,
+      rgba(12,11,9,0.98) 100%),
+    linear-gradient(110deg, rgba(196,149,110,0.05) 0%, transparent 52%);
 }
-@keyframes heroShift{
-  0%{opacity:.7;transform:scale(1)}
-  100%{opacity:1;transform:scale(1.04)}
+.hero-bg::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-size: 120px; opacity: .6;
 }
-.hero::after{
-  content:"";position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-  background-size:60px 60px;
-  mask-image:linear-gradient(to bottom, transparent, rgba(0,0,0,.6) 30%, rgba(0,0,0,.6) 70%, transparent);
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 960px; margin: 0 auto; width: 100%;
+  padding: 0 28px 68px;
 }
-.heroInner{max-width:980px;width:100%;margin:0 auto;position:relative;z-index:2;}
-.kicker{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:11px;letter-spacing:.22em;text-transform:uppercase;
-  color:#eaeaea;padding:8px 12px;border-radius:999px;
-  border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.04);
+.hero-eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+.eyebrow-line { width: 36px; height: 1px; background: var(--accent); opacity: .6; }
+.section-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--accent);
 }
-.kickerDot{
-  width:7px;height:7px;border-radius:50%;
-  background:rgba(255,120,40,.95);box-shadow:0 0 10px rgba(255,120,40,.6);
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(34px, 6vw, 74px);
+  font-weight: 900; line-height: 1.02; letter-spacing: -.03em; color: var(--ink);
 }
-.hero h1{
-  margin-top:20px;font-size:54px;line-height:1.05;
-  letter-spacing:-.03em;max-width:20ch;
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero-dek {
+  margin-top: 18px; max-width: 56ch;
+  font-size: 17px; font-weight: 300; font-style: italic;
+  color: var(--ink-dim); line-height: 1.72;
 }
-.hero h1 em{
-  font-style:normal;
-  background:linear-gradient(90deg,rgba(255,120,40,1),rgba(60,140,255,1));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+.hero-tags {
+  margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--rule);
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
 }
-.hero p{margin-top:16px;max-width:64ch;color:#c8c8c8;line-height:1.8;font-size:16px;}
-.heroBadges{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
-.heroBadge{
-  font-size:12px;padding:6px 14px;border-radius:999px;
-  border:1px solid rgba(255,255,255,.12);
-  background:rgba(255,255,255,.05);
-  color:rgba(255,255,255,.7);letter-spacing:.04em;
+.hero-tag {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--ink-muted);
+  border: 1px solid var(--rule-strong); padding: 6px 12px; border-radius: 99px;
 }
-.metaLine{margin-top:20px;color:#9a9a9a;font-size:12px;letter-spacing:.08em;text-transform:uppercase;}
-
-.wrap{max-width:980px;margin:0 auto;padding:46px 22px 90px;}
-
-.show{
-  padding:26px 22px;border:1px solid #181818;border-radius:20px;
-  background:rgba(255,255,255,.02);margin-bottom:26px;
-}
-.show h2{font-size:32px;letter-spacing:-.02em;line-height:1.12;color:#ffffff;font-weight:800;}
-.submeta{margin-top:10px;color:#a9a9a9;font-size:13px;line-height:1.5;}
-.text{margin-top:14px;max-width:78ch;}
-.text p{color:#d7d7d7;line-height:1.9;font-size:16px;margin:0 0 14px 0;}
-
-.posterWrap{margin-top:18px;display:flex;justify-content:center;}
-.poster{
-  width:min(420px,100%);border-radius:18px;overflow:hidden;
-  border:1px solid #232323;background:#111;
-}
-.poster img{width:100%;height:auto;}
-.posterFallback{
-  padding:44px 18px;text-align:center;color:#9a9a9a;font-size:13px;border-top:1px solid #1b1b1b;
+.hero-tag-count {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--accent);
+  border: 1px solid rgba(196,149,110,0.3); padding: 6px 12px; border-radius: 99px;
 }
 
-@media(max-width:760px){
-  .hero h1{font-size:36px}
-  .show{padding:22px 16px}
-  .show h2{font-size:24px}
-  .topbar{padding:14px 14px}
+.fade-up { opacity: 0; transform: translateY(20px); animation: fadeUp .7s ease forwards; }
+.fade-up:nth-child(2) { animation-delay: .1s; }
+.fade-up:nth-child(3) { animation-delay: .22s; }
+.fade-up:nth-child(4) { animation-delay: .34s; }
+@keyframes fadeUp { to { opacity: 1; transform: none; } }
+
+/* PAGE */
+.page-wrap { max-width: 960px; margin: 0 auto; padding: 64px 28px 110px; }
+
+/* INTRO */
+.intro-block {
+  max-width: 66ch;
+  margin-bottom: 56px;
+  padding-bottom: 44px;
+  border-bottom: 1px solid var(--rule);
+}
+.intro-block p {
+  font-size: 17px; line-height: 1.95; color: #c5bfb3;
+  margin-bottom: 20px; font-weight: 300;
+}
+.intro-block p:last-child { margin-bottom: 0; }
+
+/* SHOW ENTRIES */
+.show {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  padding: 36px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.show:last-of-type { border-bottom: none; }
+
+.show-poster { flex-shrink: 0; }
+.show-poster img {
+  width: 100%; border-radius: 4px; display: block;
+  border: 1px solid var(--rule-strong);
+}
+
+.show-num {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
+}
+.show h2 {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.5vw, 27px);
+  font-weight: 700; line-height: 1.15; letter-spacing: -.02em;
+  color: var(--ink); margin-bottom: 8px;
+}
+.show-meta {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--ink-muted);
+  margin-bottom: 20px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+}
+.show-body p {
+  font-size: 16px; line-height: 1.95; color: #b8b2a8;
+  margin-bottom: 16px; font-weight: 300;
+}
+.show-body p:last-child { margin-bottom: 0; }
+.show-body em { font-style: italic; color: #ccc7be; }
+
+/* CLOSING */
+.closing {
+  margin-top: 64px; padding-top: 28px;
+  border-top: 1px solid var(--rule);
+}
+.closing-back {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-muted); transition: color .2s;
+}
+.closing-back:hover { color: var(--accent); }
+
+/* RESPONSIVE - NO CROPPING ON ANY DEVICE */
+@media (max-width: 680px) {
+  .topbar { padding: 12px 18px; }
+  .hero { min-height: 75vh; }
+  .hero-bg { background-position: center center; } /* Center on mobile */
+  .hero-content { padding: 0 18px 52px; }
+  .page-wrap { padding: 44px 18px 80px; }
+  .show { grid-template-columns: 1fr; gap: 18px; padding: 28px 0; }
+  .show-poster { max-width: 160px; }
+  .intro-block { margin-bottom: 36px; padding-bottom: 32px; }
+}
+
+@media (min-width: 681px) and (max-width: 960px) {
+  .show { grid-template-columns: 160px 1fr; gap: 24px; }
+  .hero-content { padding: 0 22px 60px; }
+  .page-wrap { padding: 52px 22px 90px; }
+  .hero-bg { background-position: center 45%; } /* Tablet positioning */
+}
+
+/* LANDSCAPE MOBILE - PREVENT CROPPING */
+@media (max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
+  .hero { min-height: auto; padding-top: 80px; }
+  .hero-bg { background-position: center center; background-size: cover; }
+  .hero-content { padding-bottom: 40px; }
+}
+
+/* LARGE DESKTOP - KEEP POSTER CENTERED */
+@media (min-width: 1400px) {
+  .hero-bg { background-position: center 35%; }
 }
 </style>
+
 </head>
+
 <body>
 
 <div class="topbar">
-  <div class="navLeft">
-    <a class="navBtn" href="editorials.html">← Editorials</a>
-    <a class="navBtn" href="index.html">Home</a>
-  </div>
+  <a class="back" href="editorials.html">← Editorials</a>
   <div class="brand">Popcorn Picks</div>
-  <div style="width:120px"></div>
+  <div style="width:64px"></div>
 </div>
 
 <header class="hero">
-  <div class="heroInner">
-    <span class="kicker"><span class="kickerDot"></span>Editorial • Anime • Sports</span>
-    <h1>Our Best <em>Sports Anime</em> Recommendations</h1>
-    <p>
-      Sports anime gets dismissed as "just sports," but the best ones understand something deeper: competition is just the framework. What matters is what happens between the matches. The obsession, the doubt, the relationships forged under pressure, and the quiet moments when someone realizes they're not good enough yet.
-    </p>
-    <p>
-      These five anime use sports as a lens to explore ambition, failure, teamwork, and the relentless pursuit of mastery. They're not about winning. They're about what it costs to try.
-    </p>
-    <div class="heroBadges">
-      <span class="heroBadge">Competition</span>
-      <span class="heroBadge">Growth</span>
-      <span class="heroBadge">Team Dynamics</span>
-      <span class="heroBadge">Mastery</span>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow fade-up">
+      <div class="eyebrow-line"></div>
+      <span class="section-label">Editorial · Anime · Sports</span>
     </div>
-    <div class="metaLine">Popcorn Picks • 5 Picks</div>
+    <h1 class="fade-up">Our Best<br><em>Sports Anime</em> Recommendations</h1>
+    <p class="hero-dek fade-up">
+      Sports anime gets dismissed as "just sports," but the best ones understand something deeper: competition is just the framework. What matters is what happens between the matches.
+    </p>
+    <div class="hero-tags fade-up">
+      <span class="hero-tag-count">5 Picks</span>
+      <span class="hero-tag">Competition</span>
+      <span class="hero-tag">Growth</span>
+      <span class="hero-tag">Team Dynamics</span>
+      <span class="hero-tag">Mastery</span>
+    </div>
   </div>
 </header>
 
-<main class="wrap">
+<main class="page-wrap">
+
+<div class="intro-block">
+  <p>
+    These five anime use sports as a lens to explore ambition, failure, teamwork, and the relentless pursuit of mastery. They're not about winning. They're about what it costs to try.
+  </p>
+</div>
 
   <article class="show">
-  <h2>1) Haikyuu!!</h2>
-  <div class="submeta">Volleyball • Team Dynamics • Pure Joy</div>
-  <div class="text">
-    <p>Haikyuu!! is the gold standard for sports anime, and it earns that reputation not through flashy gimmicks or overpowered protagonists, but through relentless emotional honesty. It's a show about high school volleyball, and it treats every serve, every block, every rally like it's the most important thing in the world because to these characters, it is.</p>
-
-    <p>What makes Haikyuu!! special is how it builds its team. Karasuno High isn't a collection of superstars. They're a bunch of misfits, rejects, and players who've been written off. Hinata is too short. Kageyama is too intense and drove his previous team away. Tsukishima doesn't care enough. Yamaguchi is too anxious. The show spends time with each of them, digging into their fears, their motivations, and the specific ways volleyball gives their lives meaning.</p>
-
-    <p>The volleyball itself is extraordinary. The animation captures the speed, the physicality, and the split second decisions that define the sport. But what elevates Haikyuu!! beyond technical excellence is how it frames every point as a psychological battle. It's not just about who's taller or faster. It's about who can read the opponent's next move, who can keep their composure under pressure, who can trust their teammates when the game is on the line.</p>
-
-    <p>The show also refuses to treat opponents as disposable. Every rival team gets their own arc, their own motivations, their own reasons for being on that court. When Karasuno loses, and they do lose, it hurts because you understand what the other team sacrificed to win. Haikyuu!! doesn't believe in villains. It believes in competitors who all deserve to succeed, which makes every victory bittersweet and every defeat devastating.</p>
-
-    <p>The tone is relentlessly optimistic without being naive. The show understands that passion isn't enough, that talent isn't fair, and that sometimes your best isn't good enough. But it also believes that trying anyway, that showing up and giving everything you have, is worth something. That belief is infectious. By the end of the first season, you'll care about volleyball more than you ever thought possible.</p>
-
-    <p>Haikyuu!! is for anyone who's ever loved something so much it scared them. It's for people who understand that sports aren't just games. They're frameworks for becoming better than you were yesterday. It's joyful, heartbreaking, and so earnest it's almost unbearable. If you only watch one sports anime, make it this one.</p>
-  </div>
-  <div class="posterWrap">
-    <div class="poster">
-      <img src="assets/posters/anime/anime-haikyuu-poster.jpg.JPG" alt="Haikyuu!! poster"
-        onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+    <div class="show-poster">
+      <img src="assets/posters/anime/anime-haikyuu-poster.jpg.JPG" alt="Haikyuu!!" loading="lazy" />
     </div>
-  </div>
-</article>
-
-<article class="show">
-  <h2>2) Ao Ashi</h2>
-  <div class="submeta">Soccer • Strategic Depth • Realism</div>
-  <div class="text">
-    <p>Ao Ashi is the most grounded, strategically sophisticated sports anime on this list. It's about soccer, but not the kind of soccer where teenagers score bicycle kicks from half-field or unlock secret techniques. This is soccer as it's actually played at the elite youth level: tactical, cerebral, and unforgiving.</p>
-
-    <p>Ashito Aoi is a talented but undisciplined midfielder from a small town who gets scouted by a top-tier youth academy in Tokyo. He's raw, instinctive, and completely unprepared for the level of competition he's about to face. The show follows his struggle to survive in an environment where everyone is as talented as he is, where one mistake can end your career before it starts, and where understanding the game intellectually is just as important as physical ability.</p>
-
-    <p>What sets Ao Ashi apart is its commitment to realism. The show spends entire episodes breaking down tactical concepts: how to read space, how to position yourself off the ball, how to communicate with teammates through movement. It doesn't dumb this down. It trusts the audience to follow along, and in doing so, it makes you see soccer differently. You start noticing things you never paid attention to before: the runs players make when they don't have the ball, the way a midfielder controls tempo, the intelligence required to play at the highest level.</p>
-
-    <p>The characters are equally well-developed. Ashito's teammates aren't generic rivals. They're kids with their own dreams, their own pressures, their own reasons for being there. Some come from wealthy families with connections. Some are carrying the weight of their entire town's expectations. Some are fighting injuries, self doubt, or the fear that they've already peaked. The academy is a pressure cooker, and the show doesn't shy away from showing how that environment breaks people.</p>
-
-    <p>The pacing is deliberate, almost slow by sports anime standards. Matches unfold in real time. Training montages are replaced with detailed practice sessions where players work on specific weaknesses. There's no instant gratification here. Ashito doesn't become a genius overnight. He struggles, makes mistakes, and has to earn every bit of progress. That patience makes the moments when he does break through feel genuinely earned.</p>
-
-    <p>Ao Ashi is for viewers who want sports anime that respects the sport. It's for people who appreciate strategy, who want to understand the game on a deeper level, and who are willing to invest in a slow-burn character study about what it takes to go from talented to elite. It's not flashy, but it's brilliant.</p>
-  </div>
-  <div class="posterWrap">
-    <div class="poster">
-      <img src="assets/posters/anime/ao-ashi.jpeg" alt="Ao Ashi poster"
-        onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+    <div class="show-info">
+      <div class="show-num">01 of 05</div>
+      <h2>Haikyuu!!</h2>
+      <div class="show-meta">Volleyball • Team Dynamics • Pure Joy</div>
+      <div class="show-body">
+        <p>Haikyuu!! is the gold standard for sports anime, and it earns that reputation not through flashy gimmicks or overpowered protagonists, but through relentless emotional honesty. It's a show about high school volleyball, and it treats every serve, every block, every rally like it's the most important thing in the world because to these characters, it is.</p>
+        <p>What makes Haikyuu!! special is how it builds its team. Karasuno High isn't a collection of superstars. They're a bunch of misfits, rejects, and players who've been written off. The show spends time with each of them, digging into their fears, their motivations, and the specific ways volleyball gives their lives meaning.</p>
+        <p>The volleyball itself is extraordinary. The animation captures the speed, the physicality, and the split second decisions that define the sport. But what elevates Haikyuu!! beyond technical excellence is how it frames every point as a psychological battle.</p>
+        <p>The show also refuses to treat opponents as disposable. Every rival team gets their own arc, their own motivations, their own reasons for being on that court. When Karasuno loses, and they do lose, it hurts because you understand what the other team sacrificed to win.</p>
+      </div>
     </div>
-  </div>
-</article>
+  </article>
 
-<article class="show">
-  <h2>3) Blue Lock</h2>
-  <div class="submeta">Soccer • Psychological Battle • Ruthless Competition</div>
-  <div class="text">
-    <p>Blue Lock is the anti-Haikyuu!!. Where Haikyuu!! celebrates teamwork and trust, Blue Lock is about ego, individualism, and the willingness to destroy your rivals to reach the top. It's a show that asks: what if the problem with Japanese soccer isn't a lack of talent, but a lack of ruthlessness?</p>
-
-    <p>The premise is audacious. Three hundred of Japan's best high school strikers are locked in a facility and forced to compete in a series of elimination matches. Only one will emerge as the world's greatest striker. There's no team loyalty, no sportsmanship, no second chances. If you lose, your dream of playing for the national team is over. Forever.</p>
-
-    <p>The psychological warfare is the core of the show. Players manipulate, betray, and mentally break each other to gain an advantage. The matches aren't just physical. They're battles of will, ego, and the ability to impose your vision of the game on everyone else. Blue Lock doesn't care about being likable. It's interested in what happens when you remove all the safety nets and force talented people to fight for survival.</p>
-
-    <p>The protagonist, Yoichi Isagi, is deliberately written as average. He's not the fastest, not the most skilled, not the most creative. What he has is the ability to read the field, to see opportunities others miss, and most importantly the willingness to evolve his ego, to become more selfish, more dangerous. Watching him shed his "good teammate" instincts and embrace the striker's mentality is uncomfortable and compelling.</p>
-
-    <p>The animation during matches is kinetic and stylized. The show uses visual metaphors like predators hunting prey, chess pieces moving across a board to represent the mental game happening alongside the physical one. It's not realistic soccer. It's hyper-stylized, almost surreal, and it works because the show is less interested in simulating the sport than in exploring the psychology of competition.</p>
-
-    <p>The supporting cast is full of personalities that range from arrogant geniuses to calculating tacticians to players who thrive on chaos. Everyone has a philosophy about what makes a striker great, and the show lets these philosophies clash. There's no single "right" way to play. The only thing that matters is results.</p>
-
-    <p>Blue Lock is divisive. Some viewers hate its cynicism, its rejection of traditional sports anime values. Others love it for exactly that reason. It's willing to say out loud what other sports stories only imply. If you want a show that's intense, ruthless, and unapologetically about winning at any cost, Blue Lock delivers.</p>
-  </div>
-  <div class="posterWrap">
-    <div class="poster">
-      <img src="assets/posters/anime/anime-blue-lock-poster.jpg.jpeg" alt="Blue Lock poster"
-        onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+  <article class="show">
+    <div class="show-poster">
+      <img src="assets/posters/anime/ao-ashi.jpeg" alt="Ao Ashi" loading="lazy" />
     </div>
-  </div>
-</article>
-
-<article class="show">
-  <h2>4) Ace of Diamond</h2>
-  <div class="submeta">Baseball • Long-Term Growth • Team Hierarchy</div>
-  <div class="text">
-    <p>Ace of Diamond is a marathon, not a sprint. It's a show about high school baseball that spans multiple seasons, hundreds of episodes, and years of in-story time. It's not trying to rush to a championship. It's trying to show what it actually takes to go from a talented rookie to the ace of a powerhouse team, and how long, how grueling, and how uncertain that journey is.</p>
-
-    <p>Eijun Sawamura is a loud, impulsive pitcher who joins Seidou High, one of the best baseball programs in the country. He's not the protagonist because he's the best. He's the protagonist because he refuses to quit. The team already has an ace pitcher, a genius catcher, veteran players who've been training for years. Sawamura starts at the bottom, and the show makes him earn every single step forward.</p>
-
-    <p>What makes Ace of Diamond special is its commitment to realism in terms of time and development. Sawamura doesn't unlock a secret pitch and become unstoppable. He struggles with control. He gets pulled from games. He watches from the bullpen while other pitchers get opportunities. The show forces you to sit with his frustration, his self doubt, and the very real possibility that he might never become the ace. That uncertainty makes the moments when he does succeed feel monumental.</p>
-
-    <p>The baseball itself is detailed and strategic. The show dives into pitch selection, defensive positioning, psychological warfare between pitcher and batter, and the chess match that happens between coaches. Matches can span multiple episodes, with every at-bat given weight and consequence. It's not for viewers who want quick resolutions. It's for people who want to understand baseball as a sport of incremental gains and constant adaptation.</p>
-
-    <p>The team dynamics are complex and realistic. Seidou isn't a feel-good underdog story. They're a top-tier program with internal competition, egos, and players fighting for playing time. Friendships form, but so do rivalries. Veterans feel threatened by talented freshmen. Coaches make decisions that hurt individual players for the sake of the team. The show doesn't sugarcoat the hierarchy and politics of competitive sports.</p>
-
-    <p>The length of the series is both its strength and its barrier to entry. If you're willing to invest, and it is an investment, Ace of Diamond rewards you with one of the most complete, emotionally satisfying sports narratives in anime. You don't just watch Sawamura grow as a pitcher. You watch him grow up.</p>
-
-    <p>Ace of Diamond is for viewers who want depth, who appreciate slow-burn character development, and who understand that the journey matters more than the destination. It's a commitment, but it's worth it.</p>
-  </div>
-  <div class="posterWrap">
-    <div class="poster">
-      <img src="assets/posters/anime/ace-of-diamond.jpeg" alt="Ace of Diamond poster"
-        onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+    <div class="show-info">
+      <div class="show-num">02 of 05</div>
+      <h2>Ao Ashi</h2>
+      <div class="show-meta">Soccer • Strategic Depth • Realism</div>
+      <div class="show-body">
+        <p>Ao Ashi is the most grounded, strategically sophisticated sports anime on this list. It's about soccer, but not the kind of soccer where teenagers score bicycle kicks from half-field or unlock secret techniques. This is soccer as it's actually played at the elite youth level: tactical, cerebral, and unforgiving.</p>
+        <p>What sets Ao Ashi apart is its commitment to realism. The show spends entire episodes breaking down tactical concepts: how to read space, how to position yourself off the ball, how to communicate with teammates through movement. It doesn't dumb this down. It trusts the audience to follow along.</p>
+        <p>The pacing is deliberate, almost slow by sports anime standards. Matches unfold in real time. Training montages are replaced with detailed practice sessions where players work on specific weaknesses. There's no instant gratification here.</p>
+        <p>Ao Ashi is for viewers who want sports anime that respects the sport. It's for people who appreciate strategy, who want to understand the game on a deeper level, and who are willing to invest in a slow-burn character study.</p>
+      </div>
     </div>
-  </div>
-</article>
+  </article>
 
-<article class="show">
-  <h2>5) Rising Impact</h2>
-  <div class="submeta">Golf • Underdog Story • Technical Mastery</div>
-  <div class="text">
-    <p>Rising Impact is the underdog on this list, literally and figuratively. It's a show about golf, a sport that rarely gets the anime treatment, and it's aimed at a younger audience. But don't let that fool you. Rising Impact understands what makes sports stories compelling: the gap between where you are and where you want to be, and the obsessive work required to close it.</p>
-
-    <p>Gawain is a kid from a small town who's never played golf but has a natural talent for hitting things far. When he's introduced to the sport, he becomes obsessed. Not in a casual "this is fun" way. In a "I will do nothing else until I master this" way. The show follows his journey from complete beginner to competitive junior golfer, and it doesn't skip the learning curve.</p>
-
-    <p>What makes Rising Impact work is how seriously it takes golf as a technical sport. Golf isn't flashy. There's no physicality, no direct competition, no defense. It's you, the ball, and the course. The show dives into swing mechanics, club selection, reading greens, managing pressure. It makes you appreciate the precision required to play golf at a high level, and it does so without being dry or educational.</p>
-
-    <p>The emotional core is Gawain's pure, unfiltered love for the game. He's not playing for fame or money or to prove anyone wrong. He plays because the moment the club connects with the ball and sends it soaring feels like magic. That sincerity is rare in sports anime, where motivations are often wrapped up in revenge, rivalry, or validation. Gawain just wants to get better because getting better is its own reward.</p>
-
-    <p>The supporting cast includes other young golfers, each with their own strengths and reasons for playing. The rivalries are friendly but competitive. The coaches are wise without being preachy. The pacing is brisk. This isn't a slow burn like Ace of Diamond. It moves quickly, keeping the energy high without sacrificing character development.</p>
-
-    <p>The animation style is clean and accessible, designed to appeal to younger viewers but polished enough that adults won't feel talked down to. The matches are engaging, with enough tension and stakes to keep you invested even if you've never cared about golf before.</p>
-
-    <p>Rising Impact won't change your life, but it will surprise you. It's a genuinely fun, heartfelt sports anime that proves even golf, yes golf, can be exciting when the storytelling is strong and the characters are sincere. If you want something lighter, more optimistic, and refreshingly different from the usual sports anime lineup, give this one a shot.</p>
-  </div>
-  <div class="posterWrap">
-    <div class="poster">
-      <img src="assets/posters/anime/rising-impact.jpeg" alt="Rising Impact poster"
-        onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+  <article class="show">
+    <div class="show-poster">
+      <img src="assets/posters/anime/anime-blue-lock-poster.jpg.jpeg" alt="Blue Lock" loading="lazy" />
     </div>
+    <div class="show-info">
+      <div class="show-num">03 of 05</div>
+      <h2>Blue Lock</h2>
+      <div class="show-meta">Soccer • Psychological Battle • Ruthless Competition</div>
+      <div class="show-body">
+        <p>Blue Lock is the anti-Haikyuu!!. Where Haikyuu!! celebrates teamwork and trust, Blue Lock is about ego, individualism, and the willingness to destroy your rivals to reach the top. It's a show that asks: what if the problem with Japanese soccer isn't a lack of talent, but a lack of ruthlessness?</p>
+        <p>The premise is audacious. Three hundred of Japan's best high school strikers are locked in a facility and forced to compete in a series of elimination matches. Only one will emerge as the world's greatest striker. There's no team loyalty, no sportsmanship, no second chances.</p>
+        <p>The psychological warfare is the core of the show. Players manipulate, betray, and mentally break each other to gain an advantage. The matches aren't just physical. They're battles of will, ego, and the ability to impose your vision of the game on everyone else.</p>
+        <p>The protagonist, Yoichi Isagi, is deliberately written as average. He's not the fastest, not the most skilled, not the most creative. What he has is the ability to read the field, to see opportunities others miss, and most importantly the willingness to evolve his ego.</p>
+        <p>Blue Lock is divisive. Some viewers hate its cynicism, its rejection of traditional sports anime values. Others love it for exactly that reason. If you want a show that's intense, ruthless, and unapologetically about winning at any cost, Blue Lock delivers.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="show">
+    <div class="show-poster">
+      <img src="assets/posters/anime/ace-of-diamond.jpeg" alt="Ace of Diamond" loading="lazy" />
+    </div>
+    <div class="show-info">
+      <div class="show-num">04 of 05</div>
+      <h2>Ace of Diamond</h2>
+      <div class="show-meta">Baseball • Long-Term Growth • Team Hierarchy</div>
+      <div class="show-body">
+        <p>Ace of Diamond is a marathon, not a sprint. It's a show about high school baseball that spans multiple seasons, hundreds of episodes, and years of in-story time. It's not trying to rush to a championship. It's trying to show what it actually takes to go from a talented rookie to the ace of a powerhouse team.</p>
+        <p>What makes Ace of Diamond special is its commitment to realism in terms of time and development. Sawamura doesn't unlock a secret pitch and become unstoppable. He struggles with control. He gets pulled from games. He watches from the bullpen while other pitchers get opportunities.</p>
+        <p>The baseball itself is detailed and strategic. The show dives into pitch selection, defensive positioning, psychological warfare between pitcher and batter, and the chess match that happens between coaches. Matches can span multiple episodes, with every at-bat given weight and consequence.</p>
+        <p>The length of the series is both its strength and its barrier to entry. If you're willing to invest, Ace of Diamond rewards you with one of the most complete, emotionally satisfying sports narratives in anime.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="show">
+    <div class="show-poster">
+      <img src="assets/posters/anime/rising-impact.jpeg" alt="Rising Impact" loading="lazy" />
+    </div>
+    <div class="show-info">
+      <div class="show-num">05 of 05</div>
+      <h2>Rising Impact</h2>
+      <div class="show-meta">Golf • Underdog Story • Technical Mastery</div>
+      <div class="show-body">
+        <p>Rising Impact is the underdog on this list, literally and figuratively. It's a show about golf, a sport that rarely gets the anime treatment, and it's aimed at a younger audience. But don't let that fool you. Rising Impact understands what makes sports stories compelling: the gap between where you are and where you want to be.</p>
+        <p>What makes Rising Impact work is how seriously it takes golf as a technical sport. Golf isn't flashy. There's no physicality, no direct competition, no defense. It's you, the ball, and the course. The show dives into swing mechanics, club selection, reading greens, managing pressure.</p>
+        <p>The emotional core is Gawain's pure, unfiltered love for the game. He's not playing for fame or money or to prove anyone wrong. He plays because the moment the club connects with the ball and sends it soaring feels like magic.</p>
+        <p>Rising Impact won't change your life, but it will surprise you. It's a genuinely fun, heartfelt sports anime that proves even golf can be exciting when the storytelling is strong and the characters are sincere.</p>
+      </div>
+    </div>
+  </article>
+
+  <div class="closing">
+    <a href="editorials.html" class="closing-back">← All Editorials</a>
   </div>
-</article>
 
 </main>
 </body>
