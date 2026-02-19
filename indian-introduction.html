@@ -1,16 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Your First Steps Into Indian Cinema — Popcorn Picks</title>
+<title>Your First Steps Into Indian Cinema · Popcorn Picks</title>
+<meta name="description" content="Seven Indian films that work as entry points into one of the world's most diverse and rewarding cinemas. No cultural fluency required." />
+<link rel="canonical" href="https://popcornpicks.in/indian-cinema.html" />
 
-<!-- Google AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
-        crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800" crossorigin="anonymous"></script>
 
-<!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -18,392 +19,423 @@
   gtag('config', 'G-XZ94ZK9JN4');
 </script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  background:#0b0b0c;
-  color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+:root {
+  --ink: #f2ede4;
+  --ink-dim: #9e9890;
+  --ink-muted: #5e574e;
+  --paper: #0c0b09;
+  --rule: rgba(242,237,228,0.08);
+  --rule-strong: rgba(242,237,228,0.13);
+  --accent: #c4956e;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'DM Mono', monospace;
 }
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
 
 /* TOPBAR */
-.topbar{
-  position:sticky; top:0; z-index:50;
-  display:flex; align-items:center; justify-content:space-between;
-  padding:16px 20px;
-  background:rgba(10,10,10,.88);
-  backdrop-filter: blur(10px);
-  border-bottom:1px solid #222;
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 28px;
+  background: rgba(12,11,9,0.93);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--rule);
 }
-.navLeft{
-  display:flex;
-  gap:10px;
-  align-items:center;
+.brand { font-family: var(--serif); font-weight: 700; font-size: 15px; letter-spacing: .04em; }
+.back {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-muted); transition: color .2s;
 }
-.navBtn{
-  font-size:13px;
-  color:#aaa;
-  padding:8px 10px;
-  border-radius:10px;
-  border:1px solid rgba(255,255,255,.10);
-  background:rgba(255,255,255,.03);
-  transition:.15s ease;
-}
-.navBtn:hover{
-  color:#fff;
-  border-color:rgba(255,255,255,.18);
-  background:rgba(255,255,255,.06);
-}
-.brand{
-  font-weight:650;
-  letter-spacing:.5px;
-  font-size:14px;
-}
+.back:hover { color: var(--accent); }
 
-/* HERO */
-.hero{
-  min-height:68vh;
-  display:flex;
-  align-items:flex-end;
-  padding:72px 22px 54px;
+/* HERO — keeps original poster */
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('assets/posters/india-editorial.jpg.WEBP') center center/cover no-repeat;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
   background:
-    radial-gradient(900px 420px at 15% 20%, rgba(255,255,255,.08), transparent 55%),
-    linear-gradient(to bottom, rgba(0,0,0,.22), rgba(11,11,12,.92)),
-    url("assets/posters/india-editorial.jpg.WEBP");
-  background-size:cover;
-  background-position:center;
-  border-bottom:1px solid #1f1f1f;
+    linear-gradient(to bottom,
+      rgba(12,11,9,0.18) 0%,
+      rgba(12,11,9,0.06) 22%,
+      rgba(12,11,9,0.65) 58%,
+      rgba(12,11,9,0.98) 100%),
+    linear-gradient(110deg, rgba(196,149,110,0.05) 0%, transparent 52%);
 }
-.heroInner{
-  max-width:980px;
-  width:100%;
-  margin:0 auto;
+.hero-bg::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-size: 120px; opacity: .6;
 }
-.kicker{
-  display:inline-block;
-  font-size:11px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:#eaeaea;
-  padding:8px 10px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.18);
-  background:rgba(255,255,255,.04);
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 960px; margin: 0 auto; width: 100%;
+  padding: 0 28px 68px;
 }
-.hero h1{
-  margin-top:16px;
-  font-size:54px;
-  line-height:1.05;
-  letter-spacing:-.03em;
+.hero-eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+.eyebrow-line { width: 36px; height: 1px; background: var(--accent); opacity: .6; }
+.section-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--accent);
 }
-.hero p{
-  margin-top:14px;
-  max-width:78ch;
-  color:#d0d0d0;
-  line-height:1.75;
-  font-size:16px;
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(32px, 5.5vw, 68px);
+  font-weight: 900; line-height: 1.04; letter-spacing: -.03em; color: var(--ink);
 }
-.metaLine{
-  margin-top:16px;
-  color:#9a9a9a;
-  font-size:12px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero-dek {
+  margin-top: 18px; max-width: 56ch;
+  font-size: 17px; font-weight: 300; font-style: italic;
+  color: var(--ink-dim); line-height: 1.72;
 }
-
-/* WRAP */
-.wrap{
-  max-width:980px;
-  margin:0 auto;
-  padding:46px 22px 90px;
+.hero-tags {
+  margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--rule);
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
 }
-
-/* ARTICLE BLOCK */
-.show{
-  padding:26px 22px;
-  border:1px solid #181818;
-  border-radius:20px;
-  background:rgba(255,255,255,.02);
-  margin-bottom:26px;
+.hero-tag {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--ink-muted);
+  border: 1px solid var(--rule-strong); padding: 6px 12px; border-radius: 99px;
 }
-.show h2{
-  font-size:28px;
-  letter-spacing:-.02em;
-  line-height:1.12;
-}
-.submeta{
-  margin-top:10px;
-  color:#a9a9a9;
-  font-size:13px;
-  line-height:1.5;
-}
-.text{
-  margin-top:14px;
-  max-width:78ch;
-}
-.text p{
-  color:#d7d7d7;
-  line-height:1.9;
-  font-size:16px;
-  margin:0 0 14px 0;
+.hero-tag-count {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--accent);
+  border: 1px solid rgba(196,149,110,0.3); padding: 6px 12px; border-radius: 99px;
 }
 
-/* POSTER */
-.posterWrap{
-  margin-top:18px;
-  display:flex;
-  justify-content:center;
+.fade-up { opacity: 0; transform: translateY(20px); animation: fadeUp .7s ease forwards; }
+.fade-up:nth-child(2) { animation-delay: .1s; }
+.fade-up:nth-child(3) { animation-delay: .22s; }
+.fade-up:nth-child(4) { animation-delay: .34s; }
+@keyframes fadeUp { to { opacity: 1; transform: none; } }
+
+/* PAGE */
+.page-wrap { max-width: 960px; margin: 0 auto; padding: 64px 28px 110px; }
+
+/* INTRO */
+.intro-block {
+  max-width: 66ch;
+  margin-bottom: 56px;
+  padding-bottom: 44px;
+  border-bottom: 1px solid var(--rule);
 }
-.poster{
-  width:min(420px, 100%);
-  border-radius:18px;
-  overflow:hidden;
-  border:1px solid #232323;
-  background:#111;
+.intro-block p {
+  font-size: 17px; line-height: 1.95; color: #c5bfb3;
+  margin-bottom: 20px; font-weight: 300;
 }
-.poster img{width:100%;height:auto}
-.posterFallback{
-  padding:44px 18px;
-  text-align:center;
-  color:#9a9a9a;
-  font-size:13px;
-  border-top:1px solid #1b1b1b;
+.intro-block p:last-child { margin-bottom: 0; }
+
+/* SHOW ENTRIES */
+.show {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: start;
+}
+.show:last-of-type { border-bottom: none; }
+
+.show-poster {
+  position: sticky;
+  top: 80px;
+}
+.show-poster-frame {
+  width: 100%;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+.show-poster-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 3px;
+  object-fit: contain;
+}
+.show-poster-placeholder {
+  width: 100%;
+  aspect-ratio: 2/3;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 10px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-muted);
 }
 
-@media(max-width:760px){
-  .hero h1{font-size:40px}
-  .show{padding:22px 16px}
-  .show h2{font-size:24px}
+.show-num {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
+}
+.show h2 {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 700; line-height: 1.15; letter-spacing: -.02em;
+  color: var(--ink); margin-bottom: 8px;
+}
+.show-meta {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--ink-muted);
+  margin-bottom: 20px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+}
+.show-body p {
+  font-size: 15.5px; line-height: 1.95; color: #b8b2a8;
+  margin-bottom: 16px; font-weight: 300;
+}
+.show-body p:last-child { margin-bottom: 0; }
+
+/* CLOSING */
+.closing {
+  margin-top: 64px; padding-top: 28px;
+  border-top: 1px solid var(--rule);
+}
+.closing-back {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-muted); transition: color .2s;
+}
+.closing-back:hover { color: var(--accent); }
+
+/* RESPONSIVE */
+@media (max-width: 860px) {
+  .show { grid-template-columns: 180px 1fr; gap: 28px; }
+  .show-poster { position: static; }
+}
+
+@media (max-width: 600px) {
+  .topbar { padding: 12px 18px; }
+  .hero-content { padding: 0 18px 52px; }
+  .page-wrap { padding: 44px 18px 80px; }
+  .show { grid-template-columns: 1fr; gap: 20px; padding: 28px 0; }
+  .show-poster { order: -1; max-width: 200px; margin: 0 auto; }
+  .intro-block { margin-bottom: 36px; padding-bottom: 32px; }
+}
+
+@media (max-width: 760px) and (orientation: landscape) {
+  .show { grid-template-columns: 140px 1fr; gap: 22px; }
+  .show-poster { position: static; max-width: none; margin: 0; }
 }
 </style>
+
 </head>
 
 <body>
 
-<!-- TOPBAR -->
 <div class="topbar">
-  <div class="navLeft">
-    <a class="navBtn" href="editorials.html">← Editorials</a>
-    <a class="navBtn" href="index.html">Home</a>
-  </div>
-
+  <a class="back" href="editorials.html">← Editorials</a>
   <div class="brand">Popcorn Picks</div>
-
-  <div style="width:120px"></div>
+  <div style="width:64px"></div>
 </div>
 
 <header class="hero">
-  <div class="heroInner">
-    <span class="kicker">Editorial • Indian Cinema</span>
-    <h1>Your First Steps Into Indian Cinema</h1>
-
-    <p>
-      Indian cinema isn't a monolith. It's not one style, one language, or one approach to storytelling. It's sprawling, diverse, and culturally layered in ways that can feel overwhelming if you're coming in cold. But that complexity is also what makes it rewarding.
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow fade-up">
+      <div class="eyebrow-line"></div>
+      <span class="section-label">Editorial · Indian Cinema</span>
+    </div>
+    <h1 class="fade-up">Your First Steps Into<br><em>Indian Cinema</em></h1>
+    <p class="hero-dek fade-up">
+      Not a monolith. Not one style or one language. Seven films that don't require cultural fluency to land emotionally.
     </p>
-
-    <p>
-      These seven films are entry points—not because they're the "best" or most important, but because they're welcoming. They don't require cultural fluency or historical context to land emotionally. They're simply great films that happen to come from India.
-    </p>
-
-    <div class="metaLine">Popcorn Picks • Indian Cinema</div>
+    <div class="hero-tags fade-up">
+      <span class="hero-tag-count">7 Films</span>
+      <span class="hero-tag">Bollywood</span>
+      <span class="hero-tag">Telugu</span>
+      <span class="hero-tag">Hindi</span>
+      <span class="hero-tag">Entry Points</span>
+    </div>
   </div>
 </header>
 
-<main class="wrap">
+<main class="page-wrap">
+
+<div class="intro-block">
+  <p>
+    Indian cinema is not a monolith. It is not one style, one language, or one approach to storytelling. It is sprawling, diverse, and culturally layered in ways that can feel overwhelming if you are coming in cold. But that complexity is also what makes it rewarding.
+  </p>
+  <p>
+    These seven films are entry points. Not because they are the best or most important, but because they are welcoming. They do not require cultural fluency or historical context to land emotionally. They are simply great films that happen to come from India.
+  </p>
+</div>
 
   <article class="show">
-  <h2>3 Idiots</h2>
-  <div class="submeta">Coming-of-Age • Educational Pressure • Friendship</div>
-
-  <div class="text">
-    <p>3 Idiots is the film that gets recommended first for a reason. It's accessible, emotionally direct, and deals with themes that translate universally—pressure to succeed, the gap between what parents want and what you want, the fear of disappointing people you love. It's a film about an education system that values conformity over curiosity, and three friends trying to survive it without losing themselves.</p>
-
-    <p>The tone is deceptively light. The first act is full of humor, pranks, and the kind of nostalgic college energy that makes you forget how serious the underlying critique is. But slowly, the film reveals the weight behind the jokes. You see how fear shapes life decisions, how students are ground down by expectations, and how the system punishes anyone who thinks differently. The comedy doesn't disappear—it just starts sharing space with something heavier.</p>
-
-    <p>What makes 3 Idiots work across cultures is that it never feels preachy. It's not delivering a TED Talk about education reform—it's showing you three people trying to figure out who they are under impossible pressure. Rancho, the protagonist, is a character who refuses to play by the rules, and the film is smart enough to show both the freedom and the cost of that choice. He inspires his friends, yes, but he also leaves a trail of consequences that don't get neatly resolved.</p>
-
-    <p>The emotional core is the friendship. These three aren't just college buddies—they're people who shaped each other at the exact moment when they were figuring out what kind of adults they wanted to be. The film spans years, and you feel the weight of time, distance, and the different paths people take when the idealism of youth runs into the compromises of adulthood.</p>
-
-    <p>The film also doesn't shy away from the darker edges of academic pressure. There's a subplot involving a student who can't handle the stress, and the film treats it with surprising gravity. It doesn't use tragedy for melodrama—it uses it to show what happens when a system values results over people.</p>
-
-    <p>3 Idiots is the perfect starting point because it feels familiar even if you've never seen an Indian film before. The emotions are clear, the stakes are relatable, and the storytelling is confident enough to balance humor, heart, and critique without losing its grip on any of them.</p>
-  </div>
-
-  <div class="posterWrap">
-    <div class="poster">
-      <img src="assets/posters/3-idiots.jpg.JPG" alt="3 Idiots poster"
-        onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+    <div class="show-poster">
+      <div class="show-poster-frame">
+        <img src="assets/posters/3-idiots.jpg.JPG" alt="3 Idiots poster" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
+      </div>
     </div>
-  </div>
-</article>
-
-<article class="show">
-  <h2>Andhadhun</h2>
-  <div class="submeta">Dark Comedy • Thriller • Moral Ambiguity</div>
-
-  <div class="text">
-    <p>Andhadhun is the film you show someone who thinks Indian cinema is predictable. Nothing here behaves the way you expect. It's a dark comedy thriller that starts with a small lie and spirals into chaos, with every character making increasingly desperate, morally questionable decisions to save themselves. The film never stops twisting, and it never apologizes for making you uncomfortable.</p>
-
-    <p>The premise is deceptively simple: a pianist pretending to be blind witnesses a murder. But instead of going to the police or playing hero, he's trapped—if he reveals what he saw, he exposes his own lie. From there, the film becomes a high-wire act of escalating absurdity, where every solution creates a new problem and everyone involved is complicit in some way.</p>
-
-    <p>What makes Andhadhun brilliant is its refusal to hold your hand. Characters aren't good or bad—they're selfish, pragmatic, and human. The film doesn't judge them, and it doesn't ask you to root for anyone. It just watches them scramble, improvise, and make terrible choices under pressure. The tone is pitch-black comedy, the kind where you're laughing because the alternative is horror.</p>
-
-    <p>The pacing is relentless. Just when you think the story has settled into a rhythm, it swerves. A character you thought was safe isn't. A reveal you didn't see coming recontextualizes everything. The film plays fair—it doesn't cheat—but it's constantly three steps ahead of you. That confidence is what makes it so fun to watch.</p>
-
-    <p>The ending is famously ambiguous, and the film doesn't care if you figure it out or not. It leaves you with just enough information to construct a theory, but not enough to be certain. Some viewers find this frustrating. Others find it perfect. Either way, it's a choice that fits the film's refusal to provide easy answers or moral clarity.</p>
-
-    <p>Andhadhun also looks fantastic. The cinematography is sleek and stylish without being flashy. Every frame feels composed, deliberate, and visually interesting. The film uses color, lighting, and framing to tell parts of the story that the dialogue doesn't, which makes repeat viewings rewarding.</p>
-
-    <p>If you want to see Indian cinema that's smart, subversive, and unapologetically dark, Andhadhun is essential. It's proof that mainstream Indian films can be as narratively ambitious and morally complex as anything coming out of global arthouse cinema.</p>
-  </div>
-
-  <div class="posterWrap">
-    <div class="poster">
-      <img src="assets/posters/andhadhun.jpg.JPG" alt="Andhadhun poster"
-        onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+    <div class="show-info">
+      <div class="show-num">01 of 07</div>
+      <h2>3 Idiots</h2>
+      <div class="show-meta">Coming of Age · Educational Pressure · Friendship</div>
+      <div class="show-body">
+        <p>3 Idiots is the film that gets recommended first for a reason. It is accessible, emotionally direct, and deals with themes that translate universally: pressure to succeed, the gap between what parents want and what you want, the fear of disappointing people you love. It is a film about an education system that values conformity over curiosity, and three friends trying to survive it without losing themselves.</p>
+        <p>The tone is deceptively light. The first act is full of humor, pranks, and the kind of nostalgic college energy that makes you forget how serious the underlying critique is. But slowly, the film reveals the weight behind the jokes. You see how fear shapes life decisions, how students are ground down by expectations, and how the system punishes anyone who thinks differently.</p>
+        <p>What makes 3 Idiots work across cultures is that it never feels preachy. It is not delivering a lecture about education reform. It is showing you three people trying to figure out who they are under impossible pressure. Rancho, the protagonist, is a character who refuses to play by the rules, and the film is smart enough to show both the freedom and the cost of that choice.</p>
+        <p>3 Idiots is the perfect starting point because it feels familiar even if you have never seen an Indian film before. The emotions are clear, the stakes are relatable, and the storytelling is confident enough to balance humor, heart, and critique without losing its grip on any of them.</p>
+      </div>
     </div>
-  </div>
-</article>
+  </article>
 
-<article class="show">
-  <h2>RRR</h2>
-  <div class="submeta">Epic Friendship • Anti-Colonial Resistance • Mythology</div>
-
-  <div class="text">
-    <p>RRR is loud, emotional, and completely unapologetic about both. It's a film that operates at maximum intensity from the first frame to the last, and if you're not willing to meet it on its terms, it will absolutely leave you behind. But if you give yourself over to what it's doing—if you accept that this is a film about emotion, myth, and brotherhood rather than realism—it's one of the most exhilarating experiences modern cinema has to offer.</p>
-
-    <p>The story is built around two men: Bheem, a tribal warrior searching for a kidnapped girl, and Rام, a British officer hunting a revolutionary. They meet by chance, become instant brothers, and don't realize they're on opposite sides of a war until it's too late. The friendship is the heart of the film, and it's played with such sincerity and emotional weight that when the betrayal comes, it genuinely hurts.</p>
-
-    <p>What makes RRR work is that it doesn't pretend to be realistic. It's a heightened, mythological retelling of history, where two real freedom fighters are reimagined as demigods whose friendship and eventual conflict becomes the stuff of legend. The action sequences are impossible—men defy physics, animals join the fight, entire armies are taken down by two people—but they're never random. Every set piece is driven by emotion: rage, loyalty, desperation, love.</p>
-
-    <p>The film also understands spectacle in a way that most blockbusters don't. It's not about scale for scale's sake. It's about using scale to express emotion. When Bheem lifts a motorcycle and uses it as a weapon, it's not just cool—it's a physical manifestation of his fury and determination. When Ram and Bheem fight each other in the forest, surrounded by fire and water, it's not just a fight—it's two forces of nature in conflict, and the elements reflect their internal state.</p>
-
-    <p>The emotional sincerity is what separates RRR from empty spectacle. These characters love each other, and the film never winks at the audience or undercuts that with irony. It commits fully to the idea that friendship, honor, and sacrifice are the most important things in the world, and it never wavers from that belief. That commitment is rare, and it's what makes the film's emotional peaks hit so hard.</p>
-
-    <p>RRR also has one of the best dance sequences in modern cinema—"Naatu Naatu"—which works both as a showstopping musical number and as a crucial character moment. It's joyful, defiant, and culturally specific in a way that still translates globally. The fact that it won an Oscar is proof that spectacle, when executed with this level of craft and emotion, transcends language and cultural barriers.</p>
-
-    <p>If you want to understand what makes Indian blockbuster cinema different—why it's willing to be big, sincere, and emotionally overwhelming in ways that Western blockbusters often aren't—RRR is the film to watch. It's not subtle. It's not restrained. But it's absolutely unforgettable.</p>
-  </div>
-
-  <div class="posterWrap">
-    <div class="poster">
-      <img src="assets/posters/rrr.jpg.JPG" alt="RRR poster"
-        onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+  <article class="show">
+    <div class="show-poster">
+      <div class="show-poster-frame">
+        <img src="assets/posters/andhadhun.jpg.JPG" alt="Andhadhun poster" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
+      </div>
     </div>
-  </div>
-</article>
-
-<article class="show">
-  <h2>Baahubali: The Beginning & Baahubali: The Conclusion</h2>
-  <div class="submeta">Epic Fantasy • Betrayal • Legacy</div>
-
-  <div class="text">
-    <p>The Baahubali duology is Indian cinema at its most mythologically grand. These are films that feel like oral legends being told with modern technology—stories of kings, warriors, betrayal, and legacy, all wrapped in a visual spectacle that rivals anything Hollywood has produced. They're not interested in realism. They're interested in creating a world where heroism, honor, and destiny matter more than physics or logic.</p>
-
-    <p>The story spans two generations. The first film asks a question: why was Baahubali, the rightful king, killed? The second film answers it, unfolding a tale of political intrigue, family betrayal, and a man too noble for the world he inhabits. The structure is smart—you're hooked by the mystery in the first film, and the second film delivers on that promise while expanding the emotional stakes.</p>
-
-    <p>What makes Baahubali work is its visual ambition. The kingdom of Mahishmati feels real and lived-in, even though it's a fantasy setting. The battles are massive, choreographed with precision, and shot with a clarity that lets you follow the action even when hundreds of people are on screen. The waterfall climb, the battle with the Kalakeyas, the final confrontation—these are sequences that understand scale, pacing, and visual storytelling.</p>
-
-    <p>The characters are archetypes, but they're played with such conviction that they transcend their simplicity. Baahubali is the noble hero who always does the right thing. Bhallaladeva is the jealous brother consumed by ambition. Sivagami is the queen mother who values the kingdom above all else. These aren't complex, morally gray characters—they're mythological figures, and the film treats them as such.</p>
-
-    <p>The emotional core is the relationship between Baahubali and Devasena, his wife. Their love story is central to the second film, and it's told with a sincerity that makes it work despite the heightened setting. Devasena is not a passive princess—she's fierce, proud, and unwilling to compromise her dignity. The film respects her agency even as it places her in a traditional epic framework.</p>
-
-    <p>The Baahubali films are also a masterclass in world-building. The culture, the politics, the geography of Mahishmati—all of it feels thought-through. The filmmakers didn't just create a kingdom; they created a society with its own rules, hierarchies, and traditions. That attention to detail is what makes the world feel immersive.</p>
-
-    <p>If you want to understand why Indian audiences respond to myth and spectacle, Baahubali is essential viewing. It's not trying to be subtle or understated. It's trying to create a legend, and it succeeds.</p>
-  </div>
-
-  <div class="posterWrap">
-    <div class="poster">
-      <img src="assets/posters/baahubali-duology-poster.jpg.jpeg" alt="Baahubali Duology poster"
-        onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+    <div class="show-info">
+      <div class="show-num">02 of 07</div>
+      <h2>Andhadhun</h2>
+      <div class="show-meta">Dark Comedy · Thriller · Moral Ambiguity</div>
+      <div class="show-body">
+        <p>Andhadhun is the film you show someone who thinks Indian cinema is predictable. Nothing here behaves the way you expect. It is a dark comedy thriller that starts with a small lie and spirals into chaos, with every character making increasingly desperate, morally questionable decisions to save themselves. The film never stops twisting, and it never apologizes for making you uncomfortable.</p>
+        <p>The premise is deceptively simple: a pianist pretending to be blind witnesses a murder. But instead of going to the police or playing hero, he is trapped. If he reveals what he saw, he exposes his own lie. From there, the film becomes a high-wire act of escalating absurdity, where every solution creates a new problem and everyone involved is complicit in some way.</p>
+        <p>What makes Andhadhun brilliant is its refusal to hold your hand. Characters are not good or bad. They are selfish, pragmatic, and human. The film does not judge them, and it does not ask you to root for anyone. It just watches them scramble, improvise, and make terrible choices under pressure. The tone is pitch-black comedy, the kind where you are laughing because the alternative is horror.</p>
+        <p>The ending is famously ambiguous, and the film does not care if you figure it out or not. It leaves you with just enough information to construct a theory, but not enough to be certain. If you want to see Indian cinema that is smart, subversive, and unapologetically dark, Andhadhun is essential.</p>
+      </div>
     </div>
-  </div>
-</article>
+  </article>
 
-<article class="show">
-  <h2>Dangal</h2>
-  <div class="submeta">Sports Drama • Family • Gender & Tradition</div>
-
-  <div class="text">
-    <p>Dangal looks like a sports film, but it's really about control, ambition, and the complicated love between a father and his daughters. It's based on a true story: a former wrestler in rural India trains his daughters to become world-class athletes in a country that doesn't believe girls should wrestle. The film doesn't simplify him into a hero. It shows a man whose love for his daughters is real, but whose methods are controlling, rigid, and often suffocating.</p>
-
-    <p>What makes Dangal powerful is that it doesn't let anyone off easy. The father, Mahavir, genuinely believes he's giving his daughters opportunities they wouldn't otherwise have. And he's right—in their village, girls are married off young and expected to be homemakers. Wrestling offers them a different path. But the film also shows the cost of his approach. He's training them to fulfill his dream, not theirs. The line between empowerment and control is razor-thin, and the film walks that line without flinching.</p>
-
-    <p>The daughters' journey is the emotional heart. They start resenting the training, hating their father for making them different, for cutting their hair and forcing them into a sport they didn't choose. But slowly, they begin to understand what he's offering them: not just medals, but autonomy, respect, and a future on their own terms. The shift isn't sudden or easy. It's gradual, complicated, and earned.</p>
-
-    <p>The sports sequences are excellently shot. The wrestling matches are brutal, physical, and shot with a clarity that makes you feel every hold, every reversal, every moment of exhaustion. The film understands that sports drama works best when you can follow the strategy, when you understand what's at stake in every move. The final match—India vs. Australia at the Commonwealth Games—is one of the best sports sequences in recent cinema, edited with precision and built to maximize tension.</p>
-
-    <p>The film also explores the clash between traditional coaching and modern sports science. When the older daughter goes to a national academy, she's taught new techniques by coaches who dismiss her father's methods as outdated. The film doesn't take sides easily—it shows the value of both approaches and the difficulty of reconciling them.</p>
-
-    <p>What makes Dangal resonate globally is that it's not just about India or wrestling. It's about parents and children, about the dreams we inherit and the ones we choose for ourselves, about the difficult process of becoming your own person while still honoring where you came from. Those themes are universal, and the film handles them with nuance and emotional clarity.</p>
-
-    <p>Dangal is grounded, emotionally honest, and deeply respectful of its real-life subjects. It's a film about empowerment that doesn't pretend empowerment is simple or without cost. That honesty is what makes it work.</p>
-  </div>
-
-  <div class="posterWrap">
-    <div class="poster">
-      <img src="assets/posters/dangal-2016-poster.jpg.jpeg" alt="Dangal poster"
-        onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+  <article class="show">
+    <div class="show-poster">
+      <div class="show-poster-frame">
+        <img src="assets/posters/rrr.jpg.JPG" alt="RRR poster" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
+      </div>
     </div>
-  </div>
-</article>
-
-<article class="show">
-  <h2>The Lunchbox</h2>
-  <div class="submeta">Quiet Romance • Loneliness • Connection</div>
-
-  <div class="text">
-    <p>The Lunchbox is the quietest film on this list, and in many ways, the most emotionally devastating. It's about two people who've never met but begin exchanging letters through a mistaken lunchbox delivery. One is a lonely housewife whose marriage has gone cold. The other is an older man approaching retirement, whose life has become routine and empty. Their connection is accidental, tentative, and built entirely on words.</p>
-
-    <p>What makes The Lunchbox extraordinary is its restraint. There's no melodrama, no big confrontations, no dramatic gestures. It's a film about small moments—reading a letter on a crowded train, preparing a meal for someone who appreciates it, finding the courage to write something honest. The loneliness at the center of the film is palpable, but it's never overwrought. It just exists, quiet and persistent.</p>
-
-    <p>The performances are masterful. Irrfan Khan plays the older man with a weariness that feels lived-in. He's not bitter or angry—he's just tired, and he's accepted that this is what life is now. Nimrat Kaur plays the wife with a similar exhaustion, someone who's been performing the role of "good wife" for so long that she's lost track of who she is underneath. Their letters become the only place where they can be honest, where they can admit to disappointments they can't say out loud to anyone else.</p>
-
-    <p>The film also captures Mumbai beautifully. Not the glamorous, cosmopolitan Mumbai of Bollywood films, but the crowded, overwhelming, relentless city where millions of people live side by side in isolation. The lunchbox delivery system—the dabbawalas who move thousands of home-cooked meals across the city every day—becomes a metaphor for connection in a place where genuine human contact is rare.</p>
-
-    <p>The Lunchbox doesn't offer easy resolutions. The ending is ambiguous, open to interpretation, and emotionally complex. The film understands that sometimes connection isn't enough, that timing matters, that people carry obligations and histories that can't be easily set aside. It refuses to be a fantasy, and that refusal makes it more powerful.</p>
-
-    <p>This is a film about what it means to be seen by someone, to be understood, and to realize that understanding might not be enough to change your life. It's patient, melancholy, and deeply human. If you want to see Indian cinema at its most intimate and emotionally precise, The Lunchbox is essential.</p>
-  </div>
-
-  <div class="posterWrap">
-    <div class="poster">
-      <img src="assets/posters/the-lunchbox-2013-poster.jpg.jpeg" alt="The Lunchbox poster"
-        onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+    <div class="show-info">
+      <div class="show-num">03 of 07</div>
+      <h2>RRR</h2>
+      <div class="show-meta">Epic Friendship · Anti-Colonial Resistance · Mythology</div>
+      <div class="show-body">
+        <p>RRR is loud, emotional, and completely unapologetic about both. It is a film that operates at maximum intensity from the first frame to the last, and if you are not willing to meet it on its terms, it will leave you behind. But if you give yourself over to what it is doing, it is one of the most exhilarating experiences modern cinema has to offer.</p>
+        <p>The story is built around two men: Bheem, a tribal warrior searching for a kidnapped girl, and Ram, a British officer hunting a revolutionary. They meet by chance, become instant brothers, and do not realize they are on opposite sides of a war until it is too late. The friendship is the heart of the film, played with such sincerity and emotional weight that when the betrayal comes, it genuinely hurts.</p>
+        <p>What makes RRR work is that it does not pretend to be realistic. It is a heightened, mythological retelling of history, where two real freedom fighters are reimagined as demigods whose friendship becomes the stuff of legend. The action sequences are impossible, but they are never random. Every set piece is driven by emotion: rage, loyalty, desperation, love.</p>
+        <p>RRR also has one of the best dance sequences in modern cinema in "Naatu Naatu," which works both as a showstopping musical number and as a crucial character moment. It is joyful, defiant, and culturally specific in a way that still translates globally. If you want to understand what makes Indian blockbuster cinema different, RRR is the film to watch.</p>
+      </div>
     </div>
-  </div>
-</article>
+  </article>
 
-<article class="show">
-  <h2>Sardar Udham</h2>
-  <div class="submeta">Historical Drama • Grief • Restraint</div>
-
-  <div class="text">
-    <p>Sardar Udham is a film about grief that refuses to perform grief. It's based on the true story of Udham Singh, a revolutionary who spent twenty years tracking down the British official responsible for the Jallianwala Bagh massacre—a 1919 atrocity where British troops opened fire on unarmed civilians, killing hundreds. The film doesn't turn this into a revenge thriller. It treats it as a meditation on trauma, memory, and the impossible weight of carrying history.</p>
-
-    <p>What makes Sardar Udham remarkable is its patience. The film takes its time, moving between timelines—Udham's youth, the massacre, his years in exile, his final act. It doesn't rush toward catharsis. It sits with pain, lets it linger, and refuses to offer the kind of emotional release that most historical dramas rely on. The violence, when it comes, is not glorified. It's ugly, senseless, and haunting.</p>
-
-    <p>The massacre sequence is one of the most difficult scenes in recent cinema. It's shot with clinical precision, no dramatic music, no slow-motion heroics. Just chaos, panic, and bodies. The camera doesn't look away. The film forces you to sit with the horror, and it doesn't offer you an escape. It's not trying to make you feel inspired or angry—it's trying to make you understand the scale of what was lost.</p>
-
-    <p>Vicky Kaushal's performance is restrained to the point of silence. Udham doesn't make speeches. He doesn't explain his motivations or justify his actions. He just carries his grief, year after year, and the performance is in the exhaustion, the stillness, the way he moves through the world like a ghost. It's one of the best performances in Indian cinema, and it works because it refuses to give you easy access to the character's emotions.</p>
-
-    <p>The film also rejects jingoism. It doesn't turn Udham into a nationalist icon or a symbol. It treats him as a man who witnessed something unbearable and spent the rest of his life trying to make sense of it. The final act isn't triumphant. It's quiet, sad, and unresolved. The film understands that justice, even when achieved, doesn't erase trauma.</p>
-
-    <p>Sardar Udham is a reminder that Indian cinema can be as formally rigorous, emotionally controlled, and artistically ambitious as anything in world cinema. It's a film that trusts silence, that respects its audience's intelligence, and that refuses to turn history into spectacle. It's not an easy watch, but it's an essential one.</p>
-  </div>
-
-  <div class="posterWrap">
-    <div class="poster">
-      <img src="assets/posters/sardar-udham.jpg.JPG" alt="Sardar Udham poster"
-        onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+  <article class="show">
+    <div class="show-poster">
+      <div class="show-poster-frame">
+        <img src="assets/posters/baahubali-duology-poster.jpg.jpeg" alt="Baahubali Duology poster" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
+      </div>
     </div>
+    <div class="show-info">
+      <div class="show-num">04 of 07</div>
+      <h2>Baahubali: The Beginning and The Conclusion</h2>
+      <div class="show-meta">Epic Fantasy · Betrayal · Legacy</div>
+      <div class="show-body">
+        <p>The Baahubali duology is Indian cinema at its most mythologically grand. These are films that feel like oral legends being told with modern technology: stories of kings, warriors, betrayal, and legacy, all wrapped in a visual spectacle that rivals anything Hollywood has produced. They are not interested in realism. They are interested in creating a world where heroism, honor, and destiny matter more than physics or logic.</p>
+        <p>The story spans two generations. The first film asks a question: why was Baahubali, the rightful king, killed? The second film answers it, unfolding a tale of political intrigue, family betrayal, and a man too noble for the world he inhabits. The structure is smart. You are hooked by the mystery in the first film, and the second delivers on that promise while expanding the emotional stakes.</p>
+        <p>The characters are archetypes, but they are played with such conviction that they transcend their simplicity. Baahubali is the noble hero who always does the right thing. Bhallaladeva is the jealous brother consumed by ambition. Sivagami is the queen mother who values the kingdom above all else. These are mythological figures, and the film treats them as such.</p>
+        <p>If you want to understand why Indian audiences respond to myth and spectacle, Baahubali is essential viewing. It is not trying to be subtle or understated. It is trying to create a legend, and it succeeds.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="show">
+    <div class="show-poster">
+      <div class="show-poster-frame">
+        <img src="assets/posters/dangal-2016-poster.jpg.jpeg" alt="Dangal poster" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
+      </div>
+    </div>
+    <div class="show-info">
+      <div class="show-num">05 of 07</div>
+      <h2>Dangal</h2>
+      <div class="show-meta">Sports Drama · Family · Gender and Tradition</div>
+      <div class="show-body">
+        <p>Dangal looks like a sports film, but it is really about control, ambition, and the complicated love between a father and his daughters. It is based on a true story: a former wrestler in rural India trains his daughters to become world-class athletes in a country that does not believe girls should wrestle. The film does not simplify him into a hero. It shows a man whose love for his daughters is real, but whose methods are controlling, rigid, and often suffocating.</p>
+        <p>What makes Dangal powerful is that it does not let anyone off easy. The father genuinely believes he is giving his daughters opportunities they would not otherwise have. But the film also shows the cost of his approach. He is training them to fulfill his dream, not theirs. The line between empowerment and control is razor-thin, and the film walks that line without flinching.</p>
+        <p>The sports sequences are excellently shot. The wrestling matches are brutal, physical, and shot with a clarity that makes you feel every hold, every reversal, every moment of exhaustion. The final match at the Commonwealth Games is one of the best sports sequences in recent cinema, edited with precision and built to maximize tension.</p>
+        <p>Dangal is grounded, emotionally honest, and deeply respectful of its real-life subjects. It is a film about empowerment that does not pretend empowerment is simple or without cost. That honesty is what makes it work.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="show">
+    <div class="show-poster">
+      <div class="show-poster-frame">
+        <img src="assets/posters/the-lunchbox-2013-poster.jpg.jpeg" alt="The Lunchbox poster" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
+      </div>
+    </div>
+    <div class="show-info">
+      <div class="show-num">06 of 07</div>
+      <h2>The Lunchbox</h2>
+      <div class="show-meta">Quiet Romance · Loneliness · Connection</div>
+      <div class="show-body">
+        <p>The Lunchbox is the quietest film on this list, and in many ways the most emotionally devastating. It is about two people who have never met but begin exchanging letters through a mistaken lunchbox delivery. One is a lonely housewife whose marriage has gone cold. The other is an older man approaching retirement, whose life has become routine and empty. Their connection is accidental, tentative, and built entirely on words.</p>
+        <p>What makes The Lunchbox extraordinary is its restraint. There is no melodrama, no big confrontations, no dramatic gestures. It is a film about small moments: reading a letter on a crowded train, preparing a meal for someone who appreciates it, finding the courage to write something honest. The loneliness at the center of the film is palpable, but it is never overwrought.</p>
+        <p>Irrfan Khan plays the older man with a weariness that feels lived-in. He is not bitter or angry. He is just tired, and he has accepted that this is what life is now. Nimrat Kaur plays the wife with a similar exhaustion, someone who has been performing the role of good wife for so long that she has lost track of who she is underneath. Their letters become the only place where they can be honest.</p>
+        <p>The Lunchbox does not offer easy resolutions. The ending is ambiguous, open to interpretation, and emotionally complex. It is a film about what it means to be seen by someone, to be understood, and to realize that understanding might not be enough to change your life. If you want to see Indian cinema at its most intimate and emotionally precise, this is essential.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="show">
+    <div class="show-poster">
+      <div class="show-poster-frame">
+        <img src="assets/posters/sardar-udham.jpg.JPG" alt="Sardar Udham poster" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
+      </div>
+    </div>
+    <div class="show-info">
+      <div class="show-num">07 of 07</div>
+      <h2>Sardar Udham</h2>
+      <div class="show-meta">Historical Drama · Grief · Restraint</div>
+      <div class="show-body">
+        <p>Sardar Udham is a film about grief that refuses to perform grief. It is based on the true story of Udham Singh, a revolutionary who spent twenty years tracking down the British official responsible for the Jallianwala Bagh massacre, a 1919 atrocity where British troops opened fire on unarmed civilians, killing hundreds. The film does not turn this into a revenge thriller. It treats it as a meditation on trauma, memory, and the impossible weight of carrying history.</p>
+        <p>What makes Sardar Udham remarkable is its patience. The film takes its time, moving between timelines: Udham's youth, the massacre, his years in exile, his final act. It does not rush toward catharsis. It sits with pain, lets it linger, and refuses to offer the kind of emotional release that most historical dramas rely on. The violence, when it comes, is not glorified. It is ugly, senseless, and haunting.</p>
+        <p>Vicky Kaushal's performance is restrained to the point of silence. Udham does not make speeches. He does not explain his motivations or justify his actions. He just carries his grief, year after year, and the performance is in the exhaustion, the stillness, the way he moves through the world like a ghost. It is one of the best performances in Indian cinema.</p>
+        <p>Sardar Udham is a reminder that Indian cinema can be as formally rigorous, emotionally controlled, and artistically ambitious as anything in world cinema. It trusts silence, respects its audience's intelligence, and refuses to turn history into spectacle. It is not an easy watch, but it is an essential one.</p>
+      </div>
+    </div>
+  </article>
+
+  <div class="closing">
+    <a href="editorials.html" class="closing-back">← All Editorials</a>
   </div>
-</article>
 
 </main>
-
 </body>
 </html>
