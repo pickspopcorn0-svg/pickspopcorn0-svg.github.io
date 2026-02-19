@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Must-Watch Period Dramas .  Popcorn Picks</title>
+<title>Must-Watch Period Dramas · Popcorn Picks</title>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
-        crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800" crossorigin="anonymous"></script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
 <script>
@@ -16,294 +15,353 @@
   gtag('config', 'G-XZ94ZK9JN4');
 </script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  background:#0b0b0c;color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+:root {
+  --ink: #f2ede4;
+  --ink-dim: #9e9890;
+  --ink-muted: #5e574e;
+  --paper: #0c0b09;
+  --rule: rgba(242,237,228,0.08);
+  --rule-strong: rgba(242,237,228,0.13);
+  --accent: #b8845e;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'DM Mono', monospace;
 }
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
 
-.topbar{
-  position:sticky;top:0;z-index:50;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:16px 20px;
-  background:rgba(10,10,10,.88);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid #222;
-}
-.navLeft{display:flex;gap:10px;align-items:center;}
-.navBtn{
-  font-size:13px;color:#d0d0d0;padding:7px 14px;border-radius:999px;
-  border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);transition:.15s ease;
-}
-.navBtn:hover{color:#fff;border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.08);}
-.brand{font-weight:650;letter-spacing:.5px;font-size:14px}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
-.hero{
-  min-height:68vh;
-  display:flex;align-items:center;
-  padding:72px 22px 54px;
-  position:relative;overflow:hidden;
-  border-bottom:1px solid #1f1f1f;
-  background:#0b0b0c;
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
-.hero::before{
-  content:"";position:absolute;inset:0;
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* TOPBAR */
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 28px;
+  background: rgba(12,11,9,0.93);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--rule);
+}
+.brand { font-family: var(--serif); font-weight: 700; font-size: 15px; letter-spacing: .04em; }
+.back {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-muted); transition: color .2s;
+}
+.back:hover { color: var(--accent); }
+
+/* HERO */
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('assets/posters/IMG_2479.jpeg') center/cover no-repeat;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 10% 40%, rgba(180,120,60,.12), transparent 60%),
-    radial-gradient(ellipse 60% 80% at 90% 20%, rgba(140,100,70,.09), transparent 60%),
-    radial-gradient(ellipse 50% 50% at 50% 100%, rgba(100,80,60,.08), transparent 55%);
-  animation:heroShift 10s ease-in-out infinite alternate;
+    linear-gradient(to bottom,
+      rgba(12,11,9,0.22) 0%,
+      rgba(12,11,9,0.08) 22%,
+      rgba(12,11,9,0.68) 60%,
+      rgba(12,11,9,0.98) 100%),
+    linear-gradient(110deg, rgba(184,132,94,0.05) 0%, transparent 52%);
 }
-@keyframes heroShift{
-  0%{opacity:.7;transform:scale(1)}
-  100%{opacity:1;transform:scale(1.04)}
+.hero-bg::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-size: 120px; opacity: .6;
 }
-.hero::after{
-  content:"";position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-  background-size:60px 60px;
-  mask-image:linear-gradient(to bottom, transparent, rgba(0,0,0,.6) 30%, rgba(0,0,0,.6) 70%, transparent);
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 960px; margin: 0 auto; width: 100%;
+  padding: 0 28px 68px;
 }
-.heroInner{max-width:980px;width:100%;margin:0 auto;position:relative;z-index:2;}
-.kicker{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:11px;letter-spacing:.22em;text-transform:uppercase;
-  color:#eaeaea;padding:8px 12px;border-radius:999px;
-  border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.04);
+.hero-eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+.eyebrow-line { width: 36px; height: 1px; background: var(--accent); opacity: .6; }
+.section-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--accent);
 }
-.kickerDot{
-  width:7px;height:7px;border-radius:50%;
-  background:rgba(180,120,60,.95);box-shadow:0 0 10px rgba(180,120,60,.6);
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(34px, 6vw, 74px);
+  font-weight: 900; line-height: 1.02; letter-spacing: -.03em; color: var(--ink);
 }
-.hero h1{
-  margin-top:20px;font-size:54px;line-height:1.05;
-  letter-spacing:-.03em;max-width:20ch;
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero-dek {
+  margin-top: 18px; max-width: 56ch;
+  font-size: 17px; font-weight: 300; font-style: italic;
+  color: var(--ink-dim); line-height: 1.72;
 }
-.hero h1 em{
-  font-style:normal;
-  background:linear-gradient(90deg,rgba(180,120,60,1),rgba(140,100,70,1));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+.hero-tags {
+  margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--rule);
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
 }
-.hero p{margin-top:16px;max-width:64ch;color:#c8c8c8;line-height:1.8;font-size:16px;}
-.heroBadges{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
-.heroBadge{
-  font-size:12px;padding:6px 14px;border-radius:999px;
-  border:1px solid rgba(255,255,255,.12);
-  background:rgba(255,255,255,.05);
-  color:rgba(255,255,255,.7);letter-spacing:.04em;
+.hero-tag {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--ink-muted);
+  border: 1px solid var(--rule-strong); padding: 6px 12px; border-radius: 99px;
 }
-.metaLine{margin-top:20px;color:#9a9a9a;font-size:12px;letter-spacing:.08em;text-transform:uppercase;}
-
-.wrap{max-width:980px;margin:0 auto;padding:46px 22px 90px;}
-
-.show{
-  padding:26px 22px;border:1px solid #181818;border-radius:20px;
-  background:rgba(255,255,255,.02);margin-bottom:26px;
-}
-.show h2{font-size:32px;letter-spacing:-.02em;line-height:1.12;color:#ffffff;font-weight:800;}
-.submeta{margin-top:10px;color:#a9a9a9;font-size:13px;line-height:1.5;}
-.text{margin-top:14px;max-width:78ch;}
-.text p{color:#d7d7d7;line-height:1.9;font-size:16px;margin:0 0 14px 0;}
-
-.posterWrap{margin-top:18px;display:flex;justify-content:center;}
-.poster{
-  width:min(420px,100%);border-radius:18px;overflow:hidden;
-  border:1px solid #232323;background:#111;
-}
-.poster img{width:100%;height:auto;display:block;}
-.posterFallback{
-  padding:44px 18px;text-align:center;color:#9a9a9a;font-size:13px;border-top:1px solid #1b1b1b;
+.hero-tag-count {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--accent);
+  border: 1px solid rgba(184,132,94,0.3); padding: 6px 12px; border-radius: 99px;
 }
 
-@media(max-width:760px){
-  .hero h1{font-size:36px}
-  .show{padding:22px 16px}
-  .show h2{font-size:24px}
-  .topbar{padding:14px 14px}
+.fade-up { opacity: 0; transform: translateY(20px); animation: fadeUp .7s ease forwards; }
+.fade-up:nth-child(2) { animation-delay: .1s; }
+.fade-up:nth-child(3) { animation-delay: .22s; }
+.fade-up:nth-child(4) { animation-delay: .34s; }
+@keyframes fadeUp { to { opacity: 1; transform: none; } }
+
+/* PAGE */
+.page-wrap { max-width: 960px; margin: 0 auto; padding: 64px 28px 110px; }
+
+/* INTRO */
+.intro-block {
+  max-width: 66ch;
+  margin-bottom: 56px;
+  padding-bottom: 44px;
+  border-bottom: 1px solid var(--rule);
+}
+.intro-block p {
+  font-size: 17px; line-height: 1.95; color: #c5bfb3;
+  margin-bottom: 20px; font-weight: 300;
+}
+.intro-block p:last-child { margin-bottom: 0; }
+
+/* SHOW ENTRIES */
+.show {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  padding: 36px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.show:last-of-type { border-bottom: none; }
+
+.show-poster { flex-shrink: 0; }
+.show-poster img {
+  width: 100%; border-radius: 4px; display: block;
+  border: 1px solid var(--rule-strong);
+}
+
+.show-num {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
+}
+.show h2 {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.5vw, 27px);
+  font-weight: 700; line-height: 1.15; letter-spacing: -.02em;
+  color: var(--ink); margin-bottom: 8px;
+}
+.show-meta {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--ink-muted);
+  margin-bottom: 20px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+}
+.show-body p {
+  font-size: 16px; line-height: 1.95; color: #b8b2a8;
+  margin-bottom: 16px; font-weight: 300;
+}
+.show-body p:last-child { margin-bottom: 0; }
+.show-body em { font-style: italic; color: #ccc7be; }
+
+/* CLOSING */
+.closing {
+  margin-top: 64px; padding-top: 28px;
+  border-top: 1px solid var(--rule);
+}
+.closing-back {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-muted); transition: color .2s;
+}
+.closing-back:hover { color: var(--accent); }
+
+/* RESPONSIVE */
+@media (max-width: 680px) {
+  .topbar { padding: 12px 18px; }
+  .hero-content { padding: 0 18px 52px; }
+  .page-wrap { padding: 44px 18px 80px; }
+  .show { grid-template-columns: 1fr; gap: 18px; padding: 28px 0; }
+  .show-poster { max-width: 160px; }
+  .intro-block { margin-bottom: 36px; padding-bottom: 32px; }
+}
+
+@media (min-width: 681px) and (max-width: 960px) {
+  .show { grid-template-columns: 160px 1fr; gap: 24px; }
+  .hero-content { padding: 0 22px 60px; }
+  .page-wrap { padding: 52px 22px 90px; }
 }
 </style>
+
 </head>
+
 <body>
 
 <div class="topbar">
-  <div class="navLeft">
-    <a class="navBtn" href="editorials.html">← Editorials</a>
-    <a class="navBtn" href="index.html">Home</a>
-  </div>
+  <a class="back" href="editorials.html">← Editorials</a>
   <div class="brand">Popcorn Picks</div>
-  <div style="width:120px"></div>
+  <div style="width:64px"></div>
 </div>
 
 <header class="hero">
-  <div class="heroInner">
-    <span class="kicker"><span class="kickerDot"></span>Editorial • Period Drama</span>
-    <h1><em>Must-Watch</em> Period Dramas</h1>
-    <p>
-      Period dramas are not costume parties. The best ones understand that history is built from power, survival, and the weight of decisions made under systems that don't forgive weakness. They show what it costs to live inside a time when your choices are constrained by tradition, politics, and forces larger than yourself.
-    </p>
-    <p>
-      These six series work because they treat the past as pressure. They're not nostalgia. They're explorations of what happens when individuals collide with empires, faith, war, and social codes that were written centuries before they were born.
-    </p>
-    <div class="heroBadges">
-      <span class="heroBadge">Historical</span>
-      <span class="heroBadge">Political</span>
-      <span class="heroBadge">Power</span>
-      <span class="heroBadge">Systems</span>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow fade-up">
+      <div class="eyebrow-line"></div>
+      <span class="section-label">Editorial · Period Drama</span>
     </div>
-    <div class="metaLine">Popcorn Picks • 6 Picks</div>
+    <h1 class="fade-up"><em>Must-Watch</em><br>Period Dramas</h1>
+    <p class="hero-dek fade-up">
+      Period dramas are not costume parties. The best ones understand that history is built from power, survival, and the weight of decisions made under systems that don't forgive weakness.
+    </p>
+    <div class="hero-tags fade-up">
+      <span class="hero-tag-count">6 Picks</span>
+      <span class="hero-tag">Historical</span>
+      <span class="hero-tag">Political</span>
+      <span class="hero-tag">Power</span>
+      <span class="hero-tag">Systems</span>
+    </div>
   </div>
 </header>
 
-<main class="wrap">
+<main class="page-wrap">
+
+<div class="intro-block">
+  <p>
+    These six series work because they treat the past as pressure. They're not nostalgia. They're explorations of what happens when individuals collide with empires, faith, war, and social codes that were written centuries before they were born.
+  </p>
+</div>
 
   <article class="show">
-    <h2>1) Shōgun</h2>
-    <div class="submeta">Feudal Japan • Political Intrigue • Cultural Collision</div>
-    <div class="text">
-      <p>Shōgun drops you into feudal Japan with zero handholding. An English pilot washes ashore in a country on the brink of civil war, where every word carries weight, every gesture has meaning, and a single misstep can end your life before you understand what you did wrong. The brilliance of the show is that it refuses to simplify. Japan is not a mysterious backdrop. It's a fully realized society with its own logic, hierarchies, and codes that the outsider must learn or die trying.</p>
-
-      <p>What makes the series work is how it treats culture as power. Language is not just communication. It's control. When the pilot cannot speak Japanese, he cannot negotiate, defend himself, or understand the political forces moving around him. The show uses his confusion as a lens, but it never reduces Japan to an exotic puzzle for Western audiences. Instead, it commits to showing a world where politeness is strategy, where silence can be a weapon, and where respect must be earned through understanding systems that predate you by centuries.</p>
-
-      <p>The political intrigue is the real engine. Feudal Japan in this period is a powder keg. Warlords are maneuvering for control, alliances are fragile, and everyone is calculating how the arrival of Europeans will shift the balance of power. The show treats court politics like chess played with human lives. Conversations are battles. Meetings are tests. Every character is weighing whether cooperation, betrayal, or patience will serve them best. The tension comes from watching people who are all intelligent, all capable, all trying to survive a system where one wrong alliance can destroy your entire clan.</p>
-
-      <p>The outsider's arc is handled with surprising nuance. He's not a white savior. He's a tool, a curiosity, a potential asset, and a threat all at once. Different factions want to use him, kill him, or learn from him, and he has to navigate that without fully understanding the rules. The show is smart about adaptation. Learning the culture is not about becoming Japanese. It's about understanding enough to survive, to earn a sliver of respect, and to recognize when you're being manipulated. The deeper he gets, the more he realizes that his presence is destabilizing a world that was already on the edge.</p>
-
-      <p>The production is stunning without being showy. The show doesn't rely on spectacle. It trusts atmosphere, silence, and the weight of history. Rituals are filmed with patience because they matter. Battle scenes are brutal and quick because war here is not glory. It's survival. The pacing is deliberate, which works because the story is less about action and more about the slow accumulation of pressure. You feel the tension building in every scene, even when people are just sitting and talking.</p>
-
-      <p>Shōgun works as a period drama because it understands that history is built from systems, not individuals. The past is not a stage for heroes. It's a web of obligations, traditions, and power structures that trap everyone, foreign and native alike. By the end, you're left with a sobering truth: in worlds like this, intelligence and honor are not enough. You also need luck, timing, and the willingness to bend without breaking.</p>
+    <div class="show-poster">
+      <img src="assets/posters/IMG_2479.jpeg" alt="Shōgun" loading="lazy" />
     </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/IMG_2479.jpeg" alt="Shōgun poster"
-          onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+    <div class="show-info">
+      <div class="show-num">01 of 06</div>
+      <h2>Shōgun</h2>
+      <div class="show-meta">Feudal Japan • Political Intrigue</div>
+      <div class="show-body">
+        <p>Shōgun drops you into feudal Japan with zero handholding. An English pilot washes ashore in a country on the brink of civil war, where every word carries weight, every gesture has meaning, and a single misstep can end your life before you understand what you did wrong. The brilliance of the show is that it refuses to simplify. Japan is not a mysterious backdrop. It's a fully realized society with its own logic, hierarchies, and codes that the outsider must learn or die trying.</p>
+        <p>What makes the series work is how it treats culture as power. Language is not just communication. It's control. When the pilot cannot speak Japanese, he cannot negotiate, defend himself, or understand the political forces moving around him. The show uses his confusion as a lens, but it never reduces Japan to an exotic puzzle for Western audiences. Instead, it commits to showing a world where politeness is strategy, where silence can be a weapon, and where respect must be earned through understanding systems that predate you by centuries.</p>
+        <p>The political intrigue is the real engine. Feudal Japan in this period is a powder keg. Warlords are maneuvering for control, alliances are fragile, and everyone is calculating how the arrival of Europeans will shift the balance of power. The show treats court politics like chess played with human lives. Conversations are battles. Meetings are tests. Every character is weighing whether cooperation, betrayal, or patience will serve them best.</p>
+        <p>The production is stunning without being showy. The show doesn't rely on spectacle. It trusts atmosphere, silence, and the weight of history. Rituals are filmed with patience because they matter. Battle scenes are brutal and quick because war here is not glory. It's survival.</p>
       </div>
     </div>
   </article>
 
   <article class="show">
-    <h2>2) House of David</h2>
-    <div class="submeta">Biblical Drama • Power & Prophecy • 2 Seasons</div>
-    <div class="text">
-      <p>House of David takes a story everyone thinks they know and strips it back to human psychology. This is not a sermon. It's a political thriller set in a world where divine mandate is the ultimate currency and losing favor with God means losing everything. The series follows David from shepherd to king, but what makes it compelling is how it treats destiny as a burden rather than a gift. Being chosen doesn't make life easier. It makes you a target.</p>
-
-      <p>The genius of the show is how it frames faith as infrastructure. In this world, prophecy is not symbolic. It's a political tool. When a prophet declares that God has withdrawn support from the current king, that's not just a spiritual crisis. It's a constitutional one. Legitimacy collapses. Rivals smell blood. The entire power structure becomes unstable because authority is built on divine right, and once that's questioned, there's no backup plan. The show uses this framework to explore how fear, ambition, and belief intersect when the stakes are life or death.</p>
-
-      <p>David himself is written with more complexity than most biblical adaptations allow. He's talented, charismatic, and deeply aware that everyone around him is either using him or afraid of him. The weight of prophecy isolates him. People don't see a person. They see a symbol, a threat, or a future king they need to align with before it's too late. The show doesn't shy away from the moral compromises that come with power. David is not purely good. He's strategic, sometimes ruthless, and constantly navigating impossible choices where every option has a cost.</p>
-
-      <p>The relationship between David and Saul is the emotional core. Saul is not a villain. He's a tragic figure, a king who did everything right and still lost God's favor. The show treats his descent with empathy. You watch a man unravel as he realizes the system that elevated him has turned against him. His paranoia is not irrational. It's the predictable response of someone who knows his authority is evaporating and that the person destined to replace him is standing right in front of him, pretending to be loyal.</p>
-
-      <p>The supporting cast adds layers. Jonathan, Saul's son, is caught between his father and his best friend, knowing that their fates are incompatible. Michal loves David but is also a political pawn. The priests, the soldiers, the advisors, they're all trying to read the signs and position themselves on the right side of history before it's too late. The show is relentless in showing how everyone in a collapsing regime becomes complicit in its cruelty because survival demands it.</p>
-
-      <p>House of David works because it treats ancient history as psychologically modern. The emotions are timeless: the fear of losing power, the burden of expectations, the loneliness of leadership, the betrayal of mentors. The period setting is essential because the rules are different, but the human stakes are universal. By the end, you're left with a clear understanding: destiny is not freedom. It's a script written by forces beyond your control, and the only question is how much of yourself you'll sacrifice to fulfill it.</p>
+    <div class="show-poster">
+      <img src="assets/posters/IMG_2509.jpeg" alt="House of David" loading="lazy" />
     </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/IMG_2509.jpeg" alt="House of David poster"
-          onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+    <div class="show-info">
+      <div class="show-num">02 of 06</div>
+      <h2>House of David</h2>
+      <div class="show-meta">Biblical Drama • Power & Prophecy</div>
+      <div class="show-body">
+        <p>House of David takes a story everyone thinks they know and strips it back to human psychology. This is not a sermon. It's a political thriller set in a world where divine mandate is the ultimate currency and losing favor with God means losing everything. The series follows David from shepherd to king, but what makes it compelling is how it treats destiny as a burden rather than a gift. Being chosen doesn't make life easier. It makes you a target.</p>
+        <p>The genius of the show is how it frames faith as infrastructure. In this world, prophecy is not symbolic. It's a political tool. When a prophet declares that God has withdrawn support from the current king, that's not just a spiritual crisis. It's a constitutional one. Legitimacy collapses. Rivals smell blood. The entire power structure becomes unstable because authority is built on divine right, and once that's questioned, there's no backup plan.</p>
+        <p>David himself is written with more complexity than most biblical adaptations allow. He's talented, charismatic, and deeply aware that everyone around him is either using him or afraid of him. The weight of prophecy isolates him. People don't see a person. They see a symbol, a threat, or a future king they need to align with before it's too late.</p>
+        <p>The relationship between David and Saul is the emotional core. Saul is not a villain. He's a tragic figure, a king who did everything right and still lost God's favor. The show treats his descent with empathy. You watch a man unravel as he realizes the system that elevated him has turned against him.</p>
       </div>
     </div>
   </article>
 
   <article class="show">
-    <h2>3) Marco Polo</h2>
-    <div class="submeta">Mongol Empire • Court Politics • 2 Seasons</div>
-    <div class="text">
-      <p>Marco Polo is a show about being foreign in the most dangerous place in the world. The Mongol court under Kublai Khan is not a place where mistakes are forgiven. It's a machine built on conquest, strategy, and the absolute authority of a ruler who controls half the known world. Marco arrives as a hostage, a bargaining chip left behind by his father, and his survival depends on becoming useful fast. The show uses his outsider status to explore how power operates when it's this concentrated and this ruthless.</p>
-
-      <p>What makes the series compelling is its commitment to court intrigue. The real battles are not on horseback. They're in throne rooms, private chambers, and the margins of conversations where alliances are tested and loyalties are questioned. Kublai Khan is not a tyrant for theatrics. He's a strategist managing an empire too large to hold by force alone. He needs intelligence, manipulation, and the ability to read people faster than they can betray him. The show treats politics as a blood sport where the cost of losing is not embarrassment but execution.</p>
-
-      <p>Marco's arc is about learning to survive without a safety net. He has no army, no wealth, no leverage except his ability to observe, adapt, and make himself indispensable. The show is smart about how it portrays his growth. He doesn't become Mongolian. He becomes fluent in the language of power. He learns when to speak, when to stay silent, and how to position himself so that he's more valuable alive than dead. His survival is not heroic. It's pragmatic, often uncomfortable, and built on compromises that the show doesn't romanticize.</p>
-
-      <p>The supporting characters are where the show's depth lives. Kublai's advisors, generals, and family members are all playing their own games. Some want to expand the empire. Some want to consolidate what they have. Some are positioning themselves for succession. The court is a web of competing interests, and everyone is calculating their next move while pretending to serve a unified vision. The tension comes from watching these brilliant, dangerous people maneuver around each other, knowing that one miscalculation can end a career or a life.</p>
-
-      <p>The production is lavish but grounded. The Mongol empire feels real because the show takes time to show how it functions. It's not just battles and banquets. It's logistics, governance, and the infrastructure required to rule multiple cultures, languages, and religions under one throne. The action, when it happens, is brutal and efficient. War is not romanticized. It's a tool, used when diplomacy fails or when an example needs to be made.</p>
-
-      <p>Marco Polo works as a period drama because it understands that empires are built by individuals who are willing to do what others won't. The show doesn't glorify conquest. It shows the cost: the lives lost, the cultures erased, the constant paranoia of rulers who know their power is always one betrayal away from collapse. By the end, you're left with a clear sense of what it means to be close to absolute power. It's not freedom. It's responsibility, danger, and the knowledge that survival depends on never letting your guard down.</p>
+    <div class="show-poster">
+      <img src="assets/posters/tv/marco-polo.jpg.JPG" alt="Marco Polo" loading="lazy" />
     </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/tv/marco-polo.jpg.JPG" alt="Marco Polo poster"
-          onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+    <div class="show-info">
+      <div class="show-num">03 of 06</div>
+      <h2>Marco Polo</h2>
+      <div class="show-meta">Mongol Empire • Court Politics</div>
+      <div class="show-body">
+        <p>Marco Polo is a show about being foreign in the most dangerous place in the world. The Mongol court under Kublai Khan is not a place where mistakes are forgiven. It's a machine built on conquest, strategy, and the absolute authority of a ruler who controls half the known world. Marco arrives as a hostage, a bargaining chip left behind by his father, and his survival depends on becoming useful fast.</p>
+        <p>What makes the series compelling is its commitment to court intrigue. The real battles are not on horseback. They're in throne rooms, private chambers, and the margins of conversations where alliances are tested and loyalties are questioned. Kublai Khan is not a tyrant for theatrics. He's a strategist managing an empire too large to hold by force alone.</p>
+        <p>Marco's arc is about learning to survive without a safety net. He has no army, no wealth, no leverage except his ability to observe, adapt, and make himself indispensable. The show is smart about how it portrays his growth. He doesn't become Mongolian. He becomes fluent in the language of power. He learns when to speak, when to stay silent, and how to position himself so that he's more valuable alive than dead.</p>
+        <p>The production is lavish but grounded. The Mongol empire feels real because the show takes time to show how it functions. It's not just battles and banquets. It's logistics, governance, and the infrastructure required to rule multiple cultures, languages, and religions under one throne.</p>
       </div>
     </div>
   </article>
 
   <article class="show">
-    <h2>4) Rise of the Raven</h2>
-    <div class="submeta">Hungarian History • War & Ambition • 2025 Release</div>
-    <div class="text">
-      <p>Rise of the Raven is a period drama from a part of European history that rarely gets screen time. It's set in medieval Hungary during a period of constant border wars, shifting alliances, and kingdoms that could rise or fall within a generation. The series understands that this was not a time of stability. It was a time when violence was structural, where survival required both military skill and political cunning, and where identity was something you defended with blood.</p>
-
-      <p>What makes the show work is its refusal to romanticize. War here is not glorious. It's exhausting, brutal, and often inconclusive. Battles are fought not because anyone wants them, but because the alternative is worse. The show treats conflict as an economic and political reality rather than a moral crusade. Armies move because resources are scarce, because borders are contested, because treaties are fragile and leaders are always calculating whether cooperation or conquest will serve them better in the long term.</p>
-
-      <p>The central character is someone trying to build power from nothing. He's not born into nobility. He's not chosen by prophecy. He's just someone with ambition, intelligence, and a willingness to do what needs to be done. The show tracks his rise through military victories, strategic marriages, and the careful cultivation of alliances. What keeps it grounded is that every step forward comes with a cost. Trust is expensive. Loyalty is conditional. And every enemy you make on the way up will remember when you're vulnerable.</p>
-
-      <p>The political landscape is messy and realistic. There's no clear good side or bad side. There are factions with competing interests, leaders with different visions, and common people caught in the middle trying to survive whoever's in charge. The show is attentive to how power moves through different levels of society. A king's decision ripples through nobles, merchants, soldiers, and peasants, each of whom responds based on their own survival needs. The series doesn't flatten this into heroes and villains. It shows a world where everyone is making calculations based on incomplete information.</p>
-
-      <p>The tone is harsh but not nihilistic. The show believes in skill, courage, and intelligence, but it also shows that those qualities are not enough if you're unlucky, if you make one bad alliance, or if history just turns against you. The pacing is patient, building tension through accumulation rather than constant spectacle. When violence arrives, it's decisive and consequential. Battles change the map. Betrayals destroy careers. The stakes are real because the show is willing to kill important characters when the story demands it.</p>
-
-      <p>Rise of the Raven works as a period drama because it treats the past as a system under pressure. The medieval world was not static. It was constantly shifting, unstable, and dangerous, especially on the borders where different powers collided. The show doesn't offer simple lessons or moral clarity. It offers a raw look at what it took to survive in a time when the rules were harsh and unforgiving. By the end, you're left with respect for the sheer difficulty of building anything lasting in a world that could collapse at any moment.</p>
+    <div class="show-poster">
+      <img src="assets/posters/IMG_2513.jpeg" alt="Rise of the Raven" loading="lazy" />
     </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/IMG_2513.jpeg" alt="Rise of the Raven poster"
-          onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+    <div class="show-info">
+      <div class="show-num">04 of 06</div>
+      <h2>Rise of the Raven</h2>
+      <div class="show-meta">Hungarian History • War & Ambition</div>
+      <div class="show-body">
+        <p>Rise of the Raven is a period drama from a part of European history that rarely gets screen time. It's set in medieval Hungary during a period of constant border wars, shifting alliances, and kingdoms that could rise or fall within a generation. The series understands that this was not a time of stability. It was a time when violence was structural, where survival required both military skill and political cunning, and where identity was something you defended with blood.</p>
+        <p>What makes the show work is its refusal to romanticize. War here is not glorious. It's exhausting, brutal, and often inconclusive. Battles are fought not because anyone wants them, but because the alternative is worse. The show treats conflict as an economic and political reality rather than a moral crusade.</p>
+        <p>The central character is someone trying to build power from nothing. He's not born into nobility. He's not chosen by prophecy. He's just someone with ambition, intelligence, and a willingness to do what needs to be done. The show tracks his rise through military victories, strategic marriages, and the careful cultivation of alliances.</p>
+        <p>The tone is harsh but not nihilistic. The show believes in skill, courage, and intelligence, but it also shows that those qualities are not enough if you're unlucky, if you make one bad alliance, or if history just turns against you.</p>
       </div>
     </div>
   </article>
 
   <article class="show">
-    <h2>5) Pennyworth</h2>
-    <div class="submeta">1960s London • Crime & Politics • 3 Seasons</div>
-    <div class="text">
-      <p>Pennyworth is a period crime drama that uses 1960s London as more than a backdrop. This is a city teetering on the edge, where class tensions are boiling over, political extremism is rising, and violence is becoming normalized. The series follows Alfred Pennyworth, a former SAS soldier trying to build a security business in a world that's increasingly unstable. The period setting matters because it's a time when the old order is crumbling and no one knows what will replace it.</p>
-
-      <p>What makes the show work is how it treats politics as personal. The conflicts here are not abstract. They're about who controls neighborhoods, who gets to operate openly, and who has to hide. Alfred exists in the space between legitimate business and criminal networks, taking jobs from people who need protection, intelligence, or muscle. The show is smart about moral ambiguity. Alfred is not a hero or a villain. He's someone trying to survive by his skills in a world that doesn't reward virtue.</p>
-
-      <p>The class dynamics are central. London in this period is rigidly divided. Wealth means access, protection, and the ability to shape politics from private clubs. Poverty means vulnerability, limited options, and the constant threat of being crushed by forces you can't control. Alfred comes from the working class but operates in spaces where the powerful make decisions. The show uses his position to explore how power actually moves: not through elections or speeches, but through backroom deals, blackmail, and violence that's kept just out of sight.</p>
-
-      <p>The political backdrop is handled with care. The show imagines a Britain where fascist and revolutionary movements are gaining strength, where the establishment is losing control, and where ordinary people are being pushed to choose sides. This is not played for cheap thrills. It's treated as an exploration of how democracies fracture when institutions stop working and people lose faith in peaceful solutions. The period setting makes this feel immediate rather than preachy. You're watching history tilt, not being lectured about it.</p>
-
-      <p>The supporting cast adds texture. Alfred's friends and associates come from different backgrounds and have different stakes. Some are loyal because of friendship. Some because of money. Some because they have nowhere else to go. The show is attentive to how relationships shift when the world becomes more dangerous. Trust becomes conditional. Survival becomes more important than principle. People who were allies in peacetime become liabilities in war.</p>
-
-      <p>Pennyworth works as a period drama because it uses history to explore timeless questions about loyalty, morality, and what it means to be a good person in a corrupt system. The 1960s setting is not nostalgia. It's a reminder that stability is fragile, that political violence can emerge quickly, and that ordinary people are often forced to make impossible choices when the world around them starts to burn. The show's lasting impression is unsentimental: in times like these, survival is not about being heroic. It's about being smart, careful, and willing to adapt when the rules change.</p>
+    <div class="show-poster">
+      <img src="assets/posters/IMG_2512.jpeg" alt="Pennyworth" loading="lazy" />
     </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/IMG_2512.jpeg" alt="Pennyworth poster"
-          onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+    <div class="show-info">
+      <div class="show-num">05 of 06</div>
+      <h2>Pennyworth</h2>
+      <div class="show-meta">1960s London • Crime & Politics</div>
+      <div class="show-body">
+        <p>Pennyworth is a period crime drama that uses 1960s London as more than a backdrop. This is a city teetering on the edge, where class tensions are boiling over, political extremism is rising, and violence is becoming normalized. The series follows Alfred Pennyworth, a former SAS soldier trying to build a security business in a world that's increasingly unstable.</p>
+        <p>What makes the show work is how it treats politics as personal. The conflicts here are not abstract. They're about who controls neighborhoods, who gets to operate openly, and who has to hide. Alfred exists in the space between legitimate business and criminal networks, taking jobs from people who need protection, intelligence, or muscle.</p>
+        <p>The class dynamics are central. London in this period is rigidly divided. Wealth means access, protection, and the ability to shape politics from private clubs. Poverty means vulnerability, limited options, and the constant threat of being crushed by forces you can't control.</p>
+        <p>The political backdrop is handled with care. The show imagines a Britain where fascist and revolutionary movements are gaining strength, where the establishment is losing control, and where ordinary people are being pushed to choose sides.</p>
       </div>
     </div>
   </article>
 
   <article class="show">
-    <h2>6) The Essex Serpent</h2>
-    <div class="submeta">Victorian Gothic • Faith vs. Science • Limited Series</div>
-    <div class="text">
-      <p>The Essex Serpent is a period drama about fear, loneliness, and the stories people tell themselves to make sense of uncertainty. Set in Victorian England, it follows a widow who moves to a coastal village rumored to be haunted by a mythical sea creature. The surface plot is about investigating the serpent, but the real story is about what happens to communities under pressure, how isolation warps perception, and the quiet desperation of people trapped by social expectations.</p>
-
-      <p>What makes the series effective is its restraint. This is not a monster story. The serpent is a symbol, a manifestation of collective anxiety. The village is struggling. Fishing is dangerous. People are dying. No one knows why. In the absence of answers, myth becomes explanation. The creature gives shape to their fear, turns randomness into narrative, and provides something to blame. The show understands that superstition is not stupidity. It's a coping mechanism when the world feels incomprehensible.</p>
-
-      <p>The central tension is between faith and reason, but the show refuses to treat this as a simple binary. The local vicar believes in God and sees the serpent as a test of faith. The widow is scientifically minded and wants empirical evidence. But both are looking for the same thing: meaning in a world that often feels arbitrary and cruel. The show is careful not to mock belief or glorify skepticism. It shows two people trying to navigate loss, doubt, and the limits of their own understanding.</p>
-
-      <p>The real subject is loneliness. The widow is grieving a husband who controlled her. The vicar is trapped in a marriage that has become a prison. Both are isolated by their roles, their reputations, and the social codes of Victorian England that forbid honest emotional expression. Their growing connection is the emotional core of the series, but it's complicated by the fact that neither can act on what they feel without destroying their lives. The period setting makes this tension unbearable. Modern viewers might think "just leave," but the show understands that in this time and place, leaving is not an option.</p>
-
-      <p>The atmosphere is the show's greatest strength. The Essex marshes are shot as beautiful and oppressive. Fog, water, silence, isolation. The landscape becomes a character, reflecting the characters' internal states. The pacing is slow and deliberate, which works because the story is less about plot and more about mood. It's a show that asks you to sit with discomfort, with ambiguity, with the knowledge that some questions don't have satisfying answers.</p>
-
-      <p>The Essex Serpent works as a period drama because it uses its Victorian setting to explore repression. This is a world where people cannot say what they mean, cannot act on what they feel, and cannot escape the roles assigned to them by class, gender, and religion. The serpent is just the excuse to explore what happens when that pressure builds and people start looking for something to explain the chaos. By the end, you're left with a quiet truth: sometimes the real monsters are not in the water. They're in the systems that trap people in lives they can't escape.</p>
+    <div class="show-poster">
+      <img src="assets/posters/IMG_2511.jpeg" alt="The Essex Serpent" loading="lazy" />
     </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/IMG_2511.jpeg" alt="The Essex Serpent poster"
-          onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+    <div class="show-info">
+      <div class="show-num">06 of 06</div>
+      <h2>The Essex Serpent</h2>
+      <div class="show-meta">Victorian Gothic • Faith vs. Science</div>
+      <div class="show-body">
+        <p>The Essex Serpent is a period drama about fear, loneliness, and the stories people tell themselves to make sense of uncertainty. Set in Victorian England, it follows a widow who moves to a coastal village rumored to be haunted by a mythical sea creature. The surface plot is about investigating the serpent, but the real story is about what happens to communities under pressure, how isolation warps perception, and the quiet desperation of people trapped by social expectations.</p>
+        <p>What makes the series effective is its restraint. This is not a monster story. The serpent is a symbol, a manifestation of collective anxiety. The village is struggling. Fishing is dangerous. People are dying. No one knows why. In the absence of answers, myth becomes explanation.</p>
+        <p>The central tension is between faith and reason, but the show refuses to treat this as a simple binary. The local vicar believes in God and sees the serpent as a test of faith. The widow is scientifically minded and wants empirical evidence. But both are looking for the same thing: meaning in a world that often feels arbitrary and cruel.</p>
+        <p>The real subject is loneliness. The widow is grieving a husband who controlled her. The vicar is trapped in a marriage that has become a prison. Both are isolated by their roles, their reputations, and the social codes of Victorian England that forbid honest emotional expression.</p>
       </div>
     </div>
   </article>
+
+  <div class="closing">
+    <a href="editorials.html" class="closing-back">← All Editorials</a>
+  </div>
 
 </main>
 </body>
