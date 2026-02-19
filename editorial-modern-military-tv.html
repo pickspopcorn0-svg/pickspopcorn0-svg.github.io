@@ -1,14 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Modern Military Action TV Shows .  Popcorn Picks</title>
+<title>Modern Military Action TV Shows · Popcorn Picks</title>
+<meta name="description" content="Five military action series that strip away Hollywood excess and focus on the real cost of modern warfare. Tactical, grounded, high-stakes." />
+<link rel="canonical" href="https://popcornpicks.in/military-action-tv-shows.html" />
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
-        crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800" crossorigin="anonymous"></script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -16,250 +19,387 @@
   gtag('config', 'G-XZ94ZK9JN4');
 </script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  background:#0b0b0c;color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+:root {
+  --ink: #f2ede4;
+  --ink-dim: #9e9890;
+  --ink-muted: #5e574e;
+  --paper: #0c0b09;
+  --rule: rgba(242,237,228,0.08);
+  --rule-strong: rgba(242,237,228,0.13);
+  --accent: #c4956e;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'DM Mono', monospace;
 }
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
 
-.topbar{
-  position:sticky;top:0;z-index:50;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:16px 20px;
-  background:rgba(10,10,10,.88);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid #222;
-}
-.navLeft{display:flex;gap:10px;align-items:center;}
-.navBtn{
-  font-size:13px;color:#d0d0d0;padding:7px 14px;border-radius:999px;
-  border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);transition:.15s ease;
-}
-.navBtn:hover{color:#fff;border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.08);}
-.brand{font-weight:650;letter-spacing:.5px;font-size:14px}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
-.hero{
-  min-height:68vh;
-  display:flex;align-items:center;
-  padding:72px 22px 54px;
-  position:relative;overflow:hidden;
-  border-bottom:1px solid #1f1f1f;
-  background:#0b0b0c;
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
-.hero::before{
-  content:"";position:absolute;inset:0;
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* TOPBAR */
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 28px;
+  background: rgba(12,11,9,0.93);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--rule);
+}
+.brand { font-family: var(--serif); font-weight: 700; font-size: 15px; letter-spacing: .04em; }
+.back {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-muted); transition: color .2s;
+}
+.back:hover { color: var(--accent); }
+
+/* HERO */
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('assets/posters/tv/strike-back.jpeg') center top/cover no-repeat;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 10% 40%, rgba(100,120,80,.11), transparent 60%),
-    radial-gradient(ellipse 60% 80% at 90% 20%, rgba(80,80,80,.09), transparent 60%),
-    radial-gradient(ellipse 50% 50% at 50% 100%, rgba(60,80,60,.07), transparent 55%);
-  animation:heroShift 10s ease-in-out infinite alternate;
+    linear-gradient(to bottom,
+      rgba(12,11,9,0.18) 0%,
+      rgba(12,11,9,0.06) 22%,
+      rgba(12,11,9,0.65) 58%,
+      rgba(12,11,9,0.98) 100%),
+    linear-gradient(110deg, rgba(196,149,110,0.05) 0%, transparent 52%);
 }
-@keyframes heroShift{
-  0%{opacity:.7;transform:scale(1)}
-  100%{opacity:1;transform:scale(1.04)}
+.hero-bg::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-size: 120px; opacity: .6;
 }
-.hero::after{
-  content:"";position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-  background-size:60px 60px;
-  mask-image:linear-gradient(to bottom, transparent, rgba(0,0,0,.6) 30%, rgba(0,0,0,.6) 70%, transparent);
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 960px; margin: 0 auto; width: 100%;
+  padding: 0 28px 68px;
 }
-.heroInner{max-width:980px;width:100%;margin:0 auto;position:relative;z-index:2;}
-.kicker{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:11px;letter-spacing:.22em;text-transform:uppercase;
-  color:#eaeaea;padding:8px 12px;border-radius:999px;
-  border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.04);
+.hero-eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+.eyebrow-line { width: 36px; height: 1px; background: var(--accent); opacity: .6; }
+.section-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--accent);
 }
-.kickerDot{
-  width:7px;height:7px;border-radius:50%;
-  background:rgba(100,120,80,.95);box-shadow:0 0 10px rgba(100,120,80,.6);
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(32px, 5.5vw, 68px);
+  font-weight: 900; line-height: 1.04; letter-spacing: -.03em; color: var(--ink);
 }
-.hero h1{
-  margin-top:20px;font-size:54px;line-height:1.05;
-  letter-spacing:-.03em;max-width:20ch;
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero-dek {
+  margin-top: 18px; max-width: 56ch;
+  font-size: 17px; font-weight: 300; font-style: italic;
+  color: var(--ink-dim); line-height: 1.72;
 }
-.hero h1 em{
-  font-style:normal;
-  background:linear-gradient(90deg,rgba(100,120,80,1),rgba(80,80,80,1));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+.hero-tags {
+  margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--rule);
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
 }
-.hero p{margin-top:16px;max-width:64ch;color:#c8c8c8;line-height:1.8;font-size:16px;}
-.heroBadges{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
-.heroBadge{
-  font-size:12px;padding:6px 14px;border-radius:999px;
-  border:1px solid rgba(255,255,255,.12);
-  background:rgba(255,255,255,.05);
-  color:rgba(255,255,255,.7);letter-spacing:.04em;
+.hero-tag {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--ink-muted);
+  border: 1px solid var(--rule-strong); padding: 6px 12px; border-radius: 99px;
 }
-.metaLine{margin-top:20px;color:#9a9a9a;font-size:12px;letter-spacing:.08em;text-transform:uppercase;}
-
-.wrap{max-width:980px;margin:0 auto;padding:46px 22px 90px;}
-
-.show{
-  padding:26px 22px;border:1px solid #181818;border-radius:20px;
-  background:rgba(255,255,255,.02);margin-bottom:26px;
-}
-.show h2{font-size:32px;letter-spacing:-.02em;line-height:1.12;color:#ffffff;font-weight:800;}
-.submeta{margin-top:10px;color:#a9a9a9;font-size:13px;line-height:1.5;}
-.text{margin-top:14px;max-width:78ch;}
-.text p{color:#d7d7d7;line-height:1.9;font-size:16px;margin:0 0 14px 0;}
-
-.posterWrap{margin-top:18px;display:flex;justify-content:center;}
-.poster{
-  width:min(420px,100%);border-radius:18px;overflow:hidden;
-  border:1px solid #232323;background:#111;
-}
-.poster img{width:100%;height:auto;}
-.posterFallback{
-  padding:44px 18px;text-align:center;color:#9a9a9a;font-size:13px;border-top:1px solid #1b1b1b;
+.hero-tag-count {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--accent);
+  border: 1px solid rgba(196,149,110,0.3); padding: 6px 12px; border-radius: 99px;
 }
 
-@media(max-width:760px){
-  .hero h1{font-size:36px}
-  .show{padding:22px 16px}
-  .show h2{font-size:24px}
-  .topbar{padding:14px 14px}
+.fade-up { opacity: 0; transform: translateY(20px); animation: fadeUp .7s ease forwards; }
+.fade-up:nth-child(2) { animation-delay: .1s; }
+.fade-up:nth-child(3) { animation-delay: .22s; }
+.fade-up:nth-child(4) { animation-delay: .34s; }
+@keyframes fadeUp { to { opacity: 1; transform: none; } }
+
+/* PAGE */
+.page-wrap { max-width: 960px; margin: 0 auto; padding: 64px 28px 110px; }
+
+/* INTRO */
+.intro-block {
+  max-width: 66ch;
+  margin-bottom: 56px;
+  padding-bottom: 44px;
+  border-bottom: 1px solid var(--rule);
+}
+.intro-block p {
+  font-size: 17px; line-height: 1.95; color: #c5bfb3;
+  margin-bottom: 20px; font-weight: 300;
+}
+.intro-block p:last-child { margin-bottom: 0; }
+
+/* SHOW ENTRIES */
+.show {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: start;
+}
+.show:last-of-type { border-bottom: none; }
+
+.show-poster {
+  position: sticky;
+  top: 80px;
+}
+.show-poster-frame {
+  width: 100%;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+.show-poster-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 3px;
+  object-fit: contain;
+}
+.show-poster-placeholder {
+  width: 100%;
+  aspect-ratio: 2/3;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 10px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-muted);
+}
+
+.show-num {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
+}
+.show h2 {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 700; line-height: 1.15; letter-spacing: -.02em;
+  color: var(--ink); margin-bottom: 8px;
+}
+.show-meta {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--ink-muted);
+  margin-bottom: 20px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+}
+.show-body p {
+  font-size: 15.5px; line-height: 1.95; color: #b8b2a8;
+  margin-bottom: 16px; font-weight: 300;
+}
+.show-body p:last-child { margin-bottom: 0; }
+
+/* CLOSING */
+.closing {
+  margin-top: 64px; padding-top: 28px;
+  border-top: 1px solid var(--rule);
+}
+.closing-back {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-muted); transition: color .2s;
+}
+.closing-back:hover { color: var(--accent); }
+
+/* RESPONSIVE */
+@media (max-width: 860px) {
+  .show { grid-template-columns: 180px 1fr; gap: 28px; }
+  .show-poster { position: static; }
+}
+
+@media (max-width: 600px) {
+  .topbar { padding: 12px 18px; }
+  .hero-content { padding: 0 18px 52px; }
+  .page-wrap { padding: 44px 18px 80px; }
+  .show { grid-template-columns: 1fr; gap: 20px; padding: 28px 0; }
+  .show-poster { order: -1; max-width: 200px; margin: 0 auto; }
+  .intro-block { margin-bottom: 36px; padding-bottom: 32px; }
+}
+
+@media (max-width: 760px) and (orientation: landscape) {
+  .show { grid-template-columns: 140px 1fr; gap: 22px; }
+  .show-poster { position: static; max-width: none; margin: 0; }
 }
 </style>
+
 </head>
+
 <body>
 
 <div class="topbar">
-  <div class="navLeft">
-    <a class="navBtn" href="editorials.html">← Editorials</a>
-    <a class="navBtn" href="index.html">Home</a>
-  </div>
+  <a class="back" href="editorials.html">← Editorials</a>
   <div class="brand">Popcorn Picks</div>
-  <div style="width:120px"></div>
+  <div style="width:64px"></div>
 </div>
 
 <header class="hero">
-  <div class="heroInner">
-    <span class="kicker"><span class="kickerDot"></span>Editorial • TV • Military</span>
-    <h1><em>Modern Military Action</em> TV Shows</h1>
-    <p>
-      Tactical precision, high-stakes missions, and characters shaped by duty and sacrifice. These shows strip away Hollywood excess and focus on the real cost of modern warfare.
-    </p>
-    <p>
-      From covert operations to elite special forces, these series deliver grounded action with weight, consequence, and characters who aren't invincible. Just highly trained, deeply committed, and constantly under pressure.
-    </p>
-    <div class="heroBadges">
-      <span class="heroBadge">Special Ops</span>
-      <span class="heroBadge">Tactical</span>
-      <span class="heroBadge">Grounded</span>
-      <span class="heroBadge">High Stakes</span>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow fade-up">
+      <div class="eyebrow-line"></div>
+      <span class="section-label">Editorial · TV · Military</span>
     </div>
-    <div class="metaLine">Popcorn Picks • 5 Picks</div>
+    <h1 class="fade-up"><em>Modern Military</em><br>Action TV Shows</h1>
+    <p class="hero-dek fade-up">
+      Tactical precision, high-stakes missions, and characters shaped by duty and sacrifice. These shows focus on the real cost of modern warfare.
+    </p>
+    <div class="hero-tags fade-up">
+      <span class="hero-tag-count">5 Shows</span>
+      <span class="hero-tag">Special Ops</span>
+      <span class="hero-tag">Tactical</span>
+      <span class="hero-tag">Grounded</span>
+      <span class="hero-tag">High Stakes</span>
+    </div>
   </div>
 </header>
 
-<main class="wrap">
+<main class="page-wrap">
+
+<div class="intro-block">
+  <p>
+    Tactical precision, high-stakes missions, and characters shaped by duty and sacrifice. These shows strip away Hollywood excess and focus on the real cost of modern warfare.
+  </p>
+  <p>
+    From covert operations to elite special forces, these series deliver grounded action with weight, consequence, and characters who aren't invincible. Just highly trained, deeply committed, and constantly under pressure.
+  </p>
+</div>
 
   <article class="show">
-  <h2>1) The Lioness</h2>
-  <div class="submeta">Special Operations • CIA • Female-Led Team</div>
-  <div class="text">
-    <p>The Lioness (also known as Special Ops: Lioness) doesn't waste time with preamble. From the opening scene, you're dropped into the chaos of a covert CIA program that recruits women to infiltrate terrorist organizations from the inside. This isn't background espionage or political posturing. This is frontline intelligence work where the margin for error is zero, and the psychological toll is immediate.</p>
-    <p>What makes The Lioness stand out is how unflinching it is about the cost of the mission. The women in this program aren't just operators; they're being asked to abandon their identities, embed themselves in hostile environments, and maintain cover under conditions that would break most trained soldiers. The show doesn't glamorize this. It shows the exhaustion, the fear, the moral ambiguity of getting close to people you might have to betray or kill.</p>
-    <p>Zoe Saldaña plays Joe, the team leader who's trying to hold the operation together while managing her own crumbling personal life. She's not a superhero. She's someone who's seen too much, made too many impossible calls, and is starting to realize that the mission might cost more than she can afford to give. The show balances Joe's command decisions with glimpses of her home life, where she's a mother trying to be present for her daughters while mentally trapped in war zones half a world away. That tension, between duty and family, between national security and personal sanity, runs through every episode.</p>
-    <p>The action sequences are brutal and grounded. No slow-motion hero moments, no perfectly choreographed gun battles that end cleanly. When violence happens, it's fast, messy, and leaves people shaking. The training scenes feel real, not in the "look how badass we are" sense, but in the "this is what it takes to survive" sense. There's a coldness to the way missions are executed that mirrors the moral weight the characters carry. These aren't soldiers charging into battle with clear enemies. They're intelligence operatives making calculated moves in situations where the line between ally and threat is razor-thin.</p>
-    <p>One of the show's smartest choices is how it handles the women who are recruited into the Lioness program. They're not interchangeable soldiers. Each one has her own breaking point, her own reason for being there, and her own way of coping or not coping with what the job demands. The show takes time to show their humanity even as it pushes them into inhuman situations. That's what separates The Lioness from generic military dramas: it refuses to let these women become symbols. They stay people, even when the missions treat them like assets.</p>
-    <p>If you're looking for military action that feels grounded in reality, that respects the intelligence of its audience, and that doesn't shy away from the moral complexity of modern warfare, The Lioness delivers. It's tense, emotionally heavy, and unapologetically committed to showing what covert operations actually cost the people who carry them out.</p>
-  </div>
-  <div class="posterWrap">
-    <div class="poster">
-      <img src="assets/posters/tv/lioness.jpeg" alt="The Lioness poster"
-        onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+    <div class="show-poster">
+      <div class="show-poster-frame">
+        <img src="assets/posters/tv/lioness.jpeg" alt="The Lioness poster" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
+      </div>
     </div>
-  </div>
-</article>
+    <div class="show-info">
+      <div class="show-num">01 of 05</div>
+      <h2>The Lioness</h2>
+      <div class="show-meta">Special Operations · CIA · Female-Led Team</div>
+      <div class="show-body">
+        <p>The Lioness doesn't waste time with preamble. From the opening scene, you're dropped into the chaos of a covert CIA program that recruits women to infiltrate terrorist organizations from the inside. This isn't background espionage or political posturing. This is frontline intelligence work where the margin for error is zero, and the psychological toll is immediate.</p>
+        <p>What makes The Lioness stand out is how unflinching it is about the cost of the mission. The women in this program aren't just operators; they're being asked to abandon their identities, embed themselves in hostile environments, and maintain cover under conditions that would break most trained soldiers. The show doesn't glamorize this. It shows the exhaustion, the fear, the moral ambiguity of getting close to people you might have to betray or kill.</p>
+        <p>Zoe Saldaña plays Joe, the team leader who's trying to hold the operation together while managing her own crumbling personal life. She's not a superhero. She's someone who's seen too much, made too many impossible calls, and is starting to realize that the mission might cost more than she can afford to give. That tension, between duty and family, between national security and personal sanity, runs through every episode.</p>
+        <p>The action sequences are brutal and grounded. No slow-motion hero moments, no perfectly choreographed gun battles that end cleanly. When violence happens, it's fast, messy, and leaves people shaking. The training scenes feel real — not in the "look how badass we are" sense, but in the "this is what it takes to survive" sense.</p>
+        <p>One of the show's smartest choices is how it handles the women recruited into the Lioness program. They're not interchangeable soldiers. Each one has her own breaking point, her own reason for being there, and her own way of coping — or not coping — with what the job demands. The show takes time to show their humanity even as it pushes them into inhuman situations. That's what separates The Lioness from generic military dramas: it refuses to let these women become symbols. They stay people, even when the missions treat them like assets.</p>
+      </div>
+    </div>
+  </article>
 
-<article class="show">
-  <h2>2) SIX</h2>
-  <div class="submeta">Navy SEALs • Brotherhood • High-Risk Missions</div>
-  <div class="text">
-    <p>SIX is built around SEAL Team Six, the most elite unit in the U.S. military, and it doesn't treat that lightly. This isn't a show about superheroes in tactical gear. It's about what happens when you're part of a brotherhood where failure isn't an option, but success doesn't guarantee you'll come home whole.</p>
-    <p>The series follows Rip Taggart and his team as they hunt down a Taliban leader responsible for American deaths. But the real tension isn't just the external mission. It's the internal cost of being a SEAL. These are men who've trained their entire lives to be the best, who've sacrificed relationships, stability, and normalcy to serve at the highest level. And the show refuses to make that sacrifice feel noble without also making it feel devastating.</p>
-    <p>What SIX gets right is the weight of brotherhood. These aren't just teammates; they're men who would die for each other without hesitation. But that loyalty becomes a burden when someone falls, when missions go wrong, when the decision to follow orders means putting your brother in the line of fire. The show explores what happens when duty conflicts with loyalty, when following protocol means leaving someone behind, when survival means living with choices that haunt you.</p>
-    <p>The action is relentless and realistic. Firefights are chaotic. Missions don't go according to plan. The team doesn't always win cleanly, and victories come with casualties, physical, mental, emotional. There's a scene in the first season where the team is pinned down under heavy fire, and you can see the fear in their eyes even as training kicks in. That's what separates SIX from glorified military fantasies: these men are highly trained, but they're not invincible. They bleed. They panic. They make mistakes. And they carry the consequences.</p>
-    <p>The show also spends time on the home front, and it doesn't sugarcoat the toll military life takes on families. Marriages crumble under the weight of deployments. Kids grow up barely knowing their fathers. Wives become single parents for months at a time, never knowing if their husband is coming back. SIX understands that the mission doesn't end when the operator comes home. Sometimes, coming home is the hardest part. The psychological scars, the inability to talk about what you've seen, the distance that grows between you and the people you're supposed to be protecting, all of it is present and unresolved.</p>
-    <p>One of the most powerful aspects of SIX is how it treats the enemy. The Taliban fighters aren't faceless targets. They have motivations, strategies, and their own sense of purpose. The show doesn't make them sympathetic, but it makes them human, which makes the conflict feel real. War isn't a video game where you clear levels. It's a grinding, morally complex fight where both sides believe they're right, and the only certainty is that people will die.</p>
-    <p>If you want a military series that respects the skill and sacrifice of elite operators without turning them into action heroes, SIX is essential viewing. It's gritty, emotional, and unafraid to show that even the best-trained soldiers in the world are just men trying to survive impossible situations and live with the choices they've made.</p>
-  </div>
-  <div class="posterWrap">
-    <div class="poster">
-      <img src="assets/posters/tv/six.jpeg" alt="SIX poster"
-        onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+  <article class="show">
+    <div class="show-poster">
+      <div class="show-poster-frame">
+        <img src="assets/posters/tv/six.jpeg" alt="SIX poster" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
+      </div>
     </div>
-  </div>
-</article>
+    <div class="show-info">
+      <div class="show-num">02 of 05</div>
+      <h2>SIX</h2>
+      <div class="show-meta">Navy SEALs · Brotherhood · High-Risk Missions</div>
+      <div class="show-body">
+        <p>SIX is built around SEAL Team Six, the most elite unit in the U.S. military, and it doesn't treat that lightly. This isn't a show about superheroes in tactical gear. It's about what happens when you're part of a brotherhood where failure isn't an option, but success doesn't guarantee you'll come home whole.</p>
+        <p>The series follows Rip Taggart and his team as they hunt down a Taliban leader responsible for American deaths. But the real tension isn't just the external mission. It's the internal cost of being a SEAL. These are men who've trained their entire lives to be the best, who've sacrificed relationships, stability, and normalcy to serve at the highest level — and the show refuses to make that sacrifice feel noble without also making it feel devastating.</p>
+        <p>What SIX gets right is the weight of brotherhood. These aren't just teammates; they're men who would die for each other without hesitation. But that loyalty becomes a burden when missions go wrong, when the decision to follow orders means putting your brother in the line of fire. The show explores what happens when duty conflicts with loyalty, when following protocol means leaving someone behind.</p>
+        <p>The action is relentless and realistic. Firefights are chaotic. Missions don't go according to plan. The team doesn't always win cleanly, and victories come with casualties — physical, mental, emotional. There's a scene in the first season where the team is pinned down under heavy fire, and you can see the fear in their eyes even as training kicks in. These men are highly trained, but they're not invincible.</p>
+        <p>The show also spends time on the home front, and it doesn't sugarcoat the toll military life takes on families. Marriages crumble under the weight of deployments. Kids grow up barely knowing their fathers. SIX understands that the mission doesn't end when the operator comes home. Sometimes, coming home is the hardest part.</p>
+      </div>
+    </div>
+  </article>
 
-<article class="show">
-  <h2>3) Strike Back</h2>
-  <div class="submeta">British Special Forces • Global Ops • Adrenaline-Fueled</div>
-  <div class="text">
-    <p>Strike Back is what happens when you take military action seriously but refuse to make it boring. This is a show about Section 20, a covert British special forces unit that handles missions too dangerous or too politically sensitive for regular military channels. It's fast, brutal, and global in scope, but what makes it work is that it never loses sight of the human cost behind the explosions.</p>
-    <p>The format is simple: each season follows Section 20 as they chase down terrorists, arms dealers, and rogue operatives across multiple countries. But the execution is anything but simple. The action is relentless, gunfights in crowded markets, rooftop chases through foreign cities, close-quarters combat in hostile territory. The show moves at a breakneck pace, and it doesn't slow down to explain geopolitics or hold your hand through the strategy. You're dropped into the mission alongside the team, and you either keep up or get left behind.</p>
-    <p>What separates Strike Back from other military action shows is the partnership at its core. The dynamic between the two leads, whether it's Michael Stonebridge and Damien Scott in the early seasons, or the later pairings, is built on trust, friction, and the kind of bond that only forms when you've bled together. These aren't polished, by-the-book soldiers. They're flawed, stubborn, and emotionally scarred men who happen to be exceptionally good at what they do. Their banter is sharp, their arguments feel real, and when they have each other's backs, it carries weight because you know what they've been through together.</p>
-    <p>The show doesn't romanticize the work. Missions go wrong. Civilians get caught in the crossfire. Allies turn out to be enemies. There's a moral grayness to the operations that the show doesn't try to resolve. Section 20 operates in the shadows, doing things that will never be acknowledged, making choices that would be condemned if they came to light. The characters know this, and it eats at them. They're not patriots saving the world. They're soldiers doing a dirty job because someone has to, and they're too deep in to walk away.</p>
-    <p>The international settings give the show a scale that most military dramas don't attempt. One episode might be in Bangkok, the next in Moscow, then Lebanon, then South Africa. The locations aren't just backdrops. They shape the missions, the threats, and the strategies. The team has to adapt to different cultures, different enemies, and different rules of engagement. That constant shift keeps the show from falling into formula. Every mission feels distinct because the environment, the stakes, and the players change.</p>
-    <p>Strike Back also understands pacing. Episodes are structured like mini-action films, with escalating tension, sudden betrayals, and climactic shootouts that feel earned rather than gratuitous. The show knows when to slow down for character moments, a quiet conversation about loss, a phone call home that goes unanswered, a memory that resurfaces at the worst possible time, and when to hit the gas. That balance between action and emotion is what keeps it from being empty spectacle.</p>
-    <p>If you want military action that's high-octane, globally ambitious, and grounded in real consequences, Strike Back delivers. It's not trying to be a documentary, but it's also not treating war like a playground. It's a show about skilled operators doing impossible work in hostile territory, and it respects both the skill and the cost.</p>
-  </div>
-  <div class="posterWrap">
-    <div class="poster">
-      <img src="assets/posters/tv/strike-back.jpeg" alt="Strike Back poster"
-        onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+  <article class="show">
+    <div class="show-poster">
+      <div class="show-poster-frame">
+        <img src="assets/posters/tv/strike-back.jpeg" alt="Strike Back poster" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
+      </div>
     </div>
-  </div>
-</article>
+    <div class="show-info">
+      <div class="show-num">03 of 05</div>
+      <h2>Strike Back</h2>
+      <div class="show-meta">British Special Forces · Global Ops · Adrenaline-Fueled</div>
+      <div class="show-body">
+        <p>Strike Back is what happens when you take military action seriously but refuse to make it boring. This is a show about Section 20, a covert British special forces unit that handles missions too dangerous or too politically sensitive for regular military channels. It's fast, brutal, and global in scope, but what makes it work is that it never loses sight of the human cost behind the explosions.</p>
+        <p>The action is relentless — gunfights in crowded markets, rooftop chases through foreign cities, close-quarters combat in hostile territory. The show moves at a breakneck pace, and it doesn't slow down to hold your hand through the strategy. You're dropped into the mission alongside the team, and you either keep up or get left behind.</p>
+        <p>What separates Strike Back from other military action shows is the partnership at its core. The dynamic between the two leads is built on trust, friction, and the kind of bond that only forms when you've bled together. These aren't polished, by-the-book soldiers. They're flawed, stubborn, and emotionally scarred men who happen to be exceptionally good at what they do. Their banter is sharp, their arguments feel real, and when they have each other's backs, it carries weight because you know what they've been through together.</p>
+        <p>The international settings give the show a scale that most military dramas don't attempt. One episode might be in Bangkok, the next in Moscow, then Lebanon, then South Africa. The locations aren't just backdrops. They shape the missions, the threats, and the strategies. That constant shift keeps the show from falling into formula.</p>
+        <p>Strike Back also understands pacing. Episodes are structured like mini-action films, with escalating tension, sudden betrayals, and climactic shootouts that feel earned rather than gratuitous. The show knows when to slow down for character moments and when to hit the gas. That balance between action and emotion is what keeps it from becoming empty spectacle.</p>
+      </div>
+    </div>
+  </article>
 
-<article class="show">
-  <h2>4) The Shooter</h2>
-  <div class="submeta">Sniper Precision • Conspiracy • Justice</div>
-  <div class="text">
-    <p>The Shooter (based on the Bob Lee Swagger novels and the 2007 film) is a show about precision, paranoia, and what happens when a highly trained sniper realizes he's been used as a pawn in a conspiracy that goes all the way to the top. It's not a traditional military show. This is one man against a corrupt system, using the skills he learned in service to dismantle the people who tried to destroy him.</p>
-    <p>Bob Lee Swagger is a former Marine Scout Sniper who walked away from the job after a mission went wrong. He's living off the grid, trying to leave the war behind, when he's pulled back in by a government request to help prevent an assassination. Except it's a setup. Swagger is framed for a murder he didn't commit, and suddenly he's a fugitive hunted by the same government he once served. The show becomes a cat-and-mouse game where Swagger has to use every tactical skill he has, marksmanship, surveillance, strategy, to stay alive and uncover the truth.</p>
-    <p>What makes The Shooter compelling is that it's not just about action. It's about trust, betrayal, and the realization that the institutions you believed in might be the ones trying to kill you. Swagger isn't a superhero. He's a man who's good at one thing, long-range precision shooting, and he has to leverage that skill in a world where everyone has more resources, more allies, and more legal authority than he does. The tension comes from watching him operate in the shadows, always outnumbered, always one step away from capture.</p>
-    <p>The show takes sniping seriously. It's not just point-and-shoot. There's math involved, wind speed, elevation, distance, bullet drop. Swagger has to account for variables that would make most people's heads spin, and the show doesn't dumb it down. When he takes a shot, you see the preparation, the calculation, the patience required to wait for the perfect moment. That attention to detail makes the action feel earned rather than convenient.</p>
-    <p>The conspiracy at the heart of The Shooter is layered and political. It involves government officials, private military contractors, and shadowy figures with agendas that don't care about collateral damage. As Swagger peels back the layers, he realizes the corruption runs deeper than one bad actor. It's systemic, entrenched, and protected by people who will kill to keep it hidden. The show doesn't offer easy resolutions. Even when Swagger wins a round, the system adapts, regroups, and comes at him again.</p>
-    <p>One of the show's strengths is how it handles Swagger's support network. His wife, Julie, isn't a passive character waiting at home. She's resourceful, sharp, and willing to take risks to help him. Isaac Johnson, a former Marine brother-in-arms, becomes an unlikely ally despite being on the other side of the law. These relationships add emotional stakes to the action. Swagger isn't just fighting to clear his name. He's fighting to protect the people he cares about, who are now in danger because of him.</p>
-    <p>The Shooter is for viewers who want military action grounded in real skills but wrapped in a conspiracy thriller framework. It's not about teams or units. It's about one highly trained individual using everything he knows to survive, expose the truth, and take down the people who thought they could use him and throw him away. It's tense, smart, and relentless in its pacing.</p>
-  </div>
-  <div class="posterWrap">
-    <div class="poster">
-      <img src="assets/posters/tv/shooter.jpeg" alt="The Shooter poster"
-        onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+  <article class="show">
+    <div class="show-poster">
+      <div class="show-poster-frame">
+        <img src="assets/posters/tv/shooter.jpeg" alt="The Shooter poster" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
+      </div>
     </div>
-  </div>
-</article>
+    <div class="show-info">
+      <div class="show-num">04 of 05</div>
+      <h2>The Shooter</h2>
+      <div class="show-meta">Sniper Precision · Conspiracy · Justice</div>
+      <div class="show-body">
+        <p>The Shooter is a show about precision, paranoia, and what happens when a highly trained sniper realizes he's been used as a pawn in a conspiracy that goes all the way to the top. This is one man against a corrupt system, using the skills he learned in service to dismantle the people who tried to destroy him.</p>
+        <p>Bob Lee Swagger is a former Marine Scout Sniper living off the grid, trying to leave the war behind, when he's pulled back in by a government request to help prevent an assassination. Except it's a setup. Framed for a murder he didn't commit, he's suddenly a fugitive hunted by the same government he once served. The show becomes a cat-and-mouse game where Swagger has to use every tactical skill he has to stay alive and uncover the truth.</p>
+        <p>The show takes sniping seriously. It's not just point-and-shoot. There's math involved — wind speed, elevation, distance, bullet drop. Swagger has to account for variables that would make most people's heads spin, and the show doesn't dumb it down. When he takes a shot, you see the preparation, the calculation, the patience required to wait for the perfect moment. That attention to detail makes the action feel earned rather than convenient.</p>
+        <p>The conspiracy at the heart of The Shooter is layered and political. It involves government officials, private military contractors, and shadowy figures with agendas that don't care about collateral damage. As Swagger peels back the layers, he realizes the corruption runs deeper than one bad actor — it's systemic, entrenched, and protected by people who will kill to keep it hidden.</p>
+        <p>One of the show's strengths is how it handles Swagger's support network. His wife Julie isn't a passive character waiting at home. Isaac Johnson, a former Marine brother-in-arms, becomes an unlikely ally despite being on the other side of the law. These relationships add emotional stakes to the action. Swagger isn't just fighting to clear his name. He's fighting to protect the people he cares about, who are now in danger because of him.</p>
+      </div>
+    </div>
+  </article>
 
-<article class="show">
-  <h2>5) SEAL Team</h2>
-  <div class="submeta">Elite Ops • Family Strain • Realism</div>
-  <div class="text">
-    <p>SEAL Team is the most emotionally grounded military drama on this list. It's not trying to be flashy. It's not trying to turn special operators into superheroes. It's trying to show what it's actually like to be part of the most elite fighting force in the world and what that costs you, your family, and your mental health.</p>
-    <p>The show follows Bravo Team, led by Jason Hayes (David Boreanaz), as they deploy on high-risk missions around the world. But the real story isn't the missions. It's what happens between them. The psychological toll of constant deployments, the strain on marriages, the guilt of missing your kids' lives, the survivor's guilt when brothers don't come home, the invisible wounds that don't heal. SEAL Team doesn't flinch from any of it.</p>
-    <p>Jason Hayes is the anchor of the show, and he's a perfect example of what happens when you're the best at what you do but it slowly destroys you. He's a warrior, a leader, a tactician, but he's also a man who's missed his daughter's childhood, whose marriage fell apart because he couldn't turn off the operator mindset at home, whose friends are dying and he doesn't know how to process the grief. The show watches him spiral, make bad decisions, push people away, and still show up for the mission because that's all he knows how to do.</p>
-    <p>The team dynamic is one of the show's greatest strengths. These men have been through hell together. They trust each other with their lives, but they also see each other at their worst, angry, scared, broken. The show doesn't shy away from conflict within the team. They argue. They question each other's decisions. They carry resentments. But when the bullets start flying, none of that matters. The bond is real, forged in combat, and it's the only thing that keeps them functional.</p>
-    <p>One of the most impactful aspects of SEAL Team is how it handles PTSD and traumatic brain injuries. The show doesn't treat these as plot devices. They're ongoing realities for multiple characters. Clay Spenser deals with the aftermath of a severe injury and the fear that he'll never be the operator he was. Sonny Quinn struggles with anger, impulse control, and the realization that his brain has been damaged by repeated explosions. The show takes time to show the medical evaluations, the therapy sessions, the denial, the fear of being pulled from active duty. It's not dramatic. It's clinical, slow, and heartbreaking.</p>
-    <p>The missions themselves are well-executed but not the focus. When Bravo Team deploys, the action is intense, realistic, and chaotic. But the show is more interested in the before and after, the intel briefings, the moral questions about rules of engagement, the debriefs where they process what went wrong. There's a scene where Jason is asked to justify a decision he made under fire, and you can see the exhaustion in his eyes. He made the call. People are alive because of it. But he also knows that in a different world, with different variables, it could have gone the other way. That moral weight is what the show cares about.</p>
-    <p>The home-front storylines are just as important as the combat. We see what it's like to be a SEAL wife, raising kids alone, managing crises without support, never knowing if your husband is coming back. We see what it's like to be a SEAL kid, growing up with a dad who's a ghost, who shows up for a few weeks and then disappears again. The show doesn't romanticize military families. It shows the strain, the loneliness, the resentment, and the complicated love that somehow survives all of it.</p>
-    <p>SEAL Team is for viewers who want military action that feels real, who want to see the cost of service, who understand that being the best comes at a price. It's not escapism. It's a hard, honest look at what it means to be part of an elite unit and what you lose in the process. If you're looking for a show that respects the skill, the sacrifice, and the humanity of special operators, this is it.</p>
-  </div>
-  <div class="posterWrap">
-    <div class="poster">
-      <img src="assets/posters/tv/seal-team.jpeg" alt="SEAL Team poster"
-        onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+  <article class="show">
+    <div class="show-poster">
+      <div class="show-poster-frame">
+        <img src="assets/posters/tv/seal-team.jpeg" alt="SEAL Team poster" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
+      </div>
     </div>
+    <div class="show-info">
+      <div class="show-num">05 of 05</div>
+      <h2>SEAL Team</h2>
+      <div class="show-meta">Elite Ops · Family Strain · Realism</div>
+      <div class="show-body">
+        <p>SEAL Team is the most emotionally grounded military drama on this list. It's not trying to be flashy. It's not trying to turn special operators into superheroes. It's trying to show what it's actually like to be part of the most elite fighting force in the world — and what that costs you, your family, and your mental health.</p>
+        <p>Jason Hayes is the anchor of the show, and he's a perfect example of what happens when you're the best at what you do but it slowly destroys you. He's a warrior, a leader, a tactician, but he's also a man who's missed his daughter's childhood, whose marriage fell apart because he couldn't turn off the operator mindset at home, whose friends are dying and he doesn't know how to process the grief.</p>
+        <p>One of the most impactful aspects of SEAL Team is how it handles PTSD and traumatic brain injuries. The show doesn't treat these as plot devices. They're ongoing realities for multiple characters. Clay Spenser deals with the aftermath of a severe injury and the fear that he'll never be the operator he was. Sonny Quinn struggles with anger, impulse control, and the realization that his brain has been damaged by repeated explosions. The show takes time to show the medical evaluations, the therapy sessions, the denial, the fear of being pulled from active duty.</p>
+        <p>The home-front storylines are just as important as the combat. We see what it's like to be a SEAL wife — raising kids alone, managing crises without support, never knowing if your husband is coming back. We see what it's like to be a SEAL kid, growing up with a dad who's a ghost. The show doesn't romanticize military families. It shows the strain, the loneliness, the resentment, and the complicated love that somehow survives all of it.</p>
+        <p>SEAL Team is for viewers who want military action that feels real, who want to see the cost of service, who understand that being the best comes at a price. It's not escapism. It's a hard, honest look at what it means to be part of an elite unit and what you lose in the process.</p>
+      </div>
+    </div>
+  </article>
+
+  <div class="closing">
+    <a href="editorials.html" class="closing-back">← All Editorials</a>
   </div>
-</article>
 
 </main>
 </body>
