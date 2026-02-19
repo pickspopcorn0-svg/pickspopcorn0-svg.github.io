@@ -1,14 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Isekai Anime Worth Your Time .  Popcorn Picks</title>
+<title>Isekai Anime Worth Your Time · Popcorn Picks</title>
+<meta name="description" content="Eight isekai picks with real world-building, characters who grow beyond their gimmicks, and stakes that feel earned." />
+<link rel="canonical" href="https://popcornpicks.in/isekai-anime.html" />
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
-        crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800" crossorigin="anonymous"></script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -16,280 +19,398 @@
   gtag('config', 'G-XZ94ZK9JN4');
 </script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  background:#0b0b0c;color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+:root {
+  --ink: #f2ede4;
+  --ink-dim: #9e9890;
+  --ink-muted: #5e574e;
+  --paper: #0c0b09;
+  --rule: rgba(242,237,228,0.08);
+  --rule-strong: rgba(242,237,228,0.13);
+  --accent: #c4956e;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'DM Mono', monospace;
 }
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
 
-.topbar{
-  position:sticky;top:0;z-index:50;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:16px 20px;
-  background:rgba(10,10,10,.88);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid #222;
-}
-.navLeft{display:flex;gap:10px;align-items:center;}
-.navBtn{
-  font-size:13px;color:#d0d0d0;padding:7px 14px;border-radius:999px;
-  border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);transition:.15s ease;
-}
-.navBtn:hover{color:#fff;border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.08);}
-.brand{font-weight:650;letter-spacing:.5px;font-size:14px}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
-.hero{
-  min-height:68vh;
-  display:flex;align-items:center;
-  padding:72px 22px 54px;
-  position:relative;overflow:hidden;
-  border-bottom:1px solid #1f1f1f;
-  background:#0b0b0c;
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
-.hero::before{
-  content:"";position:absolute;inset:0;
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* TOPBAR */
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 28px;
+  background: rgba(12,11,9,0.93);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--rule);
+}
+.brand { font-family: var(--serif); font-weight: 700; font-size: 15px; letter-spacing: .04em; }
+.back {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-muted); transition: color .2s;
+}
+.back:hover { color: var(--accent); }
+
+/* HERO */
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('assets/posters/anime/saga-of-tanya-the-evil.jpeg') center/cover no-repeat;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 10% 40%, rgba(100,180,255,.13), transparent 60%),
-    radial-gradient(ellipse 60% 80% at 90% 20%, rgba(200,100,255,.11), transparent 60%),
-    radial-gradient(ellipse 50% 50% at 50% 100%, rgba(255,150,100,.09), transparent 55%);
-  animation:heroShift 10s ease-in-out infinite alternate;
+    linear-gradient(to bottom,
+      rgba(12,11,9,0.22) 0%,
+      rgba(12,11,9,0.08) 22%,
+      rgba(12,11,9,0.68) 60%,
+      rgba(12,11,9,0.98) 100%),
+    linear-gradient(110deg, rgba(196,149,110,0.05) 0%, transparent 52%);
 }
-@keyframes heroShift{
-  0%{opacity:.7;transform:scale(1)}
-  100%{opacity:1;transform:scale(1.04)}
+.hero-bg::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-size: 120px; opacity: .6;
 }
-.hero::after{
-  content:"";position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-  background-size:60px 60px;
-  mask-image:linear-gradient(to bottom, transparent, rgba(0,0,0,.6) 30%, rgba(0,0,0,.6) 70%, transparent);
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 960px; margin: 0 auto; width: 100%;
+  padding: 0 28px 68px;
 }
-.heroInner{max-width:980px;width:100%;margin:0 auto;position:relative;z-index:2;}
-.kicker{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:11px;letter-spacing:.22em;text-transform:uppercase;
-  color:#eaeaea;padding:8px 12px;border-radius:999px;
-  border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.04);
+.hero-eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+.eyebrow-line { width: 36px; height: 1px; background: var(--accent); opacity: .6; }
+.section-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--accent);
 }
-.kickerDot{
-  width:7px;height:7px;border-radius:50%;
-  background:rgba(100,180,255,.95);box-shadow:0 0 10px rgba(100,180,255,.6);
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(34px, 6vw, 74px);
+  font-weight: 900; line-height: 1.02; letter-spacing: -.03em; color: var(--ink);
 }
-.hero h1{
-  margin-top:20px;font-size:54px;line-height:1.05;
-  letter-spacing:-.03em;max-width:20ch;
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero-dek {
+  margin-top: 18px; max-width: 56ch;
+  font-size: 17px; font-weight: 300; font-style: italic;
+  color: var(--ink-dim); line-height: 1.72;
 }
-.hero h1 em{
-  font-style:normal;
-  background:linear-gradient(90deg,rgba(100,180,255,1),rgba(200,100,255,1));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+.hero-tags {
+  margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--rule);
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
 }
-.hero p{margin-top:16px;max-width:64ch;color:#c8c8c8;line-height:1.8;font-size:16px;}
-.heroBadges{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
-.heroBadge{
-  font-size:12px;padding:6px 14px;border-radius:999px;
-  border:1px solid rgba(255,255,255,.12);
-  background:rgba(255,255,255,.05);
-  color:rgba(255,255,255,.7);letter-spacing:.04em;
+.hero-tag {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--ink-muted);
+  border: 1px solid var(--rule-strong); padding: 6px 12px; border-radius: 99px;
 }
-.metaLine{margin-top:20px;color:#9a9a9a;font-size:12px;letter-spacing:.08em;text-transform:uppercase;}
-
-.wrap{max-width:980px;margin:0 auto;padding:46px 22px 90px;}
-
-.show{
-  padding:26px 22px;border:1px solid #181818;border-radius:20px;
-  background:rgba(255,255,255,.02);margin-bottom:26px;
-}
-.show h2{font-size:32px;letter-spacing:-.02em;line-height:1.12;color:#ffffff;font-weight:800;}
-.submeta{margin-top:10px;color:#a9a9a9;font-size:13px;line-height:1.5;}
-.text{margin-top:14px;max-width:78ch;}
-.text p{color:#d7d7d7;line-height:1.9;font-size:16px;margin:0 0 14px 0;}
-
-.posterWrap{margin-top:18px;display:flex;justify-content:center;}
-.poster{
-  width:min(420px,100%);border-radius:18px;overflow:hidden;
-  border:1px solid #232323;background:#111;
-}
-.poster img{width:100%;height:auto;}
-.posterFallback{
-  padding:44px 18px;text-align:center;color:#9a9a9a;font-size:13px;border-top:1px solid #1b1b1b;
+.hero-tag-count {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--accent);
+  border: 1px solid rgba(196,149,110,0.3); padding: 6px 12px; border-radius: 99px;
 }
 
-@media(max-width:760px){
-  .hero h1{font-size:36px}
-  .show{padding:22px 16px}
-  .show h2{font-size:24px}
-  .topbar{padding:14px 14px}
+.fade-up { opacity: 0; transform: translateY(20px); animation: fadeUp .7s ease forwards; }
+.fade-up:nth-child(2) { animation-delay: .1s; }
+.fade-up:nth-child(3) { animation-delay: .22s; }
+.fade-up:nth-child(4) { animation-delay: .34s; }
+@keyframes fadeUp { to { opacity: 1; transform: none; } }
+
+/* PAGE */
+.page-wrap { max-width: 960px; margin: 0 auto; padding: 64px 28px 110px; }
+
+/* INTRO */
+.intro-block {
+  max-width: 66ch;
+  margin-bottom: 56px;
+  padding-bottom: 44px;
+  border-bottom: 1px solid var(--rule);
+}
+.intro-block p {
+  font-size: 17px; line-height: 1.95; color: #c5bfb3;
+  margin-bottom: 20px; font-weight: 300;
+}
+.intro-block p:last-child { margin-bottom: 0; }
+
+/* SHOW ENTRIES */
+.show {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  padding: 36px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.show:last-of-type { border-bottom: none; }
+
+.show-poster { flex-shrink: 0; }
+.show-poster img {
+  width: 100%; border-radius: 4px; display: block;
+  border: 1px solid var(--rule-strong);
+}
+.show-poster-placeholder {
+  width: 100%; aspect-ratio: 2/3;
+  background: rgba(255,255,255,0.03);
+  border-radius: 4px; border: 1px solid var(--rule);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 10px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-muted);
+}
+
+.show-num {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
+}
+.show h2 {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.5vw, 27px);
+  font-weight: 700; line-height: 1.15; letter-spacing: -.02em;
+  color: var(--ink); margin-bottom: 8px;
+}
+.show-meta {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--ink-muted);
+  margin-bottom: 20px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+}
+.show-body p {
+  font-size: 16px; line-height: 1.95; color: #b8b2a8;
+  margin-bottom: 16px; font-weight: 300;
+}
+.show-body p:last-child { margin-bottom: 0; }
+.show-body em { font-style: italic; color: #ccc7be; }
+
+/* CLOSING */
+.closing {
+  margin-top: 64px; padding-top: 28px;
+  border-top: 1px solid var(--rule);
+}
+.closing-back {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-muted); transition: color .2s;
+}
+.closing-back:hover { color: var(--accent); }
+
+/* RESPONSIVE */
+@media (max-width: 680px) {
+  .topbar { padding: 12px 18px; }
+  .hero-content { padding: 0 18px 52px; }
+  .page-wrap { padding: 44px 18px 80px; }
+  .show { grid-template-columns: 1fr; gap: 18px; padding: 28px 0; }
+  .show-poster { max-width: 160px; }
+  .intro-block { margin-bottom: 36px; padding-bottom: 32px; }
+}
+
+@media (min-width: 681px) and (max-width: 960px) {
+  .show { grid-template-columns: 160px 1fr; gap: 24px; }
+  .hero-content { padding: 0 22px 60px; }
+  .page-wrap { padding: 52px 22px 90px; }
 }
 </style>
+
 </head>
+
 <body>
 
 <div class="topbar">
-  <div class="navLeft">
-    <a class="navBtn" href="editorials.html">← Editorials</a>
-    <a class="navBtn" href="index.html">Home</a>
-  </div>
+  <a class="back" href="editorials.html">← Editorials</a>
   <div class="brand">Popcorn Picks</div>
-  <div style="width:120px"></div>
+  <div style="width:64px"></div>
 </div>
 
 <header class="hero">
-  <div class="heroInner">
-    <span class="kicker"><span class="kickerDot"></span>Editorial • Anime • Isekai</span>
-    <h1><em>Isekai Anime</em> Worth Your Time</h1>
-    <p>
-      Isekai, the genre of being transported to another world, has exploded in popularity, flooding the market with endless variations on the same premise.
-      But buried in the avalanche of generic fantasy worlds are stories that actually earn your attention.
-    </p>
-    <p>
-      These eight picks understand what makes isekai work: real world-building, characters who grow beyond their gimmicks, and stakes that feel earned.
-      Not just "reincarnated with cheats" templates. These are shows with identity, momentum, and rewatch value.
-    </p>
-    <div class="heroBadges">
-      <span class="heroBadge">Transported</span>
-      <span class="heroBadge">Fantasy Worlds</span>
-      <span class="heroBadge">Power Systems</span>
-      <span class="heroBadge">Survival</span>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow fade-up">
+      <div class="eyebrow-line"></div>
+      <span class="section-label">Editorial · Anime · Isekai</span>
     </div>
-    <div class="metaLine">Popcorn Picks • 8 Picks</div>
+    <h1 class="fade-up"><em>Isekai Anime</em><br>Worth Your Time</h1>
+    <p class="hero-dek fade-up">
+      Buried in the avalanche of generic fantasy worlds are stories that actually earn your attention. These eight know what makes isekai work.
+    </p>
+    <div class="hero-tags fade-up">
+      <span class="hero-tag-count">8 Picks</span>
+      <span class="hero-tag">Transported</span>
+      <span class="hero-tag">Fantasy Worlds</span>
+      <span class="hero-tag">Power Systems</span>
+      <span class="hero-tag">Survival</span>
+    </div>
   </div>
 </header>
 
-<main class="wrap">
+<main class="page-wrap">
+
+<div class="intro-block">
+  <p>
+    Isekai, the genre of being transported to another world, has exploded in popularity, flooding the market with endless variations on the same premise. But buried in the avalanche of generic fantasy worlds are stories that actually earn your attention.
+  </p>
+  <p>
+    These eight picks understand what makes isekai work: real world-building, characters who grow beyond their gimmicks, and stakes that feel earned. Not just "reincarnated with cheats" templates. These are shows with identity, momentum, and rewatch value.
+  </p>
+</div>
 
   <article class="show">
-    <h2>1) The Eminence in Shadow</h2>
-    <div class="submeta">Parody • Chuunibyou • Accidental Mastermind</div>
-    <div class="text">
-      <p>The Eminence in Shadow is what happens when an isekai protagonist isn't chasing heroism. He's chasing the perfect "mastermind in the shadows" fantasy. Cid is reincarnated into a world of magic and immediately starts roleplaying as a secret puppet-master fighting a fake cult, except the cult is real, the conspiracy is real, and his nonsense "plans" keep landing as prophecy.</p>
-      <p>The series works because of relentless dramatic irony. Cid thinks everything is performance art. His followers treat every word like strategy. He improvises, they execute with terrifying competence, and the world bends around the persona he's trying to build. It's both a parody of edgy power fantasies and an edgy power fantasy that actually delivers when the action hits.</p>
-      <p>What makes it addictive is commitment. The show never half-commits to comedy or spectacle. It does both. When Cid decides to be dramatic, the animation ramps up, the stakes spike, and the show lets him look absurdly cool while still being the joke. If you want isekai that knows the genre inside-out and still has real entertainment value, this is the one.</p>
+    <div class="show-poster">
+      <img src="assets/posters/anime/the-eminence-in-shadow.jpeg" alt="The Eminence in Shadow poster" loading="lazy"
+        onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
     </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/anime/the-eminence-in-shadow.jpeg" alt="The Eminence in Shadow poster"
-          onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+    <div class="show-info">
+      <div class="show-num">01 of 08</div>
+      <h2>The Eminence in Shadow</h2>
+      <div class="show-meta">Parody · Chuunibyou · Accidental Mastermind</div>
+      <div class="show-body">
+        <p>The Eminence in Shadow is what happens when an isekai protagonist isn't chasing heroism. He's chasing the perfect "mastermind in the shadows" fantasy. Cid is reincarnated into a world of magic and immediately starts roleplaying as a secret puppet-master fighting a fake cult, except the cult is real, the conspiracy is real, and his nonsense "plans" keep landing as prophecy.</p>
+        <p>The series works because of relentless dramatic irony. Cid thinks everything is performance art. His followers treat every word like strategy. He improvises, they execute with terrifying competence, and the world bends around the persona he's trying to build. It's both a parody of edgy power fantasies and an edgy power fantasy that actually delivers when the action hits.</p>
+        <p>What makes it addictive is commitment. The show never half-commits to comedy or spectacle. It does both. When Cid decides to be dramatic, the animation ramps up, the stakes spike, and the show lets him look absurdly cool while still being the joke. If you want isekai that knows the genre inside-out and still has real entertainment value, this is the one.</p>
       </div>
     </div>
   </article>
 
   <article class="show">
-    <h2>2) Saga of Tanya the Evil</h2>
-    <div class="submeta">Military Strategy • Morally Gray Protagonist • Alternate History</div>
-    <div class="text">
-      <p>Saga of Tanya the Evil is isekai at its most cynical and sharp. A ruthless salaryman dies, insults a godlike entity, and is reincarnated as a little girl in an alternate war-torn world, explicitly so the universe can break him into faith. Tanya's response is pure spite: climb the military ladder, win decisively, and secure a safe desk job far from the front, except every victory gets her promoted deeper into the war.</p>
-      <p>What separates Tanya is tone and execution. This isn't fantasy adventure. It's an ugly, tactical war story where magic functions like military technology. Battles feel like strategy, logistics, and pressure, not just flashy combat. Tanya isn't heroic; she's efficient, calculating, and terrifyingly rational, and the show doesn't try to soften that.</p>
-      <p>The real hook is the philosophical grudge match. Tanya refuses to "learn the lesson," and the world keeps escalating around her. If you want isekai that feels ruthless, intelligent, and genuinely different from the usual template, Tanya is essential.</p>
+    <div class="show-poster">
+      <img src="assets/posters/anime/saga-of-tanya-the-evil.jpeg" alt="Saga of Tanya the Evil poster" loading="lazy"
+        onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
     </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/anime/saga-of-tanya-the-evil.jpeg" alt="Saga of Tanya the Evil poster"
-          onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+    <div class="show-info">
+      <div class="show-num">02 of 08</div>
+      <h2>Saga of Tanya the Evil</h2>
+      <div class="show-meta">Military Strategy · Morally Gray Protagonist · Alternate History</div>
+      <div class="show-body">
+        <p>Saga of Tanya the Evil is isekai at its most cynical and sharp. A ruthless salaryman dies, insults a godlike entity, and is reincarnated as a little girl in an alternate war-torn world, explicitly so the universe can break him into faith. Tanya's response is pure spite: climb the military ladder, win decisively, and secure a safe desk job far from the front, except every victory gets her promoted deeper into the war.</p>
+        <p>What separates Tanya is tone and execution. This isn't fantasy adventure. It's an ugly, tactical war story where magic functions like military technology. Battles feel like strategy, logistics, and pressure, not just flashy combat. Tanya isn't heroic; she's efficient, calculating, and terrifyingly rational, and the show doesn't try to soften that.</p>
+        <p>The real hook is the philosophical grudge match. Tanya refuses to "learn the lesson," and the world keeps escalating around her. If you want isekai that feels ruthless, intelligent, and genuinely different from the usual template, Tanya is essential.</p>
       </div>
     </div>
   </article>
 
   <article class="show">
-    <h2>3) King From Now On!</h2>
-    <div class="submeta">Classic Isekai • Comedy • Demon Kingdom Politics</div>
-    <div class="text">
-      <p>King From Now On! is a classic isekai from before the genre became an assembly line. Yuri Shibuya is an ordinary high school student who's suddenly transported to another world after a bizarre accident and immediately declared the prophesied Demon King.</p>
-      <p>The series plays isekai differently: less "power fantasy," more long-form character growth. Yuri isn't overpowered. He survives through stubborn decency, negotiation, and learning how power actually works. The demon kingdom has real political pressure, internal factions, and historical resentment toward humans, so ruling isn't a victory lap, it's a mess he has to understand.</p>
-      <p>It's funny, warm, and surprisingly serious when it needs to be. If you want a character-driven isekai with found-family vibes and a slower, older-school feel, this is a great change of pace.</p>
+    <div class="show-poster">
+      <img src="assets/posters/anime/king-from-now-on.jpeg" alt="King From Now On! poster" loading="lazy"
+        onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
     </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/anime/king-from-now-on.jpeg" alt="King From Now On! poster"
-          onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+    <div class="show-info">
+      <div class="show-num">03 of 08</div>
+      <h2>King From Now On!</h2>
+      <div class="show-meta">Classic Isekai · Comedy · Demon Kingdom Politics</div>
+      <div class="show-body">
+        <p>King From Now On! is a classic isekai from before the genre became an assembly line. Yuri Shibuya is an ordinary high school student who's suddenly transported to another world after a bizarre accident and immediately declared the prophesied Demon King.</p>
+        <p>The series plays isekai differently: less "power fantasy," more long-form character growth. Yuri isn't overpowered. He survives through stubborn decency, negotiation, and learning how power actually works. The demon kingdom has real political pressure, internal factions, and historical resentment toward humans, so ruling isn't a victory lap, it's a mess he has to understand.</p>
+        <p>It's funny, warm, and surprisingly serious when it needs to be. If you want a character-driven isekai with found-family vibes and a slower, older-school feel, this is a great change of pace.</p>
       </div>
     </div>
   </article>
 
   <article class="show">
-    <h2>4) Welcome to Demon School! Iruma-kun</h2>
-    <div class="submeta">Comedy • Found Family • Wholesome Chaos</div>
-    <div class="text">
-      <p>Iruma-kun is the antidote to grim, edgy isekai. Iruma is a sweet human kid whose awful parents literally sell him to a demon, and instead of being eaten, he gets adopted. Now he's attending demon school while hiding the fact that he's human, because one slip could get him devoured.</p>
-      <p>The comedy is consistent, but what makes it special is warmth. Iruma's life was built on being used; demon school becomes the first place where people actually care about him. The friendships feel earned, the "found family" core lands, and the show keeps a light tone without feeling empty.</p>
-      <p>If you want isekai energy without the usual power-trip vibe, something funny, kind, and addictive, Iruma-kun is an easy recommendation.</p>
+    <div class="show-poster">
+      <img src="assets/posters/anime/welcome-to-demon-school-iruma-kun.jpeg" alt="Welcome to Demon School! Iruma-kun poster" loading="lazy"
+        onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
     </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/anime/welcome-to-demon-school-iruma-kun.jpeg" alt="Welcome to Demon School! Iruma-kun poster"
-          onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+    <div class="show-info">
+      <div class="show-num">04 of 08</div>
+      <h2>Welcome to Demon School! Iruma-kun</h2>
+      <div class="show-meta">Comedy · Found Family · Wholesome Chaos</div>
+      <div class="show-body">
+        <p>Iruma-kun is the antidote to grim, edgy isekai. Iruma is a sweet human kid whose awful parents literally sell him to a demon, and instead of being eaten, he gets adopted. Now he's attending demon school while hiding the fact that he's human, because one slip could get him devoured.</p>
+        <p>The comedy is consistent, but what makes it special is warmth. Iruma's life was built on being used; demon school becomes the first place where people actually care about him. The friendships feel earned, the "found family" core lands, and the show keeps a light tone without feeling empty.</p>
+        <p>If you want isekai energy without the usual power-trip vibe, something funny, kind, and addictive, Iruma-kun delivers.</p>
       </div>
     </div>
   </article>
 
   <article class="show">
-    <h2>5) The Rising of the Shield Hero</h2>
-    <div class="submeta">Betrayal • Redemption • Defensive Combat</div>
-    <div class="text">
-      <p>Shield Hero opens with one of the harshest starts in mainstream isekai. Naofumi is summoned as a legendary hero, immediately betrayed, framed, and thrown away by the kingdom that needed him. With no allies and no reputation, he's forced to survive using the only weapon he has: a shield built for defense, not glory.</p>
-      <p>What makes it work is the emotional progression. Naofumi doesn't bounce back like a standard power fantasy lead. He becomes bitter, paranoid, and closed off. The story is at its best when it focuses on rebuilding trust and forming a small, loyal "family" out of shared struggle rather than instant admiration.</p>
-      <p>And because he can't attack, fights lean into tactics, timing, and teamwork. Even when later arcs get uneven, the core premise is strong: survival first, heroism later, if at all.</p>
+    <div class="show-poster">
+      <img src="assets/posters/anime/the-rising-of-the-shield-hero.jpeg" alt="The Rising of the Shield Hero poster" loading="lazy"
+        onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
     </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/anime/the-rising-of-the-shield-hero.jpeg" alt="The Rising of the Shield Hero poster"
-          onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+    <div class="show-info">
+      <div class="show-num">05 of 08</div>
+      <h2>The Rising of the Shield Hero</h2>
+      <div class="show-meta">Betrayal · Redemption · Defensive Combat</div>
+      <div class="show-body">
+        <p>Shield Hero opens with one of the harshest starts in mainstream isekai. Naofumi is summoned as a legendary hero, immediately betrayed, framed, and thrown away by the kingdom that needed him. With no allies and no reputation, he's forced to survive using the only weapon he has: a shield built for defense, not glory.</p>
+        <p>What makes it work is the emotional progression. Naofumi doesn't bounce back like a standard power fantasy lead. He becomes bitter, paranoid, and closed off. The story is at its best when it focuses on rebuilding trust and forming a small, loyal "family" out of shared struggle rather than instant admiration.</p>
+        <p>And because he can't attack, fights lean into tactics, timing, and teamwork. Even when later arcs get uneven, the core premise is strong: survival first, heroism later, if at all.</p>
       </div>
     </div>
   </article>
 
   <article class="show">
-    <h2>6) That Time I Got Reincarnated as a Slime</h2>
-    <div class="submeta">World-Building • Nation Building • Big Power, Calm Tone</div>
-    <div class="text">
-      <p>Slime is the rare isekai that feels genuinely comforting while still expanding into something huge. Rimuru starts as one of the weakest possible forms, a slime, but quickly becomes the center of a growing world, not by brute force alone, but by building a place where outcasts and monsters can live without being hunted.</p>
-      <p>What makes it stand out is the "builder" mindset. Instead of endless school arcs or dungeon grinding, Slime leans into community, politics, alliances, and growth over time. The story is basically: if someone had the power to reshape a fantasy world, would they conquer it, or organize it?</p>
-      <p>It's light when it wants to be, hype when it needs to be, and surprisingly satisfying if you enjoy progression that's about creating something, not just winning fights.</p>
+    <div class="show-poster">
+      <img src="assets/posters/anime/anime-that-time-i-got-reincarnated-as-a-slime-poster.jpg.JPG" alt="That Time I Got Reincarnated as a Slime poster" loading="lazy"
+        onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
     </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/anime/anime-that-time-i-got-reincarnated-as-a-slime-poster.jpg.JPG" alt="That Time I Got Reincarnated as a Slime poster"
-          onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+    <div class="show-info">
+      <div class="show-num">06 of 08</div>
+      <h2>That Time I Got Reincarnated as a Slime</h2>
+      <div class="show-meta">World-Building · Nation Building · Big Power, Calm Tone</div>
+      <div class="show-body">
+        <p>Slime is the rare isekai that feels genuinely comforting while still expanding into something huge. Rimuru starts as one of the weakest possible forms, a slime, but quickly becomes the center of a growing world, not by brute force alone, but by building a place where outcasts and monsters can live without being hunted.</p>
+        <p>What makes it stand out is the "builder" mindset. Instead of endless school arcs or dungeon grinding, Slime leans into community, politics, alliances, and growth over time. The story is basically: if someone had the power to reshape a fantasy world, would they conquer it, or organize it?</p>
+        <p>It's light when it wants to be, hype when it needs to be, and surprisingly satisfying if you enjoy progression that's about creating something, not just winning fights.</p>
       </div>
     </div>
   </article>
 
   <article class="show">
-    <h2>7) Overlord</h2>
-    <div class="submeta">Villain Protagonist • World Domination • Dark Comedy</div>
-    <div class="text">
-      <p>Overlord flips the usual isekai morality on its head. Ainz is trapped in his MMO avatar, an undead overlord, right as the game ends, and instead of searching for a way home, he decides to conquer the world with his legendary guild base and servants who treat him like a god.</p>
-      <p>The fun is the contrast: Ainz is overpowered, but he's also improvising constantly. His followers assume every vague line is a master plan. He panics internally while they execute with ruthless precision. The series doesn't pretend he's a hero; it leans into the unsettling reality of what happens when the "main character" stops caring about humanity.</p>
-      <p>If you want isekai that's darker, smarter, and willing to commit to the villain angle, Overlord hits.</p>
+    <div class="show-poster">
+      <img src="assets/posters/anime/overlord.jpeg" alt="Overlord poster" loading="lazy"
+        onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
     </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/anime/overlord.jpeg" alt="Overlord poster"
-          onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+    <div class="show-info">
+      <div class="show-num">07 of 08</div>
+      <h2>Overlord</h2>
+      <div class="show-meta">Villain Protagonist · World Domination · Dark Comedy</div>
+      <div class="show-body">
+        <p>Overlord flips the usual isekai morality on its head. Ainz is trapped in his MMO avatar, an undead overlord, right as the game ends, and instead of searching for a way home, he decides to conquer the world with his legendary guild base and servants who treat him like a god.</p>
+        <p>The fun is the contrast: Ainz is overpowered, but he's also improvising constantly. His followers assume every vague line is a master plan. He panics internally while they execute with ruthless precision. The series doesn't pretend he's a hero; it leans into the unsettling reality of what happens when the "main character" stops caring about humanity.</p>
+        <p>If you want isekai that's darker, smarter, and willing to commit to the villain angle, Overlord hits.</p>
       </div>
     </div>
   </article>
 
   <article class="show">
-    <h2>8) Tsukimichi: Moonlit Fantasy</h2>
-    <div class="submeta">Outcast Protagonist • Monster Allies • Anti-Hero Journey</div>
-    <div class="text">
-      <p>Tsukimichi starts with an isekai premise that's almost cruel: Makoto is summoned to be a hero, but the goddess takes one look at him, calls him ugly, and banishes him to the edge of the world. No welcome. No status. Just a teenager dumped into the wilderness and told he doesn't belong among humans.</p>
-      <p>What makes it work is the direction Makoto chooses. He doesn't beg for acceptance. He builds his own life away from human society, forming alliances with monsters and outcasts who don't care about appearance or divine approval. The tone stays lighter than the premise suggests, but it still has a satisfying backbone: self-worth, independence, and making a home where the world denied you one.</p>
-      <p>If you like "overpowered but not arrogant," found-family dynamics, and a protagonist who quietly refuses the role he was assigned, Tsukimichi is a strong pick.</p>
+    <div class="show-poster">
+      <img src="assets/posters/anime/tsukimichi-moonlit-fantasy.jpeg" alt="Tsukimichi: Moonlit Fantasy poster" loading="lazy"
+        onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
     </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/anime/tsukimichi-moonlit-fantasy.jpeg" alt="Tsukimichi: Moonlit Fantasy poster"
-          onerror="this.remove(); this.parentElement.innerHTML += '<div class=&quot;posterFallback&quot;>Poster coming soon</div>';">
+    <div class="show-info">
+      <div class="show-num">08 of 08</div>
+      <h2>Tsukimichi: Moonlit Fantasy</h2>
+      <div class="show-meta">Outcast Protagonist · Monster Allies · Anti-Hero Journey</div>
+      <div class="show-body">
+        <p>Tsukimichi starts with an isekai premise that's almost cruel: Makoto is summoned to be a hero, but the goddess takes one look at him, calls him ugly, and banishes him to the edge of the world. No welcome. No status. Just a teenager dumped into the wilderness and told he doesn't belong among humans.</p>
+        <p>What makes it work is the direction Makoto chooses. He doesn't beg for acceptance. He builds his own life away from human society, forming alliances with monsters and outcasts who don't care about appearance or divine approval. The tone stays lighter than the premise suggests, but it still has a satisfying backbone: self-worth, independence, and making a home where the world denied you one.</p>
+        <p>If you like "overpowered but not arrogant," found-family dynamics, and a protagonist who quietly refuses the role he was assigned, Tsukimichi is a strong pick.</p>
       </div>
     </div>
   </article>
+
+  <div class="closing">
+    <a href="editorials.html" class="closing-back">← All Editorials</a>
+  </div>
 
 </main>
 </body>
