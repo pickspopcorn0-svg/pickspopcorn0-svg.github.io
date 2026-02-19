@@ -1,14 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>International Films That Won the Oscar: The Last Decade — Popcorn Picks</title>
+<title>International Films That Won the Oscar: The Last Decade · Popcorn Picks</title>
+<meta name="description" content="Eight international films that won the Oscar for Best International Feature Film over the last decade. Why each one is worth your time regardless of the trophy." />
+<link rel="canonical" href="https://popcornpicks.in/oscar-international-films.html" />
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
-  crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800" crossorigin="anonymous"></script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -16,234 +19,444 @@
   gtag('config', 'G-XZ94ZK9JN4');
 </script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  background:#0b0b0c;color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+:root {
+  --ink: #f2ede4;
+  --ink-dim: #9e9890;
+  --ink-muted: #5e574e;
+  --paper: #0c0b09;
+  --rule: rgba(242,237,228,0.08);
+  --rule-strong: rgba(242,237,228,0.13);
+  --accent: #c4956e;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'DM Mono', monospace;
 }
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
 
-.topbar{
-  position:sticky;top:0;z-index:50;
-  background:rgba(10,10,10,.88);backdrop-filter:blur(10px);border-bottom:1px solid #222;
-}
-.topbarInner{
-  max-width:1100px;margin:0 auto;padding:14px 18px;
-  display:flex;align-items:center;justify-content:space-between;gap:16px;
-}
-.navLeft{display:flex;gap:10px;align-items:center;}
-.navBtn{
-  font-size:13px;color:rgba(255,255,255,.78);padding:7px 14px;border-radius:999px;
-  border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);
-  transition:.15s ease;white-space:nowrap;
-}
-.navBtn:hover{color:#fff;border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.08);}
-.brandCenter{
-  display:flex;align-items:center;gap:10px;font-weight:700;
-  letter-spacing:.2px;justify-content:center;flex:1;font-size:14px;
-}
-.brandDot{
-  width:10px;height:10px;border-radius:50%;
-  background:rgba(255,120,70,.95);box-shadow:0 0 0 4px rgba(255,120,70,.16);
-}
-.navSpacer{width:160px}
-@media(max-width:860px){.navSpacer{width:90px}}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
-.hero{
-  min-height:68vh;display:flex;align-items:flex-end;padding:72px 22px 54px;
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* TOPBAR */
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 28px;
+  background: rgba(12,11,9,0.93);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--rule);
+}
+.brand { font-family: var(--serif); font-weight: 700; font-size: 15px; letter-spacing: .04em; }
+.back {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-muted); transition: color .2s;
+}
+.back:hover { color: var(--accent); }
+
+/* HERO */
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('assets/posters/roma-2018.jpg.jpeg') center center/cover no-repeat;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
   background:
-    radial-gradient(900px 420px at 15% 20%, rgba(255,255,255,.08), transparent 55%),
-    linear-gradient(to bottom, rgba(0,0,0,.22), rgba(11,11,12,.92)),
-    url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=2200&q=80");
-  background-size:cover;background-position:center;border-bottom:1px solid #1f1f1f;
+    linear-gradient(to bottom,
+      rgba(12,11,9,0.18) 0%,
+      rgba(12,11,9,0.06) 22%,
+      rgba(12,11,9,0.65) 58%,
+      rgba(12,11,9,0.98) 100%),
+    linear-gradient(110deg, rgba(196,149,110,0.05) 0%, transparent 52%);
 }
-.heroInner{max-width:980px;width:100%;margin:0 auto;}
-.kicker{
-  display:inline-block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;
-  color:#eaeaea;padding:8px 10px;border-radius:999px;
-  border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.04);
+.hero-bg::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-size: 120px; opacity: .6;
 }
-.hero h1{margin-top:16px;font-size:54px;line-height:1.05;letter-spacing:-.03em;}
-.hero p{margin-top:14px;max-width:78ch;color:#d0d0d0;line-height:1.75;font-size:16px;}
-.metaLine{margin-top:16px;color:#9a9a9a;font-size:12px;letter-spacing:.08em;text-transform:uppercase;}
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 960px; margin: 0 auto; width: 100%;
+  padding: 0 28px 68px;
+}
+.hero-eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+.eyebrow-line { width: 36px; height: 1px; background: var(--accent); opacity: .6; }
+.section-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--accent);
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(32px, 5.5vw, 68px);
+  font-weight: 900; line-height: 1.04; letter-spacing: -.03em; color: var(--ink);
+}
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero-dek {
+  margin-top: 18px; max-width: 56ch;
+  font-size: 17px; font-weight: 300; font-style: italic;
+  color: var(--ink-dim); line-height: 1.72;
+}
+.hero-tags {
+  margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--rule);
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+}
+.hero-tag {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--ink-muted);
+  border: 1px solid var(--rule-strong); padding: 6px 12px; border-radius: 99px;
+}
+.hero-tag-count {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--accent);
+  border: 1px solid rgba(196,149,110,0.3); padding: 6px 12px; border-radius: 99px;
+}
 
-.wrap{max-width:980px;margin:0 auto;padding:46px 22px 90px;}
+.fade-up { opacity: 0; transform: translateY(20px); animation: fadeUp .7s ease forwards; }
+.fade-up:nth-child(2) { animation-delay: .1s; }
+.fade-up:nth-child(3) { animation-delay: .22s; }
+.fade-up:nth-child(4) { animation-delay: .34s; }
+@keyframes fadeUp { to { opacity: 1; transform: none; } }
 
-.show{
-  padding:26px 22px;border:1px solid #181818;border-radius:20px;
-  background:rgba(255,255,255,.02);margin-bottom:26px;
-}
-.show h2{font-size:28px;letter-spacing:-.02em;line-height:1.12;}
-.submeta{margin-top:10px;color:#a9a9a9;font-size:13px;line-height:1.5;}
-.text{margin-top:14px;max-width:78ch;}
-.text p{color:#d7d7d7;line-height:1.9;font-size:16px;margin:0 0 14px 0;}
-.posterWrap{margin-top:18px;display:flex;justify-content:center;}
-.poster{
-  width:min(520px,100%);border-radius:18px;overflow:hidden;
-  border:1px solid #232323;background:#111;
-}
-.note{margin-top:28px;color:#9a9a9a;font-size:13px;line-height:1.7;max-width:78ch;}
+/* PAGE */
+.page-wrap { max-width: 960px; margin: 0 auto; padding: 64px 28px 110px; }
 
-@media(max-width:760px){
-  .hero h1{font-size:40px}
-  .show{padding:22px 16px}
-  .show h2{font-size:24px}
+/* INTRO */
+.intro-block {
+  max-width: 66ch;
+  margin-bottom: 56px;
+  padding-bottom: 44px;
+  border-bottom: 1px solid var(--rule);
+}
+.intro-block p {
+  font-size: 17px; line-height: 1.95; color: #c5bfb3;
+  margin-bottom: 20px; font-weight: 300;
+}
+.intro-block p:last-child { margin-bottom: 0; }
+
+/* SHOW ENTRIES */
+.show {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: start;
+}
+.show:last-of-type { border-bottom: none; }
+
+.show-poster {
+  position: sticky;
+  top: 80px;
+}
+.show-poster-frame {
+  width: 100%;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+.show-poster-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 3px;
+  object-fit: contain;
+}
+.show-poster-placeholder {
+  width: 100%;
+  aspect-ratio: 2/3;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 10px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-muted);
+}
+
+.show-num {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
+}
+.show h2 {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 700; line-height: 1.15; letter-spacing: -.02em;
+  color: var(--ink); margin-bottom: 8px;
+}
+.show-meta {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--ink-muted);
+  margin-bottom: 20px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+}
+.show-body p {
+  font-size: 15.5px; line-height: 1.95; color: #b8b2a8;
+  margin-bottom: 16px; font-weight: 300;
+}
+.show-body p:last-child { margin-bottom: 0; }
+
+/* CLOSING NOTE */
+.closing-note {
+  margin-top: 64px; padding: 28px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+  background: rgba(255,255,255,0.02);
+}
+.closing-note p {
+  font-size: 15px; line-height: 1.9; color: var(--ink-muted); font-weight: 300;
+}
+
+.closing {
+  margin-top: 28px;
+}
+.closing-back {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-muted); transition: color .2s;
+}
+.closing-back:hover { color: var(--accent); }
+
+/* RESPONSIVE */
+@media (max-width: 860px) {
+  .show { grid-template-columns: 180px 1fr; gap: 28px; }
+  .show-poster { position: static; }
+}
+
+@media (max-width: 600px) {
+  .topbar { padding: 12px 18px; }
+  .hero-content { padding: 0 18px 52px; }
+  .page-wrap { padding: 44px 18px 80px; }
+  .show { grid-template-columns: 1fr; gap: 20px; padding: 28px 0; }
+  .show-poster { order: -1; max-width: 200px; margin: 0 auto; }
+  .intro-block { margin-bottom: 36px; padding-bottom: 32px; }
+}
+
+@media (max-width: 760px) and (orientation: landscape) {
+  .show { grid-template-columns: 140px 1fr; gap: 22px; }
+  .show-poster { position: static; max-width: none; margin: 0; }
 }
 </style>
+
 </head>
+
 <body>
 
-<header class="topbar">
-  <div class="topbarInner">
-    <div class="navLeft">
-      <a class="navBtn" href="editorials.html">← Editorials</a>
-      <a class="navBtn" href="index.html">Home</a>
-    </div>
-    <a class="brandCenter" href="index.html" aria-label="Popcorn Picks home">
-      <span class="brandDot"></span>
-      <span>Popcorn Picks</span>
-    </a>
-    <div class="navSpacer" aria-hidden="true"></div>
-  </div>
-</header>
+<div class="topbar">
+  <a class="back" href="editorials.html">← Editorials</a>
+  <div class="brand">Popcorn Picks</div>
+  <div style="width:64px"></div>
+</div>
 
 <header class="hero">
-  <div class="heroInner">
-    <span class="kicker">Editorial • International • Oscars</span>
-    <h1>International Films That Won the Oscar: The Last Decade</h1>
-    <p>
-      An Oscar win does not tell you whether a film is worth watching. But it does tell you something about the moment the world finally paid attention. These are the films that broke through, and why each one is worth your time regardless of the trophy.
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow fade-up">
+      <div class="eyebrow-line"></div>
+      <span class="section-label">Editorial · International · Oscars</span>
+    </div>
+    <h1 class="fade-up">International Films That<br>Won the <em>Oscar</em></h1>
+    <p class="hero-dek fade-up">
+      A win does not tell you whether a film is worth watching. But it tells you something about the moment the world finally paid attention.
     </p>
-    <div class="metaLine">Popcorn Picks • Updated for 2026</div>
+    <div class="hero-tags fade-up">
+      <span class="hero-tag-count">8 Films</span>
+      <span class="hero-tag">The Last Decade</span>
+      <span class="hero-tag">World Cinema</span>
+      <span class="hero-tag">Updated 2026</span>
+    </div>
   </div>
 </header>
 
-<main class="wrap">
+<main class="page-wrap">
+
+<div class="intro-block">
+  <p>
+    An Oscar win does not tell you whether a film is worth watching. But it does tell you something about the moment the world finally paid attention. These are the films that broke through, and why each one is worth your time regardless of the trophy.
+  </p>
+</div>
 
   <article class="show">
-    <h2>1) The Salesman</h2>
-    <div class="submeta">Iran • 2016 • Best Foreign Language Film</div>
-    <div class="text">
-      <p>If you have seen any Farhadi film before, you already know what you are walking into. Moral discomfort without easy exits. The Salesman is built around a single incident that the film never fully reveals, and that ambiguity is deliberate. It forces you to watch what happens to a marriage when the truth becomes less important than protecting one's own sense of self.</p>
-      <p>What makes it worth watching is how it refuses to assign blame cleanly. The husband is not a villain. The wife is not just a victim. Both are people making choices that feel reasonable to them in the moment and increasingly difficult to justify as the film goes on. Farhadi understands that most harm is not done by monsters. It is done by ordinary people who have decided their dignity matters more than someone else's.</p>
-      <p>Start here if you want Iranian cinema that feels immediately grounded and human rather than distant or difficult.</p>
+    <div class="show-poster">
+      <div class="show-poster-frame">
+        <img src="assets/posters/the-salesman.jpg.jpeg" alt="The Salesman poster" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
+      </div>
     </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/the-salesman.jpg.jpeg" alt="The Salesman poster">
+    <div class="show-info">
+      <div class="show-num">01 of 08</div>
+      <h2>The Salesman</h2>
+      <div class="show-meta">Iran · 2016 · Best Foreign Language Film</div>
+      <div class="show-body">
+        <p>If you have seen any Farhadi film before, you already know what you are walking into. Moral discomfort without easy exits. The Salesman is built around a single incident that the film never fully reveals, and that ambiguity is deliberate. It forces you to watch what happens to a marriage when the truth becomes less important than protecting one's own sense of self.</p>
+        <p>What makes it worth watching is how it refuses to assign blame cleanly. The husband is not a villain. The wife is not just a victim. Both are people making choices that feel reasonable to them in the moment and increasingly difficult to justify as the film goes on. Farhadi understands that most harm is not done by monsters. It is done by ordinary people who have decided their dignity matters more than someone else's.</p>
+        <p>Start here if you want Iranian cinema that feels immediately grounded and human rather than distant or difficult.</p>
       </div>
     </div>
   </article>
 
   <article class="show">
-    <h2>2) A Fantastic Woman</h2>
-    <div class="submeta">Chile • 2017 • Best Foreign Language Film</div>
-    <div class="text">
-      <p>Marina loses her partner early in the film. What follows is not really about grief in the conventional sense. It is about who gets to grieve publicly, and who gets quietly pushed aside. The partner's family arrives with their assumptions and their paperwork, and the film watches what Marina has to absorb just to get through the week.</p>
-      <p>The reason to watch this is Daniela Vega's performance. The film around her is good. She is extraordinary. She plays someone who has been through this kind of thing before, who knows exactly what is happening and chooses, again and again, to stay composed. That composure is not weakness. It is the whole point.</p>
-      <p>It does not lecture. It does not explain itself to you. It just shows a person living in a world that keeps making her justify her existence, and keeps going anyway.</p>
+    <div class="show-poster">
+      <div class="show-poster-frame">
+        <img src="assets/posters/a-fantastic-woman.jpg.jpeg" alt="A Fantastic Woman poster" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
+      </div>
     </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/a-fantastic-woman.jpg.jpeg" alt="A Fantastic Woman poster">
+    <div class="show-info">
+      <div class="show-num">02 of 08</div>
+      <h2>A Fantastic Woman</h2>
+      <div class="show-meta">Chile · 2017 · Best Foreign Language Film</div>
+      <div class="show-body">
+        <p>Marina loses her partner early in the film. What follows is not really about grief in the conventional sense. It is about who gets to grieve publicly, and who gets quietly pushed aside. The partner's family arrives with their assumptions and their paperwork, and the film watches what Marina has to absorb just to get through the week.</p>
+        <p>The reason to watch this is Daniela Vega's performance. The film around her is good. She is extraordinary. She plays someone who has been through this kind of thing before, who knows exactly what is happening and chooses, again and again, to stay composed. That composure is not weakness. It is the whole point.</p>
+        <p>It does not lecture. It does not explain itself to you. It just shows a person living in a world that keeps making her justify her existence, and keeps going anyway.</p>
       </div>
     </div>
   </article>
 
   <article class="show">
-    <h2>3) Roma</h2>
-    <div class="submeta">Mexico • 2018 • Best Foreign Language Film</div>
-    <div class="text">
-      <p>Roma requires patience and rewards it completely. Cuarón shot this in black and white, almost without a score, following a domestic worker through a year in early 1970s Mexico City. Nothing about that description prepares you for how it actually feels to watch it.</p>
-      <p>The film is about class, about what it means to be essential to a household and invisible inside it at the same time. Major things happen to Cleo, the woman at the center, but they happen at the same pace as everything else. The camera does not make them feel more important than the daily routine. That evenness is what gives the film its weight.</p>
-      <p>Watch it on the biggest screen you have access to with the sound up. The sound design alone is worth the two hours.</p>
+    <div class="show-poster">
+      <div class="show-poster-frame">
+        <img src="assets/posters/roma-2018.jpg.jpeg" alt="Roma poster" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
+      </div>
     </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/roma-2018.jpg.jpeg" alt="Roma poster">
+    <div class="show-info">
+      <div class="show-num">03 of 08</div>
+      <h2>Roma</h2>
+      <div class="show-meta">Mexico · 2018 · Best Foreign Language Film</div>
+      <div class="show-body">
+        <p>Roma requires patience and rewards it completely. Cuarón shot this in black and white, almost without a score, following a domestic worker through a year in early 1970s Mexico City. Nothing about that description prepares you for how it actually feels to watch it.</p>
+        <p>The film is about class, about what it means to be essential to a household and invisible inside it at the same time. Major things happen to Cleo, the woman at the center, but they happen at the same pace as everything else. The camera does not make them feel more important than the daily routine. That evenness is what gives the film its weight.</p>
+        <p>Watch it on the biggest screen you have access to with the sound up. The sound design alone is worth the two hours.</p>
       </div>
     </div>
   </article>
 
   <article class="show">
-    <h2>4) Parasite</h2>
-    <div class="submeta">South Korea • 2019 • Best International Feature Film</div>
-    <div class="text">
-      <p>The less you know going in, the better. What starts as a film about a struggling family finding clever ways to get hired by a wealthy household becomes something else entirely, and then something else again. Bong Joon-ho manages the tonal shifts so well that each one feels earned rather than jarring.</p>
-      <p>The class commentary is woven into every frame rather than spoken aloud. The geography of the film does the work. Who lives upstairs, who lives below, who has natural light and who does not. By the time the final act arrives, everything that felt like setup has been quietly building toward something you will not see coming even when it is almost there.</p>
-      <p>It became the first non-English film to win Best Picture. Whether that took too long is a separate conversation. The film itself is as good as the hype, which is a rare thing to be able to say.</p>
+    <div class="show-poster">
+      <div class="show-poster-frame">
+        <img src="assets/posters/movies/parasite-2019-poster.jpg.JPG" alt="Parasite poster" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
+      </div>
     </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/movies/parasite-2019-poster.jpg.JPG" alt="Parasite poster">
+    <div class="show-info">
+      <div class="show-num">04 of 08</div>
+      <h2>Parasite</h2>
+      <div class="show-meta">South Korea · 2019 · Best International Feature Film</div>
+      <div class="show-body">
+        <p>The less you know going in, the better. What starts as a film about a struggling family finding clever ways to get hired by a wealthy household becomes something else entirely, and then something else again. Bong Joon-ho manages the tonal shifts so well that each one feels earned rather than jarring.</p>
+        <p>The class commentary is woven into every frame rather than spoken aloud. The geography of the film does the work. Who lives upstairs, who lives below, who has natural light and who does not. By the time the final act arrives, everything that felt like setup has been quietly building toward something you will not see coming even when it is almost there.</p>
+        <p>It became the first non-English film to win Best Picture. Whether that took too long is a separate conversation. The film itself is as good as the hype, which is a rare thing to be able to say.</p>
       </div>
     </div>
   </article>
 
   <article class="show">
-    <h2>5) Another Round</h2>
-    <div class="submeta">Denmark • 2020 • Best International Feature Film</div>
-    <div class="text">
-      <p>Four teachers, all in their forties, all quietly dissatisfied with where their lives have settled, decide to try an experiment. They will maintain a low level of alcohol in their system throughout the day and see if it makes them better at their jobs, more present, more alive. For a while, it works.</p>
-      <p>Thomas Vinterberg is not making a film about alcoholism, though that reading is available if you want it. He is making a film about people who have become strangers to their own enthusiasm and are trying to find a way back. Mads Mikkelsen carries most of this on his shoulders and makes it look effortless.</p>
-      <p>The ending is the kind that stays with you, not because it resolves everything but because it does not. Watch it with someone who will want to talk about it afterward.</p>
+    <div class="show-poster">
+      <div class="show-poster-frame">
+        <img src="assets/posters/another-round-2020.jpg.jpeg" alt="Another Round poster" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
+      </div>
     </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/another-round-2020.jpg.jpeg" alt="Another Round poster">
+    <div class="show-info">
+      <div class="show-num">05 of 08</div>
+      <h2>Another Round</h2>
+      <div class="show-meta">Denmark · 2020 · Best International Feature Film</div>
+      <div class="show-body">
+        <p>Four teachers, all in their forties, all quietly dissatisfied with where their lives have settled, decide to try an experiment. They will maintain a low level of alcohol in their system throughout the day and see if it makes them better at their jobs, more present, more alive. For a while, it works.</p>
+        <p>Thomas Vinterberg is not making a film about alcoholism, though that reading is available if you want it. He is making a film about people who have become strangers to their own enthusiasm and are trying to find a way back. Mads Mikkelsen carries most of this on his shoulders and makes it look effortless.</p>
+        <p>The ending is the kind that stays with you, not because it resolves everything but because it does not. Watch it with someone who will want to talk about it afterward.</p>
       </div>
     </div>
   </article>
 
   <article class="show">
-    <h2>6) Drive My Car</h2>
-    <div class="submeta">Japan • 2021 • Best International Feature Film</div>
-    <div class="text">
-      <p>Three hours. No apologies. Hamaguchi takes a short Murakami story and expands it into something that has no real equivalent in contemporary cinema. A theatre director is staging Chekhov with a multilingual cast while quietly carrying the weight of his wife's death and the things she left unresolved between them. His driver is a young woman with her own version of the same weight.</p>
-      <p>Most of the film's most honest conversations happen in a moving car, which is not a coincidence. There is something about being in transit, not quite here and not quite there, that makes people say things they would not otherwise say. Hamaguchi builds the whole film around that idea.</p>
-      <p>It is slow and it is worth every minute of that slowness. If you have been putting it off because of the runtime, stop putting it off.</p>
+    <div class="show-poster">
+      <div class="show-poster-frame">
+        <img src="assets/posters/movies/drive-my-car-2021-poster.jpg.JPG" alt="Drive My Car poster" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
+      </div>
     </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/movies/drive-my-car-2021-poster.jpg.JPG" alt="Drive My Car poster">
+    <div class="show-info">
+      <div class="show-num">06 of 08</div>
+      <h2>Drive My Car</h2>
+      <div class="show-meta">Japan · 2021 · Best International Feature Film</div>
+      <div class="show-body">
+        <p>Three hours. No apologies. Hamaguchi takes a short Murakami story and expands it into something that has no real equivalent in contemporary cinema. A theatre director is staging Chekhov with a multilingual cast while quietly carrying the weight of his wife's death and the things she left unresolved between them. His driver is a young woman with her own version of the same weight.</p>
+        <p>Most of the film's most honest conversations happen in a moving car, which is not a coincidence. There is something about being in transit, not quite here and not quite there, that makes people say things they would not otherwise say. Hamaguchi builds the whole film around that idea.</p>
+        <p>It is slow and it is worth every minute of that slowness. If you have been putting it off because of the runtime, stop putting it off.</p>
       </div>
     </div>
   </article>
 
   <article class="show">
-    <h2>7) All Quiet on the Western Front</h2>
-    <div class="submeta">Germany • 2022 • Best International Feature Film</div>
-    <div class="text">
-      <p>This is not the version of this story your grandfather might have seen. Edward Berger strips everything romantic out of it. The boys who arrive at the front believing in glory find mud, hunger, cold, and a mechanical routine of killing that has nothing to do with the ideas they came with. The film does not mourn this. It just shows it.</p>
-      <p>The sequence that will stay with you longest happens in the final hours before the armistice, when a German general orders an attack he knows is pointless because he wants one last victory to put his name on. Soldiers die for his ego with peace less than an hour away. It is the most quietly devastating thing in the film.</p>
-      <p>Watch it if you want a war film that makes no case for war whatsoever. It is not easy viewing but it is important and genuinely well made.</p>
+    <div class="show-poster">
+      <div class="show-poster-frame">
+        <img src="assets/posters/all-quiet-on-the-western-front-2022.jpg.jpeg" alt="All Quiet on the Western Front poster" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
+      </div>
     </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/all-quiet-on-the-western-front-2022.jpg.jpeg" alt="All Quiet on the Western Front poster">
+    <div class="show-info">
+      <div class="show-num">07 of 08</div>
+      <h2>All Quiet on the Western Front</h2>
+      <div class="show-meta">Germany · 2022 · Best International Feature Film</div>
+      <div class="show-body">
+        <p>This is not the version of this story your grandfather might have seen. Edward Berger strips everything romantic out of it. The boys who arrive at the front believing in glory find mud, hunger, cold, and a mechanical routine of killing that has nothing to do with the ideas they came with. The film does not mourn this. It just shows it.</p>
+        <p>The sequence that will stay with you longest happens in the final hours before the armistice, when a German general orders an attack he knows is pointless because he wants one last victory to put his name on. Soldiers die for his ego with peace less than an hour away. It is the most quietly devastating thing in the film.</p>
+        <p>Watch it if you want a war film that makes no case for war whatsoever. It is not easy viewing but it is important and genuinely well made.</p>
       </div>
     </div>
   </article>
 
   <article class="show">
-    <h2>8) The Zone of Interest</h2>
-    <div class="submeta">United Kingdom / Poland • 2023 • Best International Feature Film</div>
-    <div class="text">
-      <p>Jonathan Glazer spent a decade on this and made something unlike anything else on this list. The commandant of Auschwitz lives next door to the camp with his family. His wife tends her garden. The children play. Life goes on. The camp is present throughout the film, audible, occasionally visible over the wall, but Glazer never takes you inside it. He does not need to.</p>
-      <p>The film's argument is entirely in that choice. It is not about the atrocity itself. It is about the people who arranged their domestic life comfortably alongside it, who treated the unthinkable as background noise. That is a harder and more unsettling thing to sit with than any direct depiction would have been.</p>
-      <p>It is not an easy watch and it is not meant to be. But if you want a film that does something genuinely new with one of history's most documented subjects, this is it. The final few minutes will follow you out of the room.</p>
+    <div class="show-poster">
+      <div class="show-poster-frame">
+        <img src="assets/posters/movies/the-zone-of-interest-2023-poster.jpg.WEBP" alt="The Zone of Interest poster" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
+      </div>
     </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/movies/the-zone-of-interest-2023-poster.jpg.WEBP" alt="The Zone of Interest poster">
+    <div class="show-info">
+      <div class="show-num">08 of 08</div>
+      <h2>The Zone of Interest</h2>
+      <div class="show-meta">United Kingdom and Poland · 2023 · Best International Feature Film</div>
+      <div class="show-body">
+        <p>Jonathan Glazer spent a decade on this and made something unlike anything else on this list. The commandant of Auschwitz lives next door to the camp with his family. His wife tends her garden. The children play. Life goes on. The camp is present throughout the film, audible, occasionally visible over the wall, but Glazer never takes you inside it. He does not need to.</p>
+        <p>The film's argument is entirely in that choice. It is not about the atrocity itself. It is about the people who arranged their domestic life comfortably alongside it, who treated the unthinkable as background noise. That is a harder and more unsettling thing to sit with than any direct depiction would have been.</p>
+        <p>It is not an easy watch and it is not meant to be. But if you want a film that does something genuinely new with one of history's most documented subjects, this is it. The final few minutes will follow you out of the room.</p>
       </div>
     </div>
   </article>
 
-  <div class="note">
-    These are not ranked. An Oscar win is a moment in time, not a verdict. What connects all eight is that each one was made by someone with a clear point of view who did not compromise it to be more accessible. That tends to be the only thing that makes a film last.
+  <div class="closing-note">
+    <p>
+      These are not ranked. An Oscar win is a moment in time, not a verdict. What connects all eight is that each one was made by someone with a clear point of view who did not compromise it to be more accessible. That tends to be the only thing that makes a film last.
+    </p>
+  </div>
+
+  <div class="closing">
+    <a href="editorials.html" class="closing-back">← All Editorials</a>
   </div>
 
 </main>
