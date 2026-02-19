@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -11,7 +10,6 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800" crossorigin="anonymous"></script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
-
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -19,123 +17,214 @@
   gtag('config', 'G-XZ94ZK9JN4');
 </script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Popcorn Picks" />
 <meta property="og:title" content="Indian Cinema at Full Throttle" />
 <meta property="og:description" content="Five films that show Indian cinema at its most committed. No apologies. No restraint. Pure conviction." />
-<meta property="og:image" content="https://popcornpicks.in/assets/posters/rrr.jpg.JPG" />
+<meta property="og:image" content="https://popcornpicks.in/assets/posters/animal.jpg.JPG" />
 <meta property="og:url" content="https://popcornpicks.in/indian-cinema-at-full-throttle.html" />
 <meta name="twitter:card" content="summary_large_image" />
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  background:#0b0b0c;
-  color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+:root {
+  --ink: #f2ede4;
+  --ink-dim: #9e9890;
+  --ink-muted: #5e574e;
+  --paper: #0c0b09;
+  --rule: rgba(242,237,228,0.08);
+  --rule-strong: rgba(242,237,228,0.13);
+  --accent: #c4956e;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'DM Mono', monospace;
 }
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
 
-.topbar{
-  position:sticky;top:0;z-index:50;
-  background:rgba(10,10,10,.88);
-  -webkit-backdrop-filter:blur(10px);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid #222;
-}
-.topbarInner{
-  max-width:1100px;margin:0 auto;
-  padding:14px 18px;
-  display:flex;align-items:center;justify-content:space-between;gap:16px;
-}
-.navLeft{display:flex;gap:10px;align-items:center;}
-.navBtn{
-  font-size:13px;color:rgba(255,255,255,.78);
-  padding:7px 14px;border-radius:999px;
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(255,255,255,.04);
-  transition:.15s ease;white-space:nowrap;
-}
-.navBtn:hover{color:#fff;border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.08);}
-.brandCenter{
-  display:flex;align-items:center;gap:10px;
-  font-weight:700;letter-spacing:.2px;
-  justify-content:center;flex:1;font-size:14px;
-}
-.brandDot{
-  width:10px;height:10px;border-radius:50%;
-  background:rgba(255,120,70,.95);
-  box-shadow:0 0 0 4px rgba(255,120,70,.16);
-}
-.navSpacer{width:160px}
-@media(max-width:860px){.navSpacer{width:90px}}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
-.hero{
-  position:relative;
-  padding:80px 22px 54px;
-  border-bottom:1px solid #1f1f1f;
-  background-image: url('assets/posters/rrr.jpg.JPG');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* TOPBAR */
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 28px;
+  background: rgba(12,11,9,0.93);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--rule);
+}
+.brand { font-family: var(--serif); font-weight: 700; font-size: 15px; letter-spacing: .04em; }
+.back {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-muted); transition: color .2s;
+}
+.back:hover { color: var(--accent); }
+
+/* HERO */
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
   overflow: hidden;
 }
-.hero::before {
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('assets/posters/animal.jpg.JPG') center/cover no-repeat;
+}
+.hero-bg::after {
   content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to bottom, 
-    rgba(11,11,12,0.75) 0%, 
-    rgba(11,11,12,0.85) 40%,
-    rgba(11,11,12,0.95) 100%);
-  z-index: 1;
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to bottom,
+      rgba(12,11,9,0.22) 0%,
+      rgba(12,11,9,0.08) 22%,
+      rgba(12,11,9,0.68) 60%,
+      rgba(12,11,9,0.98) 100%),
+    linear-gradient(110deg, rgba(196,149,110,0.05) 0%, transparent 52%);
 }
-.heroInner{
-  position: relative;
-  z-index: 2;
-  max-width:980px;
-  width:100%;
-  margin:0 auto;
+.hero-bg::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-size: 120px; opacity: .6;
 }
-.kicker{
-  display:inline-block;font-size:11px;
-  letter-spacing:.22em;text-transform:uppercase;
-  color:#eaeaea;padding:8px 10px;border-radius:999px;
-  border:1px solid rgba(255,255,255,.18);
-  background:rgba(255,255,255,.04);
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 960px; margin: 0 auto; width: 100%;
+  padding: 0 28px 68px;
 }
-.hero h1{margin-top:16px;font-size:54px;line-height:1.05;letter-spacing:-.03em;}
-.hero p{margin-top:14px;max-width:78ch;color:#d0d0d0;line-height:1.75;font-size:16px;}
-.metaLine{margin-top:16px;color:#9a9a9a;font-size:12px;letter-spacing:.08em;text-transform:uppercase;}
+.hero-eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+.eyebrow-line { width: 36px; height: 1px; background: var(--accent); opacity: .6; }
+.section-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--accent);
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(34px, 6vw, 74px);
+  font-weight: 900; line-height: 1.02; letter-spacing: -.03em; color: var(--ink);
+}
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero-dek {
+  margin-top: 18px; max-width: 56ch;
+  font-size: 17px; font-weight: 300; font-style: italic;
+  color: var(--ink-dim); line-height: 1.72;
+}
+.hero-tags {
+  margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--rule);
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+}
+.hero-tag {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--ink-muted);
+  border: 1px solid var(--rule-strong); padding: 6px 12px; border-radius: 99px;
+}
+.hero-tag-count {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--accent);
+  border: 1px solid rgba(196,149,110,0.3); padding: 6px 12px; border-radius: 99px;
+}
 
-.wrap{max-width:980px;margin:0 auto;padding:46px 22px 90px;}
-.show{
-  padding:26px 22px;border:1px solid #181818;
-  border-radius:20px;background:rgba(255,255,255,.02);
-  margin-bottom:26px;
-}
-.show h2{font-size:28px;letter-spacing:-.02em;line-height:1.12;}
-.submeta{margin-top:10px;color:#a9a9a9;font-size:13px;line-height:1.5;}
-.text{margin-top:14px;max-width:78ch;}
-.text p{color:#d7d7d7;line-height:1.9;font-size:16px;margin:0 0 14px 0;}
-.posterWrap{margin-top:18px;display:flex;justify-content:center;}
-.poster{width:min(420px,100%);border-radius:18px;overflow:hidden;border:1px solid #232323;background:#111;}
-.poster img{width:100%;height:auto;display:block;}
-.note{margin-top:28px;color:#9a9a9a;font-size:13px;line-height:1.7;max-width:78ch;}
+.fade-up { opacity: 0; transform: translateY(20px); animation: fadeUp .7s ease forwards; }
+.fade-up:nth-child(2) { animation-delay: .1s; }
+.fade-up:nth-child(3) { animation-delay: .22s; }
+.fade-up:nth-child(4) { animation-delay: .34s; }
+@keyframes fadeUp { to { opacity: 1; transform: none; } }
 
-@media(max-width:760px){
-  .hero{padding:60px 16px 46px}
-  .hero h1{font-size:40px}
-  .show{padding:22px 16px}
-  .show h2{font-size:24px}
+/* PAGE */
+.page-wrap { max-width: 960px; margin: 0 auto; padding: 64px 28px 110px; }
+
+/* INTRO */
+.intro-block {
+  max-width: 66ch;
+  margin-bottom: 56px;
+  padding-bottom: 44px;
+  border-bottom: 1px solid var(--rule);
 }
-@media(max-width:420px){
-  .hero h1{font-size:34px}
-  .navBtn{padding:7px 12px}
+.intro-block p {
+  font-size: 17px; line-height: 1.95; color: #c5bfb3;
+  margin-bottom: 20px; font-weight: 300;
+}
+.intro-block p:last-child { margin-bottom: 0; }
+
+/* SHOW ENTRIES */
+.show {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  padding: 36px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.show:last-of-type { border-bottom: none; }
+
+.show-poster { flex-shrink: 0; }
+.show-poster img {
+  width: 100%; border-radius: 4px; display: block;
+  border: 1px solid var(--rule-strong);
+}
+
+.show-num {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
+}
+.show h2 {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.5vw, 27px);
+  font-weight: 700; line-height: 1.15; letter-spacing: -.02em;
+  color: var(--ink); margin-bottom: 8px;
+}
+.show-meta {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--ink-muted);
+  margin-bottom: 20px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+}
+.show-body p {
+  font-size: 16px; line-height: 1.95; color: #b8b2a8;
+  margin-bottom: 16px; font-weight: 300;
+}
+.show-body p:last-child { margin-bottom: 0; }
+.show-body em { font-style: italic; color: #ccc7be; }
+
+/* CLOSING */
+.closing {
+  margin-top: 64px; padding-top: 28px;
+  border-top: 1px solid var(--rule);
+}
+.closing-back {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-muted); transition: color .2s;
+}
+.closing-back:hover { color: var(--accent); }
+
+/* RESPONSIVE */
+@media (max-width: 680px) {
+  .topbar { padding: 12px 18px; }
+  .hero-content { padding: 0 18px 52px; }
+  .page-wrap { padding: 44px 18px 80px; }
+  .show { grid-template-columns: 1fr; gap: 18px; padding: 28px 0; }
+  .show-poster { max-width: 160px; }
+  .intro-block { margin-bottom: 36px; padding-bottom: 32px; }
+}
+
+@media (min-width: 681px) and (max-width: 960px) {
+  .show { grid-template-columns: 160px 1fr; gap: 24px; }
+  .hero-content { padding: 0 22px 60px; }
+  .page-wrap { padding: 52px 22px 90px; }
 }
 </style>
 
@@ -152,177 +241,131 @@ img{max-width:100%;display:block}
 
 <body>
 
-<header class="topbar">
-  <div class="topbarInner">
-    <div class="navLeft">
-      <a class="navBtn" href="editorials.html">← Editorials</a>
-      <a class="navBtn" href="index.html">Home</a>
-    </div>
-    <a class="brandCenter" href="index.html" aria-label="Popcorn Picks home">
-      <span class="brandDot"></span>
-      <span>Popcorn Picks</span>
-    </a>
-    <div class="navSpacer" aria-hidden="true"></div>
-  </div>
-</header>
+<div class="topbar">
+  <a class="back" href="editorials.html">← Editorials</a>
+  <div class="brand">Popcorn Picks</div>
+  <div style="width:64px"></div>
+</div>
 
 <header class="hero">
-  <div class="heroInner">
-    <span class="kicker">Editorial • Indian Cinema</span>
-    <h1>Indian Cinema at Full Throttle</h1>
-    <p>
-      These films don't ease you in. They commit completely, from the first frame to the last, with a kind of conviction that is difficult to manufacture. Indian cinema at its best operates at a frequency most global cinema won't touch. Too loud. Too emotional. Too much.
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow fade-up">
+      <div class="eyebrow-line"></div>
+      <span class="section-label">Editorial • Indian Cinema</span>
+    </div>
+    <h1 class="fade-up">Indian Cinema<br><em>at Full Throttle</em></h1>
+    <p class="hero-dek fade-up">
+      These films don't ease you in. They commit completely, from the first frame to the last, with a kind of conviction that is difficult to manufacture. Indian cinema at its best operates at a frequency most global cinema won't touch.
     </p>
-    <p>
-      That's exactly the point. These five films are the clearest argument for why this cinema matters and why its refusal to be modest is a strength, not a flaw.
-    </p>
-    <div class="metaLine">Popcorn Picks • Indian Cinema</div>
+    <div class="hero-tags fade-up">
+      <span class="hero-tag-count">5 Films</span>
+      <span class="hero-tag">Epic</span>
+      <span class="hero-tag">Committed</span>
+      <span class="hero-tag">Bold</span>
+      <span class="hero-tag">Unapologetic</span>
+    </div>
   </div>
 </header>
 
-<main class="wrap">
+<main class="page-wrap">
+
+<div class="intro-block">
+  <p>
+    That's exactly the point. These five films are the clearest argument for why this cinema matters and why its refusal to be modest is a strength, not a flaw.
+  </p>
+</div>
 
   <article class="show">
-    <h2>RRR</h2>
-    <div class="submeta">2022 • S.S. Rajamouli • Telugu • Epic Action</div>
-    <div class="text">
-      <p>RRR is the film that changed how the world talks about Indian cinema. It won an Oscar. It got standing ovations at international festivals. It made people who had never watched a three-hour Indian film sit through every minute and immediately search for what to watch next. None of that happened by accident. S.S. Rajamouli made a film so committed to its own emotional logic that skeptical audiences walked out as true believers.</p>
-
-```
-  <p>The story is about two men who become brothers before discovering they are on opposite sides of a war. Bheem is a tribal warrior trying to rescue a kidnapped child from British colonialists. Ram is a Telugu officer serving the empire, carrying a secret mission that forces him to be the system's most brutal enforcer. They meet by chance. The friendship forms in the gap between who they pretend to be and who they actually are.</p>
-
-  <p>Rajamouli understands better than almost any filmmaker alive that spectacle only works when it's in service of emotion. The fire and water imagery running through the film is not decoration. Fire is Ram: disciplined, contained, dangerous under control. Water is Bheem: instinctive, powerful, impossible to stop once it moves. When they fight each other surrounded by flames and a flooding river, it's not a setpiece. It's two forces of nature in collision, and every visual choice carries the weight of their history.</p>
-
-  <p>The film is mythological in scale without apology. These characters are not meant to be realistic. They're drawn from actual historical figures but transformed into something closer to gods. They survive things no human could. Rajamouli isn't interested in realism. He's interested in meaning, in the idea that some friendships are large enough to be told like legends.</p>
-
-  <p>Naatu Naatu, the song that won the Oscar, is the film in miniature. Two men dancing in a British colonial palace, performing a folk dance that is physically punishing and culturally specific, right in front of the people who have stolen their country. It's defiance as joy, and the audience feels it in their chest because the film has been teaching them to feel everything at full volume since the opening scene.</p>
-
-  <p>The second half lands so hard because the first half built something so strong. Every betrayal, every choice, every moment of anguish hits with full weight because you've watched these two men become brothers. RRR earns its tragedy. It earns its catharsis. It's the most complete argument Indian cinema has made in years for why it deserves the world's full attention.</p>
-</div>
-<div class="posterWrap">
-  <div class="poster">
-    <img src="assets/posters/rrr.jpg.JPG" alt="RRR poster" loading="lazy" decoding="async">
-  </div>
-</div>
-```
-
+    <div class="show-poster">
+      <img src="assets/posters/rrr.jpg.JPG" alt="RRR" loading="lazy" />
+    </div>
+    <div class="show-info">
+      <div class="show-num">01 of 05</div>
+      <h2>RRR</h2>
+      <div class="show-meta">2022 • S.S. Rajamouli • Epic Action</div>
+      <div class="show-body">
+        <p>RRR is the film that changed how the world talks about Indian cinema. It won an Oscar. It got standing ovations at international festivals. It made people who had never watched a three-hour Indian film sit through every minute and immediately search for what to watch next. S.S. Rajamouli made a film so committed to its own emotional logic that skeptical audiences walked out as true believers.</p>
+        <p>The story is about two men who become brothers before discovering they are on opposite sides of a war. Rajamouli understands better than almost any filmmaker alive that spectacle only works when it's in service of emotion. The fire and water imagery running through the film is not decoration. Fire is Ram: disciplined, contained, dangerous under control. Water is Bheem: instinctive, powerful, impossible to stop once it moves.</p>
+        <p>Naatu Naatu, the song that won the Oscar, is the film in miniature. Two men dancing in a British colonial palace, performing a folk dance that is physically punishing and culturally specific, right in front of the people who have stolen their country. It's defiance as joy.</p>
+        <p>The second half lands so hard because the first half built something so strong. Every betrayal, every choice, every moment of anguish hits with full weight because you've watched these two men become brothers. RRR earns its tragedy. It earns its catharsis.</p>
+      </div>
+    </div>
   </article>
 
   <article class="show">
-    <h2>Animal</h2>
-    <div class="submeta">2023 • Sandeep Reddy Vanga • Hindi • Psychological Action</div>
-    <div class="text">
-      <p>Animal is the most divisive Indian film of the last decade. Half the audience believes it is a masterpiece. The other half believes it is irresponsible. Both reactions are valid responses to the same film, which is exactly what director Sandeep Reddy Vanga intended. He knows precisely what he made. The provocations are not accidents. They are the point.</p>
-
-```
-  <p>Ranvijay Singh is a man whose entire personality was built around his father's emotional absence. His father was successful, powerful, and never present in any meaningful way during his childhood. Ranvijay responded to that rejection not with distance but with obsession. He doesn't want approval anymore. He wants to destroy everything that threatens the man who never loved him properly. The violence in Animal is not random. It is the physical expression of childhood trauma that has hardened into a complete worldview.</p>
-
-  <p>Ranbir Kapoor gives the most committed performance of his career here. Ranvijay is possessive, controlling, and absolutely convinced that his love for family justifies every choice he makes. Kapoor plays this without vanity or the usual signals that tell the audience not to take the character at face value. He inhabits the internal logic so fully that you understand exactly how someone becomes this person, even when what they're doing appalls you.</p>
-
-  <p>The film is long, excessive, and deliberately extreme. The action sequences escalate throughout in ways that feel intentional rather than indulgent. The climax is one of the most intensely staged setpieces in recent Indian cinema. But the film's real work happens in the quieter scenes: Ranvijay with his father, the ache underneath the anger, the way every brutal act traces back to a boy who just wanted to be seen by the one person who mattered.</p>
-
-  <p>Animal doesn't offer redemption or moral clarity. It ends exactly as it should, with the cycle intact and unbroken. Some find this nihilistic. Others find it the most honest depiction of a certain kind of toxic devotion they've ever seen on screen. The film doesn't push you toward either conclusion. It just holds the thing up and lets you sit with it.</p>
-
-  <p>You can't watch Animal passively. It forces engagement. It provokes a reaction, and that reaction tells you something. That's what the most interesting films do, and this one does it with full conviction.</p>
-</div>
-<div class="posterWrap">
-  <div class="poster">
-    <img src="assets/posters/animal.jpg.JPG" alt="Animal poster" loading="lazy" decoding="async">
-  </div>
-</div>
-```
-
+    <div class="show-poster">
+      <img src="assets/posters/animal.jpg.JPG" alt="Animal" loading="lazy" />
+    </div>
+    <div class="show-info">
+      <div class="show-num">02 of 05</div>
+      <h2>Animal</h2>
+      <div class="show-meta">2023 • Sandeep Reddy Vanga • Psychological Action</div>
+      <div class="show-body">
+        <p>Animal is the most divisive Indian film of the last decade. Half the audience believes it is a masterpiece. The other half believes it is irresponsible. Both reactions are valid responses to the same film, which is exactly what director Sandeep Reddy Vanga intended. He knows precisely what he made. The provocations are not accidents. They are the point.</p>
+        <p>Ranvijay Singh is a man whose entire personality was built around his father's emotional absence. His father was successful, powerful, and never present in any meaningful way during his childhood. Ranvijay responded to that rejection not with distance but with obsession. He doesn't want approval anymore. He wants to destroy everything that threatens the man who never loved him properly.</p>
+        <p>Ranbir Kapoor gives the most committed performance of his career here. Ranvijay is possessive, controlling, and absolutely convinced that his love for family justifies every choice he makes. Kapoor plays this without vanity or the usual signals that tell the audience not to take the character at face value.</p>
+        <p>Animal doesn't offer redemption or moral clarity. It ends exactly as it should, with the cycle intact and unbroken. Some find this nihilistic. Others find it the most honest depiction of a certain kind of toxic devotion they've ever seen on screen.</p>
+      </div>
+    </div>
   </article>
 
   <article class="show">
-    <h2>Kill</h2>
-    <div class="submeta">2024 • Nikhil Nagesh Bhat • Hindi • Action Thriller</div>
-    <div class="text">
-      <p>Kill is 99 minutes of sustained, claustrophobic violence, and it is one of the finest pure action films India has ever produced. The concept is stripped to its skeleton: a moving train, a large group of armed criminals, and one army commando who decides none of them are getting off alive. No subtext, no grand themes, no political messaging. Just the single question of how many people one man can fight before his body stops cooperating.</p>
-
-```
-  <p>The setup is clean. Amrit is a commando traveling to stop his love interest's arranged marriage when a gang of around 40 criminals boards the train and starts robbing passengers at knifepoint. Amrit and his friend step in. From that moment, the film locks itself into one gear and refuses to shift out of it.</p>
-
-  <p>What makes Kill exceptional is its honesty about physical consequence. These fights don't feel choreographed in the traditional sense. They feel exhausting. Amrit takes serious damage in every encounter. He bleeds, he slows down, his movements become labored. Each fight carries the marks of the previous ones. The film understands something most action movies ignore: the most effective sequences are the ones where you feel the cost, not just the spectacle.</p>
-
-  <p>The train setting is used with real spatial intelligence. Narrow corridors remove running room and force every encounter to happen at close range with limited visibility. The editing is disciplined enough to track the geography without losing the chaos. You always know where everyone is, which makes the violence legible and therefore more tense. The film never loses its sense of space even as the situation becomes increasingly desperate.</p>
-
-  <p>The villain Fani, played by Raghav Juyal, is the film's greatest asset. Juyal is a trained dancer and it shows in the way he moves: fluid, unpredictable, eerie in a way that larger and more physically imposing villains rarely manage. He's terrifying because he's genuinely enjoying himself. He makes the confrontations personal, sadistic, almost playful. His final showdown with Amrit is the best villain-hero clash in recent Indian action cinema.</p>
-
-  <p>Kill earned international attention because craft travels. It doesn't need cultural context to land. You feel it in your body. That's all it asks.</p>
-</div>
-<div class="posterWrap">
-  <div class="poster">
-    <img src="assets/posters/kill.jpeg" alt="Kill poster" loading="lazy" decoding="async">
-  </div>
-</div>
-```
-
+    <div class="show-poster">
+      <img src="assets/posters/kill.jpeg" alt="Kill" loading="lazy" />
+    </div>
+    <div class="show-info">
+      <div class="show-num">03 of 05</div>
+      <h2>Kill</h2>
+      <div class="show-meta">2024 • Nikhil Nagesh Bhat • Action Thriller</div>
+      <div class="show-body">
+        <p>Kill is 99 minutes of sustained, claustrophobic violence, and it is one of the finest pure action films India has ever produced. The concept is stripped to its skeleton: a moving train, a large group of armed criminals, and one army commando who decides none of them are getting off alive.</p>
+        <p>What makes Kill exceptional is its honesty about physical consequence. These fights don't feel choreographed in the traditional sense. They feel exhausting. Amrit takes serious damage in every encounter. He bleeds, he slows down, his movements become labored. Each fight carries the marks of the previous ones.</p>
+        <p>The train setting is used with real spatial intelligence. Narrow corridors remove running room and force every encounter to happen at close range with limited visibility. The editing is disciplined enough to track the geography without losing the chaos.</p>
+        <p>The villain Fani, played by Raghav Juyal, is the film's greatest asset. Juyal is a trained dancer and it shows in the way he moves: fluid, unpredictable, eerie in a way that larger and more physically imposing villains rarely manage.</p>
+      </div>
+    </div>
   </article>
 
   <article class="show">
-    <h2>Kalki 2898 AD</h2>
-    <div class="submeta">2024 • Nag Ashwin • Telugu • Sci-Fi Mythology Epic</div>
-    <div class="text">
-      <p>Kalki 2898 AD is Indian cinema attempting something it has never fully committed to before: a mythology-rooted science fiction epic built at massive scale. Director Nag Ashwin spent years constructing this world, and the ambition is visible in every frame. This is Indian cinema staking a claim in large-scale sci-fi storytelling on its own cultural terms.</p>
-
-```
-  <p>The premise fuses Hindu cosmology with dystopian science fiction. In 2898, Earth is nearly dead. A corrupt authoritarian regime controls the remains of civilization from a gleaming citadel city while the rest of humanity scrapes through a vast wasteland. The myth of Kalki, the tenth avatar of Vishnu prophesied to arrive at the end of the Kali Yuga to restore balance, becomes the organizing framework. The regime is trying to prevent that birth. Others are trying to protect it. The war between those two purposes is the film.</p>
-
-  <p>What makes the film notable is how seriously it takes its own mythology. The religious and philosophical framework is the actual logic of the story. Characters believe in cosmic cycles, in prophecy, in the idea that destruction and renewal are part of the same process. That belief shapes every choice they make.</p>
-
-  <p>The casting is significant. Prabhas plays Bhairava, a mercenary bounty hunter who has spent his life doing whatever survival requires. Deepika Padukone plays SUM-80, a pregnant woman being hunted by the regime. Amitabh Bachchan plays Ashwatthama, an immortal warrior from the Mahabharata who has been alive for thousands of years, waiting for this specific moment. It's a bold choice that works more often than it doesn't.</p>
-
-  <p>The film has real flaws. The hero's entry scene is stretched thin and the forced comedy feels out of place in what's otherwise a serious mythological epic. The pacing stumbles in the middle act, and some of the world-building raises more questions than it answers. The visual effects are ambitious but inconsistent—some sequences are genuinely impressive while others show their seams.</p>
-
-  <p>As a complete story, Kalki 2898 AD is more of a beginning than a conclusion. It establishes far more than it resolves. But as proof that Indian cinema can build myth-rooted franchises with genuine scale and ambition, it marks an important step forward, even with its imperfections.</p>
-</div>
-<div class="posterWrap">
-  <div class="poster">
-    <img src="assets/posters/kalki-2898-ad.jpg.JPG" alt="Kalki 2898 AD poster" loading="lazy" decoding="async">
-  </div>
-</div>
-```
-
+    <div class="show-poster">
+      <img src="assets/posters/kalki-2898-ad.jpg.JPG" alt="Kalki 2898 AD" loading="lazy" />
+    </div>
+    <div class="show-info">
+      <div class="show-num">04 of 05</div>
+      <h2>Kalki 2898 AD</h2>
+      <div class="show-meta">2024 • Nag Ashwin • Sci-Fi Mythology Epic</div>
+      <div class="show-body">
+        <p>Kalki 2898 AD is Indian cinema attempting something it has never fully committed to before: a mythology-rooted science fiction epic built at massive scale. Director Nag Ashwin spent years constructing this world, and the ambition is visible in every frame.</p>
+        <p>The premise fuses Hindu cosmology with dystopian science fiction. In 2898, Earth is nearly dead. A corrupt authoritarian regime controls the remains of civilization from a gleaming citadel city while the rest of humanity scrapes through a vast wasteland. The myth of Kalki, the tenth avatar of Vishnu prophesied to arrive at the end of the Kali Yuga to restore balance, becomes the organizing framework.</p>
+        <p>What makes the film notable is how seriously it takes its own mythology. The religious and philosophical framework is the actual logic of the story. Characters believe in cosmic cycles, in prophecy, in the idea that destruction and renewal are part of the same process.</p>
+        <p>The film has real flaws. The hero's entry scene is stretched thin and the forced comedy feels out of place. The pacing stumbles in the middle act. But as proof that Indian cinema can build myth-rooted franchises with genuine scale and ambition, it marks an important step forward.</p>
+      </div>
+    </div>
   </article>
 
   <article class="show">
-    <h2>Dhurandhar</h2>
-    <div class="submeta">2025 • Aditya Dhar • Hindi • Spy Action Thriller</div>
-    <div class="text">
-      <p>Dhurandhar is a 3 hour and 34 minute spy epic that infiltrates Karachi's criminal underworld with the kind of patience most action films don't have. Director Aditya Dhar, who made URI: The Surgical Strike, returns with something far more ambitious and morally complicated. This is not a straightforward patriotic thriller. It's a decade-long intelligence operation told as a crime saga, and it earns every minute of its enormous runtime.</p>
-
-```
-  <p>Ranveer Singh plays an undercover Indian intelligence agent who slips into Karachi and rises through the ranks of its most dangerous criminal syndicates and political networks. The mission is to dismantle the ISI-underworld nexus from within. The film draws loose inspiration from real geopolitical events including the IC-814 hijacking, the 2001 Parliament attack, the 26/11 Mumbai attacks, and Pakistan's Operation Lyari crackdown on gangs.</p>
-
-  <p>What makes Dhurandhar distinctive is its structure. The film is told in chapters, each one peeling back another layer of the criminal and political ecosystem. You watch the protagonist become part of the machine he's trying to destroy. The film doesn't rush this. It lets you sit in the moral ambiguity, in the violence that becomes routine, in the relationships that blur the line between asset and genuine connection.</p>
-
-  <p>The ensemble cast is stacked. Akshaye Khanna plays Rehman Dakait, a crime lord whose swag and controlled menace dominate every scene he's in. Sanjay Dutt, R. Madhavan, and Arjun Rampal all deliver memorable performances despite limited screen time. Each character leaves a mark. This isn't just Ranveer Singh's show—Dhar ensures everyone gets their moment.</p>
-
-  <p>The action sequences are brutal and grounded. The film earns its 18+ rating with disturbing violence, particularly in the depiction of the 26/11 attacks and certain sequences involving torture. These moments are not meant to entertain. They're meant to disturb, and they do. The film doesn't shy away from the ugliness of what intelligence work in this world actually looks like.</p>
-
-  <p>Singh's performance is subdued by his usual standards, which works perfectly here. He broods his way through three and a half hours, playing a man who has spent so long pretending to be someone else that the mask is starting to fuse with his face. It's a restrained, committed turn that anchors the film's darker impulses.</p>
-
-  <p>The film is divisive. Some see it as propaganda dressed up with aesthetic execution. Others see it as a morally complex thriller that doesn't offer easy answers. The jingoistic elements are present—lines about "new India" and patriotic declarations that feel heavy-handed. The film tests your endurance with its length and its willingness to sit in violence without release.</p>
-
-  <p>But it's also undeniably gripping. The world-building is meticulous. The cinematography and production design create a Karachi that feels lived-in and dangerous. Shashwat Sachdev's score amplifies tension without overwhelming it. The editing keeps the sprawling narrative coherent even as it juggles multiple timelines and conspiracies.</p>
-
-  <p>Dhurandhar is the first part of a two-part saga. The second film, subtitled "The Revenge," is set to release in March 2026. This one ends on a cliffhanger that sets up the stakes for what's coming. As a standalone experience, it's incomplete. As the opening chapter of something larger, it's a bold statement about the scale and ambition Indian spy thrillers are now reaching for.</p>
-</div>
-<div class="posterWrap">
-  <div class="poster">
-    <img src="assets/posters/dhurandhar.jpg.JPG" alt="Dhurandhar poster" loading="lazy" decoding="async">
-  </div>
-</div>
-```
-
+    <div class="show-poster">
+      <img src="assets/posters/dhurandhar.jpg.JPG" alt="Dhurandhar" loading="lazy" />
+    </div>
+    <div class="show-info">
+      <div class="show-num">05 of 05</div>
+      <h2>Dhurandhar</h2>
+      <div class="show-meta">2025 • Aditya Dhar • Spy Action Thriller</div>
+      <div class="show-body">
+        <p>Dhurandhar is a 3 hour and 34 minute spy epic that infiltrates Karachi's criminal underworld with the kind of patience most action films don't have. Director Aditya Dhar, who made URI: The Surgical Strike, returns with something far more ambitious and morally complicated.</p>
+        <p>Ranveer Singh plays an undercover Indian intelligence agent who slips into Karachi and rises through the ranks of its most dangerous criminal syndicates and political networks. The mission is to dismantle the ISI-underworld nexus from within. The film draws loose inspiration from real geopolitical events including the IC-814 hijacking, the 2001 Parliament attack, and the 26/11 Mumbai attacks.</p>
+        <p>What makes Dhurandhar distinctive is its structure. The film is told in chapters, each one peeling back another layer of the criminal and political ecosystem. You watch the protagonist become part of the machine he's trying to destroy. The film doesn't rush this.</p>
+        <p>The action sequences are brutal and grounded. The film earns its 18+ rating with disturbing violence. These moments are not meant to entertain. They're meant to disturb, and they do.</p>
+        <p>Dhurandhar is the first part of a two-part saga. The second film, subtitled "The Revenge," is set to release in March 2026. As the opening chapter of something larger, it's a bold statement about the scale and ambition Indian spy thrillers are now reaching for.</p>
+      </div>
+    </div>
   </article>
 
-  <div class="note">
-    If you want more editorials like this, head back to the Editorials page, or explore other categories from Home.
+  <div class="closing">
+    <a href="editorials.html" class="closing-back">← All Editorials</a>
   </div>
 
 </main>
-
 </body>
 </html>
