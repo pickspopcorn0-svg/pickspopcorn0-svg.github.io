@@ -1,16 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>For People Who Miss MacGyver-Style TV Shows — Popcorn Picks</title>
+<title>For People Who Miss MacGyver-Style TV Shows · Popcorn Picks</title>
+<meta name="description" content="Five series that carry MacGyver-style energy: ingenuity, calm problem-solving, and the satisfaction of watching smart people win by being clever." />
+<link rel="canonical" href="https://popcornpicks.in/macgyver-style-tv-shows.html" />
 
-<!-- Google AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
-  crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800" crossorigin="anonymous"></script>
 
-<!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -18,356 +19,411 @@
   gtag('config', 'G-XZ94ZK9JN4');
 </script>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  background:#0b0b0c;
-  color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+:root {
+  --ink: #f2ede4;
+  --ink-dim: #9e9890;
+  --ink-muted: #5e574e;
+  --paper: #0c0b09;
+  --rule: rgba(242,237,228,0.08);
+  --rule-strong: rgba(242,237,228,0.13);
+  --accent: #c4956e;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'DM Mono', monospace;
 }
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
 
 /* TOPBAR */
-.topbar{
-  position:sticky; top:0; z-index:50;
-  background:rgba(10,10,10,.88);
-  backdrop-filter: blur(10px);
-  border-bottom:1px solid #222;
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 28px;
+  background: rgba(12,11,9,0.93);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--rule);
 }
-.topbarInner{
-  max-width:1100px;
-  margin:0 auto;
-  padding:14px 18px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
+.brand { font-family: var(--serif); font-weight: 700; font-size: 15px; letter-spacing: .04em; }
+.back {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-muted); transition: color .2s;
 }
-.navLeft{
-  display:flex;
-  gap:10px;
-  align-items:center;
-}
-.navBtn{
-  font-size:13px;
-  color:rgba(255,255,255,.78);
-  padding:7px 14px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(255,255,255,.04);
-  transition:.15s ease;
-  white-space:nowrap;
-}
-.navBtn:hover{
-  color:#fff;
-  border-color:rgba(255,255,255,.25);
-  background:rgba(255,255,255,.08);
-}
-.brandCenter{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-weight:700;
-  letter-spacing:.2px;
-  justify-content:center;
-  flex:1;
-  font-size:14px;
-}
-.brandDot{
-  width:10px;height:10px;border-radius:50%;
-  background:rgba(255,120,70,.95);
-  box-shadow:0 0 0 4px rgba(255,120,70,.16);
-}
-.navSpacer{width:160px}
-@media(max-width:860px){
-  .navSpacer{width:90px}
-}
+.back:hover { color: var(--accent); }
 
 /* HERO */
-.hero{
-  min-height:70vh;
-  display:flex;
-  align-items:flex-end;
-  padding:72px 22px 54px;
-  position:relative;
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('assets/posters/tv/macgyver.jpg.jpeg') center top/cover no-repeat;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
   background:
-    linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.85)),
-    radial-gradient(1000px 500px at 50% 25%, rgba(0,0,0,.25), rgba(0,0,0,.9)),
-    url("assets/posters/tv/macgyver.jpg.jpeg");
-  background-size:cover;
-  background-position:center top;
-  border-bottom:1px solid #1f1f1f;
+    linear-gradient(to bottom,
+      rgba(12,11,9,0.15) 0%,
+      rgba(12,11,9,0.05) 20%,
+      rgba(12,11,9,0.60) 58%,
+      rgba(12,11,9,0.98) 100%),
+    linear-gradient(110deg, rgba(196,149,110,0.05) 0%, transparent 52%);
 }
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(11,11,12,.95) 100%);
-  pointer-events:none;
+.hero-bg::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-size: 120px; opacity: .6;
 }
-.heroInner{
-  position:relative;
-  max-width:980px;
-  width:100%;
-  margin:0 auto;
-  z-index:2;
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 960px; margin: 0 auto; width: 100%;
+  padding: 0 28px 68px;
 }
-.kicker{
-  display:inline-block;
-  font-size:11px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:#eaeaea;
-  padding:8px 10px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.18);
-  background:rgba(0,0,0,.35);
+.hero-eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+.eyebrow-line { width: 36px; height: 1px; background: var(--accent); opacity: .6; }
+.section-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--accent);
 }
-.hero h1{
-  margin-top:16px;
-  font-size:54px;
-  line-height:1.05;
-  letter-spacing:-.03em;
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(32px, 5.5vw, 68px);
+  font-weight: 900; line-height: 1.04; letter-spacing: -.03em; color: var(--ink);
 }
-.hero p{
-  margin-top:14px;
-  max-width:80ch;
-  color:#d0d0d0;
-  line-height:1.75;
-  font-size:16px;
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero-dek {
+  margin-top: 18px; max-width: 58ch;
+  font-size: 17px; font-weight: 300; font-style: italic;
+  color: var(--ink-dim); line-height: 1.72;
 }
-.metaLine{
-  margin-top:16px;
-  color:#9a9a9a;
-  font-size:12px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
+.hero-tags {
+  margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--rule);
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+}
+.hero-tag {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--ink-muted);
+  border: 1px solid var(--rule-strong); padding: 6px 12px; border-radius: 99px;
+}
+.hero-tag-count {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--accent);
+  border: 1px solid rgba(196,149,110,0.3); padding: 6px 12px; border-radius: 99px;
 }
 
-/* WRAP */
-.wrap{
-  max-width:980px;
-  margin:0 auto;
-  padding:46px 22px 90px;
+.fade-up { opacity: 0; transform: translateY(20px); animation: fadeUp .7s ease forwards; }
+.fade-up:nth-child(2) { animation-delay: .1s; }
+.fade-up:nth-child(3) { animation-delay: .22s; }
+.fade-up:nth-child(4) { animation-delay: .34s; }
+@keyframes fadeUp { to { opacity: 1; transform: none; } }
+
+/* PAGE */
+.page-wrap { max-width: 960px; margin: 0 auto; padding: 64px 28px 110px; }
+
+/* INTRO */
+.intro-block {
+  max-width: 66ch;
+  margin-bottom: 56px;
+  padding-bottom: 44px;
+  border-bottom: 1px solid var(--rule);
+}
+.intro-block p {
+  font-size: 17px; line-height: 1.95; color: #c5bfb3;
+  margin-bottom: 20px; font-weight: 300;
+}
+.intro-block p:last-child { margin-bottom: 0; }
+
+/* SHOW ENTRIES */
+.show {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: start;
+}
+.show:last-of-type { border-bottom: none; }
+
+/* POSTER — never crops, always shows full image */
+.show-poster {
+  position: sticky;
+  top: 80px; /* clears topbar */
+}
+.show-poster-frame {
+  width: 100%;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+.show-poster-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 3px;
+  /* object-fit: contain ensures full poster, no crop */
+  object-fit: contain;
+}
+.show-poster-placeholder {
+  width: 100%;
+  aspect-ratio: 2/3;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 10px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-muted);
 }
 
-/* SHOW BLOCK */
-.show{
-  padding:26px 22px;
-  border:1px solid #181818;
-  border-radius:20px;
-  background:rgba(255,255,255,.02);
-  margin-bottom:26px;
+/* SHOW TEXT SIDE */
+.show-num {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
 }
-.show h2{
-  font-size:28px;
-  letter-spacing:-.02em;
-  line-height:1.12;
+.show h2 {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.8vw, 30px);
+  font-weight: 700; line-height: 1.15; letter-spacing: -.02em;
+  color: var(--ink); margin-bottom: 8px;
 }
-.submeta{
-  margin-top:10px;
-  color:#a9a9a9;
-  font-size:13px;
-  line-height:1.5;
+.show-meta {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--ink-muted);
+  margin-bottom: 20px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
 }
-.text{
-  margin-top:14px;
-  max-width:78ch;
+.show-body p {
+  font-size: 15.5px; line-height: 1.95; color: #b8b2a8;
+  margin-bottom: 16px; font-weight: 300;
 }
-.text p{
-  color:#d7d7d7;
-  line-height:1.9;
-  font-size:16px;
-  margin:0 0 14px 0;
+.show-body p:last-child { margin-bottom: 0; }
+
+/* CLOSING */
+.closing {
+  margin-top: 64px; padding-top: 28px;
+  border-top: 1px solid var(--rule);
+}
+.closing-back {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-muted); transition: color .2s;
+}
+.closing-back:hover { color: var(--accent); }
+
+/* RESPONSIVE */
+
+/* Tablet portrait and landscape — side by side still works */
+@media (max-width: 860px) {
+  .show {
+    grid-template-columns: 180px 1fr;
+    gap: 28px;
+  }
+  .show-poster { position: static; }
 }
 
-/* POSTER */
-.posterWrap{
-  margin-top:18px;
-  display:flex;
-  justify-content:center;
-}
-.poster{
-  width:min(420px, 100%);
-  border-radius:18px;
-  overflow:hidden;
-  border:1px solid #232323;
-  background:#111;
-}
-.poster img{
-  width:100%;
-  height:auto;
+/* Phone — stack vertically, poster on top capped at comfortable width */
+@media (max-width: 600px) {
+  .topbar { padding: 12px 18px; }
+  .hero-content { padding: 0 18px 52px; }
+  .page-wrap { padding: 44px 18px 80px; }
+
+  .show {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 28px 0;
+  }
+  /* Poster shown first on mobile, centered, never fills full width so it looks like a poster not a banner */
+  .show-poster {
+    order: -1;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+  .intro-block { margin-bottom: 36px; padding-bottom: 32px; }
 }
 
-/* MOBILE */
-@media(max-width:760px){
-  .hero h1{font-size:40px}
-  .show{padding:22px 16px}
-  .show h2{font-size:24px}
+/* Landscape phone — keep it two-column with narrower poster */
+@media (max-width: 760px) and (orientation: landscape) {
+  .show {
+    grid-template-columns: 140px 1fr;
+    gap: 22px;
+  }
+  .show-poster { position: static; max-width: none; margin: 0; }
 }
 </style>
+
 </head>
 
 <body>
 
-<header class="topbar">
-  <div class="topbarInner">
-    <div class="navLeft">
-      <a class="navBtn" href="editorials.html">← Editorials</a>
-      <a class="navBtn" href="index.html">Home</a>
-    </div>
-
-    <a class="brandCenter" href="index.html" aria-label="Popcorn Picks home">
-      <span class="brandDot"></span>
-      <span>Popcorn Picks</span>
-    </a>
-
-    <div class="navSpacer" aria-hidden="true"></div>
-  </div>
-</header>
+<div class="topbar">
+  <a class="back" href="editorials.html">← Editorials</a>
+  <div class="brand">Popcorn Picks</div>
+  <div style="width:64px"></div>
+</div>
 
 <header class="hero">
-  <div class="heroInner">
-    <span class="kicker">Editorial • TV Shows</span>
-    <h1>For People Who Miss MacGyver-Style TV Shows</h1>
-
-    <p>
-      This editorial is for people who still enjoy shows driven by ingenuity, calm problem-solving, and competence. The kind of television where intelligence wins, improvisation matters, and every episode ends with a satisfying solution.
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow fade-up">
+      <div class="eyebrow-line"></div>
+      <span class="section-label">Editorial · TV Shows</span>
+    </div>
+    <h1 class="fade-up">For People Who Miss<br><em>MacGyver</em>-Style TV</h1>
+    <p class="hero-dek fade-up">
+      Intelligence wins. Improvisation matters. Problems are meant to be solved, and watching smart people solve them never gets old.
     </p>
-
-    <p>
-      Below is a carefully chosen set of series that carry that MacGyver-style energy. Different tones, different settings, but the same core idea: problems are meant to be solved, and watching smart people solve them never gets old.
-    </p>
-
-    <div class="metaLine">Popcorn Picks</div>
+    <div class="hero-tags fade-up">
+      <span class="hero-tag-count">5 Shows</span>
+      <span class="hero-tag">Ingenuity</span>
+      <span class="hero-tag">Problem-Solving</span>
+      <span class="hero-tag">Competence</span>
+    </div>
   </div>
 </header>
 
-<main class="wrap">
+<main class="page-wrap">
 
-  <!-- Scorpion -->
+<div class="intro-block">
+  <p>
+    This editorial is for people who still enjoy shows driven by ingenuity, calm problem-solving, and competence. The kind of television where intelligence wins, improvisation matters, and every episode ends with a satisfying solution.
+  </p>
+  <p>
+    Below is a carefully chosen set of series that carry that MacGyver-style energy. Different tones, different settings, but the same core idea: problems are meant to be solved, and watching smart people solve them never gets old.
+  </p>
+</div>
+
   <article class="show">
-    <h2>Scorpion</h2>
-    <div class="submeta">2014-2018 • 4 seasons</div>
-    <div class="text">
-      <p>Scorpion takes the MacGyver formula and cranks it up to a whole team of geniuses. Instead of one resourceful hero with a Swiss Army knife, you get a quartet of misfits—each with an IQ well past genius level—who solve impossible problems for the government, corporations, and anyone else willing to pay for their services.</p>
-      
-      <p>The premise is deliberately over-the-top: Walter O'Brien (supposedly based on a real person) runs a company staffed by the smartest people in their fields. You've got a human calculator, a behavioral psychologist who can read people like algorithms, a mechanical prodigy who can build anything from scraps, and Walter himself, who thinks so fast that human emotion feels like a foreign language. Together, they tackle crises that normal people—and even normal experts—can't solve.</p>
-      
-      <p>What makes Scorpion work is that it doesn't pretend to be grounded. The show knows it's ridiculous and leans into it. A plane is about to crash because its Wi-Fi is down? They'll improvise a solution mid-flight using a laptop and a car driving underneath. A nuclear reactor is melting down? Give them twenty minutes and some duct tape. The joy isn't in believability—it's in watching hyper-competent people MacGyver their way out of disasters using science, math, and sheer stubbornness.</p>
-      
-      <p>If you miss that rhythm of setup → improvisation → solution, Scorpion delivers it consistently. Every episode follows the same satisfying structure: impossible problem, frantic brainstorming session, improvised plan that sounds insane, ticking clock, last-second success. It's comfort food for people who like watching smart characters win by being clever rather than by shooting their way out.</p>
-      
-      <p>The character dynamics add heart to the chaos. Walter is brilliant but emotionally stunted, and the show spends a lot of time on his slow, awkward attempts to connect with normal humans—especially Paige, a waitress-turned-liaison who translates the team's genius into language regular people can understand. The found-family element is strong here. These are people who don't fit anywhere else, who've spent their lives being too smart for the room, and who finally have a place where being weird is not just accepted—it's essential.</p>
-      
-      <p>Scorpion isn't trying to be prestige TV. It's not deep, it's not subtle, and it definitely doesn't care about realism. But if you want a show where problems are solvable, where intelligence is celebrated, and where every episode ends with the good guys winning because they out-thought the bad guys, this is exactly what you're looking for. It's MacGyver energy, scaled up and shameless about it.</p>
+    <div class="show-poster">
+      <div class="show-poster-frame">
+        <img src="assets/posters/tv/scorpion-poster.jpg.jpeg" alt="Scorpion poster" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
+      </div>
     </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/tv/scorpion-poster.jpg.jpeg" alt="Scorpion poster">
+    <div class="show-info">
+      <div class="show-num">01 of 05</div>
+      <h2>Scorpion</h2>
+      <div class="show-meta">2014–2018 · 4 Seasons</div>
+      <div class="show-body">
+        <p>Scorpion takes the MacGyver formula and cranks it up to a whole team of geniuses. Instead of one resourceful hero with a Swiss Army knife, you get a quartet of misfits — each with an IQ well past genius level — who solve impossible problems for the government, corporations, and anyone else willing to pay for their services.</p>
+        <p>The premise is deliberately over-the-top: Walter O'Brien runs a company staffed by the smartest people in their fields. You've got a human calculator, a behavioral psychologist who can read people like algorithms, a mechanical prodigy who can build anything from scraps, and Walter himself, who thinks so fast that human emotion feels like a foreign language. Together, they tackle crises that normal people — and even normal experts — can't solve.</p>
+        <p>What makes Scorpion work is that it doesn't pretend to be grounded. The show knows it's ridiculous and leans into it. A plane is about to crash because its Wi-Fi is down? They'll improvise a solution mid-flight using a laptop and a car driving underneath. A nuclear reactor is melting down? Give them twenty minutes and some duct tape. The joy isn't in believability — it's in watching hyper-competent people MacGyver their way out of disasters using science, math, and sheer stubbornness.</p>
+        <p>If you miss that rhythm of setup → improvisation → solution, Scorpion delivers it consistently. Every episode follows the same satisfying structure: impossible problem, frantic brainstorming, improvised plan that sounds insane, ticking clock, last-second success. It's comfort food for people who like watching smart characters win by being clever rather than by shooting their way out.</p>
+        <p>The character dynamics add heart to the chaos. Walter is brilliant but emotionally stunted, and the show spends a lot of time on his slow, awkward attempts to connect with normal humans — especially Paige, a waitress-turned-liaison who translates the team's genius into language regular people can understand. The found-family element is strong here. These are people who don't fit anywhere else, who've spent their lives being too smart for the room, and who finally have a place where being weird is not just accepted — it's essential.</p>
+        <p>Scorpion isn't trying to be prestige TV. It's not deep, it's not subtle, and it definitely doesn't care about realism. But if you want a show where problems are solvable, where intelligence is celebrated, and where every episode ends with the good guys winning because they out-thought the bad guys, this is exactly what you're looking for.</p>
       </div>
     </div>
   </article>
 
-  <!-- White Collar -->
   <article class="show">
-    <h2>White Collar</h2>
-    <div class="submeta">2009-2014 • 6 seasons</div>
-    <div class="text">
-      <p>White Collar sits comfortably in that MacGyver-like sweet spot: smart but fun, clever but not exhausting, with just enough charm to make the whole thing feel effortless. It's a show about a con artist working with the FBI to catch other criminals, and the joy is watching someone who's brilliant at deception use those same skills for good—or at least, for something closer to good.</p>
-      
-      <p>Neal Caffrey is a master forger, thief, and con man who gets caught by FBI agent Peter Burke after years of cat-and-mouse. Instead of sending him to prison, Peter cuts a deal: Neal helps the FBI solve white-collar crimes in exchange for freedom (with an ankle monitor, of course). What follows is six seasons of clever heists, art forgeries, long cons, and two men who start as adversaries and slowly become something like friends.</p>
-      
-      <p>The MacGyver connection is in how Neal approaches problems. He doesn't have gadgets or government resources—he has charm, creativity, and an encyclopedic knowledge of how to fake, steal, or talk his way out of anything. When the team needs to infiltrate a gala, Neal doesn't break in—he forges an invitation. When they need to catch a counterfeiter, Neal doesn't rely on forensics—he thinks like a counterfeiter and predicts the next move. It's problem-solving through improvisation, just with a tuxedo instead of duct tape.</p>
-      
-      <p>What makes the show work is the dynamic between Neal and Peter. Peter is the rule-follower, the straight-laced agent who believes in the system. Neal is the rule-breaker, the guy who thinks laws are more like suggestions. They're opposites, but they respect each other's skills. Peter learns to think like a criminal. Neal learns to think like a cop. And together, they solve cases that neither could crack alone. It's a buddy-cop formula, but it's executed with enough wit and warmth that it never feels stale.</p>
-      
-      <p>The show also has a lightness to it that's rare in crime dramas. There's tension, sure, but there's also banter, style, and a sense of fun. Neal's apartment is impossibly cool. The crimes involve art, wine, rare manuscripts—things that feel glamorous rather than grim. Even when the stakes are high, the show never loses its sense of play. It's a caper series at heart, and it knows that watching clever people pull off clever plans is inherently entertaining.</p>
-      
-      <p>White Collar doesn't reinvent television, but it doesn't need to. It's comfort viewing for people who like competence, charm, and characters who solve problems with their brains. If MacGyver was about improvising your way out of danger, White Collar is about finessing your way out. Different tools, same satisfaction.</p>
+    <div class="show-poster">
+      <div class="show-poster-frame">
+        <img src="assets/posters/tv/white-collar-poster.jpg.jpeg" alt="White Collar poster" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
+      </div>
     </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/tv/white-collar-poster.jpg.jpeg" alt="White Collar poster">
+    <div class="show-info">
+      <div class="show-num">02 of 05</div>
+      <h2>White Collar</h2>
+      <div class="show-meta">2009–2014 · 6 Seasons</div>
+      <div class="show-body">
+        <p>White Collar sits comfortably in that MacGyver-like sweet spot: smart but fun, clever but not exhausting, with just enough charm to make the whole thing feel effortless. It's a show about a con artist working with the FBI to catch other criminals, and the joy is watching someone who's brilliant at deception use those same skills for good — or at least, for something closer to good.</p>
+        <p>Neal Caffrey is a master forger, thief, and con man who gets caught by FBI agent Peter Burke after years of cat-and-mouse. Instead of sending him to prison, Peter cuts a deal: Neal helps the FBI solve white-collar crimes in exchange for freedom (with an ankle monitor, of course). What follows is six seasons of clever heists, art forgeries, long cons, and two men who start as adversaries and slowly become something like friends.</p>
+        <p>The MacGyver connection is in how Neal approaches problems. He doesn't have gadgets or government resources — he has charm, creativity, and an encyclopedic knowledge of how to fake, steal, or talk his way out of anything. When the team needs to infiltrate a gala, Neal doesn't break in — he forges an invitation. When they need to catch a counterfeiter, Neal doesn't rely on forensics — he thinks like a counterfeiter and predicts the next move. It's problem-solving through improvisation, just with a tuxedo instead of duct tape.</p>
+        <p>What makes the show work is the dynamic between Neal and Peter. Peter is the rule-follower, the straight-laced agent who believes in the system. Neal is the rule-breaker, the guy who thinks laws are more like suggestions. They're opposites, but they respect each other's skills. Peter learns to think like a criminal. Neal learns to think like a cop. And together, they solve cases that neither could crack alone.</p>
+        <p>The show also has a lightness to it that's rare in crime dramas. There's tension, sure, but there's also banter, style, and a sense of fun. The crimes involve art, wine, rare manuscripts — things that feel glamorous rather than grim. Even when the stakes are high, the show never loses its sense of play. White Collar doesn't reinvent television, but it doesn't need to. It's comfort viewing for people who like competence, charm, and characters who solve problems with their brains.</p>
       </div>
     </div>
   </article>
 
-  <!-- Burn Notice -->
   <article class="show">
-    <h2>Burn Notice</h2>
-    <div class="submeta">2007-2013 • 7 seasons</div>
-    <div class="text">
-      <p>Burn Notice is probably the purest hit of MacGyver DNA on this list. It's a show about a spy who gets "burned"—blacklisted, cut off from all resources, dumped in Miami with no money, no allies, and no identity—and has to survive using nothing but his training, his wits, and whatever he can scrounge up. If MacGyver was about solving problems with a paperclip, Burn Notice is about solving problems with a cellphone, duct tape, and a yogurt container.</p>
-      
-      <p>Michael Westen is the burned spy in question, and he's the kind of protagonist who makes competence look easy. He's not a superhero. He's just someone who's spent his entire adult life learning how to lie, fight, and improvise under pressure. The show follows him as he takes on odd jobs for people in Miami—helping victims of scams, taking down local criminals, protecting the desperate—all while trying to figure out who burned him and why.</p>
-      
-      <p>What makes Burn Notice so satisfying is the "how." Michael doesn't just solve problems—he explains how he's solving them. The show uses voiceover to walk you through the tradecraft, the psychology, the improvised tactics. "When you're being followed, the best move is to lead them somewhere public and lose them in the crowd." "If you need to break into a secure building, the easiest way is to make them let you in." It's like watching a MacGyver episode with director's commentary, and it's addictive.</p>
-      
-      <p>The improvisation is constant. Michael needs to bug a room? He builds a listening device out of a landline phone. He needs to fake a kidnapping? He uses theater smoke, a burner phone, and some well-timed chaos. Every plan involves making do with whatever's available, and the show takes genuine pleasure in showing the process. It's not about having the best gear—it's about knowing how to use what you have.</p>
-      
-      <p>The supporting cast is one of the show's secret weapons. Fiona, Michael's trigger-happy ex-girlfriend, is a former IRA operative who solves most problems with explosives. Sam, a retired Navy SEAL turned beach bum, is Michael's best friend and the guy who knows everyone in Miami. Together, they're a dysfunctional but effective team, and their banter is sharp, funny, and grounded in real affection. The show balances the spy thriller stuff with genuine character moments, and it never forgets that these are people, not just operators.</p>
-      
-      <p>Instead of killing tension, that clarity sharpens it. You know what Michael is trying to do, you know the obstacles, and you get to watch him think his way through in real time. It's problem-solving as entertainment, and it's deeply satisfying. Burn Notice ran for seven seasons and never lost that MacGyver spirit: intelligence, resourcefulness, and the belief that any problem can be solved if you're smart enough and stubborn enough.</p>
+    <div class="show-poster">
+      <div class="show-poster-frame">
+        <img src="assets/posters/tv/burn-notice-poster.jpg.jpeg" alt="Burn Notice poster" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
+      </div>
     </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/tv/burn-notice-poster.jpg.jpeg" alt="Burn Notice poster">
+    <div class="show-info">
+      <div class="show-num">03 of 05</div>
+      <h2>Burn Notice</h2>
+      <div class="show-meta">2007–2013 · 7 Seasons</div>
+      <div class="show-body">
+        <p>Burn Notice is probably the purest hit of MacGyver DNA on this list. It's a show about a spy who gets "burned" — blacklisted, cut off from all resources, dumped in Miami with no money, no allies, and no identity — and has to survive using nothing but his training, his wits, and whatever he can scrounge up. If MacGyver was about solving problems with a paperclip, Burn Notice is about solving problems with a cellphone, duct tape, and a yogurt container.</p>
+        <p>Michael Westen is the burned spy in question, and he's the kind of protagonist who makes competence look easy. He's not a superhero. He's just someone who's spent his entire adult life learning how to lie, fight, and improvise under pressure. The show follows him as he takes on odd jobs for people in Miami — helping victims of scams, taking down local criminals, protecting the desperate — all while trying to figure out who burned him and why.</p>
+        <p>What makes Burn Notice so satisfying is the "how." Michael doesn't just solve problems — he explains how he's solving them. The show uses voiceover to walk you through the tradecraft, the psychology, the improvised tactics. "When you're being followed, the best move is to lead them somewhere public." "If you need to break into a secure building, the easiest way is to make them let you in." It's like watching a MacGyver episode with director's commentary, and it's addictive.</p>
+        <p>The improvisation is constant. Michael needs to bug a room? He builds a listening device out of a landline phone. He needs to fake a kidnapping? He uses theater smoke, a burner phone, and some well-timed chaos. Every plan involves making do with whatever's available, and the show takes genuine pleasure in showing the process.</p>
+        <p>The supporting cast is one of the show's secret weapons. Fiona, Michael's trigger-happy ex-girlfriend, is a former IRA operative who solves most problems with explosives. Sam, a retired Navy SEAL turned beach bum, is Michael's best friend and the guy who knows everyone in Miami. Together, they're a dysfunctional but effective team, and their banter is sharp, funny, and grounded in real affection. Burn Notice ran for seven seasons and never lost that MacGyver spirit: intelligence, resourcefulness, and the belief that any problem can be solved if you're smart enough and stubborn enough.</p>
       </div>
     </div>
   </article>
 
-  <!-- Chuck -->
   <article class="show">
-    <h2>Chuck</h2>
-    <div class="submeta">2007-2012 • 5 seasons</div>
-    <div class="text">
-      <p>Chuck is MacGyver-style thinking wrapped in heart, humor, and a whole lot of accidental heroism. It's a show about a regular guy—a computer nerd working at a Buy More electronics store—who accidentally downloads every government secret in existence into his brain and becomes the most valuable (and least qualified) asset the CIA has ever had.</p>
-      
-      <p>The premise is absurd, and the show knows it. Chuck Bartowski isn't a trained spy. He's not a fighter. He's not even particularly brave. He's just a sweet, nerdy guy who now has a supercomputer in his head that "flashes" with classified intel whenever he sees a trigger. Need to defuse a bomb? Chuck's brain pulls up the manual. Need to identify a terrorist? His brain cross-references a database. He's walking Wikipedia meets Jason Bourne, except he's terrified the entire time.</p>
-      
-      <p>What makes Chuck work is that it leans into the fish-out-of-water comedy. Chuck solves spy problems the way a gamer solves puzzles—by thinking sideways, using unconventional tactics, and relying on pop culture knowledge instead of training. He's improvising constantly, not because he's clever, but because he has no idea what he's doing and has to make it up as he goes. It's MacGyver energy by accident, and it's hilarious and endearing.</p>
-      
-      <p>The show also has a huge amount of heart. Chuck isn't just trying to survive—he's trying to protect his friends, his family, and his weird little life at the Buy More. His best friend Morgan is a lovable idiot who has no idea Chuck is a spy. His sister Ellie just wants him to be happy and stable. And Sarah, the CIA agent assigned to protect him, slowly falls for him despite every rule saying she shouldn't. The spy missions are fun, but the emotional core is what keeps you invested.</p>
-      
-      <p>The tone is light, but the show earns its emotional moments. There are real stakes. People Chuck cares about get hurt. He has to make hard choices between being a spy and being a person. The show doesn't dwell in darkness, but it doesn't ignore consequences either. It's the perfect balance of fun and weight, and it never loses sight of what makes Chuck special: he's a good person in a world that usually rewards being ruthless.</p>
-      
-      <p>If MacGyver was about using your hands and your mind to solve problems, Chuck is about using your heart. It's a show that believes kindness, loyalty, and thinking differently are just as valuable as training and tactics. And if you want something that's genuinely fun, genuinely sweet, and still delivers that satisfying problem-solving energy, Chuck is a perfect watch.</p>
+    <div class="show-poster">
+      <div class="show-poster-frame">
+        <img src="assets/posters/tv/chuck-poster.jpg.jpeg" alt="Chuck poster" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
+      </div>
     </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/tv/chuck-poster.jpg.jpeg" alt="Chuck poster">
+    <div class="show-info">
+      <div class="show-num">04 of 05</div>
+      <h2>Chuck</h2>
+      <div class="show-meta">2007–2012 · 5 Seasons</div>
+      <div class="show-body">
+        <p>Chuck is MacGyver-style thinking wrapped in heart, humor, and a whole lot of accidental heroism. It's a show about a regular guy — a computer nerd working at a Buy More electronics store — who accidentally downloads every government secret in existence into his brain and becomes the most valuable (and least qualified) asset the CIA has ever had.</p>
+        <p>The premise is absurd, and the show knows it. Chuck Bartowski isn't a trained spy. He's not a fighter. He's not even particularly brave. He's just a sweet, nerdy guy who now has a supercomputer in his head that "flashes" with classified intel whenever he sees a trigger. Need to defuse a bomb? Chuck's brain pulls up the manual. Need to identify a terrorist? His brain cross-references a database. He's walking Wikipedia meets Jason Bourne, except he's terrified the entire time.</p>
+        <p>What makes Chuck work is that it leans into the fish-out-of-water comedy. Chuck solves spy problems the way a gamer solves puzzles — by thinking sideways, using unconventional tactics, and relying on pop culture knowledge instead of training. He's improvising constantly, not because he's clever, but because he has no idea what he's doing and has to make it up as he goes. It's MacGyver energy by accident, and it's hilarious and endearing.</p>
+        <p>The show also has a huge amount of heart. Chuck isn't just trying to survive — he's trying to protect his friends, his family, and his weird little life at the Buy More. His best friend Morgan is a lovable idiot who has no idea Chuck is a spy. His sister Ellie just wants him to be happy. And Sarah, the CIA agent assigned to protect him, slowly falls for him despite every rule saying she shouldn't.</p>
+        <p>The tone is light, but the show earns its emotional moments. There are real stakes. People Chuck cares about get hurt. He has to make hard choices between being a spy and being a person. It's a show that believes kindness, loyalty, and thinking differently are just as valuable as training and tactics. If MacGyver was about using your hands and your mind to solve problems, Chuck is about using your heart.</p>
       </div>
     </div>
   </article>
 
-  <!-- Limitless -->
   <article class="show">
-    <h2>Limitless</h2>
-    <div class="submeta">2015-2016 • 1 season</div>
-    <div class="text">
-      <p>Limitless is the simple pleasure of watching smart solutions unfold. It's based on the 2011 film of the same name, but where the movie was a thriller about power and paranoia, the TV show is lighter, funnier, and more interested in using super-intelligence as a problem-solving tool rather than a cautionary tale.</p>
-      
-      <p>The premise: Brian Finch is a struggling musician who stumbles onto NZT, a drug that unlocks 100% of your brain's potential. On NZT, he becomes a genius. He can learn languages in an afternoon, solve complex equations in seconds, see patterns no one else can, and remember everything he's ever experienced. The FBI recruits him to help solve cases, and each episode is built around Brian using his enhanced intelligence to crack impossible problems.</p>
-      
-      <p>What makes Limitless feel like MacGyver is the creative problem-solving. Brian doesn't just get smarter—he gets more imaginative. He builds elaborate mental models, creates visual simulations in his head, and approaches every case like a puzzle that can be cracked if you think hard enough. The show uses playful visuals to show his thought process: animated sequences, split screens, imaginary conversations with historical figures. It's fun to watch, and it keeps the problem-solving from feeling dry or technical.</p>
-      
-      <p>The tone is breezy and self-aware. Brian breaks the fourth wall, narrates his own thought process, and treats the whole spy/FBI thing with a sense of humor. He's not a tortured genius or a reluctant hero—he's a guy who's having a genuinely good time being the smartest person in the room. That lightness is rare in crime procedurals, and it makes the show feel refreshing rather than heavy.</p>
-      
-      <p>The show also doesn't ignore the cost of NZT. There are side effects, dangerous people who want the drug, and a larger conspiracy involving the government, pharmaceutical companies, and shadowy figures. But even when the stakes get serious, the show never loses its sense of play. It's a show that believes intelligence should be fun to watch, not just impressive.</p>
-      
-      <p>Limitless only lasted one season, which is a shame, because it was doing something genuinely enjoyable: making competence entertaining, making problem-solving visual, and making a character who's supernaturally smart still feel human and likable. If you want MacGyver-style thinking amplified to eleven, wrapped in a fun procedural format, Limitless is absolutely worth the watch.</p>
+    <div class="show-poster">
+      <div class="show-poster-frame">
+        <img src="assets/posters/tv/limitless-poster.jpg.jpeg" alt="Limitless poster" loading="lazy"
+          onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
+      </div>
     </div>
-    <div class="posterWrap">
-      <div class="poster">
-        <img src="assets/posters/tv/limitless-poster.jpg.jpeg" alt="Limitless poster">
+    <div class="show-info">
+      <div class="show-num">05 of 05</div>
+      <h2>Limitless</h2>
+      <div class="show-meta">2015–2016 · 1 Season</div>
+      <div class="show-body">
+        <p>Limitless is the simple pleasure of watching smart solutions unfold. It's based on the 2011 film of the same name, but where the movie was a thriller about power and paranoia, the TV show is lighter, funnier, and more interested in using super-intelligence as a problem-solving tool rather than a cautionary tale.</p>
+        <p>The premise: Brian Finch is a struggling musician who stumbles onto NZT, a drug that unlocks 100% of your brain's potential. On NZT, he becomes a genius. He can learn languages in an afternoon, solve complex equations in seconds, see patterns no one else can, and remember everything he's ever experienced. The FBI recruits him to help solve cases, and each episode is built around Brian using his enhanced intelligence to crack impossible problems.</p>
+        <p>What makes Limitless feel like MacGyver is the creative problem-solving. Brian doesn't just get smarter — he gets more imaginative. He builds elaborate mental models, creates visual simulations in his head, and approaches every case like a puzzle that can be cracked if you think hard enough. The show uses playful visuals to show his thought process: animated sequences, split screens, imaginary conversations with historical figures. It's fun to watch, and it keeps the problem-solving from feeling dry or technical.</p>
+        <p>The tone is breezy and self-aware. Brian breaks the fourth wall, narrates his own thought process, and treats the whole FBI thing with a sense of humor. He's not a tortured genius or a reluctant hero — he's a guy who's having a genuinely good time being the smartest person in the room. That lightness is rare in crime procedurals, and it makes the show feel refreshing rather than heavy.</p>
+        <p>Limitless only lasted one season, which is a shame, because it was doing something genuinely enjoyable: making competence entertaining, making problem-solving visual, and making a character who's supernaturally smart still feel human and likable. If you want MacGyver-style thinking amplified to eleven, wrapped in a fun procedural format, Limitless is absolutely worth the watch.</p>
       </div>
     </div>
   </article>
+
+  <div class="closing">
+    <a href="editorials.html" class="closing-back">← All Editorials</a>
+  </div>
 
 </main>
-
 </body>
 </html>
