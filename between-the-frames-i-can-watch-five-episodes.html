@@ -1,639 +1,366 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-  <title>I Can Watch Five Episodes, But Not One Movie | Between the Frames</title>
-  <meta name="description" content="Why we can binge entire seasons in days but can't bring ourselves to start a single two-hour movie. A personal essay on attention, commitment, and falling out of touch with cinema." />
-  
-  <link rel="canonical" href="https://popcornpicks.in/five-episodes-not-one-movie.html" />
-  
-  <!-- AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
-          crossorigin="anonymous"></script>
-  
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XZ94ZK9JN4');
-  </script>
-  
-  <style>
-    :root{
-      --bg:#0b0b0c;
-      --text:#fff;
-      --muted:rgba(255,255,255,.82);
-      --muted2:rgba(255,255,255,.62);
-      --line:rgba(255,255,255,.12);
-      --accent:#a78bfa;
-      --accentSoft:rgba(167,139,250,.15);
-      --radius:12px;
-      --max:680px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      background:
-        radial-gradient(900px 520px at 18% -10%, rgba(255,255,255,.06), transparent 55%),
-        radial-gradient(900px 520px at 85% 0%, rgba(167,139,250,.10), transparent 60%),
-        var(--bg);
-      color:var(--text);
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-      line-height:1.75;
-      font-size:17px;
-    }
-    a{color:var(--accent); text-decoration:none; transition:.2s}
-    a:hover{color:#fff; text-decoration:underline}
-    
-    .wrap{max-width:var(--max); margin:0 auto; padding:48px 24px 100px}
-    
-    .back{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      color:var(--muted2);
-      font-size:14px;
-      margin-bottom:32px;
-      padding:10px 14px;
-      border-radius:8px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.03);
-    }
-    .back:hover{
-      background:rgba(255,255,255,.06); 
-      text-decoration:none;
-      color:var(--muted);
-    }
-    
-    .kicker{
-      font-size:12px;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      color:var(--muted2);
-      margin-bottom:14px;
-      font-weight:500;
-    }
-    
-    h1{
-      margin:0 0 20px;
-      font-size:42px;
-      line-height:1.15;
-      font-weight:700;
-      letter-spacing:-.02em;
-    }
-    
-    .dek{
-      font-size:20px;
-      line-height:1.5;
-      color:var(--muted);
-      margin:0 0 24px;
-      font-weight:400;
-    }
-    
-    .meta{
-      color:var(--muted2);
-      font-size:15px;
-      margin-bottom:48px;
-      padding-bottom:32px;
-      border-bottom:1px solid var(--line);
-      display:flex;
-      gap:16px;
-      flex-wrap:wrap;
-    }
-    .meta-item{
-      display:flex;
-      align-items:center;
-      gap:6px;
-    }
-    
-    .article{
-      color:var(--muted);
-      line-height:1.8;
-    }
-    
-    .article p{
-      margin:0 0 28px;
-      font-size:17px;
-    }
-    
-    .article h2{
-      color:#fff;
-      font-size:28px;
-      margin:56px 0 24px;
-      font-weight:700;
-      letter-spacing:-.01em;
-      line-height:1.2;
-    }
-    
-    .article h3{
-      color:#fff;
-      font-size:22px;
-      margin:40px 0 18px;
-      font-weight:600;
-      line-height:1.3;
-    }
-    
-    .pullquote{
-      margin:48px 0;
-      padding:28px 32px;
-      border-left:4px solid var(--accent);
-      background:var(--accentSoft);
-      border-radius:0 var(--radius) var(--radius) 0;
-      font-size:20px;
-      line-height:1.6;
-      color:#fff;
-      font-weight:500;
-      font-style:italic;
-    }
-    
-    .callout{
-      margin:40px 0;
-      padding:24px 28px;
-      border-radius:var(--radius);
-      background:rgba(255,255,255,.04);
-      border:1px solid var(--line);
-    }
-    .callout-title{
-      color:#fff;
-      font-weight:600;
-      font-size:16px;
-      margin:0 0 12px;
-      text-transform:uppercase;
-      letter-spacing:.08em;
-      font-size:13px;
-    }
-    .callout p{
-      margin:0;
-      font-size:16px;
-      line-height:1.7;
-    }
-    
-    .section-break{
-      text-align:center;
-      margin:56px 0;
-      color:var(--muted2);
-      font-size:24px;
-      letter-spacing:.3em;
-    }
-    
-    .number-list{
-      counter-reset:item;
-      list-style:none;
-      padding:0;
-      margin:32px 0;
-    }
-    .number-list li{
-      counter-increment:item;
-      margin:0 0 32px;
-      padding-left:0;
-      position:relative;
-    }
-    .number-list li:before{
-      content:counter(item);
-      position:absolute;
-      left:-48px;
-      top:2px;
-      font-size:32px;
-      font-weight:700;
-      color:var(--accent);
-      opacity:.4;
-    }
-    
-    .insight-box{
-      margin:40px 0;
-      padding:28px;
-      background:linear-gradient(135deg, rgba(167,139,250,.08), rgba(167,139,250,.04));
-      border-radius:var(--radius);
-      border:1px solid rgba(167,139,250,.2);
-    }
-    .insight-box strong{
-      color:#fff;
-      display:block;
-      margin-bottom:12px;
-      font-size:18px;
-    }
-    
-    em{
-      color:#fff;
-      font-style:italic;
-      font-weight:500;
-    }
-    
-    strong{
-      color:#fff;
-      font-weight:600;
-    }
-    
-    .stat{
-      display:inline-block;
-      padding:3px 10px;
-      background:var(--accentSoft);
-      border-radius:6px;
-      color:#fff;
-      font-weight:600;
-      border:1px solid rgba(167,139,250,.3);
-    }
-    
-    @media (max-width: 640px){
-      h1{font-size:32px}
-      .dek{font-size:18px}
-      .article h2{font-size:24px}
-      .pullquote{font-size:18px; padding:20px 24px}
-      .number-list li:before{left:-32px; font-size:24px}
-    }
-  </style>
-  
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "I Can Watch Five Episodes, But Not One Movie",
-    "description": "Why we can binge entire seasons in days but can't bring ourselves to start a single two-hour movie.",
-    "datePublished": "2026-02-09",
-    "wordCount": "4000"
-  }
-  </script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Five Episodes, Not One Movie · Popcorn Picks</title>
+<meta name="description" content="I can finish entire seasons of TV without thinking. But clicking play on a movie? Somehow that feels impossible. I wanted to figure out why." />
+<link rel="canonical" href="https://popcornpicks.in/five-episodes-not-one-movie.html" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --ink: #f2ede4;
+  --ink-dim: #9e9890;
+  --ink-muted: #5e574e;
+  --paper: #0c0b09;
+  --paper-card: #141210;
+  --rule: rgba(242,237,228,0.08);
+  --rule-strong: rgba(242,237,228,0.13);
+  --accent: #b8866a;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'DM Mono', monospace;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 28px;
+  background: rgba(12,11,9,0.93);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--rule);
+}
+.brand { font-family: var(--serif); font-weight: 700; font-size: 15px; letter-spacing: .04em; }
+.back {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  text-decoration: none;
+  transition: color .2s;
+}
+.back:hover { color: var(--accent); }
+
+.hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1578022761797-b8636ac1773c?auto=format&fit=crop&w=2400&q=80') center/cover no-repeat;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(12,11,9,0.3) 0%, rgba(12,11,9,0.1) 25%, rgba(12,11,9,0.72) 62%, rgba(12,11,9,0.98) 100%);
+}
+.hero-bg::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-size: 120px; opacity: .65;
+}
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 860px; margin: 0 auto; width: 100%;
+  padding: 0 28px 68px;
+}
+.hero-eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+.eyebrow-line { width: 36px; height: 1px; background: var(--accent); opacity: .6; }
+.section-label { font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
+.hero h1 { font-family: var(--serif); font-size: clamp(36px, 6vw, 70px); font-weight: 900; line-height: 1.03; letter-spacing: -.03em; color: var(--ink); }
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero-dek { margin-top: 20px; max-width: 54ch; font-size: 17px; font-weight: 300; font-style: italic; color: var(--ink-dim); line-height: 1.72; }
+.hero-meta { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--rule); display: flex; align-items: center; gap: 18px; }
+.hero-meta-text { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-muted); }
+.hero-meta-dot { width: 1px; height: 14px; background: var(--rule-strong); }
+
+.fade-up { opacity: 0; transform: translateY(22px); animation: fadeUp .75s ease forwards; }
+.fade-up:nth-child(2) { animation-delay: .1s; }
+.fade-up:nth-child(3) { animation-delay: .22s; }
+.fade-up:nth-child(4) { animation-delay: .36s; }
+@keyframes fadeUp { to { opacity: 1; transform: none; } }
+
+.page-wrap { max-width: 860px; margin: 0 auto; padding: 72px 28px 120px; }
+
+.prose h2 {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.8vw, 30px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -.02em;
+  margin-top: 64px;
+  margin-bottom: 18px;
+  color: var(--ink);
+}
+.prose h2:first-child { margin-top: 0; }
+.prose p {
+  font-size: 17px;
+  line-height: 1.95;
+  color: #c5bfb3;
+  max-width: 66ch;
+  margin-bottom: 22px;
+  font-weight: 300;
+}
+.prose strong { color: var(--ink); font-weight: 500; }
+.prose em { font-style: italic; color: #d8d2c6; }
+
+.pullquote {
+  margin: 48px 0;
+  padding: 24px 0 24px 26px;
+  border-left: 2px solid var(--accent);
+  position: relative;
+}
+.pullquote::before {
+  content: '\201C';
+  position: absolute;
+  top: -14px; left: -10px;
+  font-family: var(--serif);
+  font-size: 70px;
+  line-height: 1;
+  color: var(--accent);
+  opacity: .25;
+}
+.pullquote blockquote {
+  font-family: var(--serif);
+  font-size: clamp(17px, 2vw, 22px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--ink);
+  max-width: 52ch;
+}
+.pullquote cite {
+  display: block; margin-top: 10px;
+  font-family: var(--mono); font-size: 10px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--ink-muted); font-style: normal;
+}
+
+.highlight-box {
+  margin: 40px 0; padding: 22px 24px;
+  border: 1px solid var(--rule-strong);
+  border-left: 2px solid rgba(184,134,106,0.4);
+  border-radius: 4px;
+  background: var(--paper-card);
+}
+.highlight-box p {
+  font-size: 15.5px; line-height: 1.85;
+  color: var(--ink-dim); margin-bottom: 0;
+  font-weight: 300; max-width: 60ch;
+}
+
+.rule-thin { width: 100%; height: 1px; background: var(--rule); border: none; margin: 52px 0; }
+
+.closing-mark {
+  display: flex; align-items: center; gap: 16px;
+  margin: 64px 0 48px;
+  font-family: var(--serif); font-size: 16px; color: var(--ink-muted);
+}
+.closing-mark::before, .closing-mark::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+.back-footer { padding-top: 28px; border-top: 1px solid var(--rule); }
+
+@media (max-width: 640px) {
+  .topbar { padding: 12px 18px; }
+  .hero-content { padding: 0 18px 52px; }
+  .page-wrap { padding: 48px 18px 80px; }
+  .pullquote { padding-left: 18px; }
+}
+</style>
+
 </head>
 
 <body>
-  <main class="wrap">
-    <a href="between-the-frames.html" class="back">← Between the Frames</a>
-    
-    <div class="kicker">Between the Frames</div>
-    <h1>I Can Watch Five Episodes, But Not One Movie</h1>
-    <p class="dek">
-      Why we can binge entire seasons in days but can't bring ourselves to start a single two-hour movie—and what that says about how we watch now.
+
+<div class="topbar">
+  <a class="back" href="between-the-frames.html">← Back</a>
+  <div class="brand">Popcorn Picks</div>
+  <div style="width:64px"></div>
+</div>
+
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow fade-up">
+      <div class="eyebrow-line"></div>
+      <span class="section-label">Between the Frames</span>
+    </div>
+    <h1 class="fade-up">I Can Watch<br>Five Episodes,<br>Not <em>One</em> Movie</h1>
+    <p class="hero-dek fade-up">
+      I give full attention to everything I watch. So why does clicking play on a movie feel so much harder than starting another episode?
     </p>
-    
-    <div class="meta">
-      <span class="meta-item">📖 12 min read</span>
-      <span class="meta-item">🎬 Personal essay</span>
-      <span class="meta-item">💭 On attention & commitment</span>
+    <div class="hero-meta fade-up">
+      <span class="hero-meta-text">Personal Essay</span>
+      <div class="hero-meta-dot"></div>
+      <span class="hero-meta-text">On Watching</span>
     </div>
-    
-    <article class="article">
-      
-      <p>
-        Here's the thing I can't explain to anyone without sounding ridiculous: I haven't watched a movie—like, actually sat down and watched a full movie from beginning to end—in months. Maybe longer. I've <em>started</em> movies. I've had them open in a tab. I've added dozens to my watchlist with genuine intention. But actually pressing play and committing two hours of my life to a single story? It feels impossible.
-      </p>
-      
-      <p>
-        Meanwhile, I've burned through entire seasons of shows in a weekend. I've stayed up until 3 AM watching "just one more episode" turn into five. I've watched 50-episode Korean dramas, 40-episode Chinese period pieces, and multi-season crime thrillers without blinking. I can commit 10, 20, 30 hours to a series without hesitation. But a 110-minute film? That's somehow too much to ask.
-      </p>
-      
-      <p>
-        It makes no sense. If you do the math, it's objectively insane. But if you've felt this too—if you've scrolled past every movie on your list to click on Episode 1 of something with eight seasons—you know exactly what I'm talking about. And the worst part? I used to love movies. I used to be a "<em>movie person</em>." Now I'm completely out of touch, and I don't know how it happened.
-      </p>
-
-      <div class="pullquote">
-        "I can commit 30 hours to a mediocre series, but asking me to invest two hours in an award-winning film feels like an insurmountable task."
-      </div>
-
-      <h2>The Commitment Paradox: Why Two Hours Feels Longer Than Ten</h2>
-      
-      <p>
-        Let's start with the obvious contradiction. If I can watch five hours of television in one sitting, why does a two-hour movie feel like a prison sentence? The runtime isn't the issue—I've proven I can sit still for much longer. So what is it?
-      </p>
-      
-      <p>
-        I think it comes down to <strong>perceived commitment</strong>. When I start a TV series, I'm not committing to the whole thing. I'm committing to 45 minutes. If I hate it, I bail. If I like it, I keep going. There's an exit ramp every episode. It's <em>low stakes</em>. But a movie? A movie is a locked box. Once you start, the social contract says you finish it. You don't watch half a movie. That's not a thing people do.
-      </p>
-      
-      <p>
-        And that weight—the expectation that you're supposed to see it through to the end—makes the decision to start <em>so much heavier</em>. It's the same reason people avoid making phone calls but will spend an hour texting. The phone call has no defined endpoint. You're trapped until the other person decides it's over. Texting, you can step away anytime. There's no commitment pressure.
-      </p>
-
-      <div class="callout">
-        <div class="callout-title">The Psychological Weight of "Finishing"</div>
-        <p>
-          Television gives you permission to quit early. Movies don't. And that difference—between "I can stop whenever" and "I'm locked in"—changes everything about how willing we are to start.
-        </p>
-      </div>
-
-      <p>
-        With a series, I'm not thinking about the endgame. I'm thinking about <em>right now</em>. With a movie, I'm immediately aware that I'm signing up for a complete, self-contained experience. It's the difference between "I'll try this" and "I'm committing to this." And in a world where our attention is fragmented into a thousand micro-decisions every day, that extra layer of commitment feels exhausting.
-      </p>
-
-      <h2>The Illusion of Control: Episodic Viewing as Safe Exploration</h2>
-
-      <p>
-        Here's what I've realized: watching TV <em>feels</em> like I'm in control, even when I'm not. I can pause between episodes. I can check my phone during a boring stretch and pick it back up when something interesting happens. I can browse Reddit during the exposition-heavy parts and tune back in for the action. The format is modular. It bends around my fractured attention.
-      </p>
-      
-      <p>
-        Movies don't bend. They demand full presence. A film is a <strong>continuous experience</strong> designed to be consumed in one sitting, without interruption. Directors construct pacing, tension, and emotional arcs assuming you'll be there for the whole ride. If you check out mentally for 10 minutes, you've broken the spell. You've missed the setup for a payoff that happens later. You've lost the thread.
-      </p>
-
-      <p>
-        And I <em>know</em> this. I know that movies are built to reward focused attention. But knowing doesn't change the fact that focused attention feels like a luxury I can't afford. My brain has been trained to expect interruptions. It <em>wants</em> the option to multitask, to keep one eye on my phone, to have an escape hatch if things get slow.
-      </p>
-
-      <div class="insight-box">
-        <strong>The Attention Bargain:</strong>
-        TV shows let me <em>half-watch</em> and still follow the plot. Movies punish distraction. And because I've been conditioned to always be half-distracted, the idea of a format that doesn't allow for that feels almost hostile.
-      </div>
-
-      <p>
-        There's also the safety of <strong>familiarity</strong>. If I'm on Episode 4 of a show, I already know the rhythm. I know the characters, the tone, the pacing. There's no risk. But every movie is a gamble. I don't know if it's going to be slow or fast, funny or depressing, visually stunning or a slog. And because I don't know, starting feels like stepping into the unknown. TV, after a few episodes, feels like coming home.
-      </p>
-
-      <h2>The Sunk Cost Safety Net: Why Bad TV Is Easier to Endure Than Bad Movies</h2>
-
-      <p>
-        Let me tell you about the worst show I've ever finished. It was a 16-episode drama that went completely off the rails around Episode 8. The plot made no sense. The characters acted like completely different people. The ending was baffling. And yet, I watched <em>every single episode</em>.
-      </p>
-
-      <p>
-        Why? Because by the time I realized it was bad, I'd already invested 6 hours. And the sunk cost fallacy whispered: "<em>You've come this far. You might as well see how it ends.</em>" So I kept watching, even though I wasn't enjoying it, because finishing felt better than quitting.
-      </p>
-
-      <p>
-        Now imagine if that had been a movie. If I'd realized 45 minutes into a two-hour film that it wasn't working, I'd have bailed. No question. Because with a movie, the sunk cost is <em>smaller</em>. Forty-five minutes is nothing. I can walk away clean. But with a series? Once I'm 6, 8, 10 hours in, walking away feels like admitting defeat. So I push through, even when it's bad, because at least I'll have "<em>finished something</em>."
-      </p>
-
-      <div class="pullquote">
-        "I've hate-watched entire seasons of shows I didn't enjoy, but I can't remember the last time I sat through a full movie I wasn't into. The math doesn't add up, but the psychology does."
-      </div>
-
-      <p>
-        This is the thing nobody talks about: <strong>bad TV is easier to tolerate than bad movies</strong>. A bad episode is 40 minutes of your life. You survive it and move on. A bad movie is two hours of realizing, in real-time, that you made the wrong choice and now you're stuck. The episodic structure creates psychological cushioning. Even if this episode sucks, maybe the next one will be better. There's always hope on the horizon.
-      </p>
-
-      <p>
-        Movies don't offer that hope. If you're 30 minutes into a film and it's not working, you know—<em>you know</em>—that you have 80 more minutes of this. There's no "maybe it gets better." It's a sealed experience. And that certainty makes the bad ones feel so much worse.
-      </p>
-
-      <h2>The Paradox of Choice: Too Many Movies, Not Enough Commitment</h2>
-
-     <p>
-        My watchlist has a lot of movies on it that I still haven’t watched. Films I was genuinely interested in at some point, added with good intentions, and then quietly ignored. I scroll past them every time. I’ve read about them, seen clips, even told myself “I’ll watch this soon.” But I don’t.
-       </p>
-
-      <p>
-        Meanwhile, if someone says "<em>you should watch this show</em>," I'll start it that night. I'll binge the first three episodes before bed. But a movie recommendation? That goes on the list. The list where things go to die.
-      </p>
+  </div>
+</header>
 
-      <p>
-        I think part of the problem is <strong>decision fatigue</strong>. Choosing a movie feels like a high-stakes decision. I'm choosing how to spend two uninterrupted hours. What if I pick wrong? What if I'm not in the right mood? What if I commit to a drama but I actually needed a comedy? The possibility space is too wide, and the cost of a bad choice feels too high.
-      </p>
+<main class="page-wrap">
+<div class="prose">
 
-      <div class="callout">
-        <div class="callout-title">The Overchoice Effect</div>
-        <p>
-          When you have unlimited options, the pressure to make the "<em>right</em>" choice becomes paralyzing. TV shows feel lower-risk because the first episode is just a trial run. Movies feel like you're locked into your decision the moment you press play.
-        </p>
-      </div>
-
-      <p>
-        With TV, the choice is easier because it's <em>iterative</em>. Episode 1 is just a test drive. If I don't like it, I'm out 40 minutes. No big deal. But picking a movie feels like I need to <em>commit in advance</em> to the entire experience. And in a world where I'm drowning in options—where there are thousands of movies I <em>could</em> watch—the pressure to pick the "<em>perfect</em>" one is overwhelming.
-      </p>
-
-      <p>
-        So instead of choosing, I don't choose at all. I go back to the show I'm already watching, because that decision has already been made. I'm mid-season. I know what I'm getting. There's no risk. Continuing a show requires zero decision-making. Starting a movie requires me to evaluate my mood, my energy level, my attention span, and my likelihood of regretting this choice in 20 minutes. It's exhausting before I even hit play.
-      </p>
-
-      <h2>The Binge Mechanism: How Autoplay Rewired My Brain</h2>
+<h2>The thing I noticed about myself</h2>
 
-      <p>
-        Let's talk about autoplay. You know the moment: the episode ends, and before you can even process what just happened, the next episode starts. The countdown appears. <em>Next episode in 10 seconds</em>. And you don't move, because moving would require a deliberate choice to <em>stop</em>, and stopping feels harder than just… continuing.
-      </p>
+<p>
+I watch TV shows the way most people are supposed to watch movies. Full attention, phone down, no background noise. If a show doesn't grip me, I drop it. I'm not the kind of person who puts something on just to have something on.
+</p>
 
-      <p>
-        This is the mechanism that changed everything. TV used to require effort to continue. You had to get up, switch the tape, change the disc, wait for the next week's broadcast. There were <strong>natural stopping points</strong> built into the format. But streaming removed all of that. Now, the default is continuation. Stopping requires active intervention.
-      </p>
+<p>
+So it confused me when I realized I had barely watched any movies in months. Not because I stopped wanting to. My list of films I genuinely want to see keeps growing. The problem is I can't seem to press play on any of them. I'll open a streaming app, scroll past twenty movies I'm actually interested in, and then start another TV show instead.
+</p>
 
-      <p>
-        And I've realized: <em>I'm really bad at active intervention</em>. If the next episode starts automatically, I'll watch it. If I have to manually select it, I might not. The difference is tiny—a single click—but that click represents a decision point, and decision points are where I lose momentum.
-      </p>
+<p>
+I've gone through entire seasons in a few days. Stayed up late because I couldn't stop. But a two-hour film? I keep telling myself I'll get to it this weekend. Then the next weekend. Then it's been three months and the movie is still sitting there.
+</p>
 
-      <div class="insight-box">
-        <strong>The Autoplay Effect:</strong>
-        TV platforms are designed to eliminate friction. Every design choice is built to keep you watching. Movies, on the other hand, have natural endpoints. They <em>make</em> you stop. And stopping is where I remember I have other things to do.
-      </div>
+<p>
+I wanted to figure out why. Not in some grand way. Just honestly, for myself.
+</p>
 
-      <p>
-        Movies don't have autoplay (well, some services try, but it's not the same). A movie ends, and you're faced with a <em>choice</em>. Do I start another one? Do I get up? Do I check my phone? That decision point is a breakpoint. And once I'm at a breakpoint, the spell is broken. I remember I was supposed to reply to that email. I notice it's late. I think about tomorrow.
-      </p>
+<hr class="rule-thin">
 
-      <p>
-        But with TV, there is no breakpoint. The next episode starts before I can think. And by the time I <em>do</em> think, I'm already three minutes into the next one, and the opening scene has hooked me, and now I'm committed for another 45 minutes. Rinse, repeat, until it's 2 AM and I've watched an entire season without meaning to.
-      </p>
+<h2>It is not about attention</h2>
 
-      <h2>The Narrative Hook: Cliffhangers vs. Closed Stories</h2>
+<p>
+The first thing people say is attention spans. We're all distracted now, can't focus, need things broken into small pieces. But that doesn't describe me at all. I'm not watching TV in short bursts. I'm watching for hours at a time, following storylines across whole seasons, keeping track of many characters, fully in it. My attention is not the problem.
+</p>
 
-      <p>
-        Here's another thing: TV shows are <em>designed</em> to keep you hooked. Most episodes end on a cliffhanger, a question, a piece of unresolved tension. The story doesn't close—it pauses. And my brain <em>hates</em> unresolved tension. It wants answers. It wants closure. So even if I'm tired, even if I should stop, the unfinished story pulls me forward.
-      </p>
+<p>
+And it is definitely not about time. A season of television is ten, fifteen, sometimes twenty hours. A movie is two. If I have time for one, I clearly have time for the other.
+</p>
 
-      <p>
-        "<em>Just one more episode to see what happens.</em>"
-      </p>
+<p>
+The problem is not during the watching. The problem is the moment before it, when I have to decide what to start.
+</p>
 
-      <p>
-        Movies don't do this. A movie is a <strong>complete story</strong>. It has a beginning, middle, and end. When it's over, it's <em>over</em>. There's no unresolved thread pulling me into the next one. And because there's no mechanical hook forcing me to continue, I'm free to… stop. And stopping means I have to find something else to do. Which means I have to make another decision. Which brings me back to decision fatigue.
-      </p>
+<div class="pullquote">
+  <blockquote>I'm not scared of watching a movie. I'm scared of picking the wrong one with no way back.</blockquote>
+  <cite>Between the Frames</cite>
+</div>
 
-      <p>
-        TV shows exploit the Zeigarnik effect—the psychological phenomenon where we remember unfinished tasks better than completed ones. Our brains are wired to seek closure. So when a show leaves something unresolved, it creates a mental itch. The only way to scratch it is to watch the next episode.
-      </p>
+<h2>Starting a show and starting a movie feel completely different</h2>
 
-      <div class="pullquote">
-        "A TV show is a question that keeps asking itself. A movie is an answer. And right now, my brain is addicted to questions."
-      </div>
-
-      <p>
-        Movies offer closure. And closure, weirdly, is less compelling than suspense. Because once a story is finished, the emotional investment ends. I'm free. But freedom means I have to decide what to do next, and deciding is hard. So instead of starting a movie (which will end and force me to decide again), I start a show (which will carry me through hours of decision-free viewing).
-      </p>
-
-      <h2>The Habit Trap: How TV Became My Default</h2>
-
-      <p>
-        I used to think about what I wanted to watch. I used to browse, consider, choose deliberately. Now? I just open Netflix and continue whatever I was watching yesterday. It's muscle memory. The show is already queued up. I know where I left off. I don't have to think.
-      </p>
-
-      <p>
-        Watching TV has become a <strong>habit</strong>, not a choice. And habits are powerful because they run on autopilot. I'm not deciding to watch TV—I'm just doing what I did last time, and the time before that, and the time before that.
-      </p>
-
-      <p>
-        Movies, on the other hand, require a <em>conscious decision</em> every single time. There's no default movie. I can't just "continue" a film. I have to pick one, commit to it, and follow through. And in a brain running on autopilot most of the day, that level of intentionality feels like too much effort.
-      </p>
-
-      <div class="callout">
-        <div class="callout-title">The Default Effect</div>
-        <p>
-          Whatever requires the least effort becomes the default behavior. TV requires zero effort to continue. Movies require effort to start. So TV wins, every single time.
-        </p>
-      </div>
-
-      <p>
-        It's the same reason I eat the same breakfast every day. Not because it's the best option, but because deciding is exhausting. TV is my default entertainment breakfast. I don't have to think. I just press play on Episode 7 and let it carry me.
-      </p>
-
-      <h2>Falling Out of Touch: What I've Lost</h2>
-
-      <p>
-        Here's what bothers me most: I used to love movies. I used to be the person who saw everything, who knew what was playing, who had opinions on directors and cinematography and narrative structure. I had a <em>relationship</em> with film. And now? I feel like a stranger to the entire medium.
-      </p>
-
-      <p>
-        I can't remember the last time I watched something that won an Oscar. I've missed entire years of cinema. There are filmmakers—important ones, acclaimed ones—whose work I've never seen. Not because I'm not interested, but because I can't seem to make myself press play.
-      </p>
-
-      <p>
-        And it's not just about missing out on good films. It's about losing a <strong>mode of storytelling</strong>. Movies do things TV can't. They're tighter, more focused, more deliberate. A great film is a singular vision executed with precision. There's no filler, no stretching a story across 10 hours because the format demands it. Every scene is there because it has to be.
-      </p>
-
-      <p>
-        TV, for all its strengths, is often bloated. Even the best shows have weak episodes, filler arcs, pacing issues. They have to fill time. Movies don't. A movie respects your time by giving you exactly as much story as it needs to tell, and nothing more.
-      </p>
-
-      <div class="pullquote">
-        "I've traded the concentrated intensity of a two-hour masterpiece for the diluted comfort of a 20-hour binge. And I'm not sure I'm getting the better deal."
-      </div>
-
-      <p>
-        I miss the experience of a great movie. The way it can grab you in the first five minutes and not let go. The way a perfect ending can sit with you for days. The way a single image can burrow into your brain and stay there. TV rarely does this. TV is more diffuse. It's comforting, but it doesn't haunt you the same way.
-      </p>
-
-      <h2>The Attention Divide: What Streaming Platforms Want vs. What Cinema Needs</h2>
-
-      <p>
-        Here's the uncomfortable truth: <strong>streaming platforms don't want me to watch movies</strong>. Not really. They want me to watch TV. Because TV keeps me on the platform longer. TV racks up more viewing hours. TV is what gets reported in quarterly earnings calls.
-      </p>
-
-      <p>
-        Think about how Netflix presents content. The homepage is dominated by shows. Movies are there, but they're buried. The algorithm pushes series because series mean engagement. A user who finishes a movie might leave the platform. A user who's mid-season is locked in.
-      </p>
-
-      <p>
-        The entire interface is <strong>optimized for episodic consumption</strong>. The "Continue Watching" row is front and center. Recommendations are tilted toward series. Even when Netflix makes movies, they market them like shows—releasing them all at once, encouraging binge behavior, hoping you'll watch the whole catalog in a weekend.
-      </p>
-
-      <div class="insight-box">
-        <strong>Platform Incentives:</strong>
-        Streaming services measure success by <em>time on platform</em>, not by quality of experience. A user who watches 10 hours of mediocre TV is more valuable than a user who watches one excellent film and logs off.
-      </div>
-
-      <p>
-        And I've internalized this. I've absorbed the message that <em>more is better</em>, that engagement is the goal, that stopping is failure. So I keep watching, keep clicking to the next episode, keep feeding the algorithm exactly what it wants. And movies—beautiful, finite, self-contained movies—get left behind.
-      </p>
-
-      <h2>The Way Back: Can I Relearn How to Watch Movies?</h2>
-
-      <p>
-        So here's the question I'm sitting with: <strong>Is this fixable?</strong> Can I retrain my brain to tolerate a two-hour commitment? Can I rebuild the habit of watching films?
-      </p>
-
-      <p>
-        I think the answer is yes, but it requires deliberate effort. The same way I can't accidentally stumble into reading a book, I can't accidentally stumble back into watching movies. I have to <em>choose</em> it. And choosing it means fighting against every habit, every default, every piece of friction that makes TV easier.
-      </p>
-
-      <p>
-        Here's what I'm trying:
-      </p>
-
-      <ol class="number-list" style="margin-left:48px">
-        <li>
-          <strong style="color:#fff">Scheduling movie nights like appointments.</strong> If I treat it like an event—something that happens at a specific time—it's harder to skip. "Friday at 8 PM, I'm watching a movie" is more concrete than "I'll watch a movie sometime this week."
-        </li>
-        <li>
-          <strong style="color:#fff">Picking the movie in advance.</strong> The night of, I'm not scrolling through options. I've already decided. This removes the decision fatigue that kills momentum.
-        </li>
-        <li>
-          <strong style="color:#fff">Turning off my phone.</strong> Not on silent. <em>Off</em>. If the phone is in the other room and powered down, I can't reflexively check it during slow scenes. I'm forced to stay present.
-        </li>
-        <li>
-          <strong style="color:#fff">Starting with shorter films.</strong> A 90-minute movie feels less daunting than a 150-minute epic. I'm rebuilding my attention stamina. Start small.
-        </li>
-        <li>
-          <strong style="color:#fff">Watching with someone else.</strong> If I'm watching alone, it's easy to bail. If someone else is there, there's social accountability. We're finishing this together.
-        </li>
-      </ol>
-
-      <p>
-        The hardest part is accepting that <strong>it's going to feel uncomfortable at first</strong>. My brain is going to resist. It's going to want the safety of episodic TV. It's going to itch for the phone, for the pause button, for an exit. But discomfort is part of the process. I've trained myself into this habit. I can train myself out of it.
-      </p>
-
-      <div class="callout">
-        <div class="callout-title">The Retraining Process</div>
-        <p>
-          Attention is a muscle. I've let it atrophy. Rebuilding it means doing things that feel hard—like sitting through a slow scene, like resisting the urge to check my phone, like finishing a movie even when I'm tired. It's not fun. But it's necessary.
-        </p>
-      </div>
-
-      <h2>What I'm Really Chasing</h2>
-
-      <p>
-        At the end of the day, I think what I miss most about movies is the <strong>sense of completion</strong>. When you finish a great film, you've experienced a complete story. A full arc. A beginning, middle, and end. You've been somewhere, and now you're back. There's a wholeness to it.
-      </p>
-
-      <p>
-        TV doesn't give you that. Even when you finish a series, it often feels incomplete. Either the ending is rushed, or it's left open for another season, or you've spent so much time with the characters that saying goodbye feels hollow. There's rarely a clean sense of closure.
-      </p>
-
-      <p>
-        I think that's what I'm chasing when I finally do sit down to watch a movie. I want to feel like I've completed something. I want the satisfaction of a story that knows when to end. I want to be moved by something that respects my time enough to not overstay its welcome.
-      </p>
-
-      <div class="pullquote">
-        "Maybe the real reason I avoid movies is because they demand something TV doesn't: my full presence. And I've forgotten what it feels like to be fully present."
-      </div>
-
-      <p>
-        TV lets me half-watch, multitask, drift in and out. Movies don't. They ask for my attention, my focus, my commitment. And in a world that's trained me to split my attention across a dozen things at once, that kind of singular focus feels almost radical.
-      </p>
-
-      <p>
-        But maybe that's exactly why I need it.
-      </p>
-
-      <h2>The Honest Conclusion I Don't Want to Admit</h2>
-
-      <p>
-        I can blame the platforms. I can blame the algorithms. I can blame the autoplay feature and the endless content library and the paradox of choice. But the truth is simpler and less comfortable: <strong>I've chosen this</strong>.
-      </p>
-
-      <p>
-        Every time I've scrolled past a movie to click on Episode 6, I've made a choice. Every time I've let a show autoplay into the next episode instead of stopping, I've made a choice. Every time I've told myself "I'll watch a movie this weekend" and then didn't, I've made a choice.
-      </p>
-
-      <p>
-        I've chosen the path of least resistance. I've chosen the format that asks the least of me. I've chosen comfort over challenge, continuation over closure, the known over the unknown.
-      </p>
-
-      <p>
-        And that's fine—there's no moral judgment here. But I have to own it. I can't pretend this just <em>happened to me</em>, like I'm a passive victim of streaming culture. I participated. I'm still participating.
-      </p>
-
-      <p>
-        The question now is whether I want to keep participating, or whether I want to do the harder thing: rebuild my relationship with movies. Relearn how to sit with a story for two hours. Relearn how to be present, patient, committed.
-      </p>
-
-      <p>
-        It won't happen by accident. It'll take intention, effort, maybe even a little bit of stubbornness. But I think it's worth it. Because somewhere under all the habits and autopilot and decision fatigue, there's still a part of me that loves movies. That remembers what it felt like to walk out of a theater buzzing with ideas, replaying scenes in my head, wanting to talk about it for hours.
-      </p>
-
-      <p>
-        That version of me is still in here. I just have to stop hitting "Next Episode" long enough to find him again.
-      </p>
-
-      <div class="section-break">* * *</div>
-
-      <p style="font-size:15px; color:var(--muted2); font-style:italic">
-        If you've felt this too—if you're stuck in the same loop of bingeing shows while your movie watchlist grows longer—I'd love to hear about it. Are you trying to get back into movies? Or have you made peace with being a TV person now? Either way, you're not alone in this weird attention crisis we're all navigating.
-      </p>
-
-    </article>
-    
-    <div style="margin-top:80px; padding-top:32px; border-top:1px solid var(--line)">
-      <a href="between-the-frames.html" class="back">← Back to Between the Frames</a>
-    </div>
-  </main>
+<p>
+When I start a TV show, I'm not committing to the whole thing. I'm just trying the first episode. If it works, I keep going. If it doesn't, I stop and nothing is lost. The pressure before pressing play is low because the test is small.
+</p>
+
+<p>
+A movie doesn't work like that. When I press play on a film, I'm signing up for the whole thing upfront. I don't know yet whether I'll be in the right mood for it, whether the pacing will work for me tonight, whether it will pay off. But I'm already committed. There's no natural pause point after twenty minutes where I can check in and decide.
+</p>
+
+<p>
+That feeling of agreeing to something before knowing if I want it is what makes me hesitate. With a show, I can always just try it. With a movie, trying it and finishing it are basically the same thing.
+</p>
+
+<h2>What a bad choice actually costs</h2>
+
+<p>
+If I start a TV show and it's not working, the damage is one episode. Forty minutes, maybe less. I close it and try something else and the evening is still fine.
+</p>
+
+<p>
+If I start a movie and realize twenty minutes in that it's not landing for me tonight, I'm stuck in an uncomfortable place. Do I keep going and hope it gets better? Do I quit and feel like I wasted the evening? With a show, a bad episode doesn't really hurt the night. With a movie, a bad pick kind of does, because the movie was the whole plan.
+</p>
+
+<p>
+So to avoid that feeling, I don't choose at all. I go back to something I'm already watching, where I already know if it's good, where there's no risk involved.
+</p>
+
+<div class="highlight-box">
+  <p>A show I'm already mid-season on needs no decision at all. I know the characters, I know I like it, I just press play. A movie asks me to bet on something I haven't seen yet. When I'm tired at the end of the day, I don't want to make bets.</p>
+</div>
+
+<h2>The autoplay problem</h2>
+
+<p>
+Here's something I noticed. TV shows keep going on their own. The episode ends and the next one starts. To stop, I have to actively interrupt something that's already moving. And interrupting something in motion is actually harder than it sounds, even when I know I should sleep.
+</p>
+
+<p>
+Movies don't work this way. A film ends and that's it. The platform shows me other options but I'm back to choosing from scratch. And once I'm at that choosing point, all the same questions come back. What do I want? Will I like it? Do I actually have enough energy left for this tonight?
+</p>
+
+<p>
+So what usually happens is I start a TV show because one is already queued up from yesterday, and then I keep watching because stopping requires effort, and movies never really get a fair chance to compete with that.
+</p>
+
+<h2>The episode ending is engineered to pull you forward</h2>
+
+<p>
+Most TV shows end an episode on something unresolved. A question, a cliffhanger, a moment that doesn't close. My brain hates unresolved things. It wants to know what happens next. So even when it's late, even when I'm tired, the story pulls me into one more episode.
+</p>
+
+<p>
+Movies don't do this. A good film wraps up. It gives you an ending. That completeness is actually one of the best things about movies, it feels different from the open-ended drift of television. But it also means nothing is pulling you forward into another one. The story is done. You're free.
+</p>
+
+<p>
+And weirdly, that freedom makes starting harder. With a show I know something is going to keep me going. With a movie I'm agreeing to something that will end, after which I'll have to start the whole choosing process again from zero.
+</p>
+
+<div class="pullquote">
+  <blockquote>A show keeps asking questions. A film gives you an answer. My brain has gotten so used to questions that answers feel strange.</blockquote>
+  <cite>Between the Frames</cite>
+</div>
+
+<h2>What I actually miss</h2>
+
+<p>
+When I do sit down and watch a movie properly, I remember why I love them. A good film is tight in a way TV almost never is. Every scene is there for a reason. Nothing is stretched to fill a season order. The whole thing is built knowing exactly where it's going.
+</p>
+
+<p>
+And the feeling when a film ends well is different from finishing a TV episode. It's complete. You went somewhere and came back. That specific satisfaction is something television, even very good television, doesn't quite give you.
+</p>
+
+<p>
+I don't get that feeling as much anymore. Not because films got worse. Because I stopped giving myself the chance.
+</p>
+
+<h2>What I'm going to do about it</h2>
+
+<p>
+The fix I keep coming back to is simple: remove the decision from the tired version of me. Pick the film the day before, not the night of. When I have energy, I decide what I'm watching tomorrow. When tomorrow comes, the decision is already made and I just follow through.
+</p>
+
+<p>
+Watching with someone else also helps a lot more than I expected. When another person is there, you finish what you started. You picked it together, you're both watching, you see it through. Social accountability turns out to be a surprisingly effective tool against your own habits.
+</p>
+
+<p>
+I don't think this is some serious problem. It's just a habit that drifted somewhere I didn't notice until I looked back at it. That list of films I want to watch has been growing for a long time. At some point I have to stop adding to it and start actually watching them.
+</p>
+
+</div>
+
+<div class="closing-mark">✦</div>
+
+<div class="back-footer">
+  <a href="between-the-frames.html" class="back">← Back to Between the Frames</a>
+</div>
+
+</main>
 </body>
 </html>
