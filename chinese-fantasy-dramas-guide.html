@@ -3,12 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-
 <title>Best Chinese Fantasy Dramas | Popcorn Picks</title>
-<meta name="description" content="A curated, editorial guide to Chinese fantasy dramas: xianxia, wuxia fantasy, and cultivation picks with posters, vibe tags, and simple why-to-watch notes." />
+<meta name="description" content="A curated guide to Chinese fantasy dramas: xianxia, wuxia fantasy, and cultivation picks." />
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800"
-  crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800" crossorigin="anonymous"></script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
 <script>
@@ -25,567 +23,388 @@
 <style>
 :root {
   --ink: #f2ede4;
-  --ink-dim: #bdb6ab;
-  --ink-muted: #8f887e;
+  --ink-dim: #9e9890;
+  --ink-muted: #5e574e;
   --paper: #0c0b09;
-  --paper-card: #141210;
   --rule: rgba(242,237,228,0.08);
-  --rule-strong: rgba(242,237,228,0.14);
-  --accent: #d4956a;
-  --accent2: #7bbfb5;
+  --rule-strong: rgba(242,237,228,0.13);
+  --accent: #c4956e;
   --serif: 'Playfair Display', Georgia, serif;
-  --sans: 'DM Sans', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  --mono: 'DM Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  --header-h: 64px;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'DM Mono', monospace;
 }
 
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body{
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--sans);
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  padding-top: var(--header-h);
 }
-a{ color:inherit; text-decoration:none; }
-img{ display:block; max-width:100%; height:auto; }
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
 
 /* TOPBAR */
-.topbar{
-  position: fixed; top:0; left:0; right:0; z-index:100;
-  height: var(--header-h);
-  display:flex; align-items:center; justify-content:space-between;
-  padding: 14px 22px;
-  background: rgba(12,11,9,0.92);
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 28px;
+  background: rgba(12,11,9,0.93);
   backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--rule);
 }
-.navLeft{ display:flex; gap:10px; align-items:center; }
-.navBtn{
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-  padding: 8px 10px;
-  border-radius: 999px;
-  border: 1px solid var(--rule-strong);
-  background: rgba(242,237,228,0.03);
-  transition: transform .15s ease, color .15s ease, border-color .15s ease, background .15s ease;
-  white-space: nowrap;
+.brand { font-family: var(--serif); font-weight: 700; font-size: 15px; letter-spacing: .04em; }
+.back {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-muted); transition: color .2s;
 }
-.navBtn:hover{
-  color: var(--accent);
-  border-color: rgba(212,149,106,.45);
-  background: rgba(212,149,106,.06);
-  transform: translateY(-1px);
-}
-.brand{
-  font-family: var(--serif);
-  font-weight: 800;
-  font-size: 15px;
-  letter-spacing: .04em;
-}
-.navRight{ width:64px; }
-@media(max-width:420px){ .brand{ display:none; } }
+.back:hover { color: var(--accent); }
 
-/* HERO (Editorial — premium but lighter than BTF photo hero) */
-.hero{
+/* HERO */
+.hero {
   position: relative;
+  min-height: 88vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
   overflow: hidden;
-  border-bottom: 1px solid var(--rule);
 }
-.heroBg{
-  position:absolute; inset:0;
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('assets/posters/cdrama/listening-snow-tower-poster.jpg.jpeg') center/cover no-repeat;
+  background-position: center 40%;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
   background:
-    radial-gradient(900px 520px at 18% -10%, rgba(212,149,106,.10), transparent 55%),
-    radial-gradient(900px 520px at 88% 0%, rgba(123,191,181,.08), transparent 60%),
-    radial-gradient(900px 520px at 50% 110%, rgba(255,255,255,.05), transparent 60%),
-    #0c0b09;
+    linear-gradient(to bottom,
+      rgba(12,11,9,0.22) 0%,
+      rgba(12,11,9,0.08) 22%,
+      rgba(12,11,9,0.68) 60%,
+      rgba(12,11,9,0.98) 100%),
+    linear-gradient(110deg, rgba(196,149,110,0.05) 0%, transparent 52%);
 }
-.heroBg::before{
-  content:'';
-  position:absolute; inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-  background-size: 140px;
-  opacity: .75;
+.hero-bg::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-size: 120px; opacity: .6;
 }
-.heroBg::after{
-  content:'';
-  position:absolute; inset:0;
-  background: linear-gradient(to bottom, rgba(12,11,9,.05) 0%, rgba(12,11,9,.78) 55%, rgba(12,11,9,1) 100%);
-}
-.heroInner{
+.hero-content {
   position: relative; z-index: 2;
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 74px 22px 56px;
+  max-width: 960px; margin: 0 auto; width: 100%;
+  padding: 0 28px 68px;
 }
-.heroEyebrow{
-  display:flex; align-items:center; gap:14px;
-  margin-bottom: 18px;
+.hero-eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+.eyebrow-line { width: 36px; height: 1px; background: var(--accent); opacity: .6; }
+.section-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--accent);
 }
-.eyebrowLine{ width:36px; height:1px; background: var(--accent); opacity:.65; }
-.kicker{
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-.hero h1{
+.hero h1 {
   font-family: var(--serif);
-  font-size: clamp(34px, 6vw, 64px);
-  font-weight: 900;
-  line-height: 1.03;
-  letter-spacing: -.03em;
-  max-width: 22ch;
+  font-size: clamp(34px, 6vw, 74px);
+  font-weight: 900; line-height: 1.02; letter-spacing: -.03em; color: var(--ink);
 }
-.hero h1 em{
-  font-style: italic;
-  color: var(--accent);
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero-dek {
+  margin-top: 18px; max-width: 56ch;
+  font-size: 17px; font-weight: 300; font-style: italic;
+  color: var(--ink-dim); line-height: 1.72;
 }
-.hero p{
-  margin-top: 16px;
-  max-width: 72ch;
-  color: var(--ink-dim);
-  line-height: 1.85;
-  font-size: 16.5px;
+.hero-tags {
+  margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--rule);
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
 }
-.heroBadges{
-  display:flex; flex-wrap:wrap; gap:10px;
-  margin-top: 22px;
+.hero-tag {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--ink-muted);
+  border: 1px solid var(--rule-strong); padding: 6px 12px; border-radius: 99px;
 }
-.heroBadge{
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid var(--rule-strong);
-  background: rgba(242,237,228,0.03);
-  color: var(--ink-muted);
-}
-.metaLine{
-  margin-top: 18px;
-  padding-top: 18px;
-  border-top: 1px solid var(--rule);
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
+.hero-tag-count {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--accent);
+  border: 1px solid rgba(196,149,110,0.3); padding: 6px 12px; border-radius: 99px;
 }
 
-/* WRAP */
-.wrap{
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 56px 22px 110px;
-}
+.fade-up { opacity: 0; transform: translateY(20px); animation: fadeUp .7s ease forwards; }
+.fade-up:nth-child(2) { animation-delay: .1s; }
+.fade-up:nth-child(3) { animation-delay: .22s; }
+.fade-up:nth-child(4) { animation-delay: .34s; }
+@keyframes fadeUp { to { opacity: 1; transform: none; } }
 
-/* CARD */
-.drama{
-  margin: 34px 0;
-  border: 1px solid var(--rule-strong);
-  border-radius: 10px;
-  overflow: hidden;
-  background: var(--paper-card);
-}
-.dramaHeader{
-  padding: 20px 22px 16px;
+/* PAGE */
+.page-wrap { max-width: 960px; margin: 0 auto; padding: 64px 28px 110px; }
+
+/* INTRO */
+.intro-block {
+  max-width: 66ch;
+  margin-bottom: 56px;
+  padding-bottom: 44px;
   border-bottom: 1px solid var(--rule);
 }
-.dramaHeader h2{
-  font-family: var(--serif);
-  font-size: clamp(20px, 2.4vw, 28px);
-  font-weight: 800;
-  letter-spacing: -.015em;
-  line-height: 1.15;
-  color: var(--ink);
+.intro-block p {
+  font-size: 17px; line-height: 1.95; color: #c5bfb3;
+  margin-bottom: 20px; font-weight: 300;
 }
-.meta{
-  margin-top: 8px;
-  font-size: 13px;
-  color: var(--ink-muted);
-  line-height: 1.6;
-}
-.dramaBody{
+.intro-block p:last-child { margin-bottom: 0; }
+
+/* SHOW ENTRIES */
+.show {
   display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 20px;
-  padding: 20px 22px 22px;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  padding: 36px 0;
+  border-bottom: 1px solid var(--rule);
 }
-.poster{
-  width: 220px;
-  aspect-ratio: 2 / 3;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid rgba(242,237,228,0.10);
-  background: #111;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-.poster::after{
-  content:'';
-  position:absolute; inset:0;
-  background: linear-gradient(to top, rgba(12,11,9,.55) 0%, transparent 55%);
-  opacity: .6;
-}
-.tags{
-  display:flex; flex-wrap:wrap; gap:8px;
-  margin-top: 2px;
-}
-.tags span{
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(242,237,228,0.12);
-  background: rgba(242,237,228,0.03);
-  color: rgba(242,237,228,0.72);
-}
-.text{
-  margin-top: 12px;
-  font-size: 15.7px;
-  line-height: 1.9;
-  color: #d7d7d7;
-  max-width: 80ch;
-}
-.text p{ margin: 0 0 12px 0; }
-.cast{
-  margin-top: 10px;
-  color: rgba(242,237,228,0.78);
-  font-size: 14px;
-  line-height: 1.7;
-}
-.cast b{ color: rgba(242,237,228,0.92); font-weight: 700; }
-.quick{
-  margin-top: 14px;
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid rgba(242,237,228,0.12);
-  background: rgba(242,237,228,0.03);
-  color: rgba(242,237,228,0.74);
-  font-size: 13px;
-  line-height: 1.75;
-}
-.quick b{ color: var(--ink); font-weight: 600; }
+.show:last-of-type { border-bottom: none; }
 
-.note{
-  margin-top: 54px;
-  padding-top: 22px;
+.show-poster { flex-shrink: 0; }
+.show-poster img {
+  width: 100%; border-radius: 4px; display: block;
+  border: 1px solid var(--rule-strong);
+}
+
+.show-num {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
+}
+.show h2 {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.5vw, 27px);
+  font-weight: 700; line-height: 1.15; letter-spacing: -.02em;
+  color: var(--ink); margin-bottom: 8px;
+}
+.show-meta {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--ink-muted);
+  margin-bottom: 20px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+}
+.show-body p {
+  font-size: 16px; line-height: 1.95; color: #b8b2a8;
+  margin-bottom: 16px; font-weight: 300;
+}
+.show-body p:last-child { margin-bottom: 0; }
+
+.cast {
+  margin-top: 18px;
+  padding-top: 16px;
   border-top: 1px solid var(--rule);
-  color: var(--ink-muted);
-  font-size: 13px;
-  line-height: 1.85;
-  max-width: 86ch;
+  font-size: 14px;
+  color: var(--ink-dim);
+  font-style: italic;
 }
-.note b{ color: var(--ink); }
 
-@media(max-width:860px){
-  .dramaBody{ grid-template-columns: 1fr; }
-  .poster{ width: 100%; }
+/* CLOSING */
+.closing {
+  margin-top: 64px; padding-top: 28px;
+  border-top: 1px solid var(--rule);
+  color: var(--ink-dim);
+  font-size: 15px;
+  line-height: 1.8;
+}
+.closing strong { color: var(--ink); font-weight: 600; }
+
+/* RESPONSIVE */
+@media (max-width: 680px) {
+  .topbar { padding: 12px 18px; }
+  .hero { min-height: 75vh; }
+  .hero-bg { background-position: center center; }
+  .hero-content { padding: 0 18px 52px; }
+  .page-wrap { padding: 44px 18px 80px; }
+  .show { grid-template-columns: 1fr; gap: 18px; padding: 28px 0; }
+  .show-poster { max-width: 160px; }
+  .intro-block { margin-bottom: 36px; padding-bottom: 32px; }
+}
+
+@media (min-width: 681px) and (max-width: 960px) {
+  .show { grid-template-columns: 160px 1fr; gap: 24px; }
+  .hero-content { padding: 0 22px 60px; }
+  .page-wrap { padding: 52px 22px 90px; }
+  .hero-bg { background-position: center 45%; }
+}
+
+@media (max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
+  .hero { min-height: auto; padding-top: 80px; }
+  .hero-bg { background-position: center center; }
+  .hero-content { padding-bottom: 40px; }
 }
 </style>
+
 </head>
 
 <body>
 
 <div class="topbar">
-  <div class="navLeft">
-    <a class="navBtn" href="editorials.html">← Editorials</a>
-    <a class="navBtn" href="index.html">Home</a>
-  </div>
+  <a class="back" href="editorials.html">← Editorials</a>
   <div class="brand">Popcorn Picks</div>
-  <div class="navRight"></div>
+  <div style="width:64px"></div>
 </div>
 
 <header class="hero">
-  <div class="heroBg"></div>
-  <div class="heroInner">
-    <div class="heroEyebrow">
-      <div class="eyebrowLine"></div>
-      <span class="kicker">Editorial • China • Fantasy</span>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow fade-up">
+      <div class="eyebrow-line"></div>
+      <span class="section-label">Editorial · China • Fantasy</span>
     </div>
-
-    <h1>Best Chinese Fantasy Dramas <em>You Should Watch</em></h1>
-
-    <p>
-      If you are new to C drama fantasy, the easiest way to think about it is this. Xianxia is gods, immortals,
-      reincarnation, multiple realms, and big destiny love stories that span lifetimes. Wuxia fantasy is the martial world,
-      sect rivalries, reputation that matters more than life, and people trying to stay human while carrying swords.
-      Cultivation is about grinding your way up, training montages, power levels that actually mean something, and earning
-      your place through effort instead of luck.
+    <h1 class="fade-up">Best Chinese<br><em>Fantasy Dramas</em></h1>
+    <p class="hero-dek fade-up">
+      If you are new to C drama fantasy, the easiest way to think about it is this. Xianxia is gods, immortals, reincarnation, multiple realms, and big destiny love stories that span lifetimes. Wuxia fantasy is the martial world, sect rivalries, reputation that matters more than life, and people trying to stay human while carrying swords. Cultivation is about grinding your way up, training montages, power levels that actually mean something, and earning your place through effort instead of luck.
     </p>
-
-    <p>
-      These picks all have a clear vibe. You will know what you are getting into before you start episode one.
-    </p>
-
-    <div class="heroBadges">
-      <span class="heroBadge">Xianxia</span>
-      <span class="heroBadge">Wuxia</span>
-      <span class="heroBadge">Cultivation</span>
-      <span class="heroBadge">Gods & Immortals</span>
-      <span class="heroBadge">Martial World</span>
+    <div class="hero-tags fade-up">
+      <span class="hero-tag-count">7 Picks</span>
+      <span class="hero-tag">Xianxia</span>
+      <span class="hero-tag">Wuxia</span>
+      <span class="hero-tag">Cultivation</span>
+      <span class="hero-tag">Gods & Immortals</span>
     </div>
-
-    <div class="metaLine">Popcorn Picks • 7 Picks</div>
   </div>
 </header>
 
-<main class="wrap">
+<main class="page-wrap">
 
-  <article class="drama" id="listening-snow-tower">
-    <div class="dramaHeader">
-      <h2>1) Listening Snow Tower</h2>
-      <div class="meta">2019 • 56 episodes</div>
+<div class="intro-block">
+  <p>
+    These picks all have a clear vibe. You will know what you are getting into before you start episode one.
+  </p>
+</div>
+
+  <article class="show">
+    <div class="show-poster">
+      <img src="assets/posters/cdrama/listening-snow-tower-poster.jpg.jpeg" alt="Listening Snow Tower" loading="lazy" />
     </div>
-
-    <div class="dramaBody">
-      <div class="poster" style="background-image:url('assets/posters/cdrama/listening-snow-tower-poster.jpg.jpeg');"></div>
-
-      <div class="content">
-        <div class="tags">
-          <span>Wuxia fantasy</span><span>Martial world</span><span>Romance</span><span>Tragedy vibes</span>
-        </div>
-
-        <div class="text">
-          <p>This is wuxia for when you want something cold and serious. The martial world here is not fun. Sects remember grudges forever. People smile at you while planning your downfall. Trust is rare and usually gets punished. The tone stays heavy from the beginning, and if that is what you are looking for, this delivers.</p>
-
-          <p>The action is frequent but it always feels like it matters. Fights are not just there to look cool. They break relationships. They settle old scores. They change the balance of power. The story keeps reminding you that being the strongest fighter is not enough if your reputation is destroyed or your allies turn on you.</p>
-
-          <p>The romance exists but it does not take over the show. It runs quietly underneath everything like a sad song you can barely hear. That actually works better for this kind of story. When two people care about each other but live in a world that punishes softness, the small tender moments hit harder because you know they are borrowed time.</p>
-
-          <p>Watch it when you want a martial world drama with a moody atmosphere and a romance that feels like it costs something just to exist.</p>
-        </div>
-
-        <div class="cast"><b>Main cast:</b> Qin Junjie, Yuan Bingyan</div>
-
-        <div class="quick">
-          <b>Best for:</b> people who want a colder, moodier wuxia story<br>
-          <b>Not for:</b> viewers who need happy endings and bright energy
-        </div>
+    <div class="show-info">
+      <div class="show-num">01 of 07</div>
+      <h2>Listening Snow Tower</h2>
+      <div class="show-meta">2019 • 56 episodes • Wuxia fantasy</div>
+      <div class="show-body">
+        <p>This is wuxia for when you want something cold and serious. The martial world here is not fun. Sects remember grudges forever. People smile at you while planning your downfall. Trust is rare and usually gets punished. The tone stays heavy from the beginning, and if that is what you are looking for, this delivers.</p>
+        <p>The action is frequent but it always feels like it matters. Fights are not just there to look cool. They break relationships. They settle old scores. They change the balance of power. The story keeps reminding you that being the strongest fighter is not enough if your reputation is destroyed or your allies turn on you.</p>
+        <p>The romance exists but it does not take over the show. It runs quietly underneath everything like a sad song you can barely hear. That actually works better for this kind of story. When two people care about each other but live in a world that punishes softness, the small tender moments hit harder because you know they are borrowed time.</p>
+        <p>Watch it when you want a martial world drama with a moody atmosphere and a romance that feels like it costs something just to exist.</p>
+        <div class="cast">Main cast: Qin Junjie, Yuan Bingyan</div>
       </div>
     </div>
   </article>
 
-  <article class="drama" id="ancient-love-poetry">
-    <div class="dramaHeader">
-      <h2>2) Ancient Love Poetry</h2>
-      <div class="meta">2021 • 49 episodes</div>
+  <article class="show">
+    <div class="show-poster">
+      <img src="assets/posters/cdrama/ancient-love-poetry-poster.jpg.jpeg" alt="Ancient Love Poetry" loading="lazy" />
     </div>
-
-    <div class="dramaBody">
-      <div class="poster" style="background-image:url('assets/posters/cdrama/ancient-love-poetry-poster.jpg.jpeg');"></div>
-
-      <div class="content">
-        <div class="tags">
-          <span>Xianxia</span><span>Gods</span><span>Long time love</span><span>Fate and sacrifice</span>
-        </div>
-
-        <div class="text">
-          <p>Ancient Love Poetry is full xianxia. Gods, multiple realms, a love story that spans lifetimes, and a relationship that gets tested repeatedly before anyone is allowed to be happy. The first few episodes spend time building the world, so you need some patience, but once the emotional part kicks in it does not stop.</p>
-
-          <p>What makes this different from lighter xianxia is that love here has real consequences. When characters choose each other, something breaks somewhere else. Sacrifices are not symbolic. They actually hurt and change the relationship going forward. That pressure sits under even the quieter scenes because you know peace never lasts long in this genre.</p>
-
-          <p>The show also does the timeline thing properly. You watch the relationship go from sweet in the beginning to painful in the middle to hard-won at the end. That middle stretch where everything falls apart is what makes the ending feel earned instead of just handed to you.</p>
-
-          <p>Pick this when you want xianxia that goes big emotionally and makes you feel the cost of love instead of just showing you the pretty parts.</p>
-        </div>
-
-        <div class="cast"><b>Main cast:</b> Zhou Dongyu, Xu Kai, Liu Xueyi</div>
-
-        <div class="quick">
-          <b>Best for:</b> xianxia fans who want devotion that gets tested hard<br>
-          <b>Not for:</b> viewers who hate destiny plots and long separations
-        </div>
+    <div class="show-info">
+      <div class="show-num">02 of 07</div>
+      <h2>Ancient Love Poetry</h2>
+      <div class="show-meta">2021 • 49 episodes • Xianxia</div>
+      <div class="show-body">
+        <p>Ancient Love Poetry is full xianxia. Gods, multiple realms, a love story that spans lifetimes, and a relationship that gets tested repeatedly before anyone is allowed to be happy. The first few episodes spend time building the world, so you need some patience, but once the emotional part kicks in it does not stop.</p>
+        <p>What makes this different from lighter xianxia is that love here has real consequences. When characters choose each other, something breaks somewhere else. Sacrifices are not symbolic. They actually hurt and change the relationship going forward. That pressure sits under even the quieter scenes because you know peace never lasts long in this genre.</p>
+        <p>The show also does the timeline thing properly. You watch the relationship go from sweet in the beginning to painful in the middle to hard-won at the end. That middle stretch where everything falls apart is what makes the ending feel earned instead of just handed to you.</p>
+        <p>Pick this when you want xianxia that goes big emotionally and makes you feel the cost of love instead of just showing you the pretty parts.</p>
+        <div class="cast">Main cast: Zhou Dongyu, Xu Kai, Liu Xueyi</div>
       </div>
     </div>
   </article>
 
-  <article class="drama" id="who-rules-the-world">
-    <div class="dramaHeader">
-      <h2>3) Who Rules the World</h2>
-      <div class="meta">2022 • 40 episodes</div>
+  <article class="show">
+    <div class="show-poster">
+      <img src="assets/posters/cdrama/who-rules-the-world-poster.jpg.jpeg" alt="Who Rules the World" loading="lazy" />
     </div>
-
-    <div class="dramaBody">
-      <div class="poster" style="background-image:url('assets/posters/cdrama/who-rules-the-world-poster.jpg.jpeg');"></div>
-
-      <div class="content">
-        <div class="tags">
-          <span>Wuxia</span><span>Politics</span><span>Power games</span><span>Partners</span>
-        </div>
-
-        <div class="text">
-          <p>Who Rules the World is probably the easiest wuxia to start with if you are new to the genre. It gives you action, romance, and political intrigue without making you choose which one matters more. Both leads are capable. Neither is dead weight. You are watching two people who can handle themselves decide to work together instead of watching one person carry the other.</p>
-
-          <p>The early episodes are lighter and more fun. The banter works because both characters have something to bring to the conversation. By the time the politics and power struggles take over, you already believe in the relationship enough that it does not feel forced when things get serious.</p>
-
-          <p>The show leans more into wuxia politics than heavy magic. Hidden identities, shifting alliances, decisions that actually matter. The pacing is steady. It does not drag for no reason. It keeps moving without making you wait through filler just to pad the episode count.</p>
-
-          <p>Watch it if you want a wuxia where both leads matter, the romance feels like a real partnership, and the story does not waste your time.</p>
-        </div>
-
-        <div class="cast"><b>Main cast:</b> Yang Yang, Zhao Lusi</div>
-
-        <div class="quick">
-          <b>Best for:</b> viewers who want capable leads and clean pacing<br>
-          <b>Not for:</b> people who only want deep fantasy magic and realm hopping
-        </div>
+    <div class="show-info">
+      <div class="show-num">03 of 07</div>
+      <h2>Who Rules the World</h2>
+      <div class="show-meta">2022 • 40 episodes • Wuxia</div>
+      <div class="show-body">
+        <p>Who Rules the World is probably the easiest wuxia to start with if you are new to the genre. It gives you action, romance, and political intrigue without making you choose which one matters more. Both leads are capable. Neither is dead weight. You are watching two people who can handle themselves decide to work together instead of watching one person carry the other.</p>
+        <p>The early episodes are lighter and more fun. The banter works because both characters have something to bring to the conversation. By the time the politics and power struggles take over, you already believe in the relationship enough that it does not feel forced when things get serious.</p>
+        <p>The show leans more into wuxia politics than heavy magic. Hidden identities, shifting alliances, decisions that actually matter. The pacing is steady. It does not drag for no reason. It keeps moving without making you wait through filler just to pad the episode count.</p>
+        <p>Watch it if you want a wuxia where both leads matter, the romance feels like a real partnership, and the story does not waste your time.</p>
+        <div class="cast">Main cast: Yang Yang, Zhao Lusi</div>
       </div>
     </div>
   </article>
 
-  <article class="drama" id="love-and-redemption">
-    <div class="dramaHeader">
-      <h2>4) Love and Redemption</h2>
-      <div class="meta">2020 • 59 episodes</div>
+  <article class="show">
+    <div class="show-poster">
+      <img src="assets/posters/cdrama/love-and-redemption-poster.jpg.jpeg" alt="Love and Redemption" loading="lazy" />
     </div>
-
-    <div class="dramaBody">
-      <div class="poster" style="background-image:url('assets/posters/cdrama/love-and-redemption-poster.jpg.jpeg');"></div>
-
-      <div class="content">
-        <div class="tags">
-          <span>Xianxia</span><span>Past lives</span><span>Big angst</span><span>Devotion</span>
-        </div>
-
-        <div class="text">
-          <p>This is the show to watch when you want xianxia that hurts on purpose and does not apologize for it. Love and Redemption starts lighter than you expect. The early episodes are almost sweet. But that is a setup. The show needs you attached before it starts breaking things, and once it starts it does not stop for a long time.</p>
-
-          <p>The angst here is not accidental. Secrets pile up. Past lives matter. Misunderstandings last for entire arcs. The devotion has to be proved through loss instead of just words. This is xianxia that understands the best love stories in this genre are not about two people getting together easily. They are about two people choosing each other repeatedly even when the world keeps giving them reasons to walk away.</p>
-
-          <p>The xianxia worldbuilding is solid. Sects, cultivation, destiny, all the usual stuff. But that is not why people get obsessed with this show. They get obsessed because the relationship keeps getting tested and you need to know if it survives.</p>
-
-          <p>Pick this when you want xianxia that earns its emotional payoff by making you suffer first. Devotion here means something because it costs something.</p>
-        </div>
-
-        <div class="cast"><b>Main cast:</b> Yuan Bingyan, Cheng Yi</div>
-
-        <div class="quick">
-          <b>Best for:</b> viewers who want devotion tested until it breaks or proves itself<br>
-          <b>Not for:</b> people who get tired of repeated trials and slow payoffs
-        </div>
+    <div class="show-info">
+      <div class="show-num">04 of 07</div>
+      <h2>Love and Redemption</h2>
+      <div class="show-meta">2020 • 59 episodes • Xianxia</div>
+      <div class="show-body">
+        <p>This is the show to watch when you want xianxia that hurts on purpose and does not apologize for it. Love and Redemption starts lighter than you expect. The early episodes are almost sweet. But that is a setup. The show needs you attached before it starts breaking things, and once it starts it does not stop for a long time.</p>
+        <p>The angst here is not accidental. Secrets pile up. Past lives matter. Misunderstandings last for entire arcs. The devotion has to be proved through loss instead of just words. This is xianxia that understands the best love stories in this genre are not about two people getting together easily. They are about two people choosing each other repeatedly even when the world keeps giving them reasons to walk away.</p>
+        <p>The xianxia worldbuilding is solid. Sects, cultivation, destiny, all the usual stuff. But that is not why people get obsessed with this show. They get obsessed because the relationship keeps getting tested and you need to know if it survives.</p>
+        <p>Pick this when you want xianxia that earns its emotional payoff by making you suffer first. Devotion here means something because it costs something.</p>
+        <div class="cast">Main cast: Yuan Bingyan, Cheng Yi</div>
       </div>
     </div>
   </article>
 
-  <article class="drama" id="ashes-of-love">
-    <div class="dramaHeader">
-      <h2>5) Ashes of Love</h2>
-      <div class="meta">2018 • 63 episodes</div>
+  <article class="show">
+    <div class="show-poster">
+      <img src="assets/posters/cdrama/ashes-of-love-poster.jpg.jpeg" alt="Ashes of Love" loading="lazy" />
     </div>
-
-    <div class="dramaBody">
-      <div class="poster" style="background-image:url('assets/posters/cdrama/ashes-of-love-poster.jpg.jpeg');"></div>
-
-      <div class="content">
-        <div class="tags">
-          <span>Xianxia</span><span>Immortal realms</span><span>Love triangle</span><span>Slow burn into pain</span>
-        </div>
-
-        <div class="text">
-          <p>Ashes of Love earns its reputation by being genuinely good at making you care before it makes you hurt. The opening is soft. Almost fairytale-like. The female lead is innocent and sweet. The romance feels warm. It pulls you in gently. That warmth is a trap and the show knows exactly what it is doing.</p>
-
-          <p>The shift is gradual. The love triangle matters because all three people are affected and the show does not reset their emotions after each fight. Feelings stick. Regret stays. By the time you hit the heavy middle section you are already too attached to walk away even though you know it is going to hurt.</p>
-
-          <p>What makes this work is that the sweetness at the start is real. The show is not lying to you. It just knows that the contrast between what the relationship was and what it becomes is what makes the emotional turns land so hard.</p>
-
-          <p>Watch it when you want a xianxia romance that starts like a dream and ends up somewhere much darker, with regret and consequences that actually stick.</p>
-        </div>
-
-        <div class="cast"><b>Main cast:</b> Yang Zi, Deng Lun, Luo Yunxi</div>
-
-        <div class="quick">
-          <b>Best for:</b> people who want romance that starts soft then bites back<br>
-          <b>Not for:</b> viewers who want light xianxia from start to finish
-        </div>
+    <div class="show-info">
+      <div class="show-num">05 of 07</div>
+      <h2>Ashes of Love</h2>
+      <div class="show-meta">2018 • 63 episodes • Xianxia</div>
+      <div class="show-body">
+        <p>Ashes of Love earns its reputation by being genuinely good at making you care before it makes you hurt. The opening is soft. Almost fairytale-like. The female lead is innocent and sweet. The romance feels warm. It pulls you in gently. That warmth is a trap and the show knows exactly what it is doing.</p>
+        <p>The shift is gradual. The love triangle matters because all three people are affected and the show does not reset their emotions after each fight. Feelings stick. Regret stays. By the time you hit the heavy middle section you are already too attached to walk away even though you know it is going to hurt.</p>
+        <p>What makes this work is that the sweetness at the start is real. The show is not lying to you. It just knows that the contrast between what the relationship was and what it becomes is what makes the emotional turns land so hard.</p>
+        <p>Watch it when you want a xianxia romance that starts like a dream and ends up somewhere much darker, with regret and consequences that actually stick.</p>
+        <div class="cast">Main cast: Yang Zi, Deng Lun, Luo Yunxi</div>
       </div>
     </div>
   </article>
 
-  <article class="drama" id="battle-through-the-heavens">
-    <div class="dramaHeader">
-      <h2>6) Battle Through the Heavens</h2>
-      <div class="meta">2018 • 45 episodes</div>
+  <article class="show">
+    <div class="show-poster">
+      <img src="assets/posters/cdrama/battle-through-the-heavens-poster.jpg.jpeg" alt="Battle Through the Heavens" loading="lazy" />
     </div>
-
-    <div class="dramaBody">
-      <div class="poster" style="background-image:url('assets/posters/cdrama/battle-through-the-heavens-poster.jpg.jpeg');"></div>
-
-      <div class="content">
-        <div class="tags">
-          <span>Cultivation</span><span>Training arc</span><span>Rivalries</span><span>Level up story</span>
-        </div>
-
-        <div class="text">
-          <p>If you want a cultivation story about grinding your way back from rock bottom, this is it. The main character loses everything early. Power, status, respect. He has to rebuild from scratch. That underdog climb is the whole show and it works because the progress feels real. Every win is visible. Every level up matters.</p>
-
-          <p>The cultivation world is built around rivalry and training. There is always a next opponent. Always a new technique to learn. Always another goal just out of reach. The pacing stays active because the show does not sit around waiting. It keeps pushing forward.</p>
-
-          <p>This is not a romance drama or a character study. The emotional satisfaction comes from watching someone claw their way back to relevance in a world that wrote them off. That specific feeling is what makes cultivation stories addictive and this one delivers it consistently.</p>
-
-          <p>Watch it when you want cultivation with a clear underdog arc and the satisfaction of watching someone earn their power through effort instead of luck or destiny.</p>
-        </div>
-
-        <div class="cast"><b>Main cast:</b> Wu Lei (Leo Wu)</div>
-
-        <div class="quick">
-          <b>Best for:</b> viewers who love training arcs, rivals, and visible progress<br>
-          <b>Not for:</b> people looking for romance or deep character drama
-        </div>
+    <div class="show-info">
+      <div class="show-num">06 of 07</div>
+      <h2>Battle Through the Heavens</h2>
+      <div class="show-meta">2018 • 45 episodes • Cultivation</div>
+      <div class="show-body">
+        <p>If you want a cultivation story about grinding your way back from rock bottom, this is it. The main character loses everything early. Power, status, respect. He has to rebuild from scratch. That underdog climb is the whole show and it works because the progress feels real. Every win is visible. Every level up matters.</p>
+        <p>The cultivation world is built around rivalry and training. There is always a next opponent. Always a new technique to learn. Always another goal just out of reach. The pacing stays active because the show does not sit around waiting. It keeps pushing forward.</p>
+        <p>This is not a romance drama or a character study. The emotional satisfaction comes from watching someone claw their way back to relevance in a world that wrote them off. That specific feeling is what makes cultivation stories addictive and this one delivers it consistently.</p>
+        <p>Watch it when you want cultivation with a clear underdog arc and the satisfaction of watching someone earn their power through effort instead of luck or destiny.</p>
+        <div class="cast">Main cast: Wu Lei (Leo Wu)</div>
       </div>
     </div>
   </article>
 
-  <article class="drama" id="the-untamed">
-    <div class="dramaHeader">
-      <h2>7) The Untamed</h2>
-      <div class="meta">2019 • 50 episodes</div>
+  <article class="show">
+    <div class="show-poster">
+      <img src="assets/posters/cdrama/the-untamed-poster.jpg.jpeg" alt="The Untamed" loading="lazy" />
     </div>
-
-    <div class="dramaBody">
-      <div class="poster" style="background-image:url('assets/posters/cdrama/the-untamed-poster.jpg.jpeg');"></div>
-
-      <div class="content">
-        <div class="tags">
-          <span>Cultivation</span><span>Mystery</span><span>Loyalty</span><span>Moral conflict</span>
-        </div>
-
-        <div class="text">
-          <p>The Untamed became huge for a reason. It gets the central relationship right in a way most shows do not. One lead is chaotic and reckless. The other is disciplined and reserved. They balance each other naturally, and that dynamic holds the entire story together even when the plot gets dark and complicated.</p>
-
-          <p>The mystery structure makes it different from most cultivation dramas. You are not just watching fights and power levels. You are watching supernatural cases, clan secrets, and a conspiracy that keeps pointing back to something everyone was supposed to forget. The world has rules and the story respects them, which makes the stakes feel real.</p>
-
-          <p>As the show goes on, the moral questions get sharper. What happens when doing the right thing makes you the enemy? What is the cost of integrity in a world that punishes it? The show does not let the characters escape those questions and that is where the real weight comes from.</p>
-
-          <p>Watch it when you want cultivation with mystery, a central bond you actually believe in, and a story that starts warm then becomes something heavier without losing what made you care in the first place.</p>
-        </div>
-
-        <div class="cast"><b>Main cast:</b> Xiao Zhan, Wang Yibo</div>
-
-        <div class="quick">
-          <b>Best for:</b> viewers who want mystery and loyalty alongside cultivation<br>
-          <b>Not for:</b> people who need instant payoff and hate slow builds
-        </div>
+    <div class="show-info">
+      <div class="show-num">07 of 07</div>
+      <h2>The Untamed</h2>
+      <div class="show-meta">2019 • 50 episodes • Cultivation</div>
+      <div class="show-body">
+        <p>The Untamed became huge for a reason. It gets the central relationship right in a way most shows do not. One lead is chaotic and reckless. The other is disciplined and reserved. They balance each other naturally, and that dynamic holds the entire story together even when the plot gets dark and complicated.</p>
+        <p>The mystery structure makes it different from most cultivation dramas. You are not just watching fights and power levels. You are watching supernatural cases, clan secrets, and a conspiracy that keeps pointing back to something everyone was supposed to forget. The world has rules and the story respects them, which makes the stakes feel real.</p>
+        <p>As the show goes on, the moral questions get sharper. What happens when doing the right thing makes you the enemy? What is the cost of integrity in a world that punishes it? The show does not let the characters escape those questions and that is where the real weight comes from.</p>
+        <p>Watch it when you want cultivation with mystery, a central bond you actually believe in, and a story that starts warm then becomes something heavier without losing what made you care in the first place.</p>
+        <div class="cast">Main cast: Xiao Zhan, Wang Yibo</div>
       </div>
     </div>
   </article>
 
-  <div class="note">
-    If you want a lighter, accessible entry point: <b>Who Rules the World</b>.<br>
-    If you want maximum xianxia emotion and angst: <b>Love and Redemption</b> or <b>Ashes of Love</b>.<br>
-    If you want a cult favorite that turns into an obsession: <b>The Untamed</b>.
+  <div class="closing">
+    <p><strong>If you want a lighter, accessible entry point:</strong> Who Rules the World.</p>
+    <p><strong>If you want maximum xianxia emotion and angst:</strong> Love and Redemption or Ashes of Love.</p>
+    <p><strong>If you want a cult favorite that turns into an obsession:</strong> The Untamed.</p>
   </div>
 
 </main>
