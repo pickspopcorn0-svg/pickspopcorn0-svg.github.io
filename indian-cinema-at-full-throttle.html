@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -10,6 +11,7 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6052420824639800" crossorigin="anonymous"></script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -77,13 +79,15 @@ img { max-width: 100%; display: block; }
 /* HERO */
 .hero {
   position: relative;
-  min-height: 88vh;
+  /* Use min-height in px not vh so landscape doesn't collapse it */
+  min-height: 92vh;
   display: flex; flex-direction: column; justify-content: flex-end;
   overflow: hidden;
 }
 .hero-bg {
   position: absolute; inset: 0;
-  background: url('assets/posters/animal.jpg.JPG') center/cover no-repeat;
+  /* center top keeps subject/face visible on all aspect ratios */
+  background: url('assets/posters/animal.jpg.JPG') center top/cover no-repeat;
 }
 .hero-bg::after {
   content: '';
@@ -212,19 +216,30 @@ img { max-width: 100%; display: block; }
 .closing-back:hover { color: var(--accent); }
 
 /* RESPONSIVE */
+
+/* iPad portrait — give hero enough height, keep subject visible */
+@media (min-width: 681px) and (max-width: 1024px) {
+  .hero { min-height: 70vh; }
+  .show { grid-template-columns: 160px 1fr; gap: 24px; }
+  .hero-content { padding: 0 22px 60px; }
+  .page-wrap { padding: 52px 22px 90px; }
+}
+
+/* Landscape mobile — hero was collapsing here, fix with px floor */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero { min-height: 480px; }
+  .hero-content { padding: 0 28px 40px; }
+}
+
+/* Small mobile portrait */
 @media (max-width: 680px) {
   .topbar { padding: 12px 18px; }
+  .hero { min-height: 88vh; }
   .hero-content { padding: 0 18px 52px; }
   .page-wrap { padding: 44px 18px 80px; }
   .show { grid-template-columns: 1fr; gap: 18px; padding: 28px 0; }
   .show-poster { max-width: 160px; }
   .intro-block { margin-bottom: 36px; padding-bottom: 32px; }
-}
-
-@media (min-width: 681px) and (max-width: 960px) {
-  .show { grid-template-columns: 160px 1fr; gap: 24px; }
-  .hero-content { padding: 0 22px 60px; }
-  .page-wrap { padding: 52px 22px 90px; }
 }
 </style>
 
