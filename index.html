@@ -116,31 +116,6 @@ header{
 }
 .logo{font-weight:850;letter-spacing:.4px;font-size:15px;}
 
-/* SEARCH BUTTON */
-.searchBtn{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:40px;
-  height:40px;
-  border-radius:10px;
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(255,255,255,.04);
-  color:rgba(255,255,255,.78);
-  transition:all .2s cubic-bezier(.4,0,.2,1);
-  cursor:pointer;
-}
-.searchBtn:hover{
-  background:rgba(255,255,255,.09);
-  border-color:rgba(255,255,255,.24);
-  color:#fff;
-  transform:translateY(-1px);
-}
-.searchBtn svg{
-  width:18px;
-  height:18px;
-}
-
 /* HERO */
 .hero{
   min-height:var(--heroHeight);
@@ -614,12 +589,6 @@ footer p{line-height:1.75;font-size:13px;color:rgba(255,255,255,.68);max-width:4
 
 <header>
   <div class="logo">Popcorn Picks</div>
-  <a href="search.html" class="searchBtn" aria-label="Search">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="11" cy="11" r="8"></circle>
-      <path d="m21 21-4.35-4.35"></path>
-    </svg>
-  </a>
 </header>
 
 <section class="hero">
