@@ -17,46 +17,36 @@
   gtag('config', 'G-XZ94ZK9JN4');
 </script>
 
-<!-- ✅ Article Schema -->
+<!-- ✅ Article Schema (JSON-LD) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://popcornpicks.in/my-favorite-donghua.html"
+  },
   "headline": "My Favorite Donghua",
   "description": "Seven donghua representing the core flavors of modern cultivation anime: long journeys, deep worlds, and characters who change through suffering, discipline, loyalty, and obsession.",
-  "author": { "@type": "Organization", "name": "Popcorn Picks" },
-  "publisher": { "@type": "Organization", "name": "Popcorn Picks" },
-  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://popcornpicks.in/my-favorite-donghua.html" }
+  "image": [
+    "https://popcornpicks.in/assets/posters/donghua/soul-land.jpg.JPG"
+  ],
+  "author": {
+    "@type": "Organization",
+    "name": "Popcorn Picks",
+    "url": "https://popcornpicks.in/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Popcorn Picks",
+    "url": "https://popcornpicks.in/"
+  }
 }
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-<script>
-  // ✅ Robust poster fallback: tries multiple filename variants before showing "Coming soon"
-  function posterFallback(imgEl, variants) {
-    const placeholderHTML = "<div class=show-poster-placeholder>Coming soon</div>";
-    imgEl.onerror = null;
-
-    const triedKey = "data-try-index";
-    let i = parseInt(imgEl.getAttribute(triedKey) || "0", 10);
-
-    if (!variants || !variants.length) {
-      imgEl.parentElement.innerHTML = placeholderHTML;
-      return;
-    }
-
-    if (i >= variants.length) {
-      imgEl.parentElement.innerHTML = placeholderHTML;
-      return;
-    }
-
-    imgEl.setAttribute(triedKey, String(i + 1));
-    imgEl.src = variants[i];
-  }
-</script>
 
 <style>
 :root {
@@ -88,7 +78,6 @@ body {
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 
-/* TOPBAR */
 .topbar {
   position: sticky; top: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
@@ -98,14 +87,12 @@ img { max-width: 100%; display: block; }
   border-bottom: 1px solid var(--rule);
 }
 .brand { font-family: var(--serif); font-weight: 700; font-size: 15px; letter-spacing: .04em; }
-.nav-left, .nav-right { display:flex; align-items:center; gap:16px; min-width: 120px; }
 .back {
   font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
   text-transform: uppercase; color: var(--ink-muted); transition: color .2s;
 }
 .back:hover { color: var(--accent); }
 
-/* HERO */
 .hero {
   position: relative;
   min-height: 88vh;
@@ -246,7 +233,6 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 680px) {
   .topbar { padding: 12px 18px; }
-  .nav-left, .nav-right { min-width: 90px; }
   .hero-content { padding: 0 18px 52px; }
   .page-wrap { padding: 44px 18px 80px; }
   .show { grid-template-columns: 1fr; gap: 18px; padding: 28px 0; }
@@ -260,18 +246,15 @@ img { max-width: 100%; display: block; }
   .page-wrap { padding: 52px 22px 90px; }
 }
 </style>
+
 </head>
 
 <body>
 
 <div class="topbar">
-  <div class="nav-left">
-    <a class="back" href="editorials.html">← Editorials</a>
-  </div>
+  <a class="back" href="editorials.html">← Editorials</a>
   <div class="brand">Popcorn Picks</div>
-  <div class="nav-right" style="justify-content:flex-end;">
-    <a class="back" href="index.html">Home</a>
-  </div>
+  <a class="back" href="index.html">Home →</a>
 </div>
 
 <header class="hero">
@@ -404,20 +387,8 @@ img { max-width: 100%; display: block; }
 
   <article class="show">
     <div class="show-poster">
-      <!-- ✅ FIXED: tries common filenames automatically -->
-      <img
-        src="assets/posters/donghua/shrouding-the-heavens.jpg"
-        alt="Shrouding the Heavens poster"
-        loading="lazy"
-        onerror="posterFallback(this,[
-          'assets/posters/donghua/shrouding-the-heavens.jpg',
-          'assets/posters/donghua/shrouding-the-heavens.JPG',
-          'assets/posters/donghua/shrouding-the-heavens.jpeg',
-          'assets/posters/donghua/shrouding-the-heavens.JPEG',
-          'assets/posters/donghua/shrouding-the-heavens.webp',
-          'assets/posters/donghua/shrouding-the-heavens.WEBP'
-        ])"
-      />
+      <img src="assets/posters/donghua/shrouding-the-heavens.jpg.JPG" alt="Shrouding the Heavens poster" loading="lazy"
+        onerror="this.parentElement.innerHTML='<div class=show-poster-placeholder>Coming soon</div>'" />
     </div>
     <div class="show-info">
       <div class="show-num">04 of 07</div>
