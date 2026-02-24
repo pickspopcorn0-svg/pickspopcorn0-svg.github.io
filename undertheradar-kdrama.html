@@ -64,16 +64,20 @@ img { max-width: 100%; display: block; }
 }
 .back:hover { color: var(--accent); }
 
-/* HERO */
+/* HERO - FIXED FOR iPAD HORIZONTAL */
 .hero {
   position: relative;
-  min-height: 88vh;
-  display: flex; flex-direction: column; justify-content: flex-end;
+  min-height: 75vh; /* Reduced from 88vh for landscape tablets */
+  display: flex; 
+  flex-direction: column; 
+  justify-content: flex-end;
   overflow: hidden;
 }
 .hero-bg {
-  position: absolute; inset: 0;
-  background: url('assets/posters/IMG_2506.jpeg') center/cover no-repeat;
+  position: absolute; 
+  inset: 0;
+  background: url('assets/posters/IMG_2506.jpeg') center center / cover no-repeat;
+  background-attachment: scroll; /* Ensures it works on all devices */
 }
 .hero-bg::after {
   content: '';
@@ -190,6 +194,85 @@ img { max-width: 100%; display: block; }
 .show-body p:last-child { margin-bottom: 0; }
 .show-body em { font-style: italic; color: #ccc7be; }
 
+/* RELATED EDITORIALS SECTION */
+.related-section {
+  margin-top: 80px;
+  padding-top: 44px;
+  border-top: 1px solid var(--rule);
+}
+.related-header {
+  margin-bottom: 32px;
+}
+.related-header h3 {
+  font-family: var(--serif);
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.related-header p {
+  font-size: 15px;
+  color: var(--ink-dim);
+  line-height: 1.6;
+}
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+.related-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--rule-strong);
+  background: rgba(242,237,228,0.02);
+  transition: all .3s ease;
+  cursor: pointer;
+}
+.related-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(196,149,110,0.3);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+}
+.related-card-image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.related-card-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(12,11,9,0.7) 100%);
+}
+.related-card-content {
+  padding: 20px;
+}
+.related-card-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.related-card h4 {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.related-card p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-dim);
+}
+
 /* CLOSING */
 .closing {
   margin-top: 64px; padding-top: 28px;
@@ -201,20 +284,82 @@ img { max-width: 100%; display: block; }
 }
 .closing-back:hover { color: var(--accent); }
 
-/* RESPONSIVE */
-@media (max-width: 680px) {
-  .topbar { padding: 12px 18px; }
-  .hero-content { padding: 0 18px 52px; }
-  .page-wrap { padding: 44px 18px 80px; }
-  .show { grid-template-columns: 1fr; gap: 18px; padding: 28px 0; }
-  .show-poster { max-width: 160px; }
-  .intro-block { margin-bottom: 36px; padding-bottom: 32px; }
+/* TABLET LANDSCAPE (iPad horizontal) */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .hero {
+    min-height: 60vh; /* Shorter hero for landscape tablets */
+  }
+  .hero-content {
+    padding: 0 28px 48px;
+  }
+  .hero h1 {
+    font-size: clamp(32px, 5vw, 48px);
+  }
 }
 
+/* TABLET PORTRAIT */
 @media (min-width: 681px) and (max-width: 960px) {
-  .show { grid-template-columns: 160px 1fr; gap: 24px; }
-  .hero-content { padding: 0 22px 60px; }
-  .page-wrap { padding: 52px 22px 90px; }
+  .show { 
+    grid-template-columns: 160px 1fr; 
+    gap: 24px; 
+  }
+  .hero-content { 
+    padding: 0 22px 60px; 
+  }
+  .page-wrap { 
+    padding: 52px 22px 90px; 
+  }
+  .related-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 680px) {
+  .topbar { 
+    padding: 12px 18px; 
+  }
+  .hero {
+    min-height: 70vh;
+  }
+  .hero-content { 
+    padding: 0 18px 52px; 
+  }
+  .page-wrap { 
+    padding: 44px 18px 80px; 
+  }
+  .show { 
+    grid-template-columns: 1fr; 
+    gap: 18px; 
+    padding: 28px 0; 
+  }
+  .show-poster { 
+    max-width: 160px; 
+  }
+  .intro-block { 
+    margin-bottom: 36px; 
+    padding-bottom: 32px; 
+  }
+  .related-section {
+    margin-top: 60px;
+  }
+  .related-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 32px;
+  }
+  .hero-dek {
+    font-size: 15px;
+  }
+  .related-card h4 {
+    font-size: 16px;
+  }
 }
 </style>
 
@@ -358,6 +503,35 @@ img { max-width: 100%; display: block; }
       </div>
     </div>
   </article>
+
+  <!-- RELATED EDITORIALS SECTION -->
+  <section class="related-section">
+    <div class="related-header">
+      <h3>More K-Drama Editorials</h3>
+      <p>If you enjoyed this, these might interest you too.</p>
+    </div>
+    <div class="related-grid">
+      
+      <a href="editorial-historical-kdramas-for-skeptics.html" class="related-card">
+        <div class="related-card-image" style="background-image: url('assets/posters/kdrama/kingdom-poster.jpeg')"></div>
+        <div class="related-card-content">
+          <div class="related-card-label">Editorial · K-Drama</div>
+          <h4>Historical K-Dramas for People Who Think They Won't Like Them</h4>
+          <p>Kingdom, Mr. Sunshine, Six Flying Dragons, and Arthdal Chronicles — period dramas that feel immediate.</p>
+        </div>
+      </a>
+
+      <a href="editorial-korean-dating-shows.html" class="related-card">
+        <div class="related-card-image" style="background-image: url('assets/posters/singles-inferno.jpg.JPG')"></div>
+        <div class="related-card-content">
+          <div class="related-card-label">Editorial · Reality TV</div>
+          <h4>Korean Dating Shows and What Makes Them Work</h4>
+          <p>Single's Inferno, Transit Love, Heart Signal — reality formats that understand emotions, not chaos.</p>
+        </div>
+      </a>
+
+    </div>
+  </section>
 
   <div class="closing">
     <a href="editorials.html" class="closing-back">← All Editorials</a>
