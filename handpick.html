@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -37,6 +38,7 @@
 </script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ94ZK9JN4"></script>
+
 <script>
   gtag('js', new Date());
   gtag('config', 'G-XZ94ZK9JN4', { anonymize_ip: true });
@@ -58,6 +60,7 @@ html{scroll-behavior:smooth}
   --muted:rgba(255,255,255,.78);
   --muted2:rgba(255,255,255,.62);
   --shadow:0 18px 50px rgba(0,0,0,.35);
+  --accent:#ffa05a;
 }
 body{
   background:var(--bg);color:#fff;
@@ -67,6 +70,38 @@ body{
   overflow-x:hidden;
 }
 .container{width:min(1120px, calc(100% - 44px));margin:0 auto;}
+
+/* ── Sticky Home Button ── */
+.homeBtn{
+  position:fixed;
+  bottom:28px;
+  left:20px;
+  z-index:300;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 16px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(10,10,14,.82);
+  backdrop-filter:blur(14px);
+  color:rgba(255,255,255,.82);
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.01em;
+  box-shadow:0 8px 28px rgba(0,0,0,.45);
+  transition:background .18s ease, border-color .18s ease, color .18s ease, transform .18s ease;
+}
+.homeBtn:hover{
+  background:rgba(255,255,255,.08);
+  border-color:rgba(255,255,255,.28);
+  color:#fff;
+  transform:translateY(-2px);
+}
+.homeBtn svg{
+  width:14px;height:14px;opacity:.75;flex-shrink:0;
+}
+
 header{
   position:sticky;top:0;left:0;right:0;height:64px;
   display:flex;align-items:center;justify-content:space-between;
@@ -161,7 +196,7 @@ header{
 }
 .smallBtn:hover{border-color:rgba(255,255,255,.26);background:rgba(255,255,255,.06);color:#fff}
 .detailBody{padding:18px 18px 22px;}
-.detailBody h4{margin-top:16px;font-size:15px;letter-spacing:.2px;}
+.detailBody h4{margin-top:16px;font-size:15px;letter-spacing:.2px;color:rgba(255,255,255,.92);}
 .detailBody p{margin-top:10px;color:rgba(255,255,255,.74);font-size:14px;line-height:1.85;max-width:88ch;}
 .detailBody ul{margin-top:10px;padding-left:18px;color:rgba(255,255,255,.74);font-size:14px;line-height:1.85;max-width:88ch;}
 .detailBody li{margin:6px 0}
@@ -218,6 +253,7 @@ footer p{line-height:1.7;font-size:13px;color:rgba(255,255,255,.66);max-width:48
   .cookieBar{flex-direction:column;align-items:flex-start}
   .cookieBtns{width:100%}
   .cookieBar button{width:100%}
+  .homeBtn{bottom:auto;top:76px;left:14px;}
 }
 @media(max-width:760px){
   .container{width:calc(100% - 34px)}
@@ -230,9 +266,19 @@ footer p{line-height:1.7;font-size:13px;color:rgba(255,255,255,.66);max-width:48
   html{scroll-behavior:auto}
 }
 </style>
+
 </head>
 
 <body>
+
+<!-- Sticky Home Button -->
+
+<a class="homeBtn" href="index.html" aria-label="Go to homepage">
+  <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M2 6.5L8 2l6 4.5V14a.5.5 0 0 1-.5.5h-4V10h-3v4.5h-4A.5.5 0 0 1 2 14V6.5Z" fill="currentColor"/>
+  </svg>
+  Home
+</a>
 
 <header>
   <div class="logo"><a href="index.html">Popcorn Picks</a></div>
@@ -242,13 +288,11 @@ footer p{line-height:1.7;font-size:13px;color:rgba(255,255,255,.66);max-width:48
 <section class="hero">
   <div class="container heroInner">
     <div class="kicker"><span class="dot"></span> Handpicked</div>
-    <h1>Things I would actually put in a friend's watchlist.</h1>
+    <h1>Stuff I'd actually send you.</h1>
     <p>
-      No rankings, no scores, no algorithm. This is just the list I would send someone if they
-      asked what to watch next and actually meant it. Each one here earned its place through the
-      specific feeling it leaves behind. Some are tense in a way that stays with you after the
-      episode ends. Some are quiet in a way that is hard to find. A few I came back to and liked
-      more the second time. Click any poster below to read what I actually think about it.
+      No scores. No algorithm. Just ten things I've watched and kept thinking about after.
+      Some are tense in a way that follows you out of the room. Some are quiet in a way
+      that's hard to find. Click a poster and I'll tell you exactly why it's here.
     </p>
   </div>
 </section>
@@ -257,637 +301,472 @@ footer p{line-height:1.7;font-size:13px;color:rgba(255,255,255,.66);max-width:48
   <div class="container">
     <div class="sectionHead">
       <div>
-        <h2>Handpicked</h2>
-        <p class="sectionLead">Ten picks with real notes attached. Click a poster to jump to the write-up.</p>
-      </div>
-      <a class="smallBtn" href="index.html">Back to home</a>
-    </div>
-
-    <div class="handpickedMarquee" aria-label="Handpicked posters">
-      <div class="handpickedTrack">
-
-        <a class="pickCard" href="#the-bureau" aria-label="The Bureau">
-          <img src="assets/posters/tv/the-bureau.jpg.JPG" alt="The Bureau">
-          <div class="pickOverlay">
-            <div class="pickYear">TV Series · 2015</div>
-            <div class="pickGenres">Espionage · Drama</div>
-            <p class="pickSynopsis">The most realistic spy show I have watched. The tension comes from the job itself, not explosions.</p>
-          </div>
-          <div class="pickTitle">The Bureau</div>
-        </a>
-
-        <a class="pickCard" href="#shogun" aria-label="Shōgun">
-          <img src="assets/posters/IMG_2479.jpeg" alt="Shōgun">
-          <div class="pickOverlay">
-            <div class="pickYear">TV Series · 2024</div>
-            <div class="pickGenres">Period · Drama · War</div>
-            <p class="pickSynopsis">A period drama where the real action is every conversation. Incredibly controlled television.</p>
-          </div>
-          <div class="pickTitle">Shōgun</div>
-        </a>
-
-        <a class="pickCard" href="#tell-me-what-you-saw" aria-label="Tell Me What You Saw">
-          <img src="assets/posters/kdrama/tell-me-what-you-saw.jpg.JPG" alt="Tell Me What You Saw">
-          <div class="pickOverlay">
-            <div class="pickYear">K-Drama · 2020</div>
-            <div class="pickGenres">Thriller · Crime</div>
-            <p class="pickSynopsis">The K-drama thriller I recommend when someone wants no fluff and actual tension.</p>
-          </div>
-          <div class="pickTitle">Tell Me What You Saw</div>
-        </a>
-
-        <a class="pickCard" href="#sardar-udham" aria-label="Sardar Udham">
-          <img src="assets/posters/sardar-udham.jpg.JPG" alt="Sardar Udham">
-          <div class="pickOverlay">
-            <div class="pickYear">Film · 2021</div>
-            <div class="pickGenres">Biopic · History</div>
-            <p class="pickSynopsis">A biopic that does not celebrate loudly. It just sits with the weight of what happened.</p>
-          </div>
-          <div class="pickTitle">Sardar Udham</div>
-        </a>
-
-        <a class="pickCard" href="#lighter-and-princess" aria-label="Lighter and Princess">
-          <img src="assets/posters/cdrama/lighter-and-princess-poster.jpg.JPG" alt="Lighter and Princess">
-          <div class="pickOverlay">
-            <div class="pickYear">C-Drama · 2022</div>
-            <div class="pickGenres">Romance · Youth</div>
-            <p class="pickSynopsis">Not soft. A romance built around real damage and the timing of who you are when you meet someone.</p>
-          </div>
-          <div class="pickTitle">Lighter &amp; Princess</div>
-        </a>
-
-        <a class="pickCard" href="#prodigal-son" aria-label="Prodigal Son">
-          <img src="assets/posters/tv/prodigal-son.jpg.JPG" alt="Prodigal Son">
-          <div class="pickOverlay">
-            <div class="pickYear">TV Series · 2019</div>
-            <div class="pickGenres">Crime · Thriller</div>
-            <p class="pickSynopsis">Darkly entertaining and harder to shake than it should be given how unhinged the premise is.</p>
-          </div>
-          <div class="pickTitle">Prodigal Son</div>
-        </a>
-
-        <a class="pickCard" href="#alex-rider" aria-label="Alex Rider">
-          <img src="assets/posters/tv/alex-rider.jpg.JPG" alt="Alex Rider">
-          <div class="pickOverlay">
-            <div class="pickYear">TV Series · 2020</div>
-            <div class="pickGenres">Spy · Action</div>
-            <p class="pickSynopsis">Sharper and colder than anyone expects from a show about a teenage spy.</p>
-          </div>
-          <div class="pickTitle">Alex Rider</div>
-        </a>
-
-        <a class="pickCard" href="#sword-dynasty" aria-label="Sword Dynasty">
-          <img src="assets/posters/cdrama/sword-dynasty-poster.jpg.JPG" alt="Sword Dynasty">
-          <div class="pickOverlay">
-            <div class="pickYear">C-Drama · 2019</div>
-            <div class="pickGenres">Wuxia · Fantasy</div>
-            <p class="pickSynopsis">Classic wuxia done properly. Sects, cultivation, court politics, and a protagonist who earns every step.</p>
-          </div>
-          <div class="pickTitle">Sword Dynasty</div>
-        </a>
-
-        <a class="pickCard" href="#tell-me-that-you-love-me" aria-label="Tell Me That You Love Me">
-          <img src="assets/posters/kdrama/tell-me-that-you-love-me.jpg.jpeg" alt="Tell Me That You Love Me">
-          <div class="pickOverlay">
-            <div class="pickYear">K-Drama · 2023</div>
-            <div class="pickGenres">Romance · Slice of Life</div>
-            <p class="pickSynopsis">A romance that trusts silence. Rare in this genre and good because of it.</p>
-          </div>
-          <div class="pickTitle">Tell Me That You Love Me</div>
-        </a>
-
-        <a class="pickCard" href="#counterpart" aria-label="Counterpart">
-          <img src="assets/posters/tv/counterpart.jpg.jpeg" alt="Counterpart (2017)">
-          <div class="pickOverlay">
-            <div class="pickYear">TV Series · 2017</div>
-            <div class="pickGenres">Espionage · Sci-Fi · Drama</div>
-            <p class="pickSynopsis">A spy thriller wearing sci-fi clothes. The premise is clever but the regret is what stays.</p>
-          </div>
-          <div class="pickTitle">Counterpart</div>
-        </a>
-
+        <h2>The List</h2>
+        <p class="sectionLead">Ten picks with actual notes. Click any poster to jump to the write-up.</p>
       </div>
     </div>
 
-    <div class="detailWrap">
+```
+<div class="handpickedMarquee" aria-label="Handpicked posters">
+  <div class="handpickedTrack">
 
-      <article class="handpickDetail" id="counterpart">
-        <div class="detailHero">
-          <img src="assets/posters/tv/counterpart.jpg.jpeg" alt="Counterpart (2017)">
-          <div class="detailMeta">
-            <h3>Counterpart</h3>
-            <div class="metaLine">TV Series · 2017 · 2 Seasons</div>
-            <div class="metaBadges">
-              <span class="badge">Espionage</span>
-              <span class="badge">Sci-Fi</span>
-              <span class="badge">Cold tension</span>
-              <span class="badge">Identity and regret</span>
-            </div>
-            <div class="detailLinks">
-              <a class="smallBtn" href="#top">Back to posters</a>
-            </div>
-          </div>
+    <a class="pickCard" href="#the-bureau" aria-label="The Bureau">
+      <img src="assets/posters/tv/the-bureau.jpg.JPG" alt="The Bureau">
+      <div class="pickOverlay">
+        <div class="pickYear">TV Series · 2015</div>
+        <div class="pickGenres">Espionage · Drama</div>
+        <p class="pickSynopsis">The most realistic spy show I've watched. Tension comes from the job, not explosions.</p>
+      </div>
+      <div class="pickTitle">The Bureau</div>
+    </a>
+
+    <a class="pickCard" href="#shogun" aria-label="Shōgun">
+      <img src="assets/posters/IMG_2479.jpeg" alt="Shōgun">
+      <div class="pickOverlay">
+        <div class="pickYear">TV Series · 2024</div>
+        <div class="pickGenres">Period · Drama · War</div>
+        <p class="pickSynopsis">Every conversation is the real action. Some of the best TV in years.</p>
+      </div>
+      <div class="pickTitle">Shōgun</div>
+    </a>
+
+    <a class="pickCard" href="#tell-me-what-you-saw" aria-label="Tell Me What You Saw">
+      <img src="assets/posters/kdrama/tell-me-what-you-saw.jpg.JPG" alt="Tell Me What You Saw">
+      <div class="pickOverlay">
+        <div class="pickYear">K-Drama · 2020</div>
+        <div class="pickGenres">Thriller · Crime</div>
+        <p class="pickSynopsis">Zero fluff. The K-drama I recommend when someone means it.</p>
+      </div>
+      <div class="pickTitle">Tell Me What You Saw</div>
+    </a>
+
+    <a class="pickCard" href="#sardar-udham" aria-label="Sardar Udham">
+      <img src="assets/posters/sardar-udham.jpg.JPG" alt="Sardar Udham">
+      <div class="pickOverlay">
+        <div class="pickYear">Film · 2021</div>
+        <div class="pickGenres">Biopic · History</div>
+        <p class="pickSynopsis">Doesn't celebrate loudly. Just sits with the weight of what happened.</p>
+      </div>
+      <div class="pickTitle">Sardar Udham</div>
+    </a>
+
+    <a class="pickCard" href="#lighter-and-princess" aria-label="Lighter and Princess">
+      <img src="assets/posters/cdrama/lighter-and-princess-poster.jpg.JPG" alt="Lighter and Princess">
+      <div class="pickOverlay">
+        <div class="pickYear">C-Drama · 2022</div>
+        <div class="pickGenres">Romance · Youth</div>
+        <p class="pickSynopsis">Not soft. Built around real damage and bad timing.</p>
+      </div>
+      <div class="pickTitle">Lighter &amp; Princess</div>
+    </a>
+
+    <a class="pickCard" href="#prodigal-son" aria-label="Prodigal Son">
+      <img src="assets/posters/tv/prodigal-son.jpg.JPG" alt="Prodigal Son">
+      <div class="pickOverlay">
+        <div class="pickYear">TV Series · 2019</div>
+        <div class="pickGenres">Crime · Thriller</div>
+        <p class="pickSynopsis">Darker than it has any right to be given how unhinged the premise is.</p>
+      </div>
+      <div class="pickTitle">Prodigal Son</div>
+    </a>
+
+    <a class="pickCard" href="#alex-rider" aria-label="Alex Rider">
+      <img src="assets/posters/tv/alex-rider.jpg.JPG" alt="Alex Rider">
+      <div class="pickOverlay">
+        <div class="pickYear">TV Series · 2020</div>
+        <div class="pickGenres">Spy · Action</div>
+        <p class="pickSynopsis">Sharper and colder than anyone expects from a teenage spy show.</p>
+      </div>
+      <div class="pickTitle">Alex Rider</div>
+    </a>
+
+    <a class="pickCard" href="#sword-dynasty" aria-label="Sword Dynasty">
+      <img src="assets/posters/cdrama/sword-dynasty-poster.jpg.JPG" alt="Sword Dynasty">
+      <div class="pickOverlay">
+        <div class="pickYear">C-Drama · 2019</div>
+        <div class="pickGenres">Wuxia · Fantasy</div>
+        <p class="pickSynopsis">Classic wuxia done properly. Earns every step.</p>
+      </div>
+      <div class="pickTitle">Sword Dynasty</div>
+    </a>
+
+    <a class="pickCard" href="#tell-me-that-you-love-me" aria-label="Tell Me That You Love Me">
+      <img src="assets/posters/kdrama/tell-me-that-you-love-me.jpg.jpeg" alt="Tell Me That You Love Me">
+      <div class="pickOverlay">
+        <div class="pickYear">K-Drama · 2023</div>
+        <div class="pickGenres">Romance · Slice of Life</div>
+        <p class="pickSynopsis">Trusts silence. Rare in this genre, and good because of it.</p>
+      </div>
+      <div class="pickTitle">Tell Me That You Love Me</div>
+    </a>
+
+    <a class="pickCard" href="#counterpart" aria-label="Counterpart">
+      <img src="assets/posters/tv/counterpart.jpg.jpeg" alt="Counterpart (2017)">
+      <div class="pickOverlay">
+        <div class="pickYear">TV Series · 2017</div>
+        <div class="pickGenres">Espionage · Sci-Fi · Drama</div>
+        <p class="pickSynopsis">Spy thriller in sci-fi clothes. The premise is clever. The regret is what stays.</p>
+      </div>
+      <div class="pickTitle">Counterpart</div>
+    </a>
+
+  </div>
+</div>
+
+<div class="detailWrap">
+
+  <article class="handpickDetail" id="counterpart">
+    <div class="detailHero">
+      <img src="assets/posters/tv/counterpart.jpg.jpeg" alt="Counterpart (2017)">
+      <div class="detailMeta">
+        <h3>Counterpart</h3>
+        <div class="metaLine">TV Series · 2017 · 2 Seasons</div>
+        <div class="metaBadges">
+          <span class="badge">Espionage</span>
+          <span class="badge">Sci-Fi</span>
+          <span class="badge">Cold tension</span>
+          <span class="badge">Identity and regret</span>
         </div>
-        <div class="detailBody">
-          <h4>Why it is here</h4>
-          <p>
-            This show does something most spy thrillers never attempt. It takes a central premise
-            that sounds like high concept science fiction and uses it almost entirely as an emotional
-            instrument. The sci-fi is the mechanism. What the show is actually about is the life you
-            chose versus the life you could have had, and what it costs to look that question directly
-            in the face.
-          </p>
-          <p>
-            It builds pressure the way a good cold war thriller does: slowly, procedurally, through
-            small betrayals and institutional paranoia. J.K. Simmons carries two versions of the same
-            character across two seasons and neither one ever feels like a performance. There is a
-            scene in season one where both versions sit across a table from each other and the whole
-            weight of the show lands in about four minutes of silence and carefully chosen words.
-            That is the kind of television this is.
-          </p>
-          <p>
-            It ran two seasons, got cancelled before it finished its story, and still ends up feeling
-            more complete than most shows that get five seasons and lose the thread.
-          </p>
-
-          <h4>What it feels like to watch</h4>
-          <p>
-            Very controlled. Muted colour, quiet rooms, conversations where nobody says exactly
-            what they mean. The tension does not come from chases or action sequences. It comes
-            from people in meetings making decisions that will destroy someone, and you watching
-            them do it. If you found Slow Horses or The Americans too slow, this will frustrate
-            you. If you liked either of those, this belongs on the same list.
-          </p>
-
-          <h4>Watch this if</h4>
-          <p>
-            You want a show that treats you like an adult and does not explain itself every ten
-            minutes. Give it three episodes before you decide. It takes that long to understand
-            what kind of show it actually is.
-          </p>
-
-          <h4>What it is not</h4>
-          <p>
-            It is not action heavy. There is violence but that is not where the show lives.
-            If you need plot movement and momentum from the first episode, the early going will
-            test your patience. The patience is worth it.
-          </p>
+        <div class="detailLinks">
+          <a class="smallBtn" href="#top">↑ Back to posters</a>
         </div>
-      </article>
-
-      <article class="handpickDetail" id="the-bureau">
-        <div class="detailHero">
-          <img src="assets/posters/tv/the-bureau.jpg.JPG" alt="The Bureau">
-          <div class="detailMeta">
-            <h3>The Bureau</h3>
-            <div class="metaLine">TV Series · 2015 · French</div>
-            <div class="metaBadges">
-              <span class="badge">Espionage</span>
-              <span class="badge">Real tradecraft</span>
-              <span class="badge">No James Bond energy</span>
-              <span class="badge">Psychological</span>
-            </div>
-            <div class="detailLinks">
-              <a class="smallBtn" href="#top">Back to posters</a>
-            </div>
-          </div>
-        </div>
-        <div class="detailBody">
-          <h4>Why it is here</h4>
-          <p>
-            This was the first French series I watched that made me realise how far behind most
-            English language spy shows actually are. Not in terms of budget or production value.
-            In terms of what the genre is willing to be about.
-          </p>
-          <p>
-            The Bureau follows a DGSE officer returning from years undercover, and the central
-            problem is not the mission. The problem is that he has been living as someone else for
-            so long that he is no longer entirely sure who he actually is. The show takes that
-            question seriously across five seasons. It never turns into an action series. It never
-            loses interest in the human cost of the work. Every relationship in it is complicated
-            by secrecy, and the show understands that the most interesting part of intelligence
-            work is not the operation itself. It is what the operation does to the people running it.
-          </p>
-          <p>
-            If someone asks for a single recommendation for the best spy series ever made, this
-            is the one I give. Not because it is the most exciting. Because it is the most honest
-            about what the job actually costs.
-          </p>
-
-          <h4>What it feels like to watch</h4>
-          <p>
-            Quiet and procedural in the best sense. There are no car chases through Paris.
-            There are briefings, cover stories falling apart under small details, assets being
-            slowly compromised, and two people in a room trying to figure out who is actually
-            in control of the situation. The French bureaucratic setting is specific and grounded
-            and that groundedness is exactly what makes the personal stakes feel heavy rather
-            than theatrical.
-          </p>
-
-          <h4>Watch this if</h4>
-          <p>
-            You want espionage that respects the craft rather than replacing it with spectacle.
-            You are comfortable with subtitles. You liked Slow Horses and want something that goes
-            even deeper into the psychology of sustained deception. The first episode does not
-            explain much. Trust it.
-          </p>
-
-          <h4>What it is not</h4>
-          <p>
-            This is not a comfort watch. Season one takes a few episodes to reveal what kind of
-            show it is. Resolution does not come at the end of episodes. It is built for patience
-            and it rewards that patience fully.
-          </p>
-        </div>
-      </article>
-
-      <article class="handpickDetail" id="shogun">
-        <div class="detailHero">
-          <img src="assets/posters/IMG_2479.jpeg" alt="Shōgun">
-          <div class="detailMeta">
-            <h3>Shōgun</h3>
-            <div class="metaLine">TV Series · 2024</div>
-            <div class="metaBadges">
-              <span class="badge">Period drama</span>
-              <span class="badge">Power games</span>
-              <span class="badge">Atmosphere</span>
-              <span class="badge">Prestige television</span>
-            </div>
-            <div class="detailLinks">
-              <a class="smallBtn" href="#top">Back to posters</a>
-            </div>
-          </div>
-        </div>
-        <div class="detailBody">
-          <h4>Why it is here</h4>
-          <p>
-            Period dramas usually fall into one of two categories. Either they are obsessed with
-            costumes and spectacle and the history is just decoration, or they are so focused on
-            being informative that they forget to be compelling. Shōgun is neither of those things.
-          </p>
-          <p>
-            It is a show about power and what people do to protect it, and it happens to be set in
-            feudal Japan in a way that feels specific and real rather than generic. The language
-            barrier between the English navigator and the Japanese lord is not a gimmick, it is
-            the central tension of the entire story. Every misunderstanding has stakes. Every
-            alliance is provisional. Nobody in this show is safe because nobody in this world is
-            safe, and the series never lets you forget that.
-          </p>
-          <p>
-            The 2024 version is one of the best things produced for television in recent years.
-            It won almost everything it was nominated for and it deserved all of it.
-          </p>
-
-          <h4>What it feels like to watch</h4>
-          <p>
-            Slow in a way that feels earned rather than padded. The show is interested in ritual,
-            in silence, in what a bow communicates that words cannot. Violence when it comes is
-            sudden and final. Emotional scenes hit harder because the show spends so much time
-            in restraint before them. It is television where you notice the sound design and the
-            quality of light because both are doing work the script is not trying to explain.
-          </p>
-
-          <h4>Watch this if</h4>
-          <p>
-            You want prestige drama that earns that label. You liked Rome or The Americans and
-            want something in that register with a completely different cultural setting. Watch
-            it in Japanese with subtitles. The English dub exists but it is a different experience
-            and a lesser one.
-          </p>
-        </div>
-      </article>
-
-      <article class="handpickDetail" id="alex-rider">
-        <div class="detailHero">
-          <img src="assets/posters/tv/alex-rider.jpg.JPG" alt="Alex Rider">
-          <div class="detailMeta">
-            <h3>Alex Rider</h3>
-            <div class="metaLine">TV Series · 2020</div>
-            <div class="metaBadges">
-              <span class="badge">Teen spy</span>
-              <span class="badge">Actually serious</span>
-              <span class="badge">Bingeable</span>
-              <span class="badge">Not childish</span>
-            </div>
-            <div class="detailLinks">
-              <a class="smallBtn" href="#top">Back to posters</a>
-            </div>
-          </div>
-        </div>
-        <div class="detailBody">
-          <h4>Why it is here</h4>
-          <p>
-            The honest reason this is on the list is that it surprised me. I expected something
-            aimed at kids with watered down stakes and a lead who is basically invincible. That
-            is not what this is.
-          </p>
-          <p>
-            The show commits to the premise that a teenager being pulled into intelligence operations
-            is actually a disturbing situation. It does not glamorise that. Alex is in real danger,
-            he is out of his depth in ways that feel genuine, and the adults around him are using
-            him in ways that are morally uncomfortable even when they are supposedly the good side.
-            The writing has more restraint than you would expect and the pacing is tight enough
-            that it never drags. Each season has a specific threat and a specific emotional arc
-            and both land properly.
-          </p>
-
-          <h4>What it feels like to watch</h4>
-          <p>
-            Fast and clean. The episodes move well and you do want the next one. But there is
-            a consistent undercurrent of dread the show maintains because it never lets Alex feel
-            comfortable and never lets the audience feel comfortable on his behalf either. The
-            threat feels real because the show respects its own premise enough to take it seriously.
-          </p>
-
-          <h4>Watch this if</h4>
-          <p>
-            You want something bingeable that does not ask you to switch your brain off. It works
-            for younger audiences but it is genuinely enjoyable for adults who like tightly
-            constructed spy stories. The first season is the strongest entry point but the second
-            and third build well on what it establishes.
-          </p>
-        </div>
-      </article>
-
-      <article class="handpickDetail" id="tell-me-what-you-saw">
-        <div class="detailHero">
-          <img src="assets/posters/kdrama/tell-me-what-you-saw.jpg.JPG" alt="Tell Me What You Saw">
-          <div class="detailMeta">
-            <h3>Tell Me What You Saw</h3>
-            <div class="metaLine">K-Drama · 2020</div>
-            <div class="metaBadges">
-              <span class="badge">Thriller</span>
-              <span class="badge">Crime</span>
-              <span class="badge">Dark tone</span>
-              <span class="badge">No fluff</span>
-            </div>
-            <div class="detailLinks">
-              <a class="smallBtn" href="#top">Back to posters</a>
-            </div>
-          </div>
-        </div>
-        <div class="detailBody">
-          <h4>Why it is here</h4>
-          <p>
-            Korean crime dramas often mix their thriller content with romantic subplots, comic
-            relief characters, and tonal shifts that dilute the tension. This one does not do that.
-            Tell Me What You Saw commits to a single register and stays there for its whole run.
-          </p>
-          <p>
-            It is a procedural built around a profiler with an extraordinary visual memory and a
-            rookie detective, and the show is serious about the investigation in a way that keeps
-            the pressure consistent from episode to episode. The antagonist is handled better than
-            most. The cat and mouse structure works because both sides of it are written with actual
-            intelligence. You are never watching someone lose to someone incompetent or win through
-            convenience. Every move has a reason behind it.
-          </p>
-
-          <h4>What it feels like to watch</h4>
-          <p>
-            Lean and tense. There is no wasted episode here. The show has a strong sense of what
-            it is and does not drift from it. The darkness is functional rather than gratuitous.
-            It creates the weight that makes the investigation feel like something real is at stake
-            rather than just procedural movement toward a resolution.
-          </p>
-
-          <h4>Watch this if</h4>
-          <p>
-            You want a K-drama thriller that is serious about its genre. If you have watched Signal
-            or Voice and want something in that territory, this belongs on the same list.
-          </p>
-        </div>
-      </article>
-
-      <article class="handpickDetail" id="sardar-udham">
-        <div class="detailHero">
-          <img src="assets/posters/sardar-udham.jpg.JPG" alt="Sardar Udham">
-          <div class="detailMeta">
-            <h3>Sardar Udham</h3>
-            <div class="metaLine">Film · 2021</div>
-            <div class="metaBadges">
-              <span class="badge">History</span>
-              <span class="badge">Biopic</span>
-              <span class="badge">Restrained</span>
-              <span class="badge">Heavy</span>
-            </div>
-            <div class="detailLinks">
-              <a class="smallBtn" href="#top">Back to posters</a>
-            </div>
-          </div>
-        </div>
-        <div class="detailBody">
-          <h4>Why it is here</h4>
-          <p>
-            Biopics about revolutionaries usually follow a formula. Injustice, transformation,
-            confrontation, speech. Sardar Udham ignores almost all of that structure and is better
-            for it.
-          </p>
-          <p>
-            The film is about Udham Singh and the years he spent after the Jallianwala Bagh massacre
-            working toward the assassination of Michael O'Dwyer. But it is less interested in the
-            assassination itself than in what that event cost the people who survived it and carried
-            it forward. The Jallianwala sequence when it comes is one of the most devastating pieces
-            of filmmaking in recent Indian cinema. Not because it is spectacular. Because of how long
-            it holds on grief without looking away and without making it feel like spectacle.
-          </p>
-          <p>
-            Vicky Kaushal does not play this as a hero. He plays it as a man carrying something
-            too heavy to put down and too important to drop. The film respects that weight and
-            never tries to make it feel smaller than it is.
-          </p>
-
-          <h4>Watch this if</h4>
-          <p>
-            You want historical cinema willing to be uncomfortable and slow. The film runs long
-            and earns every minute. Watch it with full attention. It does not work as background
-            viewing and it does not want to be one.
-          </p>
-        </div>
-      </article>
-
-      <article class="handpickDetail" id="lighter-and-princess">
-        <div class="detailHero">
-          <img src="assets/posters/cdrama/lighter-and-princess-poster.jpg.JPG" alt="Lighter and Princess">
-          <div class="detailMeta">
-            <h3>Lighter &amp; Princess</h3>
-            <div class="metaLine">C-Drama · 2022</div>
-            <div class="metaBadges">
-              <span class="badge">Romance</span>
-              <span class="badge">Youth</span>
-              <span class="badge">Slow burn</span>
-              <span class="badge">Sharp edges</span>
-            </div>
-            <div class="detailLinks">
-              <a class="smallBtn" href="#top">Back to posters</a>
-            </div>
-          </div>
-        </div>
-        <div class="detailBody">
-          <h4>Why it is here</h4>
-          <p>
-            The reason this drama works is that it understands something most romance stories prefer
-            to avoid. The way you treat someone when you are under pressure reveals who you actually
-            are. The lead here is talented, difficult, and capable of real cruelty when he feels
-            cornered, and the show does not soften that or excuse it. When things break between the
-            two characters they break in ways that feel earned rather than manufactured for dramatic
-            effect.
-          </p>
-          <p>
-            The first half is set in a competitive university environment and builds the relationship
-            carefully enough that the second half, which follows both characters into adulthood and
-            through the consequences of the first half, actually lands with weight. The separation
-            arc hurts in proportion to how much the show made you care about them together. That
-            proportion is correct and the show earns it.
-          </p>
-
-          <h4>What it feels like to watch</h4>
-          <p>
-            The pace is slow in the opening stretch but it is building. The romance does not perform
-            warmth at you. It shows two people orbiting each other imperfectly over time and trusts
-            you to feel the pull of that without underlining it every scene. When the emotional
-            weight arrives it is heavy because the setup was patient enough to justify it.
-          </p>
-
-          <h4>Watch this if</h4>
-          <p>
-            You want a C-drama romance with actual emotional weight rather than obstacle after
-            manufactured obstacle. This is for viewers who want the relationship to feel real
-            rather than just satisfying in a surface way.
-          </p>
-        </div>
-      </article>
-
-      <article class="handpickDetail" id="prodigal-son">
-        <div class="detailHero">
-          <img src="assets/posters/tv/prodigal-son.jpg.JPG" alt="Prodigal Son">
-          <div class="detailMeta">
-            <h3>Prodigal Son</h3>
-            <div class="metaLine">TV Series · 2019</div>
-            <div class="metaBadges">
-              <span class="badge">Crime</span>
-              <span class="badge">Thriller</span>
-              <span class="badge">Dark humour</span>
-              <span class="badge">Bingeable</span>
-            </div>
-            <div class="detailLinks">
-              <a class="smallBtn" href="#top">Back to posters</a>
-            </div>
-          </div>
-        </div>
-        <div class="detailBody">
-          <h4>Why it is here</h4>
-          <p>
-            On paper this sounds like a procedural that should wear out fast. A criminal profiler
-            solves cases. His father is a famous serial killer. The two of them have a relationship
-            that is by definition broken. In execution it is genuinely compelling and harder to
-            stop watching than it has any right to be.
-          </p>
-          <p>
-            The reason it works is the lead. Malcolm Bright is barely holding himself together in
-            every scene and the show leans into that rather than cleaning him up into a functional
-            professional. He is brilliant in the way that comes attached to real psychological
-            damage, and watching him function inside institutions not built for people like him
-            is what makes the show feel specific rather than generic. Tom Payne plays it with a
-            physical restlessness that makes the character feel genuinely uncontained. Michael
-            Sheen as the father is exactly as good as you would expect and a little better than that.
-          </p>
-
-          <h4>Watch this if</h4>
-          <p>
-            You want something fast and entertaining that has more going on underneath it than
-            the premise suggests. Two seasons, cancelled too soon, but both worth watching in full.
-          </p>
-        </div>
-      </article>
-
-      <article class="handpickDetail" id="sword-dynasty">
-        <div class="detailHero">
-          <img src="assets/posters/cdrama/sword-dynasty-poster.jpg.JPG" alt="Sword Dynasty">
-          <div class="detailMeta">
-            <h3>Sword Dynasty</h3>
-            <div class="metaLine">C-Drama · 2019</div>
-            <div class="metaBadges">
-              <span class="badge">Wuxia</span>
-              <span class="badge">Fantasy</span>
-              <span class="badge">Cultivation</span>
-              <span class="badge">Court politics</span>
-            </div>
-            <div class="detailLinks">
-              <a class="smallBtn" href="#top">Back to posters</a>
-            </div>
-          </div>
-        </div>
-        <div class="detailBody">
-          <h4>Why it is here</h4>
-          <p>
-            Wuxia works when it commits fully to its own internal logic and Sword Dynasty does that
-            consistently. The cultivation hierarchy, the rival schools, the court politics running
-            underneath the martial world are all handled with enough specificity that the world feels
-            like it has real rules rather than convenient ones that shift when the story needs them to.
-          </p>
-          <p>
-            The lead starts from a genuinely low position and rises through the kind of incremental
-            effort that makes progression satisfying rather than arbitrary. The antagonist relationships
-            are layered properly. The show understands that in wuxia the best conflicts are never purely
-            physical. They are about competing philosophies of what strength is for and who deserves
-            to hold it, and those questions stay active across the whole run.
-          </p>
-
-          <h4>Watch this if</h4>
-          <p>
-            You are already interested in wuxia and want a title that takes the genre seriously.
-            If you watched Nirvana in Fire and want something with more active martial arts content
-            alongside the politics, this sits comfortably in that space.
-          </p>
-        </div>
-      </article>
-
-      <article class="handpickDetail" id="tell-me-that-you-love-me">
-        <div class="detailHero">
-          <img src="assets/posters/kdrama/tell-me-that-you-love-me.jpg.jpeg" alt="Tell Me That You Love Me">
-          <div class="detailMeta">
-            <h3>Tell Me That You Love Me</h3>
-            <div class="metaLine">K-Drama · 2023</div>
-            <div class="metaBadges">
-              <span class="badge">Romance</span>
-              <span class="badge">Slice of life</span>
-              <span class="badge">Quiet</span>
-              <span class="badge">Tender</span>
-            </div>
-            <div class="detailLinks">
-              <a class="smallBtn" href="#top">Back to posters</a>
-            </div>
-          </div>
-        </div>
-        <div class="detailBody">
-          <h4>Why it is here</h4>
-          <p>
-            One of the leads communicates through sign language and the show builds its entire
-            emotional language around that fact. What you get is a romance unusually attentive to
-            what people do when they cannot fill silence with words. Looks matter here. Proximity
-            matters. The small physical decisions that characters make in each other's company carry
-            weight because the show slows down enough to let them land rather than rushing past them
-            toward the next plot point.
-          </p>
-          <p>
-            It is not a dramatic romance. Nobody is hiding a terminal illness or carrying a secret
-            that will detonate the relationship in episode eight. The tension is quieter than that.
-            It is two people figuring out how to be understood by someone else, which is harder than
-            most romance narratives are willing to admit. When a show commits to that difficulty
-            without manufacturing shortcuts around it, the result is something genuinely moving.
-          </p>
-
-          <h4>Watch this if</h4>
-          <p>
-            You want something gentle after watching something heavy. This is the kind of drama
-            that leaves you feeling calmer rather than wrung out. It is well made, the leads have
-            real chemistry, and the show knows exactly what it is trying to do and does it without
-            overcrowding the space with noise.
-          </p>
-        </div>
-      </article>
-
+      </div>
     </div>
+    <div class="detailBody">
+      <h4>Why it's here</h4>
+      <p>
+        The sci-fi part — a split world, two versions of you — sounds like the whole premise. It's not. That's just the setup. What Counterpart is actually about is the life you didn't choose, and what it does to you to stand in front of it.
+      </p>
+      <p>
+        It builds the way a proper cold war thriller does. Slowly. Through small betrayals, paranoid institutions, and conversations where everyone is saying something they don't quite mean. J.K. Simmons plays both versions of the same man across two seasons and it never feels like a gimmick. There's a scene in season one where the two of them sit across a table from each other and it's just four minutes of silence and careful words — and the whole weight of the show is in that scene.
+      </p>
+      <p>
+        Got cancelled before it finished. Still feels more complete than most shows that run five seasons and lose the plot.
+      </p>
+
+      <h4>What it's like to watch</h4>
+      <p>
+        Controlled. Muted colours, quiet rooms, people in meetings making decisions that will quietly destroy someone. No chases. The tension comes from watching it happen. If Slow Horses or The Americans felt too slow to you, this will too. If you liked either of those, this belongs on the same shelf.
+      </p>
+
+      <h4>Give it three episodes</h4>
+      <p>
+        It takes that long to understand what kind of show it actually is. After that you won't stop.
+      </p>
+    </div>
+  </article>
+
+  <article class="handpickDetail" id="the-bureau">
+    <div class="detailHero">
+      <img src="assets/posters/tv/the-bureau.jpg.JPG" alt="The Bureau">
+      <div class="detailMeta">
+        <h3>The Bureau</h3>
+        <div class="metaLine">TV Series · 2015 · French</div>
+        <div class="metaBadges">
+          <span class="badge">Espionage</span>
+          <span class="badge">Real tradecraft</span>
+          <span class="badge">No James Bond energy</span>
+          <span class="badge">Psychological</span>
+        </div>
+        <div class="detailLinks">
+          <a class="smallBtn" href="#top">↑ Back to posters</a>
+        </div>
+      </div>
+    </div>
+    <div class="detailBody">
+      <h4>Why it's here</h4>
+      <p>
+        The first French series that made me realise how much English-language spy shows are still playing dress-up. Not about budget. About what the genre is actually willing to be about.
+      </p>
+      <p>
+        A DGSE officer comes back after years deep undercover and the problem isn't the mission. The problem is he's been someone else for so long he's not entirely sure who he is anymore. The show takes that seriously. Across five seasons. It never becomes an action series. It never loses interest in what the work costs. Every relationship is warped by secrecy — the show knows that's where all the real drama is, not in the field.
+      </p>
+      <p>
+        If someone asks me for the single best spy series ever made, this is what I say. Not because it's exciting. Because it's honest.
+      </p>
+
+      <h4>What it's like to watch</h4>
+      <p>
+        Quiet and procedural in the way that actually builds something. No car chases through Paris. There are briefings, cover stories unravelling under tiny details, assets being slowly compromised. Two people in a room, both trying to figure out who's actually in control. The French bureaucratic setting is specific and grounded and that's exactly why the stakes feel heavy rather than theatrical.
+      </p>
+
+      <h4>You need subtitles. You need patience.</h4>
+      <p>
+        First episode doesn't explain much. Trust it. If you liked Slow Horses, go here next and expect it to go deeper.
+      </p>
+    </div>
+  </article>
+
+  <article class="handpickDetail" id="shogun">
+    <div class="detailHero">
+      <img src="assets/posters/IMG_2479.jpeg" alt="Shōgun">
+      <div class="detailMeta">
+        <h3>Shōgun</h3>
+        <div class="metaLine">TV Series · 2024</div>
+        <div class="metaBadges">
+          <span class="badge">Period drama</span>
+          <span class="badge">Power games</span>
+          <span class="badge">Atmosphere</span>
+          <span class="badge">Prestige television</span>
+        </div>
+        <div class="detailLinks">
+          <a class="smallBtn" href="#top">↑ Back to posters</a>
+        </div>
+      </div>
+    </div>
+    <div class="detailBody">
+      <h4>Why it's here</h4>
+      <p>
+        Most period dramas are either costume shows with history as decoration, or history lessons that forget to be compelling. This is neither.
+      </p>
+      <p>
+        It's a show about power — who has it, who wants it, how thin the line is between an alliance and a trap. The language barrier between the English navigator and the Japanese lord isn't a gimmick, it's the engine of the whole thing. Every misunderstanding has stakes. Every bow means something. Nobody in this world is safe and the show never lets you forget that.
+      </p>
+      <p>
+        Won almost everything it was nominated for. Deserved all of it.
+      </p>
+
+      <h4>What it's like to watch</h4>
+      <p>
+        Slow in a way that earns it. The show cares about ritual, silence, what isn't said. Violence, when it comes, is sudden and final. Emotional scenes hit hard because the whole show is built on restraint before them. Watch it in Japanese with subtitles — the English dub exists and it's just not the same show.
+      </p>
+    </div>
+  </article>
+
+  <article class="handpickDetail" id="alex-rider">
+    <div class="detailHero">
+      <img src="assets/posters/tv/alex-rider.jpg.JPG" alt="Alex Rider">
+      <div class="detailMeta">
+        <h3>Alex Rider</h3>
+        <div class="metaLine">TV Series · 2020</div>
+        <div class="metaBadges">
+          <span class="badge">Teen spy</span>
+          <span class="badge">Actually serious</span>
+          <span class="badge">Bingeable</span>
+          <span class="badge">Not childish</span>
+        </div>
+        <div class="detailLinks">
+          <a class="smallBtn" href="#top">↑ Back to posters</a>
+        </div>
+      </div>
+    </div>
+    <div class="detailBody">
+      <h4>Why it's here</h4>
+      <p>
+        I went in expecting something for kids with watered-down stakes and a lead who never actually loses. That's not what this is.
+      </p>
+      <p>
+        The show treats a teenager being pulled into intelligence operations as actually disturbing — because it is. Alex is out of his depth in ways that feel real. The adults around him are using him and the show doesn't try to make that okay just because they're technically the good side. The writing is more restrained than you'd expect, the pacing doesn't drag, and each season has a specific emotional arc that lands properly.
+      </p>
+
+      <h4>What it's like to watch</h4>
+      <p>
+        Fast and clean, but with a consistent dread underneath it. The threat feels real because the show respects its own premise. It works for younger audiences but it's genuinely enjoyable for adults who like a tightly constructed spy story. Season one is the best entry point.
+      </p>
+    </div>
+  </article>
+
+  <article class="handpickDetail" id="tell-me-what-you-saw">
+    <div class="detailHero">
+      <img src="assets/posters/kdrama/tell-me-what-you-saw.jpg.JPG" alt="Tell Me What You Saw">
+      <div class="detailMeta">
+        <h3>Tell Me What You Saw</h3>
+        <div class="metaLine">K-Drama · 2020</div>
+        <div class="metaBadges">
+          <span class="badge">Thriller</span>
+          <span class="badge">Crime</span>
+          <span class="badge">Dark tone</span>
+          <span class="badge">No fluff</span>
+        </div>
+        <div class="detailLinks">
+          <a class="smallBtn" href="#top">↑ Back to posters</a>
+        </div>
+      </div>
+    </div>
+    <div class="detailBody">
+      <h4>Why it's here</h4>
+      <p>
+        Korean crime dramas tend to cut their tension with romance, comic relief, or a tonal gear-shift every few episodes. This one just doesn't do that. It picks a register and stays there.
+      </p>
+      <p>
+        A profiler with extraordinary visual memory, a rookie detective, a genuinely intelligent antagonist. The cat-and-mouse works because both sides of it are written like they have actual brains. Nobody wins through luck. Nobody loses to stupidity. The show knows what it is from episode one and it doesn't drift.
+      </p>
+
+      <h4>What it's like to watch</h4>
+      <p>
+        Lean. No wasted episodes. The darkness is functional — it creates weight, it doesn't perform it. If you've watched Signal or Voice and want something in that territory, this belongs on the same list.
+      </p>
+    </div>
+  </article>
+
+  <article class="handpickDetail" id="sardar-udham">
+    <div class="detailHero">
+      <img src="assets/posters/sardar-udham.jpg.JPG" alt="Sardar Udham">
+      <div class="detailMeta">
+        <h3>Sardar Udham</h3>
+        <div class="metaLine">Film · 2021</div>
+        <div class="metaBadges">
+          <span class="badge">History</span>
+          <span class="badge">Biopic</span>
+          <span class="badge">Restrained</span>
+          <span class="badge">Heavy</span>
+        </div>
+        <div class="detailLinks">
+          <a class="smallBtn" href="#top">↑ Back to posters</a>
+        </div>
+      </div>
+    </div>
+    <div class="detailBody">
+      <h4>Why it's here</h4>
+      <p>
+        Biopics about revolutionaries usually follow a formula — injustice, transformation, big speech. This one skips most of that and is better for it.
+      </p>
+      <p>
+        The Jallianwala Bagh sequence, when it comes, is some of the most devastating filmmaking in recent Indian cinema. Not because it's spectacular. Because of how long it holds on grief without looking away, without making it feel like something you're meant to admire. Vicky Kaushal doesn't play this as a hero. He plays a man carrying something too heavy to put down. The film respects that and never tries to make it feel smaller.
+      </p>
+
+      <h4>Watch it with full attention</h4>
+      <p>
+        It runs long and earns every minute. Not a background watch.
+      </p>
+    </div>
+  </article>
+
+  <article class="handpickDetail" id="lighter-and-princess">
+    <div class="detailHero">
+      <img src="assets/posters/cdrama/lighter-and-princess-poster.jpg.JPG" alt="Lighter and Princess">
+      <div class="detailMeta">
+        <h3>Lighter &amp; Princess</h3>
+        <div class="metaLine">C-Drama · 2022</div>
+        <div class="metaBadges">
+          <span class="badge">Romance</span>
+          <span class="badge">Youth</span>
+          <span class="badge">Slow burn</span>
+          <span class="badge">Sharp edges</span>
+        </div>
+        <div class="detailLinks">
+          <a class="smallBtn" href="#top">↑ Back to posters</a>
+        </div>
+      </div>
+    </div>
+    <div class="detailBody">
+      <h4>Why it's here</h4>
+      <p>
+        The lead is talented, difficult, and capable of real cruelty when he's cornered. The show doesn't soften that or rush past it. When things break between the two of them, they break in ways that feel earned — not manufactured for a midseason cliffhanger.
+      </p>
+      <p>
+        The first half is set in a competitive university and takes its time building the relationship. Which means when the second half follows them into adulthood and through the fallout, it actually lands. The separation arc hurts in proportion to how much the first half made you care. That proportion is correct.
+      </p>
+
+      <h4>What it's like to watch</h4>
+      <p>
+        Slow opening stretch, but it's building. The romance doesn't perform warmth at you — it shows two people orbiting each other badly for a while and trusts you to feel the pull without underlining it every scene. When the weight arrives, it's heavy because the setup was patient enough to justify it.
+      </p>
+    </div>
+  </article>
+
+  <article class="handpickDetail" id="prodigal-son">
+    <div class="detailHero">
+      <img src="assets/posters/tv/prodigal-son.jpg.JPG" alt="Prodigal Son">
+      <div class="detailMeta">
+        <h3>Prodigal Son</h3>
+        <div class="metaLine">TV Series · 2019</div>
+        <div class="metaBadges">
+          <span class="badge">Crime</span>
+          <span class="badge">Thriller</span>
+          <span class="badge">Dark humour</span>
+          <span class="badge">Bingeable</span>
+        </div>
+        <div class="detailLinks">
+          <a class="smallBtn" href="#top">↑ Back to posters</a>
+        </div>
+      </div>
+    </div>
+    <div class="detailBody">
+      <h4>Why it's here</h4>
+      <p>
+        On paper this is a procedural that should wear out after six episodes. Criminal profiler solves cases. His father is a famous serial killer. They have a relationship. In practice it's genuinely hard to stop watching and harder to explain why.
+      </p>
+      <p>
+        The reason it works is the lead. Malcolm Bright is barely holding himself together in every scene and the show leans into that rather than cleaning him up. He's brilliant in the way that comes attached to real damage, and watching him function inside institutions that weren't built for people like him is what makes this feel specific. Tom Payne plays it with a physical restlessness that makes the character feel genuinely uncontained. Michael Sheen as the father is exactly as good as you'd expect and a little better than that.
+      </p>
+
+      <h4>Two seasons. Cancelled too early. Still worth it.</h4>
+      <p>
+        Something fast and entertaining with more going on than the premise suggests.
+      </p>
+    </div>
+  </article>
+
+  <article class="handpickDetail" id="sword-dynasty">
+    <div class="detailHero">
+      <img src="assets/posters/cdrama/sword-dynasty-poster.jpg.JPG" alt="Sword Dynasty">
+      <div class="detailMeta">
+        <h3>Sword Dynasty</h3>
+        <div class="metaLine">C-Drama · 2019</div>
+        <div class="metaBadges">
+          <span class="badge">Wuxia</span>
+          <span class="badge">Fantasy</span>
+          <span class="badge">Cultivation</span>
+          <span class="badge">Court politics</span>
+        </div>
+        <div class="detailLinks">
+          <a class="smallBtn" href="#top">↑ Back to posters</a>
+        </div>
+      </div>
+    </div>
+    <div class="detailBody">
+      <h4>Why it's here</h4>
+      <p>
+        Wuxia works when it commits fully to its own internal logic. Sword Dynasty does that — the cultivation hierarchy, the rival schools, the court politics running underneath all of it. The world has real rules that don't shift when the story needs them to.
+      </p>
+      <p>
+        The lead starts from genuinely nothing and rises through actual effort, which makes the progression satisfying rather than arbitrary. The show understands that the best wuxia conflicts aren't really physical — they're about competing ideas of what strength is for and who deserves to hold it. That stays active across the whole run.
+      </p>
+
+      <h4>Good if you're already into the genre</h4>
+      <p>
+        If you watched Nirvana in Fire and want more active martial arts content alongside the politics, this sits comfortably in that space.
+      </p>
+    </div>
+  </article>
+
+  <article class="handpickDetail" id="tell-me-that-you-love-me">
+    <div class="detailHero">
+      <img src="assets/posters/kdrama/tell-me-that-you-love-me.jpg.jpeg" alt="Tell Me That You Love Me">
+      <div class="detailMeta">
+        <h3>Tell Me That You Love Me</h3>
+        <div class="metaLine">K-Drama · 2023</div>
+        <div class="metaBadges">
+          <span class="badge">Romance</span>
+          <span class="badge">Slice of life</span>
+          <span class="badge">Quiet</span>
+          <span class="badge">Tender</span>
+        </div>
+        <div class="detailLinks">
+          <a class="smallBtn" href="#top">↑ Back to posters</a>
+        </div>
+      </div>
+    </div>
+    <div class="detailBody">
+      <h4>Why it's here</h4>
+      <p>
+        One of the leads communicates through sign language and the whole show builds its emotional language around that. What you get is a romance that's unusually attentive to what people do when they can't fill silence with words. Looks matter. Proximity matters. Small physical choices carry weight because the show slows down enough to let them land.
+      </p>
+      <p>
+        Nobody is hiding a terminal illness. No secret detonating the relationship in episode eight. The tension is quieter — two people trying to be understood by each other, which is harder than most romances are willing to admit. When a show commits to that without looking for shortcuts around it, it ends up being genuinely moving.
+      </p>
+
+      <h4>What it's like to watch</h4>
+      <p>
+        Watch this after something heavy. It'll leave you calmer, not wrung out. The leads have real chemistry, the show knows exactly what it wants to do, and it does it without crowding the space with noise.
+      </p>
+    </div>
+  </article>
+
+</div>
+```
+
   </div>
 </section>
 
