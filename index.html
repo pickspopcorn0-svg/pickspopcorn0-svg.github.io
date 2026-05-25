@@ -8,8 +8,6 @@
 <title>Popcorn Picks | Cinema Beyond Borders</title>
 <meta name="description" content="Popcorn Picks is a curated discovery site for films and series across the world — editorials and thoughtful starting points, not rankings or weekly charts.">
 
-<!-- Open Graph Meta Tags -->
-
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Popcorn Picks">
 <meta property="og:title" content="Popcorn Picks | Cinema Beyond Borders">
@@ -20,16 +18,12 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Must Watch Espionage - The Bureau, Slow Horses, Berlin Station">
 
-<!-- Twitter Card Meta Tags -->
-
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@picks9505">
 <meta name="twitter:title" content="Popcorn Picks | Cinema Beyond Borders">
 <meta name="twitter:description" content="Curated international cinema. Espionage thrillers, K-dramas, C-dramas, anime, and thoughtful editorials.">
 <meta name="twitter:image" content="https://popcornpicks.in/assets/posters/espionage.jpg.JPG">
 <meta name="twitter:image:alt" content="Must Watch Espionage - curated spy thrillers">
-
-<!-- ✅ Google Search Console verification -->
 
 <meta name="google-site-verification" content="dvYW232z21zNMZv3jz8V-yUlKJ1GRGAdbRmILfdYHw8" />
 
@@ -327,62 +321,86 @@ header{
   display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
 }
 
-/* CATEGORIES — IMPROVED POSTER STYLE */
+/* =====================================================
+   BROWSE CATEGORIES — COMPACT RESPONSIVE DESIGN
+   No more full-screen posters on mobile/tablet
+   ===================================================== */
 .catGrid{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
-  gap:var(--cardGap);
+  gap:12px;
+  /* Desktop: 3 columns of poster-style cards */
+  grid-template-columns:repeat(3, 1fr);
 }
+
+/* Each cat card */
 .cat{
   --bgimg:none;
-  aspect-ratio: 2 / 3;
-  height:auto;
-  border-radius:18px;
   position:relative;
   overflow:hidden;
   isolation:isolate;
+  border-radius:14px;
   outline:1px solid rgba(255,255,255,.14);
   outline-offset:-1px;
   background-image:var(--bgimg);
   background-repeat:no-repeat;
   background-size:cover;
   background-position:center center;
-  background-color:#000;
+  background-color:#111;
   transition:all .25s cubic-bezier(.4,0,.2,1);
+  /* Desktop: keep a gentle poster feel but not overwhelming */
+  aspect-ratio:3/2;
 }
+
 .cat::before{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(to top, rgba(0,0,0,.95), rgba(0,0,0,.7) 40%, transparent 70%);
+  background:linear-gradient(to top, rgba(0,0,0,.88), rgba(0,0,0,.5) 50%, rgba(0,0,0,.18) 100%);
   z-index:1;
 }
-.cat::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(600px 400px at 50% 30%, rgba(255,255,255,.03), transparent 60%);
-  z-index:2;
-}
+
 .cat span{
   position:absolute;
-  left:24px;
-  bottom:24px;
-  font-size:28px;
+  left:18px;
+  bottom:16px;
+  font-size:18px;
   font-weight:900;
   z-index:3;
-  text-shadow:0 4px 16px rgba(0,0,0,.9), 0 2px 4px rgba(0,0,0,.8);
-  letter-spacing:-.02em;
+  text-shadow:0 2px 10px rgba(0,0,0,.9);
+  letter-spacing:-.01em;
   line-height:1.1;
 }
+
 .cat:hover{
-  transform:translateY(-4px);
+  transform:translateY(-3px);
   outline-color:rgba(255,255,255,.28);
-  box-shadow:0 16px 48px rgba(0,0,0,.5);
+  box-shadow:0 12px 36px rgba(0,0,0,.45);
 }
-.cat:hover::before{
-  background:linear-gradient(to top, rgba(0,0,0,.92), rgba(0,0,0,.65) 40%, transparent 70%);
+
+/* Tablet (iPad): 3-column row, but shorter — landscape strips */
+@media (max-width:1024px) and (min-width:601px){
+  .catGrid{
+    grid-template-columns:repeat(3, 1fr);
+    gap:10px;
+  }
+  .cat{
+    aspect-ratio:16/9;
+    border-radius:12px;
+  }
+  .cat span{font-size:16px;left:14px;bottom:12px;}
+}
+
+/* Mobile: 2 columns, landscape strips — compact, never full-screen */
+@media (max-width:600px){
+  .catGrid{
+    grid-template-columns:repeat(2, 1fr);
+    gap:10px;
+  }
+  .cat{
+    aspect-ratio:16/9;
+    border-radius:10px;
+  }
+  .cat span{font-size:14px;left:12px;bottom:10px;font-weight:800;}
 }
 
 /* BETWEEN THE FRAMES */
@@ -401,6 +419,93 @@ header{
 }
 .btfFeed .feedText h3{font-size:21px}
 .btfFeed .feedText p{font-size:14px;-webkit-line-clamp:2}
+
+/* =====================================================
+   REVIEWS SECTION — HOMEPAGE TEASER
+   ===================================================== */
+.reviewsSection{
+  padding:var(--sectionPad) 0;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+
+.reviewsTeaser{
+  display:flex;
+  align-items:stretch;
+  gap:20px;
+  background:
+    radial-gradient(700px 320px at 10% 50%, rgba(255,160,90,.06), transparent 60%),
+    linear-gradient(135deg, rgba(255,255,255,.03) 0%, rgba(0,0,0,.2) 100%);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:20px;
+  overflow:hidden;
+  padding:28px;
+}
+
+.reviewsAccent{
+  flex:0 0 4px;
+  border-radius:4px;
+  background:linear-gradient(to bottom, rgba(255,160,90,.7), rgba(90,170,255,.5));
+  align-self:stretch;
+  min-height:60px;
+}
+
+.reviewsTeaserContent{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.reviewsKicker{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;
+  color:rgba(255,160,90,.85);
+}
+
+.reviewsKickerDot{
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(255,160,90,.85);
+  box-shadow:0 0 12px rgba(255,160,90,.5);
+}
+
+.reviewsTeaserContent h2{
+  font-size:22px;font-weight:900;letter-spacing:-.02em;margin-bottom:0;
+  color:#fff;
+}
+
+.reviewsTeaserContent p{
+  color:rgba(255,255,255,.64);
+  font-size:14px;line-height:1.7;
+  max-width:58ch;
+}
+
+.reviewsTeaserMeta{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;
+  margin-top:6px;
+}
+
+.reviewsComingSoon{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 14px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.04);
+  font-size:12px;font-weight:700;letter-spacing:.06em;
+  color:rgba(255,255,255,.5);
+}
+
+.reviewsComingSoon::before{
+  content:"";
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(255,255,255,.3);
+}
+
+/* Mobile adjustments for reviews */
+@media (max-width:600px){
+  .reviewsTeaser{padding:20px 16px;gap:14px;}
+  .reviewsTeaserContent h2{font-size:18px;}
+  .reviewsTeaserContent p{font-size:13px;}
+}
 
 /* FOOTER */
 footer{border-top:1px solid rgba(255,255,255,.08);padding:72px 0 28px;color:rgba(255,255,255,.66);}
@@ -510,12 +615,13 @@ footer p{line-height:1.75;font-size:13px;color:rgba(255,255,255,.68);max-width:4
   .feedText h3{font-size:20px;line-height:1.25}
   .feedText p{font-size:13px;line-height:1.65}
   .feed:not(.btfFeed){grid-template-columns:repeat(3, 1fr)}
+  /* Desktop category: back to a nicer poster feel but aspect-ratio:3/2 stays */
   .catGrid{
-    gap:var(--cardGap);
+    gap:16px;
     grid-template-columns:repeat(3, 1fr);
   }
-  .cat{border-radius:20px}
-  .cat span{left:28px;bottom:28px;font-size:32px}
+  .cat{border-radius:16px;aspect-ratio:3/2;}
+  .cat span{left:20px;bottom:18px;font-size:20px;}
   .btfFeed{grid-template-columns:repeat(2, 1fr) !important}
   .btfFeed .feedCard{min-height:340px;grid-template-columns:1fr}
   .btfFeed .feedText{padding:28px 30px}
@@ -527,6 +633,9 @@ footer p{line-height:1.75;font-size:13px;color:rgba(255,255,255,.68);max-width:4
   footer a{font-size:13px;margin:8px 0}
   footer p{font-size:13px;line-height:1.8}
   .viewAll{padding:12px 20px;min-height:44px;font-size:14px}
+  /* Reviews teaser on desktop */
+  .reviewsTeaser{padding:32px 36px;}
+  .reviewsTeaserContent h2{font-size:26px;}
 }
 
 @media (min-width:1441px){
@@ -559,9 +668,6 @@ footer p{line-height:1.75;font-size:13px;color:rgba(255,255,255,.68);max-width:4
     background:linear-gradient(to bottom, rgba(0,0,0,.12), rgba(0,0,0,.94));
   }
   .feedText{position:relative;margin-top:0;flex:1;justify-content:flex-end}
-  .catGrid{grid-template-columns:1fr;gap:20px}
-  .cat{aspect-ratio: 2 / 3; height:auto;}
-  .cat span{font-size:24px;left:20px;bottom:20px}
   .footerGrid{grid-template-columns:1fr;gap:36px}
   .pickCard{width:150px}
 }
@@ -666,60 +772,58 @@ footer p{line-height:1.75;font-size:13px;color:rgba(255,255,255,.68);max-width:4
       </div>
     </div>
 
-<div class="feed">
-  <a class="feedLink" href="must-watch-espionage.html">
-    <div class="feedCard" data-bg="assets/posters/espionage.jpg.JPG">
-      <div class="feedText"><h3>Must Watch Espionage</h3><p>Tradecraft, double lives, paranoia, and power games.</p></div>
+    <div class="feed">
+      <a class="feedLink" href="must-watch-espionage.html">
+        <div class="feedCard" data-bg="assets/posters/espionage.jpg.JPG">
+          <div class="feedText"><h3>Must Watch Espionage</h3><p>Tradecraft, double lives, paranoia, and power games.</p></div>
+        </div>
+      </a>
+      <a class="feedLink" href="mustwatch-period.html">
+        <div class="feedCard" data-bg="assets/posters/period.jpg.WEBP">
+          <div class="feedText"><h3>Must Watch Period Dramas</h3><p>Atmosphere-heavy stories where writing and time matter.</p></div>
+        </div>
+      </a>
+      <a class="feedLink" href="undertheradar-kdrama.html">
+        <div class="feedCard" data-bg="assets/posters/kdrama-editorial.jpg.JPG">
+          <div class="feedText"><h3>Under the Radar K-Dramas</h3><p>Serious Korean shows that deserved far more attention.</p></div>
+        </div>
+      </a>
+      <a class="feedLink" href="editorial-donghua.html">
+        <div class="feedCard" data-bg="assets/posters/donghua/renegade-immortal.jpg.WEBP">
+          <div class="feedText"><h3>Our Favorite Donghua</h3><p>Cultivation worlds, long arcs, and myth-heavy storytelling.</p></div>
+        </div>
+      </a>
+      <a class="feedLink" href="international-films-that-won-the-oscar-the-last-decade.html">
+        <div class="feedCard" data-bg="assets/posters/IMG_2842.webp">
+          <div class="feedText"><h3>International Films That Won the Oscar</h3><p>The last decade of global cinema recognised by the Academy.</p></div>
+        </div>
+      </a>
+      <a class="feedLink" href="editorial-korean-dating-shows.html">
+        <div class="feedCard" data-bg="assets/posters/singles-inferno.jpg.JPG">
+          <div class="feedText"><h3>Korean Dating Shows Worth Your Time</h3><p>Reality formats that understand emotions, not chaos.</p></div>
+        </div>
+      </a>
+      <a class="feedLink" href="indian-introduction.html">
+        <div class="feedCard" data-bg="assets/posters/india-editorial.jpg.WEBP">
+          <div class="feedText"><h3>Your First Steps into Indian Cinema</h3><p>Mainstream hits to powerful modern classics.</p></div>
+        </div>
+      </a>
+      <a class="feedLink" href="recommended-crime-tv-shows.html">
+        <div class="feedCard" data-bg="assets/posters/Crime.jpg.JPG">
+          <div class="feedText"><h3>Our Recommended Crime TV Shows</h3><p>Character-driven crime series we've watched and recommend.</p></div>
+        </div>
+      </a>
+      <a class="feedLink" href="high-stakes-action-thrillers.html">
+        <div class="feedCard" data-bg="assets/posters/tv/the-terminal-list.jpg.jpeg">
+          <div class="feedText"><h3>High-Stakes Action Thrillers</h3><p>Bingeable spy and action shows with constant pressure.</p></div>
+        </div>
+      </a>
+      <a class="feedLink" href="chinese-fantasy-dramas-guide.html">
+        <div class="feedCard" data-bg="assets/posters/cdrama/battle-through-the-heavens-poster.jpg.jpeg">
+          <div class="feedText"><h3>Best Chinese Fantasy Dramas</h3><p>Xianxia, wuxia fantasy, cultivation — the ones worth your time.</p></div>
+        </div>
+      </a>
     </div>
-  </a>
-  <a class="feedLink" href="mustwatch-period.html">
-    <div class="feedCard" data-bg="assets/posters/period.jpg.WEBP">
-      <div class="feedText"><h3>Must Watch Period Dramas</h3><p>Atmosphere-heavy stories where writing and time matter.</p></div>
-    </div>
-  </a>
-  <a class="feedLink" href="undertheradar-kdrama.html">
-    <div class="feedCard" data-bg="assets/posters/kdrama-editorial.jpg.JPG">
-      <div class="feedText"><h3>Under the Radar K-Dramas</h3><p>Serious Korean shows that deserved far more attention.</p></div>
-    </div>
-  </a>
-  <a class="feedLink" href="editorial-donghua.html">
-    <div class="feedCard" data-bg="assets/posters/donghua/renegade-immortal.jpg.WEBP">
-      <div class="feedText"><h3>Our Favorite Donghua</h3><p>Cultivation worlds, long arcs, and myth-heavy storytelling.</p></div>
-    </div>
-  </a>
-  <a class="feedLink" href="international-films-that-won-the-oscar-the-last-decade.html">
-    <div class="feedCard" data-bg="assets/posters/IMG_2842.webp">
-      <div class="feedText"><h3>International Films That Won the Oscar</h3><p>The last decade of global cinema recognised by the Academy.</p></div>
-    </div>
-  </a>
-  <a class="feedLink" href="editorial-korean-dating-shows.html">
-    <div class="feedCard" data-bg="assets/posters/singles-inferno.jpg.JPG">
-      <div class="feedText"><h3>Korean Dating Shows Worth Your Time</h3><p>Reality formats that understand emotions, not chaos.</p></div>
-    </div>
-  </a>
-  <a class="feedLink" href="indian-introduction.html">
-    <div class="feedCard" data-bg="assets/posters/india-editorial.jpg.WEBP">
-      <div class="feedText"><h3>Your First Steps into Indian Cinema</h3><p>Mainstream hits to powerful modern classics.</p></div>
-    </div>
-  </a>
-  <a class="feedLink" href="recommended-crime-tv-shows.html">
-    <div class="feedCard" data-bg="assets/posters/Crime.jpg.JPG">
-      <div class="feedText"><h3>Our Recommended Crime TV Shows</h3><p>Character-driven crime series we've watched and recommend.</p></div>
-    </div>
-  </a>
-  <a class="feedLink" href="high-stakes-action-thrillers.html">
-    <div class="feedCard" data-bg="assets/posters/tv/the-terminal-list.jpg.jpeg">
-      <div class="feedText"><h3>High-Stakes Action Thrillers</h3><p>Bingeable spy and action shows with constant pressure.</p></div>
-    </div>
-  </a>
-  <a class="feedLink" href="chinese-fantasy-dramas-guide.html">
-    <div class="feedCard" data-bg="assets/posters/cdrama/battle-through-the-heavens-poster.jpg.jpeg">
-      <div class="feedText"><h3>Best Chinese Fantasy Dramas</h3><p>Xianxia, wuxia fantasy, cultivation — the ones worth your time.</p></div>
-    </div>
-  </a>
-</div>
-
-
   </div>
 </section>
 
@@ -773,6 +877,37 @@ footer p{line-height:1.75;font-size:13px;color:rgba(255,255,255,.68);max-width:4
   </div>
 </section>
 
+<!-- =====================================================
+     REVIEWS SECTION — teaser while reviews are being built
+     ===================================================== -->
+<section class="reviewsSection">
+  <div class="container">
+    <div class="sectionHead">
+      <div>
+        <h2>Reviews</h2>
+        <p class="sectionLead">One watch, one honest take. No scores. No spoilers.</p>
+      </div>
+      <a href="reviews.html" class="viewAll">View all →</a>
+    </div>
+    <div class="reviewsTeaser">
+      <div class="reviewsAccent"></div>
+      <div class="reviewsTeaserContent">
+        <span class="reviewsKicker"><span class="reviewsKickerDot"></span> Coming soon</span>
+        <h2>What I actually thought.</h2>
+        <p>
+          Not a rating out of ten. Not a plot summary dressed up as criticism.
+          Reviews here will be short, personal, and written after a full watch —
+          about what stayed with me, what didn't, and whether it's worth your time.
+        </p>
+        <div class="reviewsTeaserMeta">
+          <span class="reviewsComingSoon">First reviews dropping soon</span>
+          <a href="reviews.html" class="viewAll" style="padding:10px 16px;min-height:40px;font-size:13px;">Go to Reviews →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="container footerGrid">
     <div class="footerBrand">
@@ -783,6 +918,7 @@ footer p{line-height:1.75;font-size:13px;color:rgba(255,255,255,.68);max-width:4
       <h4>Explore</h4>
       <a href="editorials.html">Editorials</a>
       <a href="between-the-frames.html">Between the Frames</a>
+      <a href="reviews.html">Reviews</a>
       <a href="categories.html">Browse categories</a>
       <a href="handpick.html">Handpicked</a>
     </div>
