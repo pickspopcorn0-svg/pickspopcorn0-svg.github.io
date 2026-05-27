@@ -322,85 +322,104 @@ header{
 }
 
 /* =====================================================
-   BROWSE CATEGORIES — COMPACT RESPONSIVE DESIGN
-   No more full-screen posters on mobile/tablet
+   BROWSE CATEGORIES
+   Poster-ratio cards (2:3) in a horizontal scroll row
+   — full poster visible, compact on all screen sizes
    ===================================================== */
-.catGrid{
-  display:grid;
+.catScroll{
+  /* Bleed to edges like the handpicked marquee */
+  overflow-x:auto;
+  overflow-y:hidden;
+  padding-bottom:12px;
+  margin:0 calc(-1 * max(var(--sidePad)/2, calc((100vw - var(--wrap)) / 2)));
+  padding-left:max(var(--sidePad)/2, calc((100vw - var(--wrap)) / 2));
+  padding-right:max(var(--sidePad)/2, calc((100vw - var(--wrap)) / 2));
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+}
+.catScroll::-webkit-scrollbar{display:none}
+
+.catTrack{
+  display:flex;
   gap:12px;
-  /* Desktop: 3 columns of poster-style cards */
-  grid-template-columns:repeat(3, 1fr);
+  width:max-content;
 }
 
-/* Each cat card */
+/* Individual category card — poster proportions, fixed width */
 .cat{
-  --bgimg:none;
+  flex:0 0 auto;
+  width:130px;           /* compact width; height follows 2:3 ratio = ~195px */
+  aspect-ratio:2/3;
   position:relative;
   overflow:hidden;
   isolation:isolate;
-  border-radius:14px;
+  border-radius:12px;
   outline:1px solid rgba(255,255,255,.14);
   outline-offset:-1px;
-  background-image:var(--bgimg);
-  background-repeat:no-repeat;
-  background-size:cover;
-  background-position:center center;
   background-color:#111;
   transition:all .25s cubic-bezier(.4,0,.2,1);
-  /* Desktop: keep a gentle poster feel but not overwhelming */
-  aspect-ratio:3/2;
 }
 
+.cat img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+  display:block;
+}
+
+/* Dark gradient at bottom for label legibility */
 .cat::before{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(to top, rgba(0,0,0,.88), rgba(0,0,0,.5) 50%, rgba(0,0,0,.18) 100%);
+  background:linear-gradient(to top,
+    rgba(0,0,0,.90) 0%,
+    rgba(0,0,0,.45) 40%,
+    rgba(0,0,0,.10) 100%);
   z-index:1;
 }
 
 .cat span{
   position:absolute;
-  left:18px;
-  bottom:16px;
-  font-size:18px;
+  left:0;right:0;
+  bottom:14px;
+  text-align:center;
+  font-size:14px;
   font-weight:900;
-  z-index:3;
-  text-shadow:0 2px 10px rgba(0,0,0,.9);
+  z-index:2;
+  text-shadow:0 2px 8px rgba(0,0,0,.9);
   letter-spacing:-.01em;
   line-height:1.1;
+  padding:0 8px;
 }
 
 .cat:hover{
-  transform:translateY(-3px);
+  transform:translateY(-4px);
   outline-color:rgba(255,255,255,.28);
-  box-shadow:0 12px 36px rgba(0,0,0,.45);
+  box-shadow:0 14px 36px rgba(0,0,0,.5);
 }
 
-/* Tablet (iPad): 3-column row, but shorter — landscape strips */
-@media (max-width:1024px) and (min-width:601px){
-  .catGrid{
-    grid-template-columns:repeat(3, 1fr);
-    gap:10px;
+/* On wide desktop: can show all 6 without scrolling */
+@media (min-width:1025px){
+  .catScroll{
+    overflow:visible;
+    margin:0;
+    padding:0;
+  }
+  .catTrack{
+    width:100%;
+    justify-content:space-between;
   }
   .cat{
-    aspect-ratio:16/9;
-    border-radius:12px;
+    flex:1 1 0;
+    width:auto;
+    max-width:200px;
+    border-radius:14px;
   }
-  .cat span{font-size:16px;left:14px;bottom:12px;}
-}
-
-/* Mobile: 2 columns, landscape strips — compact, never full-screen */
-@media (max-width:600px){
-  .catGrid{
-    grid-template-columns:repeat(2, 1fr);
-    gap:10px;
-  }
-  .cat{
-    aspect-ratio:16/9;
-    border-radius:10px;
-  }
-  .cat span{font-size:14px;left:12px;bottom:10px;font-weight:800;}
+  .cat span{font-size:16px;bottom:16px;}
 }
 
 /* BETWEEN THE FRAMES */
@@ -419,93 +438,6 @@ header{
 }
 .btfFeed .feedText h3{font-size:21px}
 .btfFeed .feedText p{font-size:14px;-webkit-line-clamp:2}
-
-/* =====================================================
-   REVIEWS SECTION — HOMEPAGE TEASER
-   ===================================================== */
-.reviewsSection{
-  padding:var(--sectionPad) 0;
-  border-top:1px solid rgba(255,255,255,.06);
-}
-
-.reviewsTeaser{
-  display:flex;
-  align-items:stretch;
-  gap:20px;
-  background:
-    radial-gradient(700px 320px at 10% 50%, rgba(255,160,90,.06), transparent 60%),
-    linear-gradient(135deg, rgba(255,255,255,.03) 0%, rgba(0,0,0,.2) 100%);
-  border:1px solid rgba(255,255,255,.1);
-  border-radius:20px;
-  overflow:hidden;
-  padding:28px;
-}
-
-.reviewsAccent{
-  flex:0 0 4px;
-  border-radius:4px;
-  background:linear-gradient(to bottom, rgba(255,160,90,.7), rgba(90,170,255,.5));
-  align-self:stretch;
-  min-height:60px;
-}
-
-.reviewsTeaserContent{
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-.reviewsKicker{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;
-  color:rgba(255,160,90,.85);
-}
-
-.reviewsKickerDot{
-  width:6px;height:6px;border-radius:50%;
-  background:rgba(255,160,90,.85);
-  box-shadow:0 0 12px rgba(255,160,90,.5);
-}
-
-.reviewsTeaserContent h2{
-  font-size:22px;font-weight:900;letter-spacing:-.02em;margin-bottom:0;
-  color:#fff;
-}
-
-.reviewsTeaserContent p{
-  color:rgba(255,255,255,.64);
-  font-size:14px;line-height:1.7;
-  max-width:58ch;
-}
-
-.reviewsTeaserMeta{
-  display:flex;align-items:center;justify-content:space-between;
-  gap:16px;flex-wrap:wrap;
-  margin-top:6px;
-}
-
-.reviewsComingSoon{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:8px 14px;border-radius:999px;
-  border:1px solid rgba(255,255,255,.12);
-  background:rgba(255,255,255,.04);
-  font-size:12px;font-weight:700;letter-spacing:.06em;
-  color:rgba(255,255,255,.5);
-}
-
-.reviewsComingSoon::before{
-  content:"";
-  width:6px;height:6px;border-radius:50%;
-  background:rgba(255,255,255,.3);
-}
-
-/* Mobile adjustments for reviews */
-@media (max-width:600px){
-  .reviewsTeaser{padding:20px 16px;gap:14px;}
-  .reviewsTeaserContent h2{font-size:18px;}
-  .reviewsTeaserContent p{font-size:13px;}
-}
 
 /* FOOTER */
 footer{border-top:1px solid rgba(255,255,255,.08);padding:72px 0 28px;color:rgba(255,255,255,.66);}
@@ -571,6 +503,8 @@ footer p{line-height:1.75;font-size:13px;color:rgba(255,255,255,.68);max-width:4
     --heroPadTop: 68px;
   }
   .hero{background-position:center center}
+  .cat{width:150px;}
+  .cat span{font-size:15px;}
 }
 
 @media (min-width:1025px){
@@ -615,13 +549,6 @@ footer p{line-height:1.75;font-size:13px;color:rgba(255,255,255,.68);max-width:4
   .feedText h3{font-size:20px;line-height:1.25}
   .feedText p{font-size:13px;line-height:1.65}
   .feed:not(.btfFeed){grid-template-columns:repeat(3, 1fr)}
-  /* Desktop category: back to a nicer poster feel but aspect-ratio:3/2 stays */
-  .catGrid{
-    gap:16px;
-    grid-template-columns:repeat(3, 1fr);
-  }
-  .cat{border-radius:16px;aspect-ratio:3/2;}
-  .cat span{left:20px;bottom:18px;font-size:20px;}
   .btfFeed{grid-template-columns:repeat(2, 1fr) !important}
   .btfFeed .feedCard{min-height:340px;grid-template-columns:1fr}
   .btfFeed .feedText{padding:28px 30px}
@@ -633,9 +560,6 @@ footer p{line-height:1.75;font-size:13px;color:rgba(255,255,255,.68);max-width:4
   footer a{font-size:13px;margin:8px 0}
   footer p{font-size:13px;line-height:1.8}
   .viewAll{padding:12px 20px;min-height:44px;font-size:14px}
-  /* Reviews teaser on desktop */
-  .reviewsTeaser{padding:32px 36px;}
-  .reviewsTeaserContent h2{font-size:26px;}
 }
 
 @media (min-width:1441px){
@@ -827,6 +751,7 @@ footer p{line-height:1.75;font-size:13px;color:rgba(255,255,255,.68);max-width:4
   </div>
 </section>
 
+<!-- BROWSE CATEGORIES — horizontal poster scroll -->
 <section class="section">
   <div class="container">
     <div class="sectionHead">
@@ -836,13 +761,34 @@ footer p{line-height:1.75;font-size:13px;color:rgba(255,255,255,.68);max-width:4
       </div>
       <a href="categories.html" class="viewAll">View all →</a>
     </div>
-    <div class="catGrid">
-      <a class="cat gpu-accelerated" href="movies.html" data-bg="assets/posters/movies/no-country-for-old-men-2007-poster.jpg.JPG"><span>Movies</span></a>
-      <a class="cat gpu-accelerated" href="tv-shows.html" data-bg="assets/posters/tv/presumed-innocent.jpeg"><span>TV Shows</span></a>
-      <a class="cat gpu-accelerated" href="kdrama.html" data-bg="assets/posters/kdrama/mr-sunshine.jpeg"><span>K Drama</span></a>
-      <a class="cat gpu-accelerated" href="cdrama.html" data-bg="assets/posters/cdrama/sword-snow-stride-poster.jpeg"><span>C Drama</span></a>
-      <a class="cat gpu-accelerated" href="anime.html" data-bg="assets/posters/anime/anime-blue-lock-poster.jpg.jpeg"><span>Anime</span></a>
-      <a class="cat gpu-accelerated" href="donghua.html" data-bg="assets/posters/donghua/shrouding-the-heavens.jpeg"><span>Donghua</span></a>
+  </div>
+
+  <div class="catScroll" aria-label="Browse categories">
+    <div class="catTrack">
+      <a class="cat gpu-accelerated" href="movies.html">
+        <img src="assets/posters/movies/no-country-for-old-men-2007-poster.jpg.JPG" alt="Movies" loading="lazy" decoding="async">
+        <span>Movies</span>
+      </a>
+      <a class="cat gpu-accelerated" href="tv-shows.html">
+        <img src="assets/posters/tv/presumed-innocent.jpeg" alt="TV Shows" loading="lazy" decoding="async">
+        <span>TV Shows</span>
+      </a>
+      <a class="cat gpu-accelerated" href="kdrama.html">
+        <img src="assets/posters/kdrama/mr-sunshine.jpeg" alt="K Drama" loading="lazy" decoding="async">
+        <span>K Drama</span>
+      </a>
+      <a class="cat gpu-accelerated" href="cdrama.html">
+        <img src="assets/posters/cdrama/sword-snow-stride-poster.jpeg" alt="C Drama" loading="lazy" decoding="async">
+        <span>C Drama</span>
+      </a>
+      <a class="cat gpu-accelerated" href="anime.html">
+        <img src="assets/posters/anime/anime-blue-lock-poster.jpg.jpeg" alt="Anime" loading="lazy" decoding="async">
+        <span>Anime</span>
+      </a>
+      <a class="cat gpu-accelerated" href="donghua.html">
+        <img src="assets/posters/donghua/shrouding-the-heavens.jpeg" alt="Donghua" loading="lazy" decoding="async">
+        <span>Donghua</span>
+      </a>
     </div>
   </div>
 </section>
@@ -873,37 +819,6 @@ footer p{line-height:1.75;font-size:13px;color:rgba(255,255,255,.68);max-width:4
           </div>
         </div>
       </a>
-    </div>
-  </div>
-</section>
-
-<!-- =====================================================
-     REVIEWS SECTION — teaser while reviews are being built
-     ===================================================== -->
-<section class="reviewsSection">
-  <div class="container">
-    <div class="sectionHead">
-      <div>
-        <h2>Reviews</h2>
-        <p class="sectionLead">One watch, one honest take. No scores. No spoilers.</p>
-      </div>
-      <a href="reviews.html" class="viewAll">View all →</a>
-    </div>
-    <div class="reviewsTeaser">
-      <div class="reviewsAccent"></div>
-      <div class="reviewsTeaserContent">
-        <span class="reviewsKicker"><span class="reviewsKickerDot"></span> Coming soon</span>
-        <h2>What I actually thought.</h2>
-        <p>
-          Not a rating out of ten. Not a plot summary dressed up as criticism.
-          Reviews here will be short, personal, and written after a full watch —
-          about what stayed with me, what didn't, and whether it's worth your time.
-        </p>
-        <div class="reviewsTeaserMeta">
-          <span class="reviewsComingSoon">First reviews dropping soon</span>
-          <a href="reviews.html" class="viewAll" style="padding:10px 16px;min-height:40px;font-size:13px;">Go to Reviews →</a>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -1117,4 +1032,3 @@ footer p{line-height:1.75;font-size:13px;color:rgba(255,255,255,.68);max-width:4
 
 </body>
 </html>
- 
